@@ -1,0 +1,35 @@
+{
+  "name": "@ankhorage/contracts",
+  "type": "module",
+  "version": "0.0.1",
+  "description": "Serializable app, action, and theme config contracts for Ankhorage.",
+  "main": "./dist/index.js",
+  "sideEffects": false,
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "rm -rf dist tsconfig.tsbuildinfo && bun x tsc -p tsconfig.json",
+    "lint": "eslint src --max-warnings=0",
+    "lint:fix": "eslint src --fix --max-warnings=0",
+    "test": "bun test src"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.3.8",
+    "@types/node": "^25.2.3",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "eslint": "^9.0.0",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "eslint-plugin-unused-imports": "^4.4.1",
+    "typescript": "^5.9.3"
+  },
+  "packageManager": "bun@1.3.9"
+}
