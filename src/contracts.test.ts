@@ -1,11 +1,6 @@
 import { describe, expect, it } from 'bun:test';
 
-import {
-  AUTH_PROVIDERS,
-  DEPLOYMENT_TARGETS,
-  NAVIGATOR_TYPES,
-  type ThemeConfig,
-} from './index';
+import { AUTH_PROVIDERS, DEPLOYMENT_TARGETS, NAVIGATOR_TYPES, type ThemeConfig } from './index';
 
 describe('contracts', () => {
   it('exports stable platform constants', () => {
