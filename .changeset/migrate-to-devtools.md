@@ -1,1 +1,0 @@
----\n"@ankhorage/contracts": patch\n---\n\nMigrate to @ankhorage/devtools for shared ESLint and Prettier configuration.
