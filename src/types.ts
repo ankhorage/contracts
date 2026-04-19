@@ -90,6 +90,33 @@ export type Action =
 export const NAVIGATOR_TYPES = ['stack', 'tabs', 'drawer'] as const;
 export type NavigatorType = (typeof NAVIGATOR_TYPES)[number];
 
+export const APP_CATEGORIES = [
+  'books_reading',
+  'business_productivity',
+  'developer_tools',
+  'education_learning',
+  'entertainment_media',
+  'finance_money',
+  'food_drink',
+  'games',
+  'graphics_design',
+  'health_fitness',
+  'kids_family',
+  'lifestyle',
+  'medical',
+  'music_audio',
+  'navigation_travel',
+  'news_magazines',
+  'photo_video',
+  'reference',
+  'shopping_commerce',
+  'social_community',
+  'sports',
+  'utilities_tools',
+  'weather',
+] as const;
+export type AppCategory = (typeof APP_CATEGORIES)[number];
+
 export const DEPLOYMENT_TARGETS = ['minikube'] as const;
 export type KnownDeploymentTarget = (typeof DEPLOYMENT_TARGETS)[number];
 export type DeploymentTarget = KnownDeploymentTarget | (string & {});
