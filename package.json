@@ -1,7 +1,7 @@
 {
   "name": "@ankhorage/contracts",
   "type": "module",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Serializable app, action, and theme config contracts for Ankhorage.",
   "main": "./dist/index.js",
   "sideEffects": false,
