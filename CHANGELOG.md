@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 0.0.4
+
+### Patch Changes
+
+- Refresh the README copy so the published package overview and usage example stay aligned with the current messaging.
+
 ## 0.0.3
 
 ### Patch Changes
