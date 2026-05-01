@@ -16,7 +16,7 @@ Shared type definitions for applications.
 ## 📦 Usage
 
 ```ts
-import { AppManifest } from '@ankhorage/contracts'
+import { AppManifest } from '@ankhorage/contracts';
 ```
 
 ## 🧠 Why this exists
