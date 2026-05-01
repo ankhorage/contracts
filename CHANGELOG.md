@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 0.1.1
+
+### Patch Changes
+
+- 7075528: add repository metadata
+
 ## 0.1.0
 
 ### Minor Changes
