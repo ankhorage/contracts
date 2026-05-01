@@ -1,5 +1,15 @@
 # @ankhorage/contracts
 
+## 0.1.0
+
+### Minor Changes
+
+- 07b8da7: Add shared auth and database adapter contracts.
+
+### Patch Changes
+
+- 5c800d8: add missing script
+
 ## 0.0.4
 
 ### Patch Changes
