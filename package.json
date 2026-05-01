@@ -1,20 +1,38 @@
 {
   "name": "@ankhorage/contracts",
-  "type": "module",
   "version": "0.0.4",
-  "description": "Serializable app, action, and theme config contracts for Ankhorage.",
   "main": "./dist/index.js",
-  "sideEffects": false,
-  "types": "./dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "devDependencies": {
+    "@ankhorage/devtools": "^1.0.0",
+    "@changesets/cli": "^2.30.0",
+    "@types/bun": "^1.3.13",
+    "@types/node": "^25.2.3",
+    "typescript": "^5.9.3"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
+    },
+    "./auth": {
+      "types": "./dist/auth.d.ts",
+      "default": "./dist/auth.js"
+    },
+    "./db": {
+      "types": "./dist/db.d.ts",
+      "default": "./dist/db.js"
     }
   },
+  "description": "Serializable app, action, and theme config contracts for Ankhorage.",
+  "files": [
+    "dist",
+    "src",
+    "package.json",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "packageManager": "bun@1.3.13",
   "scripts": {
     "build": "rm -rf dist tsconfig.tsbuildinfo && bun x tsc -p tsconfig.json",
     "lint": "eslint . --max-warnings=0",
@@ -23,15 +41,7 @@
     "format:check": "prettier --check .",
     "test": "bun test src"
   },
-  "devDependencies": {
-    "@ankhorage/devtools": "^1.0.0",
-    "@changesets/cli": "^2.30.0",
-    "@types/bun": "^1.3.11",
-    "@types/node": "^25.2.3",
-    "typescript": "^5.9.3"
-  },
-  "packageManager": "bun@1.3.13",
-  "dependencies": {
-    "bun": "^1.3.13"
-  }
+  "sideEffects": false,
+  "type": "module",
+  "types": "./dist/index.d.ts"
 }

@@ -4,8 +4,11 @@ import {
   APP_CATEGORIES,
   type AppCategory,
   AUTH_PROVIDERS,
+  type AuthAdapter,
+  type DbAdapter,
   DEPLOYMENT_TARGETS,
   NAVIGATOR_TYPES,
+  type SignInInput,
   type ThemeConfig,
 } from './index';
 
@@ -64,5 +67,81 @@ describe('contracts', () => {
 
     expect(theme.light.primaryColor).toBe('#3366ff');
     expect(theme.dark.systemTone).toBe('neutral');
+  });
+
+  it('accepts provider-neutral auth and db adapter implementations', async () => {
+    const authAdapter: AuthAdapter = {
+      capabilities: {
+        signInIdentifiers: ['email'],
+        supportsSignUp: true,
+        supportsPasswordReset: true,
+        supportsOtp: false,
+        supportsSessionRefresh: true,
+      },
+      async signIn(input: SignInInput) {
+        await new Promise((resolve) => setTimeout(resolve, 1));
+        return {
+          ok: true,
+          data: {
+            accessToken: `token:${input.identifier.value}`,
+            user: {
+              id: 'user-1',
+              email: input.identifier.value,
+            },
+          },
+        };
+      },
+      async signUp(input) {
+        await new Promise((resolve) => setTimeout(resolve, 1));
+        return {
+          ok: true,
+          data: {
+            id: 'user-1',
+            email: input.identifier.value,
+          },
+        };
+      },
+      async signOut() {
+        await new Promise((resolve) => setTimeout(resolve, 1));
+        return { ok: true };
+      },
+      async getSession() {
+        await new Promise((resolve) => setTimeout(resolve, 1));
+        return { ok: true, data: null };
+      },
+    };
+
+    const dbAdapter: DbAdapter = {
+      async select() {
+        await new Promise((resolve) => setTimeout(resolve, 1));
+        return { ok: true, data: [{ id: 'row-1' }] };
+      },
+      async findById() {
+        await new Promise((resolve) => setTimeout(resolve, 1));
+        return { ok: true, data: { id: 'row-1' } };
+      },
+      async insert(input) {
+        const values = Array.isArray(input.values) ? input.values : [input.values];
+        await new Promise((resolve) => setTimeout(resolve, 1));
+        return { ok: true, data: values };
+      },
+      async update(input) {
+        await new Promise((resolve) => setTimeout(resolve, 1));
+        return { ok: true, data: [input.values] };
+      },
+      async delete() {
+        await new Promise((resolve) => setTimeout(resolve, 1));
+        return { ok: true, data: [] };
+      },
+    } as DbAdapter;
+
+    const signInResult = await authAdapter.signIn({
+      identifier: { kind: 'email', value: 'hello@example.com' },
+      password: 'secret',
+    });
+    const selectResult = await dbAdapter.select({ table: 'profiles' });
+
+    expect(signInResult.ok).toBe(true);
+    expect(selectResult.ok).toBe(true);
   });
 });
