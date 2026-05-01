@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 0.1.2
+
+### Patch Changes
+
+- fc2928d: update publish config to 'public' access
+
 ## 0.1.1
 
 ### Patch Changes
