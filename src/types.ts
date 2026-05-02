@@ -1,3 +1,5 @@
+import type { AuthFlowConfig, AuthIdentifierKind, AuthSignUpField } from './auth';
+
 export type ColorHarmony =
   | 'monochromatic'
   | 'analogous'
@@ -144,25 +146,14 @@ export const AUTH_PROVIDERS = ['supabase'] as const;
 export type KnownAuthProvider = (typeof AUTH_PROVIDERS)[number];
 export type AuthProvider = KnownAuthProvider | (string & {});
 
-export const AUTH_LOGIN_IDENTIFIERS = ['email', 'username', 'phone'] as const;
-export type AuthLoginIdentifier = (typeof AUTH_LOGIN_IDENTIFIERS)[number];
+export const AUTH_SIGN_IN_IDENTIFIERS = ['email', 'username', 'phone'] as const;
+export type AuthSignInIdentifier = AuthIdentifierKind;
 
-export const AUTH_REGISTRATION_FIELDS = [
-  ...AUTH_LOGIN_IDENTIFIERS,
-  'password',
-  'firstName',
-  'lastName',
-  'displayName',
-  'avatarUrl',
-] as const;
-export type KnownAuthRegistrationField = (typeof AUTH_REGISTRATION_FIELDS)[number];
-export type AuthRegistrationField = KnownAuthRegistrationField | (string & {});
-
-export const AUTH_SIGNUP_POLICIES = ['autoSignIn', 'requireVerification'] as const;
-export type AuthSignupPolicy = (typeof AUTH_SIGNUP_POLICIES)[number];
+export const AUTH_SIGN_UP_POLICIES = ['autoSignIn', 'requireVerification'] as const;
+export type AuthSignUpPolicy = (typeof AUTH_SIGN_UP_POLICIES)[number];
 
 export const AUTH_PROFILE_FIELDS = [
-  ...AUTH_LOGIN_IDENTIFIERS,
+  ...AUTH_SIGN_IN_IDENTIFIERS,
   'firstName',
   'lastName',
   'displayName',
@@ -233,14 +224,14 @@ export interface AuthzSpec {
   engine: AuthzEngine;
 }
 
-export interface AuthLoginSpec {
-  identifiers: AuthLoginIdentifier[];
+export interface AuthSignInSpec {
+  identifiers: AuthSignInIdentifier[];
 }
 
-export interface AuthRegistrationSpec {
-  requiredFields: AuthRegistrationField[];
-  optionalFields?: AuthRegistrationField[];
-  signupPolicy?: AuthSignupPolicy;
+export interface AuthSignUpSpec {
+  requiredFields: AuthSignUpField[];
+  optionalFields?: AuthSignUpField[];
+  signUpPolicy?: AuthSignUpPolicy;
 }
 
 export interface AuthProfileSpec {
@@ -251,8 +242,9 @@ export interface AuthSpec {
   scope: AuthScope;
   provider: AuthProvider;
   authorization: AuthzSpec;
-  login?: AuthLoginSpec;
-  registration?: AuthRegistrationSpec;
+  flow?: AuthFlowConfig;
+  signIn?: AuthSignInSpec;
+  signUp?: AuthSignUpSpec;
   profile?: AuthProfileSpec;
 }
 
@@ -292,10 +284,6 @@ export interface AppManifest {
       defaultLocale: string;
       locales: string[];
     };
-    authFlow: {
-      loginRoute: string;
-      unauthorizedRoute: string;
-      postLoginRoute: string;
-    };
+    authFlow: AuthFlowConfig;
   };
 }

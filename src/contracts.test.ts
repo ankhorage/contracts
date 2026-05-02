@@ -4,7 +4,11 @@ import {
   APP_CATEGORIES,
   type AppCategory,
   AUTH_PROVIDERS,
+  AUTH_SIGN_IN_IDENTIFIERS,
+  AUTH_SIGN_UP_POLICIES,
   type AuthAdapter,
+  type AuthFlowConfig,
+  type AuthSpec,
   type DbAdapter,
   DEPLOYMENT_TARGETS,
   NAVIGATOR_TYPES,
@@ -67,6 +71,35 @@ describe('contracts', () => {
 
     expect(theme.light.primaryColor).toBe('#3366ff');
     expect(theme.dark.systemTone).toBe('neutral');
+  });
+
+  it('accepts canonical auth flow config without legacy route fields', () => {
+    const authFlow: AuthFlowConfig = {
+      signInRoute: '/sign-in',
+      signUpRoute: '/sign-up',
+      signOutRoute: '/sign-out',
+      forgotPasswordRoute: '/forgot-password',
+      postSignInRoute: '/',
+      unauthorizedRoute: '/sign-in',
+    };
+
+    const auth: AuthSpec = {
+      scope: 'global',
+      provider: 'supabase',
+      authorization: { kind: 'RBAC', engine: 'cerbos' },
+      flow: authFlow,
+      signIn: { identifiers: ['email'] },
+      signUp: {
+        requiredFields: ['email', 'password'],
+        optionalFields: ['displayName'],
+        signUpPolicy: 'requireVerification',
+      },
+    };
+
+    expect(AUTH_SIGN_IN_IDENTIFIERS).toEqual(['email', 'username', 'phone']);
+    expect(AUTH_SIGN_UP_POLICIES).toEqual(['autoSignIn', 'requireVerification']);
+    expect(auth.flow?.signInRoute).toBe('/sign-in');
+    expect(auth.signUp?.signUpPolicy).toBe('requireVerification');
   });
 
   it('accepts provider-neutral auth and db adapter implementations', async () => {
@@ -133,7 +166,7 @@ describe('contracts', () => {
         await new Promise((resolve) => setTimeout(resolve, 1));
         return { ok: true, data: [] };
       },
-    } as DbAdapter;
+    };
 
     const signInResult = await authAdapter.signIn({
       identifier: { kind: 'email', value: 'hello@example.com' },

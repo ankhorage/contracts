@@ -1,8 +1,51 @@
-export type AuthIdentifierKind = 'email' | 'phone' | 'username';
+export const AUTH_IDENTIFIER_KINDS = ['email', 'phone', 'username'] as const;
+export type AuthIdentifierKind = (typeof AUTH_IDENTIFIER_KINDS)[number];
+
+export const AUTH_SIGN_UP_FIELDS = [
+  ...AUTH_IDENTIFIER_KINDS,
+  'password',
+  'displayName',
+  'firstName',
+  'lastName',
+] as const;
+export type KnownAuthSignUpField = (typeof AUTH_SIGN_UP_FIELDS)[number];
+export type AuthSignUpField = KnownAuthSignUpField | (string & {});
 
 export interface AuthIdentifier {
   kind: AuthIdentifierKind;
   value: string;
+}
+
+export interface AuthFlowConfig {
+  signInRoute: string;
+  signUpRoute?: string;
+  signOutRoute?: string;
+  forgotPasswordRoute?: string;
+  otpRoute?: string;
+  postSignInRoute: string;
+  unauthorizedRoute?: string;
+}
+
+export interface AuthSignInConfig {
+  identifiers: AuthIdentifierKind[];
+}
+
+export interface AuthSignUpConfig {
+  requiredFields: AuthSignUpField[];
+  optionalFields?: AuthSignUpField[];
+}
+
+export interface AuthProviderConfig {
+  provider: string;
+  flow: AuthFlowConfig;
+  signIn: AuthSignInConfig;
+  signUp?: AuthSignUpConfig;
+  passwordReset?: {
+    enabled: boolean;
+  };
+  otp?: {
+    enabled: boolean;
+  };
 }
 
 export interface AuthUser {
