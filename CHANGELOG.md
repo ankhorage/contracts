@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 0.1.3
+
+### Patch Changes
+
+- 7eb0dbc: Add canonical auth flow config types using sign-in, sign-up, and sign-out terminology.
+
 ## 0.1.2
 
 ### Patch Changes
