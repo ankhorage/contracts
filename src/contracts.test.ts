@@ -176,20 +176,20 @@ describe('contracts', () => {
     const dbAdapter: DbAdapter = {
       async select() {
         await new Promise((resolve) => setTimeout(resolve, 1));
-        return { ok: true, data: [{ id: 'row-1' }] };
+        return { ok: true, data: [] };
       },
       async findById() {
         await new Promise((resolve) => setTimeout(resolve, 1));
-        return { ok: true, data: { id: 'row-1' } };
+        return { ok: true, data: null };
       },
       async insert(input) {
         const values = Array.isArray(input.values) ? input.values : [input.values];
         await new Promise((resolve) => setTimeout(resolve, 1));
         return { ok: true, data: values };
       },
-      async update(input) {
+      async update() {
         await new Promise((resolve) => setTimeout(resolve, 1));
-        return { ok: true, data: [input.values] };
+        return { ok: true, data: [] };
       },
       async delete() {
         await new Promise((resolve) => setTimeout(resolve, 1));
