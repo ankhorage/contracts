@@ -92,10 +92,6 @@ describe('contracts', () => {
 
   it('keeps app category theme recommendation hues in range', () => {
     for (const recommendation of Object.values(APP_CATEGORY_THEME_RECOMMENDATIONS)) {
-      if (recommendation.suggestedPrimaryHueDegrees === undefined) {
-        continue;
-      }
-
       expect(Number.isFinite(recommendation.suggestedPrimaryHueDegrees)).toBe(true);
       expect(recommendation.suggestedPrimaryHueDegrees).toBeGreaterThanOrEqual(0);
       expect(recommendation.suggestedPrimaryHueDegrees).toBeLessThan(360);
