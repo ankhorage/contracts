@@ -60,17 +60,17 @@ describe('contracts', () => {
       light: {
         primaryColor: '#3366ff',
         harmony: 'analogous',
-        systemTone: 'neutral',
+        colorTone: 'neutral',
       },
       dark: {
         primaryColor: '#3366ff',
         harmony: 'analogous',
-        systemTone: 'neutral',
+        colorTone: 'neutral',
       },
     };
 
     expect(theme.light.primaryColor).toBe('#3366ff');
-    expect(theme.dark.systemTone).toBe('neutral');
+    expect(theme.dark.colorTone).toBe('neutral');
   });
 
   it('accepts canonical auth flow config without legacy route fields', () => {

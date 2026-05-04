@@ -1,19 +1,10 @@
 import type { AuthFlowConfig, AuthIdentifierKind, AuthSignUpField } from './auth';
-
-export type ColorHarmony =
-  | 'monochromatic'
-  | 'analogous'
-  | 'complementary'
-  | 'triadic'
-  | 'tetradic'
-  | 'splitComplementary';
-
-export type SystemTone = 'neutral' | 'pastel' | 'earth' | 'jewel' | 'fluorescent';
+import type { ColorHarmony, ColorTone } from './color-theory';
 
 export interface ThemeModeConfig {
   primaryColor: string;
   harmony: ColorHarmony;
-  systemTone: SystemTone;
+  colorTone: ColorTone;
 }
 
 export interface ThemeConfig {

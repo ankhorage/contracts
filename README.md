@@ -22,8 +22,17 @@ Shared public contracts for Ankhorage packages and standalone provider packages.
 ```ts
 import type { AppManifest } from '@ankhorage/contracts';
 import type { AuthAdapter } from '@ankhorage/contracts/auth';
+import type { AppMood, ColorHarmony, ColorTone } from '@ankhorage/contracts/color-theory';
 import type { DbAdapter } from '@ankhorage/contracts/db';
 ```
+
+`ColorTone` describes the visual palette tone, such as `pastel`, `earth`, `jewel`, or
+`fluorescent`.
+
+`AppMood` describes psychological/product intent, such as `calm`, `trustworthy`, or
+`playful`.
+
+`ColorHarmony` describes hue relationships.
 
 Provider packages can implement the shared contracts without importing runtime,
 CLI, ZORA, Expo Router, or app-generation logic.

@@ -18,6 +18,10 @@
       "types": "./dist/auth.d.ts",
       "default": "./dist/auth.js"
     },
+    "./color-theory": {
+      "types": "./dist/color-theory.d.ts",
+      "default": "./dist/color-theory.js"
+    },
     "./db": {
       "types": "./dist/db.d.ts",
       "default": "./dist/db.js"
