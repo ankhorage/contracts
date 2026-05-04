@@ -22,7 +22,13 @@ Shared public contracts for Ankhorage packages and standalone provider packages.
 ```ts
 import type { AppManifest } from '@ankhorage/contracts';
 import type { AuthAdapter } from '@ankhorage/contracts/auth';
-import type { AppMood, ColorHarmony, ColorTone } from '@ankhorage/contracts/color-theory';
+import type {
+  AppCategoryThemeRecommendation,
+  AppMood,
+  ColorHarmony,
+  ColorTone,
+} from '@ankhorage/contracts/color-theory';
+import { APP_CATEGORY_THEME_RECOMMENDATIONS } from '@ankhorage/contracts/color-theory';
 import type { DbAdapter } from '@ankhorage/contracts/db';
 ```
 
@@ -33,6 +39,17 @@ import type { DbAdapter } from '@ankhorage/contracts/db';
 `playful`.
 
 `ColorHarmony` describes hue relationships.
+
+Category-aware theme recommendations can suggest an app mood, color tone,
+harmony, and optional primary hue without moving UI color-generation logic into
+Contracts:
+
+```ts
+const financeThemeRecommendation = APP_CATEGORY_THEME_RECOMMENDATIONS.finance_money;
+```
+
+These recommendation contracts are serializable handoff data for tooling. OKLCH,
+chroma, and semantic-token generation stay in UI/theme packages.
 
 Provider packages can implement the shared contracts without importing runtime,
 CLI, ZORA, Expo Router, or app-generation logic.
