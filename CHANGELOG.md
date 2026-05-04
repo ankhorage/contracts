@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 0.3.1
+
+### Patch Changes
+
+- d5ca119: Release Trigger
+
 ## 0.3.0
 
 ### Minor Changes
