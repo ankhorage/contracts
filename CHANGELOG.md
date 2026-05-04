@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 0.3.0
+
+### Minor Changes
+
+- 9e27c89: Add app category theme recommendation contracts and a partial category recommendation map for theme tooling.
+
 ## 0.2.0
 
 ### Minor Changes
