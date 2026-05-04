@@ -2,6 +2,8 @@ import { describe, expect, it } from 'bun:test';
 
 import {
   APP_CATEGORIES,
+  APP_CATEGORY_THEME_RECOMMENDATIONS,
+  APP_MOODS,
   type AppCategory,
   AUTH_PROVIDERS,
   AUTH_SIGN_IN_IDENTIFIERS,
@@ -9,6 +11,8 @@ import {
   type AuthAdapter,
   type AuthFlowConfig,
   type AuthSpec,
+  COLOR_HARMONIES,
+  COLOR_TONES,
   type DbAdapter,
   DEPLOYMENT_TARGETS,
   NAVIGATOR_TYPES,
@@ -71,6 +75,31 @@ describe('contracts', () => {
 
     expect(theme.light.primaryColor).toBe('#3366ff');
     expect(theme.dark.colorTone).toBe('neutral');
+  });
+
+  it('exports app category theme recommendations with valid serialized values', () => {
+    const recommendations = Object.values(APP_CATEGORY_THEME_RECOMMENDATIONS);
+
+    expect(recommendations.length).toBeGreaterThan(0);
+
+    for (const recommendation of recommendations) {
+      expect(APP_CATEGORIES).toContain(recommendation.appCategory);
+      expect(APP_MOODS).toContain(recommendation.appMood);
+      expect(COLOR_TONES).toContain(recommendation.suggestedColorTone);
+      expect(COLOR_HARMONIES).toContain(recommendation.suggestedHarmony);
+    }
+  });
+
+  it('keeps app category theme recommendation hues in range', () => {
+    for (const recommendation of Object.values(APP_CATEGORY_THEME_RECOMMENDATIONS)) {
+      if (recommendation.suggestedPrimaryHueDegrees === undefined) {
+        continue;
+      }
+
+      expect(Number.isFinite(recommendation.suggestedPrimaryHueDegrees)).toBe(true);
+      expect(recommendation.suggestedPrimaryHueDegrees).toBeGreaterThanOrEqual(0);
+      expect(recommendation.suggestedPrimaryHueDegrees).toBeLessThan(360);
+    }
   });
 
   it('accepts canonical auth flow config without legacy route fields', () => {
