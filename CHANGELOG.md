@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 0.2.0
+
+### Minor Changes
+
+- 3536f12: Adds shared color-theory contracts and renames theme mode configuration from `systemTone` / `SystemTone` to `colorTone` / `ColorTone`.
+
 ## 0.1.3
 
 ### Patch Changes
