@@ -22,34 +22,22 @@ Shared public contracts for Ankhorage packages and standalone provider packages.
 ```ts
 import type { AppManifest } from '@ankhorage/contracts';
 import type { AuthAdapter } from '@ankhorage/contracts/auth';
-import type {
-  AppCategoryThemeRecommendation,
-  AppMood,
-  ColorHarmony,
-  ColorTone,
-} from '@ankhorage/contracts/color-theory';
-import { APP_CATEGORY_THEME_RECOMMENDATIONS } from '@ankhorage/contracts/color-theory';
+import type { ColorHarmony } from '@ankhorage/contracts/colors';
+import { generateThemeModeColors } from '@ankhorage/contracts/colors';
 import type { DbAdapter } from '@ankhorage/contracts/db';
 ```
 
-`ColorTone` describes the visual palette tone, such as `pastel`, `earth`, `jewel`, or
-`fluorescent`.
-
-`AppMood` describes psychological/product intent, such as `calm`, `trustworthy`, or
-`playful`.
-
 `ColorHarmony` describes hue relationships.
 
-Category-aware theme recommendations can suggest an app mood, color tone,
-harmony, and optional primary hue without moving UI color-generation logic into
-Contracts:
+Contracts provides deterministic OKLCH-based color generation primitives:
+
+- Harmony palettes (`generateHarmonyPalette`)
+- Swatches that preserve the exact base/key color at step `500` (`generateColorSwatch`)
+- Required neutral swatch generation (`generateNeutralSwatch`)
 
 ```ts
-const financeThemeRecommendation = APP_CATEGORY_THEME_RECOMMENDATIONS.finance_money;
+const generated = generateThemeModeColors({ primaryColor: '#3366ff', harmony: 'analogous' });
 ```
-
-These recommendation contracts are serializable handoff data for tooling. OKLCH,
-chroma, and semantic-token generation stay in UI/theme packages.
 
 Provider packages can implement the shared contracts without importing runtime,
 CLI, ZORA, Expo Router, or app-generation logic.

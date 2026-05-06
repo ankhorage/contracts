@@ -1,4 +1,4 @@
 export * from './auth';
-export * from './color-theory';
+export * from './colors';
 export * from './db';
 export * from './types';

@@ -1,9 +1,10 @@
+import { readdir, readFile } from 'node:fs/promises';
+import { join } from 'node:path';
+
 import { describe, expect, it } from 'bun:test';
 
 import {
   APP_CATEGORIES,
-  APP_CATEGORY_THEME_RECOMMENDATIONS,
-  APP_MOODS,
   type AppCategory,
   AUTH_PROVIDERS,
   AUTH_SIGN_IN_IDENTIFIERS,
@@ -12,10 +13,16 @@ import {
   type AuthFlowConfig,
   type AuthSpec,
   COLOR_HARMONIES,
-  COLOR_TONES,
+  COLOR_SWATCH_BASE_STEP,
+  COLOR_SWATCH_STEPS,
   type DbAdapter,
   DEPLOYMENT_TARGETS,
+  generateColorSwatch,
+  generateHarmonyPalette,
+  generateNeutralSwatch,
   NAVIGATOR_TYPES,
+  normalizeHexColorOrThrow,
+  parseHexToOklch,
   type SignInInput,
   type ThemeConfig,
 } from './index';
@@ -64,37 +71,153 @@ describe('contracts', () => {
       light: {
         primaryColor: '#3366ff',
         harmony: 'analogous',
-        colorTone: 'neutral',
       },
       dark: {
         primaryColor: '#3366ff',
         harmony: 'analogous',
-        colorTone: 'neutral',
       },
     };
 
     expect(theme.light.primaryColor).toBe('#3366ff');
-    expect(theme.dark.colorTone).toBe('neutral');
   });
 
-  it('exports app category theme recommendations with valid serialized values', () => {
-    const recommendations = Object.values(APP_CATEGORY_THEME_RECOMMENDATIONS);
+  it('generates harmony palettes with expected role counts', () => {
+    const primary = normalizeHexColorOrThrow('#3366ff');
 
-    expect(recommendations.length).toBeGreaterThan(0);
+    const expectedRoleCount: Record<(typeof COLOR_HARMONIES)[number], number> = {
+      monochromatic: 1,
+      complementary: 2,
+      analogous: 3,
+      splitComplementary: 3,
+      triadic: 3,
+      tetradic: 4,
+    };
 
-    for (const recommendation of recommendations) {
-      expect(APP_CATEGORIES).toContain(recommendation.appCategory);
-      expect(APP_MOODS).toContain(recommendation.appMood);
-      expect(COLOR_TONES).toContain(recommendation.suggestedColorTone);
-      expect(COLOR_HARMONIES).toContain(recommendation.suggestedHarmony);
+    for (const harmony of COLOR_HARMONIES) {
+      const palette = generateHarmonyPalette(primary, harmony);
+      const roles = [
+        palette.primary,
+        palette.secondary,
+        palette.tertiary,
+        palette.quaternary,
+      ].filter(Boolean);
+      expect(roles.length).toBe(expectedRoleCount[harmony]);
     }
   });
 
-  it('keeps app category theme recommendation hues in range', () => {
-    for (const recommendation of Object.values(APP_CATEGORY_THEME_RECOMMENDATIONS)) {
-      expect(Number.isFinite(recommendation.suggestedPrimaryHueDegrees)).toBe(true);
-      expect(recommendation.suggestedPrimaryHueDegrees).toBeGreaterThanOrEqual(0);
-      expect(recommendation.suggestedPrimaryHueDegrees).toBeLessThan(360);
+  it('preserves the primary color exactly in harmony palettes', () => {
+    const primary = normalizeHexColorOrThrow('#3366ff');
+    const palette = generateHarmonyPalette(primary, 'triadic');
+    expect(palette.primary.color).toBe(primary);
+  });
+
+  it('generates swatches with exactly 11 steps and preserves 500', () => {
+    const base = normalizeHexColorOrThrow('#3366ff');
+    const { swatch } = generateColorSwatch(base);
+
+    expect(Object.keys(swatch).length).toBe(COLOR_SWATCH_STEPS.length);
+    expect(swatch[COLOR_SWATCH_BASE_STEP]).toBe(base);
+  });
+
+  it('generates neutral swatches for non-monochromatic harmonies', () => {
+    const primary = normalizeHexColorOrThrow('#3366ff');
+    const palette = generateHarmonyPalette(primary, 'triadic');
+    const neutral = generateNeutralSwatch(palette);
+
+    expect(neutral.neutral[500]).toBe(neutral.neutralKeyColor);
+  });
+
+  it('generates neutral swatches for monochromatic harmony with expected OKLCH policy', () => {
+    const primary = normalizeHexColorOrThrow('#3366ff');
+    const palette = generateHarmonyPalette(primary, 'monochromatic');
+    const neutral = generateNeutralSwatch(palette);
+
+    const primaryOklch = parseHexToOklch(primary);
+    const neutralOklch = parseHexToOklch(neutral.neutralKeyColor);
+
+    expect(Math.abs(neutralOklch.l - 0.6)).toBeLessThan(0.02);
+    expect(neutralOklch.c).toBeGreaterThanOrEqual(0.004);
+    expect(neutralOklch.c).toBeLessThanOrEqual(0.014);
+    expect(Math.abs(neutralOklch.h - primaryOklch.h)).toBeLessThan(6);
+    expect(neutral.neutral[500]).toBe(neutral.neutralKeyColor);
+  });
+
+  it('prefers a truly neutral gray for low-chroma tint sources', () => {
+    const primary = normalizeHexColorOrThrow('#808080');
+    const palette = generateHarmonyPalette(primary, 'analogous');
+    const neutral = generateNeutralSwatch(palette);
+    const neutralOklch = parseHexToOklch(neutral.neutralKeyColor);
+
+    expect(neutralOklch.c).toBeLessThan(0.002);
+  });
+
+  it('reports weak swatch diagnostics without altering the base color', () => {
+    const base = normalizeHexColorOrThrow('#FFFFFF');
+    const { swatch, diagnostics } = generateColorSwatch(base);
+
+    expect(swatch[500]).toBe(base);
+    expect(diagnostics.warnings.length).toBeGreaterThan(0);
+  });
+
+  it('does not include forbidden src/colors files', async () => {
+    const files = (await readdir(join(process.cwd(), 'src/colors'))).filter((name) =>
+      name.endsWith('.ts'),
+    );
+
+    expect(files.sort()).toEqual(
+      [
+        'contrast.ts',
+        'culori.ts',
+        'harmony.ts',
+        'hex.ts',
+        'index.ts',
+        'neutral.ts',
+        'semantics.ts',
+        'swatches.ts',
+        'theme-config.ts',
+      ].sort(),
+    );
+  });
+
+  it('only src/colors/culori.ts imports culori', async () => {
+    const colorsDir = join(process.cwd(), 'src/colors');
+    const files = (await readdir(colorsDir)).filter((name) => name.endsWith('.ts'));
+
+    for (const file of files) {
+      const content = await readFile(join(colorsDir, file), 'utf8');
+      const culoriSpec = 'cul' + 'ori';
+      const importRegex = new RegExp(`\\bfrom\\s+['"]${culoriSpec}['"]`);
+      const importsCulori = importRegex.test(content);
+
+      if (file === 'culori.ts') {
+        expect(importsCulori).toBe(true);
+      } else {
+        expect(importsCulori).toBe(false);
+      }
+    }
+  });
+
+  it('removes all old tone/mood/recommendation symbols from src', async () => {
+    const banned = [
+      'Color' + 'Tone',
+      'color' + 'Tone',
+      'COLOR_' + 'TONES',
+      'Color' + 'Mood',
+      'App' + 'Mood',
+      'APP_' + 'MOODS',
+      'suggested' + 'Color' + 'Tone',
+      'APP_CATEGORY_' + 'THEME_RECOMMENDATIONS',
+    ];
+
+    const srcDir = join(process.cwd(), 'src');
+    const srcFiles = (await readdir(srcDir)).filter((name) => name.endsWith('.ts'));
+
+    for (const file of srcFiles) {
+      if (file === 'contracts.test.ts') continue;
+      const content = await readFile(join(srcDir, file), 'utf8');
+      for (const symbol of banned) {
+        expect(content.includes(symbol)).toBe(false);
+      }
     }
   });
 
