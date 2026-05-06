@@ -22,37 +22,26 @@ Shared public contracts for Ankhorage packages and standalone provider packages.
 ```ts
 import type { AppManifest } from '@ankhorage/contracts';
 import type { AuthAdapter } from '@ankhorage/contracts/auth';
-import type {
-  AppCategoryThemeRecommendation,
-  AppMood,
-  ColorHarmony,
-  ColorTone,
-} from '@ankhorage/contracts/color-theory';
-import { APP_CATEGORY_THEME_RECOMMENDATIONS } from '@ankhorage/contracts/color-theory';
 import type { DbAdapter } from '@ankhorage/contracts/db';
 ```
 
-`ColorTone` describes the visual palette tone, such as `pastel`, `earth`, `jewel`, or
-`fluorescent`.
-
-`AppMood` describes psychological/product intent, such as `calm`, `trustworthy`, or
-`playful`.
-
-`ColorHarmony` describes hue relationships.
-
-Category-aware theme recommendations can suggest an app mood, color tone,
-harmony, and optional primary hue without moving UI color-generation logic into
-Contracts:
+Contracts keeps theme configuration serializable. Color validation, harmony,
+swatch generation, contrast helpers, and semantic color references live in
+`@ankhorage/color-theory`.
 
 ```ts
-const financeThemeRecommendation = APP_CATEGORY_THEME_RECOMMENDATIONS.finance_money;
+import type { ThemeConfig } from '@ankhorage/contracts';
+
+const theme: ThemeConfig = {
+  id: 'theme-default',
+  name: 'Default',
+  light: { primaryColor: '#3366ff', harmony: 'analogous' },
+  dark: { primaryColor: '#3366ff', harmony: 'analogous' },
+};
 ```
 
-These recommendation contracts are serializable handoff data for tooling. OKLCH,
-chroma, and semantic-token generation stay in UI/theme packages.
-
 Provider packages can implement the shared contracts without importing runtime,
-CLI, ZORA, Expo Router, or app-generation logic.
+CLI, ZORA, Expo Router, color generation, or app-generation logic.
 
 ```ts
 import type { AuthAdapter } from '@ankhorage/contracts/auth';
@@ -84,6 +73,6 @@ export function createSupabaseAuthAdapter(): AuthAdapter {
 ## 🧠 Why this exists
 
 Contracts separates shared data and runtime contracts from implementation details.
-Standalone packages such as Supabase, Clerk, or database providers can depend on
-these contracts while staying independent from Ankhorage app generation,
-runtime, CLI, and UI packages.
+Standalone packages such as Supabase, Clerk, database providers, or UI/color
+packages can depend on these contracts while staying independent from Ankhorage
+app generation, runtime, CLI, and UI packages.

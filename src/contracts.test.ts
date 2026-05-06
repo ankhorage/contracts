@@ -1,24 +1,39 @@
+import { readdir, readFile } from 'node:fs/promises';
+import { basename, join } from 'node:path';
+
 import { describe, expect, it } from 'bun:test';
 
 import {
   APP_CATEGORIES,
-  APP_CATEGORY_THEME_RECOMMENDATIONS,
-  APP_MOODS,
   type AppCategory,
   AUTH_PROVIDERS,
   AUTH_SIGN_IN_IDENTIFIERS,
   AUTH_SIGN_UP_POLICIES,
-  type AuthAdapter,
   type AuthFlowConfig,
   type AuthSpec,
-  COLOR_HARMONIES,
-  COLOR_TONES,
-  type DbAdapter,
   DEPLOYMENT_TARGETS,
   NAVIGATOR_TYPES,
-  type SignInInput,
   type ThemeConfig,
 } from './index';
+
+async function collectTypeScriptFiles(directory: string): Promise<string[]> {
+  const entries = await readdir(directory, { withFileTypes: true });
+  const files: string[] = [];
+
+  for (const entry of entries) {
+    const path = join(directory, entry.name);
+    if (entry.isDirectory()) {
+      files.push(...(await collectTypeScriptFiles(path)));
+      continue;
+    }
+
+    if (entry.isFile() && entry.name.endsWith('.ts')) {
+      files.push(path);
+    }
+  }
+
+  return files;
+}
 
 describe('contracts', () => {
   it('exports stable platform constants', () => {
@@ -64,37 +79,45 @@ describe('contracts', () => {
       light: {
         primaryColor: '#3366ff',
         harmony: 'analogous',
-        colorTone: 'neutral',
       },
       dark: {
         primaryColor: '#3366ff',
         harmony: 'analogous',
-        colorTone: 'neutral',
       },
     };
 
     expect(theme.light.primaryColor).toBe('#3366ff');
-    expect(theme.dark.colorTone).toBe('neutral');
+    expect(theme.light.harmony).toBe('analogous');
   });
 
-  it('exports app category theme recommendations with valid serialized values', () => {
-    const recommendations = Object.values(APP_CATEGORY_THEME_RECOMMENDATIONS);
+  it('does not ship color generation files from contracts', async () => {
+    const srcEntries = await readdir(join(process.cwd(), 'src'), { withFileTypes: true });
+    const names = srcEntries.map((entry) => entry.name);
 
-    expect(recommendations.length).toBeGreaterThan(0);
-
-    for (const recommendation of recommendations) {
-      expect(APP_CATEGORIES).toContain(recommendation.appCategory);
-      expect(APP_MOODS).toContain(recommendation.appMood);
-      expect(COLOR_TONES).toContain(recommendation.suggestedColorTone);
-      expect(COLOR_HARMONIES).toContain(recommendation.suggestedHarmony);
-    }
+    expect(names.includes('colors')).toBe(false);
+    expect(names.includes('color-theory.ts')).toBe(false);
   });
 
-  it('keeps app category theme recommendation hues in range', () => {
-    for (const recommendation of Object.values(APP_CATEGORY_THEME_RECOMMENDATIONS)) {
-      expect(Number.isFinite(recommendation.suggestedPrimaryHueDegrees)).toBe(true);
-      expect(recommendation.suggestedPrimaryHueDegrees).toBeGreaterThanOrEqual(0);
-      expect(recommendation.suggestedPrimaryHueDegrees).toBeLessThan(360);
+  it('removes all old tone/mood/recommendation symbols from src recursively', async () => {
+    const banned = [
+      'Color' + 'Tone',
+      'color' + 'Tone',
+      'COLOR_' + 'TONES',
+      'Color' + 'Mood',
+      'App' + 'Mood',
+      'APP_' + 'MOODS',
+      'suggested' + 'Color' + 'Tone',
+      'APP_CATEGORY_' + 'THEME_RECOMMENDATIONS',
+    ];
+
+    const srcFiles = await collectTypeScriptFiles(join(process.cwd(), 'src'));
+
+    for (const file of srcFiles) {
+      if (basename(file) === 'contracts.test.ts') continue;
+      const content = await readFile(file, 'utf8');
+      for (const symbol of banned) {
+        expect(content.includes(symbol)).toBe(false);
+      }
     }
   });
 
@@ -125,81 +148,5 @@ describe('contracts', () => {
     expect(AUTH_SIGN_UP_POLICIES).toEqual(['autoSignIn', 'requireVerification']);
     expect(auth.flow?.signInRoute).toBe('/sign-in');
     expect(auth.signUp?.signUpPolicy).toBe('requireVerification');
-  });
-
-  it('accepts provider-neutral auth and db adapter implementations', async () => {
-    const authAdapter: AuthAdapter = {
-      capabilities: {
-        signInIdentifiers: ['email'],
-        supportsSignUp: true,
-        supportsPasswordReset: true,
-        supportsOtp: false,
-        supportsSessionRefresh: true,
-      },
-      async signIn(input: SignInInput) {
-        await new Promise((resolve) => setTimeout(resolve, 1));
-        return {
-          ok: true,
-          data: {
-            accessToken: `token:${input.identifier.value}`,
-            user: {
-              id: 'user-1',
-              email: input.identifier.value,
-            },
-          },
-        };
-      },
-      async signUp(input) {
-        await new Promise((resolve) => setTimeout(resolve, 1));
-        return {
-          ok: true,
-          data: {
-            id: 'user-1',
-            email: input.identifier.value,
-          },
-        };
-      },
-      async signOut() {
-        await new Promise((resolve) => setTimeout(resolve, 1));
-        return { ok: true };
-      },
-      async getSession() {
-        await new Promise((resolve) => setTimeout(resolve, 1));
-        return { ok: true, data: null };
-      },
-    };
-
-    const dbAdapter: DbAdapter = {
-      async select() {
-        await new Promise((resolve) => setTimeout(resolve, 1));
-        return { ok: true, data: [] };
-      },
-      async findById() {
-        await new Promise((resolve) => setTimeout(resolve, 1));
-        return { ok: true, data: null };
-      },
-      async insert(input) {
-        const values = Array.isArray(input.values) ? input.values : [input.values];
-        await new Promise((resolve) => setTimeout(resolve, 1));
-        return { ok: true, data: values };
-      },
-      async update() {
-        await new Promise((resolve) => setTimeout(resolve, 1));
-        return { ok: true, data: [] };
-      },
-      async delete() {
-        await new Promise((resolve) => setTimeout(resolve, 1));
-        return { ok: true, data: [] };
-      },
-    };
-
-    const signInResult = await authAdapter.signIn({
-      identifier: { kind: 'email', value: 'hello@example.com' },
-      password: 'secret',
-    });
-    const selectResult = await dbAdapter.select({ table: 'profiles' });
-
-    expect(signInResult.ok).toBe(true);
-    expect(selectResult.ok).toBe(true);
   });
 });
