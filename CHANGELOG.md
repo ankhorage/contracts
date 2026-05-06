@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 0.3.2
+
+### Patch Changes
+
+- bb775a6: Standardize package metadata and workflow files.
+
 ## 0.3.1
 
 ### Patch Changes
