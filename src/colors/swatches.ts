@@ -8,7 +8,10 @@ export const COLOR_SWATCH_BASE_STEP = 500 as const;
 
 export type ColorSwatch = Record<ColorSwatchStep, HexColor>;
 
-export type ColorSwatchWarningCode = 'weak_step' | 'weak_adjacent_delta' | 'limited_lightness_range';
+export type ColorSwatchWarningCode =
+  | 'weak_step'
+  | 'weak_adjacent_delta'
+  | 'limited_lightness_range';
 
 export interface ColorSwatchWarning {
   code: ColorSwatchWarningCode;
