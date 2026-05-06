@@ -5,12 +5,21 @@ import { normalizeHexColorOrThrow } from './hex';
 import { generateNeutralSwatch, type NeutralSwatchResult } from './neutral';
 import { type ColorSwatch, generateColorSwatch } from './swatches';
 
+export interface GeneratedThemeSwatches {
+  primary: ColorSwatch;
+  secondary?: ColorSwatch;
+  tertiary?: ColorSwatch;
+  quaternary?: ColorSwatch;
+  neutral: ColorSwatch;
+}
+
 export interface GeneratedThemeModeColors {
-  primary: { color: HexColor; swatch: ColorSwatch };
-  secondary?: { color: HexColor; swatch: ColorSwatch };
-  tertiary?: { color: HexColor; swatch: ColorSwatch };
-  quaternary?: { color: HexColor; swatch: ColorSwatch };
   harmonyPalette: GeneratedHarmonyPalette;
+  swatches: GeneratedThemeSwatches;
+  primary: { hex: HexColor; swatch: ColorSwatch };
+  secondary?: { hex: HexColor; swatch: ColorSwatch };
+  tertiary?: { hex: HexColor; swatch: ColorSwatch };
+  quaternary?: { hex: HexColor; swatch: ColorSwatch };
   neutral: NeutralSwatchResult;
 }
 
@@ -22,31 +31,39 @@ export function generateThemeModeColors(mode: ThemeModeConfig): GeneratedThemeMo
   const primaryHex = getThemeModePrimaryHex(mode);
   const harmonyPalette = generateHarmonyPalette(primaryHex, mode.harmony);
 
-  const primarySwatch = generateColorSwatch(harmonyPalette.primary.color).swatch;
+  const primarySwatch = generateColorSwatch(harmonyPalette.primary.hex).swatch;
   const secondarySwatch = harmonyPalette.secondary
-    ? generateColorSwatch(harmonyPalette.secondary.color).swatch
+    ? generateColorSwatch(harmonyPalette.secondary.hex).swatch
     : undefined;
   const tertiarySwatch = harmonyPalette.tertiary
-    ? generateColorSwatch(harmonyPalette.tertiary.color).swatch
+    ? generateColorSwatch(harmonyPalette.tertiary.hex).swatch
     : undefined;
   const quaternarySwatch = harmonyPalette.quaternary
-    ? generateColorSwatch(harmonyPalette.quaternary.color).swatch
+    ? generateColorSwatch(harmonyPalette.quaternary.hex).swatch
     : undefined;
 
   const neutral = generateNeutralSwatch(harmonyPalette);
+  const swatches: GeneratedThemeSwatches = {
+    primary: primarySwatch,
+    neutral: neutral.neutral,
+    ...(secondarySwatch ? { secondary: secondarySwatch } : {}),
+    ...(tertiarySwatch ? { tertiary: tertiarySwatch } : {}),
+    ...(quaternarySwatch ? { quaternary: quaternarySwatch } : {}),
+  };
 
   return {
     harmonyPalette,
+    swatches,
     neutral,
-    primary: { color: harmonyPalette.primary.color, swatch: primarySwatch },
+    primary: { hex: harmonyPalette.primary.hex, swatch: primarySwatch },
     ...(harmonyPalette.secondary && secondarySwatch
-      ? { secondary: { color: harmonyPalette.secondary.color, swatch: secondarySwatch } }
+      ? { secondary: { hex: harmonyPalette.secondary.hex, swatch: secondarySwatch } }
       : {}),
     ...(harmonyPalette.tertiary && tertiarySwatch
-      ? { tertiary: { color: harmonyPalette.tertiary.color, swatch: tertiarySwatch } }
+      ? { tertiary: { hex: harmonyPalette.tertiary.hex, swatch: tertiarySwatch } }
       : {}),
     ...(harmonyPalette.quaternary && quaternarySwatch
-      ? { quaternary: { color: harmonyPalette.quaternary.color, swatch: quaternarySwatch } }
+      ? { quaternary: { hex: harmonyPalette.quaternary.hex, swatch: quaternarySwatch } }
       : {}),
   };
 }
