@@ -3,6 +3,8 @@ import { basename, join } from 'node:path';
 
 import { describe, expect, it } from 'bun:test';
 
+import { COLOR_HARMONIES, type ColorHarmony } from '@ankhorage/color-theory';
+
 import {
   APP_CATEGORIES,
   type AppCategory,
@@ -11,7 +13,6 @@ import {
   AUTH_SIGN_UP_POLICIES,
   type AuthFlowConfig,
   type AuthSpec,
-  type ColorHarmony,
   DEPLOYMENT_TARGETS,
   NAVIGATOR_TYPES,
   type ThemeConfig,
@@ -93,16 +94,7 @@ describe('contracts', () => {
   });
 
   it('ThemeModeConfig.harmony accepts all ColorHarmony values', () => {
-    const harmonies: ColorHarmony[] = [
-      'monochromatic',
-      'analogous',
-      'complementary',
-      'triadic',
-      'tetradic',
-      'splitComplementary',
-    ];
-
-    for (const harmony of harmonies) {
+    for (const harmony of COLOR_HARMONIES) {
       const config: ThemeModeConfig = { primaryColor: '#ff0000', harmony };
       expect(config.harmony).toBe(harmony);
     }
