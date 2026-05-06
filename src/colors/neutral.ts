@@ -13,20 +13,15 @@ export interface NeutralSwatchResult {
 
 function pickTintSourceHex(palette: GeneratedHarmonyPalette, harmony: ColorHarmony): HexColor {
   const byMapping: Partial<Record<ColorHarmony, HexColor | undefined>> = {
-    monochromatic: palette.primary.color,
-    complementary: palette.secondary?.color,
-    analogous: palette.tertiary?.color,
-    splitComplementary: palette.tertiary?.color,
-    triadic: palette.tertiary?.color,
-    tetradic: palette.tertiary?.color,
+    monochromatic: palette.primary.hex,
+    complementary: palette.secondary?.hex,
+    analogous: palette.tertiary?.hex,
+    splitComplementary: palette.tertiary?.hex,
+    triadic: palette.tertiary?.hex,
+    tetradic: palette.tertiary?.hex,
   };
 
-  return (
-    byMapping[harmony] ??
-    palette.tertiary?.color ??
-    palette.secondary?.color ??
-    palette.primary.color
-  );
+  return byMapping[harmony] ?? palette.tertiary?.hex ?? palette.secondary?.hex ?? palette.primary.hex;
 }
 
 function clampNumber(value: number, min: number, max: number): number {
@@ -38,7 +33,7 @@ export function generateNeutralSwatch(palette: GeneratedHarmonyPalette): Neutral
   const tintSourceHex = pickTintSourceHex(palette, palette.harmony);
   const tintSource = parseHexToOklch(tintSourceHex);
 
-  const primary = parseHexToOklch(palette.primary.color);
+  const primary = parseHexToOklch(palette.primary.hex);
 
   const preferGray = tintSource.c < MIN_HUEFUL_CHROMA;
 
