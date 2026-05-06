@@ -16,19 +16,21 @@ export type GeneratedColorRole = 'primary' | 'secondary' | 'tertiary' | 'quatern
 
 export interface GeneratedHarmonyColor {
   role: GeneratedColorRole;
-  color: HexColor;
-  hueOffsetDegrees: number;
+  hex: HexColor;
+  hueDegrees: number;
+  source: 'selected' | 'generated';
 }
 
 export interface GeneratedHarmonyPalette {
   harmony: ColorHarmony;
+  colors: readonly GeneratedHarmonyColor[];
   primary: GeneratedHarmonyColor;
   secondary?: GeneratedHarmonyColor;
   tertiary?: GeneratedHarmonyColor;
   quaternary?: GeneratedHarmonyColor;
 }
 
-const ROLE_ORDER_BY_HARMONY: Record<ColorHarmony, GeneratedColorRole[]> = {
+const ROLE_ORDER_BY_HARMONY: Record<ColorHarmony, readonly GeneratedColorRole[]> = {
   monochromatic: ['primary'],
   complementary: ['primary', 'secondary'],
   analogous: ['primary', 'secondary', 'tertiary'],
@@ -37,7 +39,7 @@ const ROLE_ORDER_BY_HARMONY: Record<ColorHarmony, GeneratedColorRole[]> = {
   tetradic: ['primary', 'secondary', 'tertiary', 'quaternary'],
 };
 
-const OFFSETS_BY_HARMONY: Record<ColorHarmony, number[]> = {
+const OFFSETS_BY_HARMONY: Record<ColorHarmony, readonly number[]> = {
   monochromatic: [0],
   analogous: [0, -30, 30],
   complementary: [0, 180],
@@ -53,27 +55,38 @@ export function generateHarmonyPalette(
   const base = parseHexToOklch(primaryColor);
   const roles = ROLE_ORDER_BY_HARMONY[harmony];
   const offsets = OFFSETS_BY_HARMONY[harmony];
+  const baseHue = normalizeHueDegrees(base.h);
 
-  const primary: GeneratedHarmonyColor = {
-    role: 'primary',
-    color: primaryColor,
-    hueOffsetDegrees: 0,
-  };
-  const palette: GeneratedHarmonyPalette = { harmony, primary };
+  const colors: GeneratedHarmonyColor[] = [];
 
-  for (let index = 1; index < roles.length; index++) {
+  for (let index = 0; index < roles.length; index++) {
     const role = roles[index];
     if (!role) continue;
-    const hueOffsetDegrees = offsets[index] ?? 0;
-    const rotatedHue = normalizeHueDegrees(base.h + hueOffsetDegrees);
-    const rotatedHex = oklchToHex({ ...base, h: rotatedHue });
 
-    const generated: GeneratedHarmonyColor = { role, color: rotatedHex, hueOffsetDegrees };
-
-    if (role === 'secondary') palette.secondary = generated;
-    if (role === 'tertiary') palette.tertiary = generated;
-    if (role === 'quaternary') palette.quaternary = generated;
+    const hueDegrees = normalizeHueDegrees(baseHue + (offsets[index] ?? 0));
+    colors.push({
+      role,
+      hex: role === 'primary' ? primaryColor : oklchToHex({ ...base, h: hueDegrees }),
+      hueDegrees,
+      source: role === 'primary' ? 'selected' : 'generated',
+    });
   }
 
-  return palette;
+  const primary = colors.find((color) => color.role === 'primary');
+  if (!primary) {
+    throw new Error('[contracts/colors] Expected generated harmony palette to include primary.');
+  }
+
+  const secondary = colors.find((color) => color.role === 'secondary');
+  const tertiary = colors.find((color) => color.role === 'tertiary');
+  const quaternary = colors.find((color) => color.role === 'quaternary');
+
+  return {
+    harmony,
+    colors,
+    primary,
+    ...(secondary ? { secondary } : {}),
+    ...(tertiary ? { tertiary } : {}),
+    ...(quaternary ? { quaternary } : {}),
+  };
 }
