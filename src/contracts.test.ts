@@ -1,7 +1,7 @@
 import { readdir, readFile } from 'node:fs/promises';
 import { basename, join } from 'node:path';
 
-import { COLOR_HARMONIES, type ColorHarmony } from '@ankhorage/color-theory';
+import { COLOR_HARMONIES } from '@ankhorage/color-theory';
 import { describe, expect, it } from 'bun:test';
 
 import {
