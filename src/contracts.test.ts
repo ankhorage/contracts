@@ -3,7 +3,6 @@ import { basename, join } from 'node:path';
 
 import { describe, expect, it } from 'bun:test';
 
-import { parseHexToOklch } from './colors/culori';
 import {
   APP_CATEGORIES,
   type AppCategory,
@@ -12,16 +11,8 @@ import {
   AUTH_SIGN_UP_POLICIES,
   type AuthFlowConfig,
   type AuthSpec,
-  COLOR_HARMONIES,
-  COLOR_SWATCH_BASE_STEP,
-  COLOR_SWATCH_STEPS,
   DEPLOYMENT_TARGETS,
-  generateColorSwatch,
-  generateHarmonyPalette,
-  generateNeutralSwatch,
-  generateThemeModeColors,
   NAVIGATOR_TYPES,
-  normalizeHexColorOrThrow,
   type ThemeConfig,
 } from './index';
 
@@ -96,149 +87,15 @@ describe('contracts', () => {
     };
 
     expect(theme.light.primaryColor).toBe('#3366ff');
+    expect(theme.light.harmony).toBe('analogous');
   });
 
-  it('generates harmony palettes with expected role counts', () => {
-    const primary = normalizeHexColorOrThrow('#3366ff');
+  it('does not ship color generation files from contracts', async () => {
+    const srcEntries = await readdir(join(process.cwd(), 'src'), { withFileTypes: true });
+    const names = srcEntries.map((entry) => entry.name);
 
-    const expectedRoleCount: Record<(typeof COLOR_HARMONIES)[number], number> = {
-      monochromatic: 1,
-      complementary: 2,
-      analogous: 3,
-      splitComplementary: 3,
-      triadic: 3,
-      tetradic: 4,
-    };
-
-    for (const harmony of COLOR_HARMONIES) {
-      const palette = generateHarmonyPalette(primary, harmony);
-      expect(palette.colors.length).toBe(expectedRoleCount[harmony]);
-    }
-  });
-
-  it('preserves the primary color exactly in harmony palettes', () => {
-    const primary = normalizeHexColorOrThrow('#3366ff');
-    const palette = generateHarmonyPalette(primary, 'triadic');
-
-    expect(palette.primary.hex).toBe(primary);
-    expect(palette.primary.source).toBe('selected');
-    expect(palette.primary.hueDegrees).toBeGreaterThanOrEqual(0);
-    expect(palette.primary.hueDegrees).toBeLessThan(360);
-    expect(palette.secondary?.source).toBe('generated');
-  });
-
-  it('generates swatches with exactly 11 steps and preserves 500', () => {
-    const base = normalizeHexColorOrThrow('#3366ff');
-    const { swatch } = generateColorSwatch(base);
-
-    expect(Object.keys(swatch).length).toBe(COLOR_SWATCH_STEPS.length);
-    expect(swatch[COLOR_SWATCH_BASE_STEP]).toBe(base);
-  });
-
-  it('preserves lowercase primary colors at swatch step 500', () => {
-    const primary = normalizeHexColorOrThrow('#3366ff');
-    const generated = generateThemeModeColors({ primaryColor: primary, harmony: 'analogous' });
-
-    expect(generated.swatches.primary[500]).toBe('#3366ff');
-    expect(generated.primary.hex).toBe('#3366ff');
-  });
-
-  it('returns generated theme swatches with required neutral', () => {
-    const primary = normalizeHexColorOrThrow('#3366ff');
-    const generated = generateThemeModeColors({ primaryColor: primary, harmony: 'tetradic' });
-
-    expect(generated.swatches.primary[500]).toBe(primary);
-    expect(generated.swatches.secondary?.[500]).toBe(generated.secondary?.hex);
-    expect(generated.swatches.tertiary?.[500]).toBe(generated.tertiary?.hex);
-    expect(generated.swatches.quaternary?.[500]).toBe(generated.quaternary?.hex);
-    expect(generated.swatches.neutral[500]).toBe(generated.neutral.neutralKeyColor);
-  });
-
-  it('generates neutral swatches for non-monochromatic harmonies', () => {
-    const primary = normalizeHexColorOrThrow('#3366ff');
-    const palette = generateHarmonyPalette(primary, 'triadic');
-    const neutral = generateNeutralSwatch(palette);
-
-    expect(neutral.neutral[500]).toBe(neutral.neutralKeyColor);
-  });
-
-  it('generates neutral swatches for monochromatic harmony with expected OKLCH policy', () => {
-    const primary = normalizeHexColorOrThrow('#3366ff');
-    const palette = generateHarmonyPalette(primary, 'monochromatic');
-    const neutral = generateNeutralSwatch(palette);
-
-    const primaryOklch = parseHexToOklch(primary);
-    const neutralOklch = parseHexToOklch(neutral.neutralKeyColor);
-
-    expect(Math.abs(neutralOklch.l - 0.6)).toBeLessThan(0.02);
-    expect(neutralOklch.c).toBeGreaterThanOrEqual(0.004);
-    expect(neutralOklch.c).toBeLessThanOrEqual(0.014);
-    expect(Math.abs(neutralOklch.h - primaryOklch.h)).toBeLessThan(6);
-    expect(neutral.neutral[500]).toBe(neutral.neutralKeyColor);
-  });
-
-  it('prefers a truly neutral gray for low-chroma tint sources', () => {
-    const primary = normalizeHexColorOrThrow('#808080');
-    const palette = generateHarmonyPalette(primary, 'analogous');
-    const neutral = generateNeutralSwatch(palette);
-    const neutralOklch = parseHexToOklch(neutral.neutralKeyColor);
-
-    expect(neutralOklch.c).toBeLessThan(0.002);
-  });
-
-  it('reports weak swatch diagnostics without altering the base color', () => {
-    const base = normalizeHexColorOrThrow('#FFFFFF');
-    const { swatch, diagnostics } = generateColorSwatch(base);
-
-    expect(swatch[500]).toBe(base);
-    expect(diagnostics.isUsable).toBe(false);
-    expect(diagnostics.warnings.length).toBeGreaterThan(0);
-    expect(diagnostics.minAdjacentDelta).toBeLessThan(diagnostics.maxAdjacentDelta);
-    expect(diagnostics.lightnessRange.max).toBeGreaterThanOrEqual(diagnostics.lightnessRange.min);
-  });
-
-  it('does not include forbidden src/colors files', async () => {
-    const files = (await readdir(join(process.cwd(), 'src/colors'))).filter((name) =>
-      name.endsWith('.ts'),
-    );
-
-    expect(files.sort()).toEqual(
-      [
-        'contrast.ts',
-        'culori.ts',
-        'harmony.ts',
-        'hex.ts',
-        'index.ts',
-        'neutral.ts',
-        'semantics.ts',
-        'swatches.ts',
-        'theme-config.ts',
-      ].sort(),
-    );
-  });
-
-  it('only src/colors/culori.ts imports culori', async () => {
-    const colorsDir = join(process.cwd(), 'src/colors');
-    const files = (await readdir(colorsDir)).filter((name) => name.endsWith('.ts'));
-
-    for (const file of files) {
-      const content = await readFile(join(colorsDir, file), 'utf8');
-      const culoriSpec = 'cul' + 'ori';
-      const importRegex = new RegExp(`\\bfrom\\s+['"]${culoriSpec}['"]`);
-      const importsCulori = importRegex.test(content);
-
-      if (file === 'culori.ts') {
-        expect(importsCulori).toBe(true);
-      } else {
-        expect(importsCulori).toBe(false);
-      }
-    }
-  });
-
-  it('does not export the internal culori adapter from the public colors barrel', async () => {
-    const content = await readFile(join(process.cwd(), 'src/colors/index.ts'), 'utf8');
-
-    expect(content.includes('./culori')).toBe(false);
+    expect(names.includes('colors')).toBe(false);
+    expect(names.includes('color-theory.ts')).toBe(false);
   });
 
   it('removes all old tone/mood/recommendation symbols from src recursively', async () => {
