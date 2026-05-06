@@ -1,31 +1,48 @@
 import { readdir, readFile } from 'node:fs/promises';
-import { join } from 'node:path';
+import { basename, join } from 'node:path';
 
 import { describe, expect, it } from 'bun:test';
 
+import { parseHexToOklch } from './colors/culori';
 import {
   APP_CATEGORIES,
   type AppCategory,
   AUTH_PROVIDERS,
   AUTH_SIGN_IN_IDENTIFIERS,
   AUTH_SIGN_UP_POLICIES,
-  type AuthAdapter,
   type AuthFlowConfig,
   type AuthSpec,
   COLOR_HARMONIES,
   COLOR_SWATCH_BASE_STEP,
   COLOR_SWATCH_STEPS,
-  type DbAdapter,
   DEPLOYMENT_TARGETS,
   generateColorSwatch,
   generateHarmonyPalette,
   generateNeutralSwatch,
+  generateThemeModeColors,
   NAVIGATOR_TYPES,
   normalizeHexColorOrThrow,
-  parseHexToOklch,
-  type SignInInput,
   type ThemeConfig,
 } from './index';
+
+async function collectTypeScriptFiles(directory: string): Promise<string[]> {
+  const entries = await readdir(directory, { withFileTypes: true });
+  const files: string[] = [];
+
+  for (const entry of entries) {
+    const path = join(directory, entry.name);
+    if (entry.isDirectory()) {
+      files.push(...(await collectTypeScriptFiles(path)));
+      continue;
+    }
+
+    if (entry.isFile() && entry.name.endsWith('.ts')) {
+      files.push(path);
+    }
+  }
+
+  return files;
+}
 
 describe('contracts', () => {
   it('exports stable platform constants', () => {
@@ -95,20 +112,19 @@ describe('contracts', () => {
 
     for (const harmony of COLOR_HARMONIES) {
       const palette = generateHarmonyPalette(primary, harmony);
-      const roles = [
-        palette.primary,
-        palette.secondary,
-        palette.tertiary,
-        palette.quaternary,
-      ].filter(Boolean);
-      expect(roles.length).toBe(expectedRoleCount[harmony]);
+      expect(palette.colors.length).toBe(expectedRoleCount[harmony]);
     }
   });
 
   it('preserves the primary color exactly in harmony palettes', () => {
     const primary = normalizeHexColorOrThrow('#3366ff');
     const palette = generateHarmonyPalette(primary, 'triadic');
-    expect(palette.primary.color).toBe(primary);
+
+    expect(palette.primary.hex).toBe(primary);
+    expect(palette.primary.source).toBe('selected');
+    expect(palette.primary.hueDegrees).toBeGreaterThanOrEqual(0);
+    expect(palette.primary.hueDegrees).toBeLessThan(360);
+    expect(palette.secondary?.source).toBe('generated');
   });
 
   it('generates swatches with exactly 11 steps and preserves 500', () => {
@@ -117,6 +133,25 @@ describe('contracts', () => {
 
     expect(Object.keys(swatch).length).toBe(COLOR_SWATCH_STEPS.length);
     expect(swatch[COLOR_SWATCH_BASE_STEP]).toBe(base);
+  });
+
+  it('preserves lowercase primary colors at swatch step 500', () => {
+    const primary = normalizeHexColorOrThrow('#3366ff');
+    const generated = generateThemeModeColors({ primaryColor: primary, harmony: 'analogous' });
+
+    expect(generated.swatches.primary[500]).toBe('#3366ff');
+    expect(generated.primary.hex).toBe('#3366ff');
+  });
+
+  it('returns generated theme swatches with required neutral', () => {
+    const primary = normalizeHexColorOrThrow('#3366ff');
+    const generated = generateThemeModeColors({ primaryColor: primary, harmony: 'tetradic' });
+
+    expect(generated.swatches.primary[500]).toBe(primary);
+    expect(generated.swatches.secondary?.[500]).toBe(generated.secondary?.hex);
+    expect(generated.swatches.tertiary?.[500]).toBe(generated.tertiary?.hex);
+    expect(generated.swatches.quaternary?.[500]).toBe(generated.quaternary?.hex);
+    expect(generated.swatches.neutral[500]).toBe(generated.neutral.neutralKeyColor);
   });
 
   it('generates neutral swatches for non-monochromatic harmonies', () => {
@@ -156,7 +191,10 @@ describe('contracts', () => {
     const { swatch, diagnostics } = generateColorSwatch(base);
 
     expect(swatch[500]).toBe(base);
+    expect(diagnostics.isUsable).toBe(false);
     expect(diagnostics.warnings.length).toBeGreaterThan(0);
+    expect(diagnostics.minAdjacentDelta).toBeLessThan(diagnostics.maxAdjacentDelta);
+    expect(diagnostics.lightnessRange.max).toBeGreaterThanOrEqual(diagnostics.lightnessRange.min);
   });
 
   it('does not include forbidden src/colors files', async () => {
@@ -197,7 +235,13 @@ describe('contracts', () => {
     }
   });
 
-  it('removes all old tone/mood/recommendation symbols from src', async () => {
+  it('does not export the internal culori adapter from the public colors barrel', async () => {
+    const content = await readFile(join(process.cwd(), 'src/colors/index.ts'), 'utf8');
+
+    expect(content.includes("./culori")).toBe(false);
+  });
+
+  it('removes all old tone/mood/recommendation symbols from src recursively', async () => {
     const banned = [
       'Color' + 'Tone',
       'color' + 'Tone',
@@ -209,12 +253,11 @@ describe('contracts', () => {
       'APP_CATEGORY_' + 'THEME_RECOMMENDATIONS',
     ];
 
-    const srcDir = join(process.cwd(), 'src');
-    const srcFiles = (await readdir(srcDir)).filter((name) => name.endsWith('.ts'));
+    const srcFiles = await collectTypeScriptFiles(join(process.cwd(), 'src'));
 
     for (const file of srcFiles) {
-      if (file === 'contracts.test.ts') continue;
-      const content = await readFile(join(srcDir, file), 'utf8');
+      if (basename(file) === 'contracts.test.ts') continue;
+      const content = await readFile(file, 'utf8');
       for (const symbol of banned) {
         expect(content.includes(symbol)).toBe(false);
       }
@@ -248,81 +291,5 @@ describe('contracts', () => {
     expect(AUTH_SIGN_UP_POLICIES).toEqual(['autoSignIn', 'requireVerification']);
     expect(auth.flow?.signInRoute).toBe('/sign-in');
     expect(auth.signUp?.signUpPolicy).toBe('requireVerification');
-  });
-
-  it('accepts provider-neutral auth and db adapter implementations', async () => {
-    const authAdapter: AuthAdapter = {
-      capabilities: {
-        signInIdentifiers: ['email'],
-        supportsSignUp: true,
-        supportsPasswordReset: true,
-        supportsOtp: false,
-        supportsSessionRefresh: true,
-      },
-      async signIn(input: SignInInput) {
-        await new Promise((resolve) => setTimeout(resolve, 1));
-        return {
-          ok: true,
-          data: {
-            accessToken: `token:${input.identifier.value}`,
-            user: {
-              id: 'user-1',
-              email: input.identifier.value,
-            },
-          },
-        };
-      },
-      async signUp(input) {
-        await new Promise((resolve) => setTimeout(resolve, 1));
-        return {
-          ok: true,
-          data: {
-            id: 'user-1',
-            email: input.identifier.value,
-          },
-        };
-      },
-      async signOut() {
-        await new Promise((resolve) => setTimeout(resolve, 1));
-        return { ok: true };
-      },
-      async getSession() {
-        await new Promise((resolve) => setTimeout(resolve, 1));
-        return { ok: true, data: null };
-      },
-    };
-
-    const dbAdapter: DbAdapter = {
-      async select() {
-        await new Promise((resolve) => setTimeout(resolve, 1));
-        return { ok: true, data: [] };
-      },
-      async findById() {
-        await new Promise((resolve) => setTimeout(resolve, 1));
-        return { ok: true, data: null };
-      },
-      async insert(input) {
-        const values = Array.isArray(input.values) ? input.values : [input.values];
-        await new Promise((resolve) => setTimeout(resolve, 1));
-        return { ok: true, data: values };
-      },
-      async update() {
-        await new Promise((resolve) => setTimeout(resolve, 1));
-        return { ok: true, data: [] };
-      },
-      async delete() {
-        await new Promise((resolve) => setTimeout(resolve, 1));
-        return { ok: true, data: [] };
-      },
-    };
-
-    const signInResult = await authAdapter.signIn({
-      identifier: { kind: 'email', value: 'hello@example.com' },
-      password: 'secret',
-    });
-    const selectResult = await dbAdapter.select({ table: 'profiles' });
-
-    expect(signInResult.ok).toBe(true);
-    expect(selectResult.ok).toBe(true);
   });
 });
