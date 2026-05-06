@@ -2,6 +2,9 @@
   "name": "@ankhorage/contracts",
   "version": "1.0.0",
   "main": "./dist/index.js",
+  "dependencies": {
+    "@ankhorage/color-theory": "^0.0.2"
+  },
   "devDependencies": {
     "@ankhorage/devtools": "^1.0.0",
     "@changesets/cli": "^2.30.0",

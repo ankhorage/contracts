@@ -1,6 +1,7 @@
 import { readdir, readFile } from 'node:fs/promises';
 import { basename, join } from 'node:path';
 
+import { COLOR_HARMONIES } from '@ankhorage/color-theory';
 import { describe, expect, it } from 'bun:test';
 
 import {
@@ -14,6 +15,7 @@ import {
   DEPLOYMENT_TARGETS,
   NAVIGATOR_TYPES,
   type ThemeConfig,
+  type ThemeModeConfig,
 } from './index';
 
 async function collectTypeScriptFiles(directory: string): Promise<string[]> {
@@ -88,6 +90,19 @@ describe('contracts', () => {
 
     expect(theme.light.primaryColor).toBe('#3366ff');
     expect(theme.light.harmony).toBe('analogous');
+  });
+
+  it('ThemeModeConfig.harmony accepts all ColorHarmony values', () => {
+    for (const harmony of COLOR_HARMONIES) {
+      const config: ThemeModeConfig = { primaryColor: '#ff0000', harmony };
+      expect(config.harmony).toBe(harmony);
+    }
+  });
+
+  it('serialized theme contains only primaryColor and harmony fields', () => {
+    const mode: ThemeModeConfig = { primaryColor: '#3366ff', harmony: 'complementary' };
+    const keys = Object.keys(mode);
+    expect(keys).toEqual(['primaryColor', 'harmony']);
   });
 
   it('does not ship color generation files from contracts', async () => {
