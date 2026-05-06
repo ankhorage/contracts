@@ -1,9 +1,8 @@
 import type { AuthFlowConfig, AuthIdentifierKind, AuthSignUpField } from './auth';
-import type { ColorHarmony } from './colors';
 
 export interface ThemeModeConfig {
   primaryColor: string;
-  harmony: ColorHarmony;
+  harmony: string;
 }
 
 export interface ThemeConfig {
