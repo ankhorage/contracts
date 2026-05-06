@@ -22,25 +22,26 @@ Shared public contracts for Ankhorage packages and standalone provider packages.
 ```ts
 import type { AppManifest } from '@ankhorage/contracts';
 import type { AuthAdapter } from '@ankhorage/contracts/auth';
-import type { ColorHarmony } from '@ankhorage/contracts/colors';
-import { generateThemeModeColors } from '@ankhorage/contracts/colors';
 import type { DbAdapter } from '@ankhorage/contracts/db';
 ```
 
-`ColorHarmony` describes hue relationships.
-
-Contracts provides deterministic OKLCH-based color generation primitives:
-
-- Harmony palettes (`generateHarmonyPalette`)
-- Swatches that preserve the exact base/key color at step `500` (`generateColorSwatch`)
-- Required neutral swatch generation (`generateNeutralSwatch`)
+Contracts keeps theme configuration serializable. Color validation, harmony,
+swatch generation, contrast helpers, and semantic color references live in
+`@ankhorage/color-theory`.
 
 ```ts
-const generated = generateThemeModeColors({ primaryColor: '#3366ff', harmony: 'analogous' });
+import type { ThemeConfig } from '@ankhorage/contracts';
+
+const theme: ThemeConfig = {
+  id: 'theme-default',
+  name: 'Default',
+  light: { primaryColor: '#3366ff', harmony: 'analogous' },
+  dark: { primaryColor: '#3366ff', harmony: 'analogous' },
+};
 ```
 
 Provider packages can implement the shared contracts without importing runtime,
-CLI, ZORA, Expo Router, or app-generation logic.
+CLI, ZORA, Expo Router, color generation, or app-generation logic.
 
 ```ts
 import type { AuthAdapter } from '@ankhorage/contracts/auth';
@@ -72,6 +73,6 @@ export function createSupabaseAuthAdapter(): AuthAdapter {
 ## 🧠 Why this exists
 
 Contracts separates shared data and runtime contracts from implementation details.
-Standalone packages such as Supabase, Clerk, or database providers can depend on
-these contracts while staying independent from Ankhorage app generation,
-runtime, CLI, and UI packages.
+Standalone packages such as Supabase, Clerk, database providers, or UI/color
+packages can depend on these contracts while staying independent from Ankhorage
+app generation, runtime, CLI, and UI packages.
