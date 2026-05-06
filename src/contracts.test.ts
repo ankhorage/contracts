@@ -238,7 +238,7 @@ describe('contracts', () => {
   it('does not export the internal culori adapter from the public colors barrel', async () => {
     const content = await readFile(join(process.cwd(), 'src/colors/index.ts'), 'utf8');
 
-    expect(content.includes("./culori")).toBe(false);
+    expect(content.includes('./culori')).toBe(false);
   });
 
   it('removes all old tone/mood/recommendation symbols from src recursively', async () => {
