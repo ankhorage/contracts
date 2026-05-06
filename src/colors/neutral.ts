@@ -21,7 +21,9 @@ function pickTintSourceHex(palette: GeneratedHarmonyPalette, harmony: ColorHarmo
     tetradic: palette.tertiary?.hex,
   };
 
-  return byMapping[harmony] ?? palette.tertiary?.hex ?? palette.secondary?.hex ?? palette.primary.hex;
+  return (
+    byMapping[harmony] ?? palette.tertiary?.hex ?? palette.secondary?.hex ?? palette.primary.hex
+  );
 }
 
 function clampNumber(value: number, min: number, max: number): number {
