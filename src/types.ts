@@ -1,8 +1,10 @@
+import type { ColorHarmony } from '@ankhorage/color-theory';
+
 import type { AuthFlowConfig, AuthIdentifierKind, AuthSignUpField } from './auth';
 
 export interface ThemeModeConfig {
   primaryColor: string;
-  harmony: string;
+  harmony: ColorHarmony;
 }
 
 export interface ThemeConfig {
