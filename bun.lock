@@ -5,7 +5,7 @@
     "": {
       "name": "@ankhorage/contracts",
       "dependencies": {
-        "@ankhorage/color-theory": "^0.0.2",
+        "@ankhorage/color-theory": "^0.0.3",
       },
       "devDependencies": {
         "@ankhorage/devtools": "^1.0.0",
@@ -17,7 +17,7 @@
     },
   },
   "packages": {
-    "@ankhorage/color-theory": ["@ankhorage/color-theory@0.0.2", "", { "dependencies": { "culori": "^4.0.2" } }, "sha512-LH9svgC2gUr4O7qvNTmsMQtSnQQ0lAhuUAWMR3vfpNJIQ28nI09Q/TI5Un7sa6g7743dRaUTa0kHgqLa/JPUEg=="],
+    "@ankhorage/color-theory": ["@ankhorage/color-theory@0.0.3", "", { "dependencies": { "culori": "^4.0.2" } }, "sha512-obKcFrEbnhbsrYEOSCDnH4wSEobB+wTIxaUEXDOlq69Oirwzk7Z2Rsu0drmROCnY14ITpCWvE9BEdeCezzLVOg=="],
 
     "@ankhorage/devtools": ["@ankhorage/devtools@1.0.1", "", { "dependencies": { "@eslint/js": "^10.0.1", "eslint": "^10.2.0", "eslint-config-prettier": "^10.1.8", "eslint-plugin-import": "^2.32.0", "eslint-plugin-prettier": "^5.5.5", "eslint-plugin-simple-import-sort": "^12.1.1", "eslint-plugin-unused-imports": "^4.4.1", "prettier": "^3.8.1", "typescript-eslint": "^8.24.0" } }, "sha512-Qpr+TL7biJnUwIYvZtuvG/oXq43+UyBoM+Q61pVDCmTA13Uu/a/A669U9fqJprFAicJfBDWBi/NJ7WvVH+ud/Q=="],
 
