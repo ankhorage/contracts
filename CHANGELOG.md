@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 1.1.1
+
+### Patch Changes
+
+- 1a4c2b5: update package
+
 ## 1.1.0
 
 ### Minor Changes
