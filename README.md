@@ -23,6 +23,7 @@ Shared public contracts for Ankhorage packages and standalone provider packages.
 import type { AppManifest } from '@ankhorage/contracts';
 import type { AuthAdapter } from '@ankhorage/contracts/auth';
 import type { DbAdapter } from '@ankhorage/contracts/db';
+import type { StorageAdapter } from '@ankhorage/contracts/storage';
 ```
 
 Contracts keeps theme configuration serializable. Color validation, harmony,

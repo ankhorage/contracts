@@ -13,7 +13,11 @@ import {
   type AuthFlowConfig,
   type AuthSpec,
   DEPLOYMENT_TARGETS,
+  type ImageAssetSource,
   NAVIGATOR_TYPES,
+  type StoragePublicUrlResult,
+  type StorageResult,
+  type StorageUploadResult,
   type ThemeConfig,
   type ThemeModeConfig,
 } from './index';
@@ -163,5 +167,55 @@ describe('contracts', () => {
     expect(AUTH_SIGN_UP_POLICIES).toEqual(['autoSignIn', 'requireVerification']);
     expect(auth.flow?.signInRoute).toBe('/sign-in');
     expect(auth.signUp?.signUpPolicy).toBe('requireVerification');
+  });
+
+  it('requires data for successful non-void storage results', () => {
+    const uploaded: StorageResult<StorageUploadResult> = {
+      ok: true,
+      data: {
+        asset: {
+          storageId: 'default',
+          bucket: 'app-assets',
+          path: 'images/logo.png',
+        },
+      },
+    };
+
+    expect(uploaded.ok).toBe(true);
+    expect(uploaded.data.asset.bucket).toBe('app-assets');
+    expect(uploaded.data.asset.path).toBe('images/logo.png');
+  });
+
+  it('accepts a public URL result for storage assets', () => {
+    const resolved: StorageResult<StoragePublicUrlResult> = {
+      ok: true,
+      data: {
+        publicUrl: 'https://cdn.example.com/app-assets/images/logo.png',
+      },
+    };
+
+    expect(resolved.ok).toBe(true);
+    expect(resolved.data.publicUrl).toContain('https://');
+  });
+
+  it('serializes image asset sources without provider-specific runtime values', () => {
+    const source: ImageAssetSource = {
+      kind: 'storage',
+      storageId: 'default',
+      bucket: 'app-assets',
+      path: 'images/logo.png',
+      publicUrl: 'https://cdn.example.com/app-assets/images/logo.png',
+      alt: 'Logo',
+      width: 1200,
+      height: 630,
+      contentType: 'image/png',
+      metadata: {
+        fileName: 'logo.png',
+        sizeBytes: 123456,
+        createdAt: '2026-05-10T00:00:00.000Z',
+      },
+    };
+
+    expect(JSON.parse(JSON.stringify(source))).toEqual(source);
   });
 });
