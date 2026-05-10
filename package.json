@@ -31,6 +31,15 @@
     }
   },
   "description": "Serializable app, action, and theme config contracts for Ankhorage.",
+  "keywords": [
+    "typescript",
+    "contracts",
+    "schema",
+    "manifest",
+    "auth",
+    "storage",
+    "adapter"
+  ],
   "files": [
     "dist",
     "src",
