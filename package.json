@@ -3,7 +3,7 @@
   "version": "1.1.1",
   "main": "./dist/index.js",
   "dependencies": {
-    "@ankhorage/color-theory": "^0.0.3"
+    "@ankhorage/color-theory": "^0.0.4"
   },
   "devDependencies": {
     "@ankhorage/devtools": "^1.0.0",
@@ -24,6 +24,10 @@
     "./db": {
       "types": "./dist/db.d.ts",
       "default": "./dist/db.js"
+    },
+    "./storage": {
+      "types": "./dist/storage.d.ts",
+      "default": "./dist/storage.js"
     }
   },
   "description": "Serializable app, action, and theme config contracts for Ankhorage.",
