@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 1.3.0
+
+### Minor Changes
+
+- 9dadeaf: Replace the database contract surface with canonical provider-neutral CRUD capabilities and add realtime subscription plus privileged admin/schema contracts.
+
 ## 1.2.0
 
 ### Minor Changes
