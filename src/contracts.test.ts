@@ -230,21 +230,21 @@ describe('contracts', () => {
         returning: true,
         realtime: false,
       },
-      async select() {
-        return { ok: true, data: [{ id: 'post-1', title: 'Hello' }] };
+      select() {
+        return Promise.resolve({ ok: true, data: [{ id: 'post-1', title: 'Hello' }] });
       },
-      async findById() {
-        return { ok: true, data: { id: 'post-1', title: 'Hello' } };
+      findById() {
+        return Promise.resolve({ ok: true, data: { id: 'post-1', title: 'Hello' } });
       },
-      async insert(input) {
+      insert(input) {
         const values = Array.isArray(input.values) ? input.values : [input.values];
-        return { ok: true, data: values };
+        return Promise.resolve({ ok: true, data: values });
       },
-      async update() {
-        return { ok: true, data: [{ id: 'post-1', title: 'Updated' }] };
+      update() {
+        return Promise.resolve({ ok: true, data: [{ id: 'post-1', title: 'Updated' }] });
       },
-      async delete() {
-        return { ok: true, data: [{ id: 'post-1', title: 'Deleted' }] };
+      delete() {
+        return Promise.resolve({ ok: true, data: [{ id: 'post-1', title: 'Deleted' }] });
       },
     };
 
@@ -291,7 +291,7 @@ describe('contracts', () => {
       received.push(event);
     });
 
-    subscription.unsubscribe();
+    void subscription.unsubscribe();
 
     expect(received).toEqual([
       {
@@ -310,19 +310,19 @@ describe('contracts', () => {
         schemaGeneration: true,
         directExecution: false,
       },
-      async createCollection(input) {
-        return {
+      createCollection(input) {
+        return Promise.resolve({
           ok: true,
           executed: false,
           sql: `create table ${input.name}`,
-        };
+        });
       },
-      async deleteCollection(input) {
-        return {
+      deleteCollection(input) {
+        return Promise.resolve({
           ok: true,
           executed: false,
           sql: `drop table ${input.name}`,
-        };
+        });
       },
       generateCreateCollectionSql(input) {
         return {
