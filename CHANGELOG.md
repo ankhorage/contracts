@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 1.3.1
+
+### Patch Changes
+
+- f7580f4: Update packages
+
 ## 1.3.0
 
 ### Minor Changes
