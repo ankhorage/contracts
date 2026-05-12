@@ -126,7 +126,7 @@ export interface DbSubscription {
   unsubscribe(): Promise<void> | void;
 }
 
-export interface DbCollectionSubscriptionInput extends DbTableInput {}
+export type DbCollectionSubscriptionInput = DbTableInput;
 
 export interface DbRecordSubscriptionInput extends DbCollectionSubscriptionInput {
   readonly id: string | number;
