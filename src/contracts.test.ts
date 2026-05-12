@@ -12,6 +12,10 @@ import {
   AUTH_SIGN_UP_POLICIES,
   type AuthFlowConfig,
   type AuthSpec,
+  type DbAdapter,
+  type DbAdminAdapter,
+  type DbChangeEvent,
+  type DbRealtimeAdapter,
   DEPLOYMENT_TARGETS,
   type ImageAssetSource,
   NAVIGATOR_TYPES,
@@ -217,5 +221,135 @@ describe('contracts', () => {
     };
 
     expect(JSON.parse(JSON.stringify(source))).toEqual(source);
+  });
+
+  it('accepts a provider-neutral CRUD database adapter', async () => {
+    const adapter: DbAdapter = {
+      capabilities: {
+        transactions: false,
+        returning: true,
+        realtime: false,
+      },
+      select() {
+        return Promise.resolve({ ok: true, data: [{ id: 'post-1', title: 'Hello' }] });
+      },
+      findById() {
+        return Promise.resolve({ ok: true, data: { id: 'post-1', title: 'Hello' } });
+      },
+      insert(input) {
+        const values = Array.isArray(input.values) ? input.values : [input.values];
+        return Promise.resolve({ ok: true, data: values });
+      },
+      update() {
+        return Promise.resolve({ ok: true, data: [{ id: 'post-1', title: 'Updated' }] });
+      },
+      delete() {
+        return Promise.resolve({ ok: true, data: [{ id: 'post-1', title: 'Deleted' }] });
+      },
+    };
+
+    const result = await adapter.select({
+      table: 'posts',
+      filters: [{ field: 'title', operator: 'startsWith', value: 'Hel' }],
+      sort: [{ field: 'title', direction: 'asc' }],
+      page: { limit: 10 },
+    });
+
+    expect(result.ok).toBe(true);
+    expect(result.ok ? result.data[0]?.id : undefined).toBe('post-1');
+  });
+
+  it('accepts a provider-neutral realtime database adapter', () => {
+    const received: DbChangeEvent[] = [];
+    const adapter: DbRealtimeAdapter = {
+      realtime: {
+        subscribeToCollection(_input, listener) {
+          listener({
+            table: 'posts',
+            schema: 'public',
+            kind: 'insert',
+            record: { id: 'post-1' },
+            committedAt: '2026-05-12T10:00:00.000Z',
+          });
+
+          return { unsubscribe: () => undefined };
+        },
+        subscribeToRecord(_input, listener) {
+          listener({
+            table: 'posts',
+            kind: 'update',
+            record: { id: 'post-1', title: 'Updated' },
+            previousRecord: { id: 'post-1', title: 'Old' },
+          });
+
+          return { unsubscribe: () => undefined };
+        },
+      },
+    };
+
+    const subscription = adapter.realtime.subscribeToCollection({ table: 'posts' }, (event) => {
+      received.push(event);
+    });
+
+    void subscription.unsubscribe();
+
+    expect(received).toEqual([
+      {
+        table: 'posts',
+        schema: 'public',
+        kind: 'insert',
+        record: { id: 'post-1' },
+        committedAt: '2026-05-12T10:00:00.000Z',
+      },
+    ]);
+  });
+
+  it('accepts a provider-neutral database admin adapter', async () => {
+    const adapter: DbAdminAdapter = {
+      capabilities: {
+        schemaGeneration: true,
+        directExecution: false,
+      },
+      createCollection(input) {
+        return Promise.resolve({
+          ok: true,
+          executed: false,
+          sql: `create table ${input.name}`,
+        });
+      },
+      deleteCollection(input) {
+        return Promise.resolve({
+          ok: true,
+          executed: false,
+          sql: `drop table ${input.name}`,
+        });
+      },
+      generateCreateCollectionSql(input) {
+        return {
+          ok: true,
+          executed: false,
+          sql: `create table ${input.name}`,
+        };
+      },
+      generateDeleteCollectionSql(input) {
+        return {
+          ok: true,
+          executed: false,
+          sql: `drop table ${input.name}`,
+        };
+      },
+    };
+
+    const result = await adapter.createCollection({
+      name: 'posts',
+      schema: 'public',
+      primaryKey: 'id',
+      fields: [
+        { name: 'title', type: 'text', required: true },
+        { name: 'metadata', type: 'json' },
+      ],
+    });
+
+    expect(result).toEqual({ ok: true, executed: false, sql: 'create table posts' });
   });
 });
