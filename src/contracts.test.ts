@@ -13,11 +13,16 @@ import {
   AUTH_SIGN_UP_POLICIES,
   type AuthFlowConfig,
   type AuthSpec,
+  type ButtonPressEventDto,
+  type CollectionItemPressEventDto,
+  type ComponentEventDto,
+  type ComponentEventDtoKind,
   type DbAdapter,
   type DbAdminAdapter,
   type DbChangeEvent,
   type DbRealtimeAdapter,
   DEPLOYMENT_TARGETS,
+  type FormSubmitEventDto,
   type ImageAssetSource,
   NAVIGATOR_TYPES,
   type StoragePublicUrlResult,
@@ -272,6 +277,65 @@ describe('contracts', () => {
 
     expect(binding.when?.operator).toBe('exists');
     expect(binding.payload?.collection).toBe('contact_messages');
+  });
+
+  it('serializes normalized form submit event DTOs', () => {
+    const event: FormSubmitEventDto = {
+      type: 'form.submit',
+      sourceNodeId: 'contact-form',
+      payload: {
+        values: {
+          firstname: 'Fabio',
+          message: 'This is my contact message',
+          newsletter: true,
+        },
+      },
+    };
+
+    expect(JSON.parse(JSON.stringify(event))).toEqual(event);
+    expect(event.payload.values.message).toBe('This is my contact message');
+  });
+
+  it('serializes normalized button press event DTOs', () => {
+    const event: ButtonPressEventDto = {
+      type: 'button.press',
+      sourceNodeId: 'submit-button',
+      payload: {},
+    };
+
+    expect(JSON.parse(JSON.stringify(event))).toEqual(event);
+    expect(event.type).toBe('button.press');
+  });
+
+  it('serializes normalized collection item press event DTOs', () => {
+    const event: CollectionItemPressEventDto = {
+      type: 'collection.itemPress',
+      sourceNodeId: 'posts-list',
+      payload: {
+        itemId: 'post-1',
+        item: {
+          id: 'post-1',
+          title: 'Hello',
+        },
+      },
+    };
+
+    expect(JSON.parse(JSON.stringify(event))).toEqual(event);
+    expect(event.payload.item.title).toBe('Hello');
+  });
+
+  it('accepts custom component event DTOs through the same envelope', () => {
+    const event: ComponentEventDto<'media.play', { readonly mediaId: string }> = {
+      type: 'media.play',
+      sourceNodeId: 'hero-video',
+      payload: {
+        mediaId: 'video-1',
+      },
+    };
+    const knownEventType: ComponentEventDtoKind = 'form.submit';
+
+    expect(event.payload.mediaId).toBe('video-1');
+    expect(knownEventType).toBe('form.submit');
   });
 
   it('accepts a provider-neutral CRUD database adapter', async () => {
