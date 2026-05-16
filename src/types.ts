@@ -109,6 +109,48 @@ export interface ActionBinding {
 
 export type UiNodeEventBindings = Record<string, readonly ActionBinding[]>;
 
+export type ComponentEventPayloadValue = ManifestValue;
+
+export interface ComponentEventDto<
+  TType extends string = string,
+  TPayload extends object = Record<string, ComponentEventPayloadValue>,
+> {
+  readonly type: TType;
+  readonly sourceNodeId: string;
+  readonly payload: TPayload;
+}
+
+export type FormSubmitValues = Record<string, ComponentEventPayloadValue>;
+
+export type FormSubmitEventDto = ComponentEventDto<
+  'form.submit',
+  {
+    readonly values: FormSubmitValues;
+  }
+>;
+
+export type ButtonPressEventDto = ComponentEventDto<'button.press', Record<string, never>>;
+
+export interface CollectionItemPressPayload {
+  readonly itemId: string | number;
+  readonly item: Record<string, ComponentEventPayloadValue>;
+}
+
+export type CollectionItemPressEventDto = ComponentEventDto<
+  'collection.itemPress',
+  CollectionItemPressPayload
+>;
+
+export type ComponentEventDtoKind =
+  | ButtonPressEventDto['type']
+  | CollectionItemPressEventDto['type']
+  | FormSubmitEventDto['type'];
+
+export type KnownComponentEventDto =
+  | ButtonPressEventDto
+  | CollectionItemPressEventDto
+  | FormSubmitEventDto;
+
 export const NAVIGATOR_TYPES = ['stack', 'tabs', 'drawer'] as const;
 export type NavigatorType = (typeof NAVIGATOR_TYPES)[number];
 
