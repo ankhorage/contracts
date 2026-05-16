@@ -5,8 +5,8 @@ import { COLOR_HARMONIES } from '@ankhorage/color-theory';
 import { describe, expect, it } from 'bun:test';
 
 import {
-  APP_CATEGORIES,
   type ActionBinding,
+  APP_CATEGORIES,
   type AppCategory,
   AUTH_PROVIDERS,
   AUTH_SIGN_IN_IDENTIFIERS,
@@ -254,10 +254,7 @@ describe('contracts', () => {
     };
 
     expect(JSON.parse(JSON.stringify(node))).toEqual(node);
-    expect(node.events?.submit?.map((action) => action.type)).toEqual([
-      'email.send',
-      'db.persist',
-    ]);
+    expect(node.events?.submit?.map((action) => action.type)).toEqual(['email.send', 'db.persist']);
   });
 
   it('accepts conditional node event bindings', () => {
