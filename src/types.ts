@@ -88,7 +88,9 @@ export type ManifestValue =
   | readonly ManifestValue[]
   | { readonly [key: string]: ManifestValue };
 
-export type ActionBindingPayload = Record<string, ManifestValue>;
+export type ActionValue = ManifestValue;
+
+export type ActionBindingPayload = Record<string, ActionValue>;
 
 export type ActionConditionSource = 'context' | 'event' | 'state';
 
@@ -98,16 +100,108 @@ export interface ActionCondition {
   readonly source: ActionConditionSource;
   readonly path: string;
   readonly operator: ActionConditionOperator;
-  readonly value?: ManifestValue;
+  readonly value?: ActionValue;
 }
 
-export interface ActionBinding {
-  readonly type: string;
-  readonly payload?: ActionBindingPayload;
+export type ActionValueSource =
+  | {
+      readonly source: 'context';
+      readonly path: string;
+    }
+  | {
+      readonly source: 'event';
+      readonly path: string;
+    }
+  | {
+      readonly source: 'literal';
+      readonly value: ActionValue;
+    }
+  | {
+      readonly source: 'state';
+      readonly path: string;
+    };
+
+export type ActionValueTransform = 'lowercase' | 'trim' | 'uppercase';
+
+export interface ActionValueBinding {
+  readonly valueFrom: ActionValueSource;
+  readonly transform?: ActionValueTransform | readonly ActionValueTransform[];
+}
+
+export interface ActionBinding<
+  TType extends string = string,
+  TPayload extends object = ActionBindingPayload,
+> {
+  readonly type: TType;
+  readonly payload?: TPayload;
   readonly when?: ActionCondition;
 }
 
-export type UiNodeEventBindings = Record<string, readonly ActionBinding[]>;
+export type DbPersistMode = 'columns' | 'json';
+
+export interface DbPersistFieldBinding {
+  readonly field: string;
+  readonly valueFrom: ActionValueSource;
+  readonly transform?: ActionValueTransform | readonly ActionValueTransform[];
+}
+
+export interface DbPersistActionPayload {
+  readonly collection: string;
+  readonly kind?: string;
+  readonly mode?: DbPersistMode;
+  readonly jsonField?: string;
+  readonly values: readonly DbPersistFieldBinding[];
+}
+
+export interface DbPersistActionBinding extends ActionBinding<
+  'db.persist',
+  DbPersistActionPayload
+> {
+  readonly payload: DbPersistActionPayload;
+}
+
+export interface EmailSendActionPayload {
+  readonly to: string;
+  readonly subject?: string;
+  readonly body?: string;
+  readonly bodyFrom?: ActionValueSource;
+}
+
+export interface EmailSendActionBinding extends ActionBinding<
+  'email.send',
+  EmailSendActionPayload
+> {
+  readonly payload: EmailSendActionPayload;
+}
+
+export type KnownActionBinding = DbPersistActionBinding | EmailSendActionBinding;
+
+export type UiNodeEventBindings = Record<string, readonly ActionBinding<string, object>[]>;
+
+export interface CommandDto<
+  TType extends string = string,
+  TPayload extends object = Record<string, ActionValue>,
+> {
+  readonly type: TType;
+  readonly payload: TPayload;
+}
+
+export type DbPersistOperation = 'insert';
+
+export type DbPersistCommandValues = Record<string, ActionValue>;
+
+export interface DbPersistCommandPayload {
+  readonly operation: DbPersistOperation;
+  readonly collection: string;
+  readonly kind?: string;
+  readonly mode?: DbPersistMode;
+  readonly jsonField?: string;
+  readonly values: DbPersistCommandValues;
+}
+
+export type DbPersistCommand = CommandDto<'db.persist.command', DbPersistCommandPayload>;
+
+export type KnownCommandDto = DbPersistCommand;
 
 export type ComponentEventPayloadValue = ManifestValue;
 
