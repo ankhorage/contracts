@@ -151,7 +151,7 @@ describe('StateAdapter', () => {
     expect(snapshots).toEqual([1, 2]);
   });
 
-  it('stops notifying after unsubscribe', () => {
+  it('stops notifying after unsubscribe', async () => {
     const adapter = createFakeStateAdapter();
     const snapshots: StateValue[] = [];
     const subscriptionResult = adapter.subscribe('counter.value', ({ value }) => {
@@ -165,7 +165,7 @@ describe('StateAdapter', () => {
     }
 
     adapter.set('counter.value', 1);
-    subscriptionResult.data.unsubscribe();
+    await subscriptionResult.data.unsubscribe();
     adapter.set('counter.value', 2);
 
     expect(snapshots).toEqual([1]);
