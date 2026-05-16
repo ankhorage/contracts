@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 1.5.0
+
+### Minor Changes
+
+- 524a288: Add normalized component event DTO contracts for stable component-emitted event envelopes, including form submit, button press, and collection item press events.
+
 ## 1.4.0
 
 ### Minor Changes
