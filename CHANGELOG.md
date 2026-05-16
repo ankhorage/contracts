@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 1.6.0
+
+### Minor Changes
+
+- bde43ab: Add provider-neutral action value sources, typed action bindings, and normalized command DTO contracts for event-driven runtime action resolution.
+
 ## 1.5.0
 
 ### Minor Changes
