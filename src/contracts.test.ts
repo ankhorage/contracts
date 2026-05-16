@@ -7,6 +7,7 @@ import { describe, expect, it } from 'bun:test';
 import {
   type ActionBinding,
   APP_CATEGORIES,
+  type ActionValueSource,
   type AppCategory,
   AUTH_PROVIDERS,
   AUTH_SIGN_IN_IDENTIFIERS,
@@ -20,10 +21,15 @@ import {
   type DbAdapter,
   type DbAdminAdapter,
   type DbChangeEvent,
+  type DbPersistActionBinding,
+  type DbPersistCommand,
   type DbRealtimeAdapter,
   DEPLOYMENT_TARGETS,
+  type EmailSendActionBinding,
   type FormSubmitEventDto,
   type ImageAssetSource,
+  type KnownActionBinding,
+  type KnownCommandDto,
   NAVIGATOR_TYPES,
   type StoragePublicUrlResult,
   type StorageResult,
@@ -336,6 +342,121 @@ describe('contracts', () => {
 
     expect(event.payload.mediaId).toBe('video-1');
     expect(knownEventType).toBe('form.submit');
+  });
+
+  it('serializes provider-neutral value sources for action payloads', () => {
+    const sources: readonly ActionValueSource[] = [
+      { source: 'event', path: 'payload.values.email' },
+      { source: 'literal', value: 'website-contact-form' },
+      { source: 'context', path: 'auth.user.id' },
+      { source: 'state', path: 'forms.contact.isSubmitting' },
+    ];
+
+    expect(JSON.parse(JSON.stringify(sources))).toEqual(sources);
+    expect(sources.map((source) => source.source)).toEqual([
+      'event',
+      'literal',
+      'context',
+      'state',
+    ]);
+  });
+
+  it('serializes a typed db.persist action binding', () => {
+    const binding: DbPersistActionBinding = {
+      type: 'db.persist',
+      payload: {
+        collection: 'contact_messages',
+        mode: 'columns',
+        values: [
+          {
+            field: 'firstname',
+            valueFrom: { source: 'event', path: 'payload.values.firstname' },
+            transform: 'trim',
+          },
+          {
+            field: 'message',
+            valueFrom: { source: 'event', path: 'payload.values.message' },
+          },
+          {
+            field: 'source',
+            valueFrom: { source: 'literal', value: 'website-contact-form' },
+          },
+        ],
+      },
+    };
+
+    expect(JSON.parse(JSON.stringify(binding))).toEqual(binding);
+    expect(binding.payload.values.map((value) => value.field)).toEqual([
+      'firstname',
+      'message',
+      'source',
+    ]);
+  });
+
+  it('serializes a typed email.send action binding', () => {
+    const binding: EmailSendActionBinding = {
+      type: 'email.send',
+      payload: {
+        to: 'info@example.com',
+        subject: 'New contact message',
+        bodyFrom: { source: 'event', path: 'payload.values.message' },
+      },
+    };
+
+    expect(JSON.parse(JSON.stringify(binding))).toEqual(binding);
+    expect(binding.payload.bodyFrom?.source).toBe('event');
+  });
+
+  it('accepts typed action bindings in node event bindings', () => {
+    const persist: DbPersistActionBinding = {
+      type: 'db.persist',
+      payload: {
+        collection: 'contact_messages',
+        values: [
+          {
+            field: 'message',
+            valueFrom: { source: 'event', path: 'payload.values.message' },
+          },
+        ],
+      },
+    };
+    const email: EmailSendActionBinding = {
+      type: 'email.send',
+      payload: {
+        to: 'info@example.com',
+        bodyFrom: { source: 'event', path: 'payload.values.message' },
+      },
+    };
+    const node: UiNode = {
+      id: 'contact-form',
+      type: 'Form',
+      events: {
+        submit: [persist, email],
+      },
+    };
+    const known: KnownActionBinding = persist;
+
+    expect(node.events?.submit?.map((action) => action.type)).toEqual(['db.persist', 'email.send']);
+    expect(known.type).toBe('db.persist');
+  });
+
+  it('serializes a normalized db.persist command DTO', () => {
+    const command: DbPersistCommand = {
+      type: 'db.persist.command',
+      payload: {
+        operation: 'insert',
+        collection: 'contact_messages',
+        mode: 'columns',
+        values: {
+          firstname: 'Fabio',
+          message: 'This is my contact message',
+        },
+      },
+    };
+    const knownCommand: KnownCommandDto = command;
+
+    expect(JSON.parse(JSON.stringify(command))).toEqual(command);
+    expect(knownCommand.type).toBe('db.persist.command');
   });
 
   it('accepts a provider-neutral CRUD database adapter', async () => {
