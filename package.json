@@ -21,6 +21,10 @@
       "types": "./dist/auth.d.ts",
       "default": "./dist/auth.js"
     },
+    "./bindings": {
+      "types": "./dist/bindings.d.ts",
+      "default": "./dist/bindings.js"
+    },
     "./db": {
       "types": "./dist/db.d.ts",
       "default": "./dist/db.js"
