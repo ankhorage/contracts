@@ -80,6 +80,35 @@ export type Action =
   | SetLanguageAction
   | ToggleDarkModeAction;
 
+export type ManifestValue =
+  | string
+  | number
+  | boolean
+  | null
+  | readonly ManifestValue[]
+  | { readonly [key: string]: ManifestValue };
+
+export type ActionBindingPayload = Record<string, ManifestValue>;
+
+export type ActionConditionSource = 'context' | 'event' | 'state';
+
+export type ActionConditionOperator = 'eq' | 'exists' | 'neq' | 'notExists';
+
+export interface ActionCondition {
+  readonly source: ActionConditionSource;
+  readonly path: string;
+  readonly operator: ActionConditionOperator;
+  readonly value?: ManifestValue;
+}
+
+export interface ActionBinding {
+  readonly type: string;
+  readonly payload?: ActionBindingPayload;
+  readonly when?: ActionCondition;
+}
+
+export type UiNodeEventBindings = Record<string, readonly ActionBinding[]>;
+
 export const NAVIGATOR_TYPES = ['stack', 'tabs', 'drawer'] as const;
 export type NavigatorType = (typeof NAVIGATOR_TYPES)[number];
 
@@ -167,6 +196,7 @@ export interface UiNode {
   props?: Record<string, unknown>;
   children?: UiNode[];
   style?: Record<string, number | string>;
+  events?: UiNodeEventBindings;
 }
 
 export interface ScreenSpec {

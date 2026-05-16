@@ -5,6 +5,7 @@ import { COLOR_HARMONIES } from '@ankhorage/color-theory';
 import { describe, expect, it } from 'bun:test';
 
 import {
+  type ActionBinding,
   APP_CATEGORIES,
   type AppCategory,
   AUTH_PROVIDERS,
@@ -24,6 +25,7 @@ import {
   type StorageUploadResult,
   type ThemeConfig,
   type ThemeModeConfig,
+  type UiNode,
 } from './index';
 
 async function collectTypeScriptFiles(directory: string): Promise<string[]> {
@@ -221,6 +223,55 @@ describe('contracts', () => {
     };
 
     expect(JSON.parse(JSON.stringify(source))).toEqual(source);
+  });
+
+  it('serializes node event bindings for submit actions', () => {
+    const node: UiNode = {
+      id: 'contact-form',
+      type: 'Form',
+      props: {
+        title: 'Contact us',
+      },
+      events: {
+        submit: [
+          {
+            type: 'email.send',
+            payload: {
+              to: 'info@example.com',
+              subject: 'New contact message',
+              bodyFrom: 'payload.values.message',
+            },
+          },
+          {
+            type: 'db.persist',
+            payload: {
+              collection: 'contact_messages',
+              mode: 'columns',
+            },
+          },
+        ],
+      },
+    };
+
+    expect(JSON.parse(JSON.stringify(node))).toEqual(node);
+    expect(node.events?.submit?.map((action) => action.type)).toEqual(['email.send', 'db.persist']);
+  });
+
+  it('accepts conditional node event bindings', () => {
+    const binding: ActionBinding = {
+      type: 'db.persist',
+      payload: {
+        collection: 'contact_messages',
+      },
+      when: {
+        source: 'event',
+        path: 'payload.values.email',
+        operator: 'exists',
+      },
+    };
+
+    expect(binding.when?.operator).toBe('exists');
+    expect(binding.payload?.collection).toBe('contact_messages');
   });
 
   it('accepts a provider-neutral CRUD database adapter', async () => {
