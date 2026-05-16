@@ -6,8 +6,8 @@ import { describe, expect, it } from 'bun:test';
 
 import {
   type ActionBinding,
-  APP_CATEGORIES,
   type ActionValueSource,
+  APP_CATEGORIES,
   type AppCategory,
   AUTH_PROVIDERS,
   AUTH_SIGN_IN_IDENTIFIERS,

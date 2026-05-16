@@ -153,8 +153,10 @@ export interface DbPersistActionPayload {
   readonly values: readonly DbPersistFieldBinding[];
 }
 
-export interface DbPersistActionBinding
-  extends ActionBinding<'db.persist', DbPersistActionPayload> {
+export interface DbPersistActionBinding extends ActionBinding<
+  'db.persist',
+  DbPersistActionPayload
+> {
   readonly payload: DbPersistActionPayload;
 }
 
@@ -165,7 +167,10 @@ export interface EmailSendActionPayload {
   readonly bodyFrom?: ActionValueSource;
 }
 
-export interface EmailSendActionBinding extends ActionBinding<'email.send', EmailSendActionPayload> {
+export interface EmailSendActionBinding extends ActionBinding<
+  'email.send',
+  EmailSendActionPayload
+> {
   readonly payload: EmailSendActionPayload;
 }
 
