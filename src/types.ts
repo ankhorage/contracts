@@ -113,10 +113,7 @@ export type ComponentEventPayloadValue = ManifestValue;
 
 export interface ComponentEventDto<
   TType extends string = string,
-  TPayload extends Record<string, ComponentEventPayloadValue> = Record<
-    string,
-    ComponentEventPayloadValue
-  >,
+  TPayload extends object = Record<string, ComponentEventPayloadValue>,
 > {
   readonly type: TType;
   readonly sourceNodeId: string;
