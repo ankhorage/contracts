@@ -25,6 +25,10 @@
       "types": "./dist/db.d.ts",
       "default": "./dist/db.js"
     },
+    "./state": {
+      "types": "./dist/state.d.ts",
+      "default": "./dist/state.js"
+    },
     "./storage": {
       "types": "./dist/storage.d.ts",
       "default": "./dist/storage.js"
