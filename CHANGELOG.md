@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 1.8.0
+
+### Minor Changes
+
+- e70556e: Add provider-neutral data and state binding contracts for manifest node props and database collection queries.
+
 ## 1.7.0
 
 ### Minor Changes
