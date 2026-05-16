@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 1.7.0
+
+### Minor Changes
+
+- eff4efc: Add provider-neutral state adapter contracts for path-based reads, writes, subscriptions, and optional removal support.
+
 ## 1.6.0
 
 ### Minor Changes
