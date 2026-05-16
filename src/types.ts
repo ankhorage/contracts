@@ -1,6 +1,7 @@
 import type { ColorHarmony } from '@ankhorage/color-theory';
 
 import type { AuthFlowConfig, AuthIdentifierKind, AuthSignUpField } from './auth';
+import type { NodePropBinding } from './bindings';
 
 export interface ThemeModeConfig {
   primaryColor: string;
@@ -330,6 +331,7 @@ export interface UiNode {
   type: string;
   alias?: string;
   props?: Record<string, unknown>;
+  bindings?: readonly NodePropBinding[];
   children?: UiNode[];
   style?: Record<string, number | string>;
   events?: UiNodeEventBindings;
