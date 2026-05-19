@@ -149,9 +149,9 @@ describe('data source contracts', () => {
 
     assertSerializable(source);
     expect(source.import?.url).toContain('openapi.json');
-    expect(source.endpoints.products?.operations.getProduct?.request?.parameters?.[0]?.location).toBe(
-      'path',
-    );
+    expect(
+      source.endpoints.products?.operations.getProduct?.request?.parameters?.[0]?.location,
+    ).toBe('path');
   });
 
   it('serializes a GraphQL data source with query and mutation operations', () => {
