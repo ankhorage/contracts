@@ -125,4 +125,6 @@ export interface ComponentDataBinding {
   readonly events?: Readonly<Record<string, readonly EventBinding[]>>;
 }
 
-export type ComponentDataBindingRegistry = Readonly<Record<ComponentInstanceId, ComponentDataBinding>>;
+export type ComponentDataBindingRegistry = Readonly<
+  Record<ComponentInstanceId, ComponentDataBinding>
+>;
