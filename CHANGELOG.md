@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 1.12.0
+
+### Minor Changes
+
+- 440f28e: Replace node-local prop bindings with app-level component data-binding contracts that reference data-source operations.
+
 ## 1.11.0
 
 ### Minor Changes
