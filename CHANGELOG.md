@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 1.10.0
+
+### Minor Changes
+
+- d637fdc: Add provider-neutral UI component metadata contracts for component registries and extension package manifests.
+
 ## 1.9.0
 
 ### Minor Changes
