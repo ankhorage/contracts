@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 1.11.0
+
+### Minor Changes
+
+- 17b8d75: Add bindable component metadata contracts for declaring data-bindable component props and events.
+
 ## 1.10.0
 
 ### Minor Changes
