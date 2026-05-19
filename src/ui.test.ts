@@ -1,10 +1,6 @@
 import { describe, expect, it } from 'bun:test';
 
-import type {
-  UiComponentMeta,
-  UiComponentMetaRegistry,
-  UiComponentPackageManifest,
-} from './index';
+import type { UiComponentMeta, UiComponentMetaRegistry, UiComponentPackageManifest } from './index';
 
 function assertSerializable<TValue>(value: TValue): void {
   expect(JSON.parse(JSON.stringify(value))).toEqual(value);
