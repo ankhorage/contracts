@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 1.9.0
+
+### Minor Changes
+
+- d1e08cc: Add provider-neutral data-source, endpoint, operation, schema, credential, adapter, and diagnostic contracts.
+
 ## 1.8.0
 
 ### Minor Changes
