@@ -85,6 +85,58 @@ export interface UiComponentEventMeta {
   readonly payloadFields?: readonly UiComponentEventPayloadFieldMeta[];
 }
 
+export type UiBindableValueType =
+  | 'array'
+  | 'boolean'
+  | 'date'
+  | 'imageAsset'
+  | 'number'
+  | 'object'
+  | 'record'
+  | 'string'
+  | 'unknown';
+
+export interface UiBindableValueFieldMeta {
+  readonly path: string;
+  readonly type: UiBindableValueType;
+  readonly label?: string;
+  readonly description?: string;
+  readonly required?: boolean;
+}
+
+export interface UiBindableValueMeta {
+  readonly type: UiBindableValueType;
+  readonly label?: string;
+  readonly description?: string;
+  readonly fields?: readonly UiBindableValueFieldMeta[];
+  readonly itemType?: UiBindableValueType;
+}
+
+export interface UiBindablePropMeta {
+  readonly value: UiBindableValueMeta;
+  readonly label?: string;
+  readonly description?: string;
+  readonly required?: boolean;
+  readonly acceptsFallback?: boolean;
+  readonly acceptsTransforms?: boolean;
+}
+
+export interface UiBindableEventPayloadMeta {
+  readonly eventType: UiComponentEventPayloadKind;
+  readonly fields?: readonly UiComponentEventPayloadFieldMeta[];
+}
+
+export interface UiBindableEventMeta {
+  readonly label?: string;
+  readonly description?: string;
+  readonly payload?: UiBindableEventPayloadMeta;
+}
+
+export interface UiComponentBindingMeta {
+  readonly props?: Readonly<Record<string, UiBindablePropMeta>>;
+  readonly events?: Readonly<Record<string, UiBindableEventMeta>>;
+}
+
 export interface UiComponentSlotMeta {
   readonly label?: string;
   readonly allowedChildren?: readonly string[];
@@ -96,6 +148,7 @@ export interface UiComponentMeta {
   readonly description?: string;
   readonly directManifestNode: boolean;
   readonly allowedChildren: readonly string[];
+  readonly bindings?: UiComponentBindingMeta;
   readonly blueprint?: UiComponentBlueprint;
   readonly events?: Readonly<Record<string, UiComponentEventMeta>>;
   readonly i18n?: UiComponentI18nMeta;
