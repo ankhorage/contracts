@@ -1,11 +1,6 @@
 import type { ColorHarmony } from '@ankhorage/color-theory';
 
-import type {
-  AuthFlowConfig,
-  AuthIdentifierKind,
-  AuthOAuthConfig,
-  AuthSignUpField,
-} from './auth';
+import type { AuthFlowConfig, AuthIdentifierKind, AuthOAuthConfig, AuthSignUpField } from './auth';
 import type { ComponentDataBindingRegistry } from './bindings';
 import type { DataSourceRegistry } from './data';
 
