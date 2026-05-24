@@ -7,6 +7,7 @@ import { describe, expect, it } from 'bun:test';
 import {
   APP_CATEGORIES,
   type AppCategory,
+  type AppManifest,
   AUTH_PROVIDERS,
   AUTH_SIGN_IN_IDENTIFIERS,
   AUTH_SIGN_UP_POLICIES,
@@ -24,6 +25,7 @@ import {
   type FormSubmitEventDto,
   type ImageAssetSource,
   NAVIGATOR_TYPES,
+  type SplashScreenSpec,
   type StoragePublicUrlResult,
   type StorageResult,
   type StorageUploadResult,
@@ -103,6 +105,25 @@ describe('contracts', () => {
 
     expect(theme.light.primaryColor).toBe('#3366ff');
     expect(theme.light.harmony).toBe('analogous');
+  });
+
+  it('accepts serializable splash screen branding on app manifests', () => {
+    const splashScreen: SplashScreenSpec = {
+      backgroundColor: '#ffffff',
+      image: './assets/splash/icon.png',
+      imageWidth: 160,
+      resizeMode: 'contain',
+      dark: {
+        backgroundColor: '#000000',
+        image: './assets/splash/icon-dark.png',
+        imageWidth: 160,
+        resizeMode: 'contain',
+      },
+    };
+
+    const manifest: Pick<AppManifest, 'splashScreen'> = { splashScreen };
+
+    expect(JSON.parse(JSON.stringify(manifest))).toEqual({ splashScreen });
   });
 
   it('ThemeModeConfig.harmony accepts all ColorHarmony values', () => {

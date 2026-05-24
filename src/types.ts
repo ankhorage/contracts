@@ -247,6 +247,22 @@ export interface RouteDefinition {
   navigator?: NavigatorSpec;
 }
 
+export type SplashScreenResizeMode = 'contain' | 'cover' | 'native';
+
+export interface SplashScreenAssetSpec {
+  readonly image?: string;
+  readonly imageWidth?: number;
+  readonly resizeMode?: SplashScreenResizeMode;
+}
+
+export interface SplashScreenModeSpec extends SplashScreenAssetSpec {
+  readonly backgroundColor?: string;
+}
+
+export interface SplashScreenSpec extends SplashScreenModeSpec {
+  readonly dark?: SplashScreenModeSpec;
+}
+
 export interface DeploymentSpec {
   target: DeploymentTarget;
   monitoring: boolean;
@@ -319,6 +335,7 @@ export interface AppManifest {
   themes: ThemeConfig[];
   activeThemeId: string;
   activeThemeMode?: 'dark' | 'light';
+  splashScreen?: SplashScreenSpec;
   infra: InfraManifest;
   navigator: NavigatorSpec;
   screens: Record<string, ScreenSpec>;
