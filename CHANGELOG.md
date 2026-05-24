@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 1.14.0
+
+### Minor Changes
+
+- d55e849: Add a provider-neutral splash screen branding contract to app manifests.
+
 ## 1.13.0
 
 ### Minor Changes
