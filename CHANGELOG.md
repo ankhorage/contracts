@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 1.13.0
+
+### Minor Changes
+
+- 15e9234: Add provider-neutral OAuth2 auth contracts and manifest auth config support.
+
 ## 1.12.0
 
 ### Minor Changes
