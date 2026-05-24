@@ -1,3 +1,5 @@
+import type { IconSpec } from './types';
+
 export const AUTH_IDENTIFIER_KINDS = ['email', 'phone', 'username'] as const;
 export type AuthIdentifierKind = (typeof AUTH_IDENTIFIER_KINDS)[number];
 
@@ -10,6 +12,30 @@ export const AUTH_SIGN_UP_FIELDS = [
 ] as const;
 export type KnownAuthSignUpField = (typeof AUTH_SIGN_UP_FIELDS)[number];
 export type AuthSignUpField = KnownAuthSignUpField | (string & {});
+
+export const AUTH_OAUTH_PROVIDER_IDS = [
+  'apple',
+  'azure',
+  'bitbucket',
+  'discord',
+  'facebook',
+  'figma',
+  'github',
+  'gitlab',
+  'google',
+  'kakao',
+  'keycloak',
+  'linkedin',
+  'notion',
+  'slack',
+  'spotify',
+  'twitch',
+  'twitter',
+  'workos',
+  'zoom',
+] as const;
+export type KnownAuthOAuthProviderId = (typeof AUTH_OAUTH_PROVIDER_IDS)[number];
+export type AuthOAuthProviderId = KnownAuthOAuthProviderId | (string & {});
 
 export interface AuthIdentifier {
   kind: AuthIdentifierKind;
@@ -35,11 +61,28 @@ export interface AuthSignUpConfig {
   optionalFields?: AuthSignUpField[];
 }
 
+export interface AuthOAuthProviderConfig {
+  id: AuthOAuthProviderId;
+  label?: string;
+  enabled?: boolean;
+  scopes?: string[];
+  redirectTo?: string;
+  queryParams?: Record<string, string>;
+  icon?: IconSpec;
+}
+
+export interface AuthOAuthConfig {
+  enabled: boolean;
+  callbackRoute: string;
+  providers: AuthOAuthProviderConfig[];
+}
+
 export interface AuthProviderConfig {
   provider: string;
   flow: AuthFlowConfig;
   signIn: AuthSignInConfig;
   signUp?: AuthSignUpConfig;
+  oauth?: AuthOAuthConfig;
   passwordReset?: {
     enabled: boolean;
   };
@@ -114,12 +157,32 @@ export interface VerifyOtpInput {
   metadata?: Record<string, unknown>;
 }
 
+export interface SignInWithOAuthInput {
+  provider: AuthOAuthProviderId;
+  redirectTo?: string;
+  scopes?: string[];
+  queryParams?: Record<string, string>;
+  metadata?: Record<string, unknown>;
+}
+
+export interface AuthOAuthRedirect {
+  provider: AuthOAuthProviderId;
+  url: string;
+}
+
+export interface CompleteOAuthSignInInput {
+  url: string;
+  redirectTo?: string;
+}
+
 export interface AuthAdapterCapabilities {
   signInIdentifiers: AuthIdentifierKind[];
   supportsSignUp: boolean;
   supportsPasswordReset: boolean;
   supportsOtp: boolean;
   supportsSessionRefresh: boolean;
+  supportsOAuth?: boolean;
+  oauthProviders?: AuthOAuthProviderId[];
 }
 
 export interface AuthAdapter {
@@ -134,4 +197,7 @@ export interface AuthAdapter {
 
   requestPasswordReset?(input: PasswordResetInput): Promise<AuthResult>;
   verifyOtp?(input: VerifyOtpInput): Promise<AuthResult<AuthSession>>;
+
+  signInWithOAuth?(input: SignInWithOAuthInput): Promise<AuthResult<AuthOAuthRedirect>>;
+  completeOAuthSignIn?(input: CompleteOAuthSignInInput): Promise<AuthResult<AuthSession>>;
 }
