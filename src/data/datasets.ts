@@ -1,4 +1,5 @@
 import type { DbCollectionDefinition } from '../db';
+import type { AppApiRegistry } from './apis';
 import type { DataContractValue } from './values';
 
 export const APP_DATASET_OPERATIONS = ['create', 'delete', 'list', 'read', 'update'] as const;
@@ -20,5 +21,12 @@ export interface AppDatasetDefinition {
 export type AppDatasetRegistry = Readonly<Record<AppDatasetId, AppDatasetDefinition>>;
 
 export interface AppDataManifest {
+  /**
+   * API-first authoring model for generated and connected APIs.
+   */
+  readonly apis?: AppApiRegistry;
+  /**
+   * Legacy dataset-first authoring model. Prefer `apis` for new authoring flows.
+   */
   readonly datasets?: AppDatasetRegistry;
 }
