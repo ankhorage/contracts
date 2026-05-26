@@ -2,7 +2,7 @@ import type { ColorHarmony } from '@ankhorage/color-theory';
 
 import type { AuthFlowConfig, AuthIdentifierKind, AuthOAuthConfig, AuthSignUpField } from './auth';
 import type { ComponentDataBindingRegistry } from './bindings';
-import type { DataSourceRegistry } from './data';
+import type { AppDataManifest, DataSourceRegistry } from './data';
 
 export interface ThemeModeConfig {
   primaryColor: string;
@@ -176,6 +176,13 @@ export type DatabaseTier = (typeof DATABASE_TIERS)[number];
 export const STORAGE_PROVIDERS = ['auto', 's3', 'r2'] as const;
 export type StorageProvider = (typeof STORAGE_PROVIDERS)[number];
 
+export const STATE_PROVIDERS = ['legend'] as const;
+export type KnownStateProvider = (typeof STATE_PROVIDERS)[number];
+export type StateProvider = KnownStateProvider | (string & {});
+
+export const STATE_PERSISTENCE_MODES = ['none', 'local', 'secure', 'database'] as const;
+export type StatePersistenceMode = (typeof STATE_PERSISTENCE_MODES)[number];
+
 export const AUTHZ_KINDS = ['RBAC', 'ABAC'] as const;
 export type AuthzKind = (typeof AUTHZ_KINDS)[number];
 
@@ -278,6 +285,11 @@ export interface StorageSpec {
   buckets: string[];
 }
 
+export interface StateSpec {
+  readonly provider: StateProvider;
+  readonly persistence?: StatePersistenceMode;
+}
+
 export interface AuthzSpec {
   kind: AuthzKind;
   engine: AuthzEngine;
@@ -318,6 +330,7 @@ export interface InfraManifest {
   auth?: AuthSpec;
   database?: DatabaseSpec;
   storage?: StorageSpec;
+  state?: StateSpec;
   networking?: NetworkingSpec;
   plugins: string[];
   pluginsConfig?: Record<string, unknown>;
@@ -339,6 +352,7 @@ export interface AppManifest {
   infra: InfraManifest;
   navigator: NavigatorSpec;
   screens: Record<string, ScreenSpec>;
+  data?: AppDataManifest;
   dataSources?: DataSourceRegistry;
   dataBindings?: ComponentDataBindingRegistry;
   settings: {
