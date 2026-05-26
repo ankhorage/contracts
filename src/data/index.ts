@@ -1,4 +1,4 @@
-export * from './datasets';
+export * from './apis';
 export * from './diagnostics';
 export * from './endpoints';
 export * from './ids';
