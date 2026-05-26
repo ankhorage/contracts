@@ -98,6 +98,8 @@ export type AppApiDefinition = AppExternalApiDefinition | AppGeneratedApiDefinit
 
 export type AppApiRegistry = Readonly<Record<AppApiId, AppApiDefinition>>;
 
-export interface AppApiManifest {
+export interface AppDataManifest {
   readonly apis?: AppApiRegistry;
 }
+
+export type AppApiManifest = AppDataManifest;
