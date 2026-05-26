@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 1.16.0
+
+### Minor Changes
+
+- 5105c41: Add API authoring contracts for generated and external APIs with explicit endpoints, generated CRUD presets, and collection-backed resources.
+
 ## 1.15.0
 
 ### Minor Changes
