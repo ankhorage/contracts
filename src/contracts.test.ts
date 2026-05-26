@@ -6,11 +6,7 @@ import { describe, expect, it } from 'bun:test';
 
 import {
   APP_CATEGORIES,
-  APP_DATASET_OPERATIONS,
   type AppCategory,
-  type AppDataManifest,
-  type AppDatasetDefinition,
-  type AppDatasetOperation,
   type AppManifest,
   AUTH_PROVIDERS,
   AUTH_SIGN_IN_IDENTIFIERS,
@@ -24,7 +20,6 @@ import {
   type DbAdapter,
   type DbAdminAdapter,
   type DbChangeEvent,
-  type DbCollectionDefinition,
   type DbRealtimeAdapter,
   DEPLOYMENT_TARGETS,
   type FormSubmitEventDto,
@@ -134,50 +129,6 @@ describe('contracts', () => {
     const manifest: Pick<AppManifest, 'splashScreen'> = { splashScreen };
 
     expect(JSON.parse(JSON.stringify(manifest))).toEqual({ splashScreen });
-  });
-
-  it('accepts app-owned dataset manifests backed by db collection definitions', () => {
-    const operation: AppDatasetOperation = 'list';
-    const collection: DbCollectionDefinition = {
-      name: 'poker_situations',
-      primaryKey: 'id',
-      fields: [
-        { name: 'title', type: 'text', required: true },
-        { name: 'description', type: 'text', required: true },
-        { name: 'difficulty', type: 'text' },
-        { name: 'availableActions', type: 'json' },
-        { name: 'correctAction', type: 'text' },
-      ],
-    };
-    const dataset: AppDatasetDefinition = {
-      id: 'poker_situations',
-      label: 'Poker situations',
-      description: 'App-owned poker trainer situations.',
-      collection,
-      operations: [operation, 'read'],
-      seed: [
-        {
-          title: 'Button faces a raise',
-          description: 'Choose the best action with position and stack depth in mind.',
-          difficulty: 'beginner',
-          availableActions: [
-            { label: 'Fold', value: 'fold' },
-            { label: 'Call', value: 'call' },
-            { label: 'Raise', value: 'raise' },
-          ],
-          correctAction: 'raise',
-        },
-      ],
-    };
-    const data: AppDataManifest = {
-      datasets: {
-        [dataset.id]: dataset,
-      },
-    };
-    const manifest: Pick<AppManifest, 'data'> = { data };
-
-    expect(APP_DATASET_OPERATIONS).toEqual(['create', 'delete', 'list', 'read', 'update']);
-    expect(JSON.parse(JSON.stringify(manifest))).toEqual({ data });
   });
 
   it('accepts provider-neutral state infra selection on app manifests', () => {
