@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 1.15.0
+
+### Minor Changes
+
+- 94d5656: Add frontend-first app dataset contracts and state provider selection to app manifests.
+
 ## 1.14.0
 
 ### Minor Changes
