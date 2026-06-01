@@ -1,3 +1,4 @@
+import type { NutritionCaptureSubmission, NutritionCaptureSubmissionStatus } from './capture';
 import type {
   NutritionCaptureSubmissionId,
   NutritionIsoDateTime,
@@ -6,7 +7,6 @@ import type {
   NutritionReviewId,
   NutritionUserId,
 } from './common';
-import type { NutritionCaptureSubmission, NutritionCaptureSubmissionStatus } from './capture';
 import type { NutritionProduct } from './products';
 
 export const NUTRITION_REVIEW_DECISIONS = [
