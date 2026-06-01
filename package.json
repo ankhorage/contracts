@@ -33,6 +33,10 @@
       "types": "./dist/db.d.ts",
       "default": "./dist/db.js"
     },
+    "./nutrition": {
+      "types": "./dist/nutrition/index.d.ts",
+      "default": "./dist/nutrition/index.js"
+    },
     "./state": {
       "types": "./dist/state.d.ts",
       "default": "./dist/state.js"
