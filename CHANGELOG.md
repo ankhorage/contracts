@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 1.17.0
+
+### Minor Changes
+
+- aab2073: Add profile table metadata to auth profile specs.
+
 ## 1.16.0
 
 ### Minor Changes
