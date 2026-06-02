@@ -2,22 +2,22 @@
 
 Shared public contracts for Ankhorage packages and standalone provider packages.
 
-## 🎯 What you get
+## What you get
 
 - Strongly typed app structures
 - Serializable schemas for app manifests and UI definitions
 - Provider-neutral runtime contracts for auth and database adapters
 - Clear contracts between systems without depending on framework internals
 
-## ✨ Features
+## Features
 
 - Serializable app, action, theme, infra, and auth config contracts
 - UI and navigation definitions
-- Auth adapter contracts using `signIn`, `signUp`, and `signOut` naming
+- Auth adapter contracts using signIn, signUp, and signOut naming
 - Database adapter contracts for provider-neutral CRUD-style access
 - Dedicated subpath exports for focused imports
 
-## 📦 Usage
+## Usage
 
 ```ts
 import type { AppManifest } from '@ankhorage/contracts';
@@ -71,7 +71,28 @@ export function createSupabaseAuthAdapter(): AuthAdapter {
 }
 ```
 
-## 🧠 Why this exists
+## Profile contract
+
+Auth providers own identity records. App-facing profile data should be modeled separately, usually in an app table such as `profiles`.
+
+```ts
+const auth = {
+  scope: 'global',
+  provider: 'supabase',
+  authorization: { kind: 'RBAC', engine: 'native' },
+  profile: {
+    fields: ['email', 'displayName', 'avatarUrl'],
+    table: 'profiles',
+    primaryKey: 'authUserId',
+    createStrategy: 'trigger',
+    updateStrategy: 'api',
+  },
+};
+```
+
+Generated infra can use this metadata to create and maintain app profile rows while leaving identity lifecycle changes to the auth provider.
+
+## Why this exists
 
 Contracts separates shared data and runtime contracts from implementation details.
 Standalone packages such as Supabase, Clerk, database providers, or UI/color
