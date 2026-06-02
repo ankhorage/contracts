@@ -212,6 +212,15 @@ export const AUTH_PROFILE_FIELDS = [
 export type KnownAuthProfileField = (typeof AUTH_PROFILE_FIELDS)[number];
 export type AuthProfileField = KnownAuthProfileField | (string & {});
 
+export const AUTH_PROFILE_PRIMARY_KEY_STRATEGIES = ['authUserId'] as const;
+export type AuthProfilePrimaryKeyStrategy = (typeof AUTH_PROFILE_PRIMARY_KEY_STRATEGIES)[number];
+
+export const AUTH_PROFILE_CREATE_STRATEGIES = ['trigger', 'api', 'app'] as const;
+export type AuthProfileCreateStrategy = (typeof AUTH_PROFILE_CREATE_STRATEGIES)[number];
+
+export const AUTH_PROFILE_UPDATE_STRATEGIES = ['api', 'app'] as const;
+export type AuthProfileUpdateStrategy = (typeof AUTH_PROFILE_UPDATE_STRATEGIES)[number];
+
 export interface IconSpec {
   name: string;
   provider?: string;
@@ -307,6 +316,10 @@ export interface AuthSignUpSpec {
 
 export interface AuthProfileSpec {
   fields: AuthProfileField[];
+  table?: string;
+  primaryKey?: AuthProfilePrimaryKeyStrategy;
+  createStrategy?: AuthProfileCreateStrategy;
+  updateStrategy?: AuthProfileUpdateStrategy;
 }
 
 export interface AuthSpec {
