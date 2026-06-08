@@ -1,5 +1,3 @@
-import type { ManifestValue } from './types';
-
 declare module './types' {
   interface ScreenSpec {
     readonly requires?: ScreenRequirements;
@@ -14,5 +12,12 @@ export interface RequirementSource {
 export interface ScreenPermissionRequirement {
   readonly permission: string;
   readonly source?: RequirementSource;
-  readonly metadata?: Record<string, ManifestValue>;
 }
+
+export interface ScreenCapabilityRequirement {
+  readonly capability: string;
+  readonly source?: RequirementSource;
+}
+
+export interface ScreenRequirements {
+  readonly
