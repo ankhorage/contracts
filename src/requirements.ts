@@ -9,5 +9,4 @@ export type KnownScreenCapabilityName = (typeof SCREEN_CAPABILITY_NAMES)[number]
 export type ScreenCapabilityName = KnownScreenCapabilityName | (string & {});
 
 export interface ScreenRequirementSource {
-  readonly kind: 'component' | (string & {});
-  readonly
+  readonly kind
