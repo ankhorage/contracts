@@ -3,6 +3,7 @@ import type { ColorHarmony } from '@ankhorage/color-theory';
 import type { AuthFlowConfig, AuthIdentifierKind, AuthOAuthConfig, AuthSignUpField } from './auth';
 import type { ComponentDataBindingRegistry } from './bindings';
 import type { AppDataManifest, DataSourceRegistry } from './data';
+import type { ScreenRequirements } from './requirements';
 
 export interface ThemeModeConfig {
   primaryColor: string;
@@ -243,6 +244,7 @@ export interface ScreenSpec {
   title?: string;
   description?: string;
   root: UiNode;
+  requires?: ScreenRequirements;
 }
 
 export interface NavigatorSpec {
