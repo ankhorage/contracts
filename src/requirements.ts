@@ -1,10 +1,5 @@
-export interface ScreenRequirements {
-  readonly permissions?: readonly string[];
-  readonly capabilities?: readonly string[];
-}
+export const ANKHORAGE_PERMISSION_NAMES = ['camera','microphone','mediaLibrary','mediaLibraryWrite','locationForeground','locationBackground','notifications','clipboard'] as const;
+export type AnkhoragePermissionName = (typeof ANKHORAGE_PERMISSION_NAMES)[number];
 
-declare module './types' {
-  interface ScreenSpec {
-    readonly requires?: ScreenRequirements;
-  }
-}
+export const ANKHORAGE_CAPABILITY_NAMES = ['barcodeScanner','cameraPreview','mediaPicker','filePicker','location','notifications','clipboard'] as const;
+export type Ankh
