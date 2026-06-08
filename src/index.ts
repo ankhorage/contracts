@@ -3,6 +3,7 @@ export * from './bindings';
 export * from './data';
 export * from './db';
 export * from './nutrition';
+export * from './requirements';
 export * from './state';
 export * from './storage';
 export * from './types';
