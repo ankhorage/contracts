@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 1.18.0
+
+### Minor Changes
+
+- 7db80ba: Add manifest contracts for inferred screen permissions and capabilities.
+
 ## 1.17.0
 
 ### Minor Changes
