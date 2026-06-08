@@ -1,9 +1,18 @@
-export interface ScreenRequirements {
-  readonly permissions?: readonly string[];
-  readonly capabilities?: readonly string[];
+import type { ManifestValue } from './types';
+
+declare module './types' {
+  interface ScreenSpec {
+    readonly requires?: ScreenRequirements;
+  }
 }
 
-export interface ComponentRequirements {
-  readonly permissions?: readonly string[];
-  readonly capabilities?: readonly string[];
+export interface RequirementSource {
+  readonly nodeId?: string;
+  readonly componentType?: string;
+}
+
+export interface ScreenPermissionRequirement {
+  readonly permission: string;
+  readonly source?: RequirementSource;
+  readonly metadata?: Record<string, ManifestValue>;
 }
