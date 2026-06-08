@@ -40,9 +40,3 @@ export interface ComponentRequirements {
   readonly permissions?: readonly ScreenPermissionRequirement[];
   readonly capabilities?: readonly ScreenCapabilityRequirement[];
 }
-
-declare module './types' {
-  interface ScreenSpec {
-    readonly requires?: ScreenRequirements;
-  }
-}
