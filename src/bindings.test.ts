@@ -158,7 +158,7 @@ describe('component data-binding contracts', () => {
     expect(binding.target.kind).toBe('action');
   });
 
-  it('serializes a scanner workflow using existing generic bindings', () => {
+  it('serializes scanner lookup and conditional navigation intent using existing generic bindings', () => {
     const productLookupOperation = {
       dataSourceId: 'nutrition-api',
       endpointId: 'products',
@@ -168,9 +168,9 @@ describe('component data-binding contracts', () => {
     const bindings: ComponentDataBindingRegistry = {
       scanner: {
         componentId: 'scanner',
-        componentType: 'BarcodeScanner',
+        componentType: 'BarcodeScannerView',
         events: {
-          onBarcodeScanned: [
+          barcodeScanned: [
             {
               target: {
                 kind: 'operation',
@@ -181,7 +181,7 @@ describe('component data-binding contracts', () => {
                   kind: 'source',
                   source: {
                     kind: 'event',
-                    path: 'payload.barcode',
+                    path: 'payload.value',
                   },
                   transforms: ['trim'],
                 },
@@ -189,7 +189,7 @@ describe('component data-binding contracts', () => {
               when: {
                 source: {
                   kind: 'event',
-                  path: 'payload.barcode',
+                  path: 'payload.value',
                 },
                 operator: 'exists',
               },
@@ -211,7 +211,7 @@ describe('component data-binding contracts', () => {
                       kind: 'source',
                       source: {
                         kind: 'event',
-                        path: 'payload.barcode',
+                        path: 'payload.value',
                       },
                       transforms: ['trim'],
                     },
@@ -220,7 +220,7 @@ describe('component data-binding contracts', () => {
                       source: {
                         kind: 'operation',
                         operation: productLookupOperation,
-                        path: '$.product.id',
+                        path: 'product.id',
                       },
                     },
                   },
@@ -230,7 +230,7 @@ describe('component data-binding contracts', () => {
                 source: {
                   kind: 'operation',
                   operation: productLookupOperation,
-                  path: '$.product.id',
+                  path: 'product.id',
                 },
                 operator: 'exists',
               },
@@ -238,19 +238,32 @@ describe('component data-binding contracts', () => {
             {
               target: {
                 kind: 'action',
-                type: 'alert',
+                type: 'navigate',
               },
               input: {
-                message: {
+                route: {
                   kind: 'literal',
-                  value: 'Product not found.',
+                  value: 'product-capture',
+                },
+                params: {
+                  kind: 'object',
+                  fields: {
+                    barcode: {
+                      kind: 'source',
+                      source: {
+                        kind: 'event',
+                        path: 'payload.value',
+                      },
+                      transforms: ['trim'],
+                    },
+                  },
                 },
               },
               when: {
                 source: {
                   kind: 'operation',
                   operation: productLookupOperation,
-                  path: '$.product.id',
+                  path: 'product.id',
                 },
                 operator: 'notExists',
               },
@@ -261,10 +274,10 @@ describe('component data-binding contracts', () => {
     };
 
     assertSerializable(bindings);
-    expect(bindings.scanner?.events?.onBarcodeScanned).toHaveLength(3);
-    expect(bindings.scanner?.events?.onBarcodeScanned?.[0]?.target.kind).toBe('operation');
-    expect(bindings.scanner?.events?.onBarcodeScanned?.[1]?.when?.source.kind).toBe('operation');
-    expect(bindings.scanner?.events?.onBarcodeScanned?.[2]?.target.type).toBe('alert');
+    expect(bindings.scanner?.events?.barcodeScanned).toHaveLength(3);
+    expect(bindings.scanner?.events?.barcodeScanned?.[0]?.target.kind).toBe('operation');
+    expect(bindings.scanner?.events?.barcodeScanned?.[1]?.when?.source.kind).toBe('operation');
+    expect(bindings.scanner?.events?.barcodeScanned?.[2]?.target.type).toBe('navigate');
   });
 
   it('serializes component data-binding registries', () => {
