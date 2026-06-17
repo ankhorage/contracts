@@ -158,6 +158,128 @@ describe('component data-binding contracts', () => {
     expect(binding.target.kind).toBe('action');
   });
 
+  it('serializes scanner lookup and conditional navigation intent using existing generic bindings', () => {
+    const productLookupOperation = {
+      dataSourceId: 'nutrition-api',
+      endpointId: 'products',
+      operationId: 'products.lookupByBarcode',
+    } as const;
+
+    const bindings: ComponentDataBindingRegistry = {
+      scanner: {
+        componentId: 'scanner',
+        componentType: 'BarcodeScannerView',
+        events: {
+          barcodeScanned: [
+            {
+              target: {
+                kind: 'operation',
+                operation: productLookupOperation,
+              },
+              input: {
+                barcode: {
+                  kind: 'source',
+                  source: {
+                    kind: 'event',
+                    path: 'payload.value',
+                  },
+                  transforms: ['trim'],
+                },
+              },
+              when: {
+                source: {
+                  kind: 'event',
+                  path: 'payload.value',
+                },
+                operator: 'exists',
+              },
+            },
+            {
+              target: {
+                kind: 'action',
+                type: 'navigate',
+              },
+              input: {
+                route: {
+                  kind: 'literal',
+                  value: 'product-detail',
+                },
+                params: {
+                  kind: 'object',
+                  fields: {
+                    barcode: {
+                      kind: 'source',
+                      source: {
+                        kind: 'event',
+                        path: 'payload.value',
+                      },
+                      transforms: ['trim'],
+                    },
+                    productId: {
+                      kind: 'source',
+                      source: {
+                        kind: 'operation',
+                        operation: productLookupOperation,
+                        path: 'product.id',
+                      },
+                    },
+                  },
+                },
+              },
+              when: {
+                source: {
+                  kind: 'operation',
+                  operation: productLookupOperation,
+                  path: 'product.id',
+                },
+                operator: 'exists',
+              },
+            },
+            {
+              target: {
+                kind: 'action',
+                type: 'navigate',
+              },
+              input: {
+                route: {
+                  kind: 'literal',
+                  value: 'product-capture',
+                },
+                params: {
+                  kind: 'object',
+                  fields: {
+                    barcode: {
+                      kind: 'source',
+                      source: {
+                        kind: 'event',
+                        path: 'payload.value',
+                      },
+                      transforms: ['trim'],
+                    },
+                  },
+                },
+              },
+              when: {
+                source: {
+                  kind: 'operation',
+                  operation: productLookupOperation,
+                  path: 'product.id',
+                },
+                operator: 'notExists',
+              },
+            },
+          ],
+        },
+      },
+    };
+
+    assertSerializable(bindings);
+    expect(bindings.scanner?.events?.barcodeScanned).toHaveLength(3);
+    expect(bindings.scanner?.events?.barcodeScanned?.[0]?.target.kind).toBe('operation');
+    expect(bindings.scanner?.events?.barcodeScanned?.[1]?.when?.source.kind).toBe('operation');
+    expect(bindings.scanner?.events?.barcodeScanned?.[2]?.target.type).toBe('navigate');
+  });
+
   it('serializes component data-binding registries', () => {
     const bindings: ComponentDataBindingRegistry = {
       'submit-button': {
