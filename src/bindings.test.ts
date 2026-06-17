@@ -158,6 +158,115 @@ describe('component data-binding contracts', () => {
     expect(binding.target.kind).toBe('action');
   });
 
+  it('serializes a scanner workflow using existing generic bindings', () => {
+    const productLookupOperation = {
+      dataSourceId: 'nutrition-api',
+      endpointId: 'products',
+      operationId: 'products.lookupByBarcode',
+    } as const;
+
+    const bindings: ComponentDataBindingRegistry = {
+      scanner: {
+        componentId: 'scanner',
+        componentType: 'BarcodeScanner',
+        events: {
+          onBarcodeScanned: [
+            {
+              target: {
+                kind: 'operation',
+                operation: productLookupOperation,
+              },
+              input: {
+                barcode: {
+                  kind: 'source',
+                  source: {
+                    kind: 'event',
+                    path: 'payload.barcode',
+                  },
+                  transforms: ['trim'],
+                },
+              },
+              when: {
+                source: {
+                  kind: 'event',
+                  path: 'payload.barcode',
+                },
+                operator: 'exists',
+              },
+            },
+            {
+              target: {
+                kind: 'action',
+                type: 'navigate',
+              },
+              input: {
+                route: {
+                  kind: 'literal',
+                  value: 'product-detail',
+                },
+                params: {
+                  kind: 'object',
+                  fields: {
+                    barcode: {
+                      kind: 'source',
+                      source: {
+                        kind: 'event',
+                        path: 'payload.barcode',
+                      },
+                      transforms: ['trim'],
+                    },
+                    productId: {
+                      kind: 'source',
+                      source: {
+                        kind: 'operation',
+                        operation: productLookupOperation,
+                        path: '$.product.id',
+                      },
+                    },
+                  },
+                },
+              },
+              when: {
+                source: {
+                  kind: 'operation',
+                  operation: productLookupOperation,
+                  path: '$.product.id',
+                },
+                operator: 'exists',
+              },
+            },
+            {
+              target: {
+                kind: 'action',
+                type: 'alert',
+              },
+              input: {
+                message: {
+                  kind: 'literal',
+                  value: 'Product not found.',
+                },
+              },
+              when: {
+                source: {
+                  kind: 'operation',
+                  operation: productLookupOperation,
+                  path: '$.product.id',
+                },
+                operator: 'notExists',
+              },
+            },
+          ],
+        },
+      },
+    };
+
+    assertSerializable(bindings);
+    expect(bindings.scanner?.events?.onBarcodeScanned).toHaveLength(3);
+    expect(bindings.scanner?.events?.onBarcodeScanned?.[0]?.target.kind).toBe('operation');
+    expect(bindings.scanner?.events?.onBarcodeScanned?.[1]?.when?.source.kind).toBe('operation');
+    expect(bindings.scanner?.events?.onBarcodeScanned?.[2]?.target.type).toBe('alert');
+  });
+
   it('serializes component data-binding registries', () => {
     const bindings: ComponentDataBindingRegistry = {
       'submit-button': {
