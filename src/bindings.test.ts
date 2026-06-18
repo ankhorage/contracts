@@ -280,6 +280,114 @@ describe('component data-binding contracts', () => {
     expect(bindings.scanner?.events?.barcodeScanned?.[2]?.target.type).toBe('navigate');
   });
 
+  it('serializes repeated container nodes with generic item-context bindings', () => {
+    const productsListOperation = {
+      dataSourceId: 'catalog-api',
+      endpointId: 'products',
+      operationId: 'products.list',
+    } as const;
+
+    const root: AppManifest['screens'][string]['root'] = {
+      id: 'products-grid',
+      type: 'Grid',
+      repeat: {
+        source: {
+          kind: 'operation',
+          operation: productsListOperation,
+        },
+        itemAlias: 'item',
+        keyPath: 'id',
+      },
+      children: [
+        {
+          id: 'product-card-template',
+          type: 'ProductCard',
+        },
+      ],
+    };
+
+    const bindings: ComponentDataBindingRegistry = {
+      'product-card-template': {
+        componentId: 'product-card-template',
+        componentType: 'ProductCard',
+        props: {
+          title: {
+            source: {
+              kind: 'context',
+              path: 'item.name',
+            },
+          },
+          brand: {
+            source: {
+              kind: 'context',
+              path: 'item.brand',
+            },
+          },
+          description: {
+            source: {
+              kind: 'context',
+              path: 'item.barcode',
+            },
+          },
+        },
+        events: {
+          press: [
+            {
+              target: {
+                kind: 'action',
+                type: 'navigate',
+              },
+              input: {
+                route: {
+                  kind: 'literal',
+                  value: '/products/[id]',
+                },
+                params: {
+                  kind: 'object',
+                  fields: {
+                    id: {
+                      kind: 'source',
+                      source: {
+                        kind: 'context',
+                        path: 'item.id',
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          ],
+        },
+      },
+    };
+
+    assertSerializable({ root, bindings });
+    expect(root.repeat).toEqual({
+      source: {
+        kind: 'operation',
+        operation: productsListOperation,
+      },
+      itemAlias: 'item',
+      keyPath: 'id',
+    });
+    expect(bindings['product-card-template']?.props?.title?.source).toEqual({
+      kind: 'context',
+      path: 'item.name',
+    });
+    expect(bindings['product-card-template']?.events?.press?.[0]?.input?.params).toEqual({
+      kind: 'object',
+      fields: {
+        id: {
+          kind: 'source',
+          source: {
+            kind: 'context',
+            path: 'item.id',
+          },
+        },
+      },
+    });
+  });
+
   it('serializes component data-binding registries', () => {
     const bindings: ComponentDataBindingRegistry = {
       'submit-button': {
