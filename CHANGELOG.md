@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 1.18.2
+
+### Patch Changes
+
+- ece9644: Add a generic `UiNode.repeat` manifest primitive for repeated child rendering from binding sources.
+
 ## 1.18.1
 
 ### Patch Changes
