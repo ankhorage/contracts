@@ -1,7 +1,7 @@
 import type { ColorHarmony } from '@ankhorage/color-theory';
 
 import type { AuthFlowConfig, AuthIdentifierKind, AuthOAuthConfig, AuthSignUpField } from './auth';
-import type { ComponentDataBindingRegistry } from './bindings';
+import type { BindingValueSource, ComponentDataBindingRegistry } from './bindings';
 import type { AppDataManifest, DataSourceRegistry } from './data';
 import type { ScreenRequirements } from './requirements';
 
@@ -229,6 +229,12 @@ export interface IconSpec {
   color?: string;
 }
 
+export interface UiNodeRepeatSpec {
+  source: BindingValueSource;
+  itemAlias?: string;
+  keyPath?: string;
+}
+
 export interface UiNode {
   id: string;
   type: string;
@@ -236,6 +242,7 @@ export interface UiNode {
   props?: Record<string, unknown>;
   children?: UiNode[];
   style?: Record<string, number | string>;
+  repeat?: UiNodeRepeatSpec;
 }
 
 export interface ScreenSpec {
