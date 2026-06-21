@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 1.18.3
+
+### Patch Changes
+
+- eae9dfc: Add typed screen data-loader definitions for generic operation loaders and support repeat empty-state nodes on UI repeats.
+
 ## 1.18.2
 
 ### Patch Changes
