@@ -1,6 +1,6 @@
 {
   "name": "@ankhorage/contracts",
-  "version": "1.18.2",
+  "version": "1.18.3",
   "main": "./dist/index.js",
   "dependencies": {
     "@ankhorage/color-theory": "^0.0.7"
