@@ -1,13 +1,16 @@
 import { describe, expect, it } from 'bun:test';
 
 import type {
+  ApiScreenDataLoaderDefinition,
   AppManifest,
   BindingInputMap,
   BindingValueSource,
   ComponentDataBinding,
   ComponentDataBindingRegistry,
   EventBinding,
+  OperationScreenDataLoaderDefinition,
   PropBinding,
+  ScreenDataLoaderDefinition,
 } from './index';
 
 function assertSerializable<TValue>(value: TValue): void {
@@ -156,6 +159,39 @@ describe('component data-binding contracts', () => {
 
     assertSerializable(binding);
     expect(binding.target.kind).toBe('action');
+  });
+
+  it('serializes supported screen data-loader definitions for api and operation loaders', () => {
+    const loaders: readonly ScreenDataLoaderDefinition[] = [
+      {
+        kind: 'api',
+        apiId: 'catalog',
+        mode: 'byId',
+        targetPath: 'apis.catalog.current',
+        id: 'product-1',
+      } satisfies ApiScreenDataLoaderDefinition,
+      {
+        kind: 'operation',
+        id: 'product-detail',
+        operation: {
+          dataSourceId: 'nutrition-api',
+          endpointId: 'products',
+          operationId: 'nutrition.products.getById',
+        },
+        input: {
+          id: {
+            kind: 'source',
+            source: {
+              kind: 'context',
+              path: 'route.params.id',
+            },
+          },
+        },
+      } satisfies OperationScreenDataLoaderDefinition,
+    ];
+
+    assertSerializable(loaders);
+    expect(loaders.map((loader) => loader.kind)).toEqual(['api', 'operation']);
   });
 
   it('serializes scanner lookup and conditional navigation intent using existing generic bindings', () => {

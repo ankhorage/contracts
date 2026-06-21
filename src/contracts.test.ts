@@ -131,6 +131,66 @@ describe('contracts', () => {
     expect(JSON.parse(JSON.stringify(manifest))).toEqual({ splashScreen });
   });
 
+  it('accepts screens with operation data loaders and repeat empty-state nodes', () => {
+    const manifest: Pick<AppManifest, 'screens'> = {
+      screens: {
+        products: {
+          id: 'products',
+          name: 'Products',
+          root: {
+            id: 'products-grid',
+            type: 'Grid',
+            repeat: {
+              source: {
+                kind: 'operation',
+                operation: {
+                  dataSourceId: 'nutrition-api',
+                  endpointId: 'products',
+                  operationId: 'nutrition.products.list',
+                },
+                path: 'products',
+              },
+              empty: [
+                {
+                  id: 'products-empty',
+                  type: 'Notice',
+                  props: {
+                    title: 'No products found',
+                  },
+                },
+              ],
+            },
+            children: [],
+          },
+          dataLoaders: [
+            {
+              kind: 'operation',
+              id: 'product-detail',
+              operation: {
+                dataSourceId: 'nutrition-api',
+                endpointId: 'products',
+                operationId: 'nutrition.products.getById',
+              },
+              input: {
+                id: {
+                  kind: 'source',
+                  source: {
+                    kind: 'context',
+                    path: 'route.params.id',
+                  },
+                },
+              },
+            },
+          ],
+        },
+      },
+    };
+
+    expect(JSON.parse(JSON.stringify(manifest))).toEqual(manifest);
+    expect(manifest.screens.products?.dataLoaders?.[0]?.kind).toBe('operation');
+    expect(manifest.screens.products?.root.repeat?.empty?.[0]?.type).toBe('Notice');
+  });
+
   it('accepts provider-neutral state infra selection on app manifests', () => {
     const state: StateSpec = {
       provider: 'legend',
