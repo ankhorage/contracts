@@ -127,13 +127,18 @@ Command descriptor paths are relative to the provider category:
 This subpath contains contracts only. It must not depend on `commander`,
 `@ankhorage/ankh`, provider implementations, or runtime CLI execution logic.
 
-Capability naming is a package metadata policy. The preferred format is
-`<category>.<resource>.<action>`.
+Capability names are dot-separated package metadata identifiers.
+
+Preferred forms:
+
+- `<category>.<action>` for simple capabilities
+- `<category>.<resource>.<action>` for nested or domain-specific capabilities
 
 Valid examples:
 
 - `infra.up`
 - `templates.create`
+- `contracts.cli`
 - `board.web.import`
 - `doctor.repo.validate`
 - `dev.android.rebuild`
