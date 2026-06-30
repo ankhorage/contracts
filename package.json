@@ -2,6 +2,11 @@
   "name": "@ankhorage/contracts",
   "version": "1.19.0",
   "main": "./dist/index.js",
+  "ankh": {
+    "category": "contracts",
+    "provider": null,
+    "capabilities": ["contracts.cli"]
+  },
   "dependencies": {
     "@ankhorage/color-theory": "^0.0.7"
   },
