@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 1.19.0
+
+### Minor Changes
+
+- b618979: Add `@ankhorage/contracts/cli` metadata contracts for Ankh package discovery.
+
 ## 1.18.3
 
 ### Patch Changes
