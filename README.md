@@ -22,6 +22,7 @@ Shared public contracts for Ankhorage packages and standalone provider packages.
 ```ts
 import type { AppManifest } from '@ankhorage/contracts';
 import type { AuthAdapter } from '@ankhorage/contracts/auth';
+import type { AnkhCommandProviderManifest, AnkhPackageMetadata } from '@ankhorage/contracts/cli';
 import type { DbAdapter } from '@ankhorage/contracts/db';
 import type { StorageAdapter } from '@ankhorage/contracts/storage';
 ```
@@ -70,6 +71,50 @@ export function createSupabaseAuthAdapter(): AuthAdapter {
   };
 }
 ```
+
+## CLI discovery contracts
+
+`@ankhorage/contracts/cli` contains metadata-only discovery contracts for Ankh
+packages and command providers.
+
+```ts
+import type { AnkhCommandProviderManifest, AnkhPackageMetadata } from '@ankhorage/contracts/cli';
+```
+
+Provider packages expose `package.json.ankh` metadata using a package-relative
+provider module path:
+
+```json
+{
+  "ankh": {
+    "category": "infra",
+    "provider": "./dist/ankh.provider.js",
+    "capabilities": ["infra.up", "infra.status"]
+  }
+}
+```
+
+Metadata-only packages use `null` for `provider`:
+
+```json
+{
+  "ankh": {
+    "category": "contracts",
+    "provider": null,
+    "capabilities": ["contracts.cli"]
+  }
+}
+```
+
+Command descriptor paths are relative to the provider category:
+
+- `category: "infra"` with `path: ["up"]` maps to `ankh infra up`
+- `category: "dev"` with `path: ["android", "scan"]` maps to `ankh dev android scan`
+
+This subpath contains contracts only. It must not depend on `commander`,
+`@ankhorage/ankh`, provider implementations, or runtime CLI execution logic.
+Concrete `package.json.ankh` adoption for this package is deferred to
+`contracts#84`.
 
 ## Profile contract
 

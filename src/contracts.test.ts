@@ -56,6 +56,17 @@ async function collectTypeScriptFiles(directory: string): Promise<string[]> {
 }
 
 describe('contracts', () => {
+  it('exports the cli subpath for Ankh discovery contracts', async () => {
+    const packageJson = JSON.parse(await readFile(join(process.cwd(), 'package.json'), 'utf8')) as {
+      exports?: Record<string, { default?: string; types?: string }>;
+    };
+
+    expect(packageJson.exports?.['./cli']).toEqual({
+      types: './dist/cli.d.ts',
+      default: './dist/cli.js',
+    });
+  });
+
   it('exports stable platform constants', () => {
     expect(NAVIGATOR_TYPES).toEqual(['stack', 'tabs', 'drawer']);
     expect(APP_CATEGORIES).toEqual([
@@ -213,7 +224,7 @@ describe('contracts', () => {
 
   it('ThemeModeConfig.harmony accepts all ColorHarmony values', () => {
     for (const harmony of COLOR_HARMONIES) {
-      const config: ThemeModeConfig = { primaryColor: '#ff0000', harmony };
+      const config = { primaryColor: '#ff0000', harmony } satisfies ThemeModeConfig;
       expect(config.harmony).toBe(harmony);
     }
   });
