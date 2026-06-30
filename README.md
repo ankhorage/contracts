@@ -78,10 +78,7 @@ export function createSupabaseAuthAdapter(): AuthAdapter {
 packages and command providers.
 
 ```ts
-import type {
-  AnkhCommandProviderManifest,
-  AnkhPackageMetadata,
-} from '@ankhorage/contracts/cli';
+import type { AnkhCommandProviderManifest, AnkhPackageMetadata } from '@ankhorage/contracts/cli';
 ```
 
 Provider packages expose `package.json.ankh` metadata using a package-relative
