@@ -5,7 +5,9 @@
   "ankh": {
     "category": "contracts",
     "provider": null,
-    "capabilities": ["contracts.cli"]
+    "capabilities": [
+      "contracts.cli"
+    ]
   },
   "dependencies": {
     "@ankhorage/color-theory": "^0.0.7"
