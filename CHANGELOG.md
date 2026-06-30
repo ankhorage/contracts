@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 1.19.1
+
+### Patch Changes
+
+- 37105b0: Add published ankh package metadata and document capability naming conventions.
+
 ## 1.19.0
 
 ### Minor Changes
