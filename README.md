@@ -106,6 +106,19 @@ Metadata-only packages use `null` for `provider`:
 }
 ```
 
+`@ankhorage/contracts` now publishes this metadata shape directly from its own
+`package.json`:
+
+```json
+{
+  "ankh": {
+    "category": "contracts",
+    "provider": null,
+    "capabilities": ["contracts.cli"]
+  }
+}
+```
+
 Command descriptor paths are relative to the provider category:
 
 - `category: "infra"` with `path: ["up"]` maps to `ankh infra up`
@@ -113,8 +126,31 @@ Command descriptor paths are relative to the provider category:
 
 This subpath contains contracts only. It must not depend on `commander`,
 `@ankhorage/ankh`, provider implementations, or runtime CLI execution logic.
-Concrete `package.json.ankh` adoption for this package is deferred to
-`contracts#84`.
+
+Capability naming is a package metadata policy. The preferred format is
+`<category>.<resource>.<action>`.
+
+Valid examples:
+
+- `infra.up`
+- `templates.create`
+- `board.web.import`
+- `doctor.repo.validate`
+- `dev.android.rebuild`
+- `expoRuntime.plan`
+
+Invalid examples:
+
+- `infra`
+- `infra-up`
+- `.status`
+- `infra.`
+- `infra..up`
+
+`AnkhCapabilityId` remains intentionally broad at the TypeScript level so
+packages can publish stable serializable metadata without embedding policy
+validation logic here. Stricter validation belongs later in
+`@ankhorage/doctor`.
 
 ## Profile contract
 
