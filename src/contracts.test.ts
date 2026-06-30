@@ -5,6 +5,7 @@ import { COLOR_HARMONIES } from '@ankhorage/color-theory';
 import { describe, expect, it } from 'bun:test';
 
 import {
+  type AnkhPackageMetadata,
   APP_CATEGORIES,
   type AppCategory,
   type AppManifest,
@@ -57,7 +58,14 @@ async function collectTypeScriptFiles(directory: string): Promise<string[]> {
 
 describe('contracts', () => {
   it('exports the cli subpath for Ankh discovery contracts', async () => {
+    const expectedAnkhMetadata = {
+      category: 'contracts',
+      provider: null,
+      capabilities: ['contracts.cli'],
+    } as const satisfies AnkhPackageMetadata;
+
     const packageJson = JSON.parse(await readFile(join(process.cwd(), 'package.json'), 'utf8')) as {
+      ankh?: unknown;
       exports?: Record<string, { default?: string; types?: string }>;
     };
 
@@ -65,6 +73,8 @@ describe('contracts', () => {
       types: './dist/cli.d.ts',
       default: './dist/cli.js',
     });
+    expect(packageJson.ankh).toEqual(expectedAnkhMetadata);
+    expect(JSON.parse(JSON.stringify(expectedAnkhMetadata))).toEqual(expectedAnkhMetadata);
   });
 
   it('exports stable platform constants', () => {
