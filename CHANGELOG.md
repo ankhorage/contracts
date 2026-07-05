@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 1.19.2
+
+### Patch Changes
+
+- 20bd7b6: Add shared runtime callback contracts for node prop resolvers and callback maps.
+
 ## 1.19.1
 
 ### Patch Changes
