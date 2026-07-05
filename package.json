@@ -48,6 +48,10 @@
       "types": "./dist/nutrition/index.d.ts",
       "default": "./dist/nutrition/index.js"
     },
+    "./runtime": {
+      "types": "./dist/runtimeCallbacks.d.ts",
+      "default": "./dist/runtimeCallbacks.js"
+    },
     "./state": {
       "types": "./dist/state.d.ts",
       "default": "./dist/state.js"
