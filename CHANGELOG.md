@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 1.19.3
+
+### Patch Changes
+
+- 01a73ed: Update CLI provider metadata examples.
+
 ## 1.19.2
 
 ### Patch Changes
