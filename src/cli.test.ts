@@ -11,7 +11,7 @@ describe('cli contracts', () => {
   it('accepts provider package metadata and provider manifests', () => {
     const packageMetadata = {
       category: 'infra',
-      provider: './dist/ankh.provider.js',
+      provider: './dist/cli/index.js',
       capabilities: ['infra.up', 'infra.status'],
     } as const satisfies AnkhPackageMetadata;
 
