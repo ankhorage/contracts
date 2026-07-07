@@ -88,7 +88,7 @@ provider module path:
 {
   "ankh": {
     "category": "infra",
-    "provider": "./dist/ankh.provider.js",
+    "provider": "./dist/cli/index.js",
     "capabilities": ["infra.up", "infra.status"]
   }
 }
