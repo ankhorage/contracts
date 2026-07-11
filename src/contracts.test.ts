@@ -70,8 +70,8 @@ describe('contracts', () => {
     };
 
     expect(packageJson.exports?.['./cli']).toEqual({
-      types: './dist/cli.d.ts',
-      default: './dist/cli.js',
+      types: './dist/cli/index.d.ts',
+      default: './dist/cli/index.js',
     });
     expect(packageJson.ankh).toEqual(expectedAnkhMetadata);
     expect(JSON.parse(JSON.stringify(expectedAnkhMetadata))).toEqual(expectedAnkhMetadata);
