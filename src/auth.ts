@@ -1,3 +1,4 @@
+import type { SecretRef } from './secrets';
 import type { IconSpec } from './types';
 
 export const AUTH_IDENTIFIER_KINDS = ['email', 'phone', 'username'] as const;
@@ -82,6 +83,8 @@ export interface AuthOAuthProviderConfig {
   redirectTo?: string;
   queryParams?: Record<string, string>;
   icon?: IconSpec;
+  /** Logical server-side secret reference; raw credentials must never be stored here. */
+  credentialsRef?: SecretRef;
 }
 
 export interface AuthOAuthConfig {

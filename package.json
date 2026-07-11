@@ -53,6 +53,10 @@
       "types": "./dist/runtimeCallbacks.d.ts",
       "default": "./dist/runtimeCallbacks.js"
     },
+    "./secrets": {
+      "types": "./dist/secrets.d.ts",
+      "default": "./dist/secrets.js"
+    },
     "./state": {
       "types": "./dist/state.d.ts",
       "default": "./dist/state.js"
@@ -66,13 +70,15 @@
       "default": "./dist/ui.js"
     }
   },
-  "description": "Serializable app, action, and theme config contracts for Ankhorage.",
+  "description": "Serializable app, action, theme, auth, and secret-store contracts for Ankhorage.",
   "keywords": [
     "typescript",
     "contracts",
     "schema",
     "manifest",
     "auth",
+    "secrets",
+    "secret-store",
     "storage",
     "adapter"
   ],
