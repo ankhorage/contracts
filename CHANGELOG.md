@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 2.0.0
+
+### Major Changes
+
+- 7c7e59f: Make `infra.auth.flow` the only authentication-flow contract, remove auth flow from application settings, make authorization optional, and export the canonical auth-flow resolver.
+
 ## 1.19.4
 
 ### Patch Changes
