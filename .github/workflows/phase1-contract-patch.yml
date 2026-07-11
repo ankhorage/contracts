@@ -1,0 +1,248 @@
+name: Apply canonical auth contract
+
+on:
+  pull_request:
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout feature branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/phase1-canonical-auth-flow
+          fetch-depth: 0
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: '1.3.13'
+
+      - name: Apply contract changes
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from textwrap import dedent
+
+          def replace_once(content: str, old: str, new: str, label: str) -> str:
+              if content.count(old) != 1:
+                  raise SystemExit(f'Expected exactly one {label}, found {content.count(old)}')
+              return content.replace(old, new, 1)
+
+          types_path = Path('src/types.ts')
+          types = types_path.read_text(encoding='utf-8')
+          types = replace_once(
+              types,
+              '  authorization: AuthzSpec;\n',
+              '  authorization?: AuthzSpec;\n',
+              'required AuthSpec.authorization declaration',
+          )
+          old_settings = (
+              '  settings: {\n'
+              '    apiBaseUrl?: string;\n'
+              '    localization: {\n'
+              '      defaultLocale: string;\n'
+              '      locales: string[];\n'
+              '    };\n'
+              '    authFlow: AuthFlowConfig;\n'
+              '  };\n'
+          )
+          types = replace_once(types, old_settings, '  settings: AppSettings;\n', 'AppManifest settings block')
+          marker = 'export interface AppManifest {\n'
+          app_settings = dedent('''\
+          export interface AppSettings {
+            apiBaseUrl?: string;
+            localization: {
+              defaultLocale: string;
+              locales: string[];
+            };
+          }
+
+          ''')
+          types = replace_once(types, marker, app_settings + marker, 'AppManifest declaration')
+          types_path.write_text(types, encoding='utf-8')
+
+          auth_path = Path('src/auth.ts')
+          auth = auth_path.read_text(encoding='utf-8')
+          flow_interface = dedent('''\
+          export interface AuthFlowConfig {
+            signInRoute: string;
+            signUpRoute?: string;
+            signOutRoute?: string;
+            forgotPasswordRoute?: string;
+            otpRoute?: string;
+            postSignInRoute: string;
+            unauthorizedRoute?: string;
+          }
+          ''')
+          flow_contract = flow_interface + dedent('''\
+
+          export const DEFAULT_AUTH_FLOW = {
+            signInRoute: 'sign-in',
+            signUpRoute: 'sign-up',
+            signOutRoute: 'sign-out',
+            forgotPasswordRoute: 'forgot-password',
+            postSignInRoute: '/',
+            unauthorizedRoute: 'sign-in',
+          } as const satisfies AuthFlowConfig;
+
+          export function resolveAuthFlow(flow?: AuthFlowConfig): AuthFlowConfig {
+            return { ...(flow ?? DEFAULT_AUTH_FLOW) };
+          }
+          ''')
+          auth = replace_once(auth, flow_interface, flow_contract, 'AuthFlowConfig interface')
+          auth = replace_once(
+              auth,
+              '  provider: string;\n  flow: AuthFlowConfig;\n  signIn: AuthSignInConfig;\n',
+              '  provider: string;\n  signIn: AuthSignInConfig;\n',
+              'AuthProviderConfig flow field',
+          )
+          auth_path.write_text(auth, encoding='utf-8')
+
+          Path('src/auth-flow-contract.test.ts').write_text(dedent('''\
+          import { readdir, readFile } from 'node:fs/promises';
+          import { basename, join } from 'node:path';
+
+          import { describe, expect, it } from 'bun:test';
+
+          import {
+            DEFAULT_AUTH_FLOW,
+            resolveAuthFlow,
+            type AppSettings,
+            type AuthFlowConfig,
+            type AuthProviderConfig,
+            type AuthSpec,
+          } from './index';
+
+          async function collectTypeScriptFiles(directory: string): Promise<string[]> {
+            const entries = await readdir(directory, { withFileTypes: true });
+            const files: string[] = [];
+
+            for (const entry of entries) {
+              const path = join(directory, entry.name);
+              if (entry.isDirectory()) {
+                files.push(...(await collectTypeScriptFiles(path)));
+              } else if (entry.isFile() && entry.name.endsWith('.ts')) {
+                files.push(path);
+              }
+            }
+
+            return files;
+          }
+
+          describe('canonical authentication flow contract', () => {
+            it('resolves one canonical default without mutating shared state', () => {
+              const first = resolveAuthFlow();
+              const second = resolveAuthFlow();
+
+              expect(first).toEqual(DEFAULT_AUTH_FLOW);
+              expect(second).toEqual(DEFAULT_AUTH_FLOW);
+              expect(first).not.toBe(DEFAULT_AUTH_FLOW);
+              expect(second).not.toBe(first);
+            });
+
+            it('preserves explicit flow without inventing optional routes', () => {
+              const configured: AuthFlowConfig = {
+                signInRoute: 'login',
+                postSignInRoute: 'dashboard',
+              };
+              const resolved = resolveAuthFlow(configured);
+
+              expect(resolved).toEqual(configured);
+              expect(resolved).not.toBe(configured);
+              expect(resolved.signUpRoute).toBeUndefined();
+            });
+
+            it('allows authentication without authorization', () => {
+              const auth: AuthSpec = {
+                scope: 'global',
+                provider: 'supabase',
+                flow: DEFAULT_AUTH_FLOW,
+              };
+
+              expect(auth.authorization).toBeUndefined();
+            });
+
+            it('removes auth flow from application settings at compile time', () => {
+              const settings: AppSettings = {
+                localization: {
+                  defaultLocale: 'en',
+                  locales: ['en'],
+                },
+              };
+              const removedProperty = {
+                localization: settings.localization,
+                // @ts-expect-error Authentication flow no longer belongs in application settings.
+                authFlow: DEFAULT_AUTH_FLOW,
+              } satisfies AppSettings;
+
+              expect(removedProperty.localization).toEqual(settings.localization);
+            });
+
+            it('keeps provider runtime config free of manifest auth flow', () => {
+              const removedProperty = {
+                provider: 'supabase',
+                signIn: { identifiers: ['email'] },
+                // @ts-expect-error Manifest auth flow belongs only on AuthSpec.flow.
+                flow: DEFAULT_AUTH_FLOW,
+              } satisfies AuthProviderConfig;
+
+              expect(removedProperty.provider).toBe('supabase');
+            });
+
+            it('requires authorization access to be narrowed', () => {
+              const assumesAuthorization = (auth: AuthSpec): string => {
+                // @ts-expect-error Authorization is optional and must be checked before use.
+                return auth.authorization.kind;
+              };
+
+              expect(typeof assumesAuthorization).toBe('function');
+            });
+
+            it('prevents the removed settings path from returning to source', async () => {
+              const removedPath = 'settings.' + 'authFlow';
+              const files = await collectTypeScriptFiles(join(process.cwd(), 'src'));
+
+              for (const file of files) {
+                if (basename(file) === 'auth-flow-contract.test.ts') continue;
+                const content = await readFile(file, 'utf8');
+                expect(content.includes(removedPath)).toBe(false);
+              }
+            });
+          });
+          '''), encoding='utf-8')
+
+          Path('.changeset/canonical-auth-flow.md').write_text(dedent('''\
+          ---
+          '@ankhorage/contracts': major
+          ---
+
+          Make `infra.auth.flow` the only authentication-flow contract, remove authentication flow from application settings and provider runtime config, make authorization optional, and export the canonical auth-flow resolver.
+          '''), encoding='utf-8')
+
+          Path('.github/apply-phase1-contract.py').unlink(missing_ok=True)
+          Path('.github/workflows/phase1-contract-patch.yml').unlink(missing_ok=True)
+          PY
+
+      - name: Validate
+        run: |
+          bun install --frozen-lockfile
+          bun run build
+          bun run lint
+          bun run format:check
+          bun run knip
+          bun run test
+          bun run typecheck
+          bash scripts/check-changeset-status.sh
+          git diff --check
+
+      - name: Commit changes
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'feat: canonicalize authentication flow contract'
+          git push origin HEAD:agent/phase1-canonical-auth-flow
