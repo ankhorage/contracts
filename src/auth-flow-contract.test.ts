@@ -6,6 +6,7 @@ import { describe, expect, it } from 'bun:test';
 import {
   type AppSettings,
   type AuthFlowConfig,
+  type AuthProviderConfig,
   type AuthSpec,
   DEFAULT_AUTH_FLOW,
   resolveAuthFlow,
@@ -75,6 +76,19 @@ describe('canonical authentication flow contract', () => {
     } satisfies AppSettings;
 
     expect(removedProperty.localization).toEqual(settings.localization);
+  });
+
+  it('keeps provider runtime config free of manifest auth flow', () => {
+    const removedProperty = {
+      provider: 'supabase',
+      signIn: {
+        identifiers: ['email'],
+      },
+      // @ts-expect-error Auth flow belongs only on AuthSpec.flow.
+      flow: DEFAULT_AUTH_FLOW,
+    } satisfies AuthProviderConfig;
+
+    expect(removedProperty.provider).toBe('supabase');
   });
 
   it('makes authorization access require explicit narrowing', () => {
