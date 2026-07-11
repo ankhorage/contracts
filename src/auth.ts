@@ -92,7 +92,6 @@ export interface AuthOAuthConfig {
 
 export interface AuthProviderConfig {
   provider: string;
-  flow: AuthFlowConfig;
   signIn: AuthSignInConfig;
   signUp?: AuthSignUpConfig;
   oauth?: AuthOAuthConfig;
