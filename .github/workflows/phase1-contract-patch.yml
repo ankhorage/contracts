@@ -40,16 +40,16 @@ jobs:
               '  authorization?: AuthzSpec;\n',
               'required AuthSpec.authorization declaration',
           )
-          old_settings = dedent('''\
-            settings: {
-              apiBaseUrl?: string;
-              localization: {
-                defaultLocale: string;
-                locales: string[];
-              };
-              authFlow: AuthFlowConfig;
-            };
-          ''')
+          old_settings = (
+              '  settings: {\n'
+              '    apiBaseUrl?: string;\n'
+              '    localization: {\n'
+              '      defaultLocale: string;\n'
+              '      locales: string[];\n'
+              '    };\n'
+              '    authFlow: AuthFlowConfig;\n'
+              '  };\n'
+          )
           types = replace_once(types, old_settings, '  settings: AppSettings;\n', 'AppManifest settings block')
           marker = 'export interface AppManifest {\n'
           app_settings = dedent('''\
