@@ -33,8 +33,8 @@
       "default": "./dist/bindings.js"
     },
     "./cli": {
-      "types": "./dist/cli.d.ts",
-      "default": "./dist/cli.js"
+      "types": "./dist/cli/index.d.ts",
+      "default": "./dist/cli/index.js"
     },
     "./data": {
       "types": "./dist/data/index.d.ts",
