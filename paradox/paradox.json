@@ -2617,7 +2617,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 201,
+        "line": 200,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2719,7 +2719,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 191,
+        "line": 190,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2787,7 +2787,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 125,
+        "line": 124,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3072,7 +3072,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 181,
+        "line": 180,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3253,21 +3253,9 @@
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
-      "relatedSymbols": [
-        "AuthFlowConfig",
-        "AuthOAuthConfig",
-        "AuthSignInConfig",
-        "AuthSignUpConfig"
-      ],
+      "relatedSymbols": ["AuthOAuthConfig", "AuthSignInConfig", "AuthSignUpConfig"],
       "signatures": [],
       "members": [
-        {
-          "name": "flow",
-          "kind": "property",
-          "type": "AuthFlowConfig",
-          "required": true,
-          "description": null
-        },
         {
           "name": "oauth",
           "kind": "property",
@@ -3322,7 +3310,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 131,
+        "line": 130,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3358,7 +3346,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 117,
+        "line": 116,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3674,7 +3662,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 107,
+        "line": 106,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4246,7 +4234,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 186,
+        "line": 185,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10006,7 +9994,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 161,
+        "line": 160,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10676,7 +10664,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 141,
+        "line": 140,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10730,7 +10718,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 173,
+        "line": 172,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10784,7 +10772,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 157,
+        "line": 156,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10810,7 +10798,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 149,
+        "line": 148,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -13178,7 +13166,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 166,
+        "line": 165,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -13572,11 +13560,6 @@
       {
         "fromSymbol": "AuthOAuthConfig",
         "toType": "AuthOAuthProviderConfig",
-        "sourcePath": "src/auth.ts"
-      },
-      {
-        "fromSymbol": "AuthProviderConfig",
-        "toType": "AuthFlowConfig",
         "sourcePath": "src/auth.ts"
       },
       {

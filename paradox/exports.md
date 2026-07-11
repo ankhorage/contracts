@@ -471,7 +471,7 @@ Source: `src/types.ts:207:14`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:201:1`
+Source: `src/auth.ts:200:1`
 
 ### Members
 
@@ -492,7 +492,7 @@ Source: `src/auth.ts:201:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:191:1`
+Source: `src/auth.ts:190:1`
 
 ### Members
 
@@ -510,7 +510,7 @@ Source: `src/auth.ts:191:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:125:1`
+Source: `src/auth.ts:124:1`
 
 ### Members
 
@@ -599,7 +599,7 @@ Source: `src/auth.ts:38:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:181:1`
+Source: `src/auth.ts:180:1`
 
 ### Members
 
@@ -664,7 +664,6 @@ Source: `src/auth.ts:93:1`
 
 | Name          | Kind     | Type                                 | Required | Description |
 | ------------- | -------- | ------------------------------------ | -------- | ----------- |
-| flow          | property | `AuthFlowConfig`                     | yes      |             |
 | oauth         | property | `AuthOAuthConfig \| undefined`       | no       |             |
 | otp           | property | `{ enabled: boolean; } \| undefined` | no       |             |
 | passwordReset | property | `{ enabled: boolean; } \| undefined` | no       |             |
@@ -676,7 +675,7 @@ Source: `src/auth.ts:93:1`
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:131:1`
+Source: `src/auth.ts:130:1`
 
 ## AuthScope
 
@@ -688,7 +687,7 @@ Source: `src/types.ts:198:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:117:1`
+Source: `src/auth.ts:116:1`
 
 ### Members
 
@@ -792,7 +791,7 @@ Source: `src/types.ts:340:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:107:1`
+Source: `src/auth.ts:106:1`
 
 ### Members
 
@@ -988,7 +987,7 @@ Source: `src/types.ts:120:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:186:1`
+Source: `src/auth.ts:185:1`
 
 ### Members
 
@@ -2714,7 +2713,7 @@ Source: `src/bindings.ts:105:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:161:1`
+Source: `src/auth.ts:160:1`
 
 ### Members
 
@@ -2933,7 +2932,7 @@ Source: `src/types.ts:58:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:141:1`
+Source: `src/auth.ts:140:1`
 
 ### Members
 
@@ -2949,7 +2948,7 @@ Source: `src/auth.ts:141:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:173:1`
+Source: `src/auth.ts:172:1`
 
 ### Members
 
@@ -2965,7 +2964,7 @@ Source: `src/auth.ts:173:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:157:1`
+Source: `src/auth.ts:156:1`
 
 ### Members
 
@@ -2977,7 +2976,7 @@ Source: `src/auth.ts:157:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:149:1`
+Source: `src/auth.ts:148:1`
 
 ### Members
 
@@ -3743,7 +3742,7 @@ Source: `src/storage.ts:74:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:166:1`
+Source: `src/auth.ts:165:1`
 
 ### Members
 
