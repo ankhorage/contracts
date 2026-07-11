@@ -1,0 +1,65 @@
+name: Apply CLI layout migration
+
+on:
+  push:
+    branches:
+      - agent/standardize-cli-layout
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/standardize-cli-layout
+          fetch-depth: 0
+
+      - name: Standardize CLI layout
+        run: |
+          mkdir -p src/cli
+          git mv src/cli.ts src/cli/index.ts
+
+          python - <<'PY'
+          from pathlib import Path
+
+          replacements = {
+              Path('package.json'): (
+                  ('./dist/cli.d.ts', './dist/cli/index.d.ts'),
+                  ('./dist/cli.js', './dist/cli/index.js'),
+              ),
+              Path('src/contracts.test.ts'): (
+                  ('./dist/cli.d.ts', './dist/cli/index.d.ts'),
+                  ('./dist/cli.js', './dist/cli/index.js'),
+              ),
+          }
+
+          for path, pairs in replacements.items():
+              content = path.read_text()
+              for old, new in pairs:
+                  if old not in content:
+                      raise SystemExit(f'Expected {old!r} in {path}')
+                  content = content.replace(old, new)
+              path.write_text(content)
+          PY
+
+          cat > .changeset/calm-clis-align.md <<'EOF'
+          ---
+          '@ankhorage/contracts': patch
+          ---
+
+          Move the CLI contracts source to the canonical `src/cli/index.ts` layout and align the published subpath output.
+          EOF
+
+          rm .github/workflows/apply-cli-layout.yml
+
+      - name: Commit migration
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Standardize Contracts CLI layout"
+          git push origin HEAD:agent/standardize-cli-layout
