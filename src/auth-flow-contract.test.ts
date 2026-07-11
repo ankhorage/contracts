@@ -4,11 +4,11 @@ import { basename, join } from 'node:path';
 import { describe, expect, it } from 'bun:test';
 
 import {
-  DEFAULT_AUTH_FLOW,
-  resolveAuthFlow,
   type AppSettings,
   type AuthFlowConfig,
   type AuthSpec,
+  DEFAULT_AUTH_FLOW,
+  resolveAuthFlow,
 } from './index';
 
 async function collectTypeScriptFiles(directory: string): Promise<string[]> {
