@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 1.19.4
+
+### Patch Changes
+
+- 2001d64: Move the CLI contracts source to the canonical `src/cli/index.ts` layout and align the published subpath output.
+
 ## 1.19.3
 
 ### Patch Changes
