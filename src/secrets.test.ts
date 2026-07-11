@@ -1,14 +1,15 @@
+import './secretManifest';
+
 import { describe, expect, test } from 'bun:test';
 
 import type { AuthOAuthProviderConfig } from './auth';
-import type { InfraManifest } from './types';
 import {
   findForbiddenInlineSecretFields,
   normalizeSecretRef,
   normalizeSecretScope,
   validateSecretPayload,
 } from './secrets';
-import './secretManifest';
+import type { InfraManifest } from './types';
 
 describe('secret-store contracts', () => {
   test('normalizes logical secret references', () => {

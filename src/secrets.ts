@@ -103,7 +103,10 @@ export interface SecretStoreAdapter {
 const SECRET_REF_SEGMENT_PATTERN = /^[a-z0-9](?:[a-z0-9._-]*[a-z0-9])?$/;
 
 export function normalizeSecretRef(value: string): SecretStoreResult<SecretRef> {
-  const normalized = value.trim().replace(/^\/+|\/+$/g, '').replace(/\/{2,}/g, '/');
+  const normalized = value
+    .trim()
+    .replace(/^\/+|\/+$/g, '')
+    .replace(/\/{2,}/g, '/');
 
   if (
     normalized.length === 0 ||
