@@ -25,17 +25,18 @@ jobs:
         run: |
           python - <<'PY'
           from pathlib import Path
+          from textwrap import dedent
 
           types_path = Path('src/types.ts')
           types = types_path.read_text(encoding='utf-8')
 
           required_authorization = '  authorization: AuthzSpec;\n'
-          optional_authorization = '  authorization?: AuthzSpec;\n'
           if types.count(required_authorization) != 1:
               raise SystemExit('Expected exactly one required AuthSpec.authorization declaration')
-          types = types.replace(required_authorization, optional_authorization, 1)
+          types = types.replace(required_authorization, '  authorization?: AuthzSpec;\n', 1)
 
-          old_manifest = '''export interface AppManifest {
+          old_manifest = dedent('''\
+          export interface AppManifest {
             metadata: {
               name: string;
               slug: string;
@@ -63,8 +64,9 @@ jobs:
               authFlow: AuthFlowConfig;
             };
           }
-          '''
-          new_manifest = '''export interface AppSettings {
+          ''')
+          new_manifest = dedent('''\
+          export interface AppSettings {
             apiBaseUrl?: string;
             localization: {
               defaultLocale: string;
@@ -93,15 +95,16 @@ jobs:
             dataBindings?: ComponentDataBindingRegistry;
             settings: AppSettings;
           }
-          '''
-          if old_manifest not in types:
-              raise SystemExit('Expected AppManifest settings block not found')
+          ''')
+          if types.count(old_manifest) != 1:
+              raise SystemExit('Expected exactly one AppManifest settings block')
           types = types.replace(old_manifest, new_manifest, 1)
           types_path.write_text(types, encoding='utf-8')
 
           auth_path = Path('src/auth.ts')
           auth = auth_path.read_text(encoding='utf-8')
-          flow_interface = '''export interface AuthFlowConfig {
+          flow_interface = dedent('''\
+          export interface AuthFlowConfig {
             signInRoute: string;
             signUpRoute?: string;
             signOutRoute?: string;
@@ -110,8 +113,9 @@ jobs:
             postSignInRoute: string;
             unauthorizedRoute?: string;
           }
-          '''
-          flow_contract = flow_interface + '''
+          ''')
+          flow_contract = flow_interface + dedent('''\
+
           export const DEFAULT_AUTH_FLOW = {
             signInRoute: 'sign-in',
             signUpRoute: 'sign-up',
@@ -124,7 +128,7 @@ jobs:
           export function resolveAuthFlow(flow?: AuthFlowConfig): AuthFlowConfig {
             return { ...(flow ?? DEFAULT_AUTH_FLOW) };
           }
-          '''
+          ''')
           if auth.count(flow_interface) != 1:
               raise SystemExit('Expected exactly one AuthFlowConfig interface')
           auth = auth.replace(flow_interface, flow_contract, 1)
@@ -132,7 +136,8 @@ jobs:
 
           readme_path = Path('README.md')
           readme = readme_path.read_text(encoding='utf-8')
-          auth_section = '''## Authentication flow contract
+          auth_section = dedent('''\
+          ## Authentication flow contract
 
           Authentication flow belongs only at `manifest.infra.auth.flow`. Application
           `settings` contains unrelated runtime settings and has no authentication fields.
@@ -169,20 +174,16 @@ jobs:
           };
           ```
 
-          '''
+          ''')
           marker = '## Profile contract\n'
           if readme.count(marker) != 1:
               raise SystemExit('Expected Profile contract heading')
           readme = readme.replace(marker, auth_section + marker, 1)
-          readme = readme.replace(
-              "  authorization: { kind: 'RBAC', engine: 'native' },\n",
-              '',
-              1,
-          )
+          readme = readme.replace("  authorization: { kind: 'RBAC', engine: 'native' },\n", '', 1)
           readme_path.write_text(readme, encoding='utf-8')
 
-          test_path = Path('src/auth-flow-contract.test.ts')
-          test_path.write_text('''import { readdir, readFile } from 'node:fs/promises';
+          Path('src/auth-flow-contract.test.ts').write_text(dedent('''\
+          import { readdir, readFile } from 'node:fs/promises';
           import { basename, join } from 'node:path';
 
           import { describe, expect, it } from 'bun:test';
@@ -281,15 +282,15 @@ jobs:
               }
             });
           });
-          ''', encoding='utf-8')
+          '''), encoding='utf-8')
 
-          changeset_path = Path('.changeset/canonical-auth-flow.md')
-          changeset_path.write_text('''---
+          Path('.changeset/canonical-auth-flow.md').write_text(dedent('''\
+          ---
           '@ankhorage/contracts': major
           ---
 
           Make `infra.auth.flow` the only authentication-flow contract, remove auth flow from application settings, make authorization optional, and export the canonical auth-flow resolver.
-          ''', encoding='utf-8')
+          '''), encoding='utf-8')
           PY
 
           rm .github/workflows/phase1-contract-patch.yml
