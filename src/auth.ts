@@ -52,6 +52,19 @@ export interface AuthFlowConfig {
   unauthorizedRoute?: string;
 }
 
+export const DEFAULT_AUTH_FLOW = {
+  signInRoute: 'sign-in',
+  signUpRoute: 'sign-up',
+  signOutRoute: 'sign-out',
+  forgotPasswordRoute: 'forgot-password',
+  postSignInRoute: '/',
+  unauthorizedRoute: 'sign-in',
+} as const satisfies AuthFlowConfig;
+
+export function resolveAuthFlow(flow?: AuthFlowConfig): AuthFlowConfig {
+  return { ...(flow ?? DEFAULT_AUTH_FLOW) };
+}
+
 export interface AuthSignInConfig {
   identifiers: AuthIdentifierKind[];
 }

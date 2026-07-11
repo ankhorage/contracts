@@ -340,7 +340,7 @@ export interface AuthProfileSpec {
 export interface AuthSpec {
   scope: AuthScope;
   provider: AuthProvider;
-  authorization: AuthzSpec;
+  authorization?: AuthzSpec;
   flow?: AuthFlowConfig;
   signIn?: AuthSignInSpec;
   signUp?: AuthSignUpSpec;
@@ -364,6 +364,14 @@ export interface InfraManifest {
   pluginsConfig?: Record<string, unknown>;
 }
 
+export interface AppSettings {
+  apiBaseUrl?: string;
+  localization: {
+    defaultLocale: string;
+    locales: string[];
+  };
+}
+
 export interface AppManifest {
   metadata: {
     name: string;
@@ -383,12 +391,5 @@ export interface AppManifest {
   data?: AppDataManifest;
   dataSources?: DataSourceRegistry;
   dataBindings?: ComponentDataBindingRegistry;
-  settings: {
-    apiBaseUrl?: string;
-    localization: {
-      defaultLocale: string;
-      locales: string[];
-    };
-    authFlow: AuthFlowConfig;
-  };
+  settings: AppSettings;
 }

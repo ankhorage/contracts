@@ -1,0 +1,99 @@
+import { readdir, readFile } from 'node:fs/promises';
+import { basename, join } from 'node:path';
+
+import { describe, expect, it } from 'bun:test';
+
+import {
+  DEFAULT_AUTH_FLOW,
+  resolveAuthFlow,
+  type AppSettings,
+  type AuthFlowConfig,
+  type AuthSpec,
+} from './index';
+
+async function collectTypeScriptFiles(directory: string): Promise<string[]> {
+  const entries = await readdir(directory, { withFileTypes: true });
+  const files: string[] = [];
+
+  for (const entry of entries) {
+    const path = join(directory, entry.name);
+    if (entry.isDirectory()) {
+      files.push(...(await collectTypeScriptFiles(path)));
+    } else if (entry.isFile() && entry.name.endsWith('.ts')) {
+      files.push(path);
+    }
+  }
+
+  return files;
+}
+
+describe('canonical authentication flow contract', () => {
+  it('resolves one canonical default without mutating shared state', () => {
+    const first = resolveAuthFlow();
+    const second = resolveAuthFlow();
+
+    expect(first).toEqual(DEFAULT_AUTH_FLOW);
+    expect(second).toEqual(DEFAULT_AUTH_FLOW);
+    expect(first).not.toBe(DEFAULT_AUTH_FLOW);
+    expect(second).not.toBe(first);
+  });
+
+  it('preserves an explicitly configured flow without inventing optional routes', () => {
+    const configured: AuthFlowConfig = {
+      signInRoute: 'login',
+      postSignInRoute: 'dashboard',
+    };
+    const resolved = resolveAuthFlow(configured);
+
+    expect(resolved).toEqual(configured);
+    expect(resolved).not.toBe(configured);
+    expect(resolved.signUpRoute).toBeUndefined();
+  });
+
+  it('allows authentication without an authorization model', () => {
+    const auth: AuthSpec = {
+      scope: 'global',
+      provider: 'supabase',
+      flow: DEFAULT_AUTH_FLOW,
+    };
+
+    expect(auth.authorization).toBeUndefined();
+  });
+
+  it('removes auth flow from application settings at compile time', () => {
+    const settings: AppSettings = {
+      localization: {
+        defaultLocale: 'en',
+        locales: ['en'],
+      },
+    };
+
+    const removedProperty = {
+      localization: settings.localization,
+      // @ts-expect-error Authentication flow no longer belongs in application settings.
+      authFlow: DEFAULT_AUTH_FLOW,
+    } satisfies AppSettings;
+
+    expect(removedProperty.localization).toEqual(settings.localization);
+  });
+
+  it('makes authorization access require explicit narrowing', () => {
+    const assumesAuthorization = (auth: AuthSpec): string => {
+      // @ts-expect-error Authorization is optional and must be checked before use.
+      return auth.authorization.kind;
+    };
+
+    expect(typeof assumesAuthorization).toBe('function');
+  });
+
+  it('prevents the removed settings auth-flow path from returning to source', async () => {
+    const removedPath = 'settings.' + 'authFlow';
+    const files = await collectTypeScriptFiles(join(process.cwd(), 'src'));
+
+    for (const file of files) {
+      if (basename(file) === 'auth-flow-contract.test.ts') continue;
+      const content = await readFile(file, 'utf8');
+      expect(content.includes(removedPath)).toBe(false);
+    }
+  });
+});
