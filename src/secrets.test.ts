@@ -43,7 +43,7 @@ describe('secret-store contracts', () => {
     });
 
     const result = validateSecretPayload({ clientSecret: '' });
-    expect(result.ok).toBeFalse();
+    expect(result.ok).toBe(false);
     if (!result.ok) {
       expect(result.error.code).toBe('invalid_payload');
       expect(result.error.message).not.toContain('secret-value');
