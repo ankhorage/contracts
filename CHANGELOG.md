@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 2.1.0
+
+### Minor Changes
+
+- 7249c06: Add provider-neutral secret-store contracts, canonical `infra.secretStore` provider selection, logical OAuth `credentialsRef` support, and validation helpers that reject inline secret fields.
+
 ## 2.0.0
 
 ### Major Changes
