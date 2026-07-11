@@ -1205,13 +1205,13 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 367,
+      "line": 375,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
     "relatedSymbols": [
       "AppDataManifest",
-      "AuthFlowConfig",
+      "AppSettings",
       "ComponentDataBinding",
       "DataSourceConfig",
       "InfraManifest",
@@ -1288,7 +1288,7 @@
       {
         "name": "settings",
         "kind": "property",
-        "type": "{ apiBaseUrl?: string; localization: { defaultLocale: string; locales: string[]; }; authFlow: AuthFlowConfig; }",
+        "type": "AppSettings",
         "required": true,
         "description": null
       },
@@ -1303,6 +1303,39 @@
         "name": "themes",
         "kind": "property",
         "type": "ThemeConfig[]",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "AppSettings",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types.ts",
+    "sourceLocation": {
+      "filePath": "src/types.ts",
+      "line": 367,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "apiBaseUrl",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "localization",
+        "kind": "property",
+        "type": "{ defaultLocale: string; locales: string[]; }",
         "required": true,
         "description": null
       }
@@ -1516,7 +1549,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 188,
+      "line": 201,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1618,7 +1651,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 178,
+      "line": 191,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1686,7 +1719,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 112,
+      "line": 125,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1845,7 +1878,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 74,
+      "line": 87,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1885,7 +1918,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 64,
+      "line": 77,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1971,7 +2004,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 168,
+      "line": 181,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2148,7 +2181,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 80,
+      "line": 93,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2216,7 +2249,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 118,
+      "line": 131,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2252,7 +2285,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 104,
+      "line": 117,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2306,7 +2339,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 55,
+      "line": 68,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2376,7 +2409,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 59,
+      "line": 72,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2503,8 +2536,8 @@
       {
         "name": "authorization",
         "kind": "property",
-        "type": "AuthzSpec",
-        "required": true,
+        "type": "AuthzSpec | undefined",
+        "required": false,
         "description": null
       },
       {
@@ -2568,7 +2601,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 94,
+      "line": 107,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -3140,7 +3173,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 173,
+      "line": 186,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -5935,6 +5968,24 @@
         "description": null
       }
     ],
+    "structuredRows": []
+  },
+  {
+    "name": "DEFAULT_AUTH_FLOW",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "value",
+    "modulePath": "src/auth.ts",
+    "sourceLocation": {
+      "filePath": "src/auth.ts",
+      "line": 55,
+      "column": 14
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
     "structuredRows": []
   },
   {
@@ -8882,7 +8933,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 148,
+      "line": 161,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -8970,6 +9021,38 @@
         "description": null
       }
     ],
+    "structuredRows": []
+  },
+  {
+    "name": "resolveAuthFlow",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/auth.ts",
+    "sourceLocation": {
+      "filePath": "src/auth.ts",
+      "line": 64,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["AuthFlowConfig"],
+    "signatures": [
+      {
+        "label": "(flow?: AuthFlowConfig | undefined) => AuthFlowConfig",
+        "parameters": [
+          {
+            "name": "flow",
+            "type": "AuthFlowConfig | undefined",
+            "required": false,
+            "description": null
+          }
+        ],
+        "returnType": "AuthFlowConfig",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
     "structuredRows": []
   },
   {
@@ -9520,7 +9603,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 128,
+      "line": 141,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -9574,7 +9657,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 160,
+      "line": 173,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -9628,7 +9711,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 144,
+      "line": 157,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -9654,7 +9737,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 136,
+      "line": 149,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -12022,7 +12105,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 153,
+      "line": 166,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],

@@ -126,7 +126,7 @@ graph LR
   export_AppManifest["AppManifest"]
   module_src_types_ts --> export_AppManifest
   export_AppManifest -.-> export_AppDataManifest
-  export_AppManifest -.-> export_AuthFlowConfig
+  export_AppManifest -.-> export_AppSettings
   export_AppManifest -.-> export_ComponentDataBinding
   export_AppManifest -.-> export_DataSourceConfig
   export_AppManifest -.-> export_InfraManifest
@@ -134,6 +134,8 @@ graph LR
   export_AppManifest -.-> export_ScreenSpec
   export_AppManifest -.-> export_SplashScreenSpec
   export_AppManifest -.-> export_ThemeConfig
+  export_AppSettings["AppSettings"]
+  module_src_types_ts --> export_AppSettings
   export_AUTH_IDENTIFIER_KINDS["AUTH_IDENTIFIER_KINDS"]
   module_src_auth_ts --> export_AUTH_IDENTIFIER_KINDS
   export_AUTH_OAUTH_PROVIDER_IDS["AUTH_OAUTH_PROVIDER_IDS"]
@@ -530,6 +532,8 @@ graph LR
   export_DbUpdateInput["DbUpdateInput"]
   module_src_db_ts --> export_DbUpdateInput
   export_DbUpdateInput -.-> export_DbFilter
+  export_DEFAULT_AUTH_FLOW["DEFAULT_AUTH_FLOW"]
+  module_src_auth_ts --> export_DEFAULT_AUTH_FLOW
   export_DEPLOYMENT_TARGETS["DEPLOYMENT_TARGETS"]
   module_src_types_ts --> export_DEPLOYMENT_TARGETS
   export_DeploymentSpec["DeploymentSpec"]
@@ -753,6 +757,9 @@ graph LR
   export_PropBinding -.-> export_BindingLifecycleBehavior
   export_PropBinding -.-> export_BindingValueSource
   export_PropBinding -.-> export_BindingValueTransform
+  export_resolveAuthFlow["resolveAuthFlow"]
+  module_src_auth_ts --> export_resolveAuthFlow
+  export_resolveAuthFlow -.-> export_AuthFlowConfig
   export_RestDataSourceConfig["RestDataSourceConfig"]
   module_src_data_sources_ts --> export_RestDataSourceConfig
   export_RestDataSourceConfig -.-> export_CredentialRef

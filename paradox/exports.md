@@ -369,7 +369,7 @@ Source: `src/data/apis.ts:80:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:367:1`
+Source: `src/types.ts:375:1`
 
 ### Members
 
@@ -384,9 +384,22 @@ Source: `src/types.ts:367:1`
 | metadata        | property | `{ name: string; slug: string; version: string; themeId: string; created?: string; updated?: string; }`                 | yes      |             |
 | navigator       | property | `NavigatorSpec`                                                                                                         | yes      |             |
 | screens         | property | `Record<string, ScreenSpec>`                                                                                            | yes      |             |
-| settings        | property | `{ apiBaseUrl?: string; localization: { defaultLocale: string; locales: string[]; }; authFlow: AuthFlowConfig; }`       | yes      |             |
+| settings        | property | `AppSettings`                                                                                                           | yes      |             |
 | splashScreen    | property | `SplashScreenSpec \| undefined`                                                                                         | no       |             |
 | themes          | property | `ThemeConfig[]`                                                                                                         | yes      |             |
+
+## AppSettings
+
+Kind: `type`
+Module: `src/types.ts`
+Source: `src/types.ts:367:1`
+
+### Members
+
+| Name         | Kind     | Type                                            | Required | Description |
+| ------------ | -------- | ----------------------------------------------- | -------- | ----------- |
+| apiBaseUrl   | property | `string \| undefined`                           | no       |             |
+| localization | property | `{ defaultLocale: string; locales: string[]; }` | yes      |             |
 
 ## AUTH_IDENTIFIER_KINDS
 
@@ -458,7 +471,7 @@ Source: `src/types.ts:207:14`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:188:1`
+Source: `src/auth.ts:201:1`
 
 ### Members
 
@@ -479,7 +492,7 @@ Source: `src/auth.ts:188:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:178:1`
+Source: `src/auth.ts:191:1`
 
 ### Members
 
@@ -497,7 +510,7 @@ Source: `src/auth.ts:178:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:112:1`
+Source: `src/auth.ts:125:1`
 
 ### Members
 
@@ -548,7 +561,7 @@ Source: `src/auth.ts:4:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:74:1`
+Source: `src/auth.ts:87:1`
 
 ### Members
 
@@ -562,7 +575,7 @@ Source: `src/auth.ts:74:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:64:1`
+Source: `src/auth.ts:77:1`
 
 ### Members
 
@@ -586,7 +599,7 @@ Source: `src/auth.ts:38:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:168:1`
+Source: `src/auth.ts:181:1`
 
 ### Members
 
@@ -645,7 +658,7 @@ Source: `src/types.ts:202:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:80:1`
+Source: `src/auth.ts:93:1`
 
 ### Members
 
@@ -663,7 +676,7 @@ Source: `src/auth.ts:80:1`
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:118:1`
+Source: `src/auth.ts:131:1`
 
 ## AuthScope
 
@@ -675,7 +688,7 @@ Source: `src/types.ts:198:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:104:1`
+Source: `src/auth.ts:117:1`
 
 ### Members
 
@@ -691,7 +704,7 @@ Source: `src/auth.ts:104:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:55:1`
+Source: `src/auth.ts:68:1`
 
 ### Members
 
@@ -721,7 +734,7 @@ Source: `src/types.ts:322:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:59:1`
+Source: `src/auth.ts:72:1`
 
 ### Members
 
@@ -766,7 +779,7 @@ Source: `src/types.ts:340:1`
 
 | Name          | Kind     | Type                                 | Required | Description |
 | ------------- | -------- | ------------------------------------ | -------- | ----------- |
-| authorization | property | `AuthzSpec`                          | yes      |             |
+| authorization | property | `AuthzSpec \| undefined`             | no       |             |
 | flow          | property | `AuthFlowConfig \| undefined`        | no       |             |
 | oauth         | property | `AuthOAuthConfig \| undefined`       | no       |             |
 | profile       | property | `AuthProfileSpec \| undefined`       | no       |             |
@@ -779,7 +792,7 @@ Source: `src/types.ts:340:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:94:1`
+Source: `src/auth.ts:107:1`
 
 ### Members
 
@@ -975,7 +988,7 @@ Source: `src/types.ts:120:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:173:1`
+Source: `src/auth.ts:186:1`
 
 ### Members
 
@@ -1838,6 +1851,12 @@ Source: `src/db.ts:77:1`
 | table   | property | `string`              | yes      |             |
 | values  | property | `Partial<TRecord>`    | yes      |             |
 
+## DEFAULT_AUTH_FLOW
+
+Kind: `value`
+Module: `src/auth.ts`
+Source: `src/auth.ts:55:14`
+
 ## DEPLOYMENT_TARGETS
 
 Kind: `value`
@@ -2695,7 +2714,7 @@ Source: `src/bindings.ts:105:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:148:1`
+Source: `src/auth.ts:161:1`
 
 ### Members
 
@@ -2720,6 +2739,18 @@ Source: `src/bindings.ts:67:1`
 | loading    | property | `BindingLifecycleBehavior \| undefined`         | no       |             |
 | source     | property | `BindingValueSource`                            | yes      |             |
 | transforms | property | `readonly BindingValueTransform[] \| undefined` | no       |             |
+
+## resolveAuthFlow
+
+Kind: `function`
+Module: `src/auth.ts`
+Source: `src/auth.ts:64:1`
+
+### Signatures
+
+- `(flow?: AuthFlowConfig | undefined) => AuthFlowConfig`
+  - flow: `AuthFlowConfig | undefined` (optional)
+  - returns: `AuthFlowConfig`
 
 ## RestDataSourceConfig
 
@@ -2902,7 +2933,7 @@ Source: `src/types.ts:58:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:128:1`
+Source: `src/auth.ts:141:1`
 
 ### Members
 
@@ -2918,7 +2949,7 @@ Source: `src/auth.ts:128:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:160:1`
+Source: `src/auth.ts:173:1`
 
 ### Members
 
@@ -2934,7 +2965,7 @@ Source: `src/auth.ts:160:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:144:1`
+Source: `src/auth.ts:157:1`
 
 ### Members
 
@@ -2946,7 +2977,7 @@ Source: `src/auth.ts:144:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:136:1`
+Source: `src/auth.ts:149:1`
 
 ### Members
 
@@ -3712,7 +3743,7 @@ Source: `src/storage.ts:74:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:153:1`
+Source: `src/auth.ts:166:1`
 
 ### Members
 
