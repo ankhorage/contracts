@@ -80,7 +80,6 @@ export interface AuthOAuthProviderConfig {
   label?: string;
   enabled?: boolean;
   scopes?: string[];
-  redirectTo?: string;
   queryParams?: Record<string, string>;
   icon?: IconSpec;
   /** Logical server-side secret reference; raw credentials must never be stored here. */
@@ -130,17 +129,14 @@ export interface AuthAdapterError {
   cause?: unknown;
 }
 
-export type AuthResult<
-  TData = void,
-  TError extends AuthAdapterError = AuthAdapterError,
-> =
+export type AuthResult<TData = void> =
   | {
       ok: true;
       data?: TData;
     }
   | {
       ok: false;
-      error: TError;
+      error: AuthAdapterError;
     };
 
 export interface SignInInput {
@@ -307,9 +303,7 @@ export interface AuthOAuthAdapter {
   readonly capabilities: AuthOAuthCapabilities;
 
   startAuthorization(input: StartOAuthAuthorizationInput): Promise<AuthOAuthStartResult>;
-  completeAuthorization(
-    input: CompleteOAuthAuthorizationInput,
-  ): Promise<AuthOAuthCompletionResult>;
+  completeAuthorization(input: CompleteOAuthAuthorizationInput): Promise<AuthOAuthCompletionResult>;
 }
 
 export interface AuthAdapterCapabilities {
