@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 3.0.0
+
+### Major Changes
+
+- d46f70b: Replace the optional URL-only OAuth adapter methods with one canonical provider-neutral OAuth capability that requires authorization start and callback completion, models transport cancellation and failures explicitly, and resolves successful OAuth sign-in to the existing `AuthSession` contract.
+
 ## 2.1.0
 
 ### Minor Changes
