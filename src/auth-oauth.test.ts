@@ -73,7 +73,6 @@ describe('OAuth auth contracts', () => {
           id: 'custom-sso',
           label: 'Custom SSO',
           enabled: false,
-          redirectTo: '/auth/custom/callback',
           queryParams: {
             prompt: 'select_account',
           },
