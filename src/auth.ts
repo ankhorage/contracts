@@ -80,7 +80,6 @@ export interface AuthOAuthProviderConfig {
   label?: string;
   enabled?: boolean;
   scopes?: string[];
-  redirectTo?: string;
   queryParams?: Record<string, string>;
   icon?: IconSpec;
   /** Logical server-side secret reference; raw credentials must never be stored here. */
@@ -172,22 +171,139 @@ export interface VerifyOtpInput {
   metadata?: Record<string, unknown>;
 }
 
-export interface SignInWithOAuthInput {
-  provider: AuthOAuthProviderId;
-  redirectTo?: string;
-  scopes?: string[];
-  queryParams?: Record<string, string>;
-  metadata?: Record<string, unknown>;
+export const AUTH_OAUTH_ERROR_STAGES = [
+  'start',
+  'transport',
+  'callback',
+  'exchange',
+  'session',
+  'profile',
+] as const;
+export type AuthOAuthErrorStage = (typeof AUTH_OAUTH_ERROR_STAGES)[number];
+
+export const AUTH_OAUTH_ERROR_CODES = [
+  'oauth_unavailable',
+  'provider_disabled',
+  'provider_misconfigured',
+  'invalid_redirect_uri',
+  'authorization_failed',
+  'authorization_attempt_not_found',
+  'invalid_callback',
+  'state_mismatch',
+  'pkce_mismatch',
+  'callback_already_completed',
+  'code_exchange_failed',
+  'network_error',
+  'session_persistence_failed',
+  'profile_creation_failed',
+  'provider_error',
+] as const;
+export type AuthOAuthErrorCode = (typeof AUTH_OAUTH_ERROR_CODES)[number];
+
+export interface AuthOAuthError extends AuthAdapterError {
+  code: AuthOAuthErrorCode;
+  stage: AuthOAuthErrorStage;
+  provider?: AuthOAuthProviderId;
+  recoverable: boolean;
 }
 
-export interface AuthOAuthRedirect {
-  provider: AuthOAuthProviderId;
-  url: string;
+export const AUTH_OAUTH_TRANSPORT_CANCELLATION_REASONS = [
+  'user_cancelled',
+  'browser_dismissed',
+] as const;
+export type AuthOAuthTransportCancellationReason =
+  (typeof AUTH_OAUTH_TRANSPORT_CANCELLATION_REASONS)[number];
+
+export const AUTH_OAUTH_CANCELLATION_REASONS = [
+  ...AUTH_OAUTH_TRANSPORT_CANCELLATION_REASONS,
+  'provider_denied',
+] as const;
+export type AuthOAuthCancellationReason = (typeof AUTH_OAUTH_CANCELLATION_REASONS)[number];
+
+export const AUTH_OAUTH_TRANSPORT_ERROR_CODES = [
+  'browser_unavailable',
+  'transport_failed',
+] as const;
+export type AuthOAuthTransportErrorCode = (typeof AUTH_OAUTH_TRANSPORT_ERROR_CODES)[number];
+
+export interface AuthOAuthTransportError {
+  code: AuthOAuthTransportErrorCode;
+  message: string;
+  cause?: unknown;
 }
 
-export interface CompleteOAuthSignInInput {
-  url: string;
-  redirectTo?: string;
+export interface StartOAuthAuthorizationInput {
+  provider: AuthOAuthProviderId;
+  redirectUri: string;
+  scopes?: readonly string[];
+  queryParams?: Readonly<Record<string, string>>;
+}
+
+export interface AuthOAuthAuthorizationRequest {
+  attemptId: string;
+  provider: AuthOAuthProviderId;
+  authorizationUrl: string;
+  redirectUri: string;
+}
+
+export type AuthOAuthStartResult =
+  | {
+      ok: true;
+      data: AuthOAuthAuthorizationRequest;
+    }
+  | {
+      ok: false;
+      error: AuthOAuthError;
+    };
+
+export type AuthOAuthAuthorizationResponse =
+  | {
+      type: 'callback';
+      url: string;
+    }
+  | {
+      type: 'cancelled';
+      reason: AuthOAuthTransportCancellationReason;
+    }
+  | {
+      type: 'error';
+      error: AuthOAuthTransportError;
+    };
+
+export interface CompleteOAuthAuthorizationInput {
+  attemptId: string;
+  response: AuthOAuthAuthorizationResponse;
+}
+
+export type AuthOAuthCompletionResult =
+  | {
+      ok: true;
+      status: 'authenticated';
+      provider: AuthOAuthProviderId;
+      session: AuthSession;
+    }
+  | {
+      ok: false;
+      status: 'cancelled';
+      provider: AuthOAuthProviderId;
+      reason: AuthOAuthCancellationReason;
+    }
+  | {
+      ok: false;
+      status: 'error';
+      error: AuthOAuthError;
+    };
+
+export interface AuthOAuthCapabilities {
+  /** Enabled providers for which start and callback completion are operational. */
+  providers: readonly [AuthOAuthProviderId, ...AuthOAuthProviderId[]];
+}
+
+export interface AuthOAuthAdapter {
+  readonly capabilities: AuthOAuthCapabilities;
+
+  startAuthorization(input: StartOAuthAuthorizationInput): Promise<AuthOAuthStartResult>;
+  completeAuthorization(input: CompleteOAuthAuthorizationInput): Promise<AuthOAuthCompletionResult>;
 }
 
 export interface AuthAdapterCapabilities {
@@ -196,12 +312,15 @@ export interface AuthAdapterCapabilities {
   supportsPasswordReset: boolean;
   supportsOtp: boolean;
   supportsSessionRefresh: boolean;
-  supportsOAuth?: boolean;
-  oauthProviders?: AuthOAuthProviderId[];
 }
 
 export interface AuthAdapter {
   readonly capabilities?: AuthAdapterCapabilities;
+  /**
+   * Presence is the canonical OAuth capability signal. When present, both authorization start and
+   * callback completion are mandatory and operational for every advertised provider.
+   */
+  readonly oauth?: AuthOAuthAdapter;
 
   signIn(input: SignInInput): Promise<AuthResult<AuthSession>>;
   signUp(input: SignUpInput): Promise<AuthResult<AuthSession | AuthUser>>;
@@ -212,7 +331,4 @@ export interface AuthAdapter {
 
   requestPasswordReset?(input: PasswordResetInput): Promise<AuthResult>;
   verifyOtp?(input: VerifyOtpInput): Promise<AuthResult<AuthSession>>;
-
-  signInWithOAuth?(input: SignInWithOAuthInput): Promise<AuthResult<AuthOAuthRedirect>>;
-  completeOAuthSignIn?(input: CompleteOAuthSignInInput): Promise<AuthResult<AuthSession>>;
 }
