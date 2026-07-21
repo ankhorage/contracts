@@ -377,6 +377,7 @@ export interface AppManifest {
     name: string;
     slug: string;
     version: string;
+    category: AppCategory;
     themeId: string;
     created?: string;
     updated?: string;

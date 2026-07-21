@@ -21,10 +21,13 @@ graph LR
   module_src_nutrition_review_ts["src/nutrition/review.ts"]
   module_src_requirements_ts["src/requirements.ts"]
   module_src_runtimeCallbacks_ts["src/runtimeCallbacks.ts"]
+  module_src_secretManifest_ts["src/secretManifest.ts"]
+  module_src_secrets_ts["src/secrets.ts"]
   module_src_state_ts["src/state.ts"]
   module_src_storage_ts["src/storage.ts"]
   module_src_types_ts["src/types.ts"]
   module_src_ui_ts["src/ui.ts"]
+  module_src_auth_ts --> module_src_secrets_ts
   module_src_auth_ts --> module_src_types_ts
   module_src_bindings_ts --> module_src_data_index_ts
   module_src_data_apis_ts --> module_src_data_operations_ts
@@ -56,6 +59,7 @@ graph LR
   module_src_nutrition_review_ts --> module_src_nutrition_common_ts
   module_src_nutrition_review_ts --> module_src_nutrition_products_ts
   module_src_runtimeCallbacks_ts --> module_src_types_ts
+  module_src_secretManifest_ts --> module_src_secrets_ts
   module_src_types_ts --> module_src_auth_ts
   module_src_types_ts --> module_src_bindings_ts
   module_src_types_ts --> module_src_data_index_ts
