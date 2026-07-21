@@ -21,6 +21,8 @@ graph LR
   module_src_nutrition_review_ts["src/nutrition/review.ts"]
   module_src_requirements_ts["src/requirements.ts"]
   module_src_runtimeCallbacks_ts["src/runtimeCallbacks.ts"]
+  module_src_secretManifest_ts["src/secretManifest.ts"]
+  module_src_secrets_ts["src/secrets.ts"]
   module_src_state_ts["src/state.ts"]
   module_src_storage_ts["src/storage.ts"]
   module_src_types_ts["src/types.ts"]
@@ -125,6 +127,7 @@ graph LR
   export_AppGeneratedApiDefinition -.-> export_DataContractValue
   export_AppManifest["AppManifest"]
   module_src_types_ts --> export_AppManifest
+  export_AppManifest -.-> export_AppCategory
   export_AppManifest -.-> export_AppDataManifest
   export_AppManifest -.-> export_AppSettings
   export_AppManifest -.-> export_ComponentDataBinding
@@ -138,8 +141,18 @@ graph LR
   module_src_types_ts --> export_AppSettings
   export_AUTH_IDENTIFIER_KINDS["AUTH_IDENTIFIER_KINDS"]
   module_src_auth_ts --> export_AUTH_IDENTIFIER_KINDS
+  export_AUTH_OAUTH_CANCELLATION_REASONS["AUTH_OAUTH_CANCELLATION_REASONS"]
+  module_src_auth_ts --> export_AUTH_OAUTH_CANCELLATION_REASONS
+  export_AUTH_OAUTH_ERROR_CODES["AUTH_OAUTH_ERROR_CODES"]
+  module_src_auth_ts --> export_AUTH_OAUTH_ERROR_CODES
+  export_AUTH_OAUTH_ERROR_STAGES["AUTH_OAUTH_ERROR_STAGES"]
+  module_src_auth_ts --> export_AUTH_OAUTH_ERROR_STAGES
   export_AUTH_OAUTH_PROVIDER_IDS["AUTH_OAUTH_PROVIDER_IDS"]
   module_src_auth_ts --> export_AUTH_OAUTH_PROVIDER_IDS
+  export_AUTH_OAUTH_TRANSPORT_CANCELLATION_REASONS["AUTH_OAUTH_TRANSPORT_CANCELLATION_REASONS"]
+  module_src_auth_ts --> export_AUTH_OAUTH_TRANSPORT_CANCELLATION_REASONS
+  export_AUTH_OAUTH_TRANSPORT_ERROR_CODES["AUTH_OAUTH_TRANSPORT_ERROR_CODES"]
+  module_src_auth_ts --> export_AUTH_OAUTH_TRANSPORT_ERROR_CODES
   export_AUTH_PROFILE_CREATE_STRATEGIES["AUTH_PROFILE_CREATE_STRATEGIES"]
   module_src_types_ts --> export_AUTH_PROFILE_CREATE_STRATEGIES
   export_AUTH_PROFILE_FIELDS["AUTH_PROFILE_FIELDS"]
@@ -161,20 +174,17 @@ graph LR
   export_AuthAdapter["AuthAdapter"]
   module_src_auth_ts --> export_AuthAdapter
   export_AuthAdapter -.-> export_AuthAdapterCapabilities
-  export_AuthAdapter -.-> export_AuthOAuthRedirect
+  export_AuthAdapter -.-> export_AuthOAuthAdapter
   export_AuthAdapter -.-> export_AuthResult
   export_AuthAdapter -.-> export_AuthSession
   export_AuthAdapter -.-> export_AuthUser
-  export_AuthAdapter -.-> export_CompleteOAuthSignInInput
   export_AuthAdapter -.-> export_PasswordResetInput
   export_AuthAdapter -.-> export_SignInInput
-  export_AuthAdapter -.-> export_SignInWithOAuthInput
   export_AuthAdapter -.-> export_SignOutInput
   export_AuthAdapter -.-> export_SignUpInput
   export_AuthAdapter -.-> export_VerifyOtpInput
   export_AuthAdapterCapabilities["AuthAdapterCapabilities"]
   module_src_auth_ts --> export_AuthAdapterCapabilities
-  export_AuthAdapterCapabilities -.-> export_AuthOAuthProviderId
   export_AuthAdapterError["AuthAdapterError"]
   module_src_auth_ts --> export_AuthAdapterError
   export_AuthFlowConfig["AuthFlowConfig"]
@@ -183,18 +193,49 @@ graph LR
   module_src_auth_ts --> export_AuthIdentifier
   export_AuthIdentifierKind["AuthIdentifierKind"]
   module_src_auth_ts --> export_AuthIdentifierKind
+  export_AuthOAuthAdapter["AuthOAuthAdapter"]
+  module_src_auth_ts --> export_AuthOAuthAdapter
+  export_AuthOAuthAdapter -.-> export_AuthOAuthCapabilities
+  export_AuthOAuthAdapter -.-> export_AuthOAuthCompletionResult
+  export_AuthOAuthAdapter -.-> export_AuthOAuthStartResult
+  export_AuthOAuthAdapter -.-> export_CompleteOAuthAuthorizationInput
+  export_AuthOAuthAdapter -.-> export_StartOAuthAuthorizationInput
+  export_AuthOAuthAuthorizationRequest["AuthOAuthAuthorizationRequest"]
+  module_src_auth_ts --> export_AuthOAuthAuthorizationRequest
+  export_AuthOAuthAuthorizationRequest -.-> export_AuthOAuthProviderId
+  export_AuthOAuthAuthorizationResponse["AuthOAuthAuthorizationResponse"]
+  module_src_auth_ts --> export_AuthOAuthAuthorizationResponse
+  export_AuthOAuthCancellationReason["AuthOAuthCancellationReason"]
+  module_src_auth_ts --> export_AuthOAuthCancellationReason
+  export_AuthOAuthCapabilities["AuthOAuthCapabilities"]
+  module_src_auth_ts --> export_AuthOAuthCapabilities
+  export_AuthOAuthCapabilities -.-> export_AuthOAuthProviderId
+  export_AuthOAuthCompletionResult["AuthOAuthCompletionResult"]
+  module_src_auth_ts --> export_AuthOAuthCompletionResult
   export_AuthOAuthConfig["AuthOAuthConfig"]
   module_src_auth_ts --> export_AuthOAuthConfig
   export_AuthOAuthConfig -.-> export_AuthOAuthProviderConfig
+  export_AuthOAuthError["AuthOAuthError"]
+  module_src_auth_ts --> export_AuthOAuthError
+  export_AuthOAuthError -.-> export_AuthOAuthProviderId
+  export_AuthOAuthErrorCode["AuthOAuthErrorCode"]
+  module_src_auth_ts --> export_AuthOAuthErrorCode
+  export_AuthOAuthErrorStage["AuthOAuthErrorStage"]
+  module_src_auth_ts --> export_AuthOAuthErrorStage
   export_AuthOAuthProviderConfig["AuthOAuthProviderConfig"]
   module_src_auth_ts --> export_AuthOAuthProviderConfig
   export_AuthOAuthProviderConfig -.-> export_AuthOAuthProviderId
   export_AuthOAuthProviderConfig -.-> export_IconSpec
   export_AuthOAuthProviderId["AuthOAuthProviderId"]
   module_src_auth_ts --> export_AuthOAuthProviderId
-  export_AuthOAuthRedirect["AuthOAuthRedirect"]
-  module_src_auth_ts --> export_AuthOAuthRedirect
-  export_AuthOAuthRedirect -.-> export_AuthOAuthProviderId
+  export_AuthOAuthStartResult["AuthOAuthStartResult"]
+  module_src_auth_ts --> export_AuthOAuthStartResult
+  export_AuthOAuthTransportCancellationReason["AuthOAuthTransportCancellationReason"]
+  module_src_auth_ts --> export_AuthOAuthTransportCancellationReason
+  export_AuthOAuthTransportError["AuthOAuthTransportError"]
+  module_src_auth_ts --> export_AuthOAuthTransportError
+  export_AuthOAuthTransportErrorCode["AuthOAuthTransportErrorCode"]
+  module_src_auth_ts --> export_AuthOAuthTransportErrorCode
   export_AuthProfileCreateStrategy["AuthProfileCreateStrategy"]
   module_src_types_ts --> export_AuthProfileCreateStrategy
   export_AuthProfileField["AuthProfileField"]
@@ -299,8 +340,9 @@ graph LR
   export_CollectionItemPressPayload["CollectionItemPressPayload"]
   module_src_types_ts --> export_CollectionItemPressPayload
   export_CollectionItemPressPayload -.-> export_ManifestValue
-  export_CompleteOAuthSignInInput["CompleteOAuthSignInInput"]
-  module_src_auth_ts --> export_CompleteOAuthSignInInput
+  export_CompleteOAuthAuthorizationInput["CompleteOAuthAuthorizationInput"]
+  module_src_auth_ts --> export_CompleteOAuthAuthorizationInput
+  export_CompleteOAuthAuthorizationInput -.-> export_AuthOAuthAuthorizationResponse
   export_ComponentDataBinding["ComponentDataBinding"]
   module_src_bindings_ts --> export_ComponentDataBinding
   export_ComponentDataBinding -.-> export_EventBinding
@@ -551,6 +593,10 @@ graph LR
   module_src_bindings_ts --> export_EventBindingTarget
   export_FilterAction["FilterAction"]
   module_src_types_ts --> export_FilterAction
+  export_findForbiddenInlineSecretFields["findForbiddenInlineSecretFields"]
+  module_src_secrets_ts --> export_findForbiddenInlineSecretFields
+  export_FORBIDDEN_INLINE_SECRET_FIELDS["FORBIDDEN_INLINE_SECRET_FIELDS"]
+  module_src_secrets_ts --> export_FORBIDDEN_INLINE_SECRET_FIELDS
   export_FormSubmitEventDto["FormSubmitEventDto"]
   module_src_types_ts --> export_FormSubmitEventDto
   export_FormSubmitValues["FormSubmitValues"]
@@ -572,9 +618,13 @@ graph LR
   export_InfraManifest -.-> export_AuthSpec
   export_InfraManifest -.-> export_DatabaseSpec
   export_InfraManifest -.-> export_DeploymentSpec
+  export_InfraManifest -.-> export_InfraSecretStoreSpec
   export_InfraManifest -.-> export_NetworkingSpec
   export_InfraManifest -.-> export_StateSpec
   export_InfraManifest -.-> export_StorageSpec
+  export_InfraSecretStoreSpec["InfraSecretStoreSpec"]
+  module_src_secretManifest_ts --> export_InfraSecretStoreSpec
+  export_InfraSecretStoreSpec -.-> export_SecretStoreProvider
   export_KnownAuthOAuthProviderId["KnownAuthOAuthProviderId"]
   module_src_auth_ts --> export_KnownAuthOAuthProviderId
   export_KnownAuthProfileField["KnownAuthProfileField"]
@@ -589,6 +639,8 @@ graph LR
   module_src_types_ts --> export_KnownDatabaseProvider
   export_KnownDeploymentTarget["KnownDeploymentTarget"]
   module_src_types_ts --> export_KnownDeploymentTarget
+  export_KnownSecretStoreProvider["KnownSecretStoreProvider"]
+  module_src_secrets_ts --> export_KnownSecretStoreProvider
   export_KnownStateProvider["KnownStateProvider"]
   module_src_types_ts --> export_KnownStateProvider
   export_ManagedApiDataSourceConfig["ManagedApiDataSourceConfig"]
@@ -616,6 +668,13 @@ graph LR
   module_src_types_ts --> export_NavigatorType
   export_NetworkingSpec["NetworkingSpec"]
   module_src_types_ts --> export_NetworkingSpec
+  export_normalizeSecretRef["normalizeSecretRef"]
+  module_src_secrets_ts --> export_normalizeSecretRef
+  export_normalizeSecretRef -.-> export_SecretStoreResult
+  export_normalizeSecretScope["normalizeSecretScope"]
+  module_src_secrets_ts --> export_normalizeSecretScope
+  export_normalizeSecretScope -.-> export_SecretScope
+  export_normalizeSecretScope -.-> export_SecretStoreResult
   export_NUTRITION_BARCODE_TYPES["NUTRITION_BARCODE_TYPES"]
   module_src_nutrition_common_ts --> export_NUTRITION_BARCODE_TYPES
   export_NUTRITION_CAPTURE_SUBMISSION_STATUSES["NUTRITION_CAPTURE_SUBMISSION_STATUSES"]
@@ -800,14 +859,63 @@ graph LR
   export_ScreenSpec -.-> export_UiNode
   export_SearchAction["SearchAction"]
   module_src_types_ts --> export_SearchAction
+  export_SECRET_STORE_ERROR_CODES["SECRET_STORE_ERROR_CODES"]
+  module_src_secrets_ts --> export_SECRET_STORE_ERROR_CODES
+  export_SECRET_STORE_PROVIDERS["SECRET_STORE_PROVIDERS"]
+  module_src_secrets_ts --> export_SECRET_STORE_PROVIDERS
+  export_SecretCreateInput["SecretCreateInput"]
+  module_src_secrets_ts --> export_SecretCreateInput
+  export_SecretCreateInput -.-> export_SecretScope
+  export_SecretGetMetadataInput["SecretGetMetadataInput"]
+  module_src_secrets_ts --> export_SecretGetMetadataInput
+  export_SecretGetMetadataInput -.-> export_SecretScope
+  export_SecretListInput["SecretListInput"]
+  module_src_secrets_ts --> export_SecretListInput
+  export_SecretListInput -.-> export_SecretScope
+  export_SecretMetadata["SecretMetadata"]
+  module_src_secrets_ts --> export_SecretMetadata
+  export_SecretMetadata -.-> export_SecretScope
+  export_SecretPayload["SecretPayload"]
+  module_src_secrets_ts --> export_SecretPayload
+  export_SecretRef["SecretRef"]
+  module_src_secrets_ts --> export_SecretRef
+  export_SecretRemoveInput["SecretRemoveInput"]
+  module_src_secrets_ts --> export_SecretRemoveInput
+  export_SecretRemoveInput -.-> export_SecretScope
+  export_SecretReplaceInput["SecretReplaceInput"]
+  module_src_secrets_ts --> export_SecretReplaceInput
+  export_SecretReplaceInput -.-> export_SecretScope
+  export_SecretResolveInput["SecretResolveInput"]
+  module_src_secrets_ts --> export_SecretResolveInput
+  export_SecretResolveInput -.-> export_SecretScope
+  export_SecretScope["SecretScope"]
+  module_src_secrets_ts --> export_SecretScope
+  export_SecretStoreAdapter["SecretStoreAdapter"]
+  module_src_secrets_ts --> export_SecretStoreAdapter
+  export_SecretStoreAdapter -.-> export_SecretCreateInput
+  export_SecretStoreAdapter -.-> export_SecretGetMetadataInput
+  export_SecretStoreAdapter -.-> export_SecretListInput
+  export_SecretStoreAdapter -.-> export_SecretMetadata
+  export_SecretStoreAdapter -.-> export_SecretPayload
+  export_SecretStoreAdapter -.-> export_SecretRemoveInput
+  export_SecretStoreAdapter -.-> export_SecretReplaceInput
+  export_SecretStoreAdapter -.-> export_SecretResolveInput
+  export_SecretStoreAdapter -.-> export_SecretStoreResult
+  export_SecretStoreError["SecretStoreError"]
+  module_src_secrets_ts --> export_SecretStoreError
+  export_SecretStoreErrorCode["SecretStoreErrorCode"]
+  module_src_secrets_ts --> export_SecretStoreErrorCode
+  export_SecretStoreOkResult["SecretStoreOkResult"]
+  module_src_secrets_ts --> export_SecretStoreOkResult
+  export_SecretStoreProvider["SecretStoreProvider"]
+  module_src_secrets_ts --> export_SecretStoreProvider
+  export_SecretStoreResult["SecretStoreResult"]
+  module_src_secrets_ts --> export_SecretStoreResult
   export_SetLanguageAction["SetLanguageAction"]
   module_src_types_ts --> export_SetLanguageAction
   export_SignInInput["SignInInput"]
   module_src_auth_ts --> export_SignInInput
   export_SignInInput -.-> export_AuthIdentifier
-  export_SignInWithOAuthInput["SignInWithOAuthInput"]
-  module_src_auth_ts --> export_SignInWithOAuthInput
-  export_SignInWithOAuthInput -.-> export_AuthOAuthProviderId
   export_SignOutInput["SignOutInput"]
   module_src_auth_ts --> export_SignOutInput
   export_SignUpInput["SignUpInput"]
@@ -825,6 +933,9 @@ graph LR
   module_src_types_ts --> export_SplashScreenSpec
   export_SplashScreenSpec -.-> export_SplashScreenModeSpec
   export_SplashScreenSpec -.-> export_SplashScreenResizeMode
+  export_StartOAuthAuthorizationInput["StartOAuthAuthorizationInput"]
+  module_src_auth_ts --> export_StartOAuthAuthorizationInput
+  export_StartOAuthAuthorizationInput -.-> export_AuthOAuthProviderId
   export_STATE_PERSISTENCE_MODES["STATE_PERSISTENCE_MODES"]
   module_src_types_ts --> export_STATE_PERSISTENCE_MODES
   export_STATE_PROVIDERS["STATE_PROVIDERS"]
@@ -995,6 +1106,9 @@ graph LR
   export_UrlImageAssetSource["UrlImageAssetSource"]
   module_src_storage_ts --> export_UrlImageAssetSource
   export_UrlImageAssetSource -.-> export_ImageMetadata
+  export_validateSecretPayload["validateSecretPayload"]
+  module_src_secrets_ts --> export_validateSecretPayload
+  export_validateSecretPayload -.-> export_SecretStoreResult
   export_VerifyOtpInput["VerifyOtpInput"]
   module_src_auth_ts --> export_VerifyOtpInput
   export_VerifyOtpInput -.-> export_AuthIdentifier

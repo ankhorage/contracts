@@ -373,20 +373,20 @@ Source: `src/types.ts:375:1`
 
 ### Members
 
-| Name            | Kind     | Type                                                                                                                    | Required | Description |
-| --------------- | -------- | ----------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| activeThemeId   | property | `string`                                                                                                                | yes      |             |
-| activeThemeMode | property | `"dark" \| "light" \| undefined`                                                                                        | no       |             |
-| data            | property | `AppDataManifest \| undefined`                                                                                          | no       |             |
-| dataBindings    | property | `Readonly<Record<string, import("/Users/a_rtiphishl_e/git/contracts/src/bindings").ComponentDataBinding>> \| undefined` | no       |             |
-| dataSources     | property | `Readonly<Record<string, import("/Users/a_rtiphishl_e/git/contracts/src/index").DataSourceConfig>> \| undefined`        | no       |             |
-| infra           | property | `InfraManifest`                                                                                                         | yes      |             |
-| metadata        | property | `{ name: string; slug: string; version: string; themeId: string; created?: string; updated?: string; }`                 | yes      |             |
-| navigator       | property | `NavigatorSpec`                                                                                                         | yes      |             |
-| screens         | property | `Record<string, ScreenSpec>`                                                                                            | yes      |             |
-| settings        | property | `AppSettings`                                                                                                           | yes      |             |
-| splashScreen    | property | `SplashScreenSpec \| undefined`                                                                                         | no       |             |
-| themes          | property | `ThemeConfig[]`                                                                                                         | yes      |             |
+| Name            | Kind     | Type                                                                                                                           | Required | Description |
+| --------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------ | -------- | ----------- |
+| activeThemeId   | property | `string`                                                                                                                       | yes      |             |
+| activeThemeMode | property | `"dark" \| "light" \| undefined`                                                                                               | no       |             |
+| data            | property | `AppDataManifest \| undefined`                                                                                                 | no       |             |
+| dataBindings    | property | `Readonly<Record<string, import("/Users/a_rtiphishl_e/git/contracts/src/bindings").ComponentDataBinding>> \| undefined`        | no       |             |
+| dataSources     | property | `Readonly<Record<string, import("/Users/a_rtiphishl_e/git/contracts/src/index").DataSourceConfig>> \| undefined`               | no       |             |
+| infra           | property | `InfraManifest`                                                                                                                | yes      |             |
+| metadata        | property | `{ name: string; slug: string; version: string; category: AppCategory; themeId: string; created?: string; updated?: string; }` | yes      |             |
+| navigator       | property | `NavigatorSpec`                                                                                                                | yes      |             |
+| screens         | property | `Record<string, ScreenSpec>`                                                                                                   | yes      |             |
+| settings        | property | `AppSettings`                                                                                                                  | yes      |             |
+| splashScreen    | property | `SplashScreenSpec \| undefined`                                                                                                | no       |             |
+| themes          | property | `ThemeConfig[]`                                                                                                                | yes      |             |
 
 ## AppSettings
 
@@ -405,13 +405,43 @@ Source: `src/types.ts:367:1`
 
 Kind: `value`
 Module: `src/auth.ts`
-Source: `src/auth.ts:3:14`
+Source: `src/auth.ts:4:14`
+
+## AUTH_OAUTH_CANCELLATION_REASONS
+
+Kind: `value`
+Module: `src/auth.ts`
+Source: `src/auth.ts:217:14`
+
+## AUTH_OAUTH_ERROR_CODES
+
+Kind: `value`
+Module: `src/auth.ts`
+Source: `src/auth.ts:184:14`
+
+## AUTH_OAUTH_ERROR_STAGES
+
+Kind: `value`
+Module: `src/auth.ts`
+Source: `src/auth.ts:174:14`
 
 ## AUTH_OAUTH_PROVIDER_IDS
 
 Kind: `value`
 Module: `src/auth.ts`
-Source: `src/auth.ts:16:14`
+Source: `src/auth.ts:17:14`
+
+## AUTH_OAUTH_TRANSPORT_CANCELLATION_REASONS
+
+Kind: `value`
+Module: `src/auth.ts`
+Source: `src/auth.ts:210:14`
+
+## AUTH_OAUTH_TRANSPORT_ERROR_CODES
+
+Kind: `value`
+Module: `src/auth.ts`
+Source: `src/auth.ts:223:14`
 
 ## AUTH_PROFILE_CREATE_STRATEGIES
 
@@ -459,7 +489,7 @@ Source: `src/types.ts:204:14`
 
 Kind: `value`
 Module: `src/auth.ts`
-Source: `src/auth.ts:6:14`
+Source: `src/auth.ts:7:14`
 
 ## AUTH_SIGN_UP_POLICIES
 
@@ -471,36 +501,33 @@ Source: `src/types.ts:207:14`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:200:1`
+Source: `src/auth.ts:317:1`
 
 ### Members
 
-| Name                 | Kind     | Type                                                                                     | Required | Description |
-| -------------------- | -------- | ---------------------------------------------------------------------------------------- | -------- | ----------- |
-| capabilities         | property | `AuthAdapterCapabilities \| undefined`                                                   | no       |             |
-| completeOAuthSignIn  | method   | `((input: CompleteOAuthSignInInput) => Promise<AuthResult<AuthSession>>) \| undefined`   | no       |             |
-| getSession           | method   | `() => Promise<AuthResult<AuthSession \| null>>`                                         | yes      |             |
-| refreshSession       | method   | `(() => Promise<AuthResult<AuthSession \| null>>) \| undefined`                          | no       |             |
-| requestPasswordReset | method   | `((input: PasswordResetInput) => Promise<AuthResult>) \| undefined`                      | no       |             |
-| signIn               | method   | `(input: SignInInput) => Promise<AuthResult<AuthSession>>`                               | yes      |             |
-| signInWithOAuth      | method   | `((input: SignInWithOAuthInput) => Promise<AuthResult<AuthOAuthRedirect>>) \| undefined` | no       |             |
-| signOut              | method   | `(input?: SignOutInput) => Promise<AuthResult>`                                          | yes      |             |
-| signUp               | method   | `(input: SignUpInput) => Promise<AuthResult<AuthSession \| AuthUser>>`                   | yes      |             |
-| verifyOtp            | method   | `((input: VerifyOtpInput) => Promise<AuthResult<AuthSession>>) \| undefined`             | no       |             |
+| Name                 | Kind     | Type                                                                         | Required | Description |
+| -------------------- | -------- | ---------------------------------------------------------------------------- | -------- | ----------- |
+| capabilities         | property | `AuthAdapterCapabilities \| undefined`                                       | no       |             |
+| getSession           | method   | `() => Promise<AuthResult<AuthSession \| null>>`                             | yes      |             |
+| oauth                | property | `AuthOAuthAdapter \| undefined`                                              | no       |             |
+| refreshSession       | method   | `(() => Promise<AuthResult<AuthSession \| null>>) \| undefined`              | no       |             |
+| requestPasswordReset | method   | `((input: PasswordResetInput) => Promise<AuthResult>) \| undefined`          | no       |             |
+| signIn               | method   | `(input: SignInInput) => Promise<AuthResult<AuthSession>>`                   | yes      |             |
+| signOut              | method   | `(input?: SignOutInput) => Promise<AuthResult>`                              | yes      |             |
+| signUp               | method   | `(input: SignUpInput) => Promise<AuthResult<AuthSession \| AuthUser>>`       | yes      |             |
+| verifyOtp            | method   | `((input: VerifyOtpInput) => Promise<AuthResult<AuthSession>>) \| undefined` | no       |             |
 
 ## AuthAdapterCapabilities
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:190:1`
+Source: `src/auth.ts:309:1`
 
 ### Members
 
 | Name                   | Kind     | Type                                   | Required | Description |
 | ---------------------- | -------- | -------------------------------------- | -------- | ----------- |
-| oauthProviders         | property | `AuthOAuthProviderId[] \| undefined`   | no       |             |
 | signInIdentifiers      | property | `("email" \| "phone" \| "username")[]` | yes      |             |
-| supportsOAuth          | property | `boolean \| undefined`                 | no       |             |
 | supportsOtp            | property | `boolean`                              | yes      |             |
 | supportsPasswordReset  | property | `boolean`                              | yes      |             |
 | supportsSessionRefresh | property | `boolean`                              | yes      |             |
@@ -510,7 +537,7 @@ Source: `src/auth.ts:190:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:124:1`
+Source: `src/auth.ts:126:1`
 
 ### Members
 
@@ -524,7 +551,7 @@ Source: `src/auth.ts:124:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:45:1`
+Source: `src/auth.ts:46:1`
 
 ### Members
 
@@ -542,7 +569,7 @@ Source: `src/auth.ts:45:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:40:1`
+Source: `src/auth.ts:41:1`
 
 ### Members
 
@@ -555,13 +582,72 @@ Source: `src/auth.ts:40:1`
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:4:1`
+Source: `src/auth.ts:5:1`
+
+## AuthOAuthAdapter
+
+Kind: `type`
+Module: `src/auth.ts`
+Source: `src/auth.ts:302:1`
+
+### Members
+
+| Name                  | Kind     | Type                                                                             | Required | Description |
+| --------------------- | -------- | -------------------------------------------------------------------------------- | -------- | ----------- |
+| capabilities          | property | `AuthOAuthCapabilities`                                                          | yes      |             |
+| completeAuthorization | method   | `(input: CompleteOAuthAuthorizationInput) => Promise<AuthOAuthCompletionResult>` | yes      |             |
+| startAuthorization    | method   | `(input: StartOAuthAuthorizationInput) => Promise<AuthOAuthStartResult>`         | yes      |             |
+
+## AuthOAuthAuthorizationRequest
+
+Kind: `type`
+Module: `src/auth.ts`
+Source: `src/auth.ts:242:1`
+
+### Members
+
+| Name             | Kind     | Type                  | Required | Description |
+| ---------------- | -------- | --------------------- | -------- | ----------- |
+| attemptId        | property | `string`              | yes      |             |
+| authorizationUrl | property | `string`              | yes      |             |
+| provider         | property | `AuthOAuthProviderId` | yes      |             |
+| redirectUri      | property | `string`              | yes      |             |
+
+## AuthOAuthAuthorizationResponse
+
+Kind: `unknown`
+Module: `src/auth.ts`
+Source: `src/auth.ts:259:1`
+
+## AuthOAuthCancellationReason
+
+Kind: `unknown`
+Module: `src/auth.ts`
+Source: `src/auth.ts:221:1`
+
+## AuthOAuthCapabilities
+
+Kind: `type`
+Module: `src/auth.ts`
+Source: `src/auth.ts:297:1`
+
+### Members
+
+| Name      | Kind     | Type                                                       | Required | Description |
+| --------- | -------- | ---------------------------------------------------------- | -------- | ----------- |
+| providers | property | `readonly [AuthOAuthProviderId, ...AuthOAuthProviderId[]]` | yes      |             |
+
+## AuthOAuthCompletionResult
+
+Kind: `unknown`
+Module: `src/auth.ts`
+Source: `src/auth.ts:278:1`
 
 ## AuthOAuthConfig
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:87:1`
+Source: `src/auth.ts:89:1`
 
 ### Members
 
@@ -571,42 +657,90 @@ Source: `src/auth.ts:87:1`
 | enabled       | property | `boolean`                   | yes      |             |
 | providers     | property | `AuthOAuthProviderConfig[]` | yes      |             |
 
+## AuthOAuthError
+
+Kind: `type`
+Module: `src/auth.ts`
+Source: `src/auth.ts:203:1`
+
+### Members
+
+| Name        | Kind     | Type                                                                                                                                                                                                                                                                                                                                                                                         | Required | Description |
+| ----------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
+| cause       | property | `unknown`                                                                                                                                                                                                                                                                                                                                                                                    | no       |             |
+| code        | property | `"oauth_unavailable" \| "provider_disabled" \| "provider_misconfigured" \| "invalid_redirect_uri" \| "authorization_failed" \| "authorization_attempt_not_found" \| "invalid_callback" \| "state_mismatch" \| "pkce_mismatch" \| "callback_already_completed" \| "code_exchange_failed" \| "network_error" \| "session_persistence_failed" \| "profile_creation_failed" \| "provider_error"` | yes      |             |
+| message     | property | `string`                                                                                                                                                                                                                                                                                                                                                                                     | yes      |             |
+| provider    | property | `AuthOAuthProviderId \| undefined`                                                                                                                                                                                                                                                                                                                                                           | no       |             |
+| recoverable | property | `boolean`                                                                                                                                                                                                                                                                                                                                                                                    | yes      |             |
+| stage       | property | `"start" \| "transport" \| "callback" \| "exchange" \| "session" \| "profile"`                                                                                                                                                                                                                                                                                                               | yes      |             |
+
+## AuthOAuthErrorCode
+
+Kind: `unknown`
+Module: `src/auth.ts`
+Source: `src/auth.ts:201:1`
+
+## AuthOAuthErrorStage
+
+Kind: `unknown`
+Module: `src/auth.ts`
+Source: `src/auth.ts:182:1`
+
 ## AuthOAuthProviderConfig
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:77:1`
+Source: `src/auth.ts:78:1`
 
 ### Members
 
-| Name        | Kind     | Type                                  | Required | Description |
-| ----------- | -------- | ------------------------------------- | -------- | ----------- |
-| enabled     | property | `boolean \| undefined`                | no       |             |
-| icon        | property | `IconSpec \| undefined`               | no       |             |
-| id          | property | `AuthOAuthProviderId`                 | yes      |             |
-| label       | property | `string \| undefined`                 | no       |             |
-| queryParams | property | `Record<string, string> \| undefined` | no       |             |
-| redirectTo  | property | `string \| undefined`                 | no       |             |
-| scopes      | property | `string[] \| undefined`               | no       |             |
+| Name           | Kind     | Type                                  | Required | Description |
+| -------------- | -------- | ------------------------------------- | -------- | ----------- |
+| credentialsRef | property | `string \| undefined`                 | no       |             |
+| enabled        | property | `boolean \| undefined`                | no       |             |
+| icon           | property | `IconSpec \| undefined`               | no       |             |
+| id             | property | `AuthOAuthProviderId`                 | yes      |             |
+| label          | property | `string \| undefined`                 | no       |             |
+| queryParams    | property | `Record<string, string> \| undefined` | no       |             |
+| scopes         | property | `string[] \| undefined`               | no       |             |
 
 ## AuthOAuthProviderId
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:38:1`
+Source: `src/auth.ts:39:1`
 
-## AuthOAuthRedirect
+## AuthOAuthStartResult
+
+Kind: `unknown`
+Module: `src/auth.ts`
+Source: `src/auth.ts:249:1`
+
+## AuthOAuthTransportCancellationReason
+
+Kind: `unknown`
+Module: `src/auth.ts`
+Source: `src/auth.ts:214:1`
+
+## AuthOAuthTransportError
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:180:1`
+Source: `src/auth.ts:229:1`
 
 ### Members
 
-| Name     | Kind     | Type                  | Required | Description |
-| -------- | -------- | --------------------- | -------- | ----------- |
-| provider | property | `AuthOAuthProviderId` | yes      |             |
-| url      | property | `string`              | yes      |             |
+| Name    | Kind     | Type                                          | Required | Description |
+| ------- | -------- | --------------------------------------------- | -------- | ----------- |
+| cause   | property | `unknown`                                     | no       |             |
+| code    | property | `"browser_unavailable" \| "transport_failed"` | yes      |             |
+| message | property | `string`                                      | yes      |             |
+
+## AuthOAuthTransportErrorCode
+
+Kind: `unknown`
+Module: `src/auth.ts`
+Source: `src/auth.ts:227:1`
 
 ## AuthProfileCreateStrategy
 
@@ -658,7 +792,7 @@ Source: `src/types.ts:202:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:93:1`
+Source: `src/auth.ts:95:1`
 
 ### Members
 
@@ -675,7 +809,7 @@ Source: `src/auth.ts:93:1`
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:130:1`
+Source: `src/auth.ts:132:1`
 
 ## AuthScope
 
@@ -687,7 +821,7 @@ Source: `src/types.ts:198:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:116:1`
+Source: `src/auth.ts:118:1`
 
 ### Members
 
@@ -703,7 +837,7 @@ Source: `src/auth.ts:116:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:68:1`
+Source: `src/auth.ts:69:1`
 
 ### Members
 
@@ -733,7 +867,7 @@ Source: `src/types.ts:322:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:72:1`
+Source: `src/auth.ts:73:1`
 
 ### Members
 
@@ -746,7 +880,7 @@ Source: `src/auth.ts:72:1`
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:14:1`
+Source: `src/auth.ts:15:1`
 
 ## AuthSignUpPolicy
 
@@ -791,7 +925,7 @@ Source: `src/types.ts:340:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:106:1`
+Source: `src/auth.ts:108:1`
 
 ### Members
 
@@ -983,18 +1117,18 @@ Source: `src/types.ts:120:1`
 | item   | property | `Record<string, ManifestValue>` | yes      |             |
 | itemId | property | `string \| number`              | yes      |             |
 
-## CompleteOAuthSignInInput
+## CompleteOAuthAuthorizationInput
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:185:1`
+Source: `src/auth.ts:273:1`
 
 ### Members
 
-| Name       | Kind     | Type                  | Required | Description |
-| ---------- | -------- | --------------------- | -------- | ----------- |
-| redirectTo | property | `string \| undefined` | no       |             |
-| url        | property | `string`              | yes      |             |
+| Name      | Kind     | Type                             | Required | Description |
+| --------- | -------- | -------------------------------- | -------- | ----------- |
+| attemptId | property | `string`                         | yes      |             |
+| response  | property | `AuthOAuthAuthorizationResponse` | yes      |             |
 
 ## ComponentDataBinding
 
@@ -1854,7 +1988,7 @@ Source: `src/db.ts:77:1`
 
 Kind: `value`
 Module: `src/auth.ts`
-Source: `src/auth.ts:55:14`
+Source: `src/auth.ts:56:14`
 
 ## DEPLOYMENT_TARGETS
 
@@ -1919,6 +2053,24 @@ Source: `src/types.ts:73:1`
 | ------- | -------- | --------------------------------------------- | -------- | ----------- |
 | payload | property | `{ filterKey: string; filterValue: string; }` | yes      |             |
 | type    | property | `"filter"`                                    | yes      |             |
+
+## findForbiddenInlineSecretFields
+
+Kind: `function`
+Module: `src/secrets.ts`
+Source: `src/secrets.ts:183:1`
+
+### Signatures
+
+- `(value: unknown) => readonly string[]`
+  - value: `unknown`
+  - returns: `readonly string[]`
+
+## FORBIDDEN_INLINE_SECRET_FIELDS
+
+Kind: `value`
+Module: `src/secrets.ts`
+Source: `src/secrets.ts:174:14`
 
 ## FormSubmitEventDto
 
@@ -2004,14 +2156,27 @@ Source: `src/types.ts:356:1`
 | networking    | property | `NetworkingSpec \| undefined`          | no       |             |
 | plugins       | property | `string[]`                             | yes      |             |
 | pluginsConfig | property | `Record<string, unknown> \| undefined` | no       |             |
+| secretStore   | property | `InfraSecretStoreSpec \| undefined`    | no       |             |
 | state         | property | `StateSpec \| undefined`               | no       |             |
 | storage       | property | `StorageSpec \| undefined`             | no       |             |
+
+## InfraSecretStoreSpec
+
+Kind: `type`
+Module: `src/secretManifest.ts`
+Source: `src/secretManifest.ts:3:1`
+
+### Members
+
+| Name     | Kind     | Type                  | Required | Description |
+| -------- | -------- | --------------------- | -------- | ----------- |
+| provider | property | `SecretStoreProvider` | yes      |             |
 
 ## KnownAuthOAuthProviderId
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:37:1`
+Source: `src/auth.ts:38:1`
 
 ## KnownAuthProfileField
 
@@ -2029,7 +2194,7 @@ Source: `src/types.ts:201:1`
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:13:1`
+Source: `src/auth.ts:14:1`
 
 ## KnownComponentEventDto
 
@@ -2048,6 +2213,12 @@ Source: `src/types.ts:175:1`
 Kind: `unknown`
 Module: `src/types.ts`
 Source: `src/types.ts:171:1`
+
+## KnownSecretStoreProvider
+
+Kind: `unknown`
+Module: `src/secrets.ts`
+Source: `src/secrets.ts:2:1`
 
 ## KnownStateProvider
 
@@ -2149,6 +2320,30 @@ Source: `src/types.ts:351:1`
 | ------ | -------- | --------------------- | -------- | ----------- |
 | cdn    | property | `boolean`             | yes      |             |
 | domain | property | `string \| undefined` | no       |             |
+
+## normalizeSecretRef
+
+Kind: `function`
+Module: `src/secrets.ts`
+Source: `src/secrets.ts:105:1`
+
+### Signatures
+
+- `(value: string) => SecretStoreResult<string>`
+  - value: `string`
+  - returns: `SecretStoreResult<string>`
+
+## normalizeSecretScope
+
+Kind: `function`
+Module: `src/secrets.ts`
+Source: `src/secrets.ts:129:1`
+
+### Signatures
+
+- `(scope: SecretScope) => SecretStoreResult<SecretScope>`
+  - scope: `SecretScope`
+  - returns: `SecretStoreResult<SecretScope>`
 
 ## NUTRITION_BARCODE_TYPES
 
@@ -2713,7 +2908,7 @@ Source: `src/bindings.ts:105:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:160:1`
+Source: `src/auth.ts:162:1`
 
 ### Members
 
@@ -2743,7 +2938,7 @@ Source: `src/bindings.ts:67:1`
 
 Kind: `function`
 Module: `src/auth.ts`
-Source: `src/auth.ts:64:1`
+Source: `src/auth.ts:65:1`
 
 ### Signatures
 
@@ -2915,6 +3110,199 @@ Source: `src/types.ts:65:1`
 | payload | property | `{ query: string; scope?: string; }` | yes      |             |
 | type    | property | `"search"`                           | yes      |             |
 
+## SECRET_STORE_ERROR_CODES
+
+Kind: `value`
+Module: `src/secrets.ts`
+Source: `src/secrets.ts:24:14`
+
+## SECRET_STORE_PROVIDERS
+
+Kind: `value`
+Module: `src/secrets.ts`
+Source: `src/secrets.ts:1:14`
+
+## SecretCreateInput
+
+Kind: `type`
+Module: `src/secrets.ts`
+Source: `src/secrets.ts:64:1`
+
+### Members
+
+| Name     | Kind     | Type                               | Required | Description |
+| -------- | -------- | ---------------------------------- | -------- | ----------- |
+| kind     | property | `string`                           | yes      |             |
+| payload  | property | `Readonly<Record<string, string>>` | yes      |             |
+| provider | property | `string \| undefined`              | no       |             |
+| ref      | property | `string`                           | yes      |             |
+| scope    | property | `SecretScope`                      | yes      |             |
+
+## SecretGetMetadataInput
+
+Kind: `type`
+Module: `src/secrets.ts`
+Source: `src/secrets.ts:59:1`
+
+### Members
+
+| Name  | Kind     | Type          | Required | Description |
+| ----- | -------- | ------------- | -------- | ----------- |
+| ref   | property | `string`      | yes      |             |
+| scope | property | `SecretScope` | yes      |             |
+
+## SecretListInput
+
+Kind: `type`
+Module: `src/secrets.ts`
+Source: `src/secrets.ts:53:1`
+
+### Members
+
+| Name     | Kind     | Type                  | Required | Description |
+| -------- | -------- | --------------------- | -------- | ----------- |
+| kind     | property | `string \| undefined` | no       |             |
+| provider | property | `string \| undefined` | no       |             |
+| scope    | property | `SecretScope`         | yes      |             |
+
+## SecretMetadata
+
+Kind: `type`
+Module: `src/secrets.ts`
+Source: `src/secrets.ts:14:1`
+
+### Members
+
+| Name             | Kind     | Type                  | Required | Description |
+| ---------------- | -------- | --------------------- | -------- | ----------- |
+| configuredFields | property | `readonly string[]`   | yes      |             |
+| createdAt        | property | `string`              | yes      |             |
+| kind             | property | `string`              | yes      |             |
+| provider         | property | `string \| undefined` | no       |             |
+| ref              | property | `string`              | yes      |             |
+| scope            | property | `SecretScope`         | yes      |             |
+| updatedAt        | property | `string`              | yes      |             |
+
+## SecretPayload
+
+Kind: `unknown`
+Module: `src/secrets.ts`
+Source: `src/secrets.ts:12:1`
+
+## SecretRef
+
+Kind: `unknown`
+Module: `src/secrets.ts`
+Source: `src/secrets.ts:5:1`
+
+## SecretRemoveInput
+
+Kind: `type`
+Module: `src/secrets.ts`
+Source: `src/secrets.ts:78:1`
+
+### Members
+
+| Name  | Kind     | Type          | Required | Description |
+| ----- | -------- | ------------- | -------- | ----------- |
+| ref   | property | `string`      | yes      |             |
+| scope | property | `SecretScope` | yes      |             |
+
+## SecretReplaceInput
+
+Kind: `type`
+Module: `src/secrets.ts`
+Source: `src/secrets.ts:72:1`
+
+### Members
+
+| Name    | Kind     | Type                               | Required | Description |
+| ------- | -------- | ---------------------------------- | -------- | ----------- |
+| payload | property | `Readonly<Record<string, string>>` | yes      |             |
+| ref     | property | `string`                           | yes      |             |
+| scope   | property | `SecretScope`                      | yes      |             |
+
+## SecretResolveInput
+
+Kind: `type`
+Module: `src/secrets.ts`
+Source: `src/secrets.ts:83:1`
+
+### Members
+
+| Name  | Kind     | Type          | Required | Description |
+| ----- | -------- | ------------- | -------- | ----------- |
+| ref   | property | `string`      | yes      |             |
+| scope | property | `SecretScope` | yes      |             |
+
+## SecretScope
+
+Kind: `type`
+Module: `src/secrets.ts`
+Source: `src/secrets.ts:7:1`
+
+### Members
+
+| Name        | Kind     | Type     | Required | Description |
+| ----------- | -------- | -------- | -------- | ----------- |
+| environment | property | `string` | yes      |             |
+| projectId   | property | `string` | yes      |             |
+
+## SecretStoreAdapter
+
+Kind: `type`
+Module: `src/secrets.ts`
+Source: `src/secrets.ts:94:1`
+
+### Members
+
+| Name        | Kind   | Type                                                                                | Required | Description |
+| ----------- | ------ | ----------------------------------------------------------------------------------- | -------- | ----------- |
+| create      | method | `(input: SecretCreateInput) => Promise<SecretStoreResult<SecretMetadata>>`          | yes      |             |
+| getMetadata | method | `(input: SecretGetMetadataInput) => Promise<SecretStoreResult<SecretMetadata>>`     | yes      |             |
+| list        | method | `(input: SecretListInput) => Promise<SecretStoreResult<readonly SecretMetadata[]>>` | yes      |             |
+| remove      | method | `(input: SecretRemoveInput) => Promise<SecretStoreResult>`                          | yes      |             |
+| replace     | method | `(input: SecretReplaceInput) => Promise<SecretStoreResult<SecretMetadata>>`         | yes      |             |
+| resolve     | method | `(input: SecretResolveInput) => Promise<SecretStoreResult<SecretPayload>>`          | yes      |             |
+
+## SecretStoreError
+
+Kind: `type`
+Module: `src/secrets.ts`
+Source: `src/secrets.ts:36:1`
+
+### Members
+
+| Name    | Kind     | Type                                                                                                                                                    | Required | Description |
+| ------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
+| cause   | property | `unknown`                                                                                                                                               | no       |             |
+| code    | property | `"provider_error" \| "invalid_config" \| "invalid_reference" \| "invalid_payload" \| "not_found" \| "conflict" \| "permission_denied" \| "unavailable"` | yes      |             |
+| message | property | `string`                                                                                                                                                | yes      |             |
+
+## SecretStoreErrorCode
+
+Kind: `unknown`
+Module: `src/secrets.ts`
+Source: `src/secrets.ts:34:1`
+
+## SecretStoreOkResult
+
+Kind: `unknown`
+Module: `src/secrets.ts`
+Source: `src/secrets.ts:42:1`
+
+## SecretStoreProvider
+
+Kind: `unknown`
+Module: `src/secrets.ts`
+Source: `src/secrets.ts:3:1`
+
+## SecretStoreResult
+
+Kind: `unknown`
+Module: `src/secrets.ts`
+Source: `src/secrets.ts:46:1`
+
 ## SetLanguageAction
 
 Kind: `type`
@@ -2932,7 +3320,7 @@ Source: `src/types.ts:58:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:140:1`
+Source: `src/auth.ts:142:1`
 
 ### Members
 
@@ -2944,27 +3332,11 @@ Source: `src/auth.ts:140:1`
 | password   | property | `string \| undefined`                  | no       |             |
 | redirectTo | property | `string \| undefined`                  | no       |             |
 
-## SignInWithOAuthInput
-
-Kind: `type`
-Module: `src/auth.ts`
-Source: `src/auth.ts:172:1`
-
-### Members
-
-| Name        | Kind     | Type                                   | Required | Description |
-| ----------- | -------- | -------------------------------------- | -------- | ----------- |
-| metadata    | property | `Record<string, unknown> \| undefined` | no       |             |
-| provider    | property | `AuthOAuthProviderId`                  | yes      |             |
-| queryParams | property | `Record<string, string> \| undefined`  | no       |             |
-| redirectTo  | property | `string \| undefined`                  | no       |             |
-| scopes      | property | `string[] \| undefined`                | no       |             |
-
 ## SignOutInput
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:156:1`
+Source: `src/auth.ts:158:1`
 
 ### Members
 
@@ -2976,7 +3348,7 @@ Source: `src/auth.ts:156:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:148:1`
+Source: `src/auth.ts:150:1`
 
 ### Members
 
@@ -3038,6 +3410,21 @@ Source: `src/types.ts:293:1`
 | image           | property | `string \| undefined`                 | no       |             |
 | imageWidth      | property | `number \| undefined`                 | no       |             |
 | resizeMode      | property | `SplashScreenResizeMode \| undefined` | no       |             |
+
+## StartOAuthAuthorizationInput
+
+Kind: `type`
+Module: `src/auth.ts`
+Source: `src/auth.ts:235:1`
+
+### Members
+
+| Name        | Kind     | Type                                            | Required | Description |
+| ----------- | -------- | ----------------------------------------------- | -------- | ----------- |
+| provider    | property | `AuthOAuthProviderId`                           | yes      |             |
+| queryParams | property | `Readonly<Record<string, string>> \| undefined` | no       |             |
+| redirectUri | property | `string`                                        | yes      |             |
+| scopes      | property | `readonly string[] \| undefined`                | no       |             |
 
 ## STATE_PERSISTENCE_MODES
 
@@ -3738,11 +4125,23 @@ Source: `src/storage.ts:74:1`
 | url         | property | `string`                     | yes      |             |
 | width       | property | `number \| undefined`        | no       |             |
 
+## validateSecretPayload
+
+Kind: `function`
+Module: `src/secrets.ts`
+Source: `src/secrets.ts:146:1`
+
+### Signatures
+
+- `(payload: Readonly<Record<string, string>>) => SecretStoreResult<Readonly<Record<string, string>>>`
+  - payload: `Readonly<Record<string, string>>`
+  - returns: `SecretStoreResult<Readonly<Record<string, string>>>`
+
 ## VerifyOtpInput
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:165:1`
+Source: `src/auth.ts:167:1`
 
 ### Members
 

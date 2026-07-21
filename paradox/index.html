@@ -185,7 +185,7 @@
       <aside class="sidebar">
         <p class="muted">Generated with Paradox</p>
         <h1>CONTRACTS</h1>
-        <p>Serializable app, action, and theme config contracts for Ankhorage.</p>
+        <p>Serializable app, action, theme, auth, and secret-store contracts for Ankhorage.</p>
         <input id="search" class="search" type="search" placeholder="Search current view" />
         <nav aria-label="Documentation sections">
           <ul class="nav-list">
@@ -201,6 +201,12 @@
                 <small>1 function</small>
               </button>
             </li>
+            <li>
+              <button class="nav-button" type="button" data-target="src/secrets.ts">
+                src/secrets.ts
+                <small>4 functions</small>
+              </button>
+            </li>
           </ul>
         </nav>
       </aside>
@@ -209,9 +215,9 @@
           <section class="panel">
             <h2>Package overview</h2>
             <div class="summary">
-              <div><strong>348</strong><span class="muted">public exports</span></div>
+              <div><strong>390</strong><span class="muted">public exports</span></div>
               <div><strong>0</strong><span class="muted">components</span></div>
-              <div><strong>26</strong><span class="muted">modules</span></div>
+              <div><strong>28</strong><span class="muted">modules</span></div>
               <div><strong>1</strong><span class="muted">entrypoints</span></div>
             </div>
             <h3>Entrypoints</h3>
@@ -224,27 +230,40 @@
             <h2>Modules</h2>
             <article
               class="item"
-              data-search="src/auth.ts src/types.ts AUTH_IDENTIFIER_KINDS AUTH_OAUTH_PROVIDER_IDS AUTH_SIGN_UP_FIELDS AuthAdapter AuthAdapterCapabilities AuthAdapterError AuthFlowConfig AuthIdentifier AuthIdentifierKind AuthOAuthConfig AuthOAuthProviderConfig AuthOAuthProviderId AuthOAuthRedirect AuthProviderConfig AuthResult AuthSession AuthSignInConfig AuthSignUpConfig AuthSignUpField AuthUser CompleteOAuthSignInInput DEFAULT_AUTH_FLOW KnownAuthOAuthProviderId KnownAuthSignUpField PasswordResetInput resolveAuthFlow SignInInput SignInWithOAuthInput SignOutInput SignUpInput VerifyOtpInput"
+              data-search="src/auth.ts src/secrets.ts src/types.ts AUTH_IDENTIFIER_KINDS AUTH_OAUTH_CANCELLATION_REASONS AUTH_OAUTH_ERROR_CODES AUTH_OAUTH_ERROR_STAGES AUTH_OAUTH_PROVIDER_IDS AUTH_OAUTH_TRANSPORT_CANCELLATION_REASONS AUTH_OAUTH_TRANSPORT_ERROR_CODES AUTH_SIGN_UP_FIELDS AuthAdapter AuthAdapterCapabilities AuthAdapterError AuthFlowConfig AuthIdentifier AuthIdentifierKind AuthOAuthAdapter AuthOAuthAuthorizationRequest AuthOAuthAuthorizationResponse AuthOAuthCancellationReason AuthOAuthCapabilities AuthOAuthCompletionResult AuthOAuthConfig AuthOAuthError AuthOAuthErrorCode AuthOAuthErrorStage AuthOAuthProviderConfig AuthOAuthProviderId AuthOAuthStartResult AuthOAuthTransportCancellationReason AuthOAuthTransportError AuthOAuthTransportErrorCode AuthProviderConfig AuthResult AuthSession AuthSignInConfig AuthSignUpConfig AuthSignUpField AuthUser CompleteOAuthAuthorizationInput DEFAULT_AUTH_FLOW KnownAuthOAuthProviderId KnownAuthSignUpField PasswordResetInput resolveAuthFlow SignInInput SignOutInput SignUpInput StartOAuthAuthorizationInput VerifyOtpInput"
             >
               <h3>src/auth.ts</h3>
               <p class="muted">Referenced module</p>
-              <p><strong>Dependencies:</strong> <code>src/types.ts</code></p>
+              <p>
+                <strong>Dependencies:</strong> <code>src/secrets.ts</code>,
+                <code>src/types.ts</code>
+              </p>
               <p>
                 <strong>Exports:</strong> <code>AUTH_IDENTIFIER_KINDS</code>,
-                <code>AUTH_OAUTH_PROVIDER_IDS</code>, <code>AUTH_SIGN_UP_FIELDS</code>,
+                <code>AUTH_OAUTH_CANCELLATION_REASONS</code>, <code>AUTH_OAUTH_ERROR_CODES</code>,
+                <code>AUTH_OAUTH_ERROR_STAGES</code>, <code>AUTH_OAUTH_PROVIDER_IDS</code>,
+                <code>AUTH_OAUTH_TRANSPORT_CANCELLATION_REASONS</code>,
+                <code>AUTH_OAUTH_TRANSPORT_ERROR_CODES</code>, <code>AUTH_SIGN_UP_FIELDS</code>,
                 <code>AuthAdapter</code>, <code>AuthAdapterCapabilities</code>,
                 <code>AuthAdapterError</code>, <code>AuthFlowConfig</code>,
                 <code>AuthIdentifier</code>, <code>AuthIdentifierKind</code>,
-                <code>AuthOAuthConfig</code>, <code>AuthOAuthProviderConfig</code>,
-                <code>AuthOAuthProviderId</code>, <code>AuthOAuthRedirect</code>,
+                <code>AuthOAuthAdapter</code>, <code>AuthOAuthAuthorizationRequest</code>,
+                <code>AuthOAuthAuthorizationResponse</code>,
+                <code>AuthOAuthCancellationReason</code>, <code>AuthOAuthCapabilities</code>,
+                <code>AuthOAuthCompletionResult</code>, <code>AuthOAuthConfig</code>,
+                <code>AuthOAuthError</code>, <code>AuthOAuthErrorCode</code>,
+                <code>AuthOAuthErrorStage</code>, <code>AuthOAuthProviderConfig</code>,
+                <code>AuthOAuthProviderId</code>, <code>AuthOAuthStartResult</code>,
+                <code>AuthOAuthTransportCancellationReason</code>,
+                <code>AuthOAuthTransportError</code>, <code>AuthOAuthTransportErrorCode</code>,
                 <code>AuthProviderConfig</code>, <code>AuthResult</code>, <code>AuthSession</code>,
                 <code>AuthSignInConfig</code>, <code>AuthSignUpConfig</code>,
                 <code>AuthSignUpField</code>, <code>AuthUser</code>,
-                <code>CompleteOAuthSignInInput</code>, <code>DEFAULT_AUTH_FLOW</code>,
+                <code>CompleteOAuthAuthorizationInput</code>, <code>DEFAULT_AUTH_FLOW</code>,
                 <code>KnownAuthOAuthProviderId</code>, <code>KnownAuthSignUpField</code>,
                 <code>PasswordResetInput</code>, <code>resolveAuthFlow</code>,
-                <code>SignInInput</code>, <code>SignInWithOAuthInput</code>,
-                <code>SignOutInput</code>, <code>SignUpInput</code>, <code>VerifyOtpInput</code>
+                <code>SignInInput</code>, <code>SignOutInput</code>, <code>SignUpInput</code>,
+                <code>StartOAuthAuthorizationInput</code>, <code>VerifyOtpInput</code>
               </p>
             </article>
             <article
@@ -496,7 +515,7 @@
             </article>
             <article
               class="item"
-              data-search="src/index.ts Action ActionType AdapterId AdapterKind AdapterRef AlertAction AnkhCapabilityId AnkhCommandCategory AnkhCommandDescriptor AnkhCommandProviderManifest ANKHORAGE_CAPABILITY_NAMES ANKHORAGE_PERMISSION_NAMES AnkhorageCapabilityName AnkhoragePermissionName AnkhPackageMetadata AnkhProviderReference ApiScreenDataLoaderDefinition APP_API_ENDPOINT_INTENTS APP_API_ENDPOINT_METHODS APP_API_GENERATED_PRESETS APP_API_KINDS APP_CATEGORIES AppApiAuthRequirement AppApiCollectionResourceDefinition AppApiDefinition AppApiEndpointDefinition AppApiEndpointId AppApiEndpointIntent AppApiEndpointMethod AppApiGeneratedPreset AppApiId AppApiKind AppApiManifest AppApiRegistry AppApiResourceDefinition AppApiSeedRecord AppCategory AppDataManifest AppExternalApiDefinition AppGeneratedApiDefinition AppManifest AppSettings AUTH_IDENTIFIER_KINDS AUTH_OAUTH_PROVIDER_IDS AUTH_PROFILE_CREATE_STRATEGIES AUTH_PROFILE_FIELDS AUTH_PROFILE_PRIMARY_KEY_STRATEGIES AUTH_PROFILE_UPDATE_STRATEGIES AUTH_PROVIDERS AUTH_SCOPES AUTH_SIGN_IN_IDENTIFIERS AUTH_SIGN_UP_FIELDS AUTH_SIGN_UP_POLICIES AuthAdapter AuthAdapterCapabilities AuthAdapterError AuthFlowConfig AuthIdentifier AuthIdentifierKind AuthOAuthConfig AuthOAuthProviderConfig AuthOAuthProviderId AuthOAuthRedirect AuthProfileCreateStrategy AuthProfileField AuthProfilePrimaryKeyStrategy AuthProfileSpec AuthProfileUpdateStrategy AuthProvider AuthProviderConfig AuthResult AuthScope AuthSession AuthSignInConfig AuthSignInIdentifier AuthSignInSpec AuthSignUpConfig AuthSignUpField AuthSignUpPolicy AuthSignUpSpec AuthSpec AuthUser AUTHZ_ENGINES AUTHZ_KINDS AuthzEngine AuthzKind AuthzSpec BindingCondition BindingConditionOperator BindingDataPath BindingFallback BindingInputMap BindingInputValue BindingLifecycleBehavior BindingLifecycleState BindingOperationRef BindingValue BindingValueExpression BindingValueSource BindingValueTransform ButtonPressEventDto CollectionItemPressEventDto CollectionItemPressPayload CompleteOAuthSignInInput ComponentDataBinding ComponentDataBindingRegistry ComponentEventDto ComponentEventDtoKind ComponentEventPayloadValue ComponentInstanceId ComponentRequirements ComponentTypeId ConsoleAction CredentialId CredentialKind CredentialRef DATABASE_PROVIDERS DATABASE_TIERS DatabaseDataSourceConfig DatabaseProvider DatabaseSpec DatabaseTier DataContractValue DataDiagnosticCode DataDiagnosticSeverity DataEndpointConfig DataEndpointKind DataEndpointRegistry DataOperationConfig DataOperationIntent DataOperationMethod DataOperationPagination DataOperationParameter DataOperationParameterLocation DataOperationProtocol DataOperationRegistry DataOperationRequest DataOperationResponse DataPath DataSchema DataSchemaPrimitiveType DataSchemaProperty DataSchemaRef DataSchemaRegistry DataSchemaSlot DataSourceBaseConfig DataSourceConfig DataSourceDiagnostic DataSourceDiagnosticResult DataSourceId DataSourceKind DataSourceRegistry DbAdapter DbAdapterCapabilities DbAdapterError DbAdminAdapter DbAdminAdapterCapabilities DbAdminResult DbChangeEvent DbChangeKind DbChangeListener DbCollectionDefinition DbCollectionReference DbCollectionSubscriptionInput DbDeleteInput DbFieldDefinition DbFieldType DbFilter DbFilterOperator DbFindByIdInput DbInsertInput DbPage DbRealtimeAdapter DbRecord DbRecordSubscriptionInput DbResult DbSelectInput DbSort DbSortDirection DbSubscription DbSuccess DbTableInput DbUpdateInput DEFAULT_AUTH_FLOW DEPLOYMENT_TARGETS DeploymentSpec DeploymentTarget EndpointId EventBinding EventBindingTarget FilterAction FormSubmitEventDto FormSubmitValues GraphQlDataSourceConfig IconSpec ImageAssetSource ImageMetadata InfraManifest KnownAuthOAuthProviderId KnownAuthProfileField KnownAuthProvider KnownAuthSignUpField KnownComponentEventDto KnownDatabaseProvider KnownDeploymentTarget KnownStateProvider ManagedApiDataSourceConfig ManagedApiResourceConfig ManifestValue NavigateAction NAVIGATOR_TYPES NavigatorSpec NavigatorType NetworkingSpec NUTRITION_BARCODE_TYPES NUTRITION_CAPTURE_SUBMISSION_STATUSES NUTRITION_DATA_SOURCES NUTRITION_IMAGE_KINDS NUTRITION_PRODUCT_STATUSES NUTRITION_REVIEW_DECISIONS NUTRITION_SOURCE_CONFIDENCE_LEVELS NutritionAllergenTag NutritionBarcode NutritionBarcodeType NutritionCaptureClientContext NutritionCaptureSubmission NutritionCaptureSubmissionId NutritionCaptureSubmissionStatus NutritionDataSource NutritionFactsPer100g NutritionImageEvidence NutritionImageKind NutritionIngredientStatement NutritionIsoDateTime NutritionJsonValue NutritionMeasurementBasis NutritionProduct NutritionProductCaptureDraft NutritionProductCaptureRequest NutritionProductCaptureResponse NutritionProductCorrectionRequest NutritionProductDetail NutritionProductId NutritionProductLookupByBarcodeResponse NutritionProductStatus NutritionProductSummary NutritionReviewDecision NutritionReviewDecisionRequest NutritionReviewDecisionResponse NutritionReviewId NutritionReviewRecord NutritionReviewSubmissionListRequest NutritionReviewSubmissionListResponse NutritionServing NutritionSourceConfidence NutritionStoreObservation NutritionUserId OpenApiDataSourceConfig OpenApiImportRef OperationId OperationScreenDataLoaderDefinition PasswordResetInput PropBinding resolveAuthFlow RestDataSourceConfig RouteDefinition RuntimeCallback RuntimeCallbackArgs RuntimeCallbackMap RuntimeNodePropsResolver RuntimeResolveNodePropsArgs SchemaId ScreenCapabilityRequirement ScreenDataLoaderDefinition ScreenPermissionRequirement ScreenRequirements ScreenSpec SearchAction SetLanguageAction SignInInput SignInWithOAuthInput SignOutInput SignUpInput SplashScreenAssetSpec SplashScreenModeSpec SplashScreenResizeMode SplashScreenSpec STATE_PERSISTENCE_MODES STATE_PROVIDERS StateAdapter StateAdapterCapabilities StateAdapterError StateListener StatePath StatePersistenceMode StatePrimitive StateProvider StateResult StateSnapshot StateSpec StateSubscription StateSuccess StateValue STORAGE_PROVIDERS StorageAdapter StorageAdapterError StorageAssetReference StorageImageAssetSource StorageOkResult StorageProvider StoragePublicUrlInput StoragePublicUrlResult StorageRemoveInput StorageResult StorageSpec StorageUploadInput StorageUploadResult ThemeConfig ThemeModeConfig ToggleDarkModeAction UiBindableEventMeta UiBindableEventPayloadMeta UiBindablePropMeta UiBindableValueFieldMeta UiBindableValueMeta UiBindableValueType UiComponentBindingMeta UiComponentBlueprint UiComponentBlueprintIcon UiComponentCategory UiComponentEventMeta UiComponentEventPayloadFieldMeta UiComponentEventPayloadFieldType UiComponentEventPayloadKind UiComponentI18nFieldMeta UiComponentI18nMeta UiComponentMeta UiComponentMetaRegistry UiComponentPackageManifest UiComponentPropArrayItemSchema UiComponentPropSchema UiComponentPropType UiComponentPropValue UiComponentSlotMeta UiNode UiNodeRepeatSpec UrlImageAssetSource VerifyOtpInput"
+              data-search="src/index.ts Action ActionType AdapterId AdapterKind AdapterRef AlertAction AnkhCapabilityId AnkhCommandCategory AnkhCommandDescriptor AnkhCommandProviderManifest ANKHORAGE_CAPABILITY_NAMES ANKHORAGE_PERMISSION_NAMES AnkhorageCapabilityName AnkhoragePermissionName AnkhPackageMetadata AnkhProviderReference ApiScreenDataLoaderDefinition APP_API_ENDPOINT_INTENTS APP_API_ENDPOINT_METHODS APP_API_GENERATED_PRESETS APP_API_KINDS APP_CATEGORIES AppApiAuthRequirement AppApiCollectionResourceDefinition AppApiDefinition AppApiEndpointDefinition AppApiEndpointId AppApiEndpointIntent AppApiEndpointMethod AppApiGeneratedPreset AppApiId AppApiKind AppApiManifest AppApiRegistry AppApiResourceDefinition AppApiSeedRecord AppCategory AppDataManifest AppExternalApiDefinition AppGeneratedApiDefinition AppManifest AppSettings AUTH_IDENTIFIER_KINDS AUTH_OAUTH_CANCELLATION_REASONS AUTH_OAUTH_ERROR_CODES AUTH_OAUTH_ERROR_STAGES AUTH_OAUTH_PROVIDER_IDS AUTH_OAUTH_TRANSPORT_CANCELLATION_REASONS AUTH_OAUTH_TRANSPORT_ERROR_CODES AUTH_PROFILE_CREATE_STRATEGIES AUTH_PROFILE_FIELDS AUTH_PROFILE_PRIMARY_KEY_STRATEGIES AUTH_PROFILE_UPDATE_STRATEGIES AUTH_PROVIDERS AUTH_SCOPES AUTH_SIGN_IN_IDENTIFIERS AUTH_SIGN_UP_FIELDS AUTH_SIGN_UP_POLICIES AuthAdapter AuthAdapterCapabilities AuthAdapterError AuthFlowConfig AuthIdentifier AuthIdentifierKind AuthOAuthAdapter AuthOAuthAuthorizationRequest AuthOAuthAuthorizationResponse AuthOAuthCancellationReason AuthOAuthCapabilities AuthOAuthCompletionResult AuthOAuthConfig AuthOAuthError AuthOAuthErrorCode AuthOAuthErrorStage AuthOAuthProviderConfig AuthOAuthProviderId AuthOAuthStartResult AuthOAuthTransportCancellationReason AuthOAuthTransportError AuthOAuthTransportErrorCode AuthProfileCreateStrategy AuthProfileField AuthProfilePrimaryKeyStrategy AuthProfileSpec AuthProfileUpdateStrategy AuthProvider AuthProviderConfig AuthResult AuthScope AuthSession AuthSignInConfig AuthSignInIdentifier AuthSignInSpec AuthSignUpConfig AuthSignUpField AuthSignUpPolicy AuthSignUpSpec AuthSpec AuthUser AUTHZ_ENGINES AUTHZ_KINDS AuthzEngine AuthzKind AuthzSpec BindingCondition BindingConditionOperator BindingDataPath BindingFallback BindingInputMap BindingInputValue BindingLifecycleBehavior BindingLifecycleState BindingOperationRef BindingValue BindingValueExpression BindingValueSource BindingValueTransform ButtonPressEventDto CollectionItemPressEventDto CollectionItemPressPayload CompleteOAuthAuthorizationInput ComponentDataBinding ComponentDataBindingRegistry ComponentEventDto ComponentEventDtoKind ComponentEventPayloadValue ComponentInstanceId ComponentRequirements ComponentTypeId ConsoleAction CredentialId CredentialKind CredentialRef DATABASE_PROVIDERS DATABASE_TIERS DatabaseDataSourceConfig DatabaseProvider DatabaseSpec DatabaseTier DataContractValue DataDiagnosticCode DataDiagnosticSeverity DataEndpointConfig DataEndpointKind DataEndpointRegistry DataOperationConfig DataOperationIntent DataOperationMethod DataOperationPagination DataOperationParameter DataOperationParameterLocation DataOperationProtocol DataOperationRegistry DataOperationRequest DataOperationResponse DataPath DataSchema DataSchemaPrimitiveType DataSchemaProperty DataSchemaRef DataSchemaRegistry DataSchemaSlot DataSourceBaseConfig DataSourceConfig DataSourceDiagnostic DataSourceDiagnosticResult DataSourceId DataSourceKind DataSourceRegistry DbAdapter DbAdapterCapabilities DbAdapterError DbAdminAdapter DbAdminAdapterCapabilities DbAdminResult DbChangeEvent DbChangeKind DbChangeListener DbCollectionDefinition DbCollectionReference DbCollectionSubscriptionInput DbDeleteInput DbFieldDefinition DbFieldType DbFilter DbFilterOperator DbFindByIdInput DbInsertInput DbPage DbRealtimeAdapter DbRecord DbRecordSubscriptionInput DbResult DbSelectInput DbSort DbSortDirection DbSubscription DbSuccess DbTableInput DbUpdateInput DEFAULT_AUTH_FLOW DEPLOYMENT_TARGETS DeploymentSpec DeploymentTarget EndpointId EventBinding EventBindingTarget FilterAction findForbiddenInlineSecretFields FORBIDDEN_INLINE_SECRET_FIELDS FormSubmitEventDto FormSubmitValues GraphQlDataSourceConfig IconSpec ImageAssetSource ImageMetadata InfraManifest InfraSecretStoreSpec KnownAuthOAuthProviderId KnownAuthProfileField KnownAuthProvider KnownAuthSignUpField KnownComponentEventDto KnownDatabaseProvider KnownDeploymentTarget KnownSecretStoreProvider KnownStateProvider ManagedApiDataSourceConfig ManagedApiResourceConfig ManifestValue NavigateAction NAVIGATOR_TYPES NavigatorSpec NavigatorType NetworkingSpec normalizeSecretRef normalizeSecretScope NUTRITION_BARCODE_TYPES NUTRITION_CAPTURE_SUBMISSION_STATUSES NUTRITION_DATA_SOURCES NUTRITION_IMAGE_KINDS NUTRITION_PRODUCT_STATUSES NUTRITION_REVIEW_DECISIONS NUTRITION_SOURCE_CONFIDENCE_LEVELS NutritionAllergenTag NutritionBarcode NutritionBarcodeType NutritionCaptureClientContext NutritionCaptureSubmission NutritionCaptureSubmissionId NutritionCaptureSubmissionStatus NutritionDataSource NutritionFactsPer100g NutritionImageEvidence NutritionImageKind NutritionIngredientStatement NutritionIsoDateTime NutritionJsonValue NutritionMeasurementBasis NutritionProduct NutritionProductCaptureDraft NutritionProductCaptureRequest NutritionProductCaptureResponse NutritionProductCorrectionRequest NutritionProductDetail NutritionProductId NutritionProductLookupByBarcodeResponse NutritionProductStatus NutritionProductSummary NutritionReviewDecision NutritionReviewDecisionRequest NutritionReviewDecisionResponse NutritionReviewId NutritionReviewRecord NutritionReviewSubmissionListRequest NutritionReviewSubmissionListResponse NutritionServing NutritionSourceConfidence NutritionStoreObservation NutritionUserId OpenApiDataSourceConfig OpenApiImportRef OperationId OperationScreenDataLoaderDefinition PasswordResetInput PropBinding resolveAuthFlow RestDataSourceConfig RouteDefinition RuntimeCallback RuntimeCallbackArgs RuntimeCallbackMap RuntimeNodePropsResolver RuntimeResolveNodePropsArgs SchemaId ScreenCapabilityRequirement ScreenDataLoaderDefinition ScreenPermissionRequirement ScreenRequirements ScreenSpec SearchAction SECRET_STORE_ERROR_CODES SECRET_STORE_PROVIDERS SecretCreateInput SecretGetMetadataInput SecretListInput SecretMetadata SecretPayload SecretRef SecretRemoveInput SecretReplaceInput SecretResolveInput SecretScope SecretStoreAdapter SecretStoreError SecretStoreErrorCode SecretStoreOkResult SecretStoreProvider SecretStoreResult SetLanguageAction SignInInput SignOutInput SignUpInput SplashScreenAssetSpec SplashScreenModeSpec SplashScreenResizeMode SplashScreenSpec StartOAuthAuthorizationInput STATE_PERSISTENCE_MODES STATE_PROVIDERS StateAdapter StateAdapterCapabilities StateAdapterError StateListener StatePath StatePersistenceMode StatePrimitive StateProvider StateResult StateSnapshot StateSpec StateSubscription StateSuccess StateValue STORAGE_PROVIDERS StorageAdapter StorageAdapterError StorageAssetReference StorageImageAssetSource StorageOkResult StorageProvider StoragePublicUrlInput StoragePublicUrlResult StorageRemoveInput StorageResult StorageSpec StorageUploadInput StorageUploadResult ThemeConfig ThemeModeConfig ToggleDarkModeAction UiBindableEventMeta UiBindableEventPayloadMeta UiBindablePropMeta UiBindableValueFieldMeta UiBindableValueMeta UiBindableValueType UiComponentBindingMeta UiComponentBlueprint UiComponentBlueprintIcon UiComponentCategory UiComponentEventMeta UiComponentEventPayloadFieldMeta UiComponentEventPayloadFieldType UiComponentEventPayloadKind UiComponentI18nFieldMeta UiComponentI18nMeta UiComponentMeta UiComponentMetaRegistry UiComponentPackageManifest UiComponentPropArrayItemSchema UiComponentPropSchema UiComponentPropType UiComponentPropValue UiComponentSlotMeta UiNode UiNodeRepeatSpec UrlImageAssetSource validateSecretPayload VerifyOtpInput"
             >
               <h3>src/index.ts</h3>
               <p class="muted">Configured entrypoint</p>
@@ -522,7 +541,11 @@
                 <code>AppCategory</code>, <code>AppDataManifest</code>,
                 <code>AppExternalApiDefinition</code>, <code>AppGeneratedApiDefinition</code>,
                 <code>AppManifest</code>, <code>AppSettings</code>,
-                <code>AUTH_IDENTIFIER_KINDS</code>, <code>AUTH_OAUTH_PROVIDER_IDS</code>,
+                <code>AUTH_IDENTIFIER_KINDS</code>, <code>AUTH_OAUTH_CANCELLATION_REASONS</code>,
+                <code>AUTH_OAUTH_ERROR_CODES</code>, <code>AUTH_OAUTH_ERROR_STAGES</code>,
+                <code>AUTH_OAUTH_PROVIDER_IDS</code>,
+                <code>AUTH_OAUTH_TRANSPORT_CANCELLATION_REASONS</code>,
+                <code>AUTH_OAUTH_TRANSPORT_ERROR_CODES</code>,
                 <code>AUTH_PROFILE_CREATE_STRATEGIES</code>, <code>AUTH_PROFILE_FIELDS</code>,
                 <code>AUTH_PROFILE_PRIMARY_KEY_STRATEGIES</code>,
                 <code>AUTH_PROFILE_UPDATE_STRATEGIES</code>, <code>AUTH_PROVIDERS</code>,
@@ -531,8 +554,15 @@
                 <code>AuthAdapter</code>, <code>AuthAdapterCapabilities</code>,
                 <code>AuthAdapterError</code>, <code>AuthFlowConfig</code>,
                 <code>AuthIdentifier</code>, <code>AuthIdentifierKind</code>,
-                <code>AuthOAuthConfig</code>, <code>AuthOAuthProviderConfig</code>,
-                <code>AuthOAuthProviderId</code>, <code>AuthOAuthRedirect</code>,
+                <code>AuthOAuthAdapter</code>, <code>AuthOAuthAuthorizationRequest</code>,
+                <code>AuthOAuthAuthorizationResponse</code>,
+                <code>AuthOAuthCancellationReason</code>, <code>AuthOAuthCapabilities</code>,
+                <code>AuthOAuthCompletionResult</code>, <code>AuthOAuthConfig</code>,
+                <code>AuthOAuthError</code>, <code>AuthOAuthErrorCode</code>,
+                <code>AuthOAuthErrorStage</code>, <code>AuthOAuthProviderConfig</code>,
+                <code>AuthOAuthProviderId</code>, <code>AuthOAuthStartResult</code>,
+                <code>AuthOAuthTransportCancellationReason</code>,
+                <code>AuthOAuthTransportError</code>, <code>AuthOAuthTransportErrorCode</code>,
                 <code>AuthProfileCreateStrategy</code>, <code>AuthProfileField</code>,
                 <code>AuthProfilePrimaryKeyStrategy</code>, <code>AuthProfileSpec</code>,
                 <code>AuthProfileUpdateStrategy</code>, <code>AuthProvider</code>,
@@ -551,7 +581,7 @@
                 <code>BindingValueExpression</code>, <code>BindingValueSource</code>,
                 <code>BindingValueTransform</code>, <code>ButtonPressEventDto</code>,
                 <code>CollectionItemPressEventDto</code>, <code>CollectionItemPressPayload</code>,
-                <code>CompleteOAuthSignInInput</code>, <code>ComponentDataBinding</code>,
+                <code>CompleteOAuthAuthorizationInput</code>, <code>ComponentDataBinding</code>,
                 <code>ComponentDataBindingRegistry</code>, <code>ComponentEventDto</code>,
                 <code>ComponentEventDtoKind</code>, <code>ComponentEventPayloadValue</code>,
                 <code>ComponentInstanceId</code>, <code>ComponentRequirements</code>,
@@ -592,17 +622,20 @@
                 <code>DEPLOYMENT_TARGETS</code>, <code>DeploymentSpec</code>,
                 <code>DeploymentTarget</code>, <code>EndpointId</code>, <code>EventBinding</code>,
                 <code>EventBindingTarget</code>, <code>FilterAction</code>,
-                <code>FormSubmitEventDto</code>, <code>FormSubmitValues</code>,
-                <code>GraphQlDataSourceConfig</code>, <code>IconSpec</code>,
-                <code>ImageAssetSource</code>, <code>ImageMetadata</code>,
-                <code>InfraManifest</code>, <code>KnownAuthOAuthProviderId</code>,
-                <code>KnownAuthProfileField</code>, <code>KnownAuthProvider</code>,
-                <code>KnownAuthSignUpField</code>, <code>KnownComponentEventDto</code>,
-                <code>KnownDatabaseProvider</code>, <code>KnownDeploymentTarget</code>,
+                <code>findForbiddenInlineSecretFields</code>,
+                <code>FORBIDDEN_INLINE_SECRET_FIELDS</code>, <code>FormSubmitEventDto</code>,
+                <code>FormSubmitValues</code>, <code>GraphQlDataSourceConfig</code>,
+                <code>IconSpec</code>, <code>ImageAssetSource</code>, <code>ImageMetadata</code>,
+                <code>InfraManifest</code>, <code>InfraSecretStoreSpec</code>,
+                <code>KnownAuthOAuthProviderId</code>, <code>KnownAuthProfileField</code>,
+                <code>KnownAuthProvider</code>, <code>KnownAuthSignUpField</code>,
+                <code>KnownComponentEventDto</code>, <code>KnownDatabaseProvider</code>,
+                <code>KnownDeploymentTarget</code>, <code>KnownSecretStoreProvider</code>,
                 <code>KnownStateProvider</code>, <code>ManagedApiDataSourceConfig</code>,
                 <code>ManagedApiResourceConfig</code>, <code>ManifestValue</code>,
                 <code>NavigateAction</code>, <code>NAVIGATOR_TYPES</code>,
                 <code>NavigatorSpec</code>, <code>NavigatorType</code>, <code>NetworkingSpec</code>,
+                <code>normalizeSecretRef</code>, <code>normalizeSecretScope</code>,
                 <code>NUTRITION_BARCODE_TYPES</code>,
                 <code>NUTRITION_CAPTURE_SUBMISSION_STATUSES</code>,
                 <code>NUTRITION_DATA_SOURCES</code>, <code>NUTRITION_IMAGE_KINDS</code>,
@@ -639,14 +672,23 @@
                 <code>RuntimeResolveNodePropsArgs</code>, <code>SchemaId</code>,
                 <code>ScreenCapabilityRequirement</code>, <code>ScreenDataLoaderDefinition</code>,
                 <code>ScreenPermissionRequirement</code>, <code>ScreenRequirements</code>,
-                <code>ScreenSpec</code>, <code>SearchAction</code>, <code>SetLanguageAction</code>,
-                <code>SignInInput</code>, <code>SignInWithOAuthInput</code>,
-                <code>SignOutInput</code>, <code>SignUpInput</code>,
+                <code>ScreenSpec</code>, <code>SearchAction</code>,
+                <code>SECRET_STORE_ERROR_CODES</code>, <code>SECRET_STORE_PROVIDERS</code>,
+                <code>SecretCreateInput</code>, <code>SecretGetMetadataInput</code>,
+                <code>SecretListInput</code>, <code>SecretMetadata</code>,
+                <code>SecretPayload</code>, <code>SecretRef</code>, <code>SecretRemoveInput</code>,
+                <code>SecretReplaceInput</code>, <code>SecretResolveInput</code>,
+                <code>SecretScope</code>, <code>SecretStoreAdapter</code>,
+                <code>SecretStoreError</code>, <code>SecretStoreErrorCode</code>,
+                <code>SecretStoreOkResult</code>, <code>SecretStoreProvider</code>,
+                <code>SecretStoreResult</code>, <code>SetLanguageAction</code>,
+                <code>SignInInput</code>, <code>SignOutInput</code>, <code>SignUpInput</code>,
                 <code>SplashScreenAssetSpec</code>, <code>SplashScreenModeSpec</code>,
                 <code>SplashScreenResizeMode</code>, <code>SplashScreenSpec</code>,
-                <code>STATE_PERSISTENCE_MODES</code>, <code>STATE_PROVIDERS</code>,
-                <code>StateAdapter</code>, <code>StateAdapterCapabilities</code>,
-                <code>StateAdapterError</code>, <code>StateListener</code>, <code>StatePath</code>,
+                <code>StartOAuthAuthorizationInput</code>, <code>STATE_PERSISTENCE_MODES</code>,
+                <code>STATE_PROVIDERS</code>, <code>StateAdapter</code>,
+                <code>StateAdapterCapabilities</code>, <code>StateAdapterError</code>,
+                <code>StateListener</code>, <code>StatePath</code>,
                 <code>StatePersistenceMode</code>, <code>StatePrimitive</code>,
                 <code>StateProvider</code>, <code>StateResult</code>, <code>StateSnapshot</code>,
                 <code>StateSpec</code>, <code>StateSubscription</code>, <code>StateSuccess</code>,
@@ -673,7 +715,7 @@
                 <code>UiComponentPropType</code>, <code>UiComponentPropValue</code>,
                 <code>UiComponentSlotMeta</code>, <code>UiNode</code>,
                 <code>UiNodeRepeatSpec</code>, <code>UrlImageAssetSource</code>,
-                <code>VerifyOtpInput</code>
+                <code>validateSecretPayload</code>, <code>VerifyOtpInput</code>
               </p>
             </article>
             <article
@@ -817,6 +859,37 @@
             </article>
             <article
               class="item"
+              data-search="src/secretManifest.ts src/secrets.ts InfraSecretStoreSpec"
+            >
+              <h3>src/secretManifest.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p><strong>Dependencies:</strong> <code>src/secrets.ts</code></p>
+              <p><strong>Exports:</strong> <code>InfraSecretStoreSpec</code></p>
+            </article>
+            <article
+              class="item"
+              data-search="src/secrets.ts findForbiddenInlineSecretFields FORBIDDEN_INLINE_SECRET_FIELDS KnownSecretStoreProvider normalizeSecretRef normalizeSecretScope SECRET_STORE_ERROR_CODES SECRET_STORE_PROVIDERS SecretCreateInput SecretGetMetadataInput SecretListInput SecretMetadata SecretPayload SecretRef SecretRemoveInput SecretReplaceInput SecretResolveInput SecretScope SecretStoreAdapter SecretStoreError SecretStoreErrorCode SecretStoreOkResult SecretStoreProvider SecretStoreResult validateSecretPayload"
+            >
+              <h3>src/secrets.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
+              <p>
+                <strong>Exports:</strong> <code>findForbiddenInlineSecretFields</code>,
+                <code>FORBIDDEN_INLINE_SECRET_FIELDS</code>, <code>KnownSecretStoreProvider</code>,
+                <code>normalizeSecretRef</code>, <code>normalizeSecretScope</code>,
+                <code>SECRET_STORE_ERROR_CODES</code>, <code>SECRET_STORE_PROVIDERS</code>,
+                <code>SecretCreateInput</code>, <code>SecretGetMetadataInput</code>,
+                <code>SecretListInput</code>, <code>SecretMetadata</code>,
+                <code>SecretPayload</code>, <code>SecretRef</code>, <code>SecretRemoveInput</code>,
+                <code>SecretReplaceInput</code>, <code>SecretResolveInput</code>,
+                <code>SecretScope</code>, <code>SecretStoreAdapter</code>,
+                <code>SecretStoreError</code>, <code>SecretStoreErrorCode</code>,
+                <code>SecretStoreOkResult</code>, <code>SecretStoreProvider</code>,
+                <code>SecretStoreResult</code>, <code>validateSecretPayload</code>
+              </p>
+            </article>
+            <article
+              class="item"
               data-search="src/state.ts StateAdapter StateAdapterCapabilities StateAdapterError StateListener StatePath StatePrimitive StateResult StateSnapshot StateSubscription StateSuccess StateValue"
             >
               <h3>src/state.ts</h3>
@@ -936,7 +1009,40 @@
                 data-search="AUTH_IDENTIFIER_KINDS value src/auth.ts "
               >
                 <h4>AUTH_IDENTIFIER_KINDS</h4>
-                <p class="muted">value • <code>src/auth.ts:3:14</code></p>
+                <p class="muted">value • <code>src/auth.ts:4:14</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-auth-oauth-cancellation-reasons"
+                data-search="AUTH_OAUTH_CANCELLATION_REASONS value src/auth.ts "
+              >
+                <h4>AUTH_OAUTH_CANCELLATION_REASONS</h4>
+                <p class="muted">value • <code>src/auth.ts:217:14</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-auth-oauth-error-codes"
+                data-search="AUTH_OAUTH_ERROR_CODES value src/auth.ts "
+              >
+                <h4>AUTH_OAUTH_ERROR_CODES</h4>
+                <p class="muted">value • <code>src/auth.ts:184:14</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-auth-oauth-error-stages"
+                data-search="AUTH_OAUTH_ERROR_STAGES value src/auth.ts "
+              >
+                <h4>AUTH_OAUTH_ERROR_STAGES</h4>
+                <p class="muted">value • <code>src/auth.ts:174:14</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -947,7 +1053,29 @@
                 data-search="AUTH_OAUTH_PROVIDER_IDS value src/auth.ts "
               >
                 <h4>AUTH_OAUTH_PROVIDER_IDS</h4>
-                <p class="muted">value • <code>src/auth.ts:16:14</code></p>
+                <p class="muted">value • <code>src/auth.ts:17:14</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-auth-oauth-transport-cancellation-reasons"
+                data-search="AUTH_OAUTH_TRANSPORT_CANCELLATION_REASONS value src/auth.ts "
+              >
+                <h4>AUTH_OAUTH_TRANSPORT_CANCELLATION_REASONS</h4>
+                <p class="muted">value • <code>src/auth.ts:210:14</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-auth-oauth-transport-error-codes"
+                data-search="AUTH_OAUTH_TRANSPORT_ERROR_CODES value src/auth.ts "
+              >
+                <h4>AUTH_OAUTH_TRANSPORT_ERROR_CODES</h4>
+                <p class="muted">value • <code>src/auth.ts:223:14</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -958,7 +1086,7 @@
                 data-search="AUTH_SIGN_UP_FIELDS value src/auth.ts "
               >
                 <h4>AUTH_SIGN_UP_FIELDS</h4>
-                <p class="muted">value • <code>src/auth.ts:6:14</code></p>
+                <p class="muted">value • <code>src/auth.ts:7:14</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -966,24 +1094,22 @@
               <article
                 class="item"
                 id="symbol-authadapter"
-                data-search="AuthAdapter type src/auth.ts  AuthAdapterCapabilities AuthOAuthRedirect AuthResult AuthSession AuthUser CompleteOAuthSignInInput PasswordResetInput SignInInput SignInWithOAuthInput SignOutInput SignUpInput VerifyOtpInput"
+                data-search="AuthAdapter type src/auth.ts  AuthAdapterCapabilities AuthOAuthAdapter AuthResult AuthSession AuthUser PasswordResetInput SignInInput SignOutInput SignUpInput VerifyOtpInput"
               >
                 <h4>AuthAdapter</h4>
-                <p class="muted">type • <code>src/auth.ts:200:1</code></p>
+                <p class="muted">type • <code>src/auth.ts:317:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
                   <strong>Related symbols:</strong>
                   <ul class="chips">
                     <li class="chip">AuthAdapterCapabilities</li>
-                    <li class="chip">AuthOAuthRedirect</li>
+                    <li class="chip">AuthOAuthAdapter</li>
                     <li class="chip">AuthResult</li>
                     <li class="chip">AuthSession</li>
                     <li class="chip">AuthUser</li>
-                    <li class="chip">CompleteOAuthSignInInput</li>
                     <li class="chip">PasswordResetInput</li>
                     <li class="chip">SignInInput</li>
-                    <li class="chip">SignInWithOAuthInput</li>
                     <li class="chip">SignOutInput</li>
                     <li class="chip">SignUpInput</li>
                     <li class="chip">VerifyOtpInput</li>
@@ -1009,24 +1135,19 @@
                       <td></td>
                     </tr>
                     <tr>
-                      <td><code>completeOAuthSignIn</code></td>
-                      <td>method</td>
-                      <td>
-                        <code
-                          >((input: CompleteOAuthSignInInput) =&gt;
-                          Promise&lt;AuthResult&lt;AuthSession&gt;&gt;) | undefined</code
-                        >
-                      </td>
-                      <td>no</td>
-                      <td></td>
-                    </tr>
-                    <tr>
                       <td><code>getSession</code></td>
                       <td>method</td>
                       <td>
                         <code>() =&gt; Promise&lt;AuthResult&lt;AuthSession | null&gt;&gt;</code>
                       </td>
                       <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>oauth</code></td>
+                      <td>property</td>
+                      <td><code>AuthOAuthAdapter | undefined</code></td>
+                      <td>no</td>
                       <td></td>
                     </tr>
                     <tr>
@@ -1066,18 +1187,6 @@
                       <td></td>
                     </tr>
                     <tr>
-                      <td><code>signInWithOAuth</code></td>
-                      <td>method</td>
-                      <td>
-                        <code
-                          >((input: SignInWithOAuthInput) =&gt;
-                          Promise&lt;AuthResult&lt;AuthOAuthRedirect&gt;&gt;) | undefined</code
-                        >
-                      </td>
-                      <td>no</td>
-                      <td></td>
-                    </tr>
-                    <tr>
                       <td><code>signOut</code></td>
                       <td>method</td>
                       <td><code>(input?: SignOutInput) =&gt; Promise&lt;AuthResult&gt;</code></td>
@@ -1114,18 +1223,13 @@
               <article
                 class="item"
                 id="symbol-authadaptercapabilities"
-                data-search="AuthAdapterCapabilities type src/auth.ts  AuthOAuthProviderId"
+                data-search="AuthAdapterCapabilities type src/auth.ts "
               >
                 <h4>AuthAdapterCapabilities</h4>
-                <p class="muted">type • <code>src/auth.ts:190:1</code></p>
+                <p class="muted">type • <code>src/auth.ts:309:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
-                <div>
-                  <strong>Related symbols:</strong>
-                  <ul class="chips">
-                    <li class="chip">AuthOAuthProviderId</li>
-                  </ul>
-                </div>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
 
                 <table>
                   <thead>
@@ -1139,13 +1243,6 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td><code>oauthProviders</code></td>
-                      <td>property</td>
-                      <td><code>AuthOAuthProviderId[] | undefined</code></td>
-                      <td>no</td>
-                      <td></td>
-                    </tr>
-                    <tr>
                       <td><code>signInIdentifiers</code></td>
                       <td>property</td>
                       <td>
@@ -1154,13 +1251,6 @@
                         >
                       </td>
                       <td>yes</td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td><code>supportsOAuth</code></td>
-                      <td>property</td>
-                      <td><code>boolean | undefined</code></td>
-                      <td>no</td>
                       <td></td>
                     </tr>
                     <tr>
@@ -1200,7 +1290,7 @@
                 data-search="AuthAdapterError type src/auth.ts "
               >
                 <h4>AuthAdapterError</h4>
-                <p class="muted">type • <code>src/auth.ts:124:1</code></p>
+                <p class="muted">type • <code>src/auth.ts:126:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -1246,7 +1336,7 @@
                 data-search="AuthFlowConfig type src/auth.ts "
               >
                 <h4>AuthFlowConfig</h4>
-                <p class="muted">type • <code>src/auth.ts:45:1</code></p>
+                <p class="muted">type • <code>src/auth.ts:46:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -1320,7 +1410,7 @@
                 data-search="AuthIdentifier type src/auth.ts "
               >
                 <h4>AuthIdentifier</h4>
-                <p class="muted">type • <code>src/auth.ts:40:1</code></p>
+                <p class="muted">type • <code>src/auth.ts:41:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -1361,7 +1451,200 @@
                 data-search="AuthIdentifierKind unknown src/auth.ts "
               >
                 <h4>AuthIdentifierKind</h4>
-                <p class="muted">unknown • <code>src/auth.ts:4:1</code></p>
+                <p class="muted">unknown • <code>src/auth.ts:5:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-authoauthadapter"
+                data-search="AuthOAuthAdapter type src/auth.ts  AuthOAuthCapabilities AuthOAuthCompletionResult AuthOAuthStartResult CompleteOAuthAuthorizationInput StartOAuthAuthorizationInput"
+              >
+                <h4>AuthOAuthAdapter</h4>
+                <p class="muted">type • <code>src/auth.ts:302:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">AuthOAuthCapabilities</li>
+                    <li class="chip">AuthOAuthCompletionResult</li>
+                    <li class="chip">AuthOAuthStartResult</li>
+                    <li class="chip">CompleteOAuthAuthorizationInput</li>
+                    <li class="chip">StartOAuthAuthorizationInput</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>capabilities</code></td>
+                      <td>property</td>
+                      <td><code>AuthOAuthCapabilities</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>completeAuthorization</code></td>
+                      <td>method</td>
+                      <td>
+                        <code
+                          >(input: CompleteOAuthAuthorizationInput) =&gt;
+                          Promise&lt;AuthOAuthCompletionResult&gt;</code
+                        >
+                      </td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>startAuthorization</code></td>
+                      <td>method</td>
+                      <td>
+                        <code
+                          >(input: StartOAuthAuthorizationInput) =&gt;
+                          Promise&lt;AuthOAuthStartResult&gt;</code
+                        >
+                      </td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-authoauthauthorizationrequest"
+                data-search="AuthOAuthAuthorizationRequest type src/auth.ts  AuthOAuthProviderId"
+              >
+                <h4>AuthOAuthAuthorizationRequest</h4>
+                <p class="muted">type • <code>src/auth.ts:242:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">AuthOAuthProviderId</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>attemptId</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>authorizationUrl</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>provider</code></td>
+                      <td>property</td>
+                      <td><code>AuthOAuthProviderId</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>redirectUri</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-authoauthauthorizationresponse"
+                data-search="AuthOAuthAuthorizationResponse unknown src/auth.ts "
+              >
+                <h4>AuthOAuthAuthorizationResponse</h4>
+                <p class="muted">unknown • <code>src/auth.ts:259:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-authoauthcancellationreason"
+                data-search="AuthOAuthCancellationReason unknown src/auth.ts "
+              >
+                <h4>AuthOAuthCancellationReason</h4>
+                <p class="muted">unknown • <code>src/auth.ts:221:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-authoauthcapabilities"
+                data-search="AuthOAuthCapabilities type src/auth.ts  AuthOAuthProviderId"
+              >
+                <h4>AuthOAuthCapabilities</h4>
+                <p class="muted">type • <code>src/auth.ts:297:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">AuthOAuthProviderId</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>providers</code></td>
+                      <td>property</td>
+                      <td><code>readonly [AuthOAuthProviderId, ...AuthOAuthProviderId[]]</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-authoauthcompletionresult"
+                data-search="AuthOAuthCompletionResult unknown src/auth.ts "
+              >
+                <h4>AuthOAuthCompletionResult</h4>
+                <p class="muted">unknown • <code>src/auth.ts:278:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -1372,7 +1655,7 @@
                 data-search="AuthOAuthConfig type src/auth.ts  AuthOAuthProviderConfig"
               >
                 <h4>AuthOAuthConfig</h4>
-                <p class="muted">type • <code>src/auth.ts:87:1</code></p>
+                <p class="muted">type • <code>src/auth.ts:89:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -1419,11 +1702,121 @@
               </article>
               <article
                 class="item"
+                id="symbol-authoautherror"
+                data-search="AuthOAuthError type src/auth.ts  AuthOAuthProviderId"
+              >
+                <h4>AuthOAuthError</h4>
+                <p class="muted">type • <code>src/auth.ts:203:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">AuthOAuthProviderId</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>cause</code></td>
+                      <td>property</td>
+                      <td><code>unknown</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>code</code></td>
+                      <td>property</td>
+                      <td>
+                        <code
+                          >&quot;oauth_unavailable&quot; | &quot;provider_disabled&quot; |
+                          &quot;provider_misconfigured&quot; | &quot;invalid_redirect_uri&quot; |
+                          &quot;authorization_failed&quot; |
+                          &quot;authorization_attempt_not_found&quot; | &quot;invalid_callback&quot;
+                          | &quot;state_mismatch&quot; | &quot;pkce_mismatch&quot; |
+                          &quot;callback_already_completed&quot; | &quot;code_exchange_failed&quot;
+                          | &quot;network_error&quot; | &quot;session_persistence_failed&quot; |
+                          &quot;profile_creation_failed&quot; | &quot;provider_error&quot;</code
+                        >
+                      </td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>message</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>provider</code></td>
+                      <td>property</td>
+                      <td><code>AuthOAuthProviderId | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>recoverable</code></td>
+                      <td>property</td>
+                      <td><code>boolean</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>stage</code></td>
+                      <td>property</td>
+                      <td>
+                        <code
+                          >&quot;start&quot; | &quot;transport&quot; | &quot;callback&quot; |
+                          &quot;exchange&quot; | &quot;session&quot; | &quot;profile&quot;</code
+                        >
+                      </td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-authoautherrorcode"
+                data-search="AuthOAuthErrorCode unknown src/auth.ts "
+              >
+                <h4>AuthOAuthErrorCode</h4>
+                <p class="muted">unknown • <code>src/auth.ts:201:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-authoautherrorstage"
+                data-search="AuthOAuthErrorStage unknown src/auth.ts "
+              >
+                <h4>AuthOAuthErrorStage</h4>
+                <p class="muted">unknown • <code>src/auth.ts:182:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
                 id="symbol-authoauthproviderconfig"
                 data-search="AuthOAuthProviderConfig type src/auth.ts  AuthOAuthProviderId IconSpec"
               >
                 <h4>AuthOAuthProviderConfig</h4>
-                <p class="muted">type • <code>src/auth.ts:77:1</code></p>
+                <p class="muted">type • <code>src/auth.ts:78:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -1445,6 +1838,13 @@
                     </tr>
                   </thead>
                   <tbody>
+                    <tr>
+                      <td><code>credentialsRef</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
                     <tr>
                       <td><code>enabled</code></td>
                       <td>property</td>
@@ -1481,13 +1881,6 @@
                       <td></td>
                     </tr>
                     <tr>
-                      <td><code>redirectTo</code></td>
-                      <td>property</td>
-                      <td><code>string | undefined</code></td>
-                      <td>no</td>
-                      <td></td>
-                    </tr>
-                    <tr>
                       <td><code>scopes</code></td>
                       <td>property</td>
                       <td><code>string[] | undefined</code></td>
@@ -1503,26 +1896,43 @@
                 data-search="AuthOAuthProviderId unknown src/auth.ts "
               >
                 <h4>AuthOAuthProviderId</h4>
-                <p class="muted">unknown • <code>src/auth.ts:38:1</code></p>
+                <p class="muted">unknown • <code>src/auth.ts:39:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
               </article>
               <article
                 class="item"
-                id="symbol-authoauthredirect"
-                data-search="AuthOAuthRedirect type src/auth.ts  AuthOAuthProviderId"
+                id="symbol-authoauthstartresult"
+                data-search="AuthOAuthStartResult unknown src/auth.ts "
               >
-                <h4>AuthOAuthRedirect</h4>
-                <p class="muted">type • <code>src/auth.ts:180:1</code></p>
+                <h4>AuthOAuthStartResult</h4>
+                <p class="muted">unknown • <code>src/auth.ts:249:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
-                <div>
-                  <strong>Related symbols:</strong>
-                  <ul class="chips">
-                    <li class="chip">AuthOAuthProviderId</li>
-                  </ul>
-                </div>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-authoauthtransportcancellationreason"
+                data-search="AuthOAuthTransportCancellationReason unknown src/auth.ts "
+              >
+                <h4>AuthOAuthTransportCancellationReason</h4>
+                <p class="muted">unknown • <code>src/auth.ts:214:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-authoauthtransporterror"
+                data-search="AuthOAuthTransportError type src/auth.ts "
+              >
+                <h4>AuthOAuthTransportError</h4>
+                <p class="muted">type • <code>src/auth.ts:229:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
 
                 <table>
                   <thead>
@@ -1536,14 +1946,23 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td><code>provider</code></td>
+                      <td><code>cause</code></td>
                       <td>property</td>
-                      <td><code>AuthOAuthProviderId</code></td>
+                      <td><code>unknown</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>code</code></td>
+                      <td>property</td>
+                      <td>
+                        <code>&quot;browser_unavailable&quot; | &quot;transport_failed&quot;</code>
+                      </td>
                       <td>yes</td>
                       <td></td>
                     </tr>
                     <tr>
-                      <td><code>url</code></td>
+                      <td><code>message</code></td>
                       <td>property</td>
                       <td><code>string</code></td>
                       <td>yes</td>
@@ -1554,11 +1973,22 @@
               </article>
               <article
                 class="item"
+                id="symbol-authoauthtransporterrorcode"
+                data-search="AuthOAuthTransportErrorCode unknown src/auth.ts "
+              >
+                <h4>AuthOAuthTransportErrorCode</h4>
+                <p class="muted">unknown • <code>src/auth.ts:227:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
                 id="symbol-authproviderconfig"
                 data-search="AuthProviderConfig type src/auth.ts  AuthOAuthConfig AuthSignInConfig AuthSignUpConfig"
               >
                 <h4>AuthProviderConfig</h4>
-                <p class="muted">type • <code>src/auth.ts:93:1</code></p>
+                <p class="muted">type • <code>src/auth.ts:95:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -1632,7 +2062,7 @@
                 data-search="AuthResult unknown src/auth.ts "
               >
                 <h4>AuthResult</h4>
-                <p class="muted">unknown • <code>src/auth.ts:130:1</code></p>
+                <p class="muted">unknown • <code>src/auth.ts:132:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -1643,7 +2073,7 @@
                 data-search="AuthSession type src/auth.ts  AuthUser"
               >
                 <h4>AuthSession</h4>
-                <p class="muted">type • <code>src/auth.ts:116:1</code></p>
+                <p class="muted">type • <code>src/auth.ts:118:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -1708,7 +2138,7 @@
                 data-search="AuthSignInConfig type src/auth.ts "
               >
                 <h4>AuthSignInConfig</h4>
-                <p class="muted">type • <code>src/auth.ts:68:1</code></p>
+                <p class="muted">type • <code>src/auth.ts:69:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -1744,7 +2174,7 @@
                 data-search="AuthSignUpConfig type src/auth.ts  AuthSignUpField"
               >
                 <h4>AuthSignUpConfig</h4>
-                <p class="muted">type • <code>src/auth.ts:72:1</code></p>
+                <p class="muted">type • <code>src/auth.ts:73:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -1788,14 +2218,14 @@
                 data-search="AuthSignUpField unknown src/auth.ts "
               >
                 <h4>AuthSignUpField</h4>
-                <p class="muted">unknown • <code>src/auth.ts:14:1</code></p>
+                <p class="muted">unknown • <code>src/auth.ts:15:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
               </article>
               <article class="item" id="symbol-authuser" data-search="AuthUser type src/auth.ts ">
                 <h4>AuthUser</h4>
-                <p class="muted">type • <code>src/auth.ts:106:1</code></p>
+                <p class="muted">type • <code>src/auth.ts:108:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -1865,14 +2295,19 @@
               </article>
               <article
                 class="item"
-                id="symbol-completeoauthsignininput"
-                data-search="CompleteOAuthSignInInput type src/auth.ts "
+                id="symbol-completeoauthauthorizationinput"
+                data-search="CompleteOAuthAuthorizationInput type src/auth.ts  AuthOAuthAuthorizationResponse"
               >
-                <h4>CompleteOAuthSignInInput</h4>
-                <p class="muted">type • <code>src/auth.ts:185:1</code></p>
+                <h4>CompleteOAuthAuthorizationInput</h4>
+                <p class="muted">type • <code>src/auth.ts:273:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
-                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">AuthOAuthAuthorizationResponse</li>
+                  </ul>
+                </div>
 
                 <table>
                   <thead>
@@ -1886,16 +2321,16 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td><code>redirectTo</code></td>
+                      <td><code>attemptId</code></td>
                       <td>property</td>
-                      <td><code>string | undefined</code></td>
-                      <td>no</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
                       <td></td>
                     </tr>
                     <tr>
-                      <td><code>url</code></td>
+                      <td><code>response</code></td>
                       <td>property</td>
-                      <td><code>string</code></td>
+                      <td><code>AuthOAuthAuthorizationResponse</code></td>
                       <td>yes</td>
                       <td></td>
                     </tr>
@@ -1908,7 +2343,7 @@
                 data-search="DEFAULT_AUTH_FLOW value src/auth.ts "
               >
                 <h4>DEFAULT_AUTH_FLOW</h4>
-                <p class="muted">value • <code>src/auth.ts:55:14</code></p>
+                <p class="muted">value • <code>src/auth.ts:56:14</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -1919,7 +2354,7 @@
                 data-search="KnownAuthOAuthProviderId unknown src/auth.ts "
               >
                 <h4>KnownAuthOAuthProviderId</h4>
-                <p class="muted">unknown • <code>src/auth.ts:37:1</code></p>
+                <p class="muted">unknown • <code>src/auth.ts:38:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -1930,7 +2365,7 @@
                 data-search="KnownAuthSignUpField unknown src/auth.ts "
               >
                 <h4>KnownAuthSignUpField</h4>
-                <p class="muted">unknown • <code>src/auth.ts:13:1</code></p>
+                <p class="muted">unknown • <code>src/auth.ts:14:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -1941,7 +2376,7 @@
                 data-search="PasswordResetInput type src/auth.ts  AuthIdentifier"
               >
                 <h4>PasswordResetInput</h4>
-                <p class="muted">type • <code>src/auth.ts:160:1</code></p>
+                <p class="muted">type • <code>src/auth.ts:162:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -1985,7 +2420,7 @@
                 data-search="resolveAuthFlow function src/auth.ts  AuthFlowConfig (flow?: AuthFlowConfig | undefined) =&gt; AuthFlowConfig"
               >
                 <h4>resolveAuthFlow</h4>
-                <p class="muted">function • <code>src/auth.ts:64:1</code></p>
+                <p class="muted">function • <code>src/auth.ts:65:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -2024,7 +2459,7 @@
                 data-search="SignInInput type src/auth.ts  AuthIdentifier"
               >
                 <h4>SignInInput</h4>
-                <p class="muted">type • <code>src/auth.ts:140:1</code></p>
+                <p class="muted">type • <code>src/auth.ts:142:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -2085,76 +2520,11 @@
               </article>
               <article
                 class="item"
-                id="symbol-signinwithoauthinput"
-                data-search="SignInWithOAuthInput type src/auth.ts  AuthOAuthProviderId"
-              >
-                <h4>SignInWithOAuthInput</h4>
-                <p class="muted">type • <code>src/auth.ts:172:1</code></p>
-
-                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
-                <div>
-                  <strong>Related symbols:</strong>
-                  <ul class="chips">
-                    <li class="chip">AuthOAuthProviderId</li>
-                  </ul>
-                </div>
-
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Member</th>
-                      <th>Kind</th>
-                      <th>Type</th>
-                      <th>Required</th>
-                      <th>Description</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td><code>metadata</code></td>
-                      <td>property</td>
-                      <td><code>Record&lt;string, unknown&gt; | undefined</code></td>
-                      <td>no</td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td><code>provider</code></td>
-                      <td>property</td>
-                      <td><code>AuthOAuthProviderId</code></td>
-                      <td>yes</td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td><code>queryParams</code></td>
-                      <td>property</td>
-                      <td><code>Record&lt;string, string&gt; | undefined</code></td>
-                      <td>no</td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td><code>redirectTo</code></td>
-                      <td>property</td>
-                      <td><code>string | undefined</code></td>
-                      <td>no</td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td><code>scopes</code></td>
-                      <td>property</td>
-                      <td><code>string[] | undefined</code></td>
-                      <td>no</td>
-                      <td></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </article>
-              <article
-                class="item"
                 id="symbol-signoutinput"
                 data-search="SignOutInput type src/auth.ts "
               >
                 <h4>SignOutInput</h4>
-                <p class="muted">type • <code>src/auth.ts:156:1</code></p>
+                <p class="muted">type • <code>src/auth.ts:158:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -2186,7 +2556,7 @@
                 data-search="SignUpInput type src/auth.ts  AuthIdentifier"
               >
                 <h4>SignUpInput</h4>
-                <p class="muted">type • <code>src/auth.ts:148:1</code></p>
+                <p class="muted">type • <code>src/auth.ts:150:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -2247,11 +2617,69 @@
               </article>
               <article
                 class="item"
+                id="symbol-startoauthauthorizationinput"
+                data-search="StartOAuthAuthorizationInput type src/auth.ts  AuthOAuthProviderId"
+              >
+                <h4>StartOAuthAuthorizationInput</h4>
+                <p class="muted">type • <code>src/auth.ts:235:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">AuthOAuthProviderId</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>provider</code></td>
+                      <td>property</td>
+                      <td><code>AuthOAuthProviderId</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>queryParams</code></td>
+                      <td>property</td>
+                      <td><code>Readonly&lt;Record&lt;string, string&gt;&gt; | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>redirectUri</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>scopes</code></td>
+                      <td>property</td>
+                      <td><code>readonly string[] | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
                 id="symbol-verifyotpinput"
                 data-search="VerifyOtpInput type src/auth.ts  AuthIdentifier"
               >
                 <h4>VerifyOtpInput</h4>
-                <p class="muted">type • <code>src/auth.ts:165:1</code></p>
+                <p class="muted">type • <code>src/auth.ts:167:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -9482,6 +9910,897 @@
               </article>
             </section>
             <section>
+              <h3>src/secretManifest.ts</h3>
+              <article
+                class="item"
+                id="symbol-infrasecretstorespec"
+                data-search="InfraSecretStoreSpec type src/secretManifest.ts  SecretStoreProvider"
+              >
+                <h4>InfraSecretStoreSpec</h4>
+                <p class="muted">type • <code>src/secretManifest.ts:3:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">SecretStoreProvider</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>provider</code></td>
+                      <td>property</td>
+                      <td><code>SecretStoreProvider</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+            </section>
+            <section>
+              <h3>src/secrets.ts</h3>
+              <article
+                class="item"
+                id="symbol-findforbiddeninlinesecretfields"
+                data-search="findForbiddenInlineSecretFields function src/secrets.ts  (value: unknown) =&gt; readonly string[]"
+              >
+                <h4>findForbiddenInlineSecretFields</h4>
+                <p class="muted">function • <code>src/secrets.ts:183:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+                <div>
+                  <h5>Signature</h5>
+                  <pre>(value: unknown) =&gt; readonly string[]</pre>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>value</code></td>
+                        <td><code>unknown</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p><strong>Returns:</strong> <code>readonly string[]</code></p>
+                </div>
+              </article>
+              <article
+                class="item"
+                id="symbol-forbidden-inline-secret-fields"
+                data-search="FORBIDDEN_INLINE_SECRET_FIELDS value src/secrets.ts "
+              >
+                <h4>FORBIDDEN_INLINE_SECRET_FIELDS</h4>
+                <p class="muted">value • <code>src/secrets.ts:174:14</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-knownsecretstoreprovider"
+                data-search="KnownSecretStoreProvider unknown src/secrets.ts "
+              >
+                <h4>KnownSecretStoreProvider</h4>
+                <p class="muted">unknown • <code>src/secrets.ts:2:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-normalizesecretref"
+                data-search="normalizeSecretRef function src/secrets.ts  SecretStoreResult (value: string) =&gt; SecretStoreResult&lt;string&gt;"
+              >
+                <h4>normalizeSecretRef</h4>
+                <p class="muted">function • <code>src/secrets.ts:105:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">SecretStoreResult</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5>Signature</h5>
+                  <pre>(value: string) =&gt; SecretStoreResult&lt;string&gt;</pre>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>value</code></td>
+                        <td><code>string</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p><strong>Returns:</strong> <code>SecretStoreResult&lt;string&gt;</code></p>
+                </div>
+              </article>
+              <article
+                class="item"
+                id="symbol-normalizesecretscope"
+                data-search="normalizeSecretScope function src/secrets.ts  SecretScope SecretStoreResult (scope: SecretScope) =&gt; SecretStoreResult&lt;SecretScope&gt;"
+              >
+                <h4>normalizeSecretScope</h4>
+                <p class="muted">function • <code>src/secrets.ts:129:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">SecretScope</li>
+                    <li class="chip">SecretStoreResult</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5>Signature</h5>
+                  <pre>(scope: SecretScope) =&gt; SecretStoreResult&lt;SecretScope&gt;</pre>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>scope</code></td>
+                        <td><code>SecretScope</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p><strong>Returns:</strong> <code>SecretStoreResult&lt;SecretScope&gt;</code></p>
+                </div>
+              </article>
+              <article
+                class="item"
+                id="symbol-secret-store-error-codes"
+                data-search="SECRET_STORE_ERROR_CODES value src/secrets.ts "
+              >
+                <h4>SECRET_STORE_ERROR_CODES</h4>
+                <p class="muted">value • <code>src/secrets.ts:24:14</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-secret-store-providers"
+                data-search="SECRET_STORE_PROVIDERS value src/secrets.ts "
+              >
+                <h4>SECRET_STORE_PROVIDERS</h4>
+                <p class="muted">value • <code>src/secrets.ts:1:14</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-secretcreateinput"
+                data-search="SecretCreateInput type src/secrets.ts  SecretScope"
+              >
+                <h4>SecretCreateInput</h4>
+                <p class="muted">type • <code>src/secrets.ts:64:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">SecretScope</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>kind</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>payload</code></td>
+                      <td>property</td>
+                      <td><code>Readonly&lt;Record&lt;string, string&gt;&gt;</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>provider</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>ref</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>scope</code></td>
+                      <td>property</td>
+                      <td><code>SecretScope</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-secretgetmetadatainput"
+                data-search="SecretGetMetadataInput type src/secrets.ts  SecretScope"
+              >
+                <h4>SecretGetMetadataInput</h4>
+                <p class="muted">type • <code>src/secrets.ts:59:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">SecretScope</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>ref</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>scope</code></td>
+                      <td>property</td>
+                      <td><code>SecretScope</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-secretlistinput"
+                data-search="SecretListInput type src/secrets.ts  SecretScope"
+              >
+                <h4>SecretListInput</h4>
+                <p class="muted">type • <code>src/secrets.ts:53:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">SecretScope</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>kind</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>provider</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>scope</code></td>
+                      <td>property</td>
+                      <td><code>SecretScope</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-secretmetadata"
+                data-search="SecretMetadata type src/secrets.ts  SecretScope"
+              >
+                <h4>SecretMetadata</h4>
+                <p class="muted">type • <code>src/secrets.ts:14:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">SecretScope</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>configuredFields</code></td>
+                      <td>property</td>
+                      <td><code>readonly string[]</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>createdAt</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>kind</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>provider</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>ref</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>scope</code></td>
+                      <td>property</td>
+                      <td><code>SecretScope</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>updatedAt</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-secretpayload"
+                data-search="SecretPayload unknown src/secrets.ts "
+              >
+                <h4>SecretPayload</h4>
+                <p class="muted">unknown • <code>src/secrets.ts:12:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-secretref"
+                data-search="SecretRef unknown src/secrets.ts "
+              >
+                <h4>SecretRef</h4>
+                <p class="muted">unknown • <code>src/secrets.ts:5:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-secretremoveinput"
+                data-search="SecretRemoveInput type src/secrets.ts  SecretScope"
+              >
+                <h4>SecretRemoveInput</h4>
+                <p class="muted">type • <code>src/secrets.ts:78:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">SecretScope</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>ref</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>scope</code></td>
+                      <td>property</td>
+                      <td><code>SecretScope</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-secretreplaceinput"
+                data-search="SecretReplaceInput type src/secrets.ts  SecretScope"
+              >
+                <h4>SecretReplaceInput</h4>
+                <p class="muted">type • <code>src/secrets.ts:72:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">SecretScope</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>payload</code></td>
+                      <td>property</td>
+                      <td><code>Readonly&lt;Record&lt;string, string&gt;&gt;</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>ref</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>scope</code></td>
+                      <td>property</td>
+                      <td><code>SecretScope</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-secretresolveinput"
+                data-search="SecretResolveInput type src/secrets.ts  SecretScope"
+              >
+                <h4>SecretResolveInput</h4>
+                <p class="muted">type • <code>src/secrets.ts:83:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">SecretScope</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>ref</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>scope</code></td>
+                      <td>property</td>
+                      <td><code>SecretScope</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-secretscope"
+                data-search="SecretScope type src/secrets.ts "
+              >
+                <h4>SecretScope</h4>
+                <p class="muted">type • <code>src/secrets.ts:7:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>environment</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>projectId</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-secretstoreadapter"
+                data-search="SecretStoreAdapter type src/secrets.ts  SecretCreateInput SecretGetMetadataInput SecretListInput SecretMetadata SecretPayload SecretRemoveInput SecretReplaceInput SecretResolveInput SecretStoreResult"
+              >
+                <h4>SecretStoreAdapter</h4>
+                <p class="muted">type • <code>src/secrets.ts:94:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">SecretCreateInput</li>
+                    <li class="chip">SecretGetMetadataInput</li>
+                    <li class="chip">SecretListInput</li>
+                    <li class="chip">SecretMetadata</li>
+                    <li class="chip">SecretPayload</li>
+                    <li class="chip">SecretRemoveInput</li>
+                    <li class="chip">SecretReplaceInput</li>
+                    <li class="chip">SecretResolveInput</li>
+                    <li class="chip">SecretStoreResult</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>create</code></td>
+                      <td>method</td>
+                      <td>
+                        <code
+                          >(input: SecretCreateInput) =&gt;
+                          Promise&lt;SecretStoreResult&lt;SecretMetadata&gt;&gt;</code
+                        >
+                      </td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>getMetadata</code></td>
+                      <td>method</td>
+                      <td>
+                        <code
+                          >(input: SecretGetMetadataInput) =&gt;
+                          Promise&lt;SecretStoreResult&lt;SecretMetadata&gt;&gt;</code
+                        >
+                      </td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>list</code></td>
+                      <td>method</td>
+                      <td>
+                        <code
+                          >(input: SecretListInput) =&gt; Promise&lt;SecretStoreResult&lt;readonly
+                          SecretMetadata[]&gt;&gt;</code
+                        >
+                      </td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>remove</code></td>
+                      <td>method</td>
+                      <td>
+                        <code
+                          >(input: SecretRemoveInput) =&gt; Promise&lt;SecretStoreResult&gt;</code
+                        >
+                      </td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>replace</code></td>
+                      <td>method</td>
+                      <td>
+                        <code
+                          >(input: SecretReplaceInput) =&gt;
+                          Promise&lt;SecretStoreResult&lt;SecretMetadata&gt;&gt;</code
+                        >
+                      </td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>resolve</code></td>
+                      <td>method</td>
+                      <td>
+                        <code
+                          >(input: SecretResolveInput) =&gt;
+                          Promise&lt;SecretStoreResult&lt;SecretPayload&gt;&gt;</code
+                        >
+                      </td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-secretstoreerror"
+                data-search="SecretStoreError type src/secrets.ts "
+              >
+                <h4>SecretStoreError</h4>
+                <p class="muted">type • <code>src/secrets.ts:36:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>cause</code></td>
+                      <td>property</td>
+                      <td><code>unknown</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>code</code></td>
+                      <td>property</td>
+                      <td>
+                        <code
+                          >&quot;provider_error&quot; | &quot;invalid_config&quot; |
+                          &quot;invalid_reference&quot; | &quot;invalid_payload&quot; |
+                          &quot;not_found&quot; | &quot;conflict&quot; |
+                          &quot;permission_denied&quot; | &quot;unavailable&quot;</code
+                        >
+                      </td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>message</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-secretstoreerrorcode"
+                data-search="SecretStoreErrorCode unknown src/secrets.ts "
+              >
+                <h4>SecretStoreErrorCode</h4>
+                <p class="muted">unknown • <code>src/secrets.ts:34:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-secretstoreokresult"
+                data-search="SecretStoreOkResult unknown src/secrets.ts "
+              >
+                <h4>SecretStoreOkResult</h4>
+                <p class="muted">unknown • <code>src/secrets.ts:42:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-secretstoreprovider"
+                data-search="SecretStoreProvider unknown src/secrets.ts "
+              >
+                <h4>SecretStoreProvider</h4>
+                <p class="muted">unknown • <code>src/secrets.ts:3:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-secretstoreresult"
+                data-search="SecretStoreResult unknown src/secrets.ts "
+              >
+                <h4>SecretStoreResult</h4>
+                <p class="muted">unknown • <code>src/secrets.ts:46:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-validatesecretpayload"
+                data-search="validateSecretPayload function src/secrets.ts  SecretStoreResult (payload: Readonly&lt;Record&lt;string, string&gt;&gt;) =&gt; SecretStoreResult&lt;Readonly&lt;Record&lt;string, string&gt;&gt;&gt;"
+              >
+                <h4>validateSecretPayload</h4>
+                <p class="muted">function • <code>src/secrets.ts:146:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">SecretStoreResult</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5>Signature</h5>
+                  <pre>
+(payload: Readonly&lt;Record&lt;string, string&gt;&gt;) =&gt; SecretStoreResult&lt;Readonly&lt;Record&lt;string, string&gt;&gt;&gt;</pre
+                  >
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>payload</code></td>
+                        <td><code>Readonly&lt;Record&lt;string, string&gt;&gt;</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p>
+                    <strong>Returns:</strong>
+                    <code
+                      >SecretStoreResult&lt;Readonly&lt;Record&lt;string, string&gt;&gt;&gt;</code
+                    >
+                  </p>
+                </div>
+              </article>
+            </section>
+            <section>
               <h3>src/state.ts</h3>
               <article
                 class="item"
@@ -10565,7 +11884,7 @@
               <article
                 class="item"
                 id="symbol-appmanifest"
-                data-search="AppManifest type src/types.ts  AppDataManifest AppSettings ComponentDataBinding DataSourceConfig InfraManifest NavigatorSpec ScreenSpec SplashScreenSpec ThemeConfig"
+                data-search="AppManifest type src/types.ts  AppCategory AppDataManifest AppSettings ComponentDataBinding DataSourceConfig InfraManifest NavigatorSpec ScreenSpec SplashScreenSpec ThemeConfig"
               >
                 <h4>AppManifest</h4>
                 <p class="muted">type • <code>src/types.ts:375:1</code></p>
@@ -10574,6 +11893,7 @@
                 <div>
                   <strong>Related symbols:</strong>
                   <ul class="chips">
+                    <li class="chip">AppCategory</li>
                     <li class="chip">AppDataManifest</li>
                     <li class="chip">AppSettings</li>
                     <li class="chip">ComponentDataBinding</li>
@@ -10656,8 +11976,8 @@
                       <td>property</td>
                       <td>
                         <code
-                          >{ name: string; slug: string; version: string; themeId: string; created?:
-                          string; updated?: string; }</code
+                          >{ name: string; slug: string; version: string; category: AppCategory;
+                          themeId: string; created?: string; updated?: string; }</code
                         >
                       </td>
                       <td>yes</td>
@@ -11694,7 +13014,7 @@
               <article
                 class="item"
                 id="symbol-inframanifest"
-                data-search="InfraManifest type src/types.ts  AuthSpec DatabaseSpec DeploymentSpec NetworkingSpec StateSpec StorageSpec"
+                data-search="InfraManifest type src/types.ts  AuthSpec DatabaseSpec DeploymentSpec InfraSecretStoreSpec NetworkingSpec StateSpec StorageSpec"
               >
                 <h4>InfraManifest</h4>
                 <p class="muted">type • <code>src/types.ts:356:1</code></p>
@@ -11706,6 +13026,7 @@
                     <li class="chip">AuthSpec</li>
                     <li class="chip">DatabaseSpec</li>
                     <li class="chip">DeploymentSpec</li>
+                    <li class="chip">InfraSecretStoreSpec</li>
                     <li class="chip">NetworkingSpec</li>
                     <li class="chip">StateSpec</li>
                     <li class="chip">StorageSpec</li>
@@ -11762,6 +13083,13 @@
                       <td><code>pluginsConfig</code></td>
                       <td>property</td>
                       <td><code>Record&lt;string, unknown&gt; | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>secretStore</code></td>
+                      <td>property</td>
+                      <td><code>InfraSecretStoreSpec | undefined</code></td>
                       <td>no</td>
                       <td></td>
                     </tr>
@@ -13971,11 +15299,11 @@
                 entrypoint_src_index_ts[&quot;src/index.ts&quot;] package__ankhorage_contracts
                 --&gt; entrypoint_src_index_ts module_src_auth_ts[&quot;src/auth.ts&quot;]
                 package__ankhorage_contracts -.-&gt; module_src_auth_ts module_src_auth_ts --&gt;
-                module_src_types_ts module_src_bindings_ts[&quot;src/bindings.ts&quot;]
-                package__ankhorage_contracts -.-&gt; module_src_bindings_ts module_src_bindings_ts
-                --&gt; module_src_data_index_ts
-                module_src_cli_index_ts[&quot;src/cli/index.ts&quot;] package__ankhorage_contracts
-                -.-&gt; module_src_cli_index_ts
+                module_src_secrets_ts module_src_auth_ts --&gt; module_src_types_ts
+                module_src_bindings_ts[&quot;src/bindings.ts&quot;] package__ankhorage_contracts
+                -.-&gt; module_src_bindings_ts module_src_bindings_ts --&gt;
+                module_src_data_index_ts module_src_cli_index_ts[&quot;src/cli/index.ts&quot;]
+                package__ankhorage_contracts -.-&gt; module_src_cli_index_ts
                 module_src_data_apis_ts[&quot;src/data/apis.ts&quot;] package__ankhorage_contracts
                 -.-&gt; module_src_data_apis_ts module_src_data_apis_ts --&gt;
                 module_src_data_operations_ts module_src_data_apis_ts --&gt;
@@ -14038,15 +15366,20 @@
                 module_src_runtimeCallbacks_ts[&quot;src/runtimeCallbacks.ts&quot;]
                 package__ankhorage_contracts -.-&gt; module_src_runtimeCallbacks_ts
                 module_src_runtimeCallbacks_ts --&gt; module_src_types_ts
-                module_src_state_ts[&quot;src/state.ts&quot;] package__ankhorage_contracts -.-&gt;
-                module_src_state_ts module_src_storage_ts[&quot;src/storage.ts&quot;]
-                package__ankhorage_contracts -.-&gt; module_src_storage_ts
-                module_src_types_ts[&quot;src/types.ts&quot;] package__ankhorage_contracts -.-&gt;
-                module_src_types_ts module_src_types_ts --&gt; module_src_auth_ts
-                module_src_types_ts --&gt; module_src_bindings_ts module_src_types_ts --&gt;
-                module_src_data_index_ts module_src_types_ts --&gt; module_src_requirements_ts
-                module_src_ui_ts[&quot;src/ui.ts&quot;] package__ankhorage_contracts -.-&gt;
-                module_src_ui_ts module_src_ui_ts --&gt; module_src_types_ts
+                module_src_secretManifest_ts[&quot;src/secretManifest.ts&quot;]
+                package__ankhorage_contracts -.-&gt; module_src_secretManifest_ts
+                module_src_secretManifest_ts --&gt; module_src_secrets_ts
+                module_src_secrets_ts[&quot;src/secrets.ts&quot;] package__ankhorage_contracts
+                -.-&gt; module_src_secrets_ts module_src_state_ts[&quot;src/state.ts&quot;]
+                package__ankhorage_contracts -.-&gt; module_src_state_ts
+                module_src_storage_ts[&quot;src/storage.ts&quot;] package__ankhorage_contracts
+                -.-&gt; module_src_storage_ts module_src_types_ts[&quot;src/types.ts&quot;]
+                package__ankhorage_contracts -.-&gt; module_src_types_ts module_src_types_ts --&gt;
+                module_src_auth_ts module_src_types_ts --&gt; module_src_bindings_ts
+                module_src_types_ts --&gt; module_src_data_index_ts module_src_types_ts --&gt;
+                module_src_requirements_ts module_src_ui_ts[&quot;src/ui.ts&quot;]
+                package__ankhorage_contracts -.-&gt; module_src_ui_ts module_src_ui_ts --&gt;
+                module_src_types_ts
               </div>
               <details>
                 <summary>View Mermaid source</summary>
@@ -14057,6 +15390,7 @@ graph TD
   package__ankhorage_contracts --&gt; entrypoint_src_index_ts
   module_src_auth_ts[&quot;src/auth.ts&quot;]
   package__ankhorage_contracts -.-&gt; module_src_auth_ts
+  module_src_auth_ts --&gt; module_src_secrets_ts
   module_src_auth_ts --&gt; module_src_types_ts
   module_src_bindings_ts[&quot;src/bindings.ts&quot;]
   package__ankhorage_contracts -.-&gt; module_src_bindings_ts
@@ -14129,6 +15463,11 @@ graph TD
   module_src_runtimeCallbacks_ts[&quot;src/runtimeCallbacks.ts&quot;]
   package__ankhorage_contracts -.-&gt; module_src_runtimeCallbacks_ts
   module_src_runtimeCallbacks_ts --&gt; module_src_types_ts
+  module_src_secretManifest_ts[&quot;src/secretManifest.ts&quot;]
+  package__ankhorage_contracts -.-&gt; module_src_secretManifest_ts
+  module_src_secretManifest_ts --&gt; module_src_secrets_ts
+  module_src_secrets_ts[&quot;src/secrets.ts&quot;]
+  package__ankhorage_contracts -.-&gt; module_src_secrets_ts
   module_src_state_ts[&quot;src/state.ts&quot;]
   package__ankhorage_contracts -.-&gt; module_src_state_ts
   module_src_storage_ts[&quot;src/storage.ts&quot;]
@@ -14175,13 +15514,16 @@ graph TD
                 module_src_nutrition_review_ts[&quot;src/nutrition/review.ts&quot;]
                 module_src_requirements_ts[&quot;src/requirements.ts&quot;]
                 module_src_runtimeCallbacks_ts[&quot;src/runtimeCallbacks.ts&quot;]
+                module_src_secretManifest_ts[&quot;src/secretManifest.ts&quot;]
+                module_src_secrets_ts[&quot;src/secrets.ts&quot;]
                 module_src_state_ts[&quot;src/state.ts&quot;]
                 module_src_storage_ts[&quot;src/storage.ts&quot;]
                 module_src_types_ts[&quot;src/types.ts&quot;]
                 module_src_ui_ts[&quot;src/ui.ts&quot;] module_src_auth_ts --&gt;
-                module_src_types_ts module_src_bindings_ts --&gt; module_src_data_index_ts
-                module_src_data_apis_ts --&gt; module_src_data_operations_ts module_src_data_apis_ts
-                --&gt; module_src_data_values_ts module_src_data_apis_ts --&gt; module_src_db_ts
+                module_src_secrets_ts module_src_auth_ts --&gt; module_src_types_ts
+                module_src_bindings_ts --&gt; module_src_data_index_ts module_src_data_apis_ts
+                --&gt; module_src_data_operations_ts module_src_data_apis_ts --&gt;
+                module_src_data_values_ts module_src_data_apis_ts --&gt; module_src_db_ts
                 module_src_data_diagnostics_ts --&gt; module_src_data_ids_ts
                 module_src_data_endpoints_ts --&gt; module_src_data_ids_ts
                 module_src_data_endpoints_ts --&gt; module_src_data_operations_ts
@@ -14205,7 +15547,8 @@ graph TD
                 module_src_nutrition_review_ts --&gt; module_src_nutrition_capture_ts
                 module_src_nutrition_review_ts --&gt; module_src_nutrition_common_ts
                 module_src_nutrition_review_ts --&gt; module_src_nutrition_products_ts
-                module_src_runtimeCallbacks_ts --&gt; module_src_types_ts module_src_types_ts --&gt;
+                module_src_runtimeCallbacks_ts --&gt; module_src_types_ts
+                module_src_secretManifest_ts --&gt; module_src_secrets_ts module_src_types_ts --&gt;
                 module_src_auth_ts module_src_types_ts --&gt; module_src_bindings_ts
                 module_src_types_ts --&gt; module_src_data_index_ts module_src_types_ts --&gt;
                 module_src_requirements_ts module_src_ui_ts --&gt; module_src_types_ts
@@ -14236,10 +15579,13 @@ graph LR
   module_src_nutrition_review_ts[&quot;src/nutrition/review.ts&quot;]
   module_src_requirements_ts[&quot;src/requirements.ts&quot;]
   module_src_runtimeCallbacks_ts[&quot;src/runtimeCallbacks.ts&quot;]
+  module_src_secretManifest_ts[&quot;src/secretManifest.ts&quot;]
+  module_src_secrets_ts[&quot;src/secrets.ts&quot;]
   module_src_state_ts[&quot;src/state.ts&quot;]
   module_src_storage_ts[&quot;src/storage.ts&quot;]
   module_src_types_ts[&quot;src/types.ts&quot;]
   module_src_ui_ts[&quot;src/ui.ts&quot;]
+  module_src_auth_ts --&gt; module_src_secrets_ts
   module_src_auth_ts --&gt; module_src_types_ts
   module_src_bindings_ts --&gt; module_src_data_index_ts
   module_src_data_apis_ts --&gt; module_src_data_operations_ts
@@ -14271,6 +15617,7 @@ graph LR
   module_src_nutrition_review_ts --&gt; module_src_nutrition_common_ts
   module_src_nutrition_review_ts --&gt; module_src_nutrition_products_ts
   module_src_runtimeCallbacks_ts --&gt; module_src_types_ts
+  module_src_secretManifest_ts --&gt; module_src_secrets_ts
   module_src_types_ts --&gt; module_src_auth_ts
   module_src_types_ts --&gt; module_src_bindings_ts
   module_src_types_ts --&gt; module_src_data_index_ts
@@ -14306,6 +15653,8 @@ graph LR
                 module_src_nutrition_review_ts[&quot;src/nutrition/review.ts&quot;]
                 module_src_requirements_ts[&quot;src/requirements.ts&quot;]
                 module_src_runtimeCallbacks_ts[&quot;src/runtimeCallbacks.ts&quot;]
+                module_src_secretManifest_ts[&quot;src/secretManifest.ts&quot;]
+                module_src_secrets_ts[&quot;src/secrets.ts&quot;]
                 module_src_state_ts[&quot;src/state.ts&quot;]
                 module_src_storage_ts[&quot;src/storage.ts&quot;]
                 module_src_types_ts[&quot;src/types.ts&quot;]
@@ -14398,17 +15747,28 @@ graph LR
                 export_AppGeneratedApiDefinition -.-&gt; export_AppApiEndpointDefinition
                 export_AppGeneratedApiDefinition -.-&gt; export_DataContractValue
                 export_AppManifest[&quot;AppManifest&quot;] module_src_types_ts --&gt;
-                export_AppManifest export_AppManifest -.-&gt; export_AppDataManifest
-                export_AppManifest -.-&gt; export_AppSettings export_AppManifest -.-&gt;
-                export_ComponentDataBinding export_AppManifest -.-&gt; export_DataSourceConfig
-                export_AppManifest -.-&gt; export_InfraManifest export_AppManifest -.-&gt;
-                export_NavigatorSpec export_AppManifest -.-&gt; export_ScreenSpec export_AppManifest
-                -.-&gt; export_SplashScreenSpec export_AppManifest -.-&gt; export_ThemeConfig
+                export_AppManifest export_AppManifest -.-&gt; export_AppCategory export_AppManifest
+                -.-&gt; export_AppDataManifest export_AppManifest -.-&gt; export_AppSettings
+                export_AppManifest -.-&gt; export_ComponentDataBinding export_AppManifest -.-&gt;
+                export_DataSourceConfig export_AppManifest -.-&gt; export_InfraManifest
+                export_AppManifest -.-&gt; export_NavigatorSpec export_AppManifest -.-&gt;
+                export_ScreenSpec export_AppManifest -.-&gt; export_SplashScreenSpec
+                export_AppManifest -.-&gt; export_ThemeConfig
                 export_AppSettings[&quot;AppSettings&quot;] module_src_types_ts --&gt;
                 export_AppSettings export_AUTH_IDENTIFIER_KINDS[&quot;AUTH_IDENTIFIER_KINDS&quot;]
                 module_src_auth_ts --&gt; export_AUTH_IDENTIFIER_KINDS
+                export_AUTH_OAUTH_CANCELLATION_REASONS[&quot;AUTH_OAUTH_CANCELLATION_REASONS&quot;]
+                module_src_auth_ts --&gt; export_AUTH_OAUTH_CANCELLATION_REASONS
+                export_AUTH_OAUTH_ERROR_CODES[&quot;AUTH_OAUTH_ERROR_CODES&quot;] module_src_auth_ts
+                --&gt; export_AUTH_OAUTH_ERROR_CODES
+                export_AUTH_OAUTH_ERROR_STAGES[&quot;AUTH_OAUTH_ERROR_STAGES&quot;]
+                module_src_auth_ts --&gt; export_AUTH_OAUTH_ERROR_STAGES
                 export_AUTH_OAUTH_PROVIDER_IDS[&quot;AUTH_OAUTH_PROVIDER_IDS&quot;]
                 module_src_auth_ts --&gt; export_AUTH_OAUTH_PROVIDER_IDS
+                export_AUTH_OAUTH_TRANSPORT_CANCELLATION_REASONS[&quot;AUTH_OAUTH_TRANSPORT_CANCELLATION_REASONS&quot;]
+                module_src_auth_ts --&gt; export_AUTH_OAUTH_TRANSPORT_CANCELLATION_REASONS
+                export_AUTH_OAUTH_TRANSPORT_ERROR_CODES[&quot;AUTH_OAUTH_TRANSPORT_ERROR_CODES&quot;]
+                module_src_auth_ts --&gt; export_AUTH_OAUTH_TRANSPORT_ERROR_CODES
                 export_AUTH_PROFILE_CREATE_STRATEGIES[&quot;AUTH_PROFILE_CREATE_STRATEGIES&quot;]
                 module_src_types_ts --&gt; export_AUTH_PROFILE_CREATE_STRATEGIES
                 export_AUTH_PROFILE_FIELDS[&quot;AUTH_PROFILE_FIELDS&quot;] module_src_types_ts
@@ -14427,33 +15787,60 @@ graph LR
                 export_AUTH_SIGN_UP_POLICIES[&quot;AUTH_SIGN_UP_POLICIES&quot;] module_src_types_ts
                 --&gt; export_AUTH_SIGN_UP_POLICIES export_AuthAdapter[&quot;AuthAdapter&quot;]
                 module_src_auth_ts --&gt; export_AuthAdapter export_AuthAdapter -.-&gt;
-                export_AuthAdapterCapabilities export_AuthAdapter -.-&gt; export_AuthOAuthRedirect
+                export_AuthAdapterCapabilities export_AuthAdapter -.-&gt; export_AuthOAuthAdapter
                 export_AuthAdapter -.-&gt; export_AuthResult export_AuthAdapter -.-&gt;
                 export_AuthSession export_AuthAdapter -.-&gt; export_AuthUser export_AuthAdapter
-                -.-&gt; export_CompleteOAuthSignInInput export_AuthAdapter -.-&gt;
-                export_PasswordResetInput export_AuthAdapter -.-&gt; export_SignInInput
-                export_AuthAdapter -.-&gt; export_SignInWithOAuthInput export_AuthAdapter -.-&gt;
-                export_SignOutInput export_AuthAdapter -.-&gt; export_SignUpInput export_AuthAdapter
-                -.-&gt; export_VerifyOtpInput
+                -.-&gt; export_PasswordResetInput export_AuthAdapter -.-&gt; export_SignInInput
+                export_AuthAdapter -.-&gt; export_SignOutInput export_AuthAdapter -.-&gt;
+                export_SignUpInput export_AuthAdapter -.-&gt; export_VerifyOtpInput
                 export_AuthAdapterCapabilities[&quot;AuthAdapterCapabilities&quot;]
                 module_src_auth_ts --&gt; export_AuthAdapterCapabilities
-                export_AuthAdapterCapabilities -.-&gt; export_AuthOAuthProviderId
                 export_AuthAdapterError[&quot;AuthAdapterError&quot;] module_src_auth_ts --&gt;
                 export_AuthAdapterError export_AuthFlowConfig[&quot;AuthFlowConfig&quot;]
                 module_src_auth_ts --&gt; export_AuthFlowConfig
                 export_AuthIdentifier[&quot;AuthIdentifier&quot;] module_src_auth_ts --&gt;
                 export_AuthIdentifier export_AuthIdentifierKind[&quot;AuthIdentifierKind&quot;]
                 module_src_auth_ts --&gt; export_AuthIdentifierKind
+                export_AuthOAuthAdapter[&quot;AuthOAuthAdapter&quot;] module_src_auth_ts --&gt;
+                export_AuthOAuthAdapter export_AuthOAuthAdapter -.-&gt; export_AuthOAuthCapabilities
+                export_AuthOAuthAdapter -.-&gt; export_AuthOAuthCompletionResult
+                export_AuthOAuthAdapter -.-&gt; export_AuthOAuthStartResult export_AuthOAuthAdapter
+                -.-&gt; export_CompleteOAuthAuthorizationInput export_AuthOAuthAdapter -.-&gt;
+                export_StartOAuthAuthorizationInput
+                export_AuthOAuthAuthorizationRequest[&quot;AuthOAuthAuthorizationRequest&quot;]
+                module_src_auth_ts --&gt; export_AuthOAuthAuthorizationRequest
+                export_AuthOAuthAuthorizationRequest -.-&gt; export_AuthOAuthProviderId
+                export_AuthOAuthAuthorizationResponse[&quot;AuthOAuthAuthorizationResponse&quot;]
+                module_src_auth_ts --&gt; export_AuthOAuthAuthorizationResponse
+                export_AuthOAuthCancellationReason[&quot;AuthOAuthCancellationReason&quot;]
+                module_src_auth_ts --&gt; export_AuthOAuthCancellationReason
+                export_AuthOAuthCapabilities[&quot;AuthOAuthCapabilities&quot;] module_src_auth_ts
+                --&gt; export_AuthOAuthCapabilities export_AuthOAuthCapabilities -.-&gt;
+                export_AuthOAuthProviderId
+                export_AuthOAuthCompletionResult[&quot;AuthOAuthCompletionResult&quot;]
+                module_src_auth_ts --&gt; export_AuthOAuthCompletionResult
                 export_AuthOAuthConfig[&quot;AuthOAuthConfig&quot;] module_src_auth_ts --&gt;
                 export_AuthOAuthConfig export_AuthOAuthConfig -.-&gt; export_AuthOAuthProviderConfig
+                export_AuthOAuthError[&quot;AuthOAuthError&quot;] module_src_auth_ts --&gt;
+                export_AuthOAuthError export_AuthOAuthError -.-&gt; export_AuthOAuthProviderId
+                export_AuthOAuthErrorCode[&quot;AuthOAuthErrorCode&quot;] module_src_auth_ts --&gt;
+                export_AuthOAuthErrorCode
+                export_AuthOAuthErrorStage[&quot;AuthOAuthErrorStage&quot;] module_src_auth_ts
+                --&gt; export_AuthOAuthErrorStage
                 export_AuthOAuthProviderConfig[&quot;AuthOAuthProviderConfig&quot;]
                 module_src_auth_ts --&gt; export_AuthOAuthProviderConfig
                 export_AuthOAuthProviderConfig -.-&gt; export_AuthOAuthProviderId
                 export_AuthOAuthProviderConfig -.-&gt; export_IconSpec
                 export_AuthOAuthProviderId[&quot;AuthOAuthProviderId&quot;] module_src_auth_ts
                 --&gt; export_AuthOAuthProviderId
-                export_AuthOAuthRedirect[&quot;AuthOAuthRedirect&quot;] module_src_auth_ts --&gt;
-                export_AuthOAuthRedirect export_AuthOAuthRedirect -.-&gt; export_AuthOAuthProviderId
+                export_AuthOAuthStartResult[&quot;AuthOAuthStartResult&quot;] module_src_auth_ts
+                --&gt; export_AuthOAuthStartResult
+                export_AuthOAuthTransportCancellationReason[&quot;AuthOAuthTransportCancellationReason&quot;]
+                module_src_auth_ts --&gt; export_AuthOAuthTransportCancellationReason
+                export_AuthOAuthTransportError[&quot;AuthOAuthTransportError&quot;]
+                module_src_auth_ts --&gt; export_AuthOAuthTransportError
+                export_AuthOAuthTransportErrorCode[&quot;AuthOAuthTransportErrorCode&quot;]
+                module_src_auth_ts --&gt; export_AuthOAuthTransportErrorCode
                 export_AuthProfileCreateStrategy[&quot;AuthProfileCreateStrategy&quot;]
                 module_src_types_ts --&gt; export_AuthProfileCreateStrategy
                 export_AuthProfileField[&quot;AuthProfileField&quot;] module_src_types_ts --&gt;
@@ -14535,8 +15922,9 @@ graph LR
                 export_CollectionItemPressPayload[&quot;CollectionItemPressPayload&quot;]
                 module_src_types_ts --&gt; export_CollectionItemPressPayload
                 export_CollectionItemPressPayload -.-&gt; export_ManifestValue
-                export_CompleteOAuthSignInInput[&quot;CompleteOAuthSignInInput&quot;]
-                module_src_auth_ts --&gt; export_CompleteOAuthSignInInput
+                export_CompleteOAuthAuthorizationInput[&quot;CompleteOAuthAuthorizationInput&quot;]
+                module_src_auth_ts --&gt; export_CompleteOAuthAuthorizationInput
+                export_CompleteOAuthAuthorizationInput -.-&gt; export_AuthOAuthAuthorizationResponse
                 export_ComponentDataBinding[&quot;ComponentDataBinding&quot;] module_src_bindings_ts
                 --&gt; export_ComponentDataBinding export_ComponentDataBinding -.-&gt;
                 export_EventBinding export_ComponentDataBinding -.-&gt; export_PropBinding
@@ -14740,10 +16128,14 @@ graph LR
                 export_EventBindingTarget export_EventBindingTarget[&quot;EventBindingTarget&quot;]
                 module_src_bindings_ts --&gt; export_EventBindingTarget
                 export_FilterAction[&quot;FilterAction&quot;] module_src_types_ts --&gt;
-                export_FilterAction export_FormSubmitEventDto[&quot;FormSubmitEventDto&quot;]
-                module_src_types_ts --&gt; export_FormSubmitEventDto
-                export_FormSubmitValues[&quot;FormSubmitValues&quot;] module_src_types_ts --&gt;
-                export_FormSubmitValues
+                export_FilterAction
+                export_findForbiddenInlineSecretFields[&quot;findForbiddenInlineSecretFields&quot;]
+                module_src_secrets_ts --&gt; export_findForbiddenInlineSecretFields
+                export_FORBIDDEN_INLINE_SECRET_FIELDS[&quot;FORBIDDEN_INLINE_SECRET_FIELDS&quot;]
+                module_src_secrets_ts --&gt; export_FORBIDDEN_INLINE_SECRET_FIELDS
+                export_FormSubmitEventDto[&quot;FormSubmitEventDto&quot;] module_src_types_ts --&gt;
+                export_FormSubmitEventDto export_FormSubmitValues[&quot;FormSubmitValues&quot;]
+                module_src_types_ts --&gt; export_FormSubmitValues
                 export_GraphQlDataSourceConfig[&quot;GraphQlDataSourceConfig&quot;]
                 module_src_data_sources_ts --&gt; export_GraphQlDataSourceConfig
                 export_GraphQlDataSourceConfig -.-&gt; export_CredentialRef
@@ -14757,9 +16149,12 @@ graph LR
                 export_InfraManifest[&quot;InfraManifest&quot;] module_src_types_ts --&gt;
                 export_InfraManifest export_InfraManifest -.-&gt; export_AuthSpec
                 export_InfraManifest -.-&gt; export_DatabaseSpec export_InfraManifest -.-&gt;
-                export_DeploymentSpec export_InfraManifest -.-&gt; export_NetworkingSpec
-                export_InfraManifest -.-&gt; export_StateSpec export_InfraManifest -.-&gt;
-                export_StorageSpec
+                export_DeploymentSpec export_InfraManifest -.-&gt; export_InfraSecretStoreSpec
+                export_InfraManifest -.-&gt; export_NetworkingSpec export_InfraManifest -.-&gt;
+                export_StateSpec export_InfraManifest -.-&gt; export_StorageSpec
+                export_InfraSecretStoreSpec[&quot;InfraSecretStoreSpec&quot;]
+                module_src_secretManifest_ts --&gt; export_InfraSecretStoreSpec
+                export_InfraSecretStoreSpec -.-&gt; export_SecretStoreProvider
                 export_KnownAuthOAuthProviderId[&quot;KnownAuthOAuthProviderId&quot;]
                 module_src_auth_ts --&gt; export_KnownAuthOAuthProviderId
                 export_KnownAuthProfileField[&quot;KnownAuthProfileField&quot;] module_src_types_ts
@@ -14774,6 +16169,8 @@ graph LR
                 --&gt; export_KnownDatabaseProvider
                 export_KnownDeploymentTarget[&quot;KnownDeploymentTarget&quot;] module_src_types_ts
                 --&gt; export_KnownDeploymentTarget
+                export_KnownSecretStoreProvider[&quot;KnownSecretStoreProvider&quot;]
+                module_src_secrets_ts --&gt; export_KnownSecretStoreProvider
                 export_KnownStateProvider[&quot;KnownStateProvider&quot;] module_src_types_ts --&gt;
                 export_KnownStateProvider
                 export_ManagedApiDataSourceConfig[&quot;ManagedApiDataSourceConfig&quot;]
@@ -14797,7 +16194,12 @@ graph LR
                 export_RouteDefinition export_NavigatorType[&quot;NavigatorType&quot;]
                 module_src_types_ts --&gt; export_NavigatorType
                 export_NetworkingSpec[&quot;NetworkingSpec&quot;] module_src_types_ts --&gt;
-                export_NetworkingSpec
+                export_NetworkingSpec export_normalizeSecretRef[&quot;normalizeSecretRef&quot;]
+                module_src_secrets_ts --&gt; export_normalizeSecretRef export_normalizeSecretRef
+                -.-&gt; export_SecretStoreResult
+                export_normalizeSecretScope[&quot;normalizeSecretScope&quot;] module_src_secrets_ts
+                --&gt; export_normalizeSecretScope export_normalizeSecretScope -.-&gt;
+                export_SecretScope export_normalizeSecretScope -.-&gt; export_SecretStoreResult
                 export_NUTRITION_BARCODE_TYPES[&quot;NUTRITION_BARCODE_TYPES&quot;]
                 module_src_nutrition_common_ts --&gt; export_NUTRITION_BARCODE_TYPES
                 export_NUTRITION_CAPTURE_SUBMISSION_STATUSES[&quot;NUTRITION_CAPTURE_SUBMISSION_STATUSES&quot;]
@@ -14973,16 +16375,55 @@ graph LR
                 export_ScreenDataLoaderDefinition export_ScreenSpec -.-&gt;
                 export_ScreenRequirements export_ScreenSpec -.-&gt; export_UiNode
                 export_SearchAction[&quot;SearchAction&quot;] module_src_types_ts --&gt;
-                export_SearchAction export_SetLanguageAction[&quot;SetLanguageAction&quot;]
+                export_SearchAction
+                export_SECRET_STORE_ERROR_CODES[&quot;SECRET_STORE_ERROR_CODES&quot;]
+                module_src_secrets_ts --&gt; export_SECRET_STORE_ERROR_CODES
+                export_SECRET_STORE_PROVIDERS[&quot;SECRET_STORE_PROVIDERS&quot;]
+                module_src_secrets_ts --&gt; export_SECRET_STORE_PROVIDERS
+                export_SecretCreateInput[&quot;SecretCreateInput&quot;] module_src_secrets_ts --&gt;
+                export_SecretCreateInput export_SecretCreateInput -.-&gt; export_SecretScope
+                export_SecretGetMetadataInput[&quot;SecretGetMetadataInput&quot;]
+                module_src_secrets_ts --&gt; export_SecretGetMetadataInput
+                export_SecretGetMetadataInput -.-&gt; export_SecretScope
+                export_SecretListInput[&quot;SecretListInput&quot;] module_src_secrets_ts --&gt;
+                export_SecretListInput export_SecretListInput -.-&gt; export_SecretScope
+                export_SecretMetadata[&quot;SecretMetadata&quot;] module_src_secrets_ts --&gt;
+                export_SecretMetadata export_SecretMetadata -.-&gt; export_SecretScope
+                export_SecretPayload[&quot;SecretPayload&quot;] module_src_secrets_ts --&gt;
+                export_SecretPayload export_SecretRef[&quot;SecretRef&quot;] module_src_secrets_ts
+                --&gt; export_SecretRef export_SecretRemoveInput[&quot;SecretRemoveInput&quot;]
+                module_src_secrets_ts --&gt; export_SecretRemoveInput export_SecretRemoveInput
+                -.-&gt; export_SecretScope export_SecretReplaceInput[&quot;SecretReplaceInput&quot;]
+                module_src_secrets_ts --&gt; export_SecretReplaceInput export_SecretReplaceInput
+                -.-&gt; export_SecretScope export_SecretResolveInput[&quot;SecretResolveInput&quot;]
+                module_src_secrets_ts --&gt; export_SecretResolveInput export_SecretResolveInput
+                -.-&gt; export_SecretScope export_SecretScope[&quot;SecretScope&quot;]
+                module_src_secrets_ts --&gt; export_SecretScope
+                export_SecretStoreAdapter[&quot;SecretStoreAdapter&quot;] module_src_secrets_ts
+                --&gt; export_SecretStoreAdapter export_SecretStoreAdapter -.-&gt;
+                export_SecretCreateInput export_SecretStoreAdapter -.-&gt;
+                export_SecretGetMetadataInput export_SecretStoreAdapter -.-&gt;
+                export_SecretListInput export_SecretStoreAdapter -.-&gt; export_SecretMetadata
+                export_SecretStoreAdapter -.-&gt; export_SecretPayload export_SecretStoreAdapter
+                -.-&gt; export_SecretRemoveInput export_SecretStoreAdapter -.-&gt;
+                export_SecretReplaceInput export_SecretStoreAdapter -.-&gt;
+                export_SecretResolveInput export_SecretStoreAdapter -.-&gt; export_SecretStoreResult
+                export_SecretStoreError[&quot;SecretStoreError&quot;] module_src_secrets_ts --&gt;
+                export_SecretStoreError
+                export_SecretStoreErrorCode[&quot;SecretStoreErrorCode&quot;] module_src_secrets_ts
+                --&gt; export_SecretStoreErrorCode
+                export_SecretStoreOkResult[&quot;SecretStoreOkResult&quot;] module_src_secrets_ts
+                --&gt; export_SecretStoreOkResult
+                export_SecretStoreProvider[&quot;SecretStoreProvider&quot;] module_src_secrets_ts
+                --&gt; export_SecretStoreProvider
+                export_SecretStoreResult[&quot;SecretStoreResult&quot;] module_src_secrets_ts --&gt;
+                export_SecretStoreResult export_SetLanguageAction[&quot;SetLanguageAction&quot;]
                 module_src_types_ts --&gt; export_SetLanguageAction
                 export_SignInInput[&quot;SignInInput&quot;] module_src_auth_ts --&gt;
                 export_SignInInput export_SignInInput -.-&gt; export_AuthIdentifier
-                export_SignInWithOAuthInput[&quot;SignInWithOAuthInput&quot;] module_src_auth_ts
-                --&gt; export_SignInWithOAuthInput export_SignInWithOAuthInput -.-&gt;
-                export_AuthOAuthProviderId export_SignOutInput[&quot;SignOutInput&quot;]
-                module_src_auth_ts --&gt; export_SignOutInput
-                export_SignUpInput[&quot;SignUpInput&quot;] module_src_auth_ts --&gt;
-                export_SignUpInput export_SignUpInput -.-&gt; export_AuthIdentifier
+                export_SignOutInput[&quot;SignOutInput&quot;] module_src_auth_ts --&gt;
+                export_SignOutInput export_SignUpInput[&quot;SignUpInput&quot;] module_src_auth_ts
+                --&gt; export_SignUpInput export_SignUpInput -.-&gt; export_AuthIdentifier
                 export_SplashScreenAssetSpec[&quot;SplashScreenAssetSpec&quot;] module_src_types_ts
                 --&gt; export_SplashScreenAssetSpec export_SplashScreenAssetSpec -.-&gt;
                 export_SplashScreenResizeMode
@@ -14994,6 +16435,9 @@ graph LR
                 export_SplashScreenSpec[&quot;SplashScreenSpec&quot;] module_src_types_ts --&gt;
                 export_SplashScreenSpec export_SplashScreenSpec -.-&gt; export_SplashScreenModeSpec
                 export_SplashScreenSpec -.-&gt; export_SplashScreenResizeMode
+                export_StartOAuthAuthorizationInput[&quot;StartOAuthAuthorizationInput&quot;]
+                module_src_auth_ts --&gt; export_StartOAuthAuthorizationInput
+                export_StartOAuthAuthorizationInput -.-&gt; export_AuthOAuthProviderId
                 export_STATE_PERSISTENCE_MODES[&quot;STATE_PERSISTENCE_MODES&quot;]
                 module_src_types_ts --&gt; export_STATE_PERSISTENCE_MODES
                 export_STATE_PROVIDERS[&quot;STATE_PROVIDERS&quot;] module_src_types_ts --&gt;
@@ -15141,9 +16585,11 @@ graph LR
                 export_UiNodeRepeatSpec -.-&gt; export_UiNode
                 export_UrlImageAssetSource[&quot;UrlImageAssetSource&quot;] module_src_storage_ts
                 --&gt; export_UrlImageAssetSource export_UrlImageAssetSource -.-&gt;
-                export_ImageMetadata export_VerifyOtpInput[&quot;VerifyOtpInput&quot;]
-                module_src_auth_ts --&gt; export_VerifyOtpInput export_VerifyOtpInput -.-&gt;
-                export_AuthIdentifier
+                export_ImageMetadata export_validateSecretPayload[&quot;validateSecretPayload&quot;]
+                module_src_secrets_ts --&gt; export_validateSecretPayload
+                export_validateSecretPayload -.-&gt; export_SecretStoreResult
+                export_VerifyOtpInput[&quot;VerifyOtpInput&quot;] module_src_auth_ts --&gt;
+                export_VerifyOtpInput export_VerifyOtpInput -.-&gt; export_AuthIdentifier
               </div>
               <details>
                 <summary>View Mermaid source</summary>
@@ -15171,6 +16617,8 @@ graph LR
   module_src_nutrition_review_ts[&quot;src/nutrition/review.ts&quot;]
   module_src_requirements_ts[&quot;src/requirements.ts&quot;]
   module_src_runtimeCallbacks_ts[&quot;src/runtimeCallbacks.ts&quot;]
+  module_src_secretManifest_ts[&quot;src/secretManifest.ts&quot;]
+  module_src_secrets_ts[&quot;src/secrets.ts&quot;]
   module_src_state_ts[&quot;src/state.ts&quot;]
   module_src_storage_ts[&quot;src/storage.ts&quot;]
   module_src_types_ts[&quot;src/types.ts&quot;]
@@ -15275,6 +16723,7 @@ graph LR
   export_AppGeneratedApiDefinition -.-&gt; export_DataContractValue
   export_AppManifest[&quot;AppManifest&quot;]
   module_src_types_ts --&gt; export_AppManifest
+  export_AppManifest -.-&gt; export_AppCategory
   export_AppManifest -.-&gt; export_AppDataManifest
   export_AppManifest -.-&gt; export_AppSettings
   export_AppManifest -.-&gt; export_ComponentDataBinding
@@ -15288,8 +16737,18 @@ graph LR
   module_src_types_ts --&gt; export_AppSettings
   export_AUTH_IDENTIFIER_KINDS[&quot;AUTH_IDENTIFIER_KINDS&quot;]
   module_src_auth_ts --&gt; export_AUTH_IDENTIFIER_KINDS
+  export_AUTH_OAUTH_CANCELLATION_REASONS[&quot;AUTH_OAUTH_CANCELLATION_REASONS&quot;]
+  module_src_auth_ts --&gt; export_AUTH_OAUTH_CANCELLATION_REASONS
+  export_AUTH_OAUTH_ERROR_CODES[&quot;AUTH_OAUTH_ERROR_CODES&quot;]
+  module_src_auth_ts --&gt; export_AUTH_OAUTH_ERROR_CODES
+  export_AUTH_OAUTH_ERROR_STAGES[&quot;AUTH_OAUTH_ERROR_STAGES&quot;]
+  module_src_auth_ts --&gt; export_AUTH_OAUTH_ERROR_STAGES
   export_AUTH_OAUTH_PROVIDER_IDS[&quot;AUTH_OAUTH_PROVIDER_IDS&quot;]
   module_src_auth_ts --&gt; export_AUTH_OAUTH_PROVIDER_IDS
+  export_AUTH_OAUTH_TRANSPORT_CANCELLATION_REASONS[&quot;AUTH_OAUTH_TRANSPORT_CANCELLATION_REASONS&quot;]
+  module_src_auth_ts --&gt; export_AUTH_OAUTH_TRANSPORT_CANCELLATION_REASONS
+  export_AUTH_OAUTH_TRANSPORT_ERROR_CODES[&quot;AUTH_OAUTH_TRANSPORT_ERROR_CODES&quot;]
+  module_src_auth_ts --&gt; export_AUTH_OAUTH_TRANSPORT_ERROR_CODES
   export_AUTH_PROFILE_CREATE_STRATEGIES[&quot;AUTH_PROFILE_CREATE_STRATEGIES&quot;]
   module_src_types_ts --&gt; export_AUTH_PROFILE_CREATE_STRATEGIES
   export_AUTH_PROFILE_FIELDS[&quot;AUTH_PROFILE_FIELDS&quot;]
@@ -15311,20 +16770,17 @@ graph LR
   export_AuthAdapter[&quot;AuthAdapter&quot;]
   module_src_auth_ts --&gt; export_AuthAdapter
   export_AuthAdapter -.-&gt; export_AuthAdapterCapabilities
-  export_AuthAdapter -.-&gt; export_AuthOAuthRedirect
+  export_AuthAdapter -.-&gt; export_AuthOAuthAdapter
   export_AuthAdapter -.-&gt; export_AuthResult
   export_AuthAdapter -.-&gt; export_AuthSession
   export_AuthAdapter -.-&gt; export_AuthUser
-  export_AuthAdapter -.-&gt; export_CompleteOAuthSignInInput
   export_AuthAdapter -.-&gt; export_PasswordResetInput
   export_AuthAdapter -.-&gt; export_SignInInput
-  export_AuthAdapter -.-&gt; export_SignInWithOAuthInput
   export_AuthAdapter -.-&gt; export_SignOutInput
   export_AuthAdapter -.-&gt; export_SignUpInput
   export_AuthAdapter -.-&gt; export_VerifyOtpInput
   export_AuthAdapterCapabilities[&quot;AuthAdapterCapabilities&quot;]
   module_src_auth_ts --&gt; export_AuthAdapterCapabilities
-  export_AuthAdapterCapabilities -.-&gt; export_AuthOAuthProviderId
   export_AuthAdapterError[&quot;AuthAdapterError&quot;]
   module_src_auth_ts --&gt; export_AuthAdapterError
   export_AuthFlowConfig[&quot;AuthFlowConfig&quot;]
@@ -15333,18 +16789,49 @@ graph LR
   module_src_auth_ts --&gt; export_AuthIdentifier
   export_AuthIdentifierKind[&quot;AuthIdentifierKind&quot;]
   module_src_auth_ts --&gt; export_AuthIdentifierKind
+  export_AuthOAuthAdapter[&quot;AuthOAuthAdapter&quot;]
+  module_src_auth_ts --&gt; export_AuthOAuthAdapter
+  export_AuthOAuthAdapter -.-&gt; export_AuthOAuthCapabilities
+  export_AuthOAuthAdapter -.-&gt; export_AuthOAuthCompletionResult
+  export_AuthOAuthAdapter -.-&gt; export_AuthOAuthStartResult
+  export_AuthOAuthAdapter -.-&gt; export_CompleteOAuthAuthorizationInput
+  export_AuthOAuthAdapter -.-&gt; export_StartOAuthAuthorizationInput
+  export_AuthOAuthAuthorizationRequest[&quot;AuthOAuthAuthorizationRequest&quot;]
+  module_src_auth_ts --&gt; export_AuthOAuthAuthorizationRequest
+  export_AuthOAuthAuthorizationRequest -.-&gt; export_AuthOAuthProviderId
+  export_AuthOAuthAuthorizationResponse[&quot;AuthOAuthAuthorizationResponse&quot;]
+  module_src_auth_ts --&gt; export_AuthOAuthAuthorizationResponse
+  export_AuthOAuthCancellationReason[&quot;AuthOAuthCancellationReason&quot;]
+  module_src_auth_ts --&gt; export_AuthOAuthCancellationReason
+  export_AuthOAuthCapabilities[&quot;AuthOAuthCapabilities&quot;]
+  module_src_auth_ts --&gt; export_AuthOAuthCapabilities
+  export_AuthOAuthCapabilities -.-&gt; export_AuthOAuthProviderId
+  export_AuthOAuthCompletionResult[&quot;AuthOAuthCompletionResult&quot;]
+  module_src_auth_ts --&gt; export_AuthOAuthCompletionResult
   export_AuthOAuthConfig[&quot;AuthOAuthConfig&quot;]
   module_src_auth_ts --&gt; export_AuthOAuthConfig
   export_AuthOAuthConfig -.-&gt; export_AuthOAuthProviderConfig
+  export_AuthOAuthError[&quot;AuthOAuthError&quot;]
+  module_src_auth_ts --&gt; export_AuthOAuthError
+  export_AuthOAuthError -.-&gt; export_AuthOAuthProviderId
+  export_AuthOAuthErrorCode[&quot;AuthOAuthErrorCode&quot;]
+  module_src_auth_ts --&gt; export_AuthOAuthErrorCode
+  export_AuthOAuthErrorStage[&quot;AuthOAuthErrorStage&quot;]
+  module_src_auth_ts --&gt; export_AuthOAuthErrorStage
   export_AuthOAuthProviderConfig[&quot;AuthOAuthProviderConfig&quot;]
   module_src_auth_ts --&gt; export_AuthOAuthProviderConfig
   export_AuthOAuthProviderConfig -.-&gt; export_AuthOAuthProviderId
   export_AuthOAuthProviderConfig -.-&gt; export_IconSpec
   export_AuthOAuthProviderId[&quot;AuthOAuthProviderId&quot;]
   module_src_auth_ts --&gt; export_AuthOAuthProviderId
-  export_AuthOAuthRedirect[&quot;AuthOAuthRedirect&quot;]
-  module_src_auth_ts --&gt; export_AuthOAuthRedirect
-  export_AuthOAuthRedirect -.-&gt; export_AuthOAuthProviderId
+  export_AuthOAuthStartResult[&quot;AuthOAuthStartResult&quot;]
+  module_src_auth_ts --&gt; export_AuthOAuthStartResult
+  export_AuthOAuthTransportCancellationReason[&quot;AuthOAuthTransportCancellationReason&quot;]
+  module_src_auth_ts --&gt; export_AuthOAuthTransportCancellationReason
+  export_AuthOAuthTransportError[&quot;AuthOAuthTransportError&quot;]
+  module_src_auth_ts --&gt; export_AuthOAuthTransportError
+  export_AuthOAuthTransportErrorCode[&quot;AuthOAuthTransportErrorCode&quot;]
+  module_src_auth_ts --&gt; export_AuthOAuthTransportErrorCode
   export_AuthProfileCreateStrategy[&quot;AuthProfileCreateStrategy&quot;]
   module_src_types_ts --&gt; export_AuthProfileCreateStrategy
   export_AuthProfileField[&quot;AuthProfileField&quot;]
@@ -15449,8 +16936,9 @@ graph LR
   export_CollectionItemPressPayload[&quot;CollectionItemPressPayload&quot;]
   module_src_types_ts --&gt; export_CollectionItemPressPayload
   export_CollectionItemPressPayload -.-&gt; export_ManifestValue
-  export_CompleteOAuthSignInInput[&quot;CompleteOAuthSignInInput&quot;]
-  module_src_auth_ts --&gt; export_CompleteOAuthSignInInput
+  export_CompleteOAuthAuthorizationInput[&quot;CompleteOAuthAuthorizationInput&quot;]
+  module_src_auth_ts --&gt; export_CompleteOAuthAuthorizationInput
+  export_CompleteOAuthAuthorizationInput -.-&gt; export_AuthOAuthAuthorizationResponse
   export_ComponentDataBinding[&quot;ComponentDataBinding&quot;]
   module_src_bindings_ts --&gt; export_ComponentDataBinding
   export_ComponentDataBinding -.-&gt; export_EventBinding
@@ -15701,6 +17189,10 @@ graph LR
   module_src_bindings_ts --&gt; export_EventBindingTarget
   export_FilterAction[&quot;FilterAction&quot;]
   module_src_types_ts --&gt; export_FilterAction
+  export_findForbiddenInlineSecretFields[&quot;findForbiddenInlineSecretFields&quot;]
+  module_src_secrets_ts --&gt; export_findForbiddenInlineSecretFields
+  export_FORBIDDEN_INLINE_SECRET_FIELDS[&quot;FORBIDDEN_INLINE_SECRET_FIELDS&quot;]
+  module_src_secrets_ts --&gt; export_FORBIDDEN_INLINE_SECRET_FIELDS
   export_FormSubmitEventDto[&quot;FormSubmitEventDto&quot;]
   module_src_types_ts --&gt; export_FormSubmitEventDto
   export_FormSubmitValues[&quot;FormSubmitValues&quot;]
@@ -15722,9 +17214,13 @@ graph LR
   export_InfraManifest -.-&gt; export_AuthSpec
   export_InfraManifest -.-&gt; export_DatabaseSpec
   export_InfraManifest -.-&gt; export_DeploymentSpec
+  export_InfraManifest -.-&gt; export_InfraSecretStoreSpec
   export_InfraManifest -.-&gt; export_NetworkingSpec
   export_InfraManifest -.-&gt; export_StateSpec
   export_InfraManifest -.-&gt; export_StorageSpec
+  export_InfraSecretStoreSpec[&quot;InfraSecretStoreSpec&quot;]
+  module_src_secretManifest_ts --&gt; export_InfraSecretStoreSpec
+  export_InfraSecretStoreSpec -.-&gt; export_SecretStoreProvider
   export_KnownAuthOAuthProviderId[&quot;KnownAuthOAuthProviderId&quot;]
   module_src_auth_ts --&gt; export_KnownAuthOAuthProviderId
   export_KnownAuthProfileField[&quot;KnownAuthProfileField&quot;]
@@ -15739,6 +17235,8 @@ graph LR
   module_src_types_ts --&gt; export_KnownDatabaseProvider
   export_KnownDeploymentTarget[&quot;KnownDeploymentTarget&quot;]
   module_src_types_ts --&gt; export_KnownDeploymentTarget
+  export_KnownSecretStoreProvider[&quot;KnownSecretStoreProvider&quot;]
+  module_src_secrets_ts --&gt; export_KnownSecretStoreProvider
   export_KnownStateProvider[&quot;KnownStateProvider&quot;]
   module_src_types_ts --&gt; export_KnownStateProvider
   export_ManagedApiDataSourceConfig[&quot;ManagedApiDataSourceConfig&quot;]
@@ -15766,6 +17264,13 @@ graph LR
   module_src_types_ts --&gt; export_NavigatorType
   export_NetworkingSpec[&quot;NetworkingSpec&quot;]
   module_src_types_ts --&gt; export_NetworkingSpec
+  export_normalizeSecretRef[&quot;normalizeSecretRef&quot;]
+  module_src_secrets_ts --&gt; export_normalizeSecretRef
+  export_normalizeSecretRef -.-&gt; export_SecretStoreResult
+  export_normalizeSecretScope[&quot;normalizeSecretScope&quot;]
+  module_src_secrets_ts --&gt; export_normalizeSecretScope
+  export_normalizeSecretScope -.-&gt; export_SecretScope
+  export_normalizeSecretScope -.-&gt; export_SecretStoreResult
   export_NUTRITION_BARCODE_TYPES[&quot;NUTRITION_BARCODE_TYPES&quot;]
   module_src_nutrition_common_ts --&gt; export_NUTRITION_BARCODE_TYPES
   export_NUTRITION_CAPTURE_SUBMISSION_STATUSES[&quot;NUTRITION_CAPTURE_SUBMISSION_STATUSES&quot;]
@@ -15950,14 +17455,63 @@ graph LR
   export_ScreenSpec -.-&gt; export_UiNode
   export_SearchAction[&quot;SearchAction&quot;]
   module_src_types_ts --&gt; export_SearchAction
+  export_SECRET_STORE_ERROR_CODES[&quot;SECRET_STORE_ERROR_CODES&quot;]
+  module_src_secrets_ts --&gt; export_SECRET_STORE_ERROR_CODES
+  export_SECRET_STORE_PROVIDERS[&quot;SECRET_STORE_PROVIDERS&quot;]
+  module_src_secrets_ts --&gt; export_SECRET_STORE_PROVIDERS
+  export_SecretCreateInput[&quot;SecretCreateInput&quot;]
+  module_src_secrets_ts --&gt; export_SecretCreateInput
+  export_SecretCreateInput -.-&gt; export_SecretScope
+  export_SecretGetMetadataInput[&quot;SecretGetMetadataInput&quot;]
+  module_src_secrets_ts --&gt; export_SecretGetMetadataInput
+  export_SecretGetMetadataInput -.-&gt; export_SecretScope
+  export_SecretListInput[&quot;SecretListInput&quot;]
+  module_src_secrets_ts --&gt; export_SecretListInput
+  export_SecretListInput -.-&gt; export_SecretScope
+  export_SecretMetadata[&quot;SecretMetadata&quot;]
+  module_src_secrets_ts --&gt; export_SecretMetadata
+  export_SecretMetadata -.-&gt; export_SecretScope
+  export_SecretPayload[&quot;SecretPayload&quot;]
+  module_src_secrets_ts --&gt; export_SecretPayload
+  export_SecretRef[&quot;SecretRef&quot;]
+  module_src_secrets_ts --&gt; export_SecretRef
+  export_SecretRemoveInput[&quot;SecretRemoveInput&quot;]
+  module_src_secrets_ts --&gt; export_SecretRemoveInput
+  export_SecretRemoveInput -.-&gt; export_SecretScope
+  export_SecretReplaceInput[&quot;SecretReplaceInput&quot;]
+  module_src_secrets_ts --&gt; export_SecretReplaceInput
+  export_SecretReplaceInput -.-&gt; export_SecretScope
+  export_SecretResolveInput[&quot;SecretResolveInput&quot;]
+  module_src_secrets_ts --&gt; export_SecretResolveInput
+  export_SecretResolveInput -.-&gt; export_SecretScope
+  export_SecretScope[&quot;SecretScope&quot;]
+  module_src_secrets_ts --&gt; export_SecretScope
+  export_SecretStoreAdapter[&quot;SecretStoreAdapter&quot;]
+  module_src_secrets_ts --&gt; export_SecretStoreAdapter
+  export_SecretStoreAdapter -.-&gt; export_SecretCreateInput
+  export_SecretStoreAdapter -.-&gt; export_SecretGetMetadataInput
+  export_SecretStoreAdapter -.-&gt; export_SecretListInput
+  export_SecretStoreAdapter -.-&gt; export_SecretMetadata
+  export_SecretStoreAdapter -.-&gt; export_SecretPayload
+  export_SecretStoreAdapter -.-&gt; export_SecretRemoveInput
+  export_SecretStoreAdapter -.-&gt; export_SecretReplaceInput
+  export_SecretStoreAdapter -.-&gt; export_SecretResolveInput
+  export_SecretStoreAdapter -.-&gt; export_SecretStoreResult
+  export_SecretStoreError[&quot;SecretStoreError&quot;]
+  module_src_secrets_ts --&gt; export_SecretStoreError
+  export_SecretStoreErrorCode[&quot;SecretStoreErrorCode&quot;]
+  module_src_secrets_ts --&gt; export_SecretStoreErrorCode
+  export_SecretStoreOkResult[&quot;SecretStoreOkResult&quot;]
+  module_src_secrets_ts --&gt; export_SecretStoreOkResult
+  export_SecretStoreProvider[&quot;SecretStoreProvider&quot;]
+  module_src_secrets_ts --&gt; export_SecretStoreProvider
+  export_SecretStoreResult[&quot;SecretStoreResult&quot;]
+  module_src_secrets_ts --&gt; export_SecretStoreResult
   export_SetLanguageAction[&quot;SetLanguageAction&quot;]
   module_src_types_ts --&gt; export_SetLanguageAction
   export_SignInInput[&quot;SignInInput&quot;]
   module_src_auth_ts --&gt; export_SignInInput
   export_SignInInput -.-&gt; export_AuthIdentifier
-  export_SignInWithOAuthInput[&quot;SignInWithOAuthInput&quot;]
-  module_src_auth_ts --&gt; export_SignInWithOAuthInput
-  export_SignInWithOAuthInput -.-&gt; export_AuthOAuthProviderId
   export_SignOutInput[&quot;SignOutInput&quot;]
   module_src_auth_ts --&gt; export_SignOutInput
   export_SignUpInput[&quot;SignUpInput&quot;]
@@ -15975,6 +17529,9 @@ graph LR
   module_src_types_ts --&gt; export_SplashScreenSpec
   export_SplashScreenSpec -.-&gt; export_SplashScreenModeSpec
   export_SplashScreenSpec -.-&gt; export_SplashScreenResizeMode
+  export_StartOAuthAuthorizationInput[&quot;StartOAuthAuthorizationInput&quot;]
+  module_src_auth_ts --&gt; export_StartOAuthAuthorizationInput
+  export_StartOAuthAuthorizationInput -.-&gt; export_AuthOAuthProviderId
   export_STATE_PERSISTENCE_MODES[&quot;STATE_PERSISTENCE_MODES&quot;]
   module_src_types_ts --&gt; export_STATE_PERSISTENCE_MODES
   export_STATE_PROVIDERS[&quot;STATE_PROVIDERS&quot;]
@@ -16145,6 +17702,9 @@ graph LR
   export_UrlImageAssetSource[&quot;UrlImageAssetSource&quot;]
   module_src_storage_ts --&gt; export_UrlImageAssetSource
   export_UrlImageAssetSource -.-&gt; export_ImageMetadata
+  export_validateSecretPayload[&quot;validateSecretPayload&quot;]
+  module_src_secrets_ts --&gt; export_validateSecretPayload
+  export_validateSecretPayload -.-&gt; export_SecretStoreResult
   export_VerifyOtpInput[&quot;VerifyOtpInput&quot;]
   module_src_auth_ts --&gt; export_VerifyOtpInput
   export_VerifyOtpInput -.-&gt; export_AuthIdentifier
@@ -16159,7 +17719,32 @@ graph LR
             <h2>src/auth.ts</h2>
             <article class="item" data-search="resolveAuthFlow src/auth.ts ">
               <h3>resolveAuthFlow</h3>
-              <p class="muted"><code>src/auth.ts:64:1</code></p>
+              <p class="muted"><code>src/auth.ts:65:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+          </section>
+        </section>
+        <section id="view-src-secrets-ts" class="view" data-view="src/secrets.ts" hidden>
+          <section class="panel">
+            <h2>src/secrets.ts</h2>
+            <article class="item" data-search="normalizeSecretRef src/secrets.ts ">
+              <h3>normalizeSecretRef</h3>
+              <p class="muted"><code>src/secrets.ts:105:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="normalizeSecretScope src/secrets.ts ">
+              <h3>normalizeSecretScope</h3>
+              <p class="muted"><code>src/secrets.ts:129:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="validateSecretPayload src/secrets.ts ">
+              <h3>validateSecretPayload</h3>
+              <p class="muted"><code>src/secrets.ts:146:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="findForbiddenInlineSecretFields src/secrets.ts ">
+              <h3>findForbiddenInlineSecretFields</h3>
+              <p class="muted"><code>src/secrets.ts:183:1</code></p>
               <p class="empty">No description available.</p>
             </article>
           </section>

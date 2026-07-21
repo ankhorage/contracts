@@ -1,7 +1,7 @@
 {
   "packageName": "CONTRACTS",
   "packageId": "@ankhorage/contracts",
-  "description": "Serializable app, action, and theme config contracts for Ankhorage.",
+  "description": "Serializable app, action, theme, auth, and secret-store contracts for Ankhorage.",
   "badges": [
     {
       "id": "license",
@@ -12,7 +12,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v1.19.4",
+      "value": "v3.0.0",
       "color": "cb3837"
     },
     {
@@ -66,10 +66,15 @@
     {
       "path": "src/auth.ts",
       "isEntrypoint": false,
-      "dependencies": ["src/types.ts"],
+      "dependencies": ["src/secrets.ts", "src/types.ts"],
       "exports": [
         "AUTH_IDENTIFIER_KINDS",
+        "AUTH_OAUTH_CANCELLATION_REASONS",
+        "AUTH_OAUTH_ERROR_CODES",
+        "AUTH_OAUTH_ERROR_STAGES",
         "AUTH_OAUTH_PROVIDER_IDS",
+        "AUTH_OAUTH_TRANSPORT_CANCELLATION_REASONS",
+        "AUTH_OAUTH_TRANSPORT_ERROR_CODES",
         "AUTH_SIGN_UP_FIELDS",
         "AuthAdapter",
         "AuthAdapterCapabilities",
@@ -77,10 +82,22 @@
         "AuthFlowConfig",
         "AuthIdentifier",
         "AuthIdentifierKind",
+        "AuthOAuthAdapter",
+        "AuthOAuthAuthorizationRequest",
+        "AuthOAuthAuthorizationResponse",
+        "AuthOAuthCancellationReason",
+        "AuthOAuthCapabilities",
+        "AuthOAuthCompletionResult",
         "AuthOAuthConfig",
+        "AuthOAuthError",
+        "AuthOAuthErrorCode",
+        "AuthOAuthErrorStage",
         "AuthOAuthProviderConfig",
         "AuthOAuthProviderId",
-        "AuthOAuthRedirect",
+        "AuthOAuthStartResult",
+        "AuthOAuthTransportCancellationReason",
+        "AuthOAuthTransportError",
+        "AuthOAuthTransportErrorCode",
         "AuthProviderConfig",
         "AuthResult",
         "AuthSession",
@@ -88,16 +105,16 @@
         "AuthSignUpConfig",
         "AuthSignUpField",
         "AuthUser",
-        "CompleteOAuthSignInInput",
+        "CompleteOAuthAuthorizationInput",
         "DEFAULT_AUTH_FLOW",
         "KnownAuthOAuthProviderId",
         "KnownAuthSignUpField",
         "PasswordResetInput",
         "resolveAuthFlow",
         "SignInInput",
-        "SignInWithOAuthInput",
         "SignOutInput",
         "SignUpInput",
+        "StartOAuthAuthorizationInput",
         "VerifyOtpInput"
       ]
     },
@@ -439,7 +456,12 @@
         "AppManifest",
         "AppSettings",
         "AUTH_IDENTIFIER_KINDS",
+        "AUTH_OAUTH_CANCELLATION_REASONS",
+        "AUTH_OAUTH_ERROR_CODES",
+        "AUTH_OAUTH_ERROR_STAGES",
         "AUTH_OAUTH_PROVIDER_IDS",
+        "AUTH_OAUTH_TRANSPORT_CANCELLATION_REASONS",
+        "AUTH_OAUTH_TRANSPORT_ERROR_CODES",
         "AUTH_PROFILE_CREATE_STRATEGIES",
         "AUTH_PROFILE_FIELDS",
         "AUTH_PROFILE_PRIMARY_KEY_STRATEGIES",
@@ -455,10 +477,22 @@
         "AuthFlowConfig",
         "AuthIdentifier",
         "AuthIdentifierKind",
+        "AuthOAuthAdapter",
+        "AuthOAuthAuthorizationRequest",
+        "AuthOAuthAuthorizationResponse",
+        "AuthOAuthCancellationReason",
+        "AuthOAuthCapabilities",
+        "AuthOAuthCompletionResult",
         "AuthOAuthConfig",
+        "AuthOAuthError",
+        "AuthOAuthErrorCode",
+        "AuthOAuthErrorStage",
         "AuthOAuthProviderConfig",
         "AuthOAuthProviderId",
-        "AuthOAuthRedirect",
+        "AuthOAuthStartResult",
+        "AuthOAuthTransportCancellationReason",
+        "AuthOAuthTransportError",
+        "AuthOAuthTransportErrorCode",
         "AuthProfileCreateStrategy",
         "AuthProfileField",
         "AuthProfilePrimaryKeyStrategy",
@@ -499,7 +533,7 @@
         "ButtonPressEventDto",
         "CollectionItemPressEventDto",
         "CollectionItemPressPayload",
-        "CompleteOAuthSignInInput",
+        "CompleteOAuthAuthorizationInput",
         "ComponentDataBinding",
         "ComponentDataBindingRegistry",
         "ComponentEventDto",
@@ -587,6 +621,8 @@
         "EventBinding",
         "EventBindingTarget",
         "FilterAction",
+        "findForbiddenInlineSecretFields",
+        "FORBIDDEN_INLINE_SECRET_FIELDS",
         "FormSubmitEventDto",
         "FormSubmitValues",
         "GraphQlDataSourceConfig",
@@ -594,6 +630,7 @@
         "ImageAssetSource",
         "ImageMetadata",
         "InfraManifest",
+        "InfraSecretStoreSpec",
         "KnownAuthOAuthProviderId",
         "KnownAuthProfileField",
         "KnownAuthProvider",
@@ -601,6 +638,7 @@
         "KnownComponentEventDto",
         "KnownDatabaseProvider",
         "KnownDeploymentTarget",
+        "KnownSecretStoreProvider",
         "KnownStateProvider",
         "ManagedApiDataSourceConfig",
         "ManagedApiResourceConfig",
@@ -610,6 +648,8 @@
         "NavigatorSpec",
         "NavigatorType",
         "NetworkingSpec",
+        "normalizeSecretRef",
+        "normalizeSecretScope",
         "NUTRITION_BARCODE_TYPES",
         "NUTRITION_CAPTURE_SUBMISSION_STATUSES",
         "NUTRITION_DATA_SOURCES",
@@ -674,15 +714,33 @@
         "ScreenRequirements",
         "ScreenSpec",
         "SearchAction",
+        "SECRET_STORE_ERROR_CODES",
+        "SECRET_STORE_PROVIDERS",
+        "SecretCreateInput",
+        "SecretGetMetadataInput",
+        "SecretListInput",
+        "SecretMetadata",
+        "SecretPayload",
+        "SecretRef",
+        "SecretRemoveInput",
+        "SecretReplaceInput",
+        "SecretResolveInput",
+        "SecretScope",
+        "SecretStoreAdapter",
+        "SecretStoreError",
+        "SecretStoreErrorCode",
+        "SecretStoreOkResult",
+        "SecretStoreProvider",
+        "SecretStoreResult",
         "SetLanguageAction",
         "SignInInput",
-        "SignInWithOAuthInput",
         "SignOutInput",
         "SignUpInput",
         "SplashScreenAssetSpec",
         "SplashScreenModeSpec",
         "SplashScreenResizeMode",
         "SplashScreenSpec",
+        "StartOAuthAuthorizationInput",
         "STATE_PERSISTENCE_MODES",
         "STATE_PROVIDERS",
         "StateAdapter",
@@ -743,6 +801,7 @@
         "UiNode",
         "UiNodeRepeatSpec",
         "UrlImageAssetSource",
+        "validateSecretPayload",
         "VerifyOtpInput"
       ]
     },
@@ -896,6 +955,43 @@
         "RuntimeCallbackMap",
         "RuntimeNodePropsResolver",
         "RuntimeResolveNodePropsArgs"
+      ]
+    },
+    {
+      "path": "src/secretManifest.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/secrets.ts"],
+      "exports": ["InfraSecretStoreSpec"]
+    },
+    {
+      "path": "src/secrets.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "findForbiddenInlineSecretFields",
+        "FORBIDDEN_INLINE_SECRET_FIELDS",
+        "KnownSecretStoreProvider",
+        "normalizeSecretRef",
+        "normalizeSecretScope",
+        "SECRET_STORE_ERROR_CODES",
+        "SECRET_STORE_PROVIDERS",
+        "SecretCreateInput",
+        "SecretGetMetadataInput",
+        "SecretListInput",
+        "SecretMetadata",
+        "SecretPayload",
+        "SecretRef",
+        "SecretRemoveInput",
+        "SecretReplaceInput",
+        "SecretResolveInput",
+        "SecretScope",
+        "SecretStoreAdapter",
+        "SecretStoreError",
+        "SecretStoreErrorCode",
+        "SecretStoreOkResult",
+        "SecretStoreProvider",
+        "SecretStoreResult",
+        "validateSecretPayload"
       ]
     },
     {
@@ -2278,6 +2374,7 @@
       },
       "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
+        "AppCategory",
         "AppDataManifest",
         "AppSettings",
         "ComponentDataBinding",
@@ -2335,7 +2432,7 @@
         {
           "name": "metadata",
           "kind": "property",
-          "type": "{ name: string; slug: string; version: string; themeId: string; created?: string; updated?: string; }",
+          "type": "{ name: string; slug: string; version: string; category: AppCategory; themeId: string; created?: string; updated?: string; }",
           "required": true,
           "description": null
         },
@@ -2419,7 +2516,61 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 3,
+        "line": 4,
+        "column": 14
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "AUTH_OAUTH_CANCELLATION_REASONS",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "value",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 217,
+        "column": 14
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "AUTH_OAUTH_ERROR_CODES",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "value",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 184,
+        "column": 14
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "AUTH_OAUTH_ERROR_STAGES",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "value",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 174,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -2437,7 +2588,43 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 16,
+        "line": 17,
+        "column": 14
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "AUTH_OAUTH_TRANSPORT_CANCELLATION_REASONS",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "value",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 210,
+        "column": 14
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "AUTH_OAUTH_TRANSPORT_ERROR_CODES",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "value",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 223,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -2581,7 +2768,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 6,
+        "line": 7,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -2617,20 +2804,18 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 200,
+        "line": 317,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "AuthAdapterCapabilities",
-        "AuthOAuthRedirect",
+        "AuthOAuthAdapter",
         "AuthResult",
         "AuthSession",
         "AuthUser",
-        "CompleteOAuthSignInInput",
         "PasswordResetInput",
         "SignInInput",
-        "SignInWithOAuthInput",
         "SignOutInput",
         "SignUpInput",
         "VerifyOtpInput"
@@ -2645,17 +2830,17 @@
           "description": null
         },
         {
-          "name": "completeOAuthSignIn",
-          "kind": "method",
-          "type": "((input: CompleteOAuthSignInInput) => Promise<AuthResult<AuthSession>>) | undefined",
-          "required": false,
-          "description": null
-        },
-        {
           "name": "getSession",
           "kind": "method",
           "type": "() => Promise<AuthResult<AuthSession | null>>",
           "required": true,
+          "description": null
+        },
+        {
+          "name": "oauth",
+          "kind": "property",
+          "type": "AuthOAuthAdapter | undefined",
+          "required": false,
           "description": null
         },
         {
@@ -2677,13 +2862,6 @@
           "kind": "method",
           "type": "(input: SignInInput) => Promise<AuthResult<AuthSession>>",
           "required": true,
-          "description": null
-        },
-        {
-          "name": "signInWithOAuth",
-          "kind": "method",
-          "type": "((input: SignInWithOAuthInput) => Promise<AuthResult<AuthOAuthRedirect>>) | undefined",
-          "required": false,
           "description": null
         },
         {
@@ -2719,32 +2897,18 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 190,
+        "line": 309,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["AuthOAuthProviderId"],
+      "relatedSymbols": [],
       "signatures": [],
       "members": [
-        {
-          "name": "oauthProviders",
-          "kind": "property",
-          "type": "AuthOAuthProviderId[] | undefined",
-          "required": false,
-          "description": null
-        },
         {
           "name": "signInIdentifiers",
           "kind": "property",
           "type": "(\"email\" | \"phone\" | \"username\")[]",
           "required": true,
-          "description": null
-        },
-        {
-          "name": "supportsOAuth",
-          "kind": "property",
-          "type": "boolean | undefined",
-          "required": false,
           "description": null
         },
         {
@@ -2787,7 +2951,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 124,
+        "line": 126,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2827,7 +2991,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 45,
+        "line": 46,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2895,7 +3059,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 40,
+        "line": 41,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2928,7 +3092,180 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 4,
+        "line": 5,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "AuthOAuthAdapter",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 302,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [
+        "AuthOAuthCapabilities",
+        "AuthOAuthCompletionResult",
+        "AuthOAuthStartResult",
+        "CompleteOAuthAuthorizationInput",
+        "StartOAuthAuthorizationInput"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "capabilities",
+          "kind": "property",
+          "type": "AuthOAuthCapabilities",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "completeAuthorization",
+          "kind": "method",
+          "type": "(input: CompleteOAuthAuthorizationInput) => Promise<AuthOAuthCompletionResult>",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "startAuthorization",
+          "kind": "method",
+          "type": "(input: StartOAuthAuthorizationInput) => Promise<AuthOAuthStartResult>",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "AuthOAuthAuthorizationRequest",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 242,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["AuthOAuthProviderId"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "attemptId",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "authorizationUrl",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "provider",
+          "kind": "property",
+          "type": "AuthOAuthProviderId",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "redirectUri",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "AuthOAuthAuthorizationResponse",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 259,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "AuthOAuthCancellationReason",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 221,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "AuthOAuthCapabilities",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 297,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["AuthOAuthProviderId"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "providers",
+          "kind": "property",
+          "type": "readonly [AuthOAuthProviderId, ...AuthOAuthProviderId[]]",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "AuthOAuthCompletionResult",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 278,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2946,7 +3283,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 87,
+        "line": 89,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2978,6 +3315,103 @@
       "structuredRows": []
     },
     {
+      "name": "AuthOAuthError",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 203,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["AuthOAuthProviderId"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "cause",
+          "kind": "property",
+          "type": "unknown",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "code",
+          "kind": "property",
+          "type": "\"oauth_unavailable\" | \"provider_disabled\" | \"provider_misconfigured\" | \"invalid_redirect_uri\" | \"authorization_failed\" | \"authorization_attempt_not_found\" | \"invalid_callback\" | \"state_mismatch\" | \"pkce_mismatch\" | \"callback_already_completed\" | \"code_exchange_failed\" | \"network_error\" | \"session_persistence_failed\" | \"profile_creation_failed\" | \"provider_error\"",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "message",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "provider",
+          "kind": "property",
+          "type": "AuthOAuthProviderId | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "recoverable",
+          "kind": "property",
+          "type": "boolean",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "stage",
+          "kind": "property",
+          "type": "\"start\" | \"transport\" | \"callback\" | \"exchange\" | \"session\" | \"profile\"",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "AuthOAuthErrorCode",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 201,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "AuthOAuthErrorStage",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 182,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
       "name": "AuthOAuthProviderConfig",
       "description": null,
       "isReadme": false,
@@ -2986,13 +3420,20 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 77,
+        "line": 78,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
       "relatedSymbols": ["AuthOAuthProviderId", "IconSpec"],
       "signatures": [],
       "members": [
+        {
+          "name": "credentialsRef",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
         {
           "name": "enabled",
           "kind": "property",
@@ -3029,13 +3470,6 @@
           "description": null
         },
         {
-          "name": "redirectTo",
-          "kind": "property",
-          "type": "string | undefined",
-          "required": false,
-          "description": null
-        },
-        {
           "name": "scopes",
           "kind": "property",
           "type": "string[] | undefined",
@@ -3054,7 +3488,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 38,
+        "line": 39,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3064,7 +3498,43 @@
       "structuredRows": []
     },
     {
-      "name": "AuthOAuthRedirect",
+      "name": "AuthOAuthStartResult",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 249,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "AuthOAuthTransportCancellationReason",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 214,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "AuthOAuthTransportError",
       "description": null,
       "isReadme": false,
       "examples": [],
@@ -3072,28 +3542,53 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 180,
+        "line": 229,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["AuthOAuthProviderId"],
+      "relatedSymbols": [],
       "signatures": [],
       "members": [
         {
-          "name": "provider",
+          "name": "cause",
           "kind": "property",
-          "type": "AuthOAuthProviderId",
+          "type": "unknown",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "code",
+          "kind": "property",
+          "type": "\"browser_unavailable\" | \"transport_failed\"",
           "required": true,
           "description": null
         },
         {
-          "name": "url",
+          "name": "message",
           "kind": "property",
           "type": "string",
           "required": true,
           "description": null
         }
       ],
+      "structuredRows": []
+    },
+    {
+      "name": "AuthOAuthTransportErrorCode",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 227,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
       "structuredRows": []
     },
     {
@@ -3249,7 +3744,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 93,
+        "line": 95,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3310,7 +3805,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 130,
+        "line": 132,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3346,7 +3841,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 116,
+        "line": 118,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3400,7 +3895,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 68,
+        "line": 69,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3470,7 +3965,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 72,
+        "line": 73,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3503,7 +3998,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 14,
+        "line": 15,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3662,7 +4157,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 106,
+        "line": 108,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4226,7 +4721,7 @@
       "structuredRows": []
     },
     {
-      "name": "CompleteOAuthSignInInput",
+      "name": "CompleteOAuthAuthorizationInput",
       "description": null,
       "isReadme": false,
       "examples": [],
@@ -4234,24 +4729,24 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 185,
+        "line": 273,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
-      "relatedSymbols": [],
+      "relatedSymbols": ["AuthOAuthAuthorizationResponse"],
       "signatures": [],
       "members": [
         {
-          "name": "redirectTo",
+          "name": "attemptId",
           "kind": "property",
-          "type": "string | undefined",
-          "required": false,
+          "type": "string",
+          "required": true,
           "description": null
         },
         {
-          "name": "url",
+          "name": "response",
           "kind": "property",
-          "type": "string",
+          "type": "AuthOAuthAuthorizationResponse",
           "required": true,
           "description": null
         }
@@ -7040,7 +7535,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 55,
+        "line": 56,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -7225,6 +7720,56 @@
           "description": null
         }
       ],
+      "structuredRows": []
+    },
+    {
+      "name": "findForbiddenInlineSecretFields",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "function",
+      "modulePath": "src/secrets.ts",
+      "sourceLocation": {
+        "filePath": "src/secrets.ts",
+        "line": 183,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [
+        {
+          "label": "(value: unknown) => readonly string[]",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "unknown",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "readonly string[]",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "FORBIDDEN_INLINE_SECRET_FIELDS",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "value",
+      "modulePath": "src/secrets.ts",
+      "sourceLocation": {
+        "filePath": "src/secrets.ts",
+        "line": 174,
+        "column": 14
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
       "structuredRows": []
     },
     {
@@ -7474,6 +8019,7 @@
         "AuthSpec",
         "DatabaseSpec",
         "DeploymentSpec",
+        "InfraSecretStoreSpec",
         "NetworkingSpec",
         "StateSpec",
         "StorageSpec"
@@ -7523,6 +8069,13 @@
           "description": null
         },
         {
+          "name": "secretStore",
+          "kind": "property",
+          "type": "InfraSecretStoreSpec | undefined",
+          "required": false,
+          "description": null
+        },
+        {
           "name": "state",
           "kind": "property",
           "type": "StateSpec | undefined",
@@ -7540,6 +8093,32 @@
       "structuredRows": []
     },
     {
+      "name": "InfraSecretStoreSpec",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/secretManifest.ts",
+      "sourceLocation": {
+        "filePath": "src/secretManifest.ts",
+        "line": 3,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["SecretStoreProvider"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "provider",
+          "kind": "property",
+          "type": "SecretStoreProvider",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
       "name": "KnownAuthOAuthProviderId",
       "description": null,
       "isReadme": false,
@@ -7548,7 +8127,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 37,
+        "line": 38,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -7602,7 +8181,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 13,
+        "line": 14,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -7657,6 +8236,24 @@
       "sourceLocation": {
         "filePath": "src/types.ts",
         "line": 171,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "KnownSecretStoreProvider",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/secrets.ts",
+      "sourceLocation": {
+        "filePath": "src/secrets.ts",
+        "line": 2,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -7991,6 +8588,70 @@
           "description": null
         }
       ],
+      "structuredRows": []
+    },
+    {
+      "name": "normalizeSecretRef",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "function",
+      "modulePath": "src/secrets.ts",
+      "sourceLocation": {
+        "filePath": "src/secrets.ts",
+        "line": 105,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["SecretStoreResult"],
+      "signatures": [
+        {
+          "label": "(value: string) => SecretStoreResult<string>",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "string",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "SecretStoreResult<string>",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "normalizeSecretScope",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "function",
+      "modulePath": "src/secrets.ts",
+      "sourceLocation": {
+        "filePath": "src/secrets.ts",
+        "line": 129,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["SecretScope", "SecretStoreResult"],
+      "signatures": [
+        {
+          "label": "(scope: SecretScope) => SecretStoreResult<SecretScope>",
+          "parameters": [
+            {
+              "name": "scope",
+              "type": "SecretScope",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "SecretStoreResult<SecretScope>",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
       "structuredRows": []
     },
     {
@@ -9994,7 +10655,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 160,
+        "line": 162,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10093,7 +10754,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 64,
+        "line": 65,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10623,6 +11284,595 @@
       "structuredRows": []
     },
     {
+      "name": "SECRET_STORE_ERROR_CODES",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "value",
+      "modulePath": "src/secrets.ts",
+      "sourceLocation": {
+        "filePath": "src/secrets.ts",
+        "line": 24,
+        "column": 14
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "SECRET_STORE_PROVIDERS",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "value",
+      "modulePath": "src/secrets.ts",
+      "sourceLocation": {
+        "filePath": "src/secrets.ts",
+        "line": 1,
+        "column": 14
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "SecretCreateInput",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/secrets.ts",
+      "sourceLocation": {
+        "filePath": "src/secrets.ts",
+        "line": 64,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["SecretScope"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "kind",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "payload",
+          "kind": "property",
+          "type": "Readonly<Record<string, string>>",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "provider",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "ref",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "scope",
+          "kind": "property",
+          "type": "SecretScope",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "SecretGetMetadataInput",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/secrets.ts",
+      "sourceLocation": {
+        "filePath": "src/secrets.ts",
+        "line": 59,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["SecretScope"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "ref",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "scope",
+          "kind": "property",
+          "type": "SecretScope",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "SecretListInput",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/secrets.ts",
+      "sourceLocation": {
+        "filePath": "src/secrets.ts",
+        "line": 53,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["SecretScope"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "kind",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "provider",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "scope",
+          "kind": "property",
+          "type": "SecretScope",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "SecretMetadata",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/secrets.ts",
+      "sourceLocation": {
+        "filePath": "src/secrets.ts",
+        "line": 14,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["SecretScope"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "configuredFields",
+          "kind": "property",
+          "type": "readonly string[]",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "createdAt",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "kind",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "provider",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "ref",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "scope",
+          "kind": "property",
+          "type": "SecretScope",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "updatedAt",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "SecretPayload",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/secrets.ts",
+      "sourceLocation": {
+        "filePath": "src/secrets.ts",
+        "line": 12,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "SecretRef",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/secrets.ts",
+      "sourceLocation": {
+        "filePath": "src/secrets.ts",
+        "line": 5,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "SecretRemoveInput",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/secrets.ts",
+      "sourceLocation": {
+        "filePath": "src/secrets.ts",
+        "line": 78,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["SecretScope"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "ref",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "scope",
+          "kind": "property",
+          "type": "SecretScope",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "SecretReplaceInput",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/secrets.ts",
+      "sourceLocation": {
+        "filePath": "src/secrets.ts",
+        "line": 72,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["SecretScope"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "payload",
+          "kind": "property",
+          "type": "Readonly<Record<string, string>>",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "ref",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "scope",
+          "kind": "property",
+          "type": "SecretScope",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "SecretResolveInput",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/secrets.ts",
+      "sourceLocation": {
+        "filePath": "src/secrets.ts",
+        "line": 83,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["SecretScope"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "ref",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "scope",
+          "kind": "property",
+          "type": "SecretScope",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "SecretScope",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/secrets.ts",
+      "sourceLocation": {
+        "filePath": "src/secrets.ts",
+        "line": 7,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "environment",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "projectId",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "SecretStoreAdapter",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/secrets.ts",
+      "sourceLocation": {
+        "filePath": "src/secrets.ts",
+        "line": 94,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [
+        "SecretCreateInput",
+        "SecretGetMetadataInput",
+        "SecretListInput",
+        "SecretMetadata",
+        "SecretPayload",
+        "SecretRemoveInput",
+        "SecretReplaceInput",
+        "SecretResolveInput",
+        "SecretStoreResult"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "create",
+          "kind": "method",
+          "type": "(input: SecretCreateInput) => Promise<SecretStoreResult<SecretMetadata>>",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "getMetadata",
+          "kind": "method",
+          "type": "(input: SecretGetMetadataInput) => Promise<SecretStoreResult<SecretMetadata>>",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "list",
+          "kind": "method",
+          "type": "(input: SecretListInput) => Promise<SecretStoreResult<readonly SecretMetadata[]>>",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "remove",
+          "kind": "method",
+          "type": "(input: SecretRemoveInput) => Promise<SecretStoreResult>",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "replace",
+          "kind": "method",
+          "type": "(input: SecretReplaceInput) => Promise<SecretStoreResult<SecretMetadata>>",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "resolve",
+          "kind": "method",
+          "type": "(input: SecretResolveInput) => Promise<SecretStoreResult<SecretPayload>>",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "SecretStoreError",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/secrets.ts",
+      "sourceLocation": {
+        "filePath": "src/secrets.ts",
+        "line": 36,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "cause",
+          "kind": "property",
+          "type": "unknown",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "code",
+          "kind": "property",
+          "type": "\"provider_error\" | \"invalid_config\" | \"invalid_reference\" | \"invalid_payload\" | \"not_found\" | \"conflict\" | \"permission_denied\" | \"unavailable\"",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "message",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "SecretStoreErrorCode",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/secrets.ts",
+      "sourceLocation": {
+        "filePath": "src/secrets.ts",
+        "line": 34,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "SecretStoreOkResult",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/secrets.ts",
+      "sourceLocation": {
+        "filePath": "src/secrets.ts",
+        "line": 42,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "SecretStoreProvider",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/secrets.ts",
+      "sourceLocation": {
+        "filePath": "src/secrets.ts",
+        "line": 3,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "SecretStoreResult",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/secrets.ts",
+      "sourceLocation": {
+        "filePath": "src/secrets.ts",
+        "line": 46,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
       "name": "SetLanguageAction",
       "description": null,
       "isReadme": false,
@@ -10664,7 +11914,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 140,
+        "line": 142,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10710,60 +11960,6 @@
       "structuredRows": []
     },
     {
-      "name": "SignInWithOAuthInput",
-      "description": null,
-      "isReadme": false,
-      "examples": [],
-      "kind": "type",
-      "modulePath": "src/auth.ts",
-      "sourceLocation": {
-        "filePath": "src/auth.ts",
-        "line": 172,
-        "column": 1
-      },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["AuthOAuthProviderId"],
-      "signatures": [],
-      "members": [
-        {
-          "name": "metadata",
-          "kind": "property",
-          "type": "Record<string, unknown> | undefined",
-          "required": false,
-          "description": null
-        },
-        {
-          "name": "provider",
-          "kind": "property",
-          "type": "AuthOAuthProviderId",
-          "required": true,
-          "description": null
-        },
-        {
-          "name": "queryParams",
-          "kind": "property",
-          "type": "Record<string, string> | undefined",
-          "required": false,
-          "description": null
-        },
-        {
-          "name": "redirectTo",
-          "kind": "property",
-          "type": "string | undefined",
-          "required": false,
-          "description": null
-        },
-        {
-          "name": "scopes",
-          "kind": "property",
-          "type": "string[] | undefined",
-          "required": false,
-          "description": null
-        }
-      ],
-      "structuredRows": []
-    },
-    {
       "name": "SignOutInput",
       "description": null,
       "isReadme": false,
@@ -10772,7 +11968,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 156,
+        "line": 158,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10798,7 +11994,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 148,
+        "line": 150,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10996,6 +12192,53 @@
           "name": "resizeMode",
           "kind": "property",
           "type": "SplashScreenResizeMode | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "StartOAuthAuthorizationInput",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 235,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["AuthOAuthProviderId"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "provider",
+          "kind": "property",
+          "type": "AuthOAuthProviderId",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "queryParams",
+          "kind": "property",
+          "type": "Readonly<Record<string, string>> | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "redirectUri",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "scopes",
+          "kind": "property",
+          "type": "readonly string[] | undefined",
           "required": false,
           "description": null
         }
@@ -13158,6 +14401,38 @@
       "structuredRows": []
     },
     {
+      "name": "validateSecretPayload",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "function",
+      "modulePath": "src/secrets.ts",
+      "sourceLocation": {
+        "filePath": "src/secrets.ts",
+        "line": 146,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["SecretStoreResult"],
+      "signatures": [
+        {
+          "label": "(payload: Readonly<Record<string, string>>) => SecretStoreResult<Readonly<Record<string, string>>>",
+          "parameters": [
+            {
+              "name": "payload",
+              "type": "Readonly<Record<string, string>>",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "SecretStoreResult<Readonly<Record<string, string>>>",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
       "name": "VerifyOtpInput",
       "description": null,
       "isReadme": false,
@@ -13166,7 +14441,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 165,
+        "line": 167,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -13212,7 +14487,43 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 64,
+        "line": 65,
+        "column": 1
+      }
+    },
+    {
+      "name": "normalizeSecretRef",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/secrets.ts",
+        "line": 105,
+        "column": 1
+      }
+    },
+    {
+      "name": "normalizeSecretScope",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/secrets.ts",
+        "line": 129,
+        "column": 1
+      }
+    },
+    {
+      "name": "validateSecretPayload",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/secrets.ts",
+        "line": 146,
+        "column": 1
+      }
+    },
+    {
+      "name": "findForbiddenInlineSecretFields",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/secrets.ts",
+        "line": 183,
         "column": 1
       }
     }
@@ -13220,15 +14531,52 @@
   "sequenceScenarios": [
     {
       "kind": "export",
+      "name": "findForbiddenInlineSecretFields",
+      "sourcePath": "src/secrets.ts",
+      "symbolName": "findForbiddenInlineSecretFields",
+      "description": null,
+      "isReadme": false
+    },
+    {
+      "kind": "export",
+      "name": "normalizeSecretRef",
+      "sourcePath": "src/secrets.ts",
+      "symbolName": "normalizeSecretRef",
+      "description": null,
+      "isReadme": false
+    },
+    {
+      "kind": "export",
+      "name": "normalizeSecretScope",
+      "sourcePath": "src/secrets.ts",
+      "symbolName": "normalizeSecretScope",
+      "description": null,
+      "isReadme": false
+    },
+    {
+      "kind": "export",
       "name": "resolveAuthFlow",
       "sourcePath": "src/auth.ts",
       "symbolName": "resolveAuthFlow",
+      "description": null,
+      "isReadme": false
+    },
+    {
+      "kind": "export",
+      "name": "validateSecretPayload",
+      "sourcePath": "src/secrets.ts",
+      "symbolName": "validateSecretPayload",
       "description": null,
       "isReadme": false
     }
   ],
   "graphs": {
     "imports": [
+      {
+        "fromPath": "src/auth.ts",
+        "toPath": "src/secrets.ts",
+        "sourcePath": "src/auth.ts"
+      },
       {
         "fromPath": "src/auth.ts",
         "toPath": "src/types.ts",
@@ -13281,6 +14629,16 @@
       },
       {
         "fromPath": "src/index.ts",
+        "toPath": "src/secretManifest.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/secrets.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
         "toPath": "src/state.ts",
         "sourcePath": "src/index.ts"
       },
@@ -13303,6 +14661,11 @@
         "fromPath": "src/runtimeCallbacks.ts",
         "toPath": "src/types.ts",
         "sourcePath": "src/runtimeCallbacks.ts"
+      },
+      {
+        "fromPath": "src/secretManifest.ts",
+        "toPath": "src/secrets.ts",
+        "sourcePath": "src/secretManifest.ts"
       },
       {
         "fromPath": "src/types.ts",
@@ -13603,18 +14966,58 @@
         "sourcePath": "src/auth.ts"
       },
       {
-        "fromSymbol": "SignInWithOAuthInput",
+        "fromSymbol": "AuthOAuthError",
         "toType": "AuthOAuthProviderId",
         "sourcePath": "src/auth.ts"
       },
       {
-        "fromSymbol": "AuthOAuthRedirect",
+        "fromSymbol": "StartOAuthAuthorizationInput",
         "toType": "AuthOAuthProviderId",
         "sourcePath": "src/auth.ts"
       },
       {
-        "fromSymbol": "AuthAdapterCapabilities",
+        "fromSymbol": "StartOAuthAuthorizationInput",
+        "toType": "Readonly",
+        "sourcePath": "src/auth.ts"
+      },
+      {
+        "fromSymbol": "AuthOAuthAuthorizationRequest",
         "toType": "AuthOAuthProviderId",
+        "sourcePath": "src/auth.ts"
+      },
+      {
+        "fromSymbol": "CompleteOAuthAuthorizationInput",
+        "toType": "AuthOAuthAuthorizationResponse",
+        "sourcePath": "src/auth.ts"
+      },
+      {
+        "fromSymbol": "AuthOAuthCapabilities",
+        "toType": "AuthOAuthProviderId",
+        "sourcePath": "src/auth.ts"
+      },
+      {
+        "fromSymbol": "AuthOAuthAdapter",
+        "toType": "AuthOAuthCapabilities",
+        "sourcePath": "src/auth.ts"
+      },
+      {
+        "fromSymbol": "AuthOAuthAdapter",
+        "toType": "AuthOAuthCompletionResult",
+        "sourcePath": "src/auth.ts"
+      },
+      {
+        "fromSymbol": "AuthOAuthAdapter",
+        "toType": "AuthOAuthStartResult",
+        "sourcePath": "src/auth.ts"
+      },
+      {
+        "fromSymbol": "AuthOAuthAdapter",
+        "toType": "CompleteOAuthAuthorizationInput",
+        "sourcePath": "src/auth.ts"
+      },
+      {
+        "fromSymbol": "AuthOAuthAdapter",
+        "toType": "StartOAuthAuthorizationInput",
         "sourcePath": "src/auth.ts"
       },
       {
@@ -13624,7 +15027,7 @@
       },
       {
         "fromSymbol": "AuthAdapter",
-        "toType": "AuthOAuthRedirect",
+        "toType": "AuthOAuthAdapter",
         "sourcePath": "src/auth.ts"
       },
       {
@@ -13644,22 +15047,12 @@
       },
       {
         "fromSymbol": "AuthAdapter",
-        "toType": "CompleteOAuthSignInInput",
-        "sourcePath": "src/auth.ts"
-      },
-      {
-        "fromSymbol": "AuthAdapter",
         "toType": "PasswordResetInput",
         "sourcePath": "src/auth.ts"
       },
       {
         "fromSymbol": "AuthAdapter",
         "toType": "SignInInput",
-        "sourcePath": "src/auth.ts"
-      },
-      {
-        "fromSymbol": "AuthAdapter",
-        "toType": "SignInWithOAuthInput",
         "sourcePath": "src/auth.ts"
       },
       {
@@ -14663,6 +16056,126 @@
         "sourcePath": "src/runtimeCallbacks.ts"
       },
       {
+        "fromSymbol": "InfraSecretStoreSpec",
+        "toType": "SecretStoreProvider",
+        "sourcePath": "src/secretManifest.ts"
+      },
+      {
+        "fromSymbol": "normalizeSecretRef",
+        "toType": "SecretStoreResult",
+        "sourcePath": "src/secrets.ts"
+      },
+      {
+        "fromSymbol": "normalizeSecretScope",
+        "toType": "SecretScope",
+        "sourcePath": "src/secrets.ts"
+      },
+      {
+        "fromSymbol": "normalizeSecretScope",
+        "toType": "SecretStoreResult",
+        "sourcePath": "src/secrets.ts"
+      },
+      {
+        "fromSymbol": "validateSecretPayload",
+        "toType": "Readonly",
+        "sourcePath": "src/secrets.ts"
+      },
+      {
+        "fromSymbol": "validateSecretPayload",
+        "toType": "SecretStoreResult",
+        "sourcePath": "src/secrets.ts"
+      },
+      {
+        "fromSymbol": "SecretMetadata",
+        "toType": "SecretScope",
+        "sourcePath": "src/secrets.ts"
+      },
+      {
+        "fromSymbol": "SecretListInput",
+        "toType": "SecretScope",
+        "sourcePath": "src/secrets.ts"
+      },
+      {
+        "fromSymbol": "SecretGetMetadataInput",
+        "toType": "SecretScope",
+        "sourcePath": "src/secrets.ts"
+      },
+      {
+        "fromSymbol": "SecretCreateInput",
+        "toType": "Readonly",
+        "sourcePath": "src/secrets.ts"
+      },
+      {
+        "fromSymbol": "SecretCreateInput",
+        "toType": "SecretScope",
+        "sourcePath": "src/secrets.ts"
+      },
+      {
+        "fromSymbol": "SecretReplaceInput",
+        "toType": "Readonly",
+        "sourcePath": "src/secrets.ts"
+      },
+      {
+        "fromSymbol": "SecretReplaceInput",
+        "toType": "SecretScope",
+        "sourcePath": "src/secrets.ts"
+      },
+      {
+        "fromSymbol": "SecretRemoveInput",
+        "toType": "SecretScope",
+        "sourcePath": "src/secrets.ts"
+      },
+      {
+        "fromSymbol": "SecretResolveInput",
+        "toType": "SecretScope",
+        "sourcePath": "src/secrets.ts"
+      },
+      {
+        "fromSymbol": "SecretStoreAdapter",
+        "toType": "SecretCreateInput",
+        "sourcePath": "src/secrets.ts"
+      },
+      {
+        "fromSymbol": "SecretStoreAdapter",
+        "toType": "SecretGetMetadataInput",
+        "sourcePath": "src/secrets.ts"
+      },
+      {
+        "fromSymbol": "SecretStoreAdapter",
+        "toType": "SecretListInput",
+        "sourcePath": "src/secrets.ts"
+      },
+      {
+        "fromSymbol": "SecretStoreAdapter",
+        "toType": "SecretMetadata",
+        "sourcePath": "src/secrets.ts"
+      },
+      {
+        "fromSymbol": "SecretStoreAdapter",
+        "toType": "SecretPayload",
+        "sourcePath": "src/secrets.ts"
+      },
+      {
+        "fromSymbol": "SecretStoreAdapter",
+        "toType": "SecretRemoveInput",
+        "sourcePath": "src/secrets.ts"
+      },
+      {
+        "fromSymbol": "SecretStoreAdapter",
+        "toType": "SecretReplaceInput",
+        "sourcePath": "src/secrets.ts"
+      },
+      {
+        "fromSymbol": "SecretStoreAdapter",
+        "toType": "SecretResolveInput",
+        "sourcePath": "src/secrets.ts"
+      },
+      {
+        "fromSymbol": "SecretStoreAdapter",
+        "toType": "SecretStoreResult",
+        "sourcePath": "src/secrets.ts"
+      },
+      {
         "fromSymbol": "StateSnapshot",
         "toType": "StatePath",
         "sourcePath": "src/state.ts"
@@ -14939,6 +16452,11 @@
       },
       {
         "fromSymbol": "InfraManifest",
+        "toType": "InfraSecretStoreSpec",
+        "sourcePath": "src/types.ts"
+      },
+      {
+        "fromSymbol": "InfraManifest",
         "toType": "NetworkingSpec",
         "sourcePath": "src/types.ts"
       },
@@ -14950,6 +16468,11 @@
       {
         "fromSymbol": "InfraManifest",
         "toType": "StorageSpec",
+        "sourcePath": "src/types.ts"
+      },
+      {
+        "fromSymbol": "AppManifest",
+        "toType": "AppCategory",
         "sourcePath": "src/types.ts"
       },
       {
