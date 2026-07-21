@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 4.0.0
+
+### Major Changes
+
+- 083419b: Add canonical AppManifest metadata category ownership using the shared AppCategory contract.
+
 ## 3.0.0
 
 ### Major Changes
