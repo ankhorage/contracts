@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 4.0.1
+
+### Patch Changes
+
+- ee60d69: Update COLOR-THEORY
+
 ## 4.0.0
 
 ### Major Changes
