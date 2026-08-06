@@ -11,6 +11,11 @@ graph TD
   module_src_bindings_ts --> module_src_data_index_ts
   module_src_cli_index_ts["src/cli/index.ts"]
   package__ankhorage_contracts -.-> module_src_cli_index_ts
+  module_src_data_apis_ts["src/data/apis.ts"]
+  package__ankhorage_contracts -.-> module_src_data_apis_ts
+  module_src_data_apis_ts --> module_src_data_refs_ts
+  module_src_data_apis_ts --> module_src_data_values_ts
+  module_src_data_apis_ts --> module_src_db_ts
   module_src_data_diagnostics_ts["src/data/diagnostics.ts"]
   package__ankhorage_contracts -.-> module_src_data_diagnostics_ts
   module_src_data_diagnostics_ts --> module_src_data_ids_ts
@@ -45,7 +50,6 @@ graph TD
   module_src_data_sources_ts --> module_src_data_refs_ts
   module_src_data_sources_ts --> module_src_data_schemas_ts
   module_src_data_sources_ts --> module_src_data_values_ts
-  module_src_data_sources_ts --> module_src_db_ts
   module_src_data_values_ts["src/data/values.ts"]
   package__ankhorage_contracts -.-> module_src_data_values_ts
   module_src_db_ts["src/db.ts"]
