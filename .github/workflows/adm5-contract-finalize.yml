@@ -28,22 +28,38 @@ jobs:
           python scripts/adm5-contract-finalize.py
           rm scripts/adm5-contract-finalize.py
 
-      - name: Install and generate
-        run: |
-          bun install --frozen-lockfile
-          bun run lint:fix
-          bun run docs
-          bun run format
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
 
-      - name: Validate
-        run: |
-          bun run build
-          bun run lint
-          bun run format:check
-          bun run knip
-          bun run test
-          bun run typecheck
-          bun run changeset:status
+      - name: Fix lint
+        run: bun run lint:fix
+
+      - name: Generate docs
+        run: bun run docs
+
+      - name: Format
+        run: bun run format
+
+      - name: Build
+        run: bun run build
+
+      - name: Lint
+        run: bun run lint
+
+      - name: Format check
+        run: bun run format:check
+
+      - name: Knip
+        run: bun run knip
+
+      - name: Tests
+        run: bun run test
+
+      - name: Typecheck
+        run: bun run typecheck
+
+      - name: Changeset status
+        run: bun run changeset:status
 
       - name: Commit finalized contract and remove helper
         run: |
