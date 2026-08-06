@@ -1,11 +1,15 @@
 import type { DbCollectionDefinition } from '../db';
 import type { DataEndpointRegistry } from './endpoints';
 import type { DataSourceId } from './ids';
-import type { AdapterRef, CredentialRef } from './refs';
+import type { CredentialRef, DatabaseAdapterRef } from './refs';
 import type { DataSchemaRegistry } from './schemas';
 import type { DataContractValue } from './values';
 
 export type DataSourceKind = 'database' | 'graphql' | 'managed-api' | 'openapi' | 'rest';
+
+export const MANAGED_API_CRUD_OPERATIONS = ['list', 'read', 'create', 'update', 'delete'] as const;
+export type ManagedApiCrudOperation = (typeof MANAGED_API_CRUD_OPERATIONS)[number];
+export type ManagedApiSeedRecord = Readonly<Record<string, DataContractValue>>;
 
 export interface DataSourceBaseConfig {
   readonly id: DataSourceId;
@@ -46,19 +50,30 @@ export interface GraphQlDataSourceConfig extends DataSourceBaseConfig {
 
 export interface DatabaseDataSourceConfig extends DataSourceBaseConfig {
   readonly kind: 'database';
-  readonly adapter: AdapterRef;
+  readonly adapter: DatabaseAdapterRef;
+}
+
+export interface ManagedApiOperationPolicyRef {
+  readonly id: string;
+  readonly operation?: ManagedApiCrudOperation;
 }
 
 export interface ManagedApiResourceConfig {
-  readonly name: string;
+  readonly id: string;
+  readonly name?: string;
+  readonly description?: string;
+  readonly path: string;
   readonly collection: DbCollectionDefinition;
-  readonly operations?: readonly ('create' | 'delete' | 'list' | 'read' | 'update')[];
+  readonly operations: readonly ManagedApiCrudOperation[];
+  readonly seed?: readonly ManagedApiSeedRecord[];
+  readonly policies?: readonly ManagedApiOperationPolicyRef[];
   readonly metadata?: DataContractValue;
 }
 
 export interface ManagedApiDataSourceConfig extends DataSourceBaseConfig {
   readonly kind: 'managed-api';
-  readonly adapter: AdapterRef;
+  readonly adapter: DatabaseAdapterRef;
+  readonly basePath: string;
   readonly resources: readonly ManagedApiResourceConfig[];
 }
 

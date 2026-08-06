@@ -8,6 +8,7 @@ import type {
   OpenApiDataSourceConfig,
   RestDataSourceConfig,
 } from './index';
+import { MANAGED_API_CRUD_OPERATIONS } from './index';
 
 function assertSerializable<TValue>(value: TValue): void {
   expect(JSON.parse(JSON.stringify(value))).toEqual(value);
@@ -226,11 +227,13 @@ describe('data source contracts', () => {
     expect(source.endpoints.graphql?.operations.CreatePost?.intent).toBe('create');
   });
 
-  it('serializes a managed API backed by a database adapter reference', () => {
+  it('serializes one canonical generated API data source contract', () => {
     const source: ManagedApiDataSourceConfig = {
-      id: 'app-managed-api',
+      id: 'catalog-api',
       kind: 'managed-api',
-      name: 'App managed API',
+      name: 'Catalog API',
+      description: 'Generated CRUD API for catalog resources.',
+      basePath: '/api/catalog',
       adapter: {
         id: 'primary-db',
         kind: 'database',
@@ -238,36 +241,59 @@ describe('data source contracts', () => {
       },
       resources: [
         {
-          name: 'posts',
+          id: 'products',
+          name: 'Products',
+          path: '/products',
           collection: {
-            name: 'posts',
+            name: 'products',
             schema: 'public',
             primaryKey: 'id',
             fields: [
               { name: 'id', type: 'uuid', required: true, unique: true },
-              { name: 'title', type: 'text', required: true },
-              { name: 'published', type: 'boolean', defaultValue: false },
+              { name: 'name', type: 'text', required: true },
+              { name: 'price', type: 'number', required: true },
             ],
           },
-          operations: ['list', 'read', 'create', 'update', 'delete'],
+          operations: MANAGED_API_CRUD_OPERATIONS,
+          seed: [{ id: 'product-1', name: 'Keyboard', price: 120 }],
+          policies: [
+            { id: 'catalog.read', operation: 'list' },
+            { id: 'catalog.write', operation: 'create' },
+          ],
         },
       ],
+      schemas: {
+        products: {
+          type: 'object',
+          required: ['id', 'name', 'price'],
+          properties: {
+            id: { type: 'string', format: 'uuid' },
+            name: { type: 'string' },
+            price: { type: 'number' },
+          },
+        },
+      },
       endpoints: {
-        posts: {
-          id: 'posts',
+        products: {
+          id: 'products',
           kind: 'database',
+          path: '/products',
           operations: {
-            'posts.list': {
-              id: 'posts.list',
-              endpointId: 'posts',
+            'products.list': {
+              id: 'products.list',
+              endpointId: 'products',
               protocol: 'database',
               intent: 'read',
+              method: 'GET',
+              path: '/api/catalog/products',
             },
-            'posts.delete': {
-              id: 'posts.delete',
-              endpointId: 'posts',
+            'products.create': {
+              id: 'products.create',
+              endpointId: 'products',
               protocol: 'database',
-              intent: 'delete',
+              intent: 'create',
+              method: 'POST',
+              path: '/api/catalog/products',
             },
           },
         },
@@ -276,11 +302,9 @@ describe('data source contracts', () => {
 
     assertSerializable(source);
     expect(source.adapter.kind).toBe('database');
-    expect(source.resources[0]?.collection.fields.map((field) => field.name)).toEqual([
-      'id',
-      'title',
-      'published',
-    ]);
+    expect(source.resources[0]?.operations).toEqual(MANAGED_API_CRUD_OPERATIONS);
+    expect(source.resources[0]?.seed?.[0]?.name).toBe('Keyboard');
+    expect(source.endpoints.products?.operations['products.list']?.intent).toBe('read');
   });
 
   it('accepts a provider-neutral data source registry and diagnostics', () => {

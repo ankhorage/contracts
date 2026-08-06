@@ -94,14 +94,6 @@ export type BindingInputValue =
 
 export type BindingInputMap = Readonly<Record<string, BindingInputValue>>;
 
-export interface ApiScreenDataLoaderDefinition {
-  readonly kind: 'api';
-  readonly apiId: string;
-  readonly mode: 'byId' | 'list' | 'one' | 'random';
-  readonly targetPath: string;
-  readonly id?: string | number;
-}
-
 export interface OperationScreenDataLoaderDefinition {
   readonly kind: 'operation';
   readonly id?: string;
@@ -109,9 +101,7 @@ export interface OperationScreenDataLoaderDefinition {
   readonly input?: BindingInputMap;
 }
 
-export type ScreenDataLoaderDefinition =
-  | ApiScreenDataLoaderDefinition
-  | OperationScreenDataLoaderDefinition;
+export type ScreenDataLoaderDefinition = OperationScreenDataLoaderDefinition;
 
 export type BindingConditionOperator = 'eq' | 'exists' | 'neq' | 'notExists';
 

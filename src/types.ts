@@ -6,7 +6,7 @@ import type {
   ComponentDataBindingRegistry,
   ScreenDataLoaderDefinition,
 } from './bindings';
-import type { AppDataManifest, DataSourceRegistry } from './data';
+import type { DataSourceRegistry } from './data';
 import type { ScreenRequirements } from './requirements';
 
 export interface ThemeModeConfig {
@@ -389,7 +389,6 @@ export interface AppManifest {
   infra: InfraManifest;
   navigator: NavigatorSpec;
   screens: Record<string, ScreenSpec>;
-  data?: AppDataManifest;
   dataSources?: DataSourceRegistry;
   dataBindings?: ComponentDataBindingRegistry;
   settings: AppSettings;
