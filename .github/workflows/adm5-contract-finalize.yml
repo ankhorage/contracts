@@ -58,14 +58,19 @@ jobs:
       - name: Typecheck
         run: bun run typecheck
 
-      - name: Changeset status
-        run: bun run changeset:status
-
-      - name: Commit finalized contract and remove helper
+      - name: Commit finalized contract
         run: |
-          rm .github/workflows/adm5-contract-finalize.yml
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
           git commit -m "feat: establish canonical managed API contract"
+
+      - name: Changeset status
+        run: bun run changeset:status
+
+      - name: Remove helper and push
+        run: |
+          rm .github/workflows/adm5-contract-finalize.yml
+          git add .github/workflows/adm5-contract-finalize.yml
+          git commit -m "ci: remove adm5 contract finalizer"
           git push origin HEAD:agent/adm-5-managed-api-contract
