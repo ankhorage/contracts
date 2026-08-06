@@ -19,3 +19,7 @@ export interface AdapterRef {
   readonly exportName?: string;
   readonly config?: DataContractValue;
 }
+
+export interface DatabaseAdapterRef extends AdapterRef {
+  readonly kind: 'database';
+}

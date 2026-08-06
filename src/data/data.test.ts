@@ -1,12 +1,12 @@
 import { describe, expect, it } from 'bun:test';
 
 import type {
+  DatabaseDataSourceConfig,
   DataSourceConfig,
   DataSourceDiagnostic,
-  GraphQlDataSourceConfig,
-  ManagedApiDataSourceConfig,
-  OpenApiDataSourceConfig,
-  RestDataSourceConfig,
+  ExternalGraphQlApiDataSourceConfig,
+  ExternalRestApiDataSourceConfig,
+  GeneratedRestApiDataSourceConfig,
 } from './index';
 
 function assertSerializable<TValue>(value: TValue): void {
@@ -14,27 +14,18 @@ function assertSerializable<TValue>(value: TValue): void {
 }
 
 describe('data source contracts', () => {
-  it('serializes a manual REST data source with read and create operations', () => {
-    const source: RestDataSourceConfig = {
+  it('serializes an external REST API with manual operations', () => {
+    const source: ExternalRestApiDataSourceConfig = {
       id: 'cms-rest',
-      kind: 'rest',
+      kind: 'api',
+      origin: 'external',
+      protocol: 'rest',
       name: 'CMS REST API',
       baseUrl: 'https://cms.example.com',
       credential: {
         id: 'cms-api-key',
         kind: 'apiKey',
         label: 'CMS API key',
-      },
-      schemas: {
-        post: {
-          type: 'object',
-          required: ['id', 'title'],
-          properties: {
-            id: { type: 'string' },
-            title: { type: 'string' },
-            published: { type: 'boolean', default: false },
-          },
-        },
       },
       endpoints: {
         posts: {
@@ -49,43 +40,6 @@ describe('data source contracts', () => {
               intent: 'read',
               method: 'GET',
               path: '/posts',
-              request: {
-                parameters: [
-                  {
-                    name: 'limit',
-                    location: 'query',
-                    schema: { type: 'integer', default: 20 },
-                  },
-                ],
-              },
-              response: {
-                status: 200,
-                schema: {
-                  type: 'array',
-                  items: { ref: { id: 'post' } },
-                },
-              },
-              pagination: {
-                kind: 'limit-offset',
-                limitParameter: 'limit',
-                offsetParameter: 'offset',
-              },
-            },
-            'posts.create': {
-              id: 'posts.create',
-              endpointId: 'posts',
-              protocol: 'http',
-              intent: 'create',
-              method: 'POST',
-              path: '/posts',
-              request: {
-                contentType: 'application/json',
-                schema: { ref: { id: 'post' } },
-              },
-              response: {
-                status: 201,
-                schemaRef: { id: 'post' },
-              },
             },
           },
         },
@@ -94,74 +48,38 @@ describe('data source contracts', () => {
 
     assertSerializable(source);
     expect(source.endpoints.posts?.operations['posts.list']?.intent).toBe('read');
-    expect(source.endpoints.posts?.operations['posts.create']?.intent).toBe('create');
   });
 
-  it('serializes an imported OpenAPI data source', () => {
-    const source: OpenApiDataSourceConfig = {
-      id: 'shop-openapi',
-      kind: 'openapi',
-      name: 'Shop OpenAPI',
+  it('models OpenAPI as optional metadata on an external REST API', () => {
+    const source: ExternalRestApiDataSourceConfig = {
+      id: 'shop-api',
+      kind: 'api',
+      origin: 'external',
+      protocol: 'rest',
+      name: 'Shop API',
       baseUrl: 'https://shop.example.com/api',
-      import: {
+      openApi: {
         url: 'https://shop.example.com/openapi.json',
-        version: '2026-05-19',
+        version: '2026-08-06',
       },
-      endpoints: {
-        products: {
-          id: 'products',
-          kind: 'http',
-          path: '/products/{productId}',
-          operations: {
-            getProduct: {
-              id: 'getProduct',
-              endpointId: 'products',
-              protocol: 'http',
-              intent: 'read',
-              method: 'GET',
-              path: '/products/{productId}',
-              request: {
-                parameters: [
-                  {
-                    name: 'productId',
-                    location: 'path',
-                    required: true,
-                    schema: { type: 'string' },
-                  },
-                ],
-              },
-              response: {
-                status: 200,
-                schema: {
-                  type: 'object',
-                  properties: {
-                    id: { type: 'string' },
-                    name: { type: 'string' },
-                    price: { type: 'number' },
-                  },
-                },
-              },
-            },
-          },
-        },
-      },
+      endpoints: {},
     };
 
     assertSerializable(source);
-    expect(source.import?.url).toContain('openapi.json');
-    expect(
-      source.endpoints.products?.operations.getProduct?.request?.parameters?.[0]?.location,
-    ).toBe('path');
+    expect(source.openApi?.url).toContain('openapi.json');
+    expect(source.kind).toBe('api');
   });
 
-  it('serializes a GraphQL data source with query and mutation operations', () => {
-    const source: GraphQlDataSourceConfig = {
+  it('serializes an external GraphQL API independently of origin', () => {
+    const source: ExternalGraphQlApiDataSourceConfig = {
       id: 'content-graphql',
-      kind: 'graphql',
+      kind: 'api',
+      origin: 'external',
+      protocol: 'graphql',
       endpointUrl: 'https://content.example.com/graphql',
       introspection: {
         enabled: true,
-        schemaVersion: '2026-05-19',
+        schemaVersion: '2026-08-06',
       },
       endpoints: {
         graphql: {
@@ -173,48 +91,6 @@ describe('data source contracts', () => {
               endpointId: 'graphql',
               protocol: 'graphql',
               intent: 'read',
-              request: {
-                schema: {
-                  type: 'object',
-                  properties: {
-                    search: { type: 'string' },
-                  },
-                },
-              },
-              response: {
-                schema: {
-                  type: 'object',
-                  properties: {
-                    posts: {
-                      type: 'array',
-                      items: { type: 'object' },
-                    },
-                  },
-                },
-              },
-            },
-            CreatePost: {
-              id: 'CreatePost',
-              endpointId: 'graphql',
-              protocol: 'graphql',
-              intent: 'create',
-              request: {
-                schema: {
-                  type: 'object',
-                  required: ['title'],
-                  properties: {
-                    title: { type: 'string' },
-                  },
-                },
-              },
-              response: {
-                schema: {
-                  type: 'object',
-                  properties: {
-                    createPost: { type: 'object' },
-                  },
-                },
-              },
             },
           },
         },
@@ -222,52 +98,50 @@ describe('data source contracts', () => {
     };
 
     assertSerializable(source);
-    expect(source.endpoints.graphql?.operations.PostsQuery?.protocol).toBe('graphql');
-    expect(source.endpoints.graphql?.operations.CreatePost?.intent).toBe('create');
+    expect(source.protocol).toBe('graphql');
+    expect(source.endpoints.graphql?.operations.PostsQuery?.intent).toBe('read');
   });
 
-  it('serializes a managed API backed by a database adapter reference', () => {
-    const source: ManagedApiDataSourceConfig = {
-      id: 'app-managed-api',
-      kind: 'managed-api',
-      name: 'App managed API',
+  it('serializes a normalized generated REST API projection', () => {
+    const source: GeneratedRestApiDataSourceConfig = {
+      id: 'catalog-api',
+      kind: 'api',
+      origin: 'generated',
+      protocol: 'rest',
+      generatedApiId: 'catalog-api',
+      name: 'Catalog API',
       adapter: {
         id: 'primary-db',
         kind: 'database',
         packageName: '@ankhorage/supabase-db',
       },
-      resources: [
-        {
-          name: 'posts',
-          collection: {
-            name: 'posts',
-            schema: 'public',
-            primaryKey: 'id',
-            fields: [
-              { name: 'id', type: 'uuid', required: true, unique: true },
-              { name: 'title', type: 'text', required: true },
-              { name: 'published', type: 'boolean', defaultValue: false },
-            ],
+      schemas: {
+        products: {
+          type: 'object',
+          required: ['id', 'name'],
+          properties: {
+            id: { type: 'string', format: 'uuid' },
+            name: { type: 'string' },
           },
-          operations: ['list', 'read', 'create', 'update', 'delete'],
         },
-      ],
+      },
       endpoints: {
-        posts: {
-          id: 'posts',
+        products: {
+          id: 'products',
           kind: 'database',
+          path: '/products',
           operations: {
-            'posts.list': {
-              id: 'posts.list',
-              endpointId: 'posts',
+            'products.list': {
+              id: 'products.list',
+              endpointId: 'products',
               protocol: 'database',
               intent: 'read',
             },
-            'posts.delete': {
-              id: 'posts.delete',
-              endpointId: 'posts',
+            'products.create': {
+              id: 'products.create',
+              endpointId: 'products',
               protocol: 'database',
-              intent: 'delete',
+              intent: 'create',
             },
           },
         },
@@ -276,17 +150,28 @@ describe('data source contracts', () => {
 
     assertSerializable(source);
     expect(source.adapter.kind).toBe('database');
-    expect(source.resources[0]?.collection.fields.map((field) => field.name)).toEqual([
-      'id',
-      'title',
-      'published',
-    ]);
+    expect(source.origin).toBe('generated');
+    expect(source.endpoints.products?.operations['products.create']?.intent).toBe('create');
   });
 
-  it('accepts a provider-neutral data source registry and diagnostics', () => {
+  it('keeps database sources separate from API origin and protocol', () => {
+    const source: DatabaseDataSourceConfig = {
+      id: 'primary-db',
+      kind: 'database',
+      adapter: { id: 'supabase-db', kind: 'database' },
+      endpoints: {},
+    };
+
+    assertSerializable(source);
+    expect(source.kind).toBe('database');
+  });
+
+  it('accepts a provider-neutral source union and diagnostics', () => {
     const source: DataSourceConfig = {
-      id: 'public-rest',
-      kind: 'rest',
+      id: 'public-api',
+      kind: 'api',
+      origin: 'external',
+      protocol: 'rest',
       baseUrl: 'https://public.example.com',
       endpoints: {},
     };
@@ -294,7 +179,7 @@ describe('data source contracts', () => {
       code: 'missing-operation',
       severity: 'error',
       message: 'Operation not found.',
-      dataSourceId: 'public-rest',
+      dataSourceId: 'public-api',
       endpointId: 'posts',
       operationId: 'posts.list',
     };

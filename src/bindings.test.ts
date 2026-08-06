@@ -1,7 +1,6 @@
 import { describe, expect, it } from 'bun:test';
 
 import type {
-  ApiScreenDataLoaderDefinition,
   AppManifest,
   BindingInputMap,
   BindingValueSource,
@@ -161,37 +160,28 @@ describe('component data-binding contracts', () => {
     expect(binding.target.kind).toBe('action');
   });
 
-  it('serializes supported screen data-loader definitions for api and operation loaders', () => {
-    const loaders: readonly ScreenDataLoaderDefinition[] = [
-      {
-        kind: 'api',
-        apiId: 'catalog',
-        mode: 'byId',
-        targetPath: 'apis.catalog.current',
-        id: 'product-1',
-      } satisfies ApiScreenDataLoaderDefinition,
-      {
-        kind: 'operation',
-        id: 'product-detail',
-        operation: {
-          dataSourceId: 'nutrition-api',
-          endpointId: 'products',
-          operationId: 'nutrition.products.getById',
-        },
-        input: {
-          id: {
-            kind: 'source',
-            source: {
-              kind: 'context',
-              path: 'route.params.id',
-            },
+  it('serializes canonical operation screen data loaders', () => {
+    const loader: ScreenDataLoaderDefinition = {
+      kind: 'operation',
+      id: 'product-detail',
+      operation: {
+        dataSourceId: 'nutrition-api',
+        endpointId: 'products',
+        operationId: 'nutrition.products.getById',
+      },
+      input: {
+        id: {
+          kind: 'source',
+          source: {
+            kind: 'context',
+            path: 'route.params.id',
           },
         },
-      } satisfies OperationScreenDataLoaderDefinition,
-    ];
+      },
+    } satisfies OperationScreenDataLoaderDefinition;
 
-    assertSerializable(loaders);
-    expect(loaders.map((loader) => loader.kind)).toEqual(['api', 'operation']);
+    assertSerializable(loader);
+    expect(loader.kind).toBe('operation');
   });
 
   it('serializes scanner lookup and conditional navigation intent using existing generic bindings', () => {

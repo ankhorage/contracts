@@ -62,76 +62,31 @@ graph LR
   module_src_cli_index_ts --> export_AnkhPackageMetadata
   export_AnkhProviderReference["AnkhProviderReference"]
   module_src_cli_index_ts --> export_AnkhProviderReference
-  export_ApiScreenDataLoaderDefinition["ApiScreenDataLoaderDefinition"]
-  module_src_bindings_ts --> export_ApiScreenDataLoaderDefinition
-  export_APP_API_ENDPOINT_INTENTS["APP_API_ENDPOINT_INTENTS"]
-  module_src_data_apis_ts --> export_APP_API_ENDPOINT_INTENTS
-  export_APP_API_ENDPOINT_METHODS["APP_API_ENDPOINT_METHODS"]
-  module_src_data_apis_ts --> export_APP_API_ENDPOINT_METHODS
-  export_APP_API_GENERATED_PRESETS["APP_API_GENERATED_PRESETS"]
-  module_src_data_apis_ts --> export_APP_API_GENERATED_PRESETS
-  export_APP_API_KINDS["APP_API_KINDS"]
-  module_src_data_apis_ts --> export_APP_API_KINDS
+  export_ApiDataSourceBaseConfig["ApiDataSourceBaseConfig"]
+  module_src_data_sources_ts --> export_ApiDataSourceBaseConfig
+  export_ApiDataSourceBaseConfig -.-> export_ApiOrigin
+  export_ApiDataSourceBaseConfig -.-> export_ApiProtocol
+  export_ApiDataSourceBaseConfig -.-> export_CredentialRef
+  export_ApiDataSourceBaseConfig -.-> export_DataContractValue
+  export_ApiDataSourceBaseConfig -.-> export_DataEndpointConfig
+  export_ApiDataSourceBaseConfig -.-> export_DataSchema
+  export_ApiDataSourceConfig["ApiDataSourceConfig"]
+  module_src_data_sources_ts --> export_ApiDataSourceConfig
+  export_ApiOrigin["ApiOrigin"]
+  module_src_data_sources_ts --> export_ApiOrigin
+  export_ApiProtocol["ApiProtocol"]
+  module_src_data_sources_ts --> export_ApiProtocol
   export_APP_CATEGORIES["APP_CATEGORIES"]
   module_src_types_ts --> export_APP_CATEGORIES
-  export_AppApiAuthRequirement["AppApiAuthRequirement"]
-  module_src_data_apis_ts --> export_AppApiAuthRequirement
-  export_AppApiAuthRequirement -.-> export_DataContractValue
-  export_AppApiCollectionResourceDefinition["AppApiCollectionResourceDefinition"]
-  module_src_data_apis_ts --> export_AppApiCollectionResourceDefinition
-  export_AppApiCollectionResourceDefinition -.-> export_DataContractValue
-  export_AppApiCollectionResourceDefinition -.-> export_DbCollectionDefinition
-  export_AppApiDefinition["AppApiDefinition"]
-  module_src_data_apis_ts --> export_AppApiDefinition
-  export_AppApiEndpointDefinition["AppApiEndpointDefinition"]
-  module_src_data_apis_ts --> export_AppApiEndpointDefinition
-  export_AppApiEndpointDefinition -.-> export_AppApiAuthRequirement
-  export_AppApiEndpointDefinition -.-> export_DataContractValue
-  export_AppApiEndpointDefinition -.-> export_DataOperationRequest
-  export_AppApiEndpointDefinition -.-> export_DataOperationResponse
-  export_AppApiEndpointId["AppApiEndpointId"]
-  module_src_data_apis_ts --> export_AppApiEndpointId
-  export_AppApiEndpointIntent["AppApiEndpointIntent"]
-  module_src_data_apis_ts --> export_AppApiEndpointIntent
-  export_AppApiEndpointMethod["AppApiEndpointMethod"]
-  module_src_data_apis_ts --> export_AppApiEndpointMethod
-  export_AppApiGeneratedPreset["AppApiGeneratedPreset"]
-  module_src_data_apis_ts --> export_AppApiGeneratedPreset
-  export_AppApiId["AppApiId"]
-  module_src_data_apis_ts --> export_AppApiId
-  export_AppApiKind["AppApiKind"]
-  module_src_data_apis_ts --> export_AppApiKind
-  export_AppApiManifest["AppApiManifest"]
-  module_src_data_apis_ts --> export_AppApiManifest
-  export_AppApiRegistry["AppApiRegistry"]
-  module_src_data_apis_ts --> export_AppApiRegistry
-  export_AppApiResourceDefinition["AppApiResourceDefinition"]
-  module_src_data_apis_ts --> export_AppApiResourceDefinition
-  export_AppApiSeedRecord["AppApiSeedRecord"]
-  module_src_data_apis_ts --> export_AppApiSeedRecord
   export_AppCategory["AppCategory"]
   module_src_types_ts --> export_AppCategory
-  export_AppDataManifest["AppDataManifest"]
-  module_src_data_apis_ts --> export_AppDataManifest
-  export_AppDataManifest -.-> export_AppApiDefinition
-  export_AppExternalApiDefinition["AppExternalApiDefinition"]
-  module_src_data_apis_ts --> export_AppExternalApiDefinition
-  export_AppExternalApiDefinition -.-> export_AppApiAuthRequirement
-  export_AppExternalApiDefinition -.-> export_AppApiEndpointDefinition
-  export_AppExternalApiDefinition -.-> export_DataContractValue
-  export_AppGeneratedApiDefinition["AppGeneratedApiDefinition"]
-  module_src_data_apis_ts --> export_AppGeneratedApiDefinition
-  export_AppGeneratedApiDefinition -.-> export_AppApiAuthRequirement
-  export_AppGeneratedApiDefinition -.-> export_AppApiCollectionResourceDefinition
-  export_AppGeneratedApiDefinition -.-> export_AppApiEndpointDefinition
-  export_AppGeneratedApiDefinition -.-> export_DataContractValue
   export_AppManifest["AppManifest"]
   module_src_types_ts --> export_AppManifest
   export_AppManifest -.-> export_AppCategory
-  export_AppManifest -.-> export_AppDataManifest
   export_AppManifest -.-> export_AppSettings
   export_AppManifest -.-> export_ComponentDataBinding
   export_AppManifest -.-> export_DataSourceConfig
+  export_AppManifest -.-> export_GeneratedApiDefinition
   export_AppManifest -.-> export_InfraManifest
   export_AppManifest -.-> export_NavigatorSpec
   export_AppManifest -.-> export_ScreenSpec
@@ -376,10 +331,13 @@ graph LR
   module_src_types_ts --> export_DATABASE_PROVIDERS
   export_DATABASE_TIERS["DATABASE_TIERS"]
   module_src_types_ts --> export_DATABASE_TIERS
+  export_DatabaseAdapterRef["DatabaseAdapterRef"]
+  module_src_data_refs_ts --> export_DatabaseAdapterRef
+  export_DatabaseAdapterRef -.-> export_DataContractValue
   export_DatabaseDataSourceConfig["DatabaseDataSourceConfig"]
   module_src_data_sources_ts --> export_DatabaseDataSourceConfig
-  export_DatabaseDataSourceConfig -.-> export_AdapterRef
   export_DatabaseDataSourceConfig -.-> export_CredentialRef
+  export_DatabaseDataSourceConfig -.-> export_DatabaseAdapterRef
   export_DatabaseDataSourceConfig -.-> export_DataContractValue
   export_DatabaseDataSourceConfig -.-> export_DataEndpointConfig
   export_DatabaseDataSourceConfig -.-> export_DataSchema
@@ -591,6 +549,19 @@ graph LR
   export_EventBinding -.-> export_EventBindingTarget
   export_EventBindingTarget["EventBindingTarget"]
   module_src_bindings_ts --> export_EventBindingTarget
+  export_ExternalGraphQlApiDataSourceConfig["ExternalGraphQlApiDataSourceConfig"]
+  module_src_data_sources_ts --> export_ExternalGraphQlApiDataSourceConfig
+  export_ExternalGraphQlApiDataSourceConfig -.-> export_CredentialRef
+  export_ExternalGraphQlApiDataSourceConfig -.-> export_DataContractValue
+  export_ExternalGraphQlApiDataSourceConfig -.-> export_DataEndpointConfig
+  export_ExternalGraphQlApiDataSourceConfig -.-> export_DataSchema
+  export_ExternalRestApiDataSourceConfig["ExternalRestApiDataSourceConfig"]
+  module_src_data_sources_ts --> export_ExternalRestApiDataSourceConfig
+  export_ExternalRestApiDataSourceConfig -.-> export_CredentialRef
+  export_ExternalRestApiDataSourceConfig -.-> export_DataContractValue
+  export_ExternalRestApiDataSourceConfig -.-> export_DataEndpointConfig
+  export_ExternalRestApiDataSourceConfig -.-> export_DataSchema
+  export_ExternalRestApiDataSourceConfig -.-> export_OpenApiDocumentRef
   export_FilterAction["FilterAction"]
   module_src_types_ts --> export_FilterAction
   export_findForbiddenInlineSecretFields["findForbiddenInlineSecretFields"]
@@ -601,12 +572,41 @@ graph LR
   module_src_types_ts --> export_FormSubmitEventDto
   export_FormSubmitValues["FormSubmitValues"]
   module_src_types_ts --> export_FormSubmitValues
-  export_GraphQlDataSourceConfig["GraphQlDataSourceConfig"]
-  module_src_data_sources_ts --> export_GraphQlDataSourceConfig
-  export_GraphQlDataSourceConfig -.-> export_CredentialRef
-  export_GraphQlDataSourceConfig -.-> export_DataContractValue
-  export_GraphQlDataSourceConfig -.-> export_DataEndpointConfig
-  export_GraphQlDataSourceConfig -.-> export_DataSchema
+  export_GENERATED_API_CRUD_OPERATIONS["GENERATED_API_CRUD_OPERATIONS"]
+  module_src_data_apis_ts --> export_GENERATED_API_CRUD_OPERATIONS
+  export_GeneratedApiAuthRequirement["GeneratedApiAuthRequirement"]
+  module_src_data_apis_ts --> export_GeneratedApiAuthRequirement
+  export_GeneratedApiAuthRequirement -.-> export_DataContractValue
+  export_GeneratedApiCrudOperation["GeneratedApiCrudOperation"]
+  module_src_data_apis_ts --> export_GeneratedApiCrudOperation
+  export_GeneratedApiDefinition["GeneratedApiDefinition"]
+  module_src_data_apis_ts --> export_GeneratedApiDefinition
+  export_GeneratedApiDefinition -.-> export_DatabaseAdapterRef
+  export_GeneratedApiDefinition -.-> export_DataContractValue
+  export_GeneratedApiDefinition -.-> export_GeneratedApiAuthRequirement
+  export_GeneratedApiDefinition -.-> export_GeneratedApiResourceDefinition
+  export_GeneratedApiId["GeneratedApiId"]
+  module_src_data_apis_ts --> export_GeneratedApiId
+  export_GeneratedApiOperationPolicyRef["GeneratedApiOperationPolicyRef"]
+  module_src_data_apis_ts --> export_GeneratedApiOperationPolicyRef
+  export_GeneratedApiRegistry["GeneratedApiRegistry"]
+  module_src_data_apis_ts --> export_GeneratedApiRegistry
+  export_GeneratedApiResourceDefinition["GeneratedApiResourceDefinition"]
+  module_src_data_apis_ts --> export_GeneratedApiResourceDefinition
+  export_GeneratedApiResourceDefinition -.-> export_DataContractValue
+  export_GeneratedApiResourceDefinition -.-> export_DbCollectionDefinition
+  export_GeneratedApiResourceDefinition -.-> export_GeneratedApiOperationPolicyRef
+  export_GeneratedApiResourceId["GeneratedApiResourceId"]
+  module_src_data_apis_ts --> export_GeneratedApiResourceId
+  export_GeneratedApiSeedRecord["GeneratedApiSeedRecord"]
+  module_src_data_apis_ts --> export_GeneratedApiSeedRecord
+  export_GeneratedRestApiDataSourceConfig["GeneratedRestApiDataSourceConfig"]
+  module_src_data_sources_ts --> export_GeneratedRestApiDataSourceConfig
+  export_GeneratedRestApiDataSourceConfig -.-> export_CredentialRef
+  export_GeneratedRestApiDataSourceConfig -.-> export_DatabaseAdapterRef
+  export_GeneratedRestApiDataSourceConfig -.-> export_DataContractValue
+  export_GeneratedRestApiDataSourceConfig -.-> export_DataEndpointConfig
+  export_GeneratedRestApiDataSourceConfig -.-> export_DataSchema
   export_IconSpec["IconSpec"]
   module_src_types_ts --> export_IconSpec
   export_ImageAssetSource["ImageAssetSource"]
@@ -643,18 +643,6 @@ graph LR
   module_src_secrets_ts --> export_KnownSecretStoreProvider
   export_KnownStateProvider["KnownStateProvider"]
   module_src_types_ts --> export_KnownStateProvider
-  export_ManagedApiDataSourceConfig["ManagedApiDataSourceConfig"]
-  module_src_data_sources_ts --> export_ManagedApiDataSourceConfig
-  export_ManagedApiDataSourceConfig -.-> export_AdapterRef
-  export_ManagedApiDataSourceConfig -.-> export_CredentialRef
-  export_ManagedApiDataSourceConfig -.-> export_DataContractValue
-  export_ManagedApiDataSourceConfig -.-> export_DataEndpointConfig
-  export_ManagedApiDataSourceConfig -.-> export_DataSchema
-  export_ManagedApiDataSourceConfig -.-> export_ManagedApiResourceConfig
-  export_ManagedApiResourceConfig["ManagedApiResourceConfig"]
-  module_src_data_sources_ts --> export_ManagedApiResourceConfig
-  export_ManagedApiResourceConfig -.-> export_DataContractValue
-  export_ManagedApiResourceConfig -.-> export_DbCollectionDefinition
   export_ManifestValue["ManifestValue"]
   module_src_types_ts --> export_ManifestValue
   export_NavigateAction["NavigateAction"]
@@ -791,15 +779,8 @@ graph LR
   module_src_nutrition_products_ts --> export_NutritionStoreObservation
   export_NutritionUserId["NutritionUserId"]
   module_src_nutrition_common_ts --> export_NutritionUserId
-  export_OpenApiDataSourceConfig["OpenApiDataSourceConfig"]
-  module_src_data_sources_ts --> export_OpenApiDataSourceConfig
-  export_OpenApiDataSourceConfig -.-> export_CredentialRef
-  export_OpenApiDataSourceConfig -.-> export_DataContractValue
-  export_OpenApiDataSourceConfig -.-> export_DataEndpointConfig
-  export_OpenApiDataSourceConfig -.-> export_DataSchema
-  export_OpenApiDataSourceConfig -.-> export_OpenApiImportRef
-  export_OpenApiImportRef["OpenApiImportRef"]
-  module_src_data_sources_ts --> export_OpenApiImportRef
+  export_OpenApiDocumentRef["OpenApiDocumentRef"]
+  module_src_data_sources_ts --> export_OpenApiDocumentRef
   export_OperationId["OperationId"]
   module_src_data_ids_ts --> export_OperationId
   export_OperationScreenDataLoaderDefinition["OperationScreenDataLoaderDefinition"]
@@ -818,12 +799,6 @@ graph LR
   export_resolveAuthFlow["resolveAuthFlow"]
   module_src_auth_ts --> export_resolveAuthFlow
   export_resolveAuthFlow -.-> export_AuthFlowConfig
-  export_RestDataSourceConfig["RestDataSourceConfig"]
-  module_src_data_sources_ts --> export_RestDataSourceConfig
-  export_RestDataSourceConfig -.-> export_CredentialRef
-  export_RestDataSourceConfig -.-> export_DataContractValue
-  export_RestDataSourceConfig -.-> export_DataEndpointConfig
-  export_RestDataSourceConfig -.-> export_DataSchema
   export_RouteDefinition["RouteDefinition"]
   module_src_types_ts --> export_RouteDefinition
   export_RouteDefinition -.-> export_IconSpec
@@ -854,7 +829,7 @@ graph LR
   export_ScreenRequirements -.-> export_ScreenPermissionRequirement
   export_ScreenSpec["ScreenSpec"]
   module_src_types_ts --> export_ScreenSpec
-  export_ScreenSpec -.-> export_ScreenDataLoaderDefinition
+  export_ScreenSpec -.-> export_OperationScreenDataLoaderDefinition
   export_ScreenSpec -.-> export_ScreenRequirements
   export_ScreenSpec -.-> export_UiNode
   export_SearchAction["SearchAction"]

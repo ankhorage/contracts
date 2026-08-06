@@ -1,11 +1,12 @@
-import type { DbCollectionDefinition } from '../db';
 import type { DataEndpointRegistry } from './endpoints';
 import type { DataSourceId } from './ids';
-import type { AdapterRef, CredentialRef } from './refs';
+import type { CredentialRef, DatabaseAdapterRef } from './refs';
 import type { DataSchemaRegistry } from './schemas';
 import type { DataContractValue } from './values';
 
-export type DataSourceKind = 'database' | 'graphql' | 'managed-api' | 'openapi' | 'rest';
+export type DataSourceKind = 'api' | 'database';
+export type ApiOrigin = 'external' | 'generated';
+export type ApiProtocol = 'graphql' | 'rest';
 
 export interface DataSourceBaseConfig {
   readonly id: DataSourceId;
@@ -18,25 +19,28 @@ export interface DataSourceBaseConfig {
   readonly metadata?: DataContractValue;
 }
 
-export interface RestDataSourceConfig extends DataSourceBaseConfig {
-  readonly kind: 'rest';
-  readonly baseUrl: string;
+export interface ApiDataSourceBaseConfig extends DataSourceBaseConfig {
+  readonly kind: 'api';
+  readonly origin: ApiOrigin;
+  readonly protocol: ApiProtocol;
 }
 
-export interface OpenApiImportRef {
+export interface OpenApiDocumentRef {
   readonly url?: string;
   readonly documentId?: string;
   readonly version?: string;
 }
 
-export interface OpenApiDataSourceConfig extends DataSourceBaseConfig {
-  readonly kind: 'openapi';
-  readonly baseUrl?: string;
-  readonly import?: OpenApiImportRef;
+export interface ExternalRestApiDataSourceConfig extends ApiDataSourceBaseConfig {
+  readonly origin: 'external';
+  readonly protocol: 'rest';
+  readonly baseUrl: string;
+  readonly openApi?: OpenApiDocumentRef;
 }
 
-export interface GraphQlDataSourceConfig extends DataSourceBaseConfig {
-  readonly kind: 'graphql';
+export interface ExternalGraphQlApiDataSourceConfig extends ApiDataSourceBaseConfig {
+  readonly origin: 'external';
+  readonly protocol: 'graphql';
   readonly endpointUrl: string;
   readonly introspection?: {
     readonly enabled: boolean;
@@ -44,29 +48,23 @@ export interface GraphQlDataSourceConfig extends DataSourceBaseConfig {
   };
 }
 
+export interface GeneratedRestApiDataSourceConfig extends ApiDataSourceBaseConfig {
+  readonly origin: 'generated';
+  readonly protocol: 'rest';
+  readonly generatedApiId: string;
+  readonly adapter: DatabaseAdapterRef;
+}
+
+export type ApiDataSourceConfig =
+  | ExternalGraphQlApiDataSourceConfig
+  | ExternalRestApiDataSourceConfig
+  | GeneratedRestApiDataSourceConfig;
+
 export interface DatabaseDataSourceConfig extends DataSourceBaseConfig {
   readonly kind: 'database';
-  readonly adapter: AdapterRef;
+  readonly adapter: DatabaseAdapterRef;
 }
 
-export interface ManagedApiResourceConfig {
-  readonly name: string;
-  readonly collection: DbCollectionDefinition;
-  readonly operations?: readonly ('create' | 'delete' | 'list' | 'read' | 'update')[];
-  readonly metadata?: DataContractValue;
-}
-
-export interface ManagedApiDataSourceConfig extends DataSourceBaseConfig {
-  readonly kind: 'managed-api';
-  readonly adapter: AdapterRef;
-  readonly resources: readonly ManagedApiResourceConfig[];
-}
-
-export type DataSourceConfig =
-  | DatabaseDataSourceConfig
-  | GraphQlDataSourceConfig
-  | ManagedApiDataSourceConfig
-  | OpenApiDataSourceConfig
-  | RestDataSourceConfig;
+export type DataSourceConfig = ApiDataSourceConfig | DatabaseDataSourceConfig;
 
 export type DataSourceRegistry = Readonly<Record<DataSourceId, DataSourceConfig>>;

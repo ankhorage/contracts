@@ -1,146 +1,69 @@
-import { describe, expect, test } from 'bun:test';
+import { describe, expect, it } from 'bun:test';
 
-import type {
-  AppApiDefinition,
-  AppApiEndpointDefinition,
-  AppApiManifest,
-  AppGeneratedApiDefinition,
-} from './apis';
-import { APP_API_ENDPOINT_INTENTS, APP_API_ENDPOINT_METHODS, APP_API_KINDS } from './apis';
+import type { GeneratedApiDefinition, GeneratedApiRegistry } from './apis';
+import { GENERATED_API_CRUD_OPERATIONS } from './apis';
 
-const crudEndpoints = [
-  {
-    id: 'players.list',
-    method: 'GET',
-    path: '/',
-    intent: 'list',
-  },
-  {
-    id: 'players.create',
-    method: 'POST',
-    path: '/',
-    intent: 'create',
-  },
-  {
-    id: 'players.read',
-    method: 'GET',
-    path: '/{id}',
-    intent: 'read',
-  },
-  {
-    id: 'players.update',
-    method: 'PATCH',
-    path: '/{id}',
-    intent: 'update',
-  },
-  {
-    id: 'players.delete',
-    method: 'DELETE',
-    path: '/{id}',
-    intent: 'delete',
-  },
-] satisfies readonly AppApiEndpointDefinition[];
+function assertSerializable<TValue>(value: TValue): void {
+  expect(JSON.parse(JSON.stringify(value))).toEqual(value);
+}
 
-describe('app API authoring contracts', () => {
-  test('exports stable API authoring constants', () => {
-    expect(APP_API_KINDS).toEqual(['external', 'generated']);
-    expect(APP_API_ENDPOINT_METHODS).toEqual([
-      'DELETE',
-      'GET',
-      'HEAD',
-      'OPTIONS',
-      'PATCH',
-      'POST',
-      'PUT',
-    ]);
-    expect(APP_API_ENDPOINT_INTENTS).toEqual([
-      'create',
-      'custom',
-      'delete',
-      'list',
-      'read',
-      'update',
-    ]);
-  });
-
-  test('serializes generated APIs with a CRUD preset and explicit custom endpoints', () => {
-    const generatedApi: AppGeneratedApiDefinition = {
-      id: 'players',
-      kind: 'generated',
-      label: 'Players',
-      basePath: '/api/players',
-      preset: 'crud',
-      resource: {
-        kind: 'collection',
+function createGeneratedApi(): GeneratedApiDefinition {
+  return {
+    id: 'catalog-api',
+    protocol: 'rest',
+    name: 'Catalog API',
+    description: 'Generated CRUD API for catalog resources.',
+    basePath: '/api/catalog',
+    database: {
+      id: 'primary-db',
+      kind: 'database',
+      packageName: '@ankhorage/supabase-db',
+    },
+    auth: {
+      required: true,
+      roles: ['editor'],
+    },
+    resources: [
+      {
+        id: 'products',
+        name: 'Products',
+        path: '/products',
         collection: {
-          name: 'players',
+          name: 'products',
+          schema: 'public',
           primaryKey: 'id',
           fields: [
-            { name: 'id', type: 'uuid', required: true },
+            { name: 'id', type: 'uuid', required: true, unique: true },
             { name: 'name', type: 'text', required: true },
-            { name: 'score', type: 'number' },
+            { name: 'price', type: 'number', required: true },
           ],
         },
-        seed: [
-          {
-            id: 'player-1',
-            name: 'Ada',
-            score: 42,
-          },
+        operations: GENERATED_API_CRUD_OPERATIONS,
+        seed: [{ id: 'product-1', name: 'Keyboard', price: 120 }],
+        policies: [
+          { id: 'catalog.read', operation: 'list' },
+          { id: 'catalog.write', operation: 'create' },
         ],
       },
-      endpoints: [
-        ...crudEndpoints,
-        {
-          id: 'players.leaderboard',
-          method: 'GET',
-          path: '/leaderboard',
-          intent: 'custom',
-        },
-      ],
-    };
-    const manifest: AppApiManifest = {
-      apis: {
-        players: generatedApi,
-      },
-    };
+    ],
+  };
+}
 
-    expect(JSON.parse(JSON.stringify(manifest))).toEqual({
-      apis: {
-        players: generatedApi,
-      },
-    });
-    expect(manifest.apis?.players?.endpoints.map((endpoint) => endpoint.path)).toEqual([
-      '/',
-      '/',
-      '/{id}',
-      '/{id}',
-      '/{id}',
-      '/leaderboard',
-    ]);
+describe('generated API desired-state contracts', () => {
+  it('serializes generated REST/CRUD resources independently of runtime operations', () => {
+    const api = createGeneratedApi();
+
+    assertSerializable(api);
+    expect(api.database.kind).toBe('database');
+    expect(api.resources[0]?.operations).toEqual(GENERATED_API_CRUD_OPERATIONS);
+    expect(api.resources[0]?.seed?.[0]?.name).toBe('Keyboard');
   });
 
-  test('serializes external APIs without generated resource definitions', () => {
-    const externalApi: AppApiDefinition = {
-      id: 'stripe',
-      kind: 'external',
-      label: 'Stripe',
-      basePath: '/api/stripe',
-      baseUrl: 'https://api.stripe.com',
-      endpoints: [
-        {
-          id: 'stripe.createCheckoutSession',
-          method: 'POST',
-          path: '/checkout/sessions',
-          intent: 'custom',
-          auth: {
-            required: true,
-            permissions: ['payments:create'],
-          },
-        },
-      ],
-    };
+  it('stores generated APIs in a dedicated canonical registry', () => {
+    const api = createGeneratedApi();
+    const registry: GeneratedApiRegistry = { [api.id]: api };
 
-    expect(JSON.parse(JSON.stringify(externalApi))).toEqual(externalApi);
+    assertSerializable(registry);
+    expect(registry['catalog-api']?.protocol).toBe('rest');
   });
 });
