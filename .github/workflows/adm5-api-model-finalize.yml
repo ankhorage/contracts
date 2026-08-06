@@ -1,0 +1,76 @@
+name: ADM5 API Model Finalize
+
+on:
+  push:
+    branches:
+      - agent/adm-5-managed-api-contract
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/adm-5-managed-api-contract
+          fetch-depth: 0
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.13
+
+      - name: Add generated API registry to the manifest
+        run: |
+          python <<'PY'
+          from pathlib import Path
+
+          path = Path('src/types.ts')
+          text = path.read_text()
+          text = text.replace(
+              "import type { DataSourceRegistry } from './data';",
+              "import type { DataSourceRegistry, GeneratedApiRegistry } from './data';",
+          )
+          text = text.replace(
+              "  screens: Record<string, ScreenSpec>;\n  dataSources?: DataSourceRegistry;",
+              "  screens: Record<string, ScreenSpec>;\n  generatedApis?: GeneratedApiRegistry;\n  dataSources?: DataSourceRegistry;",
+          )
+          if "generatedApis?: GeneratedApiRegistry;" not in text:
+              raise SystemExit('Failed to add generatedApis to AppManifest')
+          path.write_text(text)
+          PY
+
+      - name: Install and generate
+        run: |
+          bun install --frozen-lockfile
+          bun run lint:fix
+          bun run docs
+          bun run format
+
+      - name: Validate contracts
+        run: |
+          bun run build
+          bun run lint
+          bun run format:check
+          bun run knip
+          bun run test
+          bun run typecheck
+
+      - name: Commit corrected contract and generated docs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A ':!.github/workflows/adm5-api-model-finalize.yml'
+          git commit -m "chore: finalize corrected API contract model"
+          git fetch origin main
+          bun run changeset:status
+
+      - name: Remove helper and push
+        run: |
+          rm .github/workflows/adm5-api-model-finalize.yml
+          git add .github/workflows/adm5-api-model-finalize.yml
+          git commit -m "ci: remove adm5 API model finalizer"
+          git push origin HEAD:agent/adm-5-managed-api-contract
