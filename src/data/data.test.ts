@@ -1,9 +1,9 @@
 import { describe, expect, it } from 'bun:test';
 
 import type {
+  DatabaseDataSourceConfig,
   DataSourceConfig,
   DataSourceDiagnostic,
-  DatabaseDataSourceConfig,
   ExternalGraphQlApiDataSourceConfig,
   ExternalRestApiDataSourceConfig,
   GeneratedRestApiDataSourceConfig,
