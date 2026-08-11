@@ -1,5 +1,16 @@
 # @ankhorage/contracts
 
+## 5.0.0
+
+### Major Changes
+
+- 671bbcb: Replace the tab-specific route visibility field with `showInPrimaryNavigation`. Omitted routes remain visible by default, while `false` hides a route from Tabs and Drawer primary navigation without removing its navigability.
+- b125e14: Replace the mixed REST, OpenAPI, GraphQL, and managed-API data-source kinds with an orthogonal API/database model. APIs now declare external/generated origin and REST/GraphQL protocol, while OpenAPI is optional REST description metadata. Preserve generated REST/CRUD desired state in a dedicated manifest registry and keep its normalized runtime data-source projection separate, with no speculative API-server generator adapter.
+
+### Patch Changes
+
+- a804711: Release trigger
+
 ## 4.0.1
 
 ### Patch Changes
