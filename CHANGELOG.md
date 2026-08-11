@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 6.0.0
+
+### Major Changes
+
+- 6dd3d50: Replace the Ankhorage module registry fields on `InfraManifest` with the canonical `modules` and `modulesConfig` names. The obsolete `plugins` and `pluginsConfig` fields are removed without compatibility aliases.
+
 ## 5.0.0
 
 ### Major Changes
