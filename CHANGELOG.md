@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 7.0.0
+
+### Major Changes
+
+- 24d3c97: Remove the unused nutrition contracts and the public `@ankhorage/contracts/nutrition` subpath export.
+
 ## 6.0.0
 
 ### Major Changes
