@@ -6960,23 +6960,23 @@
         "description": null
       },
       {
-        "name": "networking",
-        "kind": "property",
-        "type": "NetworkingSpec | undefined",
-        "required": false,
-        "description": null
-      },
-      {
-        "name": "plugins",
+        "name": "modules",
         "kind": "property",
         "type": "string[]",
         "required": true,
         "description": null
       },
       {
-        "name": "pluginsConfig",
+        "name": "modulesConfig",
         "kind": "property",
         "type": "Record<string, unknown> | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "networking",
+        "kind": "property",
+        "type": "NetworkingSpec | undefined",
         "required": false,
         "description": null
       },

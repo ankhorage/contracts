@@ -25,6 +25,7 @@ import {
   DEPLOYMENT_TARGETS,
   type FormSubmitEventDto,
   type ImageAssetSource,
+  type InfraManifest,
   NAVIGATOR_TYPES,
   type RouteDefinition,
   type SplashScreenSpec,
@@ -242,16 +243,53 @@ describe('contracts', () => {
     const manifest: Pick<AppManifest, 'infra'> = {
       infra: {
         state,
-        plugins: [],
+        modules: [],
+        modulesConfig: {
+          localization: {
+            defaultLocale: 'en',
+          },
+        },
       },
     };
 
     expect(JSON.parse(JSON.stringify(manifest))).toEqual({
       infra: {
         state,
-        plugins: [],
+        modules: [],
+        modulesConfig: {
+          localization: {
+            defaultLocale: 'en',
+          },
+        },
       },
     });
+  });
+
+  it('exposes only canonical module fields without reserving external plugin terminology', () => {
+    type HasLegacyModules = 'plugins' extends keyof InfraManifest ? true : false;
+    type HasLegacyModulesConfig = 'pluginsConfig' extends keyof InfraManifest ? true : false;
+
+    const hasLegacyModules: HasLegacyModules = false;
+    const hasLegacyModulesConfig: HasLegacyModulesConfig = false;
+    const infra: InfraManifest = {
+      modules: ['expo-localization'],
+      modulesConfig: {
+        'expo-localization': {
+          defaultLocale: 'en',
+          locales: ['en', 'de'],
+        },
+      },
+    };
+    // `plugins` remains valid when it names an unrelated external ecosystem concept,
+    // such as Expo configuration plugins rather than Ankhorage Orchestrator modules.
+    const expoConfig: { plugins: string[] } = {
+      plugins: ['expo-router'],
+    };
+
+    expect(hasLegacyModules).toBe(false);
+    expect(hasLegacyModulesConfig).toBe(false);
+    expect(Object.keys(infra).sort()).toEqual(['modules', 'modulesConfig']);
+    expect(expoConfig.plugins).toEqual(['expo-router']);
   });
 
   it('ThemeModeConfig.harmony accepts all ColorHarmony values', () => {
