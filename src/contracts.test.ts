@@ -26,6 +26,7 @@ import {
   type FormSubmitEventDto,
   type ImageAssetSource,
   NAVIGATOR_TYPES,
+  type RouteDefinition,
   type SplashScreenSpec,
   STATE_PERSISTENCE_MODES,
   STATE_PROVIDERS,
@@ -113,6 +114,27 @@ describe('contracts', () => {
   it('exports the app category union for template packages', () => {
     const category: AppCategory = 'developer_tools';
     expect(category).toBe('developer_tools');
+  });
+
+  it('serializes canonical primary-navigation visibility on routes', () => {
+    const visibleRoute: RouteDefinition = {
+      name: 'home',
+      path: '/',
+      screenId: 'home-screen',
+    };
+    const hiddenRoute: RouteDefinition = {
+      name: 'settings',
+      path: '/settings',
+      screenId: 'settings-screen',
+      showInPrimaryNavigation: false,
+    };
+
+    expect(JSON.parse(JSON.stringify({ visibleRoute, hiddenRoute }))).toEqual({
+      visibleRoute,
+      hiddenRoute,
+    });
+    expect(visibleRoute.showInPrimaryNavigation).toBeUndefined();
+    expect(hiddenRoute.showInPrimaryNavigation).toBe(false);
   });
 
   it('accepts the current serialized theme config shape', () => {
@@ -253,7 +275,7 @@ describe('contracts', () => {
     expect(names.includes('color-theory.ts')).toBe(false);
   });
 
-  it('removes all old tone/mood/recommendation symbols from src recursively', async () => {
+  it('removes obsolete contract symbols from src recursively', async () => {
     const banned = [
       'Color' + 'Tone',
       'color' + 'Tone',
@@ -263,6 +285,7 @@ describe('contracts', () => {
       'APP_' + 'MOODS',
       'suggested' + 'Color' + 'Tone',
       'APP_CATEGORY_' + 'THEME_RECOMMENDATIONS',
+      'hide' + 'InTabBar',
     ];
 
     const srcFiles = await collectTypeScriptFiles(join(process.cwd(), 'src'));
