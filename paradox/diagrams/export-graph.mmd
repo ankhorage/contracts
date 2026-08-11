@@ -14,11 +14,6 @@ graph LR
   module_src_data_values_ts["src/data/values.ts"]
   module_src_db_ts["src/db.ts"]
   module_src_index_ts["src/index.ts"]
-  module_src_nutrition_capture_ts["src/nutrition/capture.ts"]
-  module_src_nutrition_common_ts["src/nutrition/common.ts"]
-  module_src_nutrition_index_ts["src/nutrition/index.ts"]
-  module_src_nutrition_products_ts["src/nutrition/products.ts"]
-  module_src_nutrition_review_ts["src/nutrition/review.ts"]
   module_src_requirements_ts["src/requirements.ts"]
   module_src_runtimeCallbacks_ts["src/runtimeCallbacks.ts"]
   module_src_secretManifest_ts["src/secretManifest.ts"]
@@ -663,122 +658,6 @@ graph LR
   module_src_secrets_ts --> export_normalizeSecretScope
   export_normalizeSecretScope -.-> export_SecretScope
   export_normalizeSecretScope -.-> export_SecretStoreResult
-  export_NUTRITION_BARCODE_TYPES["NUTRITION_BARCODE_TYPES"]
-  module_src_nutrition_common_ts --> export_NUTRITION_BARCODE_TYPES
-  export_NUTRITION_CAPTURE_SUBMISSION_STATUSES["NUTRITION_CAPTURE_SUBMISSION_STATUSES"]
-  module_src_nutrition_capture_ts --> export_NUTRITION_CAPTURE_SUBMISSION_STATUSES
-  export_NUTRITION_DATA_SOURCES["NUTRITION_DATA_SOURCES"]
-  module_src_nutrition_common_ts --> export_NUTRITION_DATA_SOURCES
-  export_NUTRITION_IMAGE_KINDS["NUTRITION_IMAGE_KINDS"]
-  module_src_nutrition_products_ts --> export_NUTRITION_IMAGE_KINDS
-  export_NUTRITION_PRODUCT_STATUSES["NUTRITION_PRODUCT_STATUSES"]
-  module_src_nutrition_common_ts --> export_NUTRITION_PRODUCT_STATUSES
-  export_NUTRITION_REVIEW_DECISIONS["NUTRITION_REVIEW_DECISIONS"]
-  module_src_nutrition_review_ts --> export_NUTRITION_REVIEW_DECISIONS
-  export_NUTRITION_SOURCE_CONFIDENCE_LEVELS["NUTRITION_SOURCE_CONFIDENCE_LEVELS"]
-  module_src_nutrition_common_ts --> export_NUTRITION_SOURCE_CONFIDENCE_LEVELS
-  export_NutritionAllergenTag["NutritionAllergenTag"]
-  module_src_nutrition_products_ts --> export_NutritionAllergenTag
-  export_NutritionBarcode["NutritionBarcode"]
-  module_src_nutrition_common_ts --> export_NutritionBarcode
-  export_NutritionBarcodeType["NutritionBarcodeType"]
-  module_src_nutrition_common_ts --> export_NutritionBarcodeType
-  export_NutritionCaptureClientContext["NutritionCaptureClientContext"]
-  module_src_nutrition_capture_ts --> export_NutritionCaptureClientContext
-  export_NutritionCaptureSubmission["NutritionCaptureSubmission"]
-  module_src_nutrition_capture_ts --> export_NutritionCaptureSubmission
-  export_NutritionCaptureSubmission -.-> export_NutritionCaptureClientContext
-  export_NutritionCaptureSubmission -.-> export_NutritionProductCaptureDraft
-  export_NutritionCaptureSubmissionId["NutritionCaptureSubmissionId"]
-  module_src_nutrition_common_ts --> export_NutritionCaptureSubmissionId
-  export_NutritionCaptureSubmissionStatus["NutritionCaptureSubmissionStatus"]
-  module_src_nutrition_capture_ts --> export_NutritionCaptureSubmissionStatus
-  export_NutritionDataSource["NutritionDataSource"]
-  module_src_nutrition_common_ts --> export_NutritionDataSource
-  export_NutritionFactsPer100g["NutritionFactsPer100g"]
-  module_src_nutrition_products_ts --> export_NutritionFactsPer100g
-  export_NutritionFactsPer100g -.-> export_NutritionMeasurementBasis
-  export_NutritionImageEvidence["NutritionImageEvidence"]
-  module_src_nutrition_products_ts --> export_NutritionImageEvidence
-  export_NutritionImageEvidence -.-> export_NutritionJsonValue
-  export_NutritionImageKind["NutritionImageKind"]
-  module_src_nutrition_products_ts --> export_NutritionImageKind
-  export_NutritionIngredientStatement["NutritionIngredientStatement"]
-  module_src_nutrition_products_ts --> export_NutritionIngredientStatement
-  export_NutritionIsoDateTime["NutritionIsoDateTime"]
-  module_src_nutrition_common_ts --> export_NutritionIsoDateTime
-  export_NutritionJsonValue["NutritionJsonValue"]
-  module_src_nutrition_common_ts --> export_NutritionJsonValue
-  export_NutritionMeasurementBasis["NutritionMeasurementBasis"]
-  module_src_nutrition_products_ts --> export_NutritionMeasurementBasis
-  export_NutritionProduct["NutritionProduct"]
-  module_src_nutrition_products_ts --> export_NutritionProduct
-  export_NutritionProduct -.-> export_NutritionAllergenTag
-  export_NutritionProduct -.-> export_NutritionBarcode
-  export_NutritionProduct -.-> export_NutritionFactsPer100g
-  export_NutritionProduct -.-> export_NutritionImageEvidence
-  export_NutritionProduct -.-> export_NutritionIngredientStatement
-  export_NutritionProduct -.-> export_NutritionJsonValue
-  export_NutritionProduct -.-> export_NutritionServing
-  export_NutritionProduct -.-> export_NutritionStoreObservation
-  export_NutritionProductCaptureDraft["NutritionProductCaptureDraft"]
-  module_src_nutrition_capture_ts --> export_NutritionProductCaptureDraft
-  export_NutritionProductCaptureDraft -.-> export_NutritionBarcode
-  export_NutritionProductCaptureDraft -.-> export_NutritionFactsPer100g
-  export_NutritionProductCaptureDraft -.-> export_NutritionImageEvidence
-  export_NutritionProductCaptureDraft -.-> export_NutritionIngredientStatement
-  export_NutritionProductCaptureDraft -.-> export_NutritionJsonValue
-  export_NutritionProductCaptureDraft -.-> export_NutritionServing
-  export_NutritionProductCaptureDraft -.-> export_NutritionStoreObservation
-  export_NutritionProductCaptureRequest["NutritionProductCaptureRequest"]
-  module_src_nutrition_capture_ts --> export_NutritionProductCaptureRequest
-  export_NutritionProductCaptureRequest -.-> export_NutritionCaptureClientContext
-  export_NutritionProductCaptureRequest -.-> export_NutritionProductCaptureDraft
-  export_NutritionProductCaptureResponse["NutritionProductCaptureResponse"]
-  module_src_nutrition_capture_ts --> export_NutritionProductCaptureResponse
-  export_NutritionProductCorrectionRequest["NutritionProductCorrectionRequest"]
-  module_src_nutrition_capture_ts --> export_NutritionProductCorrectionRequest
-  export_NutritionProductCorrectionRequest -.-> export_NutritionCaptureClientContext
-  export_NutritionProductCorrectionRequest -.-> export_NutritionProductCaptureDraft
-  export_NutritionProductDetail["NutritionProductDetail"]
-  module_src_nutrition_products_ts --> export_NutritionProductDetail
-  export_NutritionProductDetail -.-> export_NutritionProduct
-  export_NutritionProductId["NutritionProductId"]
-  module_src_nutrition_common_ts --> export_NutritionProductId
-  export_NutritionProductLookupByBarcodeResponse["NutritionProductLookupByBarcodeResponse"]
-  module_src_nutrition_products_ts --> export_NutritionProductLookupByBarcodeResponse
-  export_NutritionProductLookupByBarcodeResponse -.-> export_NutritionProduct
-  export_NutritionProductStatus["NutritionProductStatus"]
-  module_src_nutrition_common_ts --> export_NutritionProductStatus
-  export_NutritionProductSummary["NutritionProductSummary"]
-  module_src_nutrition_products_ts --> export_NutritionProductSummary
-  export_NutritionProductSummary -.-> export_NutritionBarcode
-  export_NutritionReviewDecision["NutritionReviewDecision"]
-  module_src_nutrition_review_ts --> export_NutritionReviewDecision
-  export_NutritionReviewDecisionRequest["NutritionReviewDecisionRequest"]
-  module_src_nutrition_review_ts --> export_NutritionReviewDecisionRequest
-  export_NutritionReviewDecisionRequest -.-> export_NutritionJsonValue
-  export_NutritionReviewDecisionRequest -.-> export_NutritionProduct
-  export_NutritionReviewDecisionResponse["NutritionReviewDecisionResponse"]
-  module_src_nutrition_review_ts --> export_NutritionReviewDecisionResponse
-  export_NutritionReviewId["NutritionReviewId"]
-  module_src_nutrition_common_ts --> export_NutritionReviewId
-  export_NutritionReviewRecord["NutritionReviewRecord"]
-  module_src_nutrition_review_ts --> export_NutritionReviewRecord
-  export_NutritionReviewRecord -.-> export_NutritionJsonValue
-  export_NutritionReviewSubmissionListRequest["NutritionReviewSubmissionListRequest"]
-  module_src_nutrition_review_ts --> export_NutritionReviewSubmissionListRequest
-  export_NutritionReviewSubmissionListResponse["NutritionReviewSubmissionListResponse"]
-  module_src_nutrition_review_ts --> export_NutritionReviewSubmissionListResponse
-  export_NutritionReviewSubmissionListResponse -.-> export_NutritionCaptureSubmission
-  export_NutritionServing["NutritionServing"]
-  module_src_nutrition_products_ts --> export_NutritionServing
-  export_NutritionSourceConfidence["NutritionSourceConfidence"]
-  module_src_nutrition_common_ts --> export_NutritionSourceConfidence
-  export_NutritionStoreObservation["NutritionStoreObservation"]
-  module_src_nutrition_products_ts --> export_NutritionStoreObservation
-  export_NutritionUserId["NutritionUserId"]
-  module_src_nutrition_common_ts --> export_NutritionUserId
   export_OpenApiDocumentRef["OpenApiDocumentRef"]
   module_src_data_sources_ts --> export_OpenApiDocumentRef
   export_OperationId["OperationId"]

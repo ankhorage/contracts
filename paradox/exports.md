@@ -149,18 +149,18 @@ Source: `src/data/sources.ts:22:1`
 
 ### Members
 
-| Name        | Kind     | Type                                                                                                       | Required | Description |
-| ----------- | -------- | ---------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| credential  | property | `CredentialRef \| undefined`                                                                               | no       |             |
-| description | property | `string \| undefined`                                                                                      | no       |             |
-| endpoints   | property | `Readonly<Record<string, import("/Users/a_rtiphishl_e/git/contracts/src/index").DataEndpointConfig>>`      | yes      |             |
-| id          | property | `string`                                                                                                   | yes      |             |
-| kind        | property | `"api"`                                                                                                    | yes      |             |
-| metadata    | property | `DataContractValue \| undefined`                                                                           | no       |             |
-| name        | property | `string \| undefined`                                                                                      | no       |             |
-| origin      | property | `ApiOrigin`                                                                                                | yes      |             |
-| protocol    | property | `ApiProtocol`                                                                                              | yes      |             |
-| schemas     | property | `Readonly<Record<string, import("/Users/a_rtiphishl_e/git/contracts/src/index").DataSchema>> \| undefined` | no       |             |
+| Name        | Kind     | Type                                                                                                          | Required | Description |
+| ----------- | -------- | ------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
+| credential  | property | `CredentialRef \| undefined`                                                                                  | no       |             |
+| description | property | `string \| undefined`                                                                                         | no       |             |
+| endpoints   | property | `Readonly<Record<string, import("/home/runner/work/contracts/contracts/src/index").DataEndpointConfig>>`      | yes      |             |
+| id          | property | `string`                                                                                                      | yes      |             |
+| kind        | property | `"api"`                                                                                                       | yes      |             |
+| metadata    | property | `DataContractValue \| undefined`                                                                              | no       |             |
+| name        | property | `string \| undefined`                                                                                         | no       |             |
+| origin      | property | `ApiOrigin`                                                                                                   | yes      |             |
+| protocol    | property | `ApiProtocol`                                                                                                 | yes      |             |
+| schemas     | property | `Readonly<Record<string, import("/home/runner/work/contracts/contracts/src/index").DataSchema>> \| undefined` | no       |             |
 
 ## ApiDataSourceConfig
 
@@ -204,9 +204,9 @@ Source: `src/types.ts:382:1`
 | --------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------ | -------- | ----------- |
 | activeThemeId   | property | `string`                                                                                                                       | yes      |             |
 | activeThemeMode | property | `"dark" \| "light" \| undefined`                                                                                               | no       |             |
-| dataBindings    | property | `Readonly<Record<string, import("/Users/a_rtiphishl_e/git/contracts/src/bindings").ComponentDataBinding>> \| undefined`        | no       |             |
-| dataSources     | property | `Readonly<Record<string, import("/Users/a_rtiphishl_e/git/contracts/src/index").DataSourceConfig>> \| undefined`               | no       |             |
-| generatedApis   | property | `Readonly<Record<string, import("/Users/a_rtiphishl_e/git/contracts/src/index").GeneratedApiDefinition>> \| undefined`         | no       |             |
+| dataBindings    | property | `Readonly<Record<string, import("/home/runner/work/contracts/contracts/src/bindings").ComponentDataBinding>> \| undefined`     | no       |             |
+| dataSources     | property | `Readonly<Record<string, import("/home/runner/work/contracts/contracts/src/index").DataSourceConfig>> \| undefined`            | no       |             |
+| generatedApis   | property | `Readonly<Record<string, import("/home/runner/work/contracts/contracts/src/index").GeneratedApiDefinition>> \| undefined`      | no       |             |
 | infra           | property | `InfraManifest`                                                                                                                | yes      |             |
 | metadata        | property | `{ name: string; slug: string; version: string; category: AppCategory; themeId: string; created?: string; updated?: string; }` | yes      |             |
 | navigator       | property | `NavigatorSpec`                                                                                                                | yes      |             |
@@ -1105,17 +1105,17 @@ Source: `src/data/sources.ts:63:1`
 
 ### Members
 
-| Name        | Kind     | Type                                                                                                       | Required | Description |
-| ----------- | -------- | ---------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| adapter     | property | `DatabaseAdapterRef`                                                                                       | yes      |             |
-| credential  | property | `CredentialRef \| undefined`                                                                               | no       |             |
-| description | property | `string \| undefined`                                                                                      | no       |             |
-| endpoints   | property | `Readonly<Record<string, import("/Users/a_rtiphishl_e/git/contracts/src/index").DataEndpointConfig>>`      | yes      |             |
-| id          | property | `string`                                                                                                   | yes      |             |
-| kind        | property | `"database"`                                                                                               | yes      |             |
-| metadata    | property | `DataContractValue \| undefined`                                                                           | no       |             |
-| name        | property | `string \| undefined`                                                                                      | no       |             |
-| schemas     | property | `Readonly<Record<string, import("/Users/a_rtiphishl_e/git/contracts/src/index").DataSchema>> \| undefined` | no       |             |
+| Name        | Kind     | Type                                                                                                          | Required | Description |
+| ----------- | -------- | ------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
+| adapter     | property | `DatabaseAdapterRef`                                                                                          | yes      |             |
+| credential  | property | `CredentialRef \| undefined`                                                                                  | no       |             |
+| description | property | `string \| undefined`                                                                                         | no       |             |
+| endpoints   | property | `Readonly<Record<string, import("/home/runner/work/contracts/contracts/src/index").DataEndpointConfig>>`      | yes      |             |
+| id          | property | `string`                                                                                                      | yes      |             |
+| kind        | property | `"database"`                                                                                                  | yes      |             |
+| metadata    | property | `DataContractValue \| undefined`                                                                              | no       |             |
+| name        | property | `string \| undefined`                                                                                         | no       |             |
+| schemas     | property | `Readonly<Record<string, import("/home/runner/work/contracts/contracts/src/index").DataSchema>> \| undefined` | no       |             |
 
 ## DatabaseProvider
 
@@ -1403,16 +1403,16 @@ Source: `src/data/sources.ts:11:1`
 
 ### Members
 
-| Name        | Kind     | Type                                                                                                       | Required | Description |
-| ----------- | -------- | ---------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| credential  | property | `CredentialRef \| undefined`                                                                               | no       |             |
-| description | property | `string \| undefined`                                                                                      | no       |             |
-| endpoints   | property | `Readonly<Record<string, import("/Users/a_rtiphishl_e/git/contracts/src/index").DataEndpointConfig>>`      | yes      |             |
-| id          | property | `string`                                                                                                   | yes      |             |
-| kind        | property | `DataSourceKind`                                                                                           | yes      |             |
-| metadata    | property | `DataContractValue \| undefined`                                                                           | no       |             |
-| name        | property | `string \| undefined`                                                                                      | no       |             |
-| schemas     | property | `Readonly<Record<string, import("/Users/a_rtiphishl_e/git/contracts/src/index").DataSchema>> \| undefined` | no       |             |
+| Name        | Kind     | Type                                                                                                          | Required | Description |
+| ----------- | -------- | ------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
+| credential  | property | `CredentialRef \| undefined`                                                                                  | no       |             |
+| description | property | `string \| undefined`                                                                                         | no       |             |
+| endpoints   | property | `Readonly<Record<string, import("/home/runner/work/contracts/contracts/src/index").DataEndpointConfig>>`      | yes      |             |
+| id          | property | `string`                                                                                                      | yes      |             |
+| kind        | property | `DataSourceKind`                                                                                              | yes      |             |
+| metadata    | property | `DataContractValue \| undefined`                                                                              | no       |             |
+| name        | property | `string \| undefined`                                                                                         | no       |             |
+| schemas     | property | `Readonly<Record<string, import("/home/runner/work/contracts/contracts/src/index").DataSchema>> \| undefined` | no       |             |
 
 ## DataSourceConfig
 
@@ -1892,20 +1892,20 @@ Source: `src/data/sources.ts:41:1`
 
 ### Members
 
-| Name          | Kind     | Type                                                                                                       | Required | Description |
-| ------------- | -------- | ---------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| credential    | property | `CredentialRef \| undefined`                                                                               | no       |             |
-| description   | property | `string \| undefined`                                                                                      | no       |             |
-| endpoints     | property | `Readonly<Record<string, import("/Users/a_rtiphishl_e/git/contracts/src/index").DataEndpointConfig>>`      | yes      |             |
-| endpointUrl   | property | `string`                                                                                                   | yes      |             |
-| id            | property | `string`                                                                                                   | yes      |             |
-| introspection | property | `{ readonly enabled: boolean; readonly schemaVersion?: string; } \| undefined`                             | no       |             |
-| kind          | property | `"api"`                                                                                                    | yes      |             |
-| metadata      | property | `DataContractValue \| undefined`                                                                           | no       |             |
-| name          | property | `string \| undefined`                                                                                      | no       |             |
-| origin        | property | `"external"`                                                                                               | yes      |             |
-| protocol      | property | `"graphql"`                                                                                                | yes      |             |
-| schemas       | property | `Readonly<Record<string, import("/Users/a_rtiphishl_e/git/contracts/src/index").DataSchema>> \| undefined` | no       |             |
+| Name          | Kind     | Type                                                                                                          | Required | Description |
+| ------------- | -------- | ------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
+| credential    | property | `CredentialRef \| undefined`                                                                                  | no       |             |
+| description   | property | `string \| undefined`                                                                                         | no       |             |
+| endpoints     | property | `Readonly<Record<string, import("/home/runner/work/contracts/contracts/src/index").DataEndpointConfig>>`      | yes      |             |
+| endpointUrl   | property | `string`                                                                                                      | yes      |             |
+| id            | property | `string`                                                                                                      | yes      |             |
+| introspection | property | `{ readonly enabled: boolean; readonly schemaVersion?: string; } \| undefined`                                | no       |             |
+| kind          | property | `"api"`                                                                                                       | yes      |             |
+| metadata      | property | `DataContractValue \| undefined`                                                                              | no       |             |
+| name          | property | `string \| undefined`                                                                                         | no       |             |
+| origin        | property | `"external"`                                                                                                  | yes      |             |
+| protocol      | property | `"graphql"`                                                                                                   | yes      |             |
+| schemas       | property | `Readonly<Record<string, import("/home/runner/work/contracts/contracts/src/index").DataSchema>> \| undefined` | no       |             |
 
 ## ExternalRestApiDataSourceConfig
 
@@ -1915,20 +1915,20 @@ Source: `src/data/sources.ts:34:1`
 
 ### Members
 
-| Name        | Kind     | Type                                                                                                       | Required | Description |
-| ----------- | -------- | ---------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| baseUrl     | property | `string`                                                                                                   | yes      |             |
-| credential  | property | `CredentialRef \| undefined`                                                                               | no       |             |
-| description | property | `string \| undefined`                                                                                      | no       |             |
-| endpoints   | property | `Readonly<Record<string, import("/Users/a_rtiphishl_e/git/contracts/src/index").DataEndpointConfig>>`      | yes      |             |
-| id          | property | `string`                                                                                                   | yes      |             |
-| kind        | property | `"api"`                                                                                                    | yes      |             |
-| metadata    | property | `DataContractValue \| undefined`                                                                           | no       |             |
-| name        | property | `string \| undefined`                                                                                      | no       |             |
-| openApi     | property | `OpenApiDocumentRef \| undefined`                                                                          | no       |             |
-| origin      | property | `"external"`                                                                                               | yes      |             |
-| protocol    | property | `"rest"`                                                                                                   | yes      |             |
-| schemas     | property | `Readonly<Record<string, import("/Users/a_rtiphishl_e/git/contracts/src/index").DataSchema>> \| undefined` | no       |             |
+| Name        | Kind     | Type                                                                                                          | Required | Description |
+| ----------- | -------- | ------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
+| baseUrl     | property | `string`                                                                                                      | yes      |             |
+| credential  | property | `CredentialRef \| undefined`                                                                                  | no       |             |
+| description | property | `string \| undefined`                                                                                         | no       |             |
+| endpoints   | property | `Readonly<Record<string, import("/home/runner/work/contracts/contracts/src/index").DataEndpointConfig>>`      | yes      |             |
+| id          | property | `string`                                                                                                      | yes      |             |
+| kind        | property | `"api"`                                                                                                       | yes      |             |
+| metadata    | property | `DataContractValue \| undefined`                                                                              | no       |             |
+| name        | property | `string \| undefined`                                                                                         | no       |             |
+| openApi     | property | `OpenApiDocumentRef \| undefined`                                                                             | no       |             |
+| origin      | property | `"external"`                                                                                                  | yes      |             |
+| protocol    | property | `"rest"`                                                                                                      | yes      |             |
+| schemas     | property | `Readonly<Record<string, import("/home/runner/work/contracts/contracts/src/index").DataSchema>> \| undefined` | no       |             |
 
 ## FilterAction
 
@@ -2086,20 +2086,20 @@ Source: `src/data/sources.ts:51:1`
 
 ### Members
 
-| Name           | Kind     | Type                                                                                                       | Required | Description |
-| -------------- | -------- | ---------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| adapter        | property | `DatabaseAdapterRef`                                                                                       | yes      |             |
-| credential     | property | `CredentialRef \| undefined`                                                                               | no       |             |
-| description    | property | `string \| undefined`                                                                                      | no       |             |
-| endpoints      | property | `Readonly<Record<string, import("/Users/a_rtiphishl_e/git/contracts/src/index").DataEndpointConfig>>`      | yes      |             |
-| generatedApiId | property | `string`                                                                                                   | yes      |             |
-| id             | property | `string`                                                                                                   | yes      |             |
-| kind           | property | `"api"`                                                                                                    | yes      |             |
-| metadata       | property | `DataContractValue \| undefined`                                                                           | no       |             |
-| name           | property | `string \| undefined`                                                                                      | no       |             |
-| origin         | property | `"generated"`                                                                                              | yes      |             |
-| protocol       | property | `"rest"`                                                                                                   | yes      |             |
-| schemas        | property | `Readonly<Record<string, import("/Users/a_rtiphishl_e/git/contracts/src/index").DataSchema>> \| undefined` | no       |             |
+| Name           | Kind     | Type                                                                                                          | Required | Description |
+| -------------- | -------- | ------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
+| adapter        | property | `DatabaseAdapterRef`                                                                                          | yes      |             |
+| credential     | property | `CredentialRef \| undefined`                                                                                  | no       |             |
+| description    | property | `string \| undefined`                                                                                         | no       |             |
+| endpoints      | property | `Readonly<Record<string, import("/home/runner/work/contracts/contracts/src/index").DataEndpointConfig>>`      | yes      |             |
+| generatedApiId | property | `string`                                                                                                      | yes      |             |
+| id             | property | `string`                                                                                                      | yes      |             |
+| kind           | property | `"api"`                                                                                                       | yes      |             |
+| metadata       | property | `DataContractValue \| undefined`                                                                              | no       |             |
+| name           | property | `string \| undefined`                                                                                         | no       |             |
+| origin         | property | `"generated"`                                                                                                 | yes      |             |
+| protocol       | property | `"rest"`                                                                                                      | yes      |             |
+| schemas        | property | `Readonly<Record<string, import("/home/runner/work/contracts/contracts/src/index").DataSchema>> \| undefined` | no       |             |
 
 ## IconSpec
 
@@ -2305,509 +2305,6 @@ Source: `src/secrets.ts:129:1`
   - scope: `SecretScope`
   - returns: `SecretStoreResult<SecretScope>`
 
-## NUTRITION_BARCODE_TYPES
-
-Kind: `value`
-Module: `src/nutrition/common.ts`
-Source: `src/nutrition/common.ts:15:14`
-
-## NUTRITION_CAPTURE_SUBMISSION_STATUSES
-
-Kind: `value`
-Module: `src/nutrition/capture.ts`
-Source: `src/nutrition/capture.ts:17:14`
-
-## NUTRITION_DATA_SOURCES
-
-Kind: `value`
-Module: `src/nutrition/common.ts`
-Source: `src/nutrition/common.ts:40:14`
-
-## NUTRITION_IMAGE_KINDS
-
-Kind: `value`
-Module: `src/nutrition/products.ts`
-Source: `src/nutrition/products.ts:65:14`
-
-## NUTRITION_PRODUCT_STATUSES
-
-Kind: `value`
-Module: `src/nutrition/common.ts`
-Source: `src/nutrition/common.ts:31:14`
-
-## NUTRITION_REVIEW_DECISIONS
-
-Kind: `value`
-Module: `src/nutrition/review.ts`
-Source: `src/nutrition/review.ts:12:14`
-
-## NUTRITION_SOURCE_CONFIDENCE_LEVELS
-
-Kind: `value`
-Module: `src/nutrition/common.ts`
-Source: `src/nutrition/common.ts:50:14`
-
-## NutritionAllergenTag
-
-Kind: `unknown`
-Module: `src/nutrition/products.ts`
-Source: `src/nutrition/products.ts:40:1`
-
-## NutritionBarcode
-
-Kind: `type`
-Module: `src/nutrition/common.ts`
-Source: `src/nutrition/common.ts:25:1`
-
-### Members
-
-| Name            | Kind     | Type                                                                  | Required | Description |
-| --------------- | -------- | --------------------------------------------------------------------- | -------- | ----------- |
-| normalizedValue | property | `string \| undefined`                                                 | no       |             |
-| type            | property | `"unknown" \| "ean_8" \| "ean_13" \| "upc_a" \| "upc_e" \| "gtin_14"` | yes      |             |
-| value           | property | `string`                                                              | yes      |             |
-
-## NutritionBarcodeType
-
-Kind: `unknown`
-Module: `src/nutrition/common.ts`
-Source: `src/nutrition/common.ts:23:1`
-
-## NutritionCaptureClientContext
-
-Kind: `type`
-Module: `src/nutrition/capture.ts`
-Source: `src/nutrition/capture.ts:27:1`
-
-### Members
-
-| Name              | Kind     | Type                                                        | Required | Description |
-| ----------------- | -------- | ----------------------------------------------------------- | -------- | ----------- |
-| anonymousDeviceId | property | `string \| undefined`                                       | no       |             |
-| appVersion        | property | `string \| undefined`                                       | no       |             |
-| clientCapturedAt  | property | `string \| undefined`                                       | no       |             |
-| locale            | property | `string \| undefined`                                       | no       |             |
-| platform          | property | `(string & {}) \| "android" \| "ios" \| "web" \| undefined` | no       |             |
-| userId            | property | `string \| undefined`                                       | no       |             |
-
-## NutritionCaptureSubmission
-
-Kind: `type`
-Module: `src/nutrition/capture.ts`
-Source: `src/nutrition/capture.ts:70:1`
-
-### Members
-
-| Name             | Kind     | Type                                                                    | Required | Description |
-| ---------------- | -------- | ----------------------------------------------------------------------- | -------- | ----------- |
-| client           | property | `NutritionCaptureClientContext \| undefined`                            | no       |             |
-| createdAt        | property | `string`                                                                | yes      |             |
-| decidedAt        | property | `string \| null \| undefined`                                           | no       |             |
-| draft            | property | `NutritionProductCaptureDraft`                                          | yes      |             |
-| id               | property | `string`                                                                | yes      |             |
-| matchedProductId | property | `string \| null \| undefined`                                           | no       |             |
-| reviewerNote     | property | `string \| undefined`                                                   | no       |             |
-| status           | property | `"queued" \| "needs_more_data" \| "accepted" \| "rejected" \| "merged"` | yes      |             |
-| updatedAt        | property | `string`                                                                | yes      |             |
-
-## NutritionCaptureSubmissionId
-
-Kind: `unknown`
-Module: `src/nutrition/common.ts`
-Source: `src/nutrition/common.ts:3:1`
-
-## NutritionCaptureSubmissionStatus
-
-Kind: `unknown`
-Module: `src/nutrition/capture.ts`
-Source: `src/nutrition/capture.ts:24:1`
-
-## NutritionDataSource
-
-Kind: `unknown`
-Module: `src/nutrition/common.ts`
-Source: `src/nutrition/common.ts:48:1`
-
-## NutritionFactsPer100g
-
-Kind: `type`
-Module: `src/nutrition/products.ts`
-Source: `src/nutrition/products.ts:13:1`
-
-### Members
-
-| Name           | Kind     | Type                                     | Required | Description |
-| -------------- | -------- | ---------------------------------------- | -------- | ----------- |
-| basis          | property | `NutritionMeasurementBasis \| undefined` | no       |             |
-| carbohydratesG | property | `number \| undefined`                    | no       |             |
-| energyKcal     | property | `number \| undefined`                    | no       |             |
-| energyKj       | property | `number \| undefined`                    | no       |             |
-| fatG           | property | `number \| undefined`                    | no       |             |
-| fiberG         | property | `number \| undefined`                    | no       |             |
-| proteinG       | property | `number \| undefined`                    | no       |             |
-| saltG          | property | `number \| undefined`                    | no       |             |
-| saturatedFatG  | property | `number \| undefined`                    | no       |             |
-| sodiumG        | property | `number \| undefined`                    | no       |             |
-| sugarsG        | property | `number \| undefined`                    | no       |             |
-
-## NutritionImageEvidence
-
-Kind: `type`
-Module: `src/nutrition/products.ts`
-Source: `src/nutrition/products.ts:75:1`
-
-### Members
-
-| Name        | Kind     | Type                                                                                      | Required | Description |
-| ----------- | -------- | ----------------------------------------------------------------------------------------- | -------- | ----------- |
-| bucket      | property | `string \| undefined`                                                                     | no       |             |
-| capturedAt  | property | `string \| undefined`                                                                     | no       |             |
-| contentType | property | `string \| undefined`                                                                     | no       |             |
-| height      | property | `number \| undefined`                                                                     | no       |             |
-| id          | property | `string \| undefined`                                                                     | no       |             |
-| kind        | property | `"front" \| "nutrition_label" \| "ingredients" \| "barcode" \| "package_back" \| "other"` | yes      |             |
-| metadata    | property | `Record<string, NutritionJsonValue> \| undefined`                                         | no       |             |
-| path        | property | `string \| undefined`                                                                     | no       |             |
-| publicUrl   | property | `string \| undefined`                                                                     | no       |             |
-| storageId   | property | `string \| undefined`                                                                     | no       |             |
-| width       | property | `number \| undefined`                                                                     | no       |             |
-
-## NutritionImageKind
-
-Kind: `unknown`
-Module: `src/nutrition/products.ts`
-Source: `src/nutrition/products.ts:73:1`
-
-## NutritionIngredientStatement
-
-Kind: `type`
-Module: `src/nutrition/products.ts`
-Source: `src/nutrition/products.ts:34:1`
-
-### Members
-
-| Name    | Kind     | Type                  | Required | Description |
-| ------- | -------- | --------------------- | -------- | ----------- |
-| locale  | property | `string \| undefined` | no       |             |
-| rawText | property | `string \| undefined` | no       |             |
-| text    | property | `string \| undefined` | no       |             |
-
-## NutritionIsoDateTime
-
-Kind: `unknown`
-Module: `src/nutrition/common.ts`
-Source: `src/nutrition/common.ts:1:1`
-
-## NutritionJsonValue
-
-Kind: `unknown`
-Module: `src/nutrition/common.ts`
-Source: `src/nutrition/common.ts:7:1`
-
-## NutritionMeasurementBasis
-
-Kind: `unknown`
-Module: `src/nutrition/products.ts`
-Source: `src/nutrition/products.ts:11:1`
-
-## NutritionProduct
-
-Kind: `type`
-Module: `src/nutrition/products.ts`
-Source: `src/nutrition/products.ts:102:1`
-
-### Members
-
-| Name             | Kind     | Type                                                                                                                  | Required | Description |
-| ---------------- | -------- | --------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| allergens        | property | `readonly NutritionAllergenTag[] \| undefined`                                                                        | no       |             |
-| barcodes         | property | `readonly NutritionBarcode[] \| undefined`                                                                            | no       |             |
-| brand            | property | `string \| undefined`                                                                                                 | no       |             |
-| createdAt        | property | `string`                                                                                                              | yes      |             |
-| id               | property | `string`                                                                                                              | yes      |             |
-| images           | property | `readonly NutritionImageEvidence[] \| undefined`                                                                      | no       |             |
-| ingredients      | property | `NutritionIngredientStatement \| undefined`                                                                           | no       |             |
-| name             | property | `string`                                                                                                              | yes      |             |
-| nutrientsPer100g | property | `NutritionFactsPer100g \| undefined`                                                                                  | no       |             |
-| packageSizeG     | property | `number \| undefined`                                                                                                 | no       |             |
-| packageSizeMl    | property | `number \| undefined`                                                                                                 | no       |             |
-| primaryBarcode   | property | `NutritionBarcode`                                                                                                    | yes      |             |
-| publishedAt      | property | `string \| null \| undefined`                                                                                         | no       |             |
-| quantity         | property | `string \| undefined`                                                                                                 | no       |             |
-| serving          | property | `NutritionServing \| undefined`                                                                                       | no       |             |
-| source           | property | `"manual_scan" \| "user_correction" \| "open_food_facts" \| "foodrepo_legacy" \| "retailer_import" \| "admin_import"` | yes      |             |
-| sourceConfidence | property | `"unknown" \| "low" \| "medium" \| "high"`                                                                            | yes      |             |
-| sourcePayload    | property | `NutritionJsonValue \| undefined`                                                                                     | no       |             |
-| status           | property | `"rejected" \| "draft" \| "pending_review" \| "published" \| "archived"`                                              | yes      |             |
-| stores           | property | `readonly NutritionStoreObservation[] \| undefined`                                                                   | no       |             |
-| traces           | property | `readonly NutritionAllergenTag[] \| undefined`                                                                        | no       |             |
-| updatedAt        | property | `string`                                                                                                              | yes      |             |
-| verifiedByUser   | property | `boolean \| undefined`                                                                                                | no       |             |
-
-## NutritionProductCaptureDraft
-
-Kind: `type`
-Module: `src/nutrition/capture.ts`
-Source: `src/nutrition/capture.ts:36:1`
-
-### Members
-
-| Name             | Kind     | Type                                             | Required | Description |
-| ---------------- | -------- | ------------------------------------------------ | -------- | ----------- |
-| barcode          | property | `NutritionBarcode`                               | yes      |             |
-| brand            | property | `string \| undefined`                            | no       |             |
-| images           | property | `readonly NutritionImageEvidence[] \| undefined` | no       |             |
-| ingredients      | property | `NutritionIngredientStatement \| undefined`      | no       |             |
-| name             | property | `string \| undefined`                            | no       |             |
-| nutrientsPer100g | property | `NutritionFactsPer100g \| undefined`             | no       |             |
-| packageSizeG     | property | `number \| undefined`                            | no       |             |
-| packageSizeMl    | property | `number \| undefined`                            | no       |             |
-| quantity         | property | `string \| undefined`                            | no       |             |
-| rawPayload       | property | `NutritionJsonValue \| undefined`                | no       |             |
-| serving          | property | `NutritionServing \| undefined`                  | no       |             |
-| storeObservation | property | `NutritionStoreObservation \| undefined`         | no       |             |
-
-## NutritionProductCaptureRequest
-
-Kind: `type`
-Module: `src/nutrition/capture.ts`
-Source: `src/nutrition/capture.ts:51:1`
-
-### Members
-
-| Name   | Kind     | Type                                         | Required | Description |
-| ------ | -------- | -------------------------------------------- | -------- | ----------- |
-| client | property | `NutritionCaptureClientContext \| undefined` | no       |             |
-| draft  | property | `NutritionProductCaptureDraft`               | yes      |             |
-
-## NutritionProductCaptureResponse
-
-Kind: `type`
-Module: `src/nutrition/capture.ts`
-Source: `src/nutrition/capture.ts:56:1`
-
-### Members
-
-| Name         | Kind     | Type                                                                    | Required | Description |
-| ------------ | -------- | ----------------------------------------------------------------------- | -------- | ----------- |
-| message      | property | `string \| undefined`                                                   | no       |             |
-| productId    | property | `string \| undefined`                                                   | no       |             |
-| status       | property | `"queued" \| "needs_more_data" \| "accepted" \| "rejected" \| "merged"` | yes      |             |
-| submissionId | property | `string`                                                                | yes      |             |
-
-## NutritionProductCorrectionRequest
-
-Kind: `type`
-Module: `src/nutrition/capture.ts`
-Source: `src/nutrition/capture.ts:63:1`
-
-### Members
-
-| Name      | Kind     | Type                                         | Required | Description |
-| --------- | -------- | -------------------------------------------- | -------- | ----------- |
-| client    | property | `NutritionCaptureClientContext \| undefined` | no       |             |
-| note      | property | `string \| undefined`                        | no       |             |
-| patch     | property | `Partial<NutritionProductCaptureDraft>`      | yes      |             |
-| productId | property | `string`                                     | yes      |             |
-
-## NutritionProductDetail
-
-Kind: `type`
-Module: `src/nutrition/products.ts`
-Source: `src/nutrition/products.ts:128:1`
-
-### Members
-
-| Name    | Kind     | Type               | Required | Description |
-| ------- | -------- | ------------------ | -------- | ----------- |
-| product | property | `NutritionProduct` | yes      |             |
-
-## NutritionProductId
-
-Kind: `unknown`
-Module: `src/nutrition/common.ts`
-Source: `src/nutrition/common.ts:2:1`
-
-## NutritionProductLookupByBarcodeResponse
-
-Kind: `type`
-Module: `src/nutrition/products.ts`
-Source: `src/nutrition/products.ts:132:1`
-
-### Members
-
-| Name    | Kind     | Type               | Required | Description |
-| ------- | -------- | ------------------ | -------- | ----------- |
-| product | property | `NutritionProduct` | yes      |             |
-
-## NutritionProductStatus
-
-Kind: `unknown`
-Module: `src/nutrition/common.ts`
-Source: `src/nutrition/common.ts:38:1`
-
-## NutritionProductSummary
-
-Kind: `type`
-Module: `src/nutrition/products.ts`
-Source: `src/nutrition/products.ts:89:1`
-
-### Members
-
-| Name             | Kind     | Type                                                                                                                  | Required | Description |
-| ---------------- | -------- | --------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| brand            | property | `string \| undefined`                                                                                                 | no       |             |
-| id               | property | `string`                                                                                                              | yes      |             |
-| imageUrl         | property | `string \| undefined`                                                                                                 | no       |             |
-| name             | property | `string`                                                                                                              | yes      |             |
-| primaryBarcode   | property | `NutritionBarcode`                                                                                                    | yes      |             |
-| quantity         | property | `string \| undefined`                                                                                                 | no       |             |
-| source           | property | `"manual_scan" \| "user_correction" \| "open_food_facts" \| "foodrepo_legacy" \| "retailer_import" \| "admin_import"` | yes      |             |
-| sourceConfidence | property | `"unknown" \| "low" \| "medium" \| "high"`                                                                            | yes      |             |
-| status           | property | `"rejected" \| "draft" \| "pending_review" \| "published" \| "archived"`                                              | yes      |             |
-| updatedAt        | property | `string`                                                                                                              | yes      |             |
-
-## NutritionReviewDecision
-
-Kind: `unknown`
-Module: `src/nutrition/review.ts`
-Source: `src/nutrition/review.ts:19:1`
-
-## NutritionReviewDecisionRequest
-
-Kind: `type`
-Module: `src/nutrition/review.ts`
-Source: `src/nutrition/review.ts:21:1`
-
-### Members
-
-| Name            | Kind     | Type                                                                | Required | Description |
-| --------------- | -------- | ------------------------------------------------------------------- | -------- | ----------- |
-| decision        | property | `"accept" \| "reject" \| "merge" \| "request_changes" \| "publish"` | yes      |             |
-| metadata        | property | `Record<string, NutritionJsonValue> \| undefined`                   | no       |             |
-| note            | property | `string \| undefined`                                               | no       |             |
-| productOverride | property | `Partial<NutritionProduct> \| undefined`                            | no       |             |
-| reviewerId      | property | `string \| undefined`                                               | no       |             |
-| submissionId    | property | `string`                                                            | yes      |             |
-| targetProductId | property | `string \| undefined`                                               | no       |             |
-
-## NutritionReviewDecisionResponse
-
-Kind: `type`
-Module: `src/nutrition/review.ts`
-Source: `src/nutrition/review.ts:31:1`
-
-### Members
-
-| Name         | Kind     | Type                                                                    | Required | Description |
-| ------------ | -------- | ----------------------------------------------------------------------- | -------- | ----------- |
-| decidedAt    | property | `string`                                                                | yes      |             |
-| decision     | property | `"accept" \| "reject" \| "merge" \| "request_changes" \| "publish"`     | yes      |             |
-| productId    | property | `string \| undefined`                                                   | no       |             |
-| reviewId     | property | `string`                                                                | yes      |             |
-| status       | property | `"queued" \| "needs_more_data" \| "accepted" \| "rejected" \| "merged"` | yes      |             |
-| submissionId | property | `string`                                                                | yes      |             |
-
-## NutritionReviewId
-
-Kind: `unknown`
-Module: `src/nutrition/common.ts`
-Source: `src/nutrition/common.ts:4:1`
-
-## NutritionReviewRecord
-
-Kind: `type`
-Module: `src/nutrition/review.ts`
-Source: `src/nutrition/review.ts:40:1`
-
-### Members
-
-| Name            | Kind     | Type                                                                    | Required | Description |
-| --------------- | -------- | ----------------------------------------------------------------------- | -------- | ----------- |
-| createdAt       | property | `string`                                                                | yes      |             |
-| decision        | property | `"accept" \| "reject" \| "merge" \| "request_changes" \| "publish"`     | yes      |             |
-| id              | property | `string`                                                                | yes      |             |
-| metadata        | property | `Record<string, NutritionJsonValue> \| undefined`                       | no       |             |
-| nextStatus      | property | `"queued" \| "needs_more_data" \| "accepted" \| "rejected" \| "merged"` | yes      |             |
-| note            | property | `string \| undefined`                                                   | no       |             |
-| previousStatus  | property | `"queued" \| "needs_more_data" \| "accepted" \| "rejected" \| "merged"` | yes      |             |
-| reviewerId      | property | `string \| undefined`                                                   | no       |             |
-| submissionId    | property | `string`                                                                | yes      |             |
-| targetProductId | property | `string \| null \| undefined`                                           | no       |             |
-
-## NutritionReviewSubmissionListRequest
-
-Kind: `type`
-Module: `src/nutrition/review.ts`
-Source: `src/nutrition/review.ts:53:1`
-
-### Members
-
-| Name    | Kind     | Type                                                                                 | Required | Description |
-| ------- | -------- | ------------------------------------------------------------------------------------ | -------- | ----------- |
-| barcode | property | `string \| undefined`                                                                | no       |             |
-| limit   | property | `number \| undefined`                                                                | no       |             |
-| offset  | property | `number \| undefined`                                                                | no       |             |
-| status  | property | `"queued" \| "needs_more_data" \| "accepted" \| "rejected" \| "merged" \| undefined` | no       |             |
-| store   | property | `string \| undefined`                                                                | no       |             |
-
-## NutritionReviewSubmissionListResponse
-
-Kind: `type`
-Module: `src/nutrition/review.ts`
-Source: `src/nutrition/review.ts:61:1`
-
-### Members
-
-| Name        | Kind     | Type                                    | Required | Description |
-| ----------- | -------- | --------------------------------------- | -------- | ----------- |
-| limit       | property | `number \| undefined`                   | no       |             |
-| offset      | property | `number \| undefined`                   | no       |             |
-| submissions | property | `readonly NutritionCaptureSubmission[]` | yes      |             |
-
-## NutritionServing
-
-Kind: `type`
-Module: `src/nutrition/products.ts`
-Source: `src/nutrition/products.ts:27:1`
-
-### Members
-
-| Name               | Kind     | Type                  | Required | Description |
-| ------------------ | -------- | --------------------- | -------- | ----------- |
-| label              | property | `string \| undefined` | no       |             |
-| servingsPerPackage | property | `number \| undefined` | no       |             |
-| sizeG              | property | `number \| undefined` | no       |             |
-| sizeMl             | property | `number \| undefined` | no       |             |
-
-## NutritionSourceConfidence
-
-Kind: `unknown`
-Module: `src/nutrition/common.ts`
-Source: `src/nutrition/common.ts:51:1`
-
-## NutritionStoreObservation
-
-Kind: `type`
-Module: `src/nutrition/products.ts`
-Source: `src/nutrition/products.ts:57:1`
-
-### Members
-
-| Name               | Kind     | Type                  | Required | Description |
-| ------------------ | -------- | --------------------- | -------- | ----------- |
-| countryCode        | property | `string \| undefined` | no       |             |
-| observedAt         | property | `string \| undefined` | no       |             |
-| storeChain         | property | `string \| undefined` | no       |             |
-| storeLocationLabel | property | `string \| undefined` | no       |             |
-| storeName          | property | `string \| undefined` | no       |             |
-
-## NutritionUserId
-
-Kind: `unknown`
-Module: `src/nutrition/common.ts`
-Source: `src/nutrition/common.ts:5:1`
-
 ## OpenApiDocumentRef
 
 Kind: `type`
@@ -3006,15 +2503,15 @@ Source: `src/types.ts:253:1`
 
 ### Members
 
-| Name        | Kind     | Type                                                                                                                    | Required | Description |
-| ----------- | -------- | ----------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| dataLoaders | property | `readonly import("/Users/a_rtiphishl_e/git/contracts/src/bindings").OperationScreenDataLoaderDefinition[] \| undefined` | no       |             |
-| description | property | `string \| undefined`                                                                                                   | no       |             |
-| id          | property | `string`                                                                                                                | yes      |             |
-| name        | property | `string`                                                                                                                | yes      |             |
-| requires    | property | `ScreenRequirements \| undefined`                                                                                       | no       |             |
-| root        | property | `UiNode`                                                                                                                | yes      |             |
-| title       | property | `string \| undefined`                                                                                                   | no       |             |
+| Name        | Kind     | Type                                                                                                                       | Required | Description |
+| ----------- | -------- | -------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
+| dataLoaders | property | `readonly import("/home/runner/work/contracts/contracts/src/bindings").OperationScreenDataLoaderDefinition[] \| undefined` | no       |             |
+| description | property | `string \| undefined`                                                                                                      | no       |             |
+| id          | property | `string`                                                                                                                   | yes      |             |
+| name        | property | `string`                                                                                                                   | yes      |             |
+| requires    | property | `ScreenRequirements \| undefined`                                                                                          | no       |             |
+| root        | property | `UiNode`                                                                                                                   | yes      |             |
+| title       | property | `string \| undefined`                                                                                                      | no       |             |
 
 ## SearchAction
 

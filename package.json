@@ -45,10 +45,6 @@
       "types": "./dist/db.d.ts",
       "default": "./dist/db.js"
     },
-    "./nutrition": {
-      "types": "./dist/nutrition/index.d.ts",
-      "default": "./dist/nutrition/index.js"
-    },
     "./runtime": {
       "types": "./dist/runtimeCallbacks.d.ts",
       "default": "./dist/runtimeCallbacks.js"
