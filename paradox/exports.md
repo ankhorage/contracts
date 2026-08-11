@@ -2149,9 +2149,9 @@ Source: `src/types.ts:363:1`
 | auth          | property | `AuthSpec \| undefined`                | no       |             |
 | database      | property | `DatabaseSpec \| undefined`            | no       |             |
 | deployment    | property | `DeploymentSpec \| undefined`          | no       |             |
+| modules       | property | `string[]`                             | yes      |             |
+| modulesConfig | property | `Record<string, unknown> \| undefined` | no       |             |
 | networking    | property | `NetworkingSpec \| undefined`          | no       |             |
-| plugins       | property | `string[]`                             | yes      |             |
-| pluginsConfig | property | `Record<string, unknown> \| undefined` | no       |             |
 | secretStore   | property | `InfraSecretStoreSpec \| undefined`    | no       |             |
 | state         | property | `StateSpec \| undefined`               | no       |             |
 | storage       | property | `StorageSpec \| undefined`             | no       |             |

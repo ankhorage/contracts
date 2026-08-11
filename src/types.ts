@@ -367,8 +367,8 @@ export interface InfraManifest {
   storage?: StorageSpec;
   state?: StateSpec;
   networking?: NetworkingSpec;
-  plugins: string[];
-  pluginsConfig?: Record<string, unknown>;
+  modules: string[];
+  modulesConfig?: Record<string, unknown>;
 }
 
 export interface AppSettings {

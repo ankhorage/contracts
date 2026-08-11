@@ -490,7 +490,7 @@ describe('component data-binding contracts', () => {
       ],
       activeThemeId: 'default',
       infra: {
-        plugins: [],
+        modules: [],
       },
       navigator: {
         type: 'stack',

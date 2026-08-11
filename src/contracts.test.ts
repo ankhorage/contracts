@@ -25,6 +25,7 @@ import {
   DEPLOYMENT_TARGETS,
   type FormSubmitEventDto,
   type ImageAssetSource,
+  type InfraManifest,
   NAVIGATOR_TYPES,
   type RouteDefinition,
   type SplashScreenSpec,
@@ -242,16 +243,47 @@ describe('contracts', () => {
     const manifest: Pick<AppManifest, 'infra'> = {
       infra: {
         state,
-        plugins: [],
+        modules: [],
+        modulesConfig: {
+          localization: {
+            defaultLocale: 'en',
+          },
+        },
       },
     };
 
     expect(JSON.parse(JSON.stringify(manifest))).toEqual({
       infra: {
         state,
-        plugins: [],
+        modules: [],
+        modulesConfig: {
+          localization: {
+            defaultLocale: 'en',
+          },
+        },
       },
     });
+  });
+
+  it('exposes only canonical module fields on the infra contract', () => {
+    type HasLegacyModules = 'plugins' extends keyof InfraManifest ? true : false;
+    type HasLegacyModulesConfig = 'pluginsConfig' extends keyof InfraManifest ? true : false;
+
+    const hasLegacyModules: HasLegacyModules = false;
+    const hasLegacyModulesConfig: HasLegacyModulesConfig = false;
+    const infra: InfraManifest = {
+      modules: ['expo-localization'],
+      modulesConfig: {
+        'expo-localization': {
+          defaultLocale: 'en',
+          locales: ['en', 'de'],
+        },
+      },
+    };
+
+    expect(hasLegacyModules).toBe(false);
+    expect(hasLegacyModulesConfig).toBe(false);
+    expect(Object.keys(infra).sort()).toEqual(['modules', 'modulesConfig']);
   });
 
   it('ThemeModeConfig.harmony accepts all ColorHarmony values', () => {
@@ -286,6 +318,8 @@ describe('contracts', () => {
       'suggested' + 'Color' + 'Tone',
       'APP_CATEGORY_' + 'THEME_RECOMMENDATIONS',
       'hide' + 'InTabBar',
+      'plug' + 'ins',
+      'plug' + 'insConfig',
     ];
 
     const srcFiles = await collectTypeScriptFiles(join(process.cwd(), 'src'));

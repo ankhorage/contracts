@@ -69,7 +69,7 @@ describe('secret-store contracts', () => {
     };
 
     const infra: InfraManifest = {
-      plugins: [],
+      modules: [],
       secretStore: { provider: 'supabase-vault' },
       auth: {
         scope: 'global',
