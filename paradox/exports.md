@@ -196,7 +196,7 @@ Source: `src/types.ts:168:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:375:1`
+Source: `src/types.ts:382:1`
 
 ### Members
 
@@ -219,7 +219,7 @@ Source: `src/types.ts:375:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:367:1`
+Source: `src/types.ts:374:1`
 
 ### Members
 
@@ -591,7 +591,7 @@ Source: `src/types.ts:221:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:332:1`
+Source: `src/types.ts:339:1`
 
 ### Members
 
@@ -682,7 +682,7 @@ Source: `src/types.ts:205:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:322:1`
+Source: `src/types.ts:329:1`
 
 ### Members
 
@@ -719,7 +719,7 @@ Source: `src/types.ts:208:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:326:1`
+Source: `src/types.ts:333:1`
 
 ### Members
 
@@ -733,7 +733,7 @@ Source: `src/types.ts:326:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:340:1`
+Source: `src/types.ts:347:1`
 
 ### Members
 
@@ -794,7 +794,7 @@ Source: `src/types.ts:192:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:317:1`
+Source: `src/types.ts:324:1`
 
 ### Members
 
@@ -1127,7 +1127,7 @@ Source: `src/types.ts:176:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:302:1`
+Source: `src/types.ts:309:1`
 
 ### Members
 
@@ -1843,7 +1843,7 @@ Source: `src/types.ts:170:14`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:297:1`
+Source: `src/types.ts:304:1`
 
 ### Members
 
@@ -2140,7 +2140,7 @@ Source: `src/storage.ts:55:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:356:1`
+Source: `src/types.ts:363:1`
 
 ### Members
 
@@ -2272,7 +2272,7 @@ Source: `src/types.ts:141:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:351:1`
+Source: `src/types.ts:358:1`
 
 ### Members
 
@@ -2893,16 +2893,16 @@ Source: `src/types.ts:270:1`
 
 ### Members
 
-| Name         | Kind     | Type                         | Required | Description |
-| ------------ | -------- | ---------------------------- | -------- | ----------- |
-| guards       | property | `string[] \| undefined`      | no       |             |
-| hideInTabBar | property | `boolean \| undefined`       | no       |             |
-| icon         | property | `IconSpec \| undefined`      | no       |             |
-| label        | property | `string \| undefined`        | no       |             |
-| name         | property | `string`                     | yes      |             |
-| navigator    | property | `NavigatorSpec \| undefined` | no       |             |
-| path         | property | `string \| undefined`        | no       |             |
-| screenId     | property | `string \| undefined`        | no       |             |
+| Name                    | Kind     | Type                         | Required | Description |
+| ----------------------- | -------- | ---------------------------- | -------- | ----------- |
+| guards                  | property | `string[] \| undefined`      | no       |             |
+| icon                    | property | `IconSpec \| undefined`      | no       |             |
+| label                   | property | `string \| undefined`        | no       |             |
+| name                    | property | `string`                     | yes      |             |
+| navigator               | property | `NavigatorSpec \| undefined` | no       |             |
+| path                    | property | `string \| undefined`        | no       |             |
+| screenId                | property | `string \| undefined`        | no       |             |
+| showInPrimaryNavigation | property | `boolean \| undefined`       | no       |             |
 
 ## RuntimeCallback
 
@@ -3283,7 +3283,7 @@ Source: `src/auth.ts:150:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:283:1`
+Source: `src/types.ts:290:1`
 
 ### Members
 
@@ -3297,7 +3297,7 @@ Source: `src/types.ts:283:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:289:1`
+Source: `src/types.ts:296:1`
 
 ### Members
 
@@ -3312,13 +3312,13 @@ Source: `src/types.ts:289:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:281:1`
+Source: `src/types.ts:288:1`
 
 ## SplashScreenSpec
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:293:1`
+Source: `src/types.ts:300:1`
 
 ### Members
 
@@ -3454,7 +3454,7 @@ Source: `src/state.ts:40:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:312:1`
+Source: `src/types.ts:319:1`
 
 ### Members
 
@@ -3620,7 +3620,7 @@ Source: `src/storage.ts:11:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:307:1`
+Source: `src/types.ts:314:1`
 
 ### Members
 

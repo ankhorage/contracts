@@ -272,7 +272,14 @@ export interface RouteDefinition {
   path?: string;
   label?: string;
   icon?: IconSpec;
-  hideInTabBar?: boolean;
+  /**
+   * Whether this route appears in Tabs and Drawer primary navigation.
+   *
+   * Omitted routes are visible by default. Setting this to `false` hides the
+   * route from primary navigation without making it unnavigable. Stack
+   * navigators preserve the value but do not present primary navigation.
+   */
+  showInPrimaryNavigation?: boolean;
   guards?: string[];
   screenId?: string;
   navigator?: NavigatorSpec;
