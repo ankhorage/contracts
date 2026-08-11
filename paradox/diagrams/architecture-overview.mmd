@@ -55,22 +55,6 @@ graph TD
   module_src_db_ts["src/db.ts"]
   package__ankhorage_contracts -.-> module_src_db_ts
   module_src_index_ts["src/index.ts"]
-  module_src_nutrition_capture_ts["src/nutrition/capture.ts"]
-  package__ankhorage_contracts -.-> module_src_nutrition_capture_ts
-  module_src_nutrition_capture_ts --> module_src_nutrition_common_ts
-  module_src_nutrition_capture_ts --> module_src_nutrition_products_ts
-  module_src_nutrition_common_ts["src/nutrition/common.ts"]
-  package__ankhorage_contracts -.-> module_src_nutrition_common_ts
-  module_src_nutrition_index_ts["src/nutrition/index.ts"]
-  package__ankhorage_contracts -.-> module_src_nutrition_index_ts
-  module_src_nutrition_products_ts["src/nutrition/products.ts"]
-  package__ankhorage_contracts -.-> module_src_nutrition_products_ts
-  module_src_nutrition_products_ts --> module_src_nutrition_common_ts
-  module_src_nutrition_review_ts["src/nutrition/review.ts"]
-  package__ankhorage_contracts -.-> module_src_nutrition_review_ts
-  module_src_nutrition_review_ts --> module_src_nutrition_capture_ts
-  module_src_nutrition_review_ts --> module_src_nutrition_common_ts
-  module_src_nutrition_review_ts --> module_src_nutrition_products_ts
   module_src_requirements_ts["src/requirements.ts"]
   package__ankhorage_contracts -.-> module_src_requirements_ts
   module_src_runtimeCallbacks_ts["src/runtimeCallbacks.ts"]
