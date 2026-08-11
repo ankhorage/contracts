@@ -265,7 +265,7 @@ describe('contracts', () => {
     });
   });
 
-  it('exposes only canonical module fields on the infra contract', () => {
+  it('exposes only canonical module fields without reserving external plugin terminology', () => {
     type HasLegacyModules = 'plugins' extends keyof InfraManifest ? true : false;
     type HasLegacyModulesConfig = 'pluginsConfig' extends keyof InfraManifest ? true : false;
 
@@ -280,10 +280,16 @@ describe('contracts', () => {
         },
       },
     };
+    // `plugins` remains valid when it names an unrelated external ecosystem concept,
+    // such as Expo configuration plugins rather than Ankhorage Orchestrator modules.
+    const expoConfig: { plugins: string[] } = {
+      plugins: ['expo-router'],
+    };
 
     expect(hasLegacyModules).toBe(false);
     expect(hasLegacyModulesConfig).toBe(false);
     expect(Object.keys(infra).sort()).toEqual(['modules', 'modulesConfig']);
+    expect(expoConfig.plugins).toEqual(['expo-router']);
   });
 
   it('ThemeModeConfig.harmony accepts all ColorHarmony values', () => {
@@ -318,8 +324,6 @@ describe('contracts', () => {
       'suggested' + 'Color' + 'Tone',
       'APP_CATEGORY_' + 'THEME_RECOMMENDATIONS',
       'hide' + 'InTabBar',
-      'plug' + 'ins',
-      'plug' + 'insConfig',
     ];
 
     const srcFiles = await collectTypeScriptFiles(join(process.cwd(), 'src'));
