@@ -64,6 +64,10 @@
     "./ui": {
       "types": "./dist/ui.d.ts",
       "default": "./dist/ui.js"
+    },
+    "./media": {
+      "types": "./dist/media.d.ts",
+      "default": "./dist/media.js"
     }
   },
   "description": "Serializable app, action, theme, auth, and secret-store contracts for Ankhorage.",
@@ -76,7 +80,9 @@
     "secrets",
     "secret-store",
     "storage",
-    "adapter"
+    "adapter",
+    "media",
+    "assets"
   ],
   "files": [
     "dist",

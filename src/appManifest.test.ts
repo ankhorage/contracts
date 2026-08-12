@@ -27,6 +27,16 @@ function createManifest(): Record<string, unknown> {
       backgroundColor: '#ffffff',
       dark: { backgroundColor: '#000000' },
     },
+    media: {
+      assets: {
+        hero: {
+          id: 'hero',
+          name: 'Hero image',
+          kind: 'image',
+          source: { kind: 'storage', bucket: 'media', path: 'studio/hero.webp' },
+        },
+      },
+    },
     infra: {
       deployment: { target: 'minikube', monitoring: true },
       database: { provider: 'supabase', tier: 'dev' },
@@ -155,6 +165,14 @@ describe('AppManifest runtime parsing', () => {
       ok: false,
       message: 'Value is not a canonical AppManifest.',
     });
+  });
+
+  it('rejects transient media URLs at the manifest boundary', () => {
+    const manifest = createManifest();
+    const media = manifest.media as Record<string, Record<string, Record<string, unknown>>>;
+    media.assets.hero.source = { kind: 'url', url: 'blob:https://example.test/transient' };
+
+    expect(isAppManifest(manifest)).toBe(false);
   });
 
   it('rejects legacy infra plugin state', () => {

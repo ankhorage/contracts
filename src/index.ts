@@ -4,6 +4,7 @@ export * from './bindings';
 export * from './cli';
 export * from './data';
 export * from './db';
+export * from './media';
 export * from './requirements';
 export * from './runtimeCallbacks';
 export * from './secretManifest';

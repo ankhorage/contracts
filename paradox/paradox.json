@@ -12,7 +12,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v7.0.0",
+      "value": "v7.2.0",
       "color": "cb3837"
     },
     {
@@ -66,6 +66,81 @@
   "config": null,
   "entrypoints": ["src/index.ts"],
   "modules": [
+    {
+      "path": "src/appManifest.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/appManifest/bindings.ts",
+        "src/appManifest/dataSources.ts",
+        "src/appManifest/generatedApis.ts",
+        "src/appManifest/infra.ts",
+        "src/appManifest/media.ts",
+        "src/appManifest/screens.ts",
+        "src/appManifest/shared.ts",
+        "src/types.ts"
+      ],
+      "exports": ["AppManifestParseResult", "isAppManifest", "parseAppManifest"]
+    },
+    {
+      "path": "src/appManifest/bindings.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/appManifest/shared.ts"],
+      "exports": [
+        "isBindingValueSource",
+        "isComponentDataBindingRegistry",
+        "isScreenDataLoaderDefinition"
+      ]
+    },
+    {
+      "path": "src/appManifest/dataSources.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/appManifest/shared.ts"],
+      "exports": ["isDataSourceRegistry"]
+    },
+    {
+      "path": "src/appManifest/generatedApis.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/appManifest/shared.ts"],
+      "exports": ["isGeneratedApiRegistry"]
+    },
+    {
+      "path": "src/appManifest/infra.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/appManifest/shared.ts", "src/auth.ts", "src/types.ts"],
+      "exports": ["isInfraManifest"]
+    },
+    {
+      "path": "src/appManifest/media.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/appManifest/shared.ts", "src/media.ts"],
+      "exports": ["isMediaManifest"]
+    },
+    {
+      "path": "src/appManifest/screens.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/appManifest/bindings.ts", "src/appManifest/shared.ts", "src/types.ts"],
+      "exports": [
+        "isManifestMetadata",
+        "isNavigatorSpec",
+        "isScreenRegistry",
+        "isSplashScreenSpec",
+        "isThemeConfig"
+      ]
+    },
+    {
+      "path": "src/appManifest/shared.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "isManifestValue",
+        "isOptionalBoolean",
+        "isOptionalNumber",
+        "isOptionalString",
+        "isRecord",
+        "isStringArray",
+        "isStringRecord"
+      ]
+    },
     {
       "path": "src/auth.ts",
       "isEntrypoint": false,
@@ -426,6 +501,7 @@
         "APP_CATEGORIES",
         "AppCategory",
         "AppManifest",
+        "AppManifestParseResult",
         "AppSettings",
         "AUTH_IDENTIFIER_KINDS",
         "AUTH_OAUTH_CANCELLATION_REASONS",
@@ -616,6 +692,8 @@
         "ImageMetadata",
         "InfraManifest",
         "InfraSecretStoreSpec",
+        "isAppManifest",
+        "isMediaAssetReference",
         "KnownAuthOAuthProviderId",
         "KnownAuthProfileField",
         "KnownAuthProvider",
@@ -626,6 +704,17 @@
         "KnownSecretStoreProvider",
         "KnownStateProvider",
         "ManifestValue",
+        "MEDIA_ASSET_KINDS",
+        "MediaAsset",
+        "MediaAssetKind",
+        "MediaAssetMetadata",
+        "MediaAssetReference",
+        "MediaAssetRegistry",
+        "MediaAssetSource",
+        "MediaBundledSource",
+        "MediaManifest",
+        "MediaStorageSource",
+        "MediaUrlSource",
         "NavigateAction",
         "NAVIGATOR_TYPES",
         "NavigatorSpec",
@@ -636,6 +725,7 @@
         "OpenApiDocumentRef",
         "OperationId",
         "OperationScreenDataLoaderDefinition",
+        "parseAppManifest",
         "PasswordResetInput",
         "PropBinding",
         "resolveAuthFlow",
@@ -749,6 +839,25 @@
         "UrlImageAssetSource",
         "validateSecretPayload",
         "VerifyOtpInput"
+      ]
+    },
+    {
+      "path": "src/media.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "isMediaAssetReference",
+        "MEDIA_ASSET_KINDS",
+        "MediaAsset",
+        "MediaAssetKind",
+        "MediaAssetMetadata",
+        "MediaAssetReference",
+        "MediaAssetRegistry",
+        "MediaAssetSource",
+        "MediaBundledSource",
+        "MediaManifest",
+        "MediaStorageSource",
+        "MediaUrlSource"
       ]
     },
     {
@@ -876,6 +985,7 @@
         "src/auth.ts",
         "src/bindings.ts",
         "src/data/index.ts",
+        "src/media.ts",
         "src/requirements.ts",
         "src/theme.ts"
       ],
@@ -1009,7 +1119,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 86,
+        "line": 87,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1027,7 +1137,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 29,
+        "line": 30,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1135,7 +1245,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 46,
+        "line": 47,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1592,7 +1702,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 148,
+        "line": 149,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -1610,7 +1720,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 173,
+        "line": 174,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1628,7 +1738,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 387,
+        "line": 388,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1639,6 +1749,7 @@
         "DataSourceConfig",
         "GeneratedApiDefinition",
         "InfraManifest",
+        "MediaManifest",
         "NavigatorSpec",
         "ScreenSpec",
         "SplashScreenSpec",
@@ -1689,6 +1800,13 @@
           "description": null
         },
         {
+          "name": "media",
+          "kind": "property",
+          "type": "MediaManifest | undefined",
+          "required": false,
+          "description": null
+        },
+        {
           "name": "metadata",
           "kind": "property",
           "type": "{ name: string; slug: string; version: string; category: AppCategory; themeId: string; created?: string; updated?: string; }",
@@ -1734,6 +1852,24 @@
       "structuredRows": []
     },
     {
+      "name": "AppManifestParseResult",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/appManifest.ts",
+      "sourceLocation": {
+        "filePath": "src/appManifest.ts",
+        "line": 16,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
       "name": "AppSettings",
       "description": null,
       "isReadme": false,
@@ -1742,7 +1878,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 379,
+        "line": 380,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1901,7 +2037,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 228,
+        "line": 229,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -1919,7 +2055,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 215,
+        "line": 216,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -1937,7 +2073,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 225,
+        "line": 226,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -1955,7 +2091,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 231,
+        "line": 232,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -1973,7 +2109,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 205,
+        "line": 206,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -1991,7 +2127,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 202,
+        "line": 203,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -2009,7 +2145,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 209,
+        "line": 210,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -2045,7 +2181,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 212,
+        "line": 213,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -2859,7 +2995,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 229,
+        "line": 230,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2877,7 +3013,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 223,
+        "line": 224,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2895,7 +3031,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 226,
+        "line": 227,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2913,7 +3049,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 344,
+        "line": 345,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2967,7 +3103,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 232,
+        "line": 233,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2985,7 +3121,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 207,
+        "line": 208,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3082,7 +3218,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 203,
+        "line": 204,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3180,7 +3316,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 210,
+        "line": 211,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3198,7 +3334,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 334,
+        "line": 335,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3275,7 +3411,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 213,
+        "line": 214,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3293,7 +3429,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 338,
+        "line": 339,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3333,7 +3469,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 352,
+        "line": 353,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3484,7 +3620,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 199,
+        "line": 200,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -3502,7 +3638,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 196,
+        "line": 197,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -3520,7 +3656,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 200,
+        "line": 201,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3538,7 +3674,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 197,
+        "line": 198,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3556,7 +3692,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 329,
+        "line": 330,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3919,7 +4055,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 123,
+        "line": 124,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3937,7 +4073,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 130,
+        "line": 131,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3955,7 +4091,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 125,
+        "line": 126,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4086,7 +4222,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 105,
+        "line": 106,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4126,7 +4262,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 135,
+        "line": 136,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4144,7 +4280,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 103,
+        "line": 104,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4231,7 +4367,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 53,
+        "line": 54,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4347,7 +4483,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 179,
+        "line": 180,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -4365,7 +4501,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 183,
+        "line": 184,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -4525,7 +4661,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 181,
+        "line": 182,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4543,7 +4679,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 314,
+        "line": 315,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4576,7 +4712,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 184,
+        "line": 185,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -6866,7 +7002,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 175,
+        "line": 176,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -6884,7 +7020,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 309,
+        "line": 310,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -6917,7 +7053,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 177,
+        "line": 178,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -7223,7 +7359,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 78,
+        "line": 79,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -7306,7 +7442,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 116,
+        "line": 117,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -7324,7 +7460,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 114,
+        "line": 115,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -7819,7 +7955,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 234,
+        "line": 235,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -7924,7 +8060,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 368,
+        "line": 369,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8032,6 +8168,70 @@
       "structuredRows": []
     },
     {
+      "name": "isAppManifest",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "function",
+      "modulePath": "src/appManifest.ts",
+      "sourceLocation": {
+        "filePath": "src/appManifest.ts",
+        "line": 50,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [
+        {
+          "label": "(value: unknown) => boolean",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "unknown",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "boolean",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "isMediaAssetReference",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "function",
+      "modulePath": "src/media.ts",
+      "sourceLocation": {
+        "filePath": "src/media.ts",
+        "line": 58,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [
+        {
+          "label": "(value: unknown) => boolean",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "unknown",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "boolean",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
       "name": "KnownAuthOAuthProviderId",
       "description": null,
       "isReadme": false,
@@ -8058,7 +8258,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 222,
+        "line": 223,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8076,7 +8276,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 206,
+        "line": 207,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8112,7 +8312,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 140,
+        "line": 141,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8130,7 +8330,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 180,
+        "line": 181,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8148,7 +8348,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 176,
+        "line": 177,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8184,7 +8384,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 190,
+        "line": 191,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8202,13 +8402,372 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 95,
+        "line": 96,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "MEDIA_ASSET_KINDS",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "value",
+      "modulePath": "src/media.ts",
+      "sourceLocation": {
+        "filePath": "src/media.ts",
+        "line": 1,
+        "column": 14
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "MediaAsset",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/media.ts",
+      "sourceLocation": {
+        "filePath": "src/media.ts",
+        "line": 37,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["MediaAssetMetadata", "MediaAssetSource"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "contentType",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "id",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "kind",
+          "kind": "property",
+          "type": "\"image\" | \"audio\" | \"video\" | \"font\" | \"file\"",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "metadata",
+          "kind": "property",
+          "type": "MediaAssetMetadata | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "name",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "source",
+          "kind": "property",
+          "type": "MediaAssetSource",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "MediaAssetKind",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/media.ts",
+      "sourceLocation": {
+        "filePath": "src/media.ts",
+        "line": 3,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "MediaAssetMetadata",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/media.ts",
+      "sourceLocation": {
+        "filePath": "src/media.ts",
+        "line": 27,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "createdAt",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "durationMs",
+          "kind": "property",
+          "type": "number | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "height",
+          "kind": "property",
+          "type": "number | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "originalFileName",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "sizeBytes",
+          "kind": "property",
+          "type": "number | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "width",
+          "kind": "property",
+          "type": "number | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "MediaAssetReference",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/media.ts",
+      "sourceLocation": {
+        "filePath": "src/media.ts",
+        "line": 54,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "mediaId",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "MediaAssetRegistry",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/media.ts",
+      "sourceLocation": {
+        "filePath": "src/media.ts",
+        "line": 46,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "MediaAssetSource",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/media.ts",
+      "sourceLocation": {
+        "filePath": "src/media.ts",
+        "line": 25,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "MediaBundledSource",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/media.ts",
+      "sourceLocation": {
+        "filePath": "src/media.ts",
+        "line": 19,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "kind",
+          "kind": "property",
+          "type": "\"bundled\"",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "path",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "MediaManifest",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/media.ts",
+      "sourceLocation": {
+        "filePath": "src/media.ts",
+        "line": 49,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["MediaAsset"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "assets",
+          "kind": "property",
+          "type": "Readonly<Record<string, MediaAsset>>",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "MediaStorageSource",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/media.ts",
+      "sourceLocation": {
+        "filePath": "src/media.ts",
+        "line": 5,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "bucket",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "kind",
+          "kind": "property",
+          "type": "\"storage\"",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "path",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "storageId",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "MediaUrlSource",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/media.ts",
+      "sourceLocation": {
+        "filePath": "src/media.ts",
+        "line": 13,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "kind",
+          "kind": "property",
+          "type": "\"url\"",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "url",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        }
+      ],
       "structuredRows": []
     },
     {
@@ -8220,7 +8779,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 38,
+        "line": 39,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8253,7 +8812,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 145,
+        "line": 146,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -8271,7 +8830,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 268,
+        "line": 269,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8318,7 +8877,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 146,
+        "line": 147,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8336,7 +8895,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 363,
+        "line": 364,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8530,6 +9089,38 @@
       "structuredRows": []
     },
     {
+      "name": "parseAppManifest",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "function",
+      "modulePath": "src/appManifest.ts",
+      "sourceLocation": {
+        "filePath": "src/appManifest.ts",
+        "line": 43,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["AppManifestParseResult"],
+      "signatures": [
+        {
+          "label": "(value: unknown) => AppManifestParseResult",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "unknown",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "AppManifestParseResult",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
       "name": "PasswordResetInput",
       "description": null,
       "isReadme": false,
@@ -8669,7 +9260,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 275,
+        "line": 276,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8992,7 +9583,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 258,
+        "line": 259,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9060,7 +9651,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 70,
+        "line": 71,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9682,7 +10273,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 63,
+        "line": 64,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9849,7 +10440,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 295,
+        "line": 296,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9889,7 +10480,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 301,
+        "line": 302,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9936,7 +10527,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 293,
+        "line": 294,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9954,7 +10545,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 305,
+        "line": 306,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10055,7 +10646,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 193,
+        "line": 194,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -10073,7 +10664,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 189,
+        "line": 190,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -10268,7 +10859,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 194,
+        "line": 195,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10304,7 +10895,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 191,
+        "line": 192,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10373,7 +10964,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 324,
+        "line": 325,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10468,7 +11059,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 186,
+        "line": 187,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -10736,7 +11327,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 187,
+        "line": 188,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10878,7 +11469,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 319,
+        "line": 320,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11005,7 +11596,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 18,
+        "line": 19,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11113,7 +11704,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 13,
+        "line": 14,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11331,7 +11922,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 58,
+        "line": 59,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12273,7 +12864,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 248,
+        "line": 249,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12341,7 +12932,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 241,
+        "line": 242,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12530,11 +13121,866 @@
   "components": [],
   "sourceFunctions": [
     {
+      "name": "parseAppManifest",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest.ts",
+        "line": 43,
+        "column": 1
+      }
+    },
+    {
+      "name": "isAppManifest",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest.ts",
+        "line": 50,
+        "column": 1
+      }
+    },
+    {
+      "name": "hasRequiredManifestKeys",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest.ts",
+        "line": 71,
+        "column": 1
+      }
+    },
+    {
+      "name": "isActiveThemeMode",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest.ts",
+        "line": 77,
+        "column": 1
+      }
+    },
+    {
+      "name": "isAppSettings",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest.ts",
+        "line": 81,
+        "column": 1
+      }
+    },
+    {
+      "name": "isComponentDataBindingRegistry",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/bindings.ts",
+        "line": 3,
+        "column": 1
+      }
+    },
+    {
+      "name": "isBindingValueSource",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/bindings.ts",
+        "line": 7,
+        "column": 1
+      }
+    },
+    {
+      "name": "isScreenDataLoaderDefinition",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/bindings.ts",
+        "line": 20,
+        "column": 1
+      }
+    },
+    {
+      "name": "isComponentDataBinding",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/bindings.ts",
+        "line": 30,
+        "column": 1
+      }
+    },
+    {
+      "name": "isPropBinding",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/bindings.ts",
+        "line": 45,
+        "column": 1
+      }
+    },
+    {
+      "name": "isEventBinding",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/bindings.ts",
+        "line": 57,
+        "column": 1
+      }
+    },
+    {
+      "name": "isEventBindingTarget",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/bindings.ts",
+        "line": 66,
+        "column": 1
+      }
+    },
+    {
+      "name": "isBindingCondition",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/bindings.ts",
+        "line": 74,
+        "column": 1
+      }
+    },
+    {
+      "name": "isBindingOperationRef",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/bindings.ts",
+        "line": 83,
+        "column": 1
+      }
+    },
+    {
+      "name": "isBindingFallback",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/bindings.ts",
+        "line": 92,
+        "column": 1
+      }
+    },
+    {
+      "name": "isBindingLifecycleBehavior",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/bindings.ts",
+        "line": 100,
+        "column": 1
+      }
+    },
+    {
+      "name": "isOptionalBindingTransforms",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/bindings.ts",
+        "line": 110,
+        "column": 1
+      }
+    },
+    {
+      "name": "isBindingInputMap",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/bindings.ts",
+        "line": 118,
+        "column": 1
+      }
+    },
+    {
+      "name": "isBindingInputValue",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/bindings.ts",
+        "line": 122,
+        "column": 1
+      }
+    },
+    {
+      "name": "isDataSourceRegistry",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/dataSources.ts",
+        "line": 3,
+        "column": 1
+      }
+    },
+    {
+      "name": "isDataSourceConfig",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/dataSources.ts",
+        "line": 7,
+        "column": 1
+      }
+    },
+    {
+      "name": "hasBaseDataSourceShape",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/dataSources.ts",
+        "line": 15,
+        "column": 1
+      }
+    },
+    {
+      "name": "isDatabaseDataSource",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/dataSources.ts",
+        "line": 29,
+        "column": 1
+      }
+    },
+    {
+      "name": "isGeneratedDataSource",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/dataSources.ts",
+        "line": 35,
+        "column": 1
+      }
+    },
+    {
+      "name": "isExternalDataSource",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/dataSources.ts",
+        "line": 45,
+        "column": 1
+      }
+    },
+    {
+      "name": "isOpenApiDocumentRef",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/dataSources.ts",
+        "line": 63,
+        "column": 1
+      }
+    },
+    {
+      "name": "isGraphQlIntrospection",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/dataSources.ts",
+        "line": 72,
+        "column": 1
+      }
+    },
+    {
+      "name": "isDataEndpointRegistry",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/dataSources.ts",
+        "line": 78,
+        "column": 1
+      }
+    },
+    {
+      "name": "isDataEndpointConfig",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/dataSources.ts",
+        "line": 82,
+        "column": 1
+      }
+    },
+    {
+      "name": "isDataOperationConfig",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/dataSources.ts",
+        "line": 98,
+        "column": 1
+      }
+    },
+    {
+      "name": "isDataOperationRequest",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/dataSources.ts",
+        "line": 118,
+        "column": 1
+      }
+    },
+    {
+      "name": "isDataOperationParameter",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/dataSources.ts",
+        "line": 127,
+        "column": 1
+      }
+    },
+    {
+      "name": "isDataOperationResponse",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/dataSources.ts",
+        "line": 140,
+        "column": 1
+      }
+    },
+    {
+      "name": "isDataSchemaSlot",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/dataSources.ts",
+        "line": 152,
+        "column": 1
+      }
+    },
+    {
+      "name": "isCredentialRef",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/dataSources.ts",
+        "line": 156,
+        "column": 1
+      }
+    },
+    {
+      "name": "isAdapterRef",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/dataSources.ts",
+        "line": 166,
+        "column": 1
+      }
+    },
+    {
+      "name": "isGeneratedApiRegistry",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/generatedApis.ts",
+        "line": 9,
+        "column": 1
+      }
+    },
+    {
+      "name": "isGeneratedApiDefinition",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/generatedApis.ts",
+        "line": 13,
+        "column": 1
+      }
+    },
+    {
+      "name": "isDatabaseAdapterRef",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/generatedApis.ts",
+        "line": 29,
+        "column": 1
+      }
+    },
+    {
+      "name": "isGeneratedApiAuthRequirement",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/generatedApis.ts",
+        "line": 33,
+        "column": 1
+      }
+    },
+    {
+      "name": "isGeneratedApiResourceDefinition",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/generatedApis.ts",
+        "line": 44,
+        "column": 1
+      }
+    },
+    {
+      "name": "isSeedRecords",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/generatedApis.ts",
+        "line": 61,
+        "column": 1
+      }
+    },
+    {
+      "name": "isGeneratedApiCrudOperation",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/generatedApis.ts",
+        "line": 68,
+        "column": 1
+      }
+    },
+    {
+      "name": "isGeneratedApiPolicyRef",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/generatedApis.ts",
+        "line": 72,
+        "column": 1
+      }
+    },
+    {
+      "name": "isDbCollectionDefinition",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/generatedApis.ts",
+        "line": 80,
+        "column": 1
+      }
+    },
+    {
+      "name": "isDbFieldDefinition",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/generatedApis.ts",
+        "line": 91,
+        "column": 1
+      }
+    },
+    {
+      "name": "isDbDefaultValue",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/generatedApis.ts",
+        "line": 103,
+        "column": 1
+      }
+    },
+    {
+      "name": "isAdapterRef",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/generatedApis.ts",
+        "line": 113,
+        "column": 1
+      }
+    },
+    {
+      "name": "isInfraManifest",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/infra.ts",
+        "line": 36,
+        "column": 1
+      }
+    },
+    {
+      "name": "isDeploymentSpec",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/infra.ts",
+        "line": 53,
+        "column": 1
+      }
+    },
+    {
+      "name": "isDatabaseSpec",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/infra.ts",
+        "line": 59,
+        "column": 1
+      }
+    },
+    {
+      "name": "isStorageSpec",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/infra.ts",
+        "line": 68,
+        "column": 1
+      }
+    },
+    {
+      "name": "isStateSpec",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/infra.ts",
+        "line": 77,
+        "column": 1
+      }
+    },
+    {
+      "name": "isNetworkingSpec",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/infra.ts",
+        "line": 86,
+        "column": 1
+      }
+    },
+    {
+      "name": "isAuthSpec",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/infra.ts",
+        "line": 90,
+        "column": 1
+      }
+    },
+    {
+      "name": "isAuthzSpec",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/infra.ts",
+        "line": 105,
+        "column": 1
+      }
+    },
+    {
+      "name": "isAuthFlow",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/infra.ts",
+        "line": 115,
+        "column": 1
+      }
+    },
+    {
+      "name": "isAuthSignInSpec",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/infra.ts",
+        "line": 128,
+        "column": 1
+      }
+    },
+    {
+      "name": "isAuthSignUpSpec",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/infra.ts",
+        "line": 138,
+        "column": 1
+      }
+    },
+    {
+      "name": "isAuthOAuthConfig",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/infra.ts",
+        "line": 148,
+        "column": 1
+      }
+    },
+    {
+      "name": "isAuthOAuthProviderConfig",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/infra.ts",
+        "line": 158,
+        "column": 1
+      }
+    },
+    {
+      "name": "isAuthProfileSpec",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/infra.ts",
+        "line": 172,
+        "column": 1
+      }
+    },
+    {
+      "name": "isIconSpec",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/infra.ts",
+        "line": 189,
+        "column": 1
+      }
+    },
+    {
+      "name": "isMediaManifest",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/media.ts",
+        "line": 12,
+        "column": 1
+      }
+    },
+    {
+      "name": "isMediaAsset",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/media.ts",
+        "line": 20,
+        "column": 1
+      }
+    },
+    {
+      "name": "isMediaAssetSource",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/media.ts",
+        "line": 34,
+        "column": 1
+      }
+    },
+    {
+      "name": "isMediaAssetMetadata",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/media.ts",
+        "line": 55,
+        "column": 1
+      }
+    },
+    {
+      "name": "isStableRemoteUrl",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/media.ts",
+        "line": 75,
+        "column": 1
+      }
+    },
+    {
+      "name": "isBundledPath",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/media.ts",
+        "line": 79,
+        "column": 1
+      }
+    },
+    {
+      "name": "isNonEmptyString",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/media.ts",
+        "line": 86,
+        "column": 1
+      }
+    },
+    {
+      "name": "isOptionalFiniteNonNegativeNumber",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/media.ts",
+        "line": 90,
+        "column": 1
+      }
+    },
+    {
+      "name": "isOptionalFinitePositiveNumber",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/media.ts",
+        "line": 94,
+        "column": 1
+      }
+    },
+    {
+      "name": "hasOnlyKeys",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/media.ts",
+        "line": 98,
+        "column": 1
+      }
+    },
+    {
+      "name": "isManifestMetadata",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/screens.ts",
+        "line": 18,
+        "column": 1
+      }
+    },
+    {
+      "name": "isThemeConfig",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/screens.ts",
+        "line": 32,
+        "column": 1
+      }
+    },
+    {
+      "name": "isNavigatorSpec",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/screens.ts",
+        "line": 42,
+        "column": 1
+      }
+    },
+    {
+      "name": "isScreenRegistry",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/screens.ts",
+        "line": 54,
+        "column": 1
+      }
+    },
+    {
+      "name": "isSplashScreenSpec",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/screens.ts",
+        "line": 64,
+        "column": 1
+      }
+    },
+    {
+      "name": "isThemeModeConfig",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/screens.ts",
+        "line": 72,
+        "column": 1
+      }
+    },
+    {
+      "name": "isUiNode",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/screens.ts",
+        "line": 81,
+        "column": 1
+      }
+    },
+    {
+      "name": "isUiNodeRepeatSpec",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/screens.ts",
+        "line": 95,
+        "column": 1
+      }
+    },
+    {
+      "name": "isScreenSpec",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/screens.ts",
+        "line": 105,
+        "column": 1
+      }
+    },
+    {
+      "name": "isRouteDefinition",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/screens.ts",
+        "line": 120,
+        "column": 1
+      }
+    },
+    {
+      "name": "isIconSpec",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/screens.ts",
+        "line": 134,
+        "column": 1
+      }
+    },
+    {
+      "name": "isSplashScreenModeSpec",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/screens.ts",
+        "line": 146,
+        "column": 1
+      }
+    },
+    {
+      "name": "isScreenRequirements",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/screens.ts",
+        "line": 158,
+        "column": 1
+      }
+    },
+    {
+      "name": "isRequirementArray",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/screens.ts",
+        "line": 166,
+        "column": 1
+      }
+    },
+    {
+      "name": "isRecord",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/shared.ts",
+        "line": 1,
+        "column": 1
+      }
+    },
+    {
+      "name": "isOptionalString",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/shared.ts",
+        "line": 5,
+        "column": 1
+      }
+    },
+    {
+      "name": "isOptionalNumber",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/shared.ts",
+        "line": 9,
+        "column": 1
+      }
+    },
+    {
+      "name": "isOptionalBoolean",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/shared.ts",
+        "line": 13,
+        "column": 1
+      }
+    },
+    {
+      "name": "isStringArray",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/shared.ts",
+        "line": 17,
+        "column": 1
+      }
+    },
+    {
+      "name": "isStringRecord",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/shared.ts",
+        "line": 21,
+        "column": 1
+      }
+    },
+    {
+      "name": "isManifestValue",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/shared.ts",
+        "line": 25,
+        "column": 1
+      }
+    },
+    {
       "name": "resolveAuthFlow",
       "description": null,
       "sourceLocation": {
         "filePath": "src/auth.ts",
         "line": 65,
+        "column": 1
+      }
+    },
+    {
+      "name": "isMediaAssetReference",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/media.ts",
+        "line": 58,
         "column": 1
       }
     },
@@ -12586,6 +14032,22 @@
     },
     {
       "kind": "export",
+      "name": "isAppManifest",
+      "sourcePath": "src/appManifest.ts",
+      "symbolName": "isAppManifest",
+      "description": null,
+      "isReadme": false
+    },
+    {
+      "kind": "export",
+      "name": "isMediaAssetReference",
+      "sourcePath": "src/media.ts",
+      "symbolName": "isMediaAssetReference",
+      "description": null,
+      "isReadme": false
+    },
+    {
+      "kind": "export",
       "name": "normalizeSecretRef",
       "sourcePath": "src/secrets.ts",
       "symbolName": "normalizeSecretRef",
@@ -12597,6 +14059,14 @@
       "name": "normalizeSecretScope",
       "sourcePath": "src/secrets.ts",
       "symbolName": "normalizeSecretScope",
+      "description": null,
+      "isReadme": false
+    },
+    {
+      "kind": "export",
+      "name": "parseAppManifest",
+      "sourcePath": "src/appManifest.ts",
+      "symbolName": "parseAppManifest",
       "description": null,
       "isReadme": false
     },
@@ -12620,6 +14090,46 @@
   "graphs": {
     "imports": [
       {
+        "fromPath": "src/appManifest.ts",
+        "toPath": "src/appManifest/bindings.ts",
+        "sourcePath": "src/appManifest.ts"
+      },
+      {
+        "fromPath": "src/appManifest.ts",
+        "toPath": "src/appManifest/dataSources.ts",
+        "sourcePath": "src/appManifest.ts"
+      },
+      {
+        "fromPath": "src/appManifest.ts",
+        "toPath": "src/appManifest/generatedApis.ts",
+        "sourcePath": "src/appManifest.ts"
+      },
+      {
+        "fromPath": "src/appManifest.ts",
+        "toPath": "src/appManifest/infra.ts",
+        "sourcePath": "src/appManifest.ts"
+      },
+      {
+        "fromPath": "src/appManifest.ts",
+        "toPath": "src/appManifest/media.ts",
+        "sourcePath": "src/appManifest.ts"
+      },
+      {
+        "fromPath": "src/appManifest.ts",
+        "toPath": "src/appManifest/screens.ts",
+        "sourcePath": "src/appManifest.ts"
+      },
+      {
+        "fromPath": "src/appManifest.ts",
+        "toPath": "src/appManifest/shared.ts",
+        "sourcePath": "src/appManifest.ts"
+      },
+      {
+        "fromPath": "src/appManifest.ts",
+        "toPath": "src/types.ts",
+        "sourcePath": "src/appManifest.ts"
+      },
+      {
         "fromPath": "src/auth.ts",
         "toPath": "src/secrets.ts",
         "sourcePath": "src/auth.ts"
@@ -12633,6 +14143,11 @@
         "fromPath": "src/bindings.ts",
         "toPath": "src/data/index.ts",
         "sourcePath": "src/bindings.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/appManifest.ts",
+        "sourcePath": "src/index.ts"
       },
       {
         "fromPath": "src/index.ts",
@@ -12657,6 +14172,11 @@
       {
         "fromPath": "src/index.ts",
         "toPath": "src/db.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/media.ts",
         "sourcePath": "src/index.ts"
       },
       {
@@ -12731,6 +14251,11 @@
       },
       {
         "fromPath": "src/types.ts",
+        "toPath": "src/media.ts",
+        "sourcePath": "src/types.ts"
+      },
+      {
+        "fromPath": "src/types.ts",
         "toPath": "src/requirements.ts",
         "sourcePath": "src/types.ts"
       },
@@ -12743,6 +14268,61 @@
         "fromPath": "src/ui.ts",
         "toPath": "src/types.ts",
         "sourcePath": "src/ui.ts"
+      },
+      {
+        "fromPath": "src/appManifest/bindings.ts",
+        "toPath": "src/appManifest/shared.ts",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromPath": "src/appManifest/dataSources.ts",
+        "toPath": "src/appManifest/shared.ts",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromPath": "src/appManifest/generatedApis.ts",
+        "toPath": "src/appManifest/shared.ts",
+        "sourcePath": "src/appManifest/generatedApis.ts"
+      },
+      {
+        "fromPath": "src/appManifest/infra.ts",
+        "toPath": "src/auth.ts",
+        "sourcePath": "src/appManifest/infra.ts"
+      },
+      {
+        "fromPath": "src/appManifest/infra.ts",
+        "toPath": "src/types.ts",
+        "sourcePath": "src/appManifest/infra.ts"
+      },
+      {
+        "fromPath": "src/appManifest/infra.ts",
+        "toPath": "src/appManifest/shared.ts",
+        "sourcePath": "src/appManifest/infra.ts"
+      },
+      {
+        "fromPath": "src/appManifest/media.ts",
+        "toPath": "src/media.ts",
+        "sourcePath": "src/appManifest/media.ts"
+      },
+      {
+        "fromPath": "src/appManifest/media.ts",
+        "toPath": "src/appManifest/shared.ts",
+        "sourcePath": "src/appManifest/media.ts"
+      },
+      {
+        "fromPath": "src/appManifest/screens.ts",
+        "toPath": "src/types.ts",
+        "sourcePath": "src/appManifest/screens.ts"
+      },
+      {
+        "fromPath": "src/appManifest/screens.ts",
+        "toPath": "src/appManifest/bindings.ts",
+        "sourcePath": "src/appManifest/screens.ts"
+      },
+      {
+        "fromPath": "src/appManifest/screens.ts",
+        "toPath": "src/appManifest/shared.ts",
+        "sourcePath": "src/appManifest/screens.ts"
       },
       {
         "fromPath": "src/data/apis.ts",
@@ -12895,8 +14475,1388 @@
         "sourcePath": "src/data/sources.ts"
       }
     ],
-    "calls": [],
+    "calls": [
+      {
+        "fromSymbol": "parseAppManifest",
+        "toSymbol": "isAppManifest",
+        "callExpression": "isAppManifest",
+        "sourcePath": "src/appManifest.ts"
+      },
+      {
+        "fromSymbol": "isAppManifest",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest.ts"
+      },
+      {
+        "fromSymbol": "isAppManifest",
+        "toSymbol": "hasRequiredManifestKeys",
+        "callExpression": "hasRequiredManifestKeys",
+        "sourcePath": "src/appManifest.ts"
+      },
+      {
+        "fromSymbol": "isAppManifest",
+        "toSymbol": "isManifestMetadata",
+        "callExpression": "isManifestMetadata",
+        "sourcePath": "src/appManifest.ts"
+      },
+      {
+        "fromSymbol": "isAppManifest",
+        "toSymbol": "isActiveThemeMode",
+        "callExpression": "isActiveThemeMode",
+        "sourcePath": "src/appManifest.ts"
+      },
+      {
+        "fromSymbol": "isAppManifest",
+        "toSymbol": "isSplashScreenSpec",
+        "callExpression": "isSplashScreenSpec",
+        "sourcePath": "src/appManifest.ts"
+      },
+      {
+        "fromSymbol": "isAppManifest",
+        "toSymbol": "isMediaManifest",
+        "callExpression": "isMediaManifest",
+        "sourcePath": "src/appManifest.ts"
+      },
+      {
+        "fromSymbol": "isAppManifest",
+        "toSymbol": "isInfraManifest",
+        "callExpression": "isInfraManifest",
+        "sourcePath": "src/appManifest.ts"
+      },
+      {
+        "fromSymbol": "isAppManifest",
+        "toSymbol": "isNavigatorSpec",
+        "callExpression": "isNavigatorSpec",
+        "sourcePath": "src/appManifest.ts"
+      },
+      {
+        "fromSymbol": "isAppManifest",
+        "toSymbol": "isScreenRegistry",
+        "callExpression": "isScreenRegistry",
+        "sourcePath": "src/appManifest.ts"
+      },
+      {
+        "fromSymbol": "isAppManifest",
+        "toSymbol": "isGeneratedApiRegistry",
+        "callExpression": "isGeneratedApiRegistry",
+        "sourcePath": "src/appManifest.ts"
+      },
+      {
+        "fromSymbol": "isAppManifest",
+        "toSymbol": "isDataSourceRegistry",
+        "callExpression": "isDataSourceRegistry",
+        "sourcePath": "src/appManifest.ts"
+      },
+      {
+        "fromSymbol": "isAppManifest",
+        "toSymbol": "isComponentDataBindingRegistry",
+        "callExpression": "isComponentDataBindingRegistry",
+        "sourcePath": "src/appManifest.ts"
+      },
+      {
+        "fromSymbol": "isAppManifest",
+        "toSymbol": "isAppSettings",
+        "callExpression": "isAppSettings",
+        "sourcePath": "src/appManifest.ts"
+      },
+      {
+        "fromSymbol": "isAppSettings",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest.ts"
+      },
+      {
+        "fromSymbol": "isAppSettings",
+        "toSymbol": "isStringArray",
+        "callExpression": "isStringArray",
+        "sourcePath": "src/appManifest.ts"
+      },
+      {
+        "fromSymbol": "isAppSettings",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest.ts"
+      },
+      {
+        "fromSymbol": "isComponentDataBindingRegistry",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isBindingValueSource",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isBindingValueSource",
+        "toSymbol": "isManifestValue",
+        "callExpression": "isManifestValue",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isBindingValueSource",
+        "toSymbol": "isBindingOperationRef",
+        "callExpression": "isBindingOperationRef",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isBindingValueSource",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isScreenDataLoaderDefinition",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isScreenDataLoaderDefinition",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isScreenDataLoaderDefinition",
+        "toSymbol": "isBindingOperationRef",
+        "callExpression": "isBindingOperationRef",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isScreenDataLoaderDefinition",
+        "toSymbol": "isBindingInputMap",
+        "callExpression": "isBindingInputMap",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isComponentDataBinding",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isComponentDataBinding",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isPropBinding",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isPropBinding",
+        "toSymbol": "isBindingValueSource",
+        "callExpression": "isBindingValueSource",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isPropBinding",
+        "toSymbol": "isBindingFallback",
+        "callExpression": "isBindingFallback",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isPropBinding",
+        "toSymbol": "isBindingLifecycleBehavior",
+        "callExpression": "isBindingLifecycleBehavior",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isPropBinding",
+        "toSymbol": "isOptionalBindingTransforms",
+        "callExpression": "isOptionalBindingTransforms",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isEventBinding",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isEventBinding",
+        "toSymbol": "isEventBindingTarget",
+        "callExpression": "isEventBindingTarget",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isEventBinding",
+        "toSymbol": "isBindingInputMap",
+        "callExpression": "isBindingInputMap",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isEventBinding",
+        "toSymbol": "isBindingCondition",
+        "callExpression": "isBindingCondition",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isEventBindingTarget",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isEventBindingTarget",
+        "toSymbol": "isBindingOperationRef",
+        "callExpression": "isBindingOperationRef",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isBindingCondition",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isBindingCondition",
+        "toSymbol": "isBindingValueSource",
+        "callExpression": "isBindingValueSource",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isBindingCondition",
+        "toSymbol": "isManifestValue",
+        "callExpression": "isManifestValue",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isBindingOperationRef",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isBindingOperationRef",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isBindingFallback",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isBindingFallback",
+        "toSymbol": "isManifestValue",
+        "callExpression": "isManifestValue",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isBindingFallback",
+        "toSymbol": "isBindingValueSource",
+        "callExpression": "isBindingValueSource",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isBindingLifecycleBehavior",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isBindingLifecycleBehavior",
+        "toSymbol": "isBindingFallback",
+        "callExpression": "isBindingFallback",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isBindingLifecycleBehavior",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isBindingInputMap",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isBindingInputValue",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isBindingInputValue",
+        "toSymbol": "isManifestValue",
+        "callExpression": "isManifestValue",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isBindingInputValue",
+        "toSymbol": "isBindingInputMap",
+        "callExpression": "isBindingInputMap",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isBindingInputValue",
+        "toSymbol": "isBindingValueSource",
+        "callExpression": "isBindingValueSource",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isBindingInputValue",
+        "toSymbol": "isOptionalBindingTransforms",
+        "callExpression": "isOptionalBindingTransforms",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isDataSourceRegistry",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "isDataSourceConfig",
+        "toSymbol": "hasBaseDataSourceShape",
+        "callExpression": "hasBaseDataSourceShape",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "isDataSourceConfig",
+        "toSymbol": "isDatabaseDataSource",
+        "callExpression": "isDatabaseDataSource",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "isDataSourceConfig",
+        "toSymbol": "isGeneratedDataSource",
+        "callExpression": "isGeneratedDataSource",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "isDataSourceConfig",
+        "toSymbol": "isExternalDataSource",
+        "callExpression": "isExternalDataSource",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "hasBaseDataSourceShape",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "hasBaseDataSourceShape",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "hasBaseDataSourceShape",
+        "toSymbol": "isCredentialRef",
+        "callExpression": "isCredentialRef",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "hasBaseDataSourceShape",
+        "toSymbol": "isDataEndpointRegistry",
+        "callExpression": "isDataEndpointRegistry",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "hasBaseDataSourceShape",
+        "toSymbol": "isManifestValue",
+        "callExpression": "isManifestValue",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "isDatabaseDataSource",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "isDatabaseDataSource",
+        "toSymbol": "isAdapterRef",
+        "callExpression": "isAdapterRef",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "isGeneratedDataSource",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "isGeneratedDataSource",
+        "toSymbol": "isAdapterRef",
+        "callExpression": "isAdapterRef",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "isExternalDataSource",
+        "toSymbol": "isOpenApiDocumentRef",
+        "callExpression": "isOpenApiDocumentRef",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "isExternalDataSource",
+        "toSymbol": "isGraphQlIntrospection",
+        "callExpression": "isGraphQlIntrospection",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "isOpenApiDocumentRef",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "isOpenApiDocumentRef",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "isGraphQlIntrospection",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "isGraphQlIntrospection",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "isDataEndpointRegistry",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "isDataEndpointConfig",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "isDataEndpointConfig",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "isDataEndpointConfig",
+        "toSymbol": "isCredentialRef",
+        "callExpression": "isCredentialRef",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "isDataEndpointConfig",
+        "toSymbol": "isManifestValue",
+        "callExpression": "isManifestValue",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "isDataOperationConfig",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "isDataOperationConfig",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "isDataOperationConfig",
+        "toSymbol": "isDataOperationRequest",
+        "callExpression": "isDataOperationRequest",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "isDataOperationConfig",
+        "toSymbol": "isDataOperationResponse",
+        "callExpression": "isDataOperationResponse",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "isDataOperationConfig",
+        "toSymbol": "isCredentialRef",
+        "callExpression": "isCredentialRef",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "isDataOperationConfig",
+        "toSymbol": "isManifestValue",
+        "callExpression": "isManifestValue",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "isDataOperationRequest",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "isDataOperationRequest",
+        "toSymbol": "isDataSchemaSlot",
+        "callExpression": "isDataSchemaSlot",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "isDataOperationParameter",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "isDataOperationParameter",
+        "toSymbol": "isDataSchemaSlot",
+        "callExpression": "isDataSchemaSlot",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "isDataOperationParameter",
+        "toSymbol": "isOptionalBoolean",
+        "callExpression": "isOptionalBoolean",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "isDataOperationParameter",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "isDataOperationParameter",
+        "toSymbol": "isManifestValue",
+        "callExpression": "isManifestValue",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "isDataOperationResponse",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "isDataOperationResponse",
+        "toSymbol": "isDataSchemaSlot",
+        "callExpression": "isDataSchemaSlot",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "isDataOperationResponse",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "isDataSchemaSlot",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "isCredentialRef",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "isCredentialRef",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "isAdapterRef",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "isAdapterRef",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "isAdapterRef",
+        "toSymbol": "isManifestValue",
+        "callExpression": "isManifestValue",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "isGeneratedApiRegistry",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/generatedApis.ts"
+      },
+      {
+        "fromSymbol": "isGeneratedApiDefinition",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/generatedApis.ts"
+      },
+      {
+        "fromSymbol": "isGeneratedApiDefinition",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/generatedApis.ts"
+      },
+      {
+        "fromSymbol": "isGeneratedApiDefinition",
+        "toSymbol": "isDatabaseAdapterRef",
+        "callExpression": "isDatabaseAdapterRef",
+        "sourcePath": "src/appManifest/generatedApis.ts"
+      },
+      {
+        "fromSymbol": "isGeneratedApiDefinition",
+        "toSymbol": "isGeneratedApiAuthRequirement",
+        "callExpression": "isGeneratedApiAuthRequirement",
+        "sourcePath": "src/appManifest/generatedApis.ts"
+      },
+      {
+        "fromSymbol": "isGeneratedApiDefinition",
+        "toSymbol": "isManifestValue",
+        "callExpression": "isManifestValue",
+        "sourcePath": "src/appManifest/generatedApis.ts"
+      },
+      {
+        "fromSymbol": "isDatabaseAdapterRef",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/generatedApis.ts"
+      },
+      {
+        "fromSymbol": "isDatabaseAdapterRef",
+        "toSymbol": "isAdapterRef",
+        "callExpression": "isAdapterRef",
+        "sourcePath": "src/appManifest/generatedApis.ts"
+      },
+      {
+        "fromSymbol": "isGeneratedApiAuthRequirement",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/generatedApis.ts"
+      },
+      {
+        "fromSymbol": "isGeneratedApiAuthRequirement",
+        "toSymbol": "isOptionalBoolean",
+        "callExpression": "isOptionalBoolean",
+        "sourcePath": "src/appManifest/generatedApis.ts"
+      },
+      {
+        "fromSymbol": "isGeneratedApiAuthRequirement",
+        "toSymbol": "isStringArray",
+        "callExpression": "isStringArray",
+        "sourcePath": "src/appManifest/generatedApis.ts"
+      },
+      {
+        "fromSymbol": "isGeneratedApiAuthRequirement",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/generatedApis.ts"
+      },
+      {
+        "fromSymbol": "isGeneratedApiAuthRequirement",
+        "toSymbol": "isManifestValue",
+        "callExpression": "isManifestValue",
+        "sourcePath": "src/appManifest/generatedApis.ts"
+      },
+      {
+        "fromSymbol": "isGeneratedApiResourceDefinition",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/generatedApis.ts"
+      },
+      {
+        "fromSymbol": "isGeneratedApiResourceDefinition",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/generatedApis.ts"
+      },
+      {
+        "fromSymbol": "isGeneratedApiResourceDefinition",
+        "toSymbol": "isDbCollectionDefinition",
+        "callExpression": "isDbCollectionDefinition",
+        "sourcePath": "src/appManifest/generatedApis.ts"
+      },
+      {
+        "fromSymbol": "isGeneratedApiResourceDefinition",
+        "toSymbol": "isSeedRecords",
+        "callExpression": "isSeedRecords",
+        "sourcePath": "src/appManifest/generatedApis.ts"
+      },
+      {
+        "fromSymbol": "isGeneratedApiResourceDefinition",
+        "toSymbol": "isManifestValue",
+        "callExpression": "isManifestValue",
+        "sourcePath": "src/appManifest/generatedApis.ts"
+      },
+      {
+        "fromSymbol": "src/appManifest/generatedApis.ts",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/generatedApis.ts"
+      },
+      {
+        "fromSymbol": "isGeneratedApiPolicyRef",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/generatedApis.ts"
+      },
+      {
+        "fromSymbol": "isGeneratedApiPolicyRef",
+        "toSymbol": "isGeneratedApiCrudOperation",
+        "callExpression": "isGeneratedApiCrudOperation",
+        "sourcePath": "src/appManifest/generatedApis.ts"
+      },
+      {
+        "fromSymbol": "isDbCollectionDefinition",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/generatedApis.ts"
+      },
+      {
+        "fromSymbol": "isDbCollectionDefinition",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/generatedApis.ts"
+      },
+      {
+        "fromSymbol": "isDbFieldDefinition",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/generatedApis.ts"
+      },
+      {
+        "fromSymbol": "isDbFieldDefinition",
+        "toSymbol": "isOptionalBoolean",
+        "callExpression": "isOptionalBoolean",
+        "sourcePath": "src/appManifest/generatedApis.ts"
+      },
+      {
+        "fromSymbol": "isDbFieldDefinition",
+        "toSymbol": "isDbDefaultValue",
+        "callExpression": "isDbDefaultValue",
+        "sourcePath": "src/appManifest/generatedApis.ts"
+      },
+      {
+        "fromSymbol": "isAdapterRef",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/generatedApis.ts"
+      },
+      {
+        "fromSymbol": "isAdapterRef",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/generatedApis.ts"
+      },
+      {
+        "fromSymbol": "isAdapterRef",
+        "toSymbol": "isManifestValue",
+        "callExpression": "isManifestValue",
+        "sourcePath": "src/appManifest/generatedApis.ts"
+      },
+      {
+        "fromSymbol": "isInfraManifest",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/infra.ts"
+      },
+      {
+        "fromSymbol": "isInfraManifest",
+        "toSymbol": "isDeploymentSpec",
+        "callExpression": "isDeploymentSpec",
+        "sourcePath": "src/appManifest/infra.ts"
+      },
+      {
+        "fromSymbol": "isInfraManifest",
+        "toSymbol": "isAuthSpec",
+        "callExpression": "isAuthSpec",
+        "sourcePath": "src/appManifest/infra.ts"
+      },
+      {
+        "fromSymbol": "isInfraManifest",
+        "toSymbol": "isDatabaseSpec",
+        "callExpression": "isDatabaseSpec",
+        "sourcePath": "src/appManifest/infra.ts"
+      },
+      {
+        "fromSymbol": "isInfraManifest",
+        "toSymbol": "isStorageSpec",
+        "callExpression": "isStorageSpec",
+        "sourcePath": "src/appManifest/infra.ts"
+      },
+      {
+        "fromSymbol": "isInfraManifest",
+        "toSymbol": "isStateSpec",
+        "callExpression": "isStateSpec",
+        "sourcePath": "src/appManifest/infra.ts"
+      },
+      {
+        "fromSymbol": "isInfraManifest",
+        "toSymbol": "isNetworkingSpec",
+        "callExpression": "isNetworkingSpec",
+        "sourcePath": "src/appManifest/infra.ts"
+      },
+      {
+        "fromSymbol": "isDeploymentSpec",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/infra.ts"
+      },
+      {
+        "fromSymbol": "isDatabaseSpec",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/infra.ts"
+      },
+      {
+        "fromSymbol": "isStorageSpec",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/infra.ts"
+      },
+      {
+        "fromSymbol": "isStorageSpec",
+        "toSymbol": "isStringArray",
+        "callExpression": "isStringArray",
+        "sourcePath": "src/appManifest/infra.ts"
+      },
+      {
+        "fromSymbol": "isStateSpec",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/infra.ts"
+      },
+      {
+        "fromSymbol": "isNetworkingSpec",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/infra.ts"
+      },
+      {
+        "fromSymbol": "isNetworkingSpec",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/infra.ts"
+      },
+      {
+        "fromSymbol": "isAuthSpec",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/infra.ts"
+      },
+      {
+        "fromSymbol": "isAuthSpec",
+        "toSymbol": "isAuthzSpec",
+        "callExpression": "isAuthzSpec",
+        "sourcePath": "src/appManifest/infra.ts"
+      },
+      {
+        "fromSymbol": "isAuthSpec",
+        "toSymbol": "isAuthFlow",
+        "callExpression": "isAuthFlow",
+        "sourcePath": "src/appManifest/infra.ts"
+      },
+      {
+        "fromSymbol": "isAuthSpec",
+        "toSymbol": "isAuthSignInSpec",
+        "callExpression": "isAuthSignInSpec",
+        "sourcePath": "src/appManifest/infra.ts"
+      },
+      {
+        "fromSymbol": "isAuthSpec",
+        "toSymbol": "isAuthSignUpSpec",
+        "callExpression": "isAuthSignUpSpec",
+        "sourcePath": "src/appManifest/infra.ts"
+      },
+      {
+        "fromSymbol": "isAuthSpec",
+        "toSymbol": "isAuthOAuthConfig",
+        "callExpression": "isAuthOAuthConfig",
+        "sourcePath": "src/appManifest/infra.ts"
+      },
+      {
+        "fromSymbol": "isAuthSpec",
+        "toSymbol": "isAuthProfileSpec",
+        "callExpression": "isAuthProfileSpec",
+        "sourcePath": "src/appManifest/infra.ts"
+      },
+      {
+        "fromSymbol": "isAuthzSpec",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/infra.ts"
+      },
+      {
+        "fromSymbol": "isAuthFlow",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/infra.ts"
+      },
+      {
+        "fromSymbol": "isAuthFlow",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/infra.ts"
+      },
+      {
+        "fromSymbol": "isAuthSignInSpec",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/infra.ts"
+      },
+      {
+        "fromSymbol": "isAuthSignUpSpec",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/infra.ts"
+      },
+      {
+        "fromSymbol": "isAuthSignUpSpec",
+        "toSymbol": "isStringArray",
+        "callExpression": "isStringArray",
+        "sourcePath": "src/appManifest/infra.ts"
+      },
+      {
+        "fromSymbol": "isAuthOAuthConfig",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/infra.ts"
+      },
+      {
+        "fromSymbol": "isAuthOAuthProviderConfig",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/infra.ts"
+      },
+      {
+        "fromSymbol": "isAuthOAuthProviderConfig",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/infra.ts"
+      },
+      {
+        "fromSymbol": "isAuthOAuthProviderConfig",
+        "toSymbol": "isOptionalBoolean",
+        "callExpression": "isOptionalBoolean",
+        "sourcePath": "src/appManifest/infra.ts"
+      },
+      {
+        "fromSymbol": "isAuthOAuthProviderConfig",
+        "toSymbol": "isStringArray",
+        "callExpression": "isStringArray",
+        "sourcePath": "src/appManifest/infra.ts"
+      },
+      {
+        "fromSymbol": "isAuthOAuthProviderConfig",
+        "toSymbol": "isStringRecord",
+        "callExpression": "isStringRecord",
+        "sourcePath": "src/appManifest/infra.ts"
+      },
+      {
+        "fromSymbol": "isAuthOAuthProviderConfig",
+        "toSymbol": "isIconSpec",
+        "callExpression": "isIconSpec",
+        "sourcePath": "src/appManifest/infra.ts"
+      },
+      {
+        "fromSymbol": "isAuthProfileSpec",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/infra.ts"
+      },
+      {
+        "fromSymbol": "isAuthProfileSpec",
+        "toSymbol": "isStringArray",
+        "callExpression": "isStringArray",
+        "sourcePath": "src/appManifest/infra.ts"
+      },
+      {
+        "fromSymbol": "isAuthProfileSpec",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/infra.ts"
+      },
+      {
+        "fromSymbol": "isIconSpec",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/infra.ts"
+      },
+      {
+        "fromSymbol": "isIconSpec",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/infra.ts"
+      },
+      {
+        "fromSymbol": "isMediaManifest",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/media.ts"
+      },
+      {
+        "fromSymbol": "isMediaManifest",
+        "toSymbol": "hasOnlyKeys",
+        "callExpression": "hasOnlyKeys",
+        "sourcePath": "src/appManifest/media.ts"
+      },
+      {
+        "fromSymbol": "src/appManifest/media.ts",
+        "toSymbol": "isMediaAsset",
+        "callExpression": "isMediaAsset",
+        "sourcePath": "src/appManifest/media.ts"
+      },
+      {
+        "fromSymbol": "isMediaAsset",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/media.ts"
+      },
+      {
+        "fromSymbol": "isMediaAsset",
+        "toSymbol": "hasOnlyKeys",
+        "callExpression": "hasOnlyKeys",
+        "sourcePath": "src/appManifest/media.ts"
+      },
+      {
+        "fromSymbol": "isMediaAsset",
+        "toSymbol": "isNonEmptyString",
+        "callExpression": "isNonEmptyString",
+        "sourcePath": "src/appManifest/media.ts"
+      },
+      {
+        "fromSymbol": "isMediaAsset",
+        "toSymbol": "isMediaAssetSource",
+        "callExpression": "isMediaAssetSource",
+        "sourcePath": "src/appManifest/media.ts"
+      },
+      {
+        "fromSymbol": "isMediaAsset",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/media.ts"
+      },
+      {
+        "fromSymbol": "isMediaAsset",
+        "toSymbol": "isMediaAssetMetadata",
+        "callExpression": "isMediaAssetMetadata",
+        "sourcePath": "src/appManifest/media.ts"
+      },
+      {
+        "fromSymbol": "isMediaAssetSource",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/media.ts"
+      },
+      {
+        "fromSymbol": "isMediaAssetSource",
+        "toSymbol": "hasOnlyKeys",
+        "callExpression": "hasOnlyKeys",
+        "sourcePath": "src/appManifest/media.ts"
+      },
+      {
+        "fromSymbol": "isMediaAssetSource",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/media.ts"
+      },
+      {
+        "fromSymbol": "isMediaAssetSource",
+        "toSymbol": "isNonEmptyString",
+        "callExpression": "isNonEmptyString",
+        "sourcePath": "src/appManifest/media.ts"
+      },
+      {
+        "fromSymbol": "isMediaAssetSource",
+        "toSymbol": "isStableRemoteUrl",
+        "callExpression": "isStableRemoteUrl",
+        "sourcePath": "src/appManifest/media.ts"
+      },
+      {
+        "fromSymbol": "isMediaAssetSource",
+        "toSymbol": "isBundledPath",
+        "callExpression": "isBundledPath",
+        "sourcePath": "src/appManifest/media.ts"
+      },
+      {
+        "fromSymbol": "isMediaAssetMetadata",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/media.ts"
+      },
+      {
+        "fromSymbol": "isMediaAssetMetadata",
+        "toSymbol": "hasOnlyKeys",
+        "callExpression": "hasOnlyKeys",
+        "sourcePath": "src/appManifest/media.ts"
+      },
+      {
+        "fromSymbol": "isMediaAssetMetadata",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/media.ts"
+      },
+      {
+        "fromSymbol": "isMediaAssetMetadata",
+        "toSymbol": "isOptionalFiniteNonNegativeNumber",
+        "callExpression": "isOptionalFiniteNonNegativeNumber",
+        "sourcePath": "src/appManifest/media.ts"
+      },
+      {
+        "fromSymbol": "isMediaAssetMetadata",
+        "toSymbol": "isOptionalFinitePositiveNumber",
+        "callExpression": "isOptionalFinitePositiveNumber",
+        "sourcePath": "src/appManifest/media.ts"
+      },
+      {
+        "fromSymbol": "isBundledPath",
+        "toSymbol": "isNonEmptyString",
+        "callExpression": "isNonEmptyString",
+        "sourcePath": "src/appManifest/media.ts"
+      },
+      {
+        "fromSymbol": "isManifestMetadata",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/screens.ts"
+      },
+      {
+        "fromSymbol": "isManifestMetadata",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/screens.ts"
+      },
+      {
+        "fromSymbol": "isThemeConfig",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/screens.ts"
+      },
+      {
+        "fromSymbol": "isThemeConfig",
+        "toSymbol": "isThemeModeConfig",
+        "callExpression": "isThemeModeConfig",
+        "sourcePath": "src/appManifest/screens.ts"
+      },
+      {
+        "fromSymbol": "isNavigatorSpec",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/screens.ts"
+      },
+      {
+        "fromSymbol": "isNavigatorSpec",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/screens.ts"
+      },
+      {
+        "fromSymbol": "isScreenRegistry",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/screens.ts"
+      },
+      {
+        "fromSymbol": "src/appManifest/screens.ts",
+        "toSymbol": "isScreenSpec",
+        "callExpression": "isScreenSpec",
+        "sourcePath": "src/appManifest/screens.ts"
+      },
+      {
+        "fromSymbol": "src/appManifest/screens.ts",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/screens.ts"
+      },
+      {
+        "fromSymbol": "isSplashScreenSpec",
+        "toSymbol": "isSplashScreenModeSpec",
+        "callExpression": "isSplashScreenModeSpec",
+        "sourcePath": "src/appManifest/screens.ts"
+      },
+      {
+        "fromSymbol": "isSplashScreenSpec",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/screens.ts"
+      },
+      {
+        "fromSymbol": "isThemeModeConfig",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/screens.ts"
+      },
+      {
+        "fromSymbol": "isUiNode",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/screens.ts"
+      },
+      {
+        "fromSymbol": "isUiNode",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/screens.ts"
+      },
+      {
+        "fromSymbol": "isUiNode",
+        "toSymbol": "isUiNodeRepeatSpec",
+        "callExpression": "isUiNodeRepeatSpec",
+        "sourcePath": "src/appManifest/screens.ts"
+      },
+      {
+        "fromSymbol": "isUiNodeRepeatSpec",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/screens.ts"
+      },
+      {
+        "fromSymbol": "isUiNodeRepeatSpec",
+        "toSymbol": "isBindingValueSource",
+        "callExpression": "isBindingValueSource",
+        "sourcePath": "src/appManifest/screens.ts"
+      },
+      {
+        "fromSymbol": "isUiNodeRepeatSpec",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/screens.ts"
+      },
+      {
+        "fromSymbol": "isScreenSpec",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/screens.ts"
+      },
+      {
+        "fromSymbol": "isScreenSpec",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/screens.ts"
+      },
+      {
+        "fromSymbol": "isScreenSpec",
+        "toSymbol": "isScreenRequirements",
+        "callExpression": "isScreenRequirements",
+        "sourcePath": "src/appManifest/screens.ts"
+      },
+      {
+        "fromSymbol": "isScreenSpec",
+        "toSymbol": "isUiNode",
+        "callExpression": "isUiNode",
+        "sourcePath": "src/appManifest/screens.ts"
+      },
+      {
+        "fromSymbol": "isRouteDefinition",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/screens.ts"
+      },
+      {
+        "fromSymbol": "isRouteDefinition",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/screens.ts"
+      },
+      {
+        "fromSymbol": "isRouteDefinition",
+        "toSymbol": "isIconSpec",
+        "callExpression": "isIconSpec",
+        "sourcePath": "src/appManifest/screens.ts"
+      },
+      {
+        "fromSymbol": "isRouteDefinition",
+        "toSymbol": "isOptionalBoolean",
+        "callExpression": "isOptionalBoolean",
+        "sourcePath": "src/appManifest/screens.ts"
+      },
+      {
+        "fromSymbol": "isRouteDefinition",
+        "toSymbol": "isStringArray",
+        "callExpression": "isStringArray",
+        "sourcePath": "src/appManifest/screens.ts"
+      },
+      {
+        "fromSymbol": "isRouteDefinition",
+        "toSymbol": "isNavigatorSpec",
+        "callExpression": "isNavigatorSpec",
+        "sourcePath": "src/appManifest/screens.ts"
+      },
+      {
+        "fromSymbol": "isIconSpec",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/screens.ts"
+      },
+      {
+        "fromSymbol": "isIconSpec",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/screens.ts"
+      },
+      {
+        "fromSymbol": "isSplashScreenModeSpec",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/screens.ts"
+      },
+      {
+        "fromSymbol": "isSplashScreenModeSpec",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/screens.ts"
+      },
+      {
+        "fromSymbol": "isSplashScreenModeSpec",
+        "toSymbol": "isOptionalNumber",
+        "callExpression": "isOptionalNumber",
+        "sourcePath": "src/appManifest/screens.ts"
+      },
+      {
+        "fromSymbol": "isScreenRequirements",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/screens.ts"
+      },
+      {
+        "fromSymbol": "isScreenRequirements",
+        "toSymbol": "isRequirementArray",
+        "callExpression": "isRequirementArray",
+        "sourcePath": "src/appManifest/screens.ts"
+      },
+      {
+        "fromSymbol": "isStringRecord",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/shared.ts"
+      },
+      {
+        "fromSymbol": "isManifestValue",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/shared.ts"
+      }
+    ],
     "typeReferences": [
+      {
+        "fromSymbol": "parseAppManifest",
+        "toType": "AppManifestParseResult",
+        "sourcePath": "src/appManifest.ts"
+      },
       {
         "fromSymbol": "resolveAuthFlow",
         "toType": "AuthFlowConfig",
@@ -13758,6 +16718,26 @@
         "sourcePath": "src/db.ts"
       },
       {
+        "fromSymbol": "MediaAsset",
+        "toType": "MediaAssetMetadata",
+        "sourcePath": "src/media.ts"
+      },
+      {
+        "fromSymbol": "MediaAsset",
+        "toType": "MediaAssetSource",
+        "sourcePath": "src/media.ts"
+      },
+      {
+        "fromSymbol": "MediaManifest",
+        "toType": "MediaAsset",
+        "sourcePath": "src/media.ts"
+      },
+      {
+        "fromSymbol": "MediaManifest",
+        "toType": "Readonly",
+        "sourcePath": "src/media.ts"
+      },
+      {
         "fromSymbol": "ScreenRequirements",
         "toType": "ScreenCapabilityRequirement",
         "sourcePath": "src/requirements.ts"
@@ -14270,6 +17250,11 @@
       {
         "fromSymbol": "AppManifest",
         "toType": "InfraManifest",
+        "sourcePath": "src/types.ts"
+      },
+      {
+        "fromSymbol": "AppManifest",
+        "toType": "MediaManifest",
         "sourcePath": "src/types.ts"
       },
       {

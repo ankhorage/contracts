@@ -1,4 +1,12 @@
 graph LR
+  module_src_appManifest_ts["src/appManifest.ts"]
+  module_src_appManifest_bindings_ts["src/appManifest/bindings.ts"]
+  module_src_appManifest_dataSources_ts["src/appManifest/dataSources.ts"]
+  module_src_appManifest_generatedApis_ts["src/appManifest/generatedApis.ts"]
+  module_src_appManifest_infra_ts["src/appManifest/infra.ts"]
+  module_src_appManifest_media_ts["src/appManifest/media.ts"]
+  module_src_appManifest_screens_ts["src/appManifest/screens.ts"]
+  module_src_appManifest_shared_ts["src/appManifest/shared.ts"]
   module_src_auth_ts["src/auth.ts"]
   module_src_bindings_ts["src/bindings.ts"]
   module_src_cli_index_ts["src/cli/index.ts"]
@@ -14,6 +22,7 @@ graph LR
   module_src_data_values_ts["src/data/values.ts"]
   module_src_db_ts["src/db.ts"]
   module_src_index_ts["src/index.ts"]
+  module_src_media_ts["src/media.ts"]
   module_src_requirements_ts["src/requirements.ts"]
   module_src_runtimeCallbacks_ts["src/runtimeCallbacks.ts"]
   module_src_secretManifest_ts["src/secretManifest.ts"]
@@ -84,10 +93,13 @@ graph LR
   export_AppManifest -.-> export_DataSourceConfig
   export_AppManifest -.-> export_GeneratedApiDefinition
   export_AppManifest -.-> export_InfraManifest
+  export_AppManifest -.-> export_MediaManifest
   export_AppManifest -.-> export_NavigatorSpec
   export_AppManifest -.-> export_ScreenSpec
   export_AppManifest -.-> export_SplashScreenSpec
   export_AppManifest -.-> export_ThemeConfig
+  export_AppManifestParseResult["AppManifestParseResult"]
+  module_src_appManifest_ts --> export_AppManifestParseResult
   export_AppSettings["AppSettings"]
   module_src_types_ts --> export_AppSettings
   export_AUTH_IDENTIFIER_KINDS["AUTH_IDENTIFIER_KINDS"]
@@ -621,6 +633,10 @@ graph LR
   export_InfraSecretStoreSpec["InfraSecretStoreSpec"]
   module_src_secretManifest_ts --> export_InfraSecretStoreSpec
   export_InfraSecretStoreSpec -.-> export_SecretStoreProvider
+  export_isAppManifest["isAppManifest"]
+  module_src_appManifest_ts --> export_isAppManifest
+  export_isMediaAssetReference["isMediaAssetReference"]
+  module_src_media_ts --> export_isMediaAssetReference
   export_KnownAuthOAuthProviderId["KnownAuthOAuthProviderId"]
   module_src_auth_ts --> export_KnownAuthOAuthProviderId
   export_KnownAuthProfileField["KnownAuthProfileField"]
@@ -641,6 +657,31 @@ graph LR
   module_src_types_ts --> export_KnownStateProvider
   export_ManifestValue["ManifestValue"]
   module_src_types_ts --> export_ManifestValue
+  export_MEDIA_ASSET_KINDS["MEDIA_ASSET_KINDS"]
+  module_src_media_ts --> export_MEDIA_ASSET_KINDS
+  export_MediaAsset["MediaAsset"]
+  module_src_media_ts --> export_MediaAsset
+  export_MediaAsset -.-> export_MediaAssetMetadata
+  export_MediaAsset -.-> export_MediaAssetSource
+  export_MediaAssetKind["MediaAssetKind"]
+  module_src_media_ts --> export_MediaAssetKind
+  export_MediaAssetMetadata["MediaAssetMetadata"]
+  module_src_media_ts --> export_MediaAssetMetadata
+  export_MediaAssetReference["MediaAssetReference"]
+  module_src_media_ts --> export_MediaAssetReference
+  export_MediaAssetRegistry["MediaAssetRegistry"]
+  module_src_media_ts --> export_MediaAssetRegistry
+  export_MediaAssetSource["MediaAssetSource"]
+  module_src_media_ts --> export_MediaAssetSource
+  export_MediaBundledSource["MediaBundledSource"]
+  module_src_media_ts --> export_MediaBundledSource
+  export_MediaManifest["MediaManifest"]
+  module_src_media_ts --> export_MediaManifest
+  export_MediaManifest -.-> export_MediaAsset
+  export_MediaStorageSource["MediaStorageSource"]
+  module_src_media_ts --> export_MediaStorageSource
+  export_MediaUrlSource["MediaUrlSource"]
+  module_src_media_ts --> export_MediaUrlSource
   export_NavigateAction["NavigateAction"]
   module_src_types_ts --> export_NavigateAction
   export_NAVIGATOR_TYPES["NAVIGATOR_TYPES"]
@@ -667,6 +708,9 @@ graph LR
   module_src_bindings_ts --> export_OperationScreenDataLoaderDefinition
   export_OperationScreenDataLoaderDefinition -.-> export_BindingInputValue
   export_OperationScreenDataLoaderDefinition -.-> export_BindingOperationRef
+  export_parseAppManifest["parseAppManifest"]
+  module_src_appManifest_ts --> export_parseAppManifest
+  export_parseAppManifest -.-> export_AppManifestParseResult
   export_PasswordResetInput["PasswordResetInput"]
   module_src_auth_ts --> export_PasswordResetInput
   export_PasswordResetInput -.-> export_AuthIdentifier
