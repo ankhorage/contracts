@@ -1,0 +1,51 @@
+name: Apply ADM-13 theme source
+
+on:
+  push:
+    branches:
+      - adm13/theme-authoring-source
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: adm13/theme-authoring-source
+          fetch-depth: 0
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: '1.3.13'
+      - name: Install
+        run: bun install --frozen-lockfile
+      - name: Apply
+        run: python3 .github/scripts/apply-adm13-theme-source.py
+      - name: Format
+        run: bun run format
+      - name: Validate
+        run: |
+          bun run build
+          bun run lint
+          bun run format:check
+          bun run knip
+          bun run test
+          bun run typecheck
+          bun run docs
+          bun run format
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/apply-adm13-theme-source.yml .github/scripts/apply-adm13-theme-source.py
+          git add src .changeset README.md paradox
+          git commit -m "Add canonical theme authoring source contracts"
+      - name: Check changeset
+        run: bun run changeset:status
+      - name: Push
+        run: git push origin HEAD:adm13/theme-authoring-source
