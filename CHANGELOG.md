@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 7.6.0
+
+### Minor Changes
+
+- 49c4b9f: Add provider-neutral `media` component-property authoring metadata with optional canonical `MediaAssetKind` constraints, so authoring tools can identify accepted media kinds without provider-specific or Image-specific fields.
+
 ## 7.5.0
 
 ### Minor Changes
