@@ -1,5 +1,6 @@
 import { isComponentDataBindingRegistry } from './appManifest/bindings';
 import { isDataSourceRegistry } from './appManifest/dataSources';
+import { isAppDeployManifest } from './appManifest/deploy';
 import { isGeneratedApiRegistry } from './appManifest/generatedApis';
 import { isInfraManifest } from './appManifest/infra';
 import { isMediaManifest } from './appManifest/media';
@@ -24,6 +25,7 @@ const APP_MANIFEST_KEY_POLICY = {
   activeThemeMode: 'optional',
   splashScreen: 'optional',
   media: 'optional',
+  deploy: 'optional',
   infra: 'required',
   navigator: 'required',
   screens: 'required',
@@ -58,6 +60,7 @@ export function isAppManifest(value: unknown): value is AppManifest {
     isActiveThemeMode(value.activeThemeMode) &&
     (value.splashScreen === undefined || isSplashScreenSpec(value.splashScreen)) &&
     (value.media === undefined || isMediaManifest(value.media)) &&
+    (value.deploy === undefined || isAppDeployManifest(value.deploy)) &&
     isInfraManifest(value.infra) &&
     isNavigatorSpec(value.navigator) &&
     isScreenRegistry(value.screens) &&
