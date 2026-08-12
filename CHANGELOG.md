@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 7.2.0
+
+### Minor Changes
+
+- b24a014: Add canonical runtime parsing and validation for `AppManifest` so consumers can share the Contracts-owned manifest shape instead of maintaining structural guards independently.
+
 ## 7.1.0
 
 ### Minor Changes
