@@ -8,6 +8,7 @@ import type {
 } from './bindings';
 import type { DataSourceRegistry, GeneratedApiRegistry } from './data';
 import type { ScreenRequirements } from './requirements';
+import type { ThemeGlobalTokenOverrides, ThemeRecipeOverrides } from './theme';
 
 export interface ThemeModeConfig {
   primaryColor: string;
@@ -19,6 +20,10 @@ export interface ThemeConfig {
   name: string;
   light: ThemeModeConfig;
   dark: ThemeModeConfig;
+  /** Theme-global authored token overrides shared by light and dark mode. */
+  tokens?: ThemeGlobalTokenOverrides;
+  /** Component/pattern recipe override values; recipe schemas remain package-owned metadata. */
+  recipes?: ThemeRecipeOverrides;
 }
 
 export type ActionType =

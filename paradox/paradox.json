@@ -12,7 +12,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v6.0.0",
+      "value": "v7.0.0",
       "color": "cb3837"
     },
     {
@@ -707,7 +707,15 @@
         "StorageUploadInput",
         "StorageUploadResult",
         "ThemeConfig",
+        "ThemeGlobalTokenOverrides",
         "ThemeModeConfig",
+        "ThemeNumericTokenOverrides",
+        "ThemeRecipeFieldOverrides",
+        "ThemeRecipeOverrides",
+        "ThemeRecipeOverrideValue",
+        "ThemeStringTokenOverrides",
+        "ThemeTypographyHeadingOverrides",
+        "ThemeTypographyTokenOverrides",
         "ToggleDarkModeAction",
         "UiBindableEventMeta",
         "UiBindableEventPayloadMeta",
@@ -844,13 +852,29 @@
       ]
     },
     {
+      "path": "src/theme.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "ThemeGlobalTokenOverrides",
+        "ThemeNumericTokenOverrides",
+        "ThemeRecipeFieldOverrides",
+        "ThemeRecipeOverrides",
+        "ThemeRecipeOverrideValue",
+        "ThemeStringTokenOverrides",
+        "ThemeTypographyHeadingOverrides",
+        "ThemeTypographyTokenOverrides"
+      ]
+    },
+    {
       "path": "src/types.ts",
       "isEntrypoint": false,
       "dependencies": [
         "src/auth.ts",
         "src/bindings.ts",
         "src/data/index.ts",
-        "src/requirements.ts"
+        "src/requirements.ts",
+        "src/theme.ts"
       ],
       "exports": [
         "Action",
@@ -982,7 +1006,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 81,
+        "line": 86,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1000,7 +1024,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 24,
+        "line": 29,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1108,7 +1132,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 41,
+        "line": 46,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1565,7 +1589,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 143,
+        "line": 148,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -1583,7 +1607,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 168,
+        "line": 173,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1601,7 +1625,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 382,
+        "line": 387,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1715,7 +1739,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 374,
+        "line": 379,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1874,7 +1898,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 223,
+        "line": 228,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -1892,7 +1916,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 210,
+        "line": 215,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -1910,7 +1934,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 220,
+        "line": 225,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -1928,7 +1952,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 226,
+        "line": 231,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -1946,7 +1970,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 200,
+        "line": 205,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -1964,7 +1988,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 197,
+        "line": 202,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -1982,7 +2006,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 204,
+        "line": 209,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -2018,7 +2042,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 207,
+        "line": 212,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -2832,7 +2856,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 224,
+        "line": 229,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2850,7 +2874,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 218,
+        "line": 223,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2868,7 +2892,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 221,
+        "line": 226,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2886,7 +2910,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 339,
+        "line": 344,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2940,7 +2964,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 227,
+        "line": 232,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2958,7 +2982,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 202,
+        "line": 207,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3055,7 +3079,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 198,
+        "line": 203,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3153,7 +3177,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 205,
+        "line": 210,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3171,7 +3195,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 329,
+        "line": 334,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3248,7 +3272,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 208,
+        "line": 213,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3266,7 +3290,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 333,
+        "line": 338,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3306,7 +3330,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 347,
+        "line": 352,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3457,7 +3481,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 194,
+        "line": 199,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -3475,7 +3499,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 191,
+        "line": 196,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -3493,7 +3517,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 195,
+        "line": 200,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3511,7 +3535,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 192,
+        "line": 197,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3529,7 +3553,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 324,
+        "line": 329,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3892,7 +3916,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 118,
+        "line": 123,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3910,7 +3934,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 125,
+        "line": 130,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3928,7 +3952,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 120,
+        "line": 125,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4059,7 +4083,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 100,
+        "line": 105,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4099,7 +4123,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 130,
+        "line": 135,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4117,7 +4141,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 98,
+        "line": 103,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4204,7 +4228,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 48,
+        "line": 53,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4320,7 +4344,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 174,
+        "line": 179,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -4338,7 +4362,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 178,
+        "line": 183,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -4498,7 +4522,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 176,
+        "line": 181,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4516,7 +4540,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 309,
+        "line": 314,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4549,7 +4573,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 179,
+        "line": 184,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -6839,7 +6863,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 170,
+        "line": 175,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -6857,7 +6881,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 304,
+        "line": 309,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -6890,7 +6914,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 172,
+        "line": 177,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -7196,7 +7220,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 73,
+        "line": 78,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -7279,7 +7303,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 111,
+        "line": 116,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -7297,7 +7321,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 109,
+        "line": 114,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -7792,7 +7816,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 229,
+        "line": 234,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -7897,7 +7921,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 363,
+        "line": 368,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8031,7 +8055,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 217,
+        "line": 222,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8049,7 +8073,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 201,
+        "line": 206,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8085,7 +8109,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 135,
+        "line": 140,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8103,7 +8127,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 175,
+        "line": 180,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8121,7 +8145,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 171,
+        "line": 176,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8157,7 +8181,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 185,
+        "line": 190,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8175,7 +8199,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 90,
+        "line": 95,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8193,7 +8217,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 33,
+        "line": 38,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8226,7 +8250,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 140,
+        "line": 145,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -8244,7 +8268,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 263,
+        "line": 268,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8291,7 +8315,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 141,
+        "line": 146,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8309,7 +8333,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 358,
+        "line": 363,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8642,7 +8666,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 270,
+        "line": 275,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8965,7 +8989,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 253,
+        "line": 258,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9033,7 +9057,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 65,
+        "line": 70,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9655,7 +9679,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 58,
+        "line": 63,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9822,7 +9846,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 290,
+        "line": 295,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9862,7 +9886,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 296,
+        "line": 301,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9909,7 +9933,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 288,
+        "line": 293,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9927,7 +9951,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 300,
+        "line": 305,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10028,7 +10052,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 188,
+        "line": 193,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -10046,7 +10070,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 184,
+        "line": 189,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -10241,7 +10265,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 189,
+        "line": 194,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10277,7 +10301,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 186,
+        "line": 191,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10346,7 +10370,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 319,
+        "line": 324,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10441,7 +10465,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 181,
+        "line": 186,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -10709,7 +10733,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 182,
+        "line": 187,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10851,7 +10875,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 314,
+        "line": 319,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10978,11 +11002,11 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 17,
+        "line": 18,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["ThemeModeConfig"],
+      "relatedSymbols": ["ThemeGlobalTokenOverrides", "ThemeModeConfig", "ThemeRecipeOverrides"],
       "signatures": [],
       "members": [
         {
@@ -11012,6 +11036,67 @@
           "type": "string",
           "required": true,
           "description": null
+        },
+        {
+          "name": "recipes",
+          "kind": "property",
+          "type": "ThemeRecipeOverrides | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "tokens",
+          "kind": "property",
+          "type": "ThemeGlobalTokenOverrides | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "ThemeGlobalTokenOverrides",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/theme.ts",
+      "sourceLocation": {
+        "filePath": "src/theme.ts",
+        "line": 28,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["ThemeTypographyTokenOverrides"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "radii",
+          "kind": "property",
+          "type": "Readonly<Record<string, number>> | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "shadows",
+          "kind": "property",
+          "type": "Readonly<Record<string, number>> | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "spacing",
+          "kind": "property",
+          "type": "Readonly<Record<string, number>> | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "typography",
+          "kind": "property",
+          "type": "ThemeTypographyTokenOverrides | undefined",
+          "required": false,
+          "description": null
         }
       ],
       "structuredRows": []
@@ -11025,7 +11110,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 12,
+        "line": 13,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11050,6 +11135,191 @@
       "structuredRows": []
     },
     {
+      "name": "ThemeNumericTokenOverrides",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/theme.ts",
+      "sourceLocation": {
+        "filePath": "src/theme.ts",
+        "line": 2,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "ThemeRecipeFieldOverrides",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/theme.ts",
+      "sourceLocation": {
+        "filePath": "src/theme.ts",
+        "line": 39,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "ThemeRecipeOverrides",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/theme.ts",
+      "sourceLocation": {
+        "filePath": "src/theme.ts",
+        "line": 47,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["ThemeRecipeOverrideValue"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "components",
+          "kind": "property",
+          "type": "Readonly<Record<string, Readonly<Record<string, ThemeRecipeOverrideValue>>>> | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "patterns",
+          "kind": "property",
+          "type": "Readonly<Record<string, Readonly<Record<string, ThemeRecipeOverrideValue>>>> | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "ThemeRecipeOverrideValue",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/theme.ts",
+      "sourceLocation": {
+        "filePath": "src/theme.ts",
+        "line": 36,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "ThemeStringTokenOverrides",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/theme.ts",
+      "sourceLocation": {
+        "filePath": "src/theme.ts",
+        "line": 5,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "ThemeTypographyHeadingOverrides",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/theme.ts",
+      "sourceLocation": {
+        "filePath": "src/theme.ts",
+        "line": 8,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "lineHeight",
+          "kind": "property",
+          "type": "number | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "size",
+          "kind": "property",
+          "type": "number | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "weight",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "ThemeTypographyTokenOverrides",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/theme.ts",
+      "sourceLocation": {
+        "filePath": "src/theme.ts",
+        "line": 15,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["ThemeTypographyHeadingOverrides"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "headings",
+          "kind": "property",
+          "type": "Readonly<Record<string, ThemeTypographyHeadingOverrides>> | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "sizes",
+          "kind": "property",
+          "type": "Readonly<Record<string, number>> | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "weights",
+          "kind": "property",
+          "type": "Readonly<Record<string, string>> | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
       "name": "ToggleDarkModeAction",
       "description": null,
       "isReadme": false,
@@ -11058,7 +11328,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 53,
+        "line": 58,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12000,7 +12270,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 243,
+        "line": 248,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12068,7 +12338,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 236,
+        "line": 241,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12418,6 +12688,11 @@
       },
       {
         "fromPath": "src/index.ts",
+        "toPath": "src/theme.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
         "toPath": "src/types.ts",
         "sourcePath": "src/index.ts"
       },
@@ -12454,6 +12729,11 @@
       {
         "fromPath": "src/types.ts",
         "toPath": "src/requirements.ts",
+        "sourcePath": "src/types.ts"
+      },
+      {
+        "fromPath": "src/types.ts",
+        "toPath": "src/theme.ts",
         "sourcePath": "src/types.ts"
       },
       {
@@ -13730,8 +14010,48 @@
         "sourcePath": "src/storage.ts"
       },
       {
+        "fromSymbol": "ThemeTypographyTokenOverrides",
+        "toType": "Readonly",
+        "sourcePath": "src/theme.ts"
+      },
+      {
+        "fromSymbol": "ThemeTypographyTokenOverrides",
+        "toType": "ThemeTypographyHeadingOverrides",
+        "sourcePath": "src/theme.ts"
+      },
+      {
+        "fromSymbol": "ThemeGlobalTokenOverrides",
+        "toType": "Readonly",
+        "sourcePath": "src/theme.ts"
+      },
+      {
+        "fromSymbol": "ThemeGlobalTokenOverrides",
+        "toType": "ThemeTypographyTokenOverrides",
+        "sourcePath": "src/theme.ts"
+      },
+      {
+        "fromSymbol": "ThemeRecipeOverrides",
+        "toType": "Readonly",
+        "sourcePath": "src/theme.ts"
+      },
+      {
+        "fromSymbol": "ThemeRecipeOverrides",
+        "toType": "ThemeRecipeOverrideValue",
+        "sourcePath": "src/theme.ts"
+      },
+      {
+        "fromSymbol": "ThemeConfig",
+        "toType": "ThemeGlobalTokenOverrides",
+        "sourcePath": "src/types.ts"
+      },
+      {
         "fromSymbol": "ThemeConfig",
         "toType": "ThemeModeConfig",
+        "sourcePath": "src/types.ts"
+      },
+      {
+        "fromSymbol": "ThemeConfig",
+        "toType": "ThemeRecipeOverrides",
         "sourcePath": "src/types.ts"
       },
       {

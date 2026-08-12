@@ -156,6 +156,46 @@ describe('contracts', () => {
     expect(theme.light.harmony).toBe('analogous');
   });
 
+  it('serializes authored global theme tokens and recipe override values', () => {
+    const theme: ThemeConfig = {
+      id: 'theme-default',
+      name: 'Default',
+      light: {
+        primaryColor: '#3366ff',
+        harmony: 'analogous',
+      },
+      dark: {
+        primaryColor: '#7799ff',
+        harmony: 'analogous',
+      },
+      tokens: {
+        spacing: { m: 18, l: 28 },
+        radii: { m: 10, l: 18 },
+        typography: {
+          sizes: { body: 16, lead: 20 },
+          weights: { body: '400', strong: '700' },
+          headings: {
+            h1: { size: 34, lineHeight: 42, weight: '700' },
+          },
+        },
+        shadows: { soft: 3 },
+      },
+      recipes: {
+        components: {
+          Card: { compact: true, padding: 'l', radius: 'm', tone: 'subtle' },
+        },
+        patterns: {
+          Panel: { compact: false, padding: 'xl' },
+        },
+      },
+    };
+
+    expect(JSON.parse(JSON.stringify(theme))).toEqual(theme);
+    expect(theme.tokens?.spacing?.m).toBe(18);
+    expect(theme.recipes?.components?.Card?.compact).toBe(true);
+    expect(theme.recipes?.patterns?.Panel?.padding).toBe('xl');
+  });
+
   it('accepts serializable splash screen branding on app manifests', () => {
     const splashScreen: SplashScreenSpec = {
       backgroundColor: '#ffffff',

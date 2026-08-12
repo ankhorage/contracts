@@ -9,5 +9,6 @@ export * from './secretManifest';
 export * from './secrets';
 export * from './state';
 export * from './storage';
+export * from './theme';
 export * from './types';
 export * from './ui';
