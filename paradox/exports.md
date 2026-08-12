@@ -149,18 +149,18 @@ Source: `src/data/sources.ts:22:1`
 
 ### Members
 
-| Name        | Kind     | Type                                                                                                          | Required | Description |
-| ----------- | -------- | ------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| credential  | property | `CredentialRef \| undefined`                                                                                  | no       |             |
-| description | property | `string \| undefined`                                                                                         | no       |             |
-| endpoints   | property | `Readonly<Record<string, import("/home/runner/work/contracts/contracts/src/index").DataEndpointConfig>>`      | yes      |             |
-| id          | property | `string`                                                                                                      | yes      |             |
-| kind        | property | `"api"`                                                                                                       | yes      |             |
-| metadata    | property | `DataContractValue \| undefined`                                                                              | no       |             |
-| name        | property | `string \| undefined`                                                                                         | no       |             |
-| origin      | property | `ApiOrigin`                                                                                                   | yes      |             |
-| protocol    | property | `ApiProtocol`                                                                                                 | yes      |             |
-| schemas     | property | `Readonly<Record<string, import("/home/runner/work/contracts/contracts/src/index").DataSchema>> \| undefined` | no       |             |
+| Name        | Kind     | Type                                                                      | Required | Description |
+| ----------- | -------- | ------------------------------------------------------------------------- | -------- | ----------- |
+| credential  | property | `CredentialRef \| undefined`                                              | no       |             |
+| description | property | `string \| undefined`                                                     | no       |             |
+| endpoints   | property | `Readonly<Record<string, import("./src/index").DataEndpointConfig>>`      | yes      |             |
+| id          | property | `string`                                                                  | yes      |             |
+| kind        | property | `"api"`                                                                   | yes      |             |
+| metadata    | property | `DataContractValue \| undefined`                                          | no       |             |
+| name        | property | `string \| undefined`                                                     | no       |             |
+| origin      | property | `ApiOrigin`                                                               | yes      |             |
+| protocol    | property | `ApiProtocol`                                                             | yes      |             |
+| schemas     | property | `Readonly<Record<string, import("./src/index").DataSchema>> \| undefined` | no       |             |
 
 ## ApiDataSourceConfig
 
@@ -204,9 +204,9 @@ Source: `src/types.ts:387:1`
 | --------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------ | -------- | ----------- |
 | activeThemeId   | property | `string`                                                                                                                       | yes      |             |
 | activeThemeMode | property | `"dark" \| "light" \| undefined`                                                                                               | no       |             |
-| dataBindings    | property | `Readonly<Record<string, import("/home/runner/work/contracts/contracts/src/bindings").ComponentDataBinding>> \| undefined`     | no       |             |
-| dataSources     | property | `Readonly<Record<string, import("/home/runner/work/contracts/contracts/src/index").DataSourceConfig>> \| undefined`            | no       |             |
-| generatedApis   | property | `Readonly<Record<string, import("/home/runner/work/contracts/contracts/src/index").GeneratedApiDefinition>> \| undefined`      | no       |             |
+| dataBindings    | property | `Readonly<Record<string, import("./src/bindings").ComponentDataBinding>> \| undefined`                                         | no       |             |
+| dataSources     | property | `Readonly<Record<string, import("./src/index").DataSourceConfig>> \| undefined`                                                | no       |             |
+| generatedApis   | property | `Readonly<Record<string, import("./src/index").GeneratedApiDefinition>> \| undefined`                                          | no       |             |
 | infra           | property | `InfraManifest`                                                                                                                | yes      |             |
 | metadata        | property | `{ name: string; slug: string; version: string; category: AppCategory; themeId: string; created?: string; updated?: string; }` | yes      |             |
 | navigator       | property | `NavigatorSpec`                                                                                                                | yes      |             |
@@ -1105,17 +1105,17 @@ Source: `src/data/sources.ts:63:1`
 
 ### Members
 
-| Name        | Kind     | Type                                                                                                          | Required | Description |
-| ----------- | -------- | ------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| adapter     | property | `DatabaseAdapterRef`                                                                                          | yes      |             |
-| credential  | property | `CredentialRef \| undefined`                                                                                  | no       |             |
-| description | property | `string \| undefined`                                                                                         | no       |             |
-| endpoints   | property | `Readonly<Record<string, import("/home/runner/work/contracts/contracts/src/index").DataEndpointConfig>>`      | yes      |             |
-| id          | property | `string`                                                                                                      | yes      |             |
-| kind        | property | `"database"`                                                                                                  | yes      |             |
-| metadata    | property | `DataContractValue \| undefined`                                                                              | no       |             |
-| name        | property | `string \| undefined`                                                                                         | no       |             |
-| schemas     | property | `Readonly<Record<string, import("/home/runner/work/contracts/contracts/src/index").DataSchema>> \| undefined` | no       |             |
+| Name        | Kind     | Type                                                                      | Required | Description |
+| ----------- | -------- | ------------------------------------------------------------------------- | -------- | ----------- |
+| adapter     | property | `DatabaseAdapterRef`                                                      | yes      |             |
+| credential  | property | `CredentialRef \| undefined`                                              | no       |             |
+| description | property | `string \| undefined`                                                     | no       |             |
+| endpoints   | property | `Readonly<Record<string, import("./src/index").DataEndpointConfig>>`      | yes      |             |
+| id          | property | `string`                                                                  | yes      |             |
+| kind        | property | `"database"`                                                              | yes      |             |
+| metadata    | property | `DataContractValue \| undefined`                                          | no       |             |
+| name        | property | `string \| undefined`                                                     | no       |             |
+| schemas     | property | `Readonly<Record<string, import("./src/index").DataSchema>> \| undefined` | no       |             |
 
 ## DatabaseProvider
 
@@ -1403,16 +1403,16 @@ Source: `src/data/sources.ts:11:1`
 
 ### Members
 
-| Name        | Kind     | Type                                                                                                          | Required | Description |
-| ----------- | -------- | ------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| credential  | property | `CredentialRef \| undefined`                                                                                  | no       |             |
-| description | property | `string \| undefined`                                                                                         | no       |             |
-| endpoints   | property | `Readonly<Record<string, import("/home/runner/work/contracts/contracts/src/index").DataEndpointConfig>>`      | yes      |             |
-| id          | property | `string`                                                                                                      | yes      |             |
-| kind        | property | `DataSourceKind`                                                                                              | yes      |             |
-| metadata    | property | `DataContractValue \| undefined`                                                                              | no       |             |
-| name        | property | `string \| undefined`                                                                                         | no       |             |
-| schemas     | property | `Readonly<Record<string, import("/home/runner/work/contracts/contracts/src/index").DataSchema>> \| undefined` | no       |             |
+| Name        | Kind     | Type                                                                      | Required | Description |
+| ----------- | -------- | ------------------------------------------------------------------------- | -------- | ----------- |
+| credential  | property | `CredentialRef \| undefined`                                              | no       |             |
+| description | property | `string \| undefined`                                                     | no       |             |
+| endpoints   | property | `Readonly<Record<string, import("./src/index").DataEndpointConfig>>`      | yes      |             |
+| id          | property | `string`                                                                  | yes      |             |
+| kind        | property | `DataSourceKind`                                                          | yes      |             |
+| metadata    | property | `DataContractValue \| undefined`                                          | no       |             |
+| name        | property | `string \| undefined`                                                     | no       |             |
+| schemas     | property | `Readonly<Record<string, import("./src/index").DataSchema>> \| undefined` | no       |             |
 
 ## DataSourceConfig
 
@@ -1892,20 +1892,20 @@ Source: `src/data/sources.ts:41:1`
 
 ### Members
 
-| Name          | Kind     | Type                                                                                                          | Required | Description |
-| ------------- | -------- | ------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| credential    | property | `CredentialRef \| undefined`                                                                                  | no       |             |
-| description   | property | `string \| undefined`                                                                                         | no       |             |
-| endpoints     | property | `Readonly<Record<string, import("/home/runner/work/contracts/contracts/src/index").DataEndpointConfig>>`      | yes      |             |
-| endpointUrl   | property | `string`                                                                                                      | yes      |             |
-| id            | property | `string`                                                                                                      | yes      |             |
-| introspection | property | `{ readonly enabled: boolean; readonly schemaVersion?: string; } \| undefined`                                | no       |             |
-| kind          | property | `"api"`                                                                                                       | yes      |             |
-| metadata      | property | `DataContractValue \| undefined`                                                                              | no       |             |
-| name          | property | `string \| undefined`                                                                                         | no       |             |
-| origin        | property | `"external"`                                                                                                  | yes      |             |
-| protocol      | property | `"graphql"`                                                                                                   | yes      |             |
-| schemas       | property | `Readonly<Record<string, import("/home/runner/work/contracts/contracts/src/index").DataSchema>> \| undefined` | no       |             |
+| Name          | Kind     | Type                                                                           | Required | Description |
+| ------------- | -------- | ------------------------------------------------------------------------------ | -------- | ----------- |
+| credential    | property | `CredentialRef \| undefined`                                                   | no       |             |
+| description   | property | `string \| undefined`                                                          | no       |             |
+| endpoints     | property | `Readonly<Record<string, import("./src/index").DataEndpointConfig>>`           | yes      |             |
+| endpointUrl   | property | `string`                                                                       | yes      |             |
+| id            | property | `string`                                                                       | yes      |             |
+| introspection | property | `{ readonly enabled: boolean; readonly schemaVersion?: string; } \| undefined` | no       |             |
+| kind          | property | `"api"`                                                                        | yes      |             |
+| metadata      | property | `DataContractValue \| undefined`                                               | no       |             |
+| name          | property | `string \| undefined`                                                          | no       |             |
+| origin        | property | `"external"`                                                                   | yes      |             |
+| protocol      | property | `"graphql"`                                                                    | yes      |             |
+| schemas       | property | `Readonly<Record<string, import("./src/index").DataSchema>> \| undefined`      | no       |             |
 
 ## ExternalRestApiDataSourceConfig
 
@@ -1915,20 +1915,20 @@ Source: `src/data/sources.ts:34:1`
 
 ### Members
 
-| Name        | Kind     | Type                                                                                                          | Required | Description |
-| ----------- | -------- | ------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| baseUrl     | property | `string`                                                                                                      | yes      |             |
-| credential  | property | `CredentialRef \| undefined`                                                                                  | no       |             |
-| description | property | `string \| undefined`                                                                                         | no       |             |
-| endpoints   | property | `Readonly<Record<string, import("/home/runner/work/contracts/contracts/src/index").DataEndpointConfig>>`      | yes      |             |
-| id          | property | `string`                                                                                                      | yes      |             |
-| kind        | property | `"api"`                                                                                                       | yes      |             |
-| metadata    | property | `DataContractValue \| undefined`                                                                              | no       |             |
-| name        | property | `string \| undefined`                                                                                         | no       |             |
-| openApi     | property | `OpenApiDocumentRef \| undefined`                                                                             | no       |             |
-| origin      | property | `"external"`                                                                                                  | yes      |             |
-| protocol    | property | `"rest"`                                                                                                      | yes      |             |
-| schemas     | property | `Readonly<Record<string, import("/home/runner/work/contracts/contracts/src/index").DataSchema>> \| undefined` | no       |             |
+| Name        | Kind     | Type                                                                      | Required | Description |
+| ----------- | -------- | ------------------------------------------------------------------------- | -------- | ----------- |
+| baseUrl     | property | `string`                                                                  | yes      |             |
+| credential  | property | `CredentialRef \| undefined`                                              | no       |             |
+| description | property | `string \| undefined`                                                     | no       |             |
+| endpoints   | property | `Readonly<Record<string, import("./src/index").DataEndpointConfig>>`      | yes      |             |
+| id          | property | `string`                                                                  | yes      |             |
+| kind        | property | `"api"`                                                                   | yes      |             |
+| metadata    | property | `DataContractValue \| undefined`                                          | no       |             |
+| name        | property | `string \| undefined`                                                     | no       |             |
+| openApi     | property | `OpenApiDocumentRef \| undefined`                                         | no       |             |
+| origin      | property | `"external"`                                                              | yes      |             |
+| protocol    | property | `"rest"`                                                                  | yes      |             |
+| schemas     | property | `Readonly<Record<string, import("./src/index").DataSchema>> \| undefined` | no       |             |
 
 ## FilterAction
 
@@ -2086,20 +2086,20 @@ Source: `src/data/sources.ts:51:1`
 
 ### Members
 
-| Name           | Kind     | Type                                                                                                          | Required | Description |
-| -------------- | -------- | ------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| adapter        | property | `DatabaseAdapterRef`                                                                                          | yes      |             |
-| credential     | property | `CredentialRef \| undefined`                                                                                  | no       |             |
-| description    | property | `string \| undefined`                                                                                         | no       |             |
-| endpoints      | property | `Readonly<Record<string, import("/home/runner/work/contracts/contracts/src/index").DataEndpointConfig>>`      | yes      |             |
-| generatedApiId | property | `string`                                                                                                      | yes      |             |
-| id             | property | `string`                                                                                                      | yes      |             |
-| kind           | property | `"api"`                                                                                                       | yes      |             |
-| metadata       | property | `DataContractValue \| undefined`                                                                              | no       |             |
-| name           | property | `string \| undefined`                                                                                         | no       |             |
-| origin         | property | `"generated"`                                                                                                 | yes      |             |
-| protocol       | property | `"rest"`                                                                                                      | yes      |             |
-| schemas        | property | `Readonly<Record<string, import("/home/runner/work/contracts/contracts/src/index").DataSchema>> \| undefined` | no       |             |
+| Name           | Kind     | Type                                                                      | Required | Description |
+| -------------- | -------- | ------------------------------------------------------------------------- | -------- | ----------- |
+| adapter        | property | `DatabaseAdapterRef`                                                      | yes      |             |
+| credential     | property | `CredentialRef \| undefined`                                              | no       |             |
+| description    | property | `string \| undefined`                                                     | no       |             |
+| endpoints      | property | `Readonly<Record<string, import("./src/index").DataEndpointConfig>>`      | yes      |             |
+| generatedApiId | property | `string`                                                                  | yes      |             |
+| id             | property | `string`                                                                  | yes      |             |
+| kind           | property | `"api"`                                                                   | yes      |             |
+| metadata       | property | `DataContractValue \| undefined`                                          | no       |             |
+| name           | property | `string \| undefined`                                                     | no       |             |
+| origin         | property | `"generated"`                                                             | yes      |             |
+| protocol       | property | `"rest"`                                                                  | yes      |             |
+| schemas        | property | `Readonly<Record<string, import("./src/index").DataSchema>> \| undefined` | no       |             |
 
 ## IconSpec
 
@@ -2503,15 +2503,15 @@ Source: `src/types.ts:258:1`
 
 ### Members
 
-| Name        | Kind     | Type                                                                                                                       | Required | Description |
-| ----------- | -------- | -------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| dataLoaders | property | `readonly import("/home/runner/work/contracts/contracts/src/bindings").OperationScreenDataLoaderDefinition[] \| undefined` | no       |             |
-| description | property | `string \| undefined`                                                                                                      | no       |             |
-| id          | property | `string`                                                                                                                   | yes      |             |
-| name        | property | `string`                                                                                                                   | yes      |             |
-| requires    | property | `ScreenRequirements \| undefined`                                                                                          | no       |             |
-| root        | property | `UiNode`                                                                                                                   | yes      |             |
-| title       | property | `string \| undefined`                                                                                                      | no       |             |
+| Name        | Kind     | Type                                                                                   | Required | Description |
+| ----------- | -------- | -------------------------------------------------------------------------------------- | -------- | ----------- |
+| dataLoaders | property | `readonly import("./src/bindings").OperationScreenDataLoaderDefinition[] \| undefined` | no       |             |
+| description | property | `string \| undefined`                                                                  | no       |             |
+| id          | property | `string`                                                                               | yes      |             |
+| name        | property | `string`                                                                               | yes      |             |
+| requires    | property | `ScreenRequirements \| undefined`                                                      | no       |             |
+| root        | property | `UiNode`                                                                               | yes      |             |
+| title       | property | `string \| undefined`                                                                  | no       |             |
 
 ## SearchAction
 

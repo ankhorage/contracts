@@ -472,7 +472,7 @@
       {
         "name": "endpoints",
         "kind": "property",
-        "type": "Readonly<Record<string, import(\"/home/runner/work/contracts/contracts/src/index\").DataEndpointConfig>>",
+        "type": "Readonly<Record<string, import(\"./src/index\").DataEndpointConfig>>",
         "required": true,
         "description": null
       },
@@ -521,7 +521,7 @@
       {
         "name": "schemas",
         "kind": "property",
-        "type": "Readonly<Record<string, import(\"/home/runner/work/contracts/contracts/src/index\").DataSchema>> | undefined",
+        "type": "Readonly<Record<string, import(\"./src/index\").DataSchema>> | undefined",
         "required": false,
         "description": null
       }
@@ -662,21 +662,21 @@
       {
         "name": "dataBindings",
         "kind": "property",
-        "type": "Readonly<Record<string, import(\"/home/runner/work/contracts/contracts/src/bindings\").ComponentDataBinding>> | undefined",
+        "type": "Readonly<Record<string, import(\"./src/bindings\").ComponentDataBinding>> | undefined",
         "required": false,
         "description": null
       },
       {
         "name": "dataSources",
         "kind": "property",
-        "type": "Readonly<Record<string, import(\"/home/runner/work/contracts/contracts/src/index\").DataSourceConfig>> | undefined",
+        "type": "Readonly<Record<string, import(\"./src/index\").DataSourceConfig>> | undefined",
         "required": false,
         "description": null
       },
       {
         "name": "generatedApis",
         "kind": "property",
-        "type": "Readonly<Record<string, import(\"/home/runner/work/contracts/contracts/src/index\").GeneratedApiDefinition>> | undefined",
+        "type": "Readonly<Record<string, import(\"./src/index\").GeneratedApiDefinition>> | undefined",
         "required": false,
         "description": null
       },
@@ -3473,7 +3473,7 @@
       {
         "name": "endpoints",
         "kind": "property",
-        "type": "Readonly<Record<string, import(\"/home/runner/work/contracts/contracts/src/index\").DataEndpointConfig>>",
+        "type": "Readonly<Record<string, import(\"./src/index\").DataEndpointConfig>>",
         "required": true,
         "description": null
       },
@@ -3508,7 +3508,7 @@
       {
         "name": "schemas",
         "kind": "property",
-        "type": "Readonly<Record<string, import(\"/home/runner/work/contracts/contracts/src/index\").DataSchema>> | undefined",
+        "type": "Readonly<Record<string, import(\"./src/index\").DataSchema>> | undefined",
         "required": false,
         "description": null
       }
@@ -4521,7 +4521,7 @@
       {
         "name": "endpoints",
         "kind": "property",
-        "type": "Readonly<Record<string, import(\"/home/runner/work/contracts/contracts/src/index\").DataEndpointConfig>>",
+        "type": "Readonly<Record<string, import(\"./src/index\").DataEndpointConfig>>",
         "required": true,
         "description": null
       },
@@ -4556,7 +4556,7 @@
       {
         "name": "schemas",
         "kind": "property",
-        "type": "Readonly<Record<string, import(\"/home/runner/work/contracts/contracts/src/index\").DataSchema>> | undefined",
+        "type": "Readonly<Record<string, import(\"./src/index\").DataSchema>> | undefined",
         "required": false,
         "description": null
       }
@@ -6034,7 +6034,7 @@
       {
         "name": "endpoints",
         "kind": "property",
-        "type": "Readonly<Record<string, import(\"/home/runner/work/contracts/contracts/src/index\").DataEndpointConfig>>",
+        "type": "Readonly<Record<string, import(\"./src/index\").DataEndpointConfig>>",
         "required": true,
         "description": null
       },
@@ -6097,7 +6097,7 @@
       {
         "name": "schemas",
         "kind": "property",
-        "type": "Readonly<Record<string, import(\"/home/runner/work/contracts/contracts/src/index\").DataSchema>> | undefined",
+        "type": "Readonly<Record<string, import(\"./src/index\").DataSchema>> | undefined",
         "required": false,
         "description": null
       }
@@ -6150,7 +6150,7 @@
       {
         "name": "endpoints",
         "kind": "property",
-        "type": "Readonly<Record<string, import(\"/home/runner/work/contracts/contracts/src/index\").DataEndpointConfig>>",
+        "type": "Readonly<Record<string, import(\"./src/index\").DataEndpointConfig>>",
         "required": true,
         "description": null
       },
@@ -6206,7 +6206,7 @@
       {
         "name": "schemas",
         "kind": "property",
-        "type": "Readonly<Record<string, import(\"/home/runner/work/contracts/contracts/src/index\").DataSchema>> | undefined",
+        "type": "Readonly<Record<string, import(\"./src/index\").DataSchema>> | undefined",
         "required": false,
         "description": null
       }
@@ -6746,7 +6746,7 @@
       {
         "name": "endpoints",
         "kind": "property",
-        "type": "Readonly<Record<string, import(\"/home/runner/work/contracts/contracts/src/index\").DataEndpointConfig>>",
+        "type": "Readonly<Record<string, import(\"./src/index\").DataEndpointConfig>>",
         "required": true,
         "description": null
       },
@@ -6802,7 +6802,7 @@
       {
         "name": "schemas",
         "kind": "property",
-        "type": "Readonly<Record<string, import(\"/home/runner/work/contracts/contracts/src/index\").DataSchema>> | undefined",
+        "type": "Readonly<Record<string, import(\"./src/index\").DataSchema>> | undefined",
         "required": false,
         "description": null
       }
@@ -8001,7 +8001,7 @@
       {
         "name": "dataLoaders",
         "kind": "property",
-        "type": "readonly import(\"/home/runner/work/contracts/contracts/src/bindings\").OperationScreenDataLoaderDefinition[] | undefined",
+        "type": "readonly import(\"./src/bindings\").OperationScreenDataLoaderDefinition[] | undefined",
         "required": false,
         "description": null
       },
