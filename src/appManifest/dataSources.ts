@@ -1,9 +1,4 @@
-import {
-  isManifestValue,
-  isOptionalBoolean,
-  isOptionalString,
-  isRecord,
-} from './shared';
+import { isManifestValue, isOptionalBoolean, isOptionalString, isRecord } from './shared';
 
 export function isDataSourceRegistry(value: unknown): boolean {
   return isRecord(value) && Object.values(value).every(isDataSourceConfig);
@@ -32,7 +27,9 @@ function hasBaseDataSourceShape(value: unknown): value is Record<string, unknown
 }
 
 function isDatabaseDataSource(value: Record<string, unknown>): boolean {
-  return isRecord(value.adapter) && value.adapter.kind === 'database' && isAdapterRef(value.adapter);
+  return (
+    isRecord(value.adapter) && value.adapter.kind === 'database' && isAdapterRef(value.adapter)
+  );
 }
 
 function isGeneratedDataSource(value: Record<string, unknown>): boolean {
@@ -73,7 +70,9 @@ function isOpenApiDocumentRef(value: unknown): boolean {
 }
 
 function isGraphQlIntrospection(value: unknown): boolean {
-  return isRecord(value) && typeof value.enabled === 'boolean' && isOptionalString(value.schemaVersion);
+  return (
+    isRecord(value) && typeof value.enabled === 'boolean' && isOptionalString(value.schemaVersion)
+  );
 }
 
 function isDataEndpointRegistry(value: unknown): boolean {
@@ -142,7 +141,9 @@ function isDataOperationResponse(value: unknown): boolean {
   return (
     isRecord(value) &&
     isDataSchemaSlot(value) &&
-    (value.status === undefined || typeof value.status === 'string' || typeof value.status === 'number') &&
+    (value.status === undefined ||
+      typeof value.status === 'string' ||
+      typeof value.status === 'number') &&
     isOptionalString(value.contentType) &&
     isOptionalString(value.description)
   );

@@ -55,7 +55,8 @@ export function isScreenRegistry(value: unknown): boolean {
   return (
     isRecord(value) &&
     Object.entries(value).every(
-      ([registryKey, screen]) => isScreenSpec(screen) && isRecord(screen) && registryKey === screen.id,
+      ([registryKey, screen]) =>
+        isScreenSpec(screen) && isRecord(screen) && registryKey === screen.id,
     )
   );
 }
@@ -97,8 +98,7 @@ function isUiNodeRepeatSpec(value: unknown): boolean {
     isBindingValueSource(value.source) &&
     isOptionalString(value.itemAlias) &&
     isOptionalString(value.keyPath) &&
-    (value.empty === undefined ||
-      (Array.isArray(value.empty) && value.empty.every(isUiNode)))
+    (value.empty === undefined || (Array.isArray(value.empty) && value.empty.every(isUiNode)))
   );
 }
 
@@ -110,7 +110,8 @@ function isScreenSpec(value: unknown): boolean {
     isOptionalString(value.title) &&
     isOptionalString(value.description) &&
     (value.dataLoaders === undefined ||
-      (Array.isArray(value.dataLoaders) && value.dataLoaders.every(isScreenDataLoaderDefinition))) &&
+      (Array.isArray(value.dataLoaders) &&
+        value.dataLoaders.every(isScreenDataLoaderDefinition))) &&
     (value.requires === undefined || isScreenRequirements(value.requires)) &&
     isUiNode(value.root)
   );
@@ -135,7 +136,9 @@ function isIconSpec(value: unknown): boolean {
     isRecord(value) &&
     typeof value.name === 'string' &&
     isOptionalString(value.provider) &&
-    (value.size === undefined || typeof value.size === 'string' || typeof value.size === 'number') &&
+    (value.size === undefined ||
+      typeof value.size === 'string' ||
+      typeof value.size === 'number') &&
     isOptionalString(value.color)
   );
 }
@@ -146,7 +149,8 @@ function isSplashScreenModeSpec(value: unknown): boolean {
     isOptionalString(value.image) &&
     isOptionalNumber(value.imageWidth) &&
     (value.resizeMode === undefined ||
-      (typeof value.resizeMode === 'string' && SPLASH_SCREEN_RESIZE_MODE_SET.has(value.resizeMode))) &&
+      (typeof value.resizeMode === 'string' &&
+        SPLASH_SCREEN_RESIZE_MODE_SET.has(value.resizeMode))) &&
     isOptionalString(value.backgroundColor)
   );
 }

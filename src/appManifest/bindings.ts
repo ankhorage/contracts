@@ -1,8 +1,4 @@
-import {
-  isManifestValue,
-  isOptionalString,
-  isRecord,
-} from './shared';
+import { isManifestValue, isOptionalString, isRecord } from './shared';
 
 export function isComponentDataBindingRegistry(value: unknown): boolean {
   return isRecord(value) && Object.values(value).every(isComponentDataBinding);
@@ -127,7 +123,9 @@ function isBindingInputValue(value: unknown): boolean {
   return (
     isRecord(value) &&
     typeof value.kind === 'string' &&
-    ((value.kind === 'array' && Array.isArray(value.items) && value.items.every(isBindingInputValue)) ||
+    ((value.kind === 'array' &&
+      Array.isArray(value.items) &&
+      value.items.every(isBindingInputValue)) ||
       (value.kind === 'literal' && isManifestValue(value.value)) ||
       (value.kind === 'object' && isBindingInputMap(value.fields)) ||
       (value.kind === 'source' &&

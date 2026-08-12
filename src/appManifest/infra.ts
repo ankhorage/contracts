@@ -51,7 +51,9 @@ export function isInfraManifest(value: unknown): boolean {
 }
 
 function isDeploymentSpec(value: unknown): boolean {
-  return isRecord(value) && typeof value.target === 'string' && typeof value.monitoring === 'boolean';
+  return (
+    isRecord(value) && typeof value.target === 'string' && typeof value.monitoring === 'boolean'
+  );
 }
 
 function isDatabaseSpec(value: unknown): boolean {
@@ -189,7 +191,9 @@ function isIconSpec(value: unknown): boolean {
     isRecord(value) &&
     typeof value.name === 'string' &&
     isOptionalString(value.provider) &&
-    (value.size === undefined || typeof value.size === 'string' || typeof value.size === 'number') &&
+    (value.size === undefined ||
+      typeof value.size === 'string' ||
+      typeof value.size === 'number') &&
     isOptionalString(value.color)
   );
 }
