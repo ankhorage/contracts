@@ -16,11 +16,7 @@ const ANDROID_KEYS = new Set(['enabled', 'package', 'providers']);
 const IOS_KEYS = new Set(['enabled', 'bundleIdentifier', 'providers']);
 
 export function isAppDeployManifest(value: unknown): value is AppDeployManifest {
-  return (
-    isRecord(value) &&
-    hasOnlyKeys(value, DEPLOY_KEYS) &&
-    isAppDeployTargets(value.targets)
-  );
+  return isRecord(value) && hasOnlyKeys(value, DEPLOY_KEYS) && isAppDeployTargets(value.targets);
 }
 
 function isAppDeployTargets(value: unknown): value is AppDeployTargets {
