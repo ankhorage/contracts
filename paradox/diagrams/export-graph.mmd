@@ -20,6 +20,7 @@ graph LR
   module_src_secrets_ts["src/secrets.ts"]
   module_src_state_ts["src/state.ts"]
   module_src_storage_ts["src/storage.ts"]
+  module_src_theme_ts["src/theme.ts"]
   module_src_types_ts["src/types.ts"]
   module_src_ui_ts["src/ui.ts"]
   export_Action["Action"]
@@ -870,9 +871,30 @@ graph LR
   export_StorageUploadResult -.-> export_StorageAssetReference
   export_ThemeConfig["ThemeConfig"]
   module_src_types_ts --> export_ThemeConfig
+  export_ThemeConfig -.-> export_ThemeGlobalTokenOverrides
   export_ThemeConfig -.-> export_ThemeModeConfig
+  export_ThemeConfig -.-> export_ThemeRecipeOverrides
+  export_ThemeGlobalTokenOverrides["ThemeGlobalTokenOverrides"]
+  module_src_theme_ts --> export_ThemeGlobalTokenOverrides
+  export_ThemeGlobalTokenOverrides -.-> export_ThemeTypographyTokenOverrides
   export_ThemeModeConfig["ThemeModeConfig"]
   module_src_types_ts --> export_ThemeModeConfig
+  export_ThemeNumericTokenOverrides["ThemeNumericTokenOverrides"]
+  module_src_theme_ts --> export_ThemeNumericTokenOverrides
+  export_ThemeRecipeFieldOverrides["ThemeRecipeFieldOverrides"]
+  module_src_theme_ts --> export_ThemeRecipeFieldOverrides
+  export_ThemeRecipeOverrides["ThemeRecipeOverrides"]
+  module_src_theme_ts --> export_ThemeRecipeOverrides
+  export_ThemeRecipeOverrides -.-> export_ThemeRecipeOverrideValue
+  export_ThemeRecipeOverrideValue["ThemeRecipeOverrideValue"]
+  module_src_theme_ts --> export_ThemeRecipeOverrideValue
+  export_ThemeStringTokenOverrides["ThemeStringTokenOverrides"]
+  module_src_theme_ts --> export_ThemeStringTokenOverrides
+  export_ThemeTypographyHeadingOverrides["ThemeTypographyHeadingOverrides"]
+  module_src_theme_ts --> export_ThemeTypographyHeadingOverrides
+  export_ThemeTypographyTokenOverrides["ThemeTypographyTokenOverrides"]
+  module_src_theme_ts --> export_ThemeTypographyTokenOverrides
+  export_ThemeTypographyTokenOverrides -.-> export_ThemeTypographyHeadingOverrides
   export_ToggleDarkModeAction["ToggleDarkModeAction"]
   module_src_types_ts --> export_ToggleDarkModeAction
   export_UiBindableEventMeta["UiBindableEventMeta"]

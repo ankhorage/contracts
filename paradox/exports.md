@@ -4,13 +4,13 @@
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:81:1`
+Source: `src/types.ts:86:1`
 
 ## ActionType
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:24:1`
+Source: `src/types.ts:29:1`
 
 ## AdapterId
 
@@ -44,7 +44,7 @@ Source: `src/data/refs.ts:15:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:41:1`
+Source: `src/types.ts:46:1`
 
 ### Members
 
@@ -149,18 +149,18 @@ Source: `src/data/sources.ts:22:1`
 
 ### Members
 
-| Name        | Kind     | Type                                                                                                          | Required | Description |
-| ----------- | -------- | ------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| credential  | property | `CredentialRef \| undefined`                                                                                  | no       |             |
-| description | property | `string \| undefined`                                                                                         | no       |             |
-| endpoints   | property | `Readonly<Record<string, import("/home/runner/work/contracts/contracts/src/index").DataEndpointConfig>>`      | yes      |             |
-| id          | property | `string`                                                                                                      | yes      |             |
-| kind        | property | `"api"`                                                                                                       | yes      |             |
-| metadata    | property | `DataContractValue \| undefined`                                                                              | no       |             |
-| name        | property | `string \| undefined`                                                                                         | no       |             |
-| origin      | property | `ApiOrigin`                                                                                                   | yes      |             |
-| protocol    | property | `ApiProtocol`                                                                                                 | yes      |             |
-| schemas     | property | `Readonly<Record<string, import("/home/runner/work/contracts/contracts/src/index").DataSchema>> \| undefined` | no       |             |
+| Name        | Kind     | Type                                                                      | Required | Description |
+| ----------- | -------- | ------------------------------------------------------------------------- | -------- | ----------- |
+| credential  | property | `CredentialRef \| undefined`                                              | no       |             |
+| description | property | `string \| undefined`                                                     | no       |             |
+| endpoints   | property | `Readonly<Record<string, import("./src/index").DataEndpointConfig>>`      | yes      |             |
+| id          | property | `string`                                                                  | yes      |             |
+| kind        | property | `"api"`                                                                   | yes      |             |
+| metadata    | property | `DataContractValue \| undefined`                                          | no       |             |
+| name        | property | `string \| undefined`                                                     | no       |             |
+| origin      | property | `ApiOrigin`                                                               | yes      |             |
+| protocol    | property | `ApiProtocol`                                                             | yes      |             |
+| schemas     | property | `Readonly<Record<string, import("./src/index").DataSchema>> \| undefined` | no       |             |
 
 ## ApiDataSourceConfig
 
@@ -184,19 +184,19 @@ Source: `src/data/sources.ts:9:1`
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:143:14`
+Source: `src/types.ts:148:14`
 
 ## AppCategory
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:168:1`
+Source: `src/types.ts:173:1`
 
 ## AppManifest
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:382:1`
+Source: `src/types.ts:387:1`
 
 ### Members
 
@@ -204,9 +204,9 @@ Source: `src/types.ts:382:1`
 | --------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------ | -------- | ----------- |
 | activeThemeId   | property | `string`                                                                                                                       | yes      |             |
 | activeThemeMode | property | `"dark" \| "light" \| undefined`                                                                                               | no       |             |
-| dataBindings    | property | `Readonly<Record<string, import("/home/runner/work/contracts/contracts/src/bindings").ComponentDataBinding>> \| undefined`     | no       |             |
-| dataSources     | property | `Readonly<Record<string, import("/home/runner/work/contracts/contracts/src/index").DataSourceConfig>> \| undefined`            | no       |             |
-| generatedApis   | property | `Readonly<Record<string, import("/home/runner/work/contracts/contracts/src/index").GeneratedApiDefinition>> \| undefined`      | no       |             |
+| dataBindings    | property | `Readonly<Record<string, import("./src/bindings").ComponentDataBinding>> \| undefined`                                         | no       |             |
+| dataSources     | property | `Readonly<Record<string, import("./src/index").DataSourceConfig>> \| undefined`                                                | no       |             |
+| generatedApis   | property | `Readonly<Record<string, import("./src/index").GeneratedApiDefinition>> \| undefined`                                          | no       |             |
 | infra           | property | `InfraManifest`                                                                                                                | yes      |             |
 | metadata        | property | `{ name: string; slug: string; version: string; category: AppCategory; themeId: string; created?: string; updated?: string; }` | yes      |             |
 | navigator       | property | `NavigatorSpec`                                                                                                                | yes      |             |
@@ -219,7 +219,7 @@ Source: `src/types.ts:382:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:374:1`
+Source: `src/types.ts:379:1`
 
 ### Members
 
@@ -274,43 +274,43 @@ Source: `src/auth.ts:223:14`
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:223:14`
+Source: `src/types.ts:228:14`
 
 ## AUTH_PROFILE_FIELDS
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:210:14`
+Source: `src/types.ts:215:14`
 
 ## AUTH_PROFILE_PRIMARY_KEY_STRATEGIES
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:220:14`
+Source: `src/types.ts:225:14`
 
 ## AUTH_PROFILE_UPDATE_STRATEGIES
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:226:14`
+Source: `src/types.ts:231:14`
 
 ## AUTH_PROVIDERS
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:200:14`
+Source: `src/types.ts:205:14`
 
 ## AUTH_SCOPES
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:197:14`
+Source: `src/types.ts:202:14`
 
 ## AUTH_SIGN_IN_IDENTIFIERS
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:204:14`
+Source: `src/types.ts:209:14`
 
 ## AUTH_SIGN_UP_FIELDS
 
@@ -322,7 +322,7 @@ Source: `src/auth.ts:7:14`
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:207:14`
+Source: `src/types.ts:212:14`
 
 ## AuthAdapter
 
@@ -573,25 +573,25 @@ Source: `src/auth.ts:227:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:224:1`
+Source: `src/types.ts:229:1`
 
 ## AuthProfileField
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:218:1`
+Source: `src/types.ts:223:1`
 
 ## AuthProfilePrimaryKeyStrategy
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:221:1`
+Source: `src/types.ts:226:1`
 
 ## AuthProfileSpec
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:339:1`
+Source: `src/types.ts:344:1`
 
 ### Members
 
@@ -607,13 +607,13 @@ Source: `src/types.ts:339:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:227:1`
+Source: `src/types.ts:232:1`
 
 ## AuthProvider
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:202:1`
+Source: `src/types.ts:207:1`
 
 ## AuthProviderConfig
 
@@ -642,7 +642,7 @@ Source: `src/auth.ts:132:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:198:1`
+Source: `src/types.ts:203:1`
 
 ## AuthSession
 
@@ -676,13 +676,13 @@ Source: `src/auth.ts:69:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:205:1`
+Source: `src/types.ts:210:1`
 
 ## AuthSignInSpec
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:329:1`
+Source: `src/types.ts:334:1`
 
 ### Members
 
@@ -713,13 +713,13 @@ Source: `src/auth.ts:15:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:208:1`
+Source: `src/types.ts:213:1`
 
 ## AuthSignUpSpec
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:333:1`
+Source: `src/types.ts:338:1`
 
 ### Members
 
@@ -733,7 +733,7 @@ Source: `src/types.ts:333:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:347:1`
+Source: `src/types.ts:352:1`
 
 ### Members
 
@@ -770,31 +770,31 @@ Source: `src/auth.ts:108:1`
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:194:14`
+Source: `src/types.ts:199:14`
 
 ## AUTHZ_KINDS
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:191:14`
+Source: `src/types.ts:196:14`
 
 ## AuthzEngine
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:195:1`
+Source: `src/types.ts:200:1`
 
 ## AuthzKind
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:192:1`
+Source: `src/types.ts:197:1`
 
 ## AuthzSpec
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:324:1`
+Source: `src/types.ts:329:1`
 
 ### Members
 
@@ -923,19 +923,19 @@ Source: `src/bindings.ts:18:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:118:1`
+Source: `src/types.ts:123:1`
 
 ## CollectionItemPressEventDto
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:125:1`
+Source: `src/types.ts:130:1`
 
 ## CollectionItemPressPayload
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:120:1`
+Source: `src/types.ts:125:1`
 
 ### Members
 
@@ -982,7 +982,7 @@ Source: `src/bindings.ts:137:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:100:1`
+Source: `src/types.ts:105:1`
 
 ### Members
 
@@ -996,13 +996,13 @@ Source: `src/types.ts:100:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:130:1`
+Source: `src/types.ts:135:1`
 
 ## ComponentEventPayloadValue
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:98:1`
+Source: `src/types.ts:103:1`
 
 ## ComponentInstanceId
 
@@ -1033,7 +1033,7 @@ Source: `src/bindings.ts:4:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:48:1`
+Source: `src/types.ts:53:1`
 
 ### Members
 
@@ -1073,13 +1073,13 @@ Source: `src/data/refs.ts:6:1`
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:174:14`
+Source: `src/types.ts:179:14`
 
 ## DATABASE_TIERS
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:178:14`
+Source: `src/types.ts:183:14`
 
 ## DatabaseAdapterRef
 
@@ -1105,29 +1105,29 @@ Source: `src/data/sources.ts:63:1`
 
 ### Members
 
-| Name        | Kind     | Type                                                                                                          | Required | Description |
-| ----------- | -------- | ------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| adapter     | property | `DatabaseAdapterRef`                                                                                          | yes      |             |
-| credential  | property | `CredentialRef \| undefined`                                                                                  | no       |             |
-| description | property | `string \| undefined`                                                                                         | no       |             |
-| endpoints   | property | `Readonly<Record<string, import("/home/runner/work/contracts/contracts/src/index").DataEndpointConfig>>`      | yes      |             |
-| id          | property | `string`                                                                                                      | yes      |             |
-| kind        | property | `"database"`                                                                                                  | yes      |             |
-| metadata    | property | `DataContractValue \| undefined`                                                                              | no       |             |
-| name        | property | `string \| undefined`                                                                                         | no       |             |
-| schemas     | property | `Readonly<Record<string, import("/home/runner/work/contracts/contracts/src/index").DataSchema>> \| undefined` | no       |             |
+| Name        | Kind     | Type                                                                      | Required | Description |
+| ----------- | -------- | ------------------------------------------------------------------------- | -------- | ----------- |
+| adapter     | property | `DatabaseAdapterRef`                                                      | yes      |             |
+| credential  | property | `CredentialRef \| undefined`                                              | no       |             |
+| description | property | `string \| undefined`                                                     | no       |             |
+| endpoints   | property | `Readonly<Record<string, import("./src/index").DataEndpointConfig>>`      | yes      |             |
+| id          | property | `string`                                                                  | yes      |             |
+| kind        | property | `"database"`                                                              | yes      |             |
+| metadata    | property | `DataContractValue \| undefined`                                          | no       |             |
+| name        | property | `string \| undefined`                                                     | no       |             |
+| schemas     | property | `Readonly<Record<string, import("./src/index").DataSchema>> \| undefined` | no       |             |
 
 ## DatabaseProvider
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:176:1`
+Source: `src/types.ts:181:1`
 
 ## DatabaseSpec
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:309:1`
+Source: `src/types.ts:314:1`
 
 ### Members
 
@@ -1140,7 +1140,7 @@ Source: `src/types.ts:309:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:179:1`
+Source: `src/types.ts:184:1`
 
 ## DataContractValue
 
@@ -1403,16 +1403,16 @@ Source: `src/data/sources.ts:11:1`
 
 ### Members
 
-| Name        | Kind     | Type                                                                                                          | Required | Description |
-| ----------- | -------- | ------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| credential  | property | `CredentialRef \| undefined`                                                                                  | no       |             |
-| description | property | `string \| undefined`                                                                                         | no       |             |
-| endpoints   | property | `Readonly<Record<string, import("/home/runner/work/contracts/contracts/src/index").DataEndpointConfig>>`      | yes      |             |
-| id          | property | `string`                                                                                                      | yes      |             |
-| kind        | property | `DataSourceKind`                                                                                              | yes      |             |
-| metadata    | property | `DataContractValue \| undefined`                                                                              | no       |             |
-| name        | property | `string \| undefined`                                                                                         | no       |             |
-| schemas     | property | `Readonly<Record<string, import("/home/runner/work/contracts/contracts/src/index").DataSchema>> \| undefined` | no       |             |
+| Name        | Kind     | Type                                                                      | Required | Description |
+| ----------- | -------- | ------------------------------------------------------------------------- | -------- | ----------- |
+| credential  | property | `CredentialRef \| undefined`                                              | no       |             |
+| description | property | `string \| undefined`                                                     | no       |             |
+| endpoints   | property | `Readonly<Record<string, import("./src/index").DataEndpointConfig>>`      | yes      |             |
+| id          | property | `string`                                                                  | yes      |             |
+| kind        | property | `DataSourceKind`                                                          | yes      |             |
+| metadata    | property | `DataContractValue \| undefined`                                          | no       |             |
+| name        | property | `string \| undefined`                                                     | no       |             |
+| schemas     | property | `Readonly<Record<string, import("./src/index").DataSchema>> \| undefined` | no       |             |
 
 ## DataSourceConfig
 
@@ -1837,13 +1837,13 @@ Source: `src/auth.ts:56:14`
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:170:14`
+Source: `src/types.ts:175:14`
 
 ## DeploymentSpec
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:304:1`
+Source: `src/types.ts:309:1`
 
 ### Members
 
@@ -1856,7 +1856,7 @@ Source: `src/types.ts:304:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:172:1`
+Source: `src/types.ts:177:1`
 
 ## EndpointId
 
@@ -1892,20 +1892,20 @@ Source: `src/data/sources.ts:41:1`
 
 ### Members
 
-| Name          | Kind     | Type                                                                                                          | Required | Description |
-| ------------- | -------- | ------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| credential    | property | `CredentialRef \| undefined`                                                                                  | no       |             |
-| description   | property | `string \| undefined`                                                                                         | no       |             |
-| endpoints     | property | `Readonly<Record<string, import("/home/runner/work/contracts/contracts/src/index").DataEndpointConfig>>`      | yes      |             |
-| endpointUrl   | property | `string`                                                                                                      | yes      |             |
-| id            | property | `string`                                                                                                      | yes      |             |
-| introspection | property | `{ readonly enabled: boolean; readonly schemaVersion?: string; } \| undefined`                                | no       |             |
-| kind          | property | `"api"`                                                                                                       | yes      |             |
-| metadata      | property | `DataContractValue \| undefined`                                                                              | no       |             |
-| name          | property | `string \| undefined`                                                                                         | no       |             |
-| origin        | property | `"external"`                                                                                                  | yes      |             |
-| protocol      | property | `"graphql"`                                                                                                   | yes      |             |
-| schemas       | property | `Readonly<Record<string, import("/home/runner/work/contracts/contracts/src/index").DataSchema>> \| undefined` | no       |             |
+| Name          | Kind     | Type                                                                           | Required | Description |
+| ------------- | -------- | ------------------------------------------------------------------------------ | -------- | ----------- |
+| credential    | property | `CredentialRef \| undefined`                                                   | no       |             |
+| description   | property | `string \| undefined`                                                          | no       |             |
+| endpoints     | property | `Readonly<Record<string, import("./src/index").DataEndpointConfig>>`           | yes      |             |
+| endpointUrl   | property | `string`                                                                       | yes      |             |
+| id            | property | `string`                                                                       | yes      |             |
+| introspection | property | `{ readonly enabled: boolean; readonly schemaVersion?: string; } \| undefined` | no       |             |
+| kind          | property | `"api"`                                                                        | yes      |             |
+| metadata      | property | `DataContractValue \| undefined`                                               | no       |             |
+| name          | property | `string \| undefined`                                                          | no       |             |
+| origin        | property | `"external"`                                                                   | yes      |             |
+| protocol      | property | `"graphql"`                                                                    | yes      |             |
+| schemas       | property | `Readonly<Record<string, import("./src/index").DataSchema>> \| undefined`      | no       |             |
 
 ## ExternalRestApiDataSourceConfig
 
@@ -1915,26 +1915,26 @@ Source: `src/data/sources.ts:34:1`
 
 ### Members
 
-| Name        | Kind     | Type                                                                                                          | Required | Description |
-| ----------- | -------- | ------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| baseUrl     | property | `string`                                                                                                      | yes      |             |
-| credential  | property | `CredentialRef \| undefined`                                                                                  | no       |             |
-| description | property | `string \| undefined`                                                                                         | no       |             |
-| endpoints   | property | `Readonly<Record<string, import("/home/runner/work/contracts/contracts/src/index").DataEndpointConfig>>`      | yes      |             |
-| id          | property | `string`                                                                                                      | yes      |             |
-| kind        | property | `"api"`                                                                                                       | yes      |             |
-| metadata    | property | `DataContractValue \| undefined`                                                                              | no       |             |
-| name        | property | `string \| undefined`                                                                                         | no       |             |
-| openApi     | property | `OpenApiDocumentRef \| undefined`                                                                             | no       |             |
-| origin      | property | `"external"`                                                                                                  | yes      |             |
-| protocol    | property | `"rest"`                                                                                                      | yes      |             |
-| schemas     | property | `Readonly<Record<string, import("/home/runner/work/contracts/contracts/src/index").DataSchema>> \| undefined` | no       |             |
+| Name        | Kind     | Type                                                                      | Required | Description |
+| ----------- | -------- | ------------------------------------------------------------------------- | -------- | ----------- |
+| baseUrl     | property | `string`                                                                  | yes      |             |
+| credential  | property | `CredentialRef \| undefined`                                              | no       |             |
+| description | property | `string \| undefined`                                                     | no       |             |
+| endpoints   | property | `Readonly<Record<string, import("./src/index").DataEndpointConfig>>`      | yes      |             |
+| id          | property | `string`                                                                  | yes      |             |
+| kind        | property | `"api"`                                                                   | yes      |             |
+| metadata    | property | `DataContractValue \| undefined`                                          | no       |             |
+| name        | property | `string \| undefined`                                                     | no       |             |
+| openApi     | property | `OpenApiDocumentRef \| undefined`                                         | no       |             |
+| origin      | property | `"external"`                                                              | yes      |             |
+| protocol    | property | `"rest"`                                                                  | yes      |             |
+| schemas     | property | `Readonly<Record<string, import("./src/index").DataSchema>> \| undefined` | no       |             |
 
 ## FilterAction
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:73:1`
+Source: `src/types.ts:78:1`
 
 ### Members
 
@@ -1965,13 +1965,13 @@ Source: `src/secrets.ts:174:14`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:111:1`
+Source: `src/types.ts:116:1`
 
 ## FormSubmitValues
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:109:1`
+Source: `src/types.ts:114:1`
 
 ## GENERATED_API_CRUD_OPERATIONS
 
@@ -2086,26 +2086,26 @@ Source: `src/data/sources.ts:51:1`
 
 ### Members
 
-| Name           | Kind     | Type                                                                                                          | Required | Description |
-| -------------- | -------- | ------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| adapter        | property | `DatabaseAdapterRef`                                                                                          | yes      |             |
-| credential     | property | `CredentialRef \| undefined`                                                                                  | no       |             |
-| description    | property | `string \| undefined`                                                                                         | no       |             |
-| endpoints      | property | `Readonly<Record<string, import("/home/runner/work/contracts/contracts/src/index").DataEndpointConfig>>`      | yes      |             |
-| generatedApiId | property | `string`                                                                                                      | yes      |             |
-| id             | property | `string`                                                                                                      | yes      |             |
-| kind           | property | `"api"`                                                                                                       | yes      |             |
-| metadata       | property | `DataContractValue \| undefined`                                                                              | no       |             |
-| name           | property | `string \| undefined`                                                                                         | no       |             |
-| origin         | property | `"generated"`                                                                                                 | yes      |             |
-| protocol       | property | `"rest"`                                                                                                      | yes      |             |
-| schemas        | property | `Readonly<Record<string, import("/home/runner/work/contracts/contracts/src/index").DataSchema>> \| undefined` | no       |             |
+| Name           | Kind     | Type                                                                      | Required | Description |
+| -------------- | -------- | ------------------------------------------------------------------------- | -------- | ----------- |
+| adapter        | property | `DatabaseAdapterRef`                                                      | yes      |             |
+| credential     | property | `CredentialRef \| undefined`                                              | no       |             |
+| description    | property | `string \| undefined`                                                     | no       |             |
+| endpoints      | property | `Readonly<Record<string, import("./src/index").DataEndpointConfig>>`      | yes      |             |
+| generatedApiId | property | `string`                                                                  | yes      |             |
+| id             | property | `string`                                                                  | yes      |             |
+| kind           | property | `"api"`                                                                   | yes      |             |
+| metadata       | property | `DataContractValue \| undefined`                                          | no       |             |
+| name           | property | `string \| undefined`                                                     | no       |             |
+| origin         | property | `"generated"`                                                             | yes      |             |
+| protocol       | property | `"rest"`                                                                  | yes      |             |
+| schemas        | property | `Readonly<Record<string, import("./src/index").DataSchema>> \| undefined` | no       |             |
 
 ## IconSpec
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:229:1`
+Source: `src/types.ts:234:1`
 
 ### Members
 
@@ -2140,7 +2140,7 @@ Source: `src/storage.ts:55:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:363:1`
+Source: `src/types.ts:368:1`
 
 ### Members
 
@@ -2178,13 +2178,13 @@ Source: `src/auth.ts:38:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:217:1`
+Source: `src/types.ts:222:1`
 
 ## KnownAuthProvider
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:201:1`
+Source: `src/types.ts:206:1`
 
 ## KnownAuthSignUpField
 
@@ -2196,19 +2196,19 @@ Source: `src/auth.ts:14:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:135:1`
+Source: `src/types.ts:140:1`
 
 ## KnownDatabaseProvider
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:175:1`
+Source: `src/types.ts:180:1`
 
 ## KnownDeploymentTarget
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:171:1`
+Source: `src/types.ts:176:1`
 
 ## KnownSecretStoreProvider
 
@@ -2220,19 +2220,19 @@ Source: `src/secrets.ts:2:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:185:1`
+Source: `src/types.ts:190:1`
 
 ## ManifestValue
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:90:1`
+Source: `src/types.ts:95:1`
 
 ## NavigateAction
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:33:1`
+Source: `src/types.ts:38:1`
 
 ### Members
 
@@ -2245,13 +2245,13 @@ Source: `src/types.ts:33:1`
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:140:14`
+Source: `src/types.ts:145:14`
 
 ## NavigatorSpec
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:263:1`
+Source: `src/types.ts:268:1`
 
 ### Members
 
@@ -2266,13 +2266,13 @@ Source: `src/types.ts:263:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:141:1`
+Source: `src/types.ts:146:1`
 
 ## NetworkingSpec
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:358:1`
+Source: `src/types.ts:363:1`
 
 ### Members
 
@@ -2386,7 +2386,7 @@ Source: `src/auth.ts:65:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:270:1`
+Source: `src/types.ts:275:1`
 
 ### Members
 
@@ -2499,25 +2499,25 @@ Source: `src/requirements.ts:34:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:253:1`
+Source: `src/types.ts:258:1`
 
 ### Members
 
-| Name        | Kind     | Type                                                                                                                       | Required | Description |
-| ----------- | -------- | -------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| dataLoaders | property | `readonly import("/home/runner/work/contracts/contracts/src/bindings").OperationScreenDataLoaderDefinition[] \| undefined` | no       |             |
-| description | property | `string \| undefined`                                                                                                      | no       |             |
-| id          | property | `string`                                                                                                                   | yes      |             |
-| name        | property | `string`                                                                                                                   | yes      |             |
-| requires    | property | `ScreenRequirements \| undefined`                                                                                          | no       |             |
-| root        | property | `UiNode`                                                                                                                   | yes      |             |
-| title       | property | `string \| undefined`                                                                                                      | no       |             |
+| Name        | Kind     | Type                                                                                   | Required | Description |
+| ----------- | -------- | -------------------------------------------------------------------------------------- | -------- | ----------- |
+| dataLoaders | property | `readonly import("./src/bindings").OperationScreenDataLoaderDefinition[] \| undefined` | no       |             |
+| description | property | `string \| undefined`                                                                  | no       |             |
+| id          | property | `string`                                                                               | yes      |             |
+| name        | property | `string`                                                                               | yes      |             |
+| requires    | property | `ScreenRequirements \| undefined`                                                      | no       |             |
+| root        | property | `UiNode`                                                                               | yes      |             |
+| title       | property | `string \| undefined`                                                                  | no       |             |
 
 ## SearchAction
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:65:1`
+Source: `src/types.ts:70:1`
 
 ### Members
 
@@ -2723,7 +2723,7 @@ Source: `src/secrets.ts:46:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:58:1`
+Source: `src/types.ts:63:1`
 
 ### Members
 
@@ -2780,7 +2780,7 @@ Source: `src/auth.ts:150:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:290:1`
+Source: `src/types.ts:295:1`
 
 ### Members
 
@@ -2794,7 +2794,7 @@ Source: `src/types.ts:290:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:296:1`
+Source: `src/types.ts:301:1`
 
 ### Members
 
@@ -2809,13 +2809,13 @@ Source: `src/types.ts:296:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:288:1`
+Source: `src/types.ts:293:1`
 
 ## SplashScreenSpec
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:300:1`
+Source: `src/types.ts:305:1`
 
 ### Members
 
@@ -2846,13 +2846,13 @@ Source: `src/auth.ts:235:1`
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:188:14`
+Source: `src/types.ts:193:14`
 
 ## STATE_PROVIDERS
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:184:14`
+Source: `src/types.ts:189:14`
 
 ## StateAdapter
 
@@ -2914,7 +2914,7 @@ Source: `src/state.ts:10:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:189:1`
+Source: `src/types.ts:194:1`
 
 ## StatePrimitive
 
@@ -2926,7 +2926,7 @@ Source: `src/state.ts:1:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:186:1`
+Source: `src/types.ts:191:1`
 
 ## StateResult
 
@@ -2951,7 +2951,7 @@ Source: `src/state.ts:40:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:319:1`
+Source: `src/types.ts:324:1`
 
 ### Members
 
@@ -2988,7 +2988,7 @@ Source: `src/state.ts:3:1`
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:181:14`
+Source: `src/types.ts:186:14`
 
 ## StorageAdapter
 
@@ -3065,7 +3065,7 @@ Source: `src/storage.ts:7:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:182:1`
+Source: `src/types.ts:187:1`
 
 ## StoragePublicUrlInput
 
@@ -3117,7 +3117,7 @@ Source: `src/storage.ts:11:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:314:1`
+Source: `src/types.ts:319:1`
 
 ### Members
 
@@ -3160,22 +3160,39 @@ Source: `src/storage.ts:35:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:17:1`
+Source: `src/types.ts:18:1`
 
 ### Members
 
-| Name  | Kind     | Type              | Required | Description |
-| ----- | -------- | ----------------- | -------- | ----------- |
-| dark  | property | `ThemeModeConfig` | yes      |             |
-| id    | property | `string`          | yes      |             |
-| light | property | `ThemeModeConfig` | yes      |             |
-| name  | property | `string`          | yes      |             |
+| Name    | Kind     | Type                                     | Required | Description |
+| ------- | -------- | ---------------------------------------- | -------- | ----------- |
+| dark    | property | `ThemeModeConfig`                        | yes      |             |
+| id      | property | `string`                                 | yes      |             |
+| light   | property | `ThemeModeConfig`                        | yes      |             |
+| name    | property | `string`                                 | yes      |             |
+| recipes | property | `ThemeRecipeOverrides \| undefined`      | no       |             |
+| tokens  | property | `ThemeGlobalTokenOverrides \| undefined` | no       |             |
+
+## ThemeGlobalTokenOverrides
+
+Kind: `type`
+Module: `src/theme.ts`
+Source: `src/theme.ts:28:1`
+
+### Members
+
+| Name       | Kind     | Type                                            | Required | Description |
+| ---------- | -------- | ----------------------------------------------- | -------- | ----------- |
+| radii      | property | `Readonly<Record<string, number>> \| undefined` | no       |             |
+| shadows    | property | `Readonly<Record<string, number>> \| undefined` | no       |             |
+| spacing    | property | `Readonly<Record<string, number>> \| undefined` | no       |             |
+| typography | property | `ThemeTypographyTokenOverrides \| undefined`    | no       |             |
 
 ## ThemeModeConfig
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:12:1`
+Source: `src/types.ts:13:1`
 
 ### Members
 
@@ -3184,11 +3201,76 @@ Source: `src/types.ts:12:1`
 | harmony      | property | `"monochromatic" \| "analogous" \| "complementary" \| "triadic" \| "tetradic" \| "splitComplementary"` | yes      |             |
 | primaryColor | property | `string`                                                                                               | yes      |             |
 
+## ThemeNumericTokenOverrides
+
+Kind: `unknown`
+Module: `src/theme.ts`
+Source: `src/theme.ts:2:1`
+
+## ThemeRecipeFieldOverrides
+
+Kind: `unknown`
+Module: `src/theme.ts`
+Source: `src/theme.ts:39:1`
+
+## ThemeRecipeOverrides
+
+Kind: `type`
+Module: `src/theme.ts`
+Source: `src/theme.ts:47:1`
+
+### Members
+
+| Name       | Kind     | Type                                                                                        | Required | Description |
+| ---------- | -------- | ------------------------------------------------------------------------------------------- | -------- | ----------- |
+| components | property | `Readonly<Record<string, Readonly<Record<string, ThemeRecipeOverrideValue>>>> \| undefined` | no       |             |
+| patterns   | property | `Readonly<Record<string, Readonly<Record<string, ThemeRecipeOverrideValue>>>> \| undefined` | no       |             |
+
+## ThemeRecipeOverrideValue
+
+Kind: `unknown`
+Module: `src/theme.ts`
+Source: `src/theme.ts:36:1`
+
+## ThemeStringTokenOverrides
+
+Kind: `unknown`
+Module: `src/theme.ts`
+Source: `src/theme.ts:5:1`
+
+## ThemeTypographyHeadingOverrides
+
+Kind: `type`
+Module: `src/theme.ts`
+Source: `src/theme.ts:8:1`
+
+### Members
+
+| Name       | Kind     | Type                  | Required | Description |
+| ---------- | -------- | --------------------- | -------- | ----------- |
+| lineHeight | property | `number \| undefined` | no       |             |
+| size       | property | `number \| undefined` | no       |             |
+| weight     | property | `string \| undefined` | no       |             |
+
+## ThemeTypographyTokenOverrides
+
+Kind: `type`
+Module: `src/theme.ts`
+Source: `src/theme.ts:15:1`
+
+### Members
+
+| Name     | Kind     | Type                                                                     | Required | Description |
+| -------- | -------- | ------------------------------------------------------------------------ | -------- | ----------- |
+| headings | property | `Readonly<Record<string, ThemeTypographyHeadingOverrides>> \| undefined` | no       |             |
+| sizes    | property | `Readonly<Record<string, number>> \| undefined`                          | no       |             |
+| weights  | property | `Readonly<Record<string, string>> \| undefined`                          | no       |             |
+
 ## ToggleDarkModeAction
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:53:1`
+Source: `src/types.ts:58:1`
 
 ### Members
 
@@ -3494,7 +3576,7 @@ Source: `src/ui.ts:140:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:243:1`
+Source: `src/types.ts:248:1`
 
 ### Members
 
@@ -3512,7 +3594,7 @@ Source: `src/types.ts:243:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:236:1`
+Source: `src/types.ts:241:1`
 
 ### Members
 
