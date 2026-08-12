@@ -2,6 +2,7 @@ graph LR
   module_src_appManifest_ts["src/appManifest.ts"]
   module_src_appManifest_bindings_ts["src/appManifest/bindings.ts"]
   module_src_appManifest_dataSources_ts["src/appManifest/dataSources.ts"]
+  module_src_appManifest_deploy_ts["src/appManifest/deploy.ts"]
   module_src_appManifest_generatedApis_ts["src/appManifest/generatedApis.ts"]
   module_src_appManifest_infra_ts["src/appManifest/infra.ts"]
   module_src_appManifest_media_ts["src/appManifest/media.ts"]
@@ -21,6 +22,7 @@ graph LR
   module_src_data_sources_ts["src/data/sources.ts"]
   module_src_data_values_ts["src/data/values.ts"]
   module_src_db_ts["src/db.ts"]
+  module_src_deploy_ts["src/deploy.ts"]
   module_src_index_ts["src/index.ts"]
   module_src_media_ts["src/media.ts"]
   module_src_requirements_ts["src/requirements.ts"]
@@ -34,6 +36,7 @@ graph LR
   module_src_ui_ts["src/ui.ts"]
   module_src_appManifest_ts --> module_src_appManifest_bindings_ts
   module_src_appManifest_ts --> module_src_appManifest_dataSources_ts
+  module_src_appManifest_ts --> module_src_appManifest_deploy_ts
   module_src_appManifest_ts --> module_src_appManifest_generatedApis_ts
   module_src_appManifest_ts --> module_src_appManifest_infra_ts
   module_src_appManifest_ts --> module_src_appManifest_media_ts
@@ -42,6 +45,8 @@ graph LR
   module_src_appManifest_ts --> module_src_types_ts
   module_src_appManifest_bindings_ts --> module_src_appManifest_shared_ts
   module_src_appManifest_dataSources_ts --> module_src_appManifest_shared_ts
+  module_src_appManifest_deploy_ts --> module_src_appManifest_shared_ts
+  module_src_appManifest_deploy_ts --> module_src_deploy_ts
   module_src_appManifest_generatedApis_ts --> module_src_appManifest_shared_ts
   module_src_appManifest_infra_ts --> module_src_appManifest_shared_ts
   module_src_appManifest_infra_ts --> module_src_auth_ts
@@ -80,7 +85,9 @@ graph LR
   module_src_types_ts --> module_src_auth_ts
   module_src_types_ts --> module_src_bindings_ts
   module_src_types_ts --> module_src_data_index_ts
+  module_src_types_ts --> module_src_deploy_ts
   module_src_types_ts --> module_src_media_ts
   module_src_types_ts --> module_src_requirements_ts
   module_src_types_ts --> module_src_theme_ts
+  module_src_ui_ts --> module_src_media_ts
   module_src_ui_ts --> module_src_types_ts

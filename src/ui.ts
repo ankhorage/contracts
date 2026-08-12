@@ -1,3 +1,4 @@
+import type { MediaAssetKind } from './media';
 import type { ComponentEventDtoKind } from './types';
 
 export type UiComponentCategory = 'component' | 'foundation' | 'layout' | 'pattern';
@@ -9,6 +10,7 @@ export type UiComponentPropType =
   | 'color'
   | 'enum'
   | 'imageAsset'
+  | 'media'
   | 'number'
   | 'radius'
   | 'shadow'
@@ -39,6 +41,7 @@ export interface UiComponentPropSchema {
   readonly enum?: readonly (number | string)[];
   readonly default?: UiComponentPropValue;
   readonly itemSchema?: readonly UiComponentPropArrayItemSchema[];
+  readonly mediaKinds?: readonly MediaAssetKind[];
 }
 
 export interface UiComponentBlueprintIcon {

@@ -12,7 +12,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v7.3.0",
+      "value": "v7.5.0",
       "color": "cb3837"
     },
     {
@@ -72,6 +72,7 @@
       "dependencies": [
         "src/appManifest/bindings.ts",
         "src/appManifest/dataSources.ts",
+        "src/appManifest/deploy.ts",
         "src/appManifest/generatedApis.ts",
         "src/appManifest/infra.ts",
         "src/appManifest/media.ts",
@@ -96,6 +97,12 @@
       "isEntrypoint": false,
       "dependencies": ["src/appManifest/shared.ts"],
       "exports": ["isDataSourceRegistry"]
+    },
+    {
+      "path": "src/appManifest/deploy.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/appManifest/shared.ts", "src/deploy.ts"],
+      "exports": ["isAppDeployManifest"]
     },
     {
       "path": "src/appManifest/generatedApis.ts",
@@ -474,6 +481,22 @@
       ]
     },
     {
+      "path": "src/deploy.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "APP_DEPLOY_TARGET_IDS",
+        "AppDeployAndroidTargetConfig",
+        "AppDeployIosTargetConfig",
+        "AppDeployManifest",
+        "AppDeployProviderSelection",
+        "AppDeployTargetId",
+        "AppDeployTargets",
+        "AppDeployWebTargetConfig",
+        "isAppDeployManifest"
+      ]
+    },
+    {
       "path": "src/index.ts",
       "isEntrypoint": true,
       "dependencies": [],
@@ -499,7 +522,15 @@
         "ApiOrigin",
         "ApiProtocol",
         "APP_CATEGORIES",
+        "APP_DEPLOY_TARGET_IDS",
         "AppCategory",
+        "AppDeployAndroidTargetConfig",
+        "AppDeployIosTargetConfig",
+        "AppDeployManifest",
+        "AppDeployProviderSelection",
+        "AppDeployTargetId",
+        "AppDeployTargets",
+        "AppDeployWebTargetConfig",
         "AppManifest",
         "AppManifestParseResult",
         "AppSettings",
@@ -692,6 +723,7 @@
         "ImageMetadata",
         "InfraManifest",
         "InfraSecretStoreSpec",
+        "isAppDeployManifest",
         "isAppManifest",
         "isMediaAssetReference",
         "KnownAuthOAuthProviderId",
@@ -1005,6 +1037,7 @@
         "src/auth.ts",
         "src/bindings.ts",
         "src/data/index.ts",
+        "src/deploy.ts",
         "src/media.ts",
         "src/requirements.ts",
         "src/theme.ts"
@@ -1100,7 +1133,7 @@
     {
       "path": "src/ui.ts",
       "isEntrypoint": false,
-      "dependencies": ["src/types.ts"],
+      "dependencies": ["src/media.ts", "src/types.ts"],
       "exports": [
         "UiBindableEventMeta",
         "UiBindableEventPayloadMeta",
@@ -1139,7 +1172,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 87,
+        "line": 88,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1157,7 +1190,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 30,
+        "line": 31,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1265,7 +1298,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 47,
+        "line": 48,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1722,7 +1755,25 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 149,
+        "line": 150,
+        "column": 14
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "APP_DEPLOY_TARGET_IDS",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "value",
+      "modulePath": "src/deploy.ts",
+      "sourceLocation": {
+        "filePath": "src/deploy.ts",
+        "line": 1,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -1740,13 +1791,247 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 174,
+        "line": 175,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "AppDeployAndroidTargetConfig",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/deploy.ts",
+      "sourceLocation": {
+        "filePath": "src/deploy.ts",
+        "line": 15,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["AppDeployProviderSelection"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "enabled",
+          "kind": "property",
+          "type": "boolean",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "package",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "providers",
+          "kind": "property",
+          "type": "AppDeployProviderSelection | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "AppDeployIosTargetConfig",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/deploy.ts",
+      "sourceLocation": {
+        "filePath": "src/deploy.ts",
+        "line": 21,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["AppDeployProviderSelection"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "bundleIdentifier",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "enabled",
+          "kind": "property",
+          "type": "boolean",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "providers",
+          "kind": "property",
+          "type": "AppDeployProviderSelection | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "AppDeployManifest",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/deploy.ts",
+      "sourceLocation": {
+        "filePath": "src/deploy.ts",
+        "line": 33,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["AppDeployTargets"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "targets",
+          "kind": "property",
+          "type": "AppDeployTargets",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "AppDeployProviderSelection",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/deploy.ts",
+      "sourceLocation": {
+        "filePath": "src/deploy.ts",
+        "line": 5,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "build",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "publish",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "AppDeployTargetId",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/deploy.ts",
+      "sourceLocation": {
+        "filePath": "src/deploy.ts",
+        "line": 3,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "AppDeployTargets",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/deploy.ts",
+      "sourceLocation": {
+        "filePath": "src/deploy.ts",
+        "line": 27,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [
+        "AppDeployAndroidTargetConfig",
+        "AppDeployIosTargetConfig",
+        "AppDeployWebTargetConfig"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "android",
+          "kind": "property",
+          "type": "AppDeployAndroidTargetConfig | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "ios",
+          "kind": "property",
+          "type": "AppDeployIosTargetConfig | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "web",
+          "kind": "property",
+          "type": "AppDeployWebTargetConfig | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "AppDeployWebTargetConfig",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/deploy.ts",
+      "sourceLocation": {
+        "filePath": "src/deploy.ts",
+        "line": 10,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["AppDeployProviderSelection"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "enabled",
+          "kind": "property",
+          "type": "boolean",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "providers",
+          "kind": "property",
+          "type": "AppDeployProviderSelection | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
       "structuredRows": []
     },
     {
@@ -1758,12 +2043,13 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 388,
+        "line": 389,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "AppCategory",
+        "AppDeployManifest",
         "AppSettings",
         "ComponentDataBinding",
         "DataSourceConfig",
@@ -1802,6 +2088,13 @@
           "name": "dataSources",
           "kind": "property",
           "type": "Readonly<Record<string, import(\"./src/index\").DataSourceConfig>> | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "deploy",
+          "kind": "property",
+          "type": "AppDeployManifest | undefined",
           "required": false,
           "description": null
         },
@@ -1880,7 +2173,7 @@
       "modulePath": "src/appManifest.ts",
       "sourceLocation": {
         "filePath": "src/appManifest.ts",
-        "line": 16,
+        "line": 17,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1898,7 +2191,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 380,
+        "line": 381,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2057,7 +2350,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 229,
+        "line": 230,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -2075,7 +2368,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 216,
+        "line": 217,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -2093,7 +2386,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 226,
+        "line": 227,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -2111,7 +2404,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 232,
+        "line": 233,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -2129,7 +2422,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 206,
+        "line": 207,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -2147,7 +2440,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 203,
+        "line": 204,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -2165,7 +2458,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 210,
+        "line": 211,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -2201,7 +2494,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 213,
+        "line": 214,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -3015,7 +3308,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 230,
+        "line": 231,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3033,7 +3326,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 224,
+        "line": 225,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3051,7 +3344,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 227,
+        "line": 228,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3069,7 +3362,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 345,
+        "line": 346,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3123,7 +3416,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 233,
+        "line": 234,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3141,7 +3434,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 208,
+        "line": 209,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3238,7 +3531,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 204,
+        "line": 205,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3336,7 +3629,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 211,
+        "line": 212,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3354,7 +3647,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 335,
+        "line": 336,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3431,7 +3724,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 214,
+        "line": 215,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3449,7 +3742,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 339,
+        "line": 340,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3489,7 +3782,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 353,
+        "line": 354,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3640,7 +3933,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 200,
+        "line": 201,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -3658,7 +3951,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 197,
+        "line": 198,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -3676,7 +3969,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 201,
+        "line": 202,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3694,7 +3987,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 198,
+        "line": 199,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3712,7 +4005,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 330,
+        "line": 331,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4075,7 +4368,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 124,
+        "line": 125,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4093,7 +4386,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 131,
+        "line": 132,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4111,7 +4404,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 126,
+        "line": 127,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4242,7 +4535,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 106,
+        "line": 107,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4282,7 +4575,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 136,
+        "line": 137,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4300,7 +4593,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 104,
+        "line": 105,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4387,7 +4680,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 54,
+        "line": 55,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4503,7 +4796,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 180,
+        "line": 181,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -4521,7 +4814,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 184,
+        "line": 185,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -4681,7 +4974,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 182,
+        "line": 183,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4699,7 +4992,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 315,
+        "line": 316,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4732,7 +5025,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 185,
+        "line": 186,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -7022,7 +7315,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 176,
+        "line": 177,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -7040,7 +7333,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 310,
+        "line": 311,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -7073,7 +7366,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 178,
+        "line": 179,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -7379,7 +7672,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 79,
+        "line": 80,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -7462,7 +7755,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 117,
+        "line": 118,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -7480,7 +7773,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 115,
+        "line": 116,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -7975,7 +8268,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 235,
+        "line": 236,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8080,7 +8373,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 369,
+        "line": 370,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8188,6 +8481,38 @@
       "structuredRows": []
     },
     {
+      "name": "isAppDeployManifest",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "function",
+      "modulePath": "src/appManifest/deploy.ts",
+      "sourceLocation": {
+        "filePath": "src/appManifest/deploy.ts",
+        "line": 18,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [
+        {
+          "label": "(value: unknown) => boolean",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "unknown",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "boolean",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
       "name": "isAppManifest",
       "description": null,
       "isReadme": false,
@@ -8196,7 +8521,7 @@
       "modulePath": "src/appManifest.ts",
       "sourceLocation": {
         "filePath": "src/appManifest.ts",
-        "line": 50,
+        "line": 52,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8278,7 +8603,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 223,
+        "line": 224,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8296,7 +8621,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 207,
+        "line": 208,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8332,7 +8657,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 141,
+        "line": 142,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8350,7 +8675,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 181,
+        "line": 182,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8368,7 +8693,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 177,
+        "line": 178,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8404,7 +8729,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 191,
+        "line": 192,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8422,7 +8747,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 96,
+        "line": 97,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8873,7 +9198,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 39,
+        "line": 40,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8906,7 +9231,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 146,
+        "line": 147,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -8924,7 +9249,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 269,
+        "line": 270,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8971,7 +9296,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 147,
+        "line": 148,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8989,7 +9314,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 364,
+        "line": 365,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9191,7 +9516,7 @@
       "modulePath": "src/appManifest.ts",
       "sourceLocation": {
         "filePath": "src/appManifest.ts",
-        "line": 43,
+        "line": 45,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9354,7 +9679,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 276,
+        "line": 277,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9677,7 +10002,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 259,
+        "line": 260,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9745,7 +10070,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 71,
+        "line": 72,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10367,7 +10692,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 64,
+        "line": 65,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10534,7 +10859,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 296,
+        "line": 297,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10574,7 +10899,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 302,
+        "line": 303,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10621,7 +10946,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 294,
+        "line": 295,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10639,7 +10964,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 306,
+        "line": 307,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10740,7 +11065,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 194,
+        "line": 195,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -10758,7 +11083,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 190,
+        "line": 191,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -10953,7 +11278,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 195,
+        "line": 196,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10989,7 +11314,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 192,
+        "line": 193,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11058,7 +11383,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 325,
+        "line": 326,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11153,7 +11478,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 187,
+        "line": 188,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -11609,7 +11934,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 188,
+        "line": 189,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11936,7 +12261,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 320,
+        "line": 321,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12063,7 +12388,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 19,
+        "line": 20,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12171,7 +12496,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 14,
+        "line": 15,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12389,7 +12714,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 59,
+        "line": 60,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12422,7 +12747,7 @@
       "modulePath": "src/ui.ts",
       "sourceLocation": {
         "filePath": "src/ui.ts",
-        "line": 129,
+        "line": 132,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12462,7 +12787,7 @@
       "modulePath": "src/ui.ts",
       "sourceLocation": {
         "filePath": "src/ui.ts",
-        "line": 124,
+        "line": 127,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12495,7 +12820,7 @@
       "modulePath": "src/ui.ts",
       "sourceLocation": {
         "filePath": "src/ui.ts",
-        "line": 115,
+        "line": 118,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12556,7 +12881,7 @@
       "modulePath": "src/ui.ts",
       "sourceLocation": {
         "filePath": "src/ui.ts",
-        "line": 99,
+        "line": 102,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12610,7 +12935,7 @@
       "modulePath": "src/ui.ts",
       "sourceLocation": {
         "filePath": "src/ui.ts",
-        "line": 107,
+        "line": 110,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12664,7 +12989,7 @@
       "modulePath": "src/ui.ts",
       "sourceLocation": {
         "filePath": "src/ui.ts",
-        "line": 88,
+        "line": 91,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12682,7 +13007,7 @@
       "modulePath": "src/ui.ts",
       "sourceLocation": {
         "filePath": "src/ui.ts",
-        "line": 135,
+        "line": 138,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12715,7 +13040,7 @@
       "modulePath": "src/ui.ts",
       "sourceLocation": {
         "filePath": "src/ui.ts",
-        "line": 49,
+        "line": 52,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12755,7 +13080,7 @@
       "modulePath": "src/ui.ts",
       "sourceLocation": {
         "filePath": "src/ui.ts",
-        "line": 44,
+        "line": 47,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12788,7 +13113,7 @@
       "modulePath": "src/ui.ts",
       "sourceLocation": {
         "filePath": "src/ui.ts",
-        "line": 3,
+        "line": 4,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12806,7 +13131,7 @@
       "modulePath": "src/ui.ts",
       "sourceLocation": {
         "filePath": "src/ui.ts",
-        "line": 81,
+        "line": 84,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12853,7 +13178,7 @@
       "modulePath": "src/ui.ts",
       "sourceLocation": {
         "filePath": "src/ui.ts",
-        "line": 74,
+        "line": 77,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12900,7 +13225,7 @@
       "modulePath": "src/ui.ts",
       "sourceLocation": {
         "filePath": "src/ui.ts",
-        "line": 66,
+        "line": 69,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12918,7 +13243,7 @@
       "modulePath": "src/ui.ts",
       "sourceLocation": {
         "filePath": "src/ui.ts",
-        "line": 64,
+        "line": 67,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12936,7 +13261,7 @@
       "modulePath": "src/ui.ts",
       "sourceLocation": {
         "filePath": "src/ui.ts",
-        "line": 55,
+        "line": 58,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12969,7 +13294,7 @@
       "modulePath": "src/ui.ts",
       "sourceLocation": {
         "filePath": "src/ui.ts",
-        "line": 60,
+        "line": 63,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12995,7 +13320,7 @@
       "modulePath": "src/ui.ts",
       "sourceLocation": {
         "filePath": "src/ui.ts",
-        "line": 145,
+        "line": 148,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -13106,7 +13431,7 @@
       "modulePath": "src/ui.ts",
       "sourceLocation": {
         "filePath": "src/ui.ts",
-        "line": 160,
+        "line": 163,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -13124,7 +13449,7 @@
       "modulePath": "src/ui.ts",
       "sourceLocation": {
         "filePath": "src/ui.ts",
-        "line": 162,
+        "line": 165,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -13164,7 +13489,7 @@
       "modulePath": "src/ui.ts",
       "sourceLocation": {
         "filePath": "src/ui.ts",
-        "line": 30,
+        "line": 32,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -13197,7 +13522,7 @@
       "modulePath": "src/ui.ts",
       "sourceLocation": {
         "filePath": "src/ui.ts",
-        "line": 35,
+        "line": 37,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -13244,6 +13569,13 @@
           "description": null
         },
         {
+          "name": "mediaKinds",
+          "kind": "property",
+          "type": "readonly (\"image\" | \"audio\" | \"video\" | \"font\" | \"file\")[] | undefined",
+          "required": false,
+          "description": null
+        },
+        {
           "name": "type",
           "kind": "property",
           "type": "UiComponentPropType",
@@ -13262,7 +13594,7 @@
       "modulePath": "src/ui.ts",
       "sourceLocation": {
         "filePath": "src/ui.ts",
-        "line": 5,
+        "line": 6,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -13280,7 +13612,7 @@
       "modulePath": "src/ui.ts",
       "sourceLocation": {
         "filePath": "src/ui.ts",
-        "line": 20,
+        "line": 22,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -13298,7 +13630,7 @@
       "modulePath": "src/ui.ts",
       "sourceLocation": {
         "filePath": "src/ui.ts",
-        "line": 140,
+        "line": 143,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -13331,7 +13663,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 249,
+        "line": 250,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -13399,7 +13731,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 242,
+        "line": 243,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -13592,7 +13924,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest.ts",
-        "line": 43,
+        "line": 45,
         "column": 1
       }
     },
@@ -13601,7 +13933,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest.ts",
-        "line": 50,
+        "line": 52,
         "column": 1
       }
     },
@@ -13610,7 +13942,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest.ts",
-        "line": 71,
+        "line": 74,
         "column": 1
       }
     },
@@ -13619,7 +13951,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest.ts",
-        "line": 77,
+        "line": 80,
         "column": 1
       }
     },
@@ -13628,7 +13960,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest.ts",
-        "line": 81,
+        "line": 84,
         "column": 1
       }
     },
@@ -13908,6 +14240,87 @@
       "sourceLocation": {
         "filePath": "src/appManifest/dataSources.ts",
         "line": 166,
+        "column": 1
+      }
+    },
+    {
+      "name": "isAppDeployManifest",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/deploy.ts",
+        "line": 18,
+        "column": 1
+      }
+    },
+    {
+      "name": "isAppDeployTargets",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/deploy.ts",
+        "line": 22,
+        "column": 1
+      }
+    },
+    {
+      "name": "isWebTarget",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/deploy.ts",
+        "line": 32,
+        "column": 1
+      }
+    },
+    {
+      "name": "isAndroidTarget",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/deploy.ts",
+        "line": 41,
+        "column": 1
+      }
+    },
+    {
+      "name": "isIosTarget",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/deploy.ts",
+        "line": 51,
+        "column": 1
+      }
+    },
+    {
+      "name": "isOptionalProviders",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/deploy.ts",
+        "line": 61,
+        "column": 1
+      }
+    },
+    {
+      "name": "isProviderSelection",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/deploy.ts",
+        "line": 65,
+        "column": 1
+      }
+    },
+    {
+      "name": "isNonEmptyString",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/deploy.ts",
+        "line": 74,
+        "column": 1
+      }
+    },
+    {
+      "name": "hasOnlyKeys",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/deploy.ts",
+        "line": 78,
         "column": 1
       }
     },
@@ -14499,6 +14912,14 @@
     },
     {
       "kind": "export",
+      "name": "isAppDeployManifest",
+      "sourcePath": "src/appManifest/deploy.ts",
+      "symbolName": "isAppDeployManifest",
+      "description": null,
+      "isReadme": false
+    },
+    {
+      "kind": "export",
       "name": "isAppManifest",
       "sourcePath": "src/appManifest.ts",
       "symbolName": "isAppManifest",
@@ -14568,6 +14989,11 @@
       },
       {
         "fromPath": "src/appManifest.ts",
+        "toPath": "src/appManifest/deploy.ts",
+        "sourcePath": "src/appManifest.ts"
+      },
+      {
+        "fromPath": "src/appManifest.ts",
         "toPath": "src/appManifest/generatedApis.ts",
         "sourcePath": "src/appManifest.ts"
       },
@@ -14612,6 +15038,11 @@
         "sourcePath": "src/bindings.ts"
       },
       {
+        "fromPath": "src/deploy.ts",
+        "toPath": "src/appManifest/deploy.ts",
+        "sourcePath": "src/deploy.ts"
+      },
+      {
         "fromPath": "src/index.ts",
         "toPath": "src/appManifest.ts",
         "sourcePath": "src/index.ts"
@@ -14639,6 +15070,11 @@
       {
         "fromPath": "src/index.ts",
         "toPath": "src/db.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/deploy.ts",
         "sourcePath": "src/index.ts"
       },
       {
@@ -14718,6 +15154,11 @@
       },
       {
         "fromPath": "src/types.ts",
+        "toPath": "src/deploy.ts",
+        "sourcePath": "src/types.ts"
+      },
+      {
+        "fromPath": "src/types.ts",
         "toPath": "src/media.ts",
         "sourcePath": "src/types.ts"
       },
@@ -14733,6 +15174,11 @@
       },
       {
         "fromPath": "src/ui.ts",
+        "toPath": "src/media.ts",
+        "sourcePath": "src/ui.ts"
+      },
+      {
+        "fromPath": "src/ui.ts",
         "toPath": "src/types.ts",
         "sourcePath": "src/ui.ts"
       },
@@ -14745,6 +15191,16 @@
         "fromPath": "src/appManifest/dataSources.ts",
         "toPath": "src/appManifest/shared.ts",
         "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromPath": "src/appManifest/deploy.ts",
+        "toPath": "src/deploy.ts",
+        "sourcePath": "src/appManifest/deploy.ts"
+      },
+      {
+        "fromPath": "src/appManifest/deploy.ts",
+        "toPath": "src/appManifest/shared.ts",
+        "sourcePath": "src/appManifest/deploy.ts"
       },
       {
         "fromPath": "src/appManifest/generatedApis.ts",
@@ -14983,6 +15439,12 @@
         "fromSymbol": "isAppManifest",
         "toSymbol": "isMediaManifest",
         "callExpression": "isMediaManifest",
+        "sourcePath": "src/appManifest.ts"
+      },
+      {
+        "fromSymbol": "isAppManifest",
+        "toSymbol": "isAppDeployManifest",
+        "callExpression": "isAppDeployManifest",
         "sourcePath": "src/appManifest.ts"
       },
       {
@@ -15560,6 +16022,144 @@
         "toSymbol": "isManifestValue",
         "callExpression": "isManifestValue",
         "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "isAppDeployManifest",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/deploy.ts"
+      },
+      {
+        "fromSymbol": "isAppDeployManifest",
+        "toSymbol": "hasOnlyKeys",
+        "callExpression": "hasOnlyKeys",
+        "sourcePath": "src/appManifest/deploy.ts"
+      },
+      {
+        "fromSymbol": "isAppDeployManifest",
+        "toSymbol": "isAppDeployTargets",
+        "callExpression": "isAppDeployTargets",
+        "sourcePath": "src/appManifest/deploy.ts"
+      },
+      {
+        "fromSymbol": "isAppDeployTargets",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/deploy.ts"
+      },
+      {
+        "fromSymbol": "isAppDeployTargets",
+        "toSymbol": "hasOnlyKeys",
+        "callExpression": "hasOnlyKeys",
+        "sourcePath": "src/appManifest/deploy.ts"
+      },
+      {
+        "fromSymbol": "isAppDeployTargets",
+        "toSymbol": "isWebTarget",
+        "callExpression": "isWebTarget",
+        "sourcePath": "src/appManifest/deploy.ts"
+      },
+      {
+        "fromSymbol": "isAppDeployTargets",
+        "toSymbol": "isAndroidTarget",
+        "callExpression": "isAndroidTarget",
+        "sourcePath": "src/appManifest/deploy.ts"
+      },
+      {
+        "fromSymbol": "isAppDeployTargets",
+        "toSymbol": "isIosTarget",
+        "callExpression": "isIosTarget",
+        "sourcePath": "src/appManifest/deploy.ts"
+      },
+      {
+        "fromSymbol": "isWebTarget",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/deploy.ts"
+      },
+      {
+        "fromSymbol": "isWebTarget",
+        "toSymbol": "hasOnlyKeys",
+        "callExpression": "hasOnlyKeys",
+        "sourcePath": "src/appManifest/deploy.ts"
+      },
+      {
+        "fromSymbol": "isWebTarget",
+        "toSymbol": "isOptionalProviders",
+        "callExpression": "isOptionalProviders",
+        "sourcePath": "src/appManifest/deploy.ts"
+      },
+      {
+        "fromSymbol": "isAndroidTarget",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/deploy.ts"
+      },
+      {
+        "fromSymbol": "isAndroidTarget",
+        "toSymbol": "hasOnlyKeys",
+        "callExpression": "hasOnlyKeys",
+        "sourcePath": "src/appManifest/deploy.ts"
+      },
+      {
+        "fromSymbol": "isAndroidTarget",
+        "toSymbol": "isNonEmptyString",
+        "callExpression": "isNonEmptyString",
+        "sourcePath": "src/appManifest/deploy.ts"
+      },
+      {
+        "fromSymbol": "isAndroidTarget",
+        "toSymbol": "isOptionalProviders",
+        "callExpression": "isOptionalProviders",
+        "sourcePath": "src/appManifest/deploy.ts"
+      },
+      {
+        "fromSymbol": "isIosTarget",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/deploy.ts"
+      },
+      {
+        "fromSymbol": "isIosTarget",
+        "toSymbol": "hasOnlyKeys",
+        "callExpression": "hasOnlyKeys",
+        "sourcePath": "src/appManifest/deploy.ts"
+      },
+      {
+        "fromSymbol": "isIosTarget",
+        "toSymbol": "isNonEmptyString",
+        "callExpression": "isNonEmptyString",
+        "sourcePath": "src/appManifest/deploy.ts"
+      },
+      {
+        "fromSymbol": "isIosTarget",
+        "toSymbol": "isOptionalProviders",
+        "callExpression": "isOptionalProviders",
+        "sourcePath": "src/appManifest/deploy.ts"
+      },
+      {
+        "fromSymbol": "isOptionalProviders",
+        "toSymbol": "isProviderSelection",
+        "callExpression": "isProviderSelection",
+        "sourcePath": "src/appManifest/deploy.ts"
+      },
+      {
+        "fromSymbol": "isProviderSelection",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/deploy.ts"
+      },
+      {
+        "fromSymbol": "isProviderSelection",
+        "toSymbol": "hasOnlyKeys",
+        "callExpression": "hasOnlyKeys",
+        "sourcePath": "src/appManifest/deploy.ts"
+      },
+      {
+        "fromSymbol": "isProviderSelection",
+        "toSymbol": "isNonEmptyString",
+        "callExpression": "isNonEmptyString",
+        "sourcePath": "src/appManifest/deploy.ts"
       },
       {
         "fromSymbol": "isGeneratedApiRegistry",
@@ -17185,6 +17785,41 @@
         "sourcePath": "src/db.ts"
       },
       {
+        "fromSymbol": "AppDeployWebTargetConfig",
+        "toType": "AppDeployProviderSelection",
+        "sourcePath": "src/deploy.ts"
+      },
+      {
+        "fromSymbol": "AppDeployAndroidTargetConfig",
+        "toType": "AppDeployProviderSelection",
+        "sourcePath": "src/deploy.ts"
+      },
+      {
+        "fromSymbol": "AppDeployIosTargetConfig",
+        "toType": "AppDeployProviderSelection",
+        "sourcePath": "src/deploy.ts"
+      },
+      {
+        "fromSymbol": "AppDeployTargets",
+        "toType": "AppDeployAndroidTargetConfig",
+        "sourcePath": "src/deploy.ts"
+      },
+      {
+        "fromSymbol": "AppDeployTargets",
+        "toType": "AppDeployIosTargetConfig",
+        "sourcePath": "src/deploy.ts"
+      },
+      {
+        "fromSymbol": "AppDeployTargets",
+        "toType": "AppDeployWebTargetConfig",
+        "sourcePath": "src/deploy.ts"
+      },
+      {
+        "fromSymbol": "AppDeployManifest",
+        "toType": "AppDeployTargets",
+        "sourcePath": "src/deploy.ts"
+      },
+      {
         "fromSymbol": "MediaAsset",
         "toType": "MediaAssetMetadata",
         "sourcePath": "src/media.ts"
@@ -17802,6 +18437,11 @@
       {
         "fromSymbol": "AppManifest",
         "toType": "AppCategory",
+        "sourcePath": "src/types.ts"
+      },
+      {
+        "fromSymbol": "AppManifest",
+        "toType": "AppDeployManifest",
         "sourcePath": "src/types.ts"
       },
       {
