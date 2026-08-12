@@ -147,7 +147,7 @@ describe('AppManifest runtime parsing', () => {
 
   it('rejects malformed nested canonical structures', () => {
     const manifest = createManifest();
-    const themes = manifest.themes as Array<Record<string, unknown>>;
+    const themes = manifest.themes as Record<string, unknown>[];
     const light = themes[0]?.light as Record<string, unknown>;
     light.harmony = 'not-a-harmony';
 
