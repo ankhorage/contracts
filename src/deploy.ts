@@ -33,3 +33,5 @@ export interface AppDeployTargets {
 export interface AppDeployManifest {
   readonly targets: AppDeployTargets;
 }
+
+export { isAppDeployManifest } from './appManifest/deploy';
