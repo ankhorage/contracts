@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 7.5.0
+
+### Minor Changes
+
+- 4383dc0: Add canonical provider-neutral app deployment contracts for Web, Android, and iOS, expose them through `AppManifest.deploy` and `@ankhorage/contracts/deploy`, and validate the serialized deployment subtree through the canonical AppManifest parser.
+
 ## 7.4.0
 
 ### Minor Changes
