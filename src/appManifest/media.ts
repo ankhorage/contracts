@@ -1,5 +1,11 @@
-import { MEDIA_ASSET_KINDS, type MediaAsset, type MediaAssetMetadata, type MediaAssetSource, type MediaManifest } from '../media';
-import { isOptionalNumber, isOptionalString, isRecord } from './shared';
+import {
+  MEDIA_ASSET_KINDS,
+  type MediaAsset,
+  type MediaAssetMetadata,
+  type MediaAssetSource,
+  type MediaManifest,
+} from '../media';
+import { isOptionalString, isRecord } from './shared';
 
 const MEDIA_ASSET_KIND_SET = new Set<string>(MEDIA_ASSET_KINDS);
 
@@ -41,7 +47,9 @@ function isMediaAssetSource(value: unknown): value is MediaAssetSource {
     return hasOnlyKeys(value, ['kind', 'url']) && isStableRemoteUrl(value.url);
   }
 
-  return value.kind === 'bundled' && hasOnlyKeys(value, ['kind', 'path']) && isBundledPath(value.path);
+  return (
+    value.kind === 'bundled' && hasOnlyKeys(value, ['kind', 'path']) && isBundledPath(value.path)
+  );
 }
 
 function isMediaAssetMetadata(value: unknown): value is MediaAssetMetadata {
@@ -80,11 +88,11 @@ function isNonEmptyString(value: unknown): value is string {
 }
 
 function isOptionalFiniteNonNegativeNumber(value: unknown): boolean {
-  return value === undefined || (isOptionalNumber(value) && Number.isFinite(value) && value >= 0);
+  return value === undefined || (typeof value === 'number' && Number.isFinite(value) && value >= 0);
 }
 
 function isOptionalFinitePositiveNumber(value: unknown): boolean {
-  return value === undefined || (isOptionalNumber(value) && Number.isFinite(value) && value > 0);
+  return value === undefined || (typeof value === 'number' && Number.isFinite(value) && value > 0);
 }
 
 function hasOnlyKeys(value: Record<string, unknown>, allowedKeys: readonly string[]): boolean {

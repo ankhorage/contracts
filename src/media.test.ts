@@ -43,7 +43,11 @@ describe('media contracts', () => {
   });
 
   it('rejects transient or local URL schemes', () => {
-    for (const url of ['blob:https://example.test/id', 'file:///tmp/image.png', 'data:image/png;base64,x']) {
+    for (const url of [
+      'blob:https://example.test/id',
+      'file:///tmp/image.png',
+      'data:image/png;base64,x',
+    ]) {
       const media = createMediaManifest();
       media.assets.remote.source = { kind: 'url', url };
       expect(isMediaManifest(media)).toBe(false);

@@ -4,13 +4,13 @@
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:86:1`
+Source: `src/types.ts:87:1`
 
 ## ActionType
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:29:1`
+Source: `src/types.ts:30:1`
 
 ## AdapterId
 
@@ -44,7 +44,7 @@ Source: `src/data/refs.ts:15:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:46:1`
+Source: `src/types.ts:47:1`
 
 ### Members
 
@@ -184,19 +184,19 @@ Source: `src/data/sources.ts:9:1`
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:148:14`
+Source: `src/types.ts:149:14`
 
 ## AppCategory
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:173:1`
+Source: `src/types.ts:174:1`
 
 ## AppManifest
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:387:1`
+Source: `src/types.ts:388:1`
 
 ### Members
 
@@ -208,6 +208,7 @@ Source: `src/types.ts:387:1`
 | dataSources     | property | `Readonly<Record<string, import("./src/index").DataSourceConfig>> \| undefined`                                                | no       |             |
 | generatedApis   | property | `Readonly<Record<string, import("./src/index").GeneratedApiDefinition>> \| undefined`                                          | no       |             |
 | infra           | property | `InfraManifest`                                                                                                                | yes      |             |
+| media           | property | `MediaManifest \| undefined`                                                                                                   | no       |             |
 | metadata        | property | `{ name: string; slug: string; version: string; category: AppCategory; themeId: string; created?: string; updated?: string; }` | yes      |             |
 | navigator       | property | `NavigatorSpec`                                                                                                                | yes      |             |
 | screens         | property | `Record<string, ScreenSpec>`                                                                                                   | yes      |             |
@@ -215,11 +216,17 @@ Source: `src/types.ts:387:1`
 | splashScreen    | property | `SplashScreenSpec \| undefined`                                                                                                | no       |             |
 | themes          | property | `ThemeConfig[]`                                                                                                                | yes      |             |
 
+## AppManifestParseResult
+
+Kind: `unknown`
+Module: `src/appManifest.ts`
+Source: `src/appManifest.ts:16:1`
+
 ## AppSettings
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:379:1`
+Source: `src/types.ts:380:1`
 
 ### Members
 
@@ -274,43 +281,43 @@ Source: `src/auth.ts:223:14`
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:228:14`
+Source: `src/types.ts:229:14`
 
 ## AUTH_PROFILE_FIELDS
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:215:14`
+Source: `src/types.ts:216:14`
 
 ## AUTH_PROFILE_PRIMARY_KEY_STRATEGIES
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:225:14`
+Source: `src/types.ts:226:14`
 
 ## AUTH_PROFILE_UPDATE_STRATEGIES
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:231:14`
+Source: `src/types.ts:232:14`
 
 ## AUTH_PROVIDERS
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:205:14`
+Source: `src/types.ts:206:14`
 
 ## AUTH_SCOPES
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:202:14`
+Source: `src/types.ts:203:14`
 
 ## AUTH_SIGN_IN_IDENTIFIERS
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:209:14`
+Source: `src/types.ts:210:14`
 
 ## AUTH_SIGN_UP_FIELDS
 
@@ -322,7 +329,7 @@ Source: `src/auth.ts:7:14`
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:212:14`
+Source: `src/types.ts:213:14`
 
 ## AuthAdapter
 
@@ -573,25 +580,25 @@ Source: `src/auth.ts:227:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:229:1`
+Source: `src/types.ts:230:1`
 
 ## AuthProfileField
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:223:1`
+Source: `src/types.ts:224:1`
 
 ## AuthProfilePrimaryKeyStrategy
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:226:1`
+Source: `src/types.ts:227:1`
 
 ## AuthProfileSpec
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:344:1`
+Source: `src/types.ts:345:1`
 
 ### Members
 
@@ -607,13 +614,13 @@ Source: `src/types.ts:344:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:232:1`
+Source: `src/types.ts:233:1`
 
 ## AuthProvider
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:207:1`
+Source: `src/types.ts:208:1`
 
 ## AuthProviderConfig
 
@@ -642,7 +649,7 @@ Source: `src/auth.ts:132:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:203:1`
+Source: `src/types.ts:204:1`
 
 ## AuthSession
 
@@ -676,13 +683,13 @@ Source: `src/auth.ts:69:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:210:1`
+Source: `src/types.ts:211:1`
 
 ## AuthSignInSpec
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:334:1`
+Source: `src/types.ts:335:1`
 
 ### Members
 
@@ -713,13 +720,13 @@ Source: `src/auth.ts:15:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:213:1`
+Source: `src/types.ts:214:1`
 
 ## AuthSignUpSpec
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:338:1`
+Source: `src/types.ts:339:1`
 
 ### Members
 
@@ -733,7 +740,7 @@ Source: `src/types.ts:338:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:352:1`
+Source: `src/types.ts:353:1`
 
 ### Members
 
@@ -770,31 +777,31 @@ Source: `src/auth.ts:108:1`
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:199:14`
+Source: `src/types.ts:200:14`
 
 ## AUTHZ_KINDS
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:196:14`
+Source: `src/types.ts:197:14`
 
 ## AuthzEngine
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:200:1`
+Source: `src/types.ts:201:1`
 
 ## AuthzKind
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:197:1`
+Source: `src/types.ts:198:1`
 
 ## AuthzSpec
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:329:1`
+Source: `src/types.ts:330:1`
 
 ### Members
 
@@ -923,19 +930,19 @@ Source: `src/bindings.ts:18:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:123:1`
+Source: `src/types.ts:124:1`
 
 ## CollectionItemPressEventDto
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:130:1`
+Source: `src/types.ts:131:1`
 
 ## CollectionItemPressPayload
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:125:1`
+Source: `src/types.ts:126:1`
 
 ### Members
 
@@ -982,7 +989,7 @@ Source: `src/bindings.ts:137:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:105:1`
+Source: `src/types.ts:106:1`
 
 ### Members
 
@@ -996,13 +1003,13 @@ Source: `src/types.ts:105:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:135:1`
+Source: `src/types.ts:136:1`
 
 ## ComponentEventPayloadValue
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:103:1`
+Source: `src/types.ts:104:1`
 
 ## ComponentInstanceId
 
@@ -1033,7 +1040,7 @@ Source: `src/bindings.ts:4:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:53:1`
+Source: `src/types.ts:54:1`
 
 ### Members
 
@@ -1073,13 +1080,13 @@ Source: `src/data/refs.ts:6:1`
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:179:14`
+Source: `src/types.ts:180:14`
 
 ## DATABASE_TIERS
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:183:14`
+Source: `src/types.ts:184:14`
 
 ## DatabaseAdapterRef
 
@@ -1121,13 +1128,13 @@ Source: `src/data/sources.ts:63:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:181:1`
+Source: `src/types.ts:182:1`
 
 ## DatabaseSpec
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:314:1`
+Source: `src/types.ts:315:1`
 
 ### Members
 
@@ -1140,7 +1147,7 @@ Source: `src/types.ts:314:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:184:1`
+Source: `src/types.ts:185:1`
 
 ## DataContractValue
 
@@ -1837,13 +1844,13 @@ Source: `src/auth.ts:56:14`
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:175:14`
+Source: `src/types.ts:176:14`
 
 ## DeploymentSpec
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:309:1`
+Source: `src/types.ts:310:1`
 
 ### Members
 
@@ -1856,7 +1863,7 @@ Source: `src/types.ts:309:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:177:1`
+Source: `src/types.ts:178:1`
 
 ## EndpointId
 
@@ -1934,7 +1941,7 @@ Source: `src/data/sources.ts:34:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:78:1`
+Source: `src/types.ts:79:1`
 
 ### Members
 
@@ -1965,13 +1972,13 @@ Source: `src/secrets.ts:174:14`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:116:1`
+Source: `src/types.ts:117:1`
 
 ## FormSubmitValues
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:114:1`
+Source: `src/types.ts:115:1`
 
 ## GENERATED_API_CRUD_OPERATIONS
 
@@ -2105,7 +2112,7 @@ Source: `src/data/sources.ts:51:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:234:1`
+Source: `src/types.ts:235:1`
 
 ### Members
 
@@ -2140,7 +2147,7 @@ Source: `src/storage.ts:55:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:368:1`
+Source: `src/types.ts:369:1`
 
 ### Members
 
@@ -2168,6 +2175,30 @@ Source: `src/secretManifest.ts:3:1`
 | -------- | -------- | --------------------- | -------- | ----------- |
 | provider | property | `SecretStoreProvider` | yes      |             |
 
+## isAppManifest
+
+Kind: `function`
+Module: `src/appManifest.ts`
+Source: `src/appManifest.ts:50:1`
+
+### Signatures
+
+- `(value: unknown) => boolean`
+  - value: `unknown`
+  - returns: `boolean`
+
+## isMediaAssetReference
+
+Kind: `function`
+Module: `src/media.ts`
+Source: `src/media.ts:58:1`
+
+### Signatures
+
+- `(value: unknown) => boolean`
+  - value: `unknown`
+  - returns: `boolean`
+
 ## KnownAuthOAuthProviderId
 
 Kind: `unknown`
@@ -2178,13 +2209,13 @@ Source: `src/auth.ts:38:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:222:1`
+Source: `src/types.ts:223:1`
 
 ## KnownAuthProvider
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:206:1`
+Source: `src/types.ts:207:1`
 
 ## KnownAuthSignUpField
 
@@ -2196,19 +2227,19 @@ Source: `src/auth.ts:14:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:140:1`
+Source: `src/types.ts:141:1`
 
 ## KnownDatabaseProvider
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:180:1`
+Source: `src/types.ts:181:1`
 
 ## KnownDeploymentTarget
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:176:1`
+Source: `src/types.ts:177:1`
 
 ## KnownSecretStoreProvider
 
@@ -2220,19 +2251,142 @@ Source: `src/secrets.ts:2:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:190:1`
+Source: `src/types.ts:191:1`
 
 ## ManifestValue
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:95:1`
+Source: `src/types.ts:96:1`
+
+## MEDIA_ASSET_KINDS
+
+Kind: `value`
+Module: `src/media.ts`
+Source: `src/media.ts:1:14`
+
+## MediaAsset
+
+Kind: `type`
+Module: `src/media.ts`
+Source: `src/media.ts:37:1`
+
+### Members
+
+| Name        | Kind     | Type                                                | Required | Description |
+| ----------- | -------- | --------------------------------------------------- | -------- | ----------- |
+| contentType | property | `string \| undefined`                               | no       |             |
+| id          | property | `string`                                            | yes      |             |
+| kind        | property | `"image" \| "audio" \| "video" \| "font" \| "file"` | yes      |             |
+| metadata    | property | `MediaAssetMetadata \| undefined`                   | no       |             |
+| name        | property | `string`                                            | yes      |             |
+| source      | property | `MediaAssetSource`                                  | yes      |             |
+
+## MediaAssetKind
+
+Kind: `unknown`
+Module: `src/media.ts`
+Source: `src/media.ts:3:1`
+
+## MediaAssetMetadata
+
+Kind: `type`
+Module: `src/media.ts`
+Source: `src/media.ts:27:1`
+
+### Members
+
+| Name             | Kind     | Type                  | Required | Description |
+| ---------------- | -------- | --------------------- | -------- | ----------- |
+| createdAt        | property | `string \| undefined` | no       |             |
+| durationMs       | property | `number \| undefined` | no       |             |
+| height           | property | `number \| undefined` | no       |             |
+| originalFileName | property | `string \| undefined` | no       |             |
+| sizeBytes        | property | `number \| undefined` | no       |             |
+| width            | property | `number \| undefined` | no       |             |
+
+## MediaAssetReference
+
+Kind: `type`
+Module: `src/media.ts`
+Source: `src/media.ts:54:1`
+
+### Members
+
+| Name    | Kind     | Type     | Required | Description |
+| ------- | -------- | -------- | -------- | ----------- |
+| mediaId | property | `string` | yes      |             |
+
+## MediaAssetRegistry
+
+Kind: `unknown`
+Module: `src/media.ts`
+Source: `src/media.ts:46:1`
+
+## MediaAssetSource
+
+Kind: `unknown`
+Module: `src/media.ts`
+Source: `src/media.ts:25:1`
+
+## MediaBundledSource
+
+Kind: `type`
+Module: `src/media.ts`
+Source: `src/media.ts:19:1`
+
+### Members
+
+| Name | Kind     | Type        | Required | Description |
+| ---- | -------- | ----------- | -------- | ----------- |
+| kind | property | `"bundled"` | yes      |             |
+| path | property | `string`    | yes      |             |
+
+## MediaManifest
+
+Kind: `type`
+Module: `src/media.ts`
+Source: `src/media.ts:49:1`
+
+### Members
+
+| Name   | Kind     | Type                                   | Required | Description |
+| ------ | -------- | -------------------------------------- | -------- | ----------- |
+| assets | property | `Readonly<Record<string, MediaAsset>>` | yes      |             |
+
+## MediaStorageSource
+
+Kind: `type`
+Module: `src/media.ts`
+Source: `src/media.ts:5:1`
+
+### Members
+
+| Name      | Kind     | Type                  | Required | Description |
+| --------- | -------- | --------------------- | -------- | ----------- |
+| bucket    | property | `string`              | yes      |             |
+| kind      | property | `"storage"`           | yes      |             |
+| path      | property | `string`              | yes      |             |
+| storageId | property | `string \| undefined` | no       |             |
+
+## MediaUrlSource
+
+Kind: `type`
+Module: `src/media.ts`
+Source: `src/media.ts:13:1`
+
+### Members
+
+| Name | Kind     | Type     | Required | Description |
+| ---- | -------- | -------- | -------- | ----------- |
+| kind | property | `"url"`  | yes      |             |
+| url  | property | `string` | yes      |             |
 
 ## NavigateAction
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:38:1`
+Source: `src/types.ts:39:1`
 
 ### Members
 
@@ -2245,13 +2399,13 @@ Source: `src/types.ts:38:1`
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:145:14`
+Source: `src/types.ts:146:14`
 
 ## NavigatorSpec
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:268:1`
+Source: `src/types.ts:269:1`
 
 ### Members
 
@@ -2266,13 +2420,13 @@ Source: `src/types.ts:268:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:146:1`
+Source: `src/types.ts:147:1`
 
 ## NetworkingSpec
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:363:1`
+Source: `src/types.ts:364:1`
 
 ### Members
 
@@ -2340,6 +2494,18 @@ Source: `src/bindings.ts:97:1`
 | kind      | property | `"operation"`                                              | yes      |             |
 | operation | property | `BindingOperationRef`                                      | yes      |             |
 
+## parseAppManifest
+
+Kind: `function`
+Module: `src/appManifest.ts`
+Source: `src/appManifest.ts:43:1`
+
+### Signatures
+
+- `(value: unknown) => AppManifestParseResult`
+  - value: `unknown`
+  - returns: `AppManifestParseResult`
+
 ## PasswordResetInput
 
 Kind: `type`
@@ -2386,7 +2552,7 @@ Source: `src/auth.ts:65:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:275:1`
+Source: `src/types.ts:276:1`
 
 ### Members
 
@@ -2499,7 +2665,7 @@ Source: `src/requirements.ts:34:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:258:1`
+Source: `src/types.ts:259:1`
 
 ### Members
 
@@ -2517,7 +2683,7 @@ Source: `src/types.ts:258:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:70:1`
+Source: `src/types.ts:71:1`
 
 ### Members
 
@@ -2723,7 +2889,7 @@ Source: `src/secrets.ts:46:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:63:1`
+Source: `src/types.ts:64:1`
 
 ### Members
 
@@ -2780,7 +2946,7 @@ Source: `src/auth.ts:150:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:295:1`
+Source: `src/types.ts:296:1`
 
 ### Members
 
@@ -2794,7 +2960,7 @@ Source: `src/types.ts:295:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:301:1`
+Source: `src/types.ts:302:1`
 
 ### Members
 
@@ -2809,13 +2975,13 @@ Source: `src/types.ts:301:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:293:1`
+Source: `src/types.ts:294:1`
 
 ## SplashScreenSpec
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:305:1`
+Source: `src/types.ts:306:1`
 
 ### Members
 
@@ -2846,13 +3012,13 @@ Source: `src/auth.ts:235:1`
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:193:14`
+Source: `src/types.ts:194:14`
 
 ## STATE_PROVIDERS
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:189:14`
+Source: `src/types.ts:190:14`
 
 ## StateAdapter
 
@@ -2914,7 +3080,7 @@ Source: `src/state.ts:10:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:194:1`
+Source: `src/types.ts:195:1`
 
 ## StatePrimitive
 
@@ -2926,7 +3092,7 @@ Source: `src/state.ts:1:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:191:1`
+Source: `src/types.ts:192:1`
 
 ## StateResult
 
@@ -2951,7 +3117,7 @@ Source: `src/state.ts:40:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:324:1`
+Source: `src/types.ts:325:1`
 
 ### Members
 
@@ -2988,7 +3154,7 @@ Source: `src/state.ts:3:1`
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:186:14`
+Source: `src/types.ts:187:14`
 
 ## StorageAdapter
 
@@ -3065,7 +3231,7 @@ Source: `src/storage.ts:7:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:187:1`
+Source: `src/types.ts:188:1`
 
 ## StoragePublicUrlInput
 
@@ -3117,7 +3283,7 @@ Source: `src/storage.ts:11:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:319:1`
+Source: `src/types.ts:320:1`
 
 ### Members
 
@@ -3160,7 +3326,7 @@ Source: `src/storage.ts:35:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:18:1`
+Source: `src/types.ts:19:1`
 
 ### Members
 
@@ -3192,7 +3358,7 @@ Source: `src/theme.ts:28:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:13:1`
+Source: `src/types.ts:14:1`
 
 ### Members
 
@@ -3270,7 +3436,7 @@ Source: `src/theme.ts:15:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:58:1`
+Source: `src/types.ts:59:1`
 
 ### Members
 
@@ -3576,7 +3742,7 @@ Source: `src/ui.ts:140:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:248:1`
+Source: `src/types.ts:249:1`
 
 ### Members
 
@@ -3594,7 +3760,7 @@ Source: `src/types.ts:248:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:241:1`
+Source: `src/types.ts:242:1`
 
 ### Members
 

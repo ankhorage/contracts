@@ -7,6 +7,7 @@ import type {
   ScreenDataLoaderDefinition,
 } from './bindings';
 import type { DataSourceRegistry, GeneratedApiRegistry } from './data';
+import type { MediaManifest } from './media';
 import type { ScreenRequirements } from './requirements';
 import type { ThemeGlobalTokenOverrides, ThemeRecipeOverrides } from './theme';
 
@@ -398,6 +399,8 @@ export interface AppManifest {
   activeThemeId: string;
   activeThemeMode?: 'dark' | 'light';
   splashScreen?: SplashScreenSpec;
+  /** Studio-managed authoring media. Runtime/user uploads are intentionally separate. */
+  media?: MediaManifest;
   infra: InfraManifest;
   navigator: NavigatorSpec;
   screens: Record<string, ScreenSpec>;
