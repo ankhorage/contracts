@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 7.3.0
+
+### Minor Changes
+
+- 09d62a0: Add the canonical app-authoring media catalog, stable media references, provider-neutral storage/URL/bundled media sources, and manifest validation that rejects transient local media URLs.
+
 ## 7.2.0
 
 ### Minor Changes
