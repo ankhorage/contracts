@@ -3,8 +3,8 @@ import { describe, expect, it } from 'bun:test';
 import type { MediaStorageAdapter } from './storage';
 
 const adapter: MediaStorageAdapter = {
-  async upload(input) {
-    return {
+  upload(input) {
+    return Promise.resolve({
       ok: true,
       data: {
         asset: {
@@ -13,19 +13,19 @@ const adapter: MediaStorageAdapter = {
           path: input.path,
         },
       },
-    };
+    });
   },
-  async remove() {
-    return { ok: true };
+  remove() {
+    return Promise.resolve({ ok: true });
   },
-  async publicUrl(input) {
-    return {
+  publicUrl(input) {
+    return Promise.resolve({
       ok: true,
       data: { publicUrl: `https://cdn.example.test/${input.bucket}/${input.path}` },
-    };
+    });
   },
-  async list(input) {
-    return {
+  list(input) {
+    return Promise.resolve({
       ok: true,
       data: {
         objects: [
@@ -38,10 +38,10 @@ const adapter: MediaStorageAdapter = {
           },
         ],
       },
-    };
+    });
   },
-  async resolve(input) {
-    return {
+  resolve(input) {
+    return Promise.resolve({
       ok: true,
       data: {
         asset: {
@@ -53,7 +53,7 @@ const adapter: MediaStorageAdapter = {
           expiresAt: '2026-08-12T10:00:00.000Z',
         },
       },
-    };
+    });
   },
 };
 
