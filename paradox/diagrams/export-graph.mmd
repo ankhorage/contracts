@@ -678,6 +678,20 @@ graph LR
   export_MediaManifest["MediaManifest"]
   module_src_media_ts --> export_MediaManifest
   export_MediaManifest -.-> export_MediaAsset
+  export_MediaStorageAdapter["MediaStorageAdapter"]
+  module_src_storage_ts --> export_MediaStorageAdapter
+  export_MediaStorageAdapter -.-> export_ImageMetadata
+  export_MediaStorageAdapter -.-> export_StorageAssetReference
+  export_MediaStorageAdapter -.-> export_StorageListInput
+  export_MediaStorageAdapter -.-> export_StorageListResult
+  export_MediaStorageAdapter -.-> export_StoragePublicUrlInput
+  export_MediaStorageAdapter -.-> export_StoragePublicUrlResult
+  export_MediaStorageAdapter -.-> export_StorageRemoveInput
+  export_MediaStorageAdapter -.-> export_StorageResolveInput
+  export_MediaStorageAdapter -.-> export_StorageResolveResult
+  export_MediaStorageAdapter -.-> export_StorageResult
+  export_MediaStorageAdapter -.-> export_StorageUploadInput
+  export_MediaStorageAdapter -.-> export_StorageUploadResult
   export_MediaStorageSource["MediaStorageSource"]
   module_src_media_ts --> export_MediaStorageSource
   export_MediaUrlSource["MediaUrlSource"]
@@ -894,6 +908,18 @@ graph LR
   export_StorageImageAssetSource["StorageImageAssetSource"]
   module_src_storage_ts --> export_StorageImageAssetSource
   export_StorageImageAssetSource -.-> export_ImageMetadata
+  export_StorageListAdapter["StorageListAdapter"]
+  module_src_storage_ts --> export_StorageListAdapter
+  export_StorageListAdapter -.-> export_StorageListInput
+  export_StorageListAdapter -.-> export_StorageListResult
+  export_StorageListAdapter -.-> export_StorageResult
+  export_StorageListInput["StorageListInput"]
+  module_src_storage_ts --> export_StorageListInput
+  export_StorageListResult["StorageListResult"]
+  module_src_storage_ts --> export_StorageListResult
+  export_StorageListResult -.-> export_StorageObjectMetadata
+  export_StorageObjectMetadata["StorageObjectMetadata"]
+  module_src_storage_ts --> export_StorageObjectMetadata
   export_StorageOkResult["StorageOkResult"]
   module_src_storage_ts --> export_StorageOkResult
   export_StorageProvider["StorageProvider"]
@@ -904,6 +930,22 @@ graph LR
   module_src_storage_ts --> export_StoragePublicUrlResult
   export_StorageRemoveInput["StorageRemoveInput"]
   module_src_storage_ts --> export_StorageRemoveInput
+  export_StorageResolveAdapter["StorageResolveAdapter"]
+  module_src_storage_ts --> export_StorageResolveAdapter
+  export_StorageResolveAdapter -.-> export_StorageResolveInput
+  export_StorageResolveAdapter -.-> export_StorageResolveResult
+  export_StorageResolveAdapter -.-> export_StorageResult
+  export_StorageResolvedAccess["StorageResolvedAccess"]
+  module_src_storage_ts --> export_StorageResolvedAccess
+  export_StorageResolvedAsset["StorageResolvedAsset"]
+  module_src_storage_ts --> export_StorageResolvedAsset
+  export_StorageResolvedAsset -.-> export_StorageResolvedAccess
+  export_StorageResolveInput["StorageResolveInput"]
+  module_src_storage_ts --> export_StorageResolveInput
+  export_StorageResolveInput -.-> export_StorageResolvedAccess
+  export_StorageResolveResult["StorageResolveResult"]
+  module_src_storage_ts --> export_StorageResolveResult
+  export_StorageResolveResult -.-> export_StorageResolvedAsset
   export_StorageResult["StorageResult"]
   module_src_storage_ts --> export_StorageResult
   export_StorageSpec["StorageSpec"]

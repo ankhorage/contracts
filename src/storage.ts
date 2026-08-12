@@ -153,6 +153,4 @@ export interface StorageResolveAdapter {
  * remote object and delegating to `upload` when ingestion is requested.
  */
 export interface MediaStorageAdapter
-  extends StorageAdapter,
-    StorageListAdapter,
-    StorageResolveAdapter {}
+  extends StorageAdapter, StorageListAdapter, StorageResolveAdapter {}
