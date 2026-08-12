@@ -6891,7 +6891,7 @@
     "modulePath": "src/storage.ts",
     "sourceLocation": {
       "filePath": "src/storage.ts",
-      "line": 84,
+      "line": 131,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -6909,7 +6909,7 @@
     "modulePath": "src/storage.ts",
     "sourceLocation": {
       "filePath": "src/storage.ts",
-      "line": 55,
+      "line": 102,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -7573,6 +7573,80 @@
         "name": "assets",
         "kind": "property",
         "type": "Readonly<Record<string, MediaAsset>>",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "MediaStorageAdapter",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/storage.ts",
+    "sourceLocation": {
+      "filePath": "src/storage.ts",
+      "line": 155,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [
+      "ImageMetadata",
+      "StorageAssetReference",
+      "StorageListInput",
+      "StorageListResult",
+      "StoragePublicUrlInput",
+      "StoragePublicUrlResult",
+      "StorageRemoveInput",
+      "StorageResolveInput",
+      "StorageResolveResult",
+      "StorageResult",
+      "StorageUploadInput",
+      "StorageUploadResult"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "getImageMetadata",
+        "kind": "method",
+        "type": "((input: StorageAssetReference) => Promise<StorageResult<ImageMetadata>>) | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "list",
+        "kind": "method",
+        "type": "(input: StorageListInput) => Promise<StorageResult<StorageListResult>>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "publicUrl",
+        "kind": "method",
+        "type": "(input: StoragePublicUrlInput) => Promise<StorageResult<StoragePublicUrlResult>>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "remove",
+        "kind": "method",
+        "type": "(input: StorageRemoveInput) => Promise<StorageResult>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "resolve",
+        "kind": "method",
+        "type": "(input: StorageResolveInput) => Promise<StorageResult<StorageResolveResult>>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "upload",
+        "kind": "method",
+        "type": "(input: StorageUploadInput) => Promise<StorageResult<StorageUploadResult>>",
         "required": true,
         "description": null
       }
@@ -9966,7 +10040,7 @@
     "modulePath": "src/storage.ts",
     "sourceLocation": {
       "filePath": "src/storage.ts",
-      "line": 86,
+      "line": 133,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -10109,7 +10183,7 @@
     "modulePath": "src/storage.ts",
     "sourceLocation": {
       "filePath": "src/storage.ts",
-      "line": 61,
+      "line": 108,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -10183,6 +10257,194 @@
         "name": "width",
         "kind": "property",
         "type": "number | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "StorageListAdapter",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/storage.ts",
+    "sourceLocation": {
+      "filePath": "src/storage.ts",
+      "line": 140,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["StorageListInput", "StorageListResult", "StorageResult"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "list",
+        "kind": "method",
+        "type": "(input: StorageListInput) => Promise<StorageResult<StorageListResult>>",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "StorageListInput",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/storage.ts",
+    "sourceLocation": {
+      "filePath": "src/storage.ts",
+      "line": 66,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "bucket",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "cursor",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "limit",
+        "kind": "property",
+        "type": "number | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "prefix",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "storageId",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "StorageListResult",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/storage.ts",
+    "sourceLocation": {
+      "filePath": "src/storage.ts",
+      "line": 74,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["StorageObjectMetadata"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "nextCursor",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "objects",
+        "kind": "property",
+        "type": "readonly StorageObjectMetadata[]",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "StorageObjectMetadata",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/storage.ts",
+    "sourceLocation": {
+      "filePath": "src/storage.ts",
+      "line": 55,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "bucket",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "contentType",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "createdAt",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "etag",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "path",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "sizeBytes",
+        "kind": "property",
+        "type": "number | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "storageId",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "updatedAt",
+        "kind": "property",
+        "type": "string | undefined",
         "required": false,
         "description": null
       }
@@ -10326,6 +10588,191 @@
         "kind": "property",
         "type": "string | undefined",
         "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "StorageResolveAdapter",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/storage.ts",
+    "sourceLocation": {
+      "filePath": "src/storage.ts",
+      "line": 144,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["StorageResolveInput", "StorageResolveResult", "StorageResult"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "resolve",
+        "kind": "method",
+        "type": "(input: StorageResolveInput) => Promise<StorageResult<StorageResolveResult>>",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "StorageResolvedAccess",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/storage.ts",
+    "sourceLocation": {
+      "filePath": "src/storage.ts",
+      "line": 79,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "StorageResolvedAsset",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/storage.ts",
+    "sourceLocation": {
+      "filePath": "src/storage.ts",
+      "line": 89,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["StorageResolvedAccess"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "access",
+        "kind": "property",
+        "type": "StorageResolvedAccess",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "bucket",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "expiresAt",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "path",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "storageId",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "url",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "StorageResolveInput",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/storage.ts",
+    "sourceLocation": {
+      "filePath": "src/storage.ts",
+      "line": 81,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["StorageResolvedAccess"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "access",
+        "kind": "property",
+        "type": "StorageResolvedAccess | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "bucket",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "expiresInSeconds",
+        "kind": "property",
+        "type": "number | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "path",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "storageId",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "StorageResolveResult",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/storage.ts",
+    "sourceLocation": {
+      "filePath": "src/storage.ts",
+      "line": 98,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["StorageResolvedAsset"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "asset",
+        "kind": "property",
+        "type": "StorageResolvedAsset",
+        "required": true,
         "description": null
       }
     ],
@@ -11868,7 +12315,7 @@
     "modulePath": "src/storage.ts",
     "sourceLocation": {
       "filePath": "src/storage.ts",
-      "line": 74,
+      "line": 121,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],

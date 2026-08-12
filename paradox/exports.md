@@ -2127,13 +2127,13 @@ Source: `src/types.ts:235:1`
 
 Kind: `unknown`
 Module: `src/storage.ts`
-Source: `src/storage.ts:84:1`
+Source: `src/storage.ts:131:1`
 
 ## ImageMetadata
 
 Kind: `type`
 Module: `src/storage.ts`
-Source: `src/storage.ts:55:1`
+Source: `src/storage.ts:102:1`
 
 ### Members
 
@@ -2353,6 +2353,23 @@ Source: `src/media.ts:49:1`
 | Name   | Kind     | Type                                   | Required | Description |
 | ------ | -------- | -------------------------------------- | -------- | ----------- |
 | assets | property | `Readonly<Record<string, MediaAsset>>` | yes      |             |
+
+## MediaStorageAdapter
+
+Kind: `type`
+Module: `src/storage.ts`
+Source: `src/storage.ts:155:1`
+
+### Members
+
+| Name             | Kind   | Type                                                                                     | Required | Description |
+| ---------------- | ------ | ---------------------------------------------------------------------------------------- | -------- | ----------- |
+| getImageMetadata | method | `((input: StorageAssetReference) => Promise<StorageResult<ImageMetadata>>) \| undefined` | no       |             |
+| list             | method | `(input: StorageListInput) => Promise<StorageResult<StorageListResult>>`                 | yes      |             |
+| publicUrl        | method | `(input: StoragePublicUrlInput) => Promise<StorageResult<StoragePublicUrlResult>>`       | yes      |             |
+| remove           | method | `(input: StorageRemoveInput) => Promise<StorageResult>`                                  | yes      |             |
+| resolve          | method | `(input: StorageResolveInput) => Promise<StorageResult<StorageResolveResult>>`           | yes      |             |
+| upload           | method | `(input: StorageUploadInput) => Promise<StorageResult<StorageUploadResult>>`             | yes      |             |
 
 ## MediaStorageSource
 
@@ -3160,7 +3177,7 @@ Source: `src/types.ts:187:14`
 
 Kind: `type`
 Module: `src/storage.ts`
-Source: `src/storage.ts:86:1`
+Source: `src/storage.ts:133:1`
 
 ### Members
 
@@ -3204,7 +3221,7 @@ Source: `src/storage.ts:18:1`
 
 Kind: `type`
 Module: `src/storage.ts`
-Source: `src/storage.ts:61:1`
+Source: `src/storage.ts:108:1`
 
 ### Members
 
@@ -3220,6 +3237,66 @@ Source: `src/storage.ts:61:1`
 | publicUrl   | property | `string \| undefined`        | no       |             |
 | storageId   | property | `string \| undefined`        | no       |             |
 | width       | property | `number \| undefined`        | no       |             |
+
+## StorageListAdapter
+
+Kind: `type`
+Module: `src/storage.ts`
+Source: `src/storage.ts:140:1`
+
+### Members
+
+| Name | Kind   | Type                                                                     | Required | Description |
+| ---- | ------ | ------------------------------------------------------------------------ | -------- | ----------- |
+| list | method | `(input: StorageListInput) => Promise<StorageResult<StorageListResult>>` | yes      |             |
+
+## StorageListInput
+
+Kind: `type`
+Module: `src/storage.ts`
+Source: `src/storage.ts:66:1`
+
+### Members
+
+| Name      | Kind     | Type                  | Required | Description |
+| --------- | -------- | --------------------- | -------- | ----------- |
+| bucket    | property | `string`              | yes      |             |
+| cursor    | property | `string \| undefined` | no       |             |
+| limit     | property | `number \| undefined` | no       |             |
+| prefix    | property | `string \| undefined` | no       |             |
+| storageId | property | `string \| undefined` | no       |             |
+
+## StorageListResult
+
+Kind: `type`
+Module: `src/storage.ts`
+Source: `src/storage.ts:74:1`
+
+### Members
+
+| Name       | Kind     | Type                               | Required | Description |
+| ---------- | -------- | ---------------------------------- | -------- | ----------- |
+| nextCursor | property | `string \| undefined`              | no       |             |
+| objects    | property | `readonly StorageObjectMetadata[]` | yes      |             |
+
+## StorageObjectMetadata
+
+Kind: `type`
+Module: `src/storage.ts`
+Source: `src/storage.ts:55:1`
+
+### Members
+
+| Name        | Kind     | Type                  | Required | Description |
+| ----------- | -------- | --------------------- | -------- | ----------- |
+| bucket      | property | `string`              | yes      |             |
+| contentType | property | `string \| undefined` | no       |             |
+| createdAt   | property | `string \| undefined` | no       |             |
+| etag        | property | `string \| undefined` | no       |             |
+| path        | property | `string`              | yes      |             |
+| sizeBytes   | property | `number \| undefined` | no       |             |
+| storageId   | property | `string \| undefined` | no       |             |
+| updatedAt   | property | `string \| undefined` | no       |             |
 
 ## StorageOkResult
 
@@ -3272,6 +3349,69 @@ Source: `src/storage.ts:39:1`
 | bucket    | property | `string`              | yes      |             |
 | path      | property | `string`              | yes      |             |
 | storageId | property | `string \| undefined` | no       |             |
+
+## StorageResolveAdapter
+
+Kind: `type`
+Module: `src/storage.ts`
+Source: `src/storage.ts:144:1`
+
+### Members
+
+| Name    | Kind   | Type                                                                           | Required | Description |
+| ------- | ------ | ------------------------------------------------------------------------------ | -------- | ----------- |
+| resolve | method | `(input: StorageResolveInput) => Promise<StorageResult<StorageResolveResult>>` | yes      |             |
+
+## StorageResolvedAccess
+
+Kind: `unknown`
+Module: `src/storage.ts`
+Source: `src/storage.ts:79:1`
+
+## StorageResolvedAsset
+
+Kind: `type`
+Module: `src/storage.ts`
+Source: `src/storage.ts:89:1`
+
+### Members
+
+| Name      | Kind     | Type                    | Required | Description |
+| --------- | -------- | ----------------------- | -------- | ----------- |
+| access    | property | `StorageResolvedAccess` | yes      |             |
+| bucket    | property | `string`                | yes      |             |
+| expiresAt | property | `string \| undefined`   | no       |             |
+| path      | property | `string`                | yes      |             |
+| storageId | property | `string \| undefined`   | no       |             |
+| url       | property | `string`                | yes      |             |
+
+## StorageResolveInput
+
+Kind: `type`
+Module: `src/storage.ts`
+Source: `src/storage.ts:81:1`
+
+### Members
+
+| Name             | Kind     | Type                                 | Required | Description |
+| ---------------- | -------- | ------------------------------------ | -------- | ----------- |
+| access           | property | `StorageResolvedAccess \| undefined` | no       |             |
+| bucket           | property | `string`                             | yes      |             |
+| expiresInSeconds | property | `number \| undefined`                | no       |             |
+| path             | property | `string`                             | yes      |             |
+| storageId        | property | `string \| undefined`                | no       |             |
+
+## StorageResolveResult
+
+Kind: `type`
+Module: `src/storage.ts`
+Source: `src/storage.ts:98:1`
+
+### Members
+
+| Name  | Kind     | Type                   | Required | Description |
+| ----- | -------- | ---------------------- | -------- | ----------- |
+| asset | property | `StorageResolvedAsset` | yes      |             |
 
 ## StorageResult
 
@@ -3775,7 +3915,7 @@ Source: `src/types.ts:242:1`
 
 Kind: `type`
 Module: `src/storage.ts`
-Source: `src/storage.ts:74:1`
+Source: `src/storage.ts:121:1`
 
 ### Members
 

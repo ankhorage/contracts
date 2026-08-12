@@ -52,6 +52,53 @@ export interface StoragePublicUrlResult {
   publicUrl: string;
 }
 
+export interface StorageObjectMetadata {
+  storageId?: string;
+  bucket: string;
+  path: string;
+  contentType?: string;
+  sizeBytes?: number;
+  createdAt?: string;
+  updatedAt?: string;
+  etag?: string;
+}
+
+export interface StorageListInput {
+  storageId?: string;
+  bucket: string;
+  prefix?: string;
+  cursor?: string;
+  limit?: number;
+}
+
+export interface StorageListResult {
+  objects: readonly StorageObjectMetadata[];
+  nextCursor?: string;
+}
+
+export type StorageResolvedAccess = 'public' | 'signed';
+
+export interface StorageResolveInput {
+  storageId?: string;
+  bucket: string;
+  path: string;
+  access?: StorageResolvedAccess;
+  expiresInSeconds?: number;
+}
+
+export interface StorageResolvedAsset {
+  storageId?: string;
+  bucket: string;
+  path: string;
+  url: string;
+  access: StorageResolvedAccess;
+  expiresAt?: string;
+}
+
+export interface StorageResolveResult {
+  asset: StorageResolvedAsset;
+}
+
 export interface ImageMetadata {
   fileName?: string;
   sizeBytes?: number;
@@ -89,3 +136,21 @@ export interface StorageAdapter {
   publicUrl(input: StoragePublicUrlInput): Promise<StorageResult<StoragePublicUrlResult>>;
   getImageMetadata?(input: StorageAssetReference): Promise<StorageResult<ImageMetadata>>;
 }
+
+export interface StorageListAdapter {
+  list(input: StorageListInput): Promise<StorageResult<StorageListResult>>;
+}
+
+export interface StorageResolveAdapter {
+  resolve(input: StorageResolveInput): Promise<StorageResult<StorageResolveResult>>;
+}
+
+/**
+ * Storage capability required by the app-authoring media service.
+ *
+ * Remote URL import/ingest is intentionally not part of this low-level object-storage
+ * contract. It is a trusted service operation that can be implemented by reading the
+ * remote object and delegating to `upload` when ingestion is requested.
+ */
+export interface MediaStorageAdapter
+  extends StorageAdapter, StorageListAdapter, StorageResolveAdapter {}
