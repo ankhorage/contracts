@@ -13,7 +13,6 @@ import {
   STORAGE_PROVIDERS,
 } from '../types';
 import {
-  isManifestValue,
   isOptionalBoolean,
   isOptionalString,
   isRecord,
@@ -191,7 +190,6 @@ function isIconSpec(value: unknown): boolean {
     typeof value.name === 'string' &&
     isOptionalString(value.provider) &&
     (value.size === undefined || typeof value.size === 'string' || typeof value.size === 'number') &&
-    isOptionalString(value.color) &&
-    (value.metadata === undefined || isManifestValue(value.metadata))
+    isOptionalString(value.color)
   );
 }
