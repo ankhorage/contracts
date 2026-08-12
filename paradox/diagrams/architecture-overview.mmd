@@ -6,6 +6,7 @@ graph TD
   package__ankhorage_contracts -.-> module_src_appManifest_ts
   module_src_appManifest_ts --> module_src_appManifest_bindings_ts
   module_src_appManifest_ts --> module_src_appManifest_dataSources_ts
+  module_src_appManifest_ts --> module_src_appManifest_deploy_ts
   module_src_appManifest_ts --> module_src_appManifest_generatedApis_ts
   module_src_appManifest_ts --> module_src_appManifest_infra_ts
   module_src_appManifest_ts --> module_src_appManifest_media_ts
@@ -18,6 +19,10 @@ graph TD
   module_src_appManifest_dataSources_ts["src/appManifest/dataSources.ts"]
   package__ankhorage_contracts -.-> module_src_appManifest_dataSources_ts
   module_src_appManifest_dataSources_ts --> module_src_appManifest_shared_ts
+  module_src_appManifest_deploy_ts["src/appManifest/deploy.ts"]
+  package__ankhorage_contracts -.-> module_src_appManifest_deploy_ts
+  module_src_appManifest_deploy_ts --> module_src_appManifest_shared_ts
+  module_src_appManifest_deploy_ts --> module_src_deploy_ts
   module_src_appManifest_generatedApis_ts["src/appManifest/generatedApis.ts"]
   package__ankhorage_contracts -.-> module_src_appManifest_generatedApis_ts
   module_src_appManifest_generatedApis_ts --> module_src_appManifest_shared_ts
@@ -89,6 +94,8 @@ graph TD
   package__ankhorage_contracts -.-> module_src_data_values_ts
   module_src_db_ts["src/db.ts"]
   package__ankhorage_contracts -.-> module_src_db_ts
+  module_src_deploy_ts["src/deploy.ts"]
+  package__ankhorage_contracts -.-> module_src_deploy_ts
   module_src_index_ts["src/index.ts"]
   module_src_media_ts["src/media.ts"]
   package__ankhorage_contracts -.-> module_src_media_ts
@@ -113,9 +120,11 @@ graph TD
   module_src_types_ts --> module_src_auth_ts
   module_src_types_ts --> module_src_bindings_ts
   module_src_types_ts --> module_src_data_index_ts
+  module_src_types_ts --> module_src_deploy_ts
   module_src_types_ts --> module_src_media_ts
   module_src_types_ts --> module_src_requirements_ts
   module_src_types_ts --> module_src_theme_ts
   module_src_ui_ts["src/ui.ts"]
   package__ankhorage_contracts -.-> module_src_ui_ts
+  module_src_ui_ts --> module_src_media_ts
   module_src_ui_ts --> module_src_types_ts

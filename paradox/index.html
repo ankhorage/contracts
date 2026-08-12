@@ -214,6 +214,12 @@
               </button>
             </li>
             <li>
+              <button class="nav-button" type="button" data-target="src/appManifest/deploy.ts">
+                src/appManifest/deploy.ts
+                <small>9 functions</small>
+              </button>
+            </li>
+            <li>
               <button
                 class="nav-button"
                 type="button"
@@ -273,9 +279,9 @@
           <section class="panel">
             <h2>Package overview</h2>
             <div class="summary">
-              <div><strong>371</strong><span class="muted">public exports</span></div>
+              <div><strong>380</strong><span class="muted">public exports</span></div>
               <div><strong>0</strong><span class="muted">components</span></div>
-              <div><strong>33</strong><span class="muted">modules</span></div>
+              <div><strong>35</strong><span class="muted">modules</span></div>
               <div><strong>1</strong><span class="muted">entrypoints</span></div>
             </div>
             <h3>Entrypoints</h3>
@@ -288,13 +294,13 @@
             <h2>Modules</h2>
             <article
               class="item"
-              data-search="src/appManifest.ts src/appManifest/bindings.ts src/appManifest/dataSources.ts src/appManifest/generatedApis.ts src/appManifest/infra.ts src/appManifest/media.ts src/appManifest/screens.ts src/appManifest/shared.ts src/types.ts AppManifestParseResult isAppManifest parseAppManifest"
+              data-search="src/appManifest.ts src/appManifest/bindings.ts src/appManifest/dataSources.ts src/appManifest/deploy.ts src/appManifest/generatedApis.ts src/appManifest/infra.ts src/appManifest/media.ts src/appManifest/screens.ts src/appManifest/shared.ts src/types.ts AppManifestParseResult isAppManifest parseAppManifest"
             >
               <h3>src/appManifest.ts</h3>
               <p class="muted">Referenced module</p>
               <p>
                 <strong>Dependencies:</strong> <code>src/appManifest/bindings.ts</code>,
-                <code>src/appManifest/dataSources.ts</code>,
+                <code>src/appManifest/dataSources.ts</code>, <code>src/appManifest/deploy.ts</code>,
                 <code>src/appManifest/generatedApis.ts</code>,
                 <code>src/appManifest/infra.ts</code>, <code>src/appManifest/media.ts</code>,
                 <code>src/appManifest/screens.ts</code>, <code>src/appManifest/shared.ts</code>,
@@ -326,6 +332,18 @@
               <p class="muted">Referenced module</p>
               <p><strong>Dependencies:</strong> <code>src/appManifest/shared.ts</code></p>
               <p><strong>Exports:</strong> <code>isDataSourceRegistry</code></p>
+            </article>
+            <article
+              class="item"
+              data-search="src/appManifest/deploy.ts src/appManifest/shared.ts src/deploy.ts isAppDeployManifest"
+            >
+              <h3>src/appManifest/deploy.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p>
+                <strong>Dependencies:</strong> <code>src/appManifest/shared.ts</code>,
+                <code>src/deploy.ts</code>
+              </p>
+              <p><strong>Exports:</strong> <code>isAppDeployManifest</code></p>
             </article>
             <article
               class="item"
@@ -670,7 +688,22 @@
             </article>
             <article
               class="item"
-              data-search="src/index.ts Action ActionType AdapterId AdapterKind AdapterRef AlertAction AnkhCapabilityId AnkhCommandCategory AnkhCommandDescriptor AnkhCommandProviderManifest ANKHORAGE_CAPABILITY_NAMES ANKHORAGE_PERMISSION_NAMES AnkhorageCapabilityName AnkhoragePermissionName AnkhPackageMetadata AnkhProviderReference ApiDataSourceBaseConfig ApiDataSourceConfig ApiOrigin ApiProtocol APP_CATEGORIES AppCategory AppManifest AppManifestParseResult AppSettings AUTH_IDENTIFIER_KINDS AUTH_OAUTH_CANCELLATION_REASONS AUTH_OAUTH_ERROR_CODES AUTH_OAUTH_ERROR_STAGES AUTH_OAUTH_PROVIDER_IDS AUTH_OAUTH_TRANSPORT_CANCELLATION_REASONS AUTH_OAUTH_TRANSPORT_ERROR_CODES AUTH_PROFILE_CREATE_STRATEGIES AUTH_PROFILE_FIELDS AUTH_PROFILE_PRIMARY_KEY_STRATEGIES AUTH_PROFILE_UPDATE_STRATEGIES AUTH_PROVIDERS AUTH_SCOPES AUTH_SIGN_IN_IDENTIFIERS AUTH_SIGN_UP_FIELDS AUTH_SIGN_UP_POLICIES AuthAdapter AuthAdapterCapabilities AuthAdapterError AuthFlowConfig AuthIdentifier AuthIdentifierKind AuthOAuthAdapter AuthOAuthAuthorizationRequest AuthOAuthAuthorizationResponse AuthOAuthCancellationReason AuthOAuthCapabilities AuthOAuthCompletionResult AuthOAuthConfig AuthOAuthError AuthOAuthErrorCode AuthOAuthErrorStage AuthOAuthProviderConfig AuthOAuthProviderId AuthOAuthStartResult AuthOAuthTransportCancellationReason AuthOAuthTransportError AuthOAuthTransportErrorCode AuthProfileCreateStrategy AuthProfileField AuthProfilePrimaryKeyStrategy AuthProfileSpec AuthProfileUpdateStrategy AuthProvider AuthProviderConfig AuthResult AuthScope AuthSession AuthSignInConfig AuthSignInIdentifier AuthSignInSpec AuthSignUpConfig AuthSignUpField AuthSignUpPolicy AuthSignUpSpec AuthSpec AuthUser AUTHZ_ENGINES AUTHZ_KINDS AuthzEngine AuthzKind AuthzSpec BindingCondition BindingConditionOperator BindingDataPath BindingFallback BindingInputMap BindingInputValue BindingLifecycleBehavior BindingLifecycleState BindingOperationRef BindingValue BindingValueExpression BindingValueSource BindingValueTransform ButtonPressEventDto CollectionItemPressEventDto CollectionItemPressPayload CompleteOAuthAuthorizationInput ComponentDataBinding ComponentDataBindingRegistry ComponentEventDto ComponentEventDtoKind ComponentEventPayloadValue ComponentInstanceId ComponentRequirements ComponentTypeId ConsoleAction CredentialId CredentialKind CredentialRef DATABASE_PROVIDERS DATABASE_TIERS DatabaseAdapterRef DatabaseDataSourceConfig DatabaseProvider DatabaseSpec DatabaseTier DataContractValue DataDiagnosticCode DataDiagnosticSeverity DataEndpointConfig DataEndpointKind DataEndpointRegistry DataOperationConfig DataOperationIntent DataOperationMethod DataOperationPagination DataOperationParameter DataOperationParameterLocation DataOperationProtocol DataOperationRegistry DataOperationRequest DataOperationResponse DataPath DataSchema DataSchemaPrimitiveType DataSchemaProperty DataSchemaRef DataSchemaRegistry DataSchemaSlot DataSourceBaseConfig DataSourceConfig DataSourceDiagnostic DataSourceDiagnosticResult DataSourceId DataSourceKind DataSourceRegistry DbAdapter DbAdapterCapabilities DbAdapterError DbAdminAdapter DbAdminAdapterCapabilities DbAdminResult DbChangeEvent DbChangeKind DbChangeListener DbCollectionDefinition DbCollectionReference DbCollectionSubscriptionInput DbDeleteInput DbFieldDefinition DbFieldType DbFilter DbFilterOperator DbFindByIdInput DbInsertInput DbPage DbRealtimeAdapter DbRecord DbRecordSubscriptionInput DbResult DbSelectInput DbSort DbSortDirection DbSubscription DbSuccess DbTableInput DbUpdateInput DEFAULT_AUTH_FLOW DEPLOYMENT_TARGETS DeploymentSpec DeploymentTarget EndpointId EventBinding EventBindingTarget ExternalGraphQlApiDataSourceConfig ExternalRestApiDataSourceConfig FilterAction findForbiddenInlineSecretFields FORBIDDEN_INLINE_SECRET_FIELDS FormSubmitEventDto FormSubmitValues GENERATED_API_CRUD_OPERATIONS GeneratedApiAuthRequirement GeneratedApiCrudOperation GeneratedApiDefinition GeneratedApiId GeneratedApiOperationPolicyRef GeneratedApiRegistry GeneratedApiResourceDefinition GeneratedApiResourceId GeneratedApiSeedRecord GeneratedRestApiDataSourceConfig IconSpec ImageAssetSource ImageMetadata InfraManifest InfraSecretStoreSpec isAppManifest isMediaAssetReference KnownAuthOAuthProviderId KnownAuthProfileField KnownAuthProvider KnownAuthSignUpField KnownComponentEventDto KnownDatabaseProvider KnownDeploymentTarget KnownSecretStoreProvider KnownStateProvider ManifestValue MEDIA_ASSET_KINDS MediaAsset MediaAssetKind MediaAssetMetadata MediaAssetReference MediaAssetRegistry MediaAssetSource MediaBundledSource MediaManifest MediaStorageAdapter MediaStorageSource MediaUrlSource NavigateAction NAVIGATOR_TYPES NavigatorSpec NavigatorType NetworkingSpec normalizeSecretRef normalizeSecretScope OpenApiDocumentRef OperationId OperationScreenDataLoaderDefinition parseAppManifest PasswordResetInput PropBinding resolveAuthFlow RouteDefinition RuntimeCallback RuntimeCallbackArgs RuntimeCallbackMap RuntimeNodePropsResolver RuntimeResolveNodePropsArgs SchemaId ScreenCapabilityRequirement ScreenDataLoaderDefinition ScreenPermissionRequirement ScreenRequirements ScreenSpec SearchAction SECRET_STORE_ERROR_CODES SECRET_STORE_PROVIDERS SecretCreateInput SecretGetMetadataInput SecretListInput SecretMetadata SecretPayload SecretRef SecretRemoveInput SecretReplaceInput SecretResolveInput SecretScope SecretStoreAdapter SecretStoreError SecretStoreErrorCode SecretStoreOkResult SecretStoreProvider SecretStoreResult SetLanguageAction SignInInput SignOutInput SignUpInput SplashScreenAssetSpec SplashScreenModeSpec SplashScreenResizeMode SplashScreenSpec StartOAuthAuthorizationInput STATE_PERSISTENCE_MODES STATE_PROVIDERS StateAdapter StateAdapterCapabilities StateAdapterError StateListener StatePath StatePersistenceMode StatePrimitive StateProvider StateResult StateSnapshot StateSpec StateSubscription StateSuccess StateValue STORAGE_PROVIDERS StorageAdapter StorageAdapterError StorageAssetReference StorageImageAssetSource StorageListAdapter StorageListInput StorageListResult StorageObjectMetadata StorageOkResult StorageProvider StoragePublicUrlInput StoragePublicUrlResult StorageRemoveInput StorageResolveAdapter StorageResolvedAccess StorageResolvedAsset StorageResolveInput StorageResolveResult StorageResult StorageSpec StorageUploadInput StorageUploadResult ThemeConfig ThemeGlobalTokenOverrides ThemeModeConfig ThemeNumericTokenOverrides ThemeRecipeFieldOverrides ThemeRecipeOverrides ThemeRecipeOverrideValue ThemeStringTokenOverrides ThemeTypographyHeadingOverrides ThemeTypographyTokenOverrides ToggleDarkModeAction UiBindableEventMeta UiBindableEventPayloadMeta UiBindablePropMeta UiBindableValueFieldMeta UiBindableValueMeta UiBindableValueType UiComponentBindingMeta UiComponentBlueprint UiComponentBlueprintIcon UiComponentCategory UiComponentEventMeta UiComponentEventPayloadFieldMeta UiComponentEventPayloadFieldType UiComponentEventPayloadKind UiComponentI18nFieldMeta UiComponentI18nMeta UiComponentMeta UiComponentMetaRegistry UiComponentPackageManifest UiComponentPropArrayItemSchema UiComponentPropSchema UiComponentPropType UiComponentPropValue UiComponentSlotMeta UiNode UiNodeRepeatSpec UrlImageAssetSource validateSecretPayload VerifyOtpInput"
+              data-search="src/deploy.ts APP_DEPLOY_TARGET_IDS AppDeployAndroidTargetConfig AppDeployIosTargetConfig AppDeployManifest AppDeployProviderSelection AppDeployTargetId AppDeployTargets AppDeployWebTargetConfig isAppDeployManifest"
+            >
+              <h3>src/deploy.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
+              <p>
+                <strong>Exports:</strong> <code>APP_DEPLOY_TARGET_IDS</code>,
+                <code>AppDeployAndroidTargetConfig</code>, <code>AppDeployIosTargetConfig</code>,
+                <code>AppDeployManifest</code>, <code>AppDeployProviderSelection</code>,
+                <code>AppDeployTargetId</code>, <code>AppDeployTargets</code>,
+                <code>AppDeployWebTargetConfig</code>, <code>isAppDeployManifest</code>
+              </p>
+            </article>
+            <article
+              class="item"
+              data-search="src/index.ts Action ActionType AdapterId AdapterKind AdapterRef AlertAction AnkhCapabilityId AnkhCommandCategory AnkhCommandDescriptor AnkhCommandProviderManifest ANKHORAGE_CAPABILITY_NAMES ANKHORAGE_PERMISSION_NAMES AnkhorageCapabilityName AnkhoragePermissionName AnkhPackageMetadata AnkhProviderReference ApiDataSourceBaseConfig ApiDataSourceConfig ApiOrigin ApiProtocol APP_CATEGORIES APP_DEPLOY_TARGET_IDS AppCategory AppDeployAndroidTargetConfig AppDeployIosTargetConfig AppDeployManifest AppDeployProviderSelection AppDeployTargetId AppDeployTargets AppDeployWebTargetConfig AppManifest AppManifestParseResult AppSettings AUTH_IDENTIFIER_KINDS AUTH_OAUTH_CANCELLATION_REASONS AUTH_OAUTH_ERROR_CODES AUTH_OAUTH_ERROR_STAGES AUTH_OAUTH_PROVIDER_IDS AUTH_OAUTH_TRANSPORT_CANCELLATION_REASONS AUTH_OAUTH_TRANSPORT_ERROR_CODES AUTH_PROFILE_CREATE_STRATEGIES AUTH_PROFILE_FIELDS AUTH_PROFILE_PRIMARY_KEY_STRATEGIES AUTH_PROFILE_UPDATE_STRATEGIES AUTH_PROVIDERS AUTH_SCOPES AUTH_SIGN_IN_IDENTIFIERS AUTH_SIGN_UP_FIELDS AUTH_SIGN_UP_POLICIES AuthAdapter AuthAdapterCapabilities AuthAdapterError AuthFlowConfig AuthIdentifier AuthIdentifierKind AuthOAuthAdapter AuthOAuthAuthorizationRequest AuthOAuthAuthorizationResponse AuthOAuthCancellationReason AuthOAuthCapabilities AuthOAuthCompletionResult AuthOAuthConfig AuthOAuthError AuthOAuthErrorCode AuthOAuthErrorStage AuthOAuthProviderConfig AuthOAuthProviderId AuthOAuthStartResult AuthOAuthTransportCancellationReason AuthOAuthTransportError AuthOAuthTransportErrorCode AuthProfileCreateStrategy AuthProfileField AuthProfilePrimaryKeyStrategy AuthProfileSpec AuthProfileUpdateStrategy AuthProvider AuthProviderConfig AuthResult AuthScope AuthSession AuthSignInConfig AuthSignInIdentifier AuthSignInSpec AuthSignUpConfig AuthSignUpField AuthSignUpPolicy AuthSignUpSpec AuthSpec AuthUser AUTHZ_ENGINES AUTHZ_KINDS AuthzEngine AuthzKind AuthzSpec BindingCondition BindingConditionOperator BindingDataPath BindingFallback BindingInputMap BindingInputValue BindingLifecycleBehavior BindingLifecycleState BindingOperationRef BindingValue BindingValueExpression BindingValueSource BindingValueTransform ButtonPressEventDto CollectionItemPressEventDto CollectionItemPressPayload CompleteOAuthAuthorizationInput ComponentDataBinding ComponentDataBindingRegistry ComponentEventDto ComponentEventDtoKind ComponentEventPayloadValue ComponentInstanceId ComponentRequirements ComponentTypeId ConsoleAction CredentialId CredentialKind CredentialRef DATABASE_PROVIDERS DATABASE_TIERS DatabaseAdapterRef DatabaseDataSourceConfig DatabaseProvider DatabaseSpec DatabaseTier DataContractValue DataDiagnosticCode DataDiagnosticSeverity DataEndpointConfig DataEndpointKind DataEndpointRegistry DataOperationConfig DataOperationIntent DataOperationMethod DataOperationPagination DataOperationParameter DataOperationParameterLocation DataOperationProtocol DataOperationRegistry DataOperationRequest DataOperationResponse DataPath DataSchema DataSchemaPrimitiveType DataSchemaProperty DataSchemaRef DataSchemaRegistry DataSchemaSlot DataSourceBaseConfig DataSourceConfig DataSourceDiagnostic DataSourceDiagnosticResult DataSourceId DataSourceKind DataSourceRegistry DbAdapter DbAdapterCapabilities DbAdapterError DbAdminAdapter DbAdminAdapterCapabilities DbAdminResult DbChangeEvent DbChangeKind DbChangeListener DbCollectionDefinition DbCollectionReference DbCollectionSubscriptionInput DbDeleteInput DbFieldDefinition DbFieldType DbFilter DbFilterOperator DbFindByIdInput DbInsertInput DbPage DbRealtimeAdapter DbRecord DbRecordSubscriptionInput DbResult DbSelectInput DbSort DbSortDirection DbSubscription DbSuccess DbTableInput DbUpdateInput DEFAULT_AUTH_FLOW DEPLOYMENT_TARGETS DeploymentSpec DeploymentTarget EndpointId EventBinding EventBindingTarget ExternalGraphQlApiDataSourceConfig ExternalRestApiDataSourceConfig FilterAction findForbiddenInlineSecretFields FORBIDDEN_INLINE_SECRET_FIELDS FormSubmitEventDto FormSubmitValues GENERATED_API_CRUD_OPERATIONS GeneratedApiAuthRequirement GeneratedApiCrudOperation GeneratedApiDefinition GeneratedApiId GeneratedApiOperationPolicyRef GeneratedApiRegistry GeneratedApiResourceDefinition GeneratedApiResourceId GeneratedApiSeedRecord GeneratedRestApiDataSourceConfig IconSpec ImageAssetSource ImageMetadata InfraManifest InfraSecretStoreSpec isAppDeployManifest isAppManifest isMediaAssetReference KnownAuthOAuthProviderId KnownAuthProfileField KnownAuthProvider KnownAuthSignUpField KnownComponentEventDto KnownDatabaseProvider KnownDeploymentTarget KnownSecretStoreProvider KnownStateProvider ManifestValue MEDIA_ASSET_KINDS MediaAsset MediaAssetKind MediaAssetMetadata MediaAssetReference MediaAssetRegistry MediaAssetSource MediaBundledSource MediaManifest MediaStorageAdapter MediaStorageSource MediaUrlSource NavigateAction NAVIGATOR_TYPES NavigatorSpec NavigatorType NetworkingSpec normalizeSecretRef normalizeSecretScope OpenApiDocumentRef OperationId OperationScreenDataLoaderDefinition parseAppManifest PasswordResetInput PropBinding resolveAuthFlow RouteDefinition RuntimeCallback RuntimeCallbackArgs RuntimeCallbackMap RuntimeNodePropsResolver RuntimeResolveNodePropsArgs SchemaId ScreenCapabilityRequirement ScreenDataLoaderDefinition ScreenPermissionRequirement ScreenRequirements ScreenSpec SearchAction SECRET_STORE_ERROR_CODES SECRET_STORE_PROVIDERS SecretCreateInput SecretGetMetadataInput SecretListInput SecretMetadata SecretPayload SecretRef SecretRemoveInput SecretReplaceInput SecretResolveInput SecretScope SecretStoreAdapter SecretStoreError SecretStoreErrorCode SecretStoreOkResult SecretStoreProvider SecretStoreResult SetLanguageAction SignInInput SignOutInput SignUpInput SplashScreenAssetSpec SplashScreenModeSpec SplashScreenResizeMode SplashScreenSpec StartOAuthAuthorizationInput STATE_PERSISTENCE_MODES STATE_PROVIDERS StateAdapter StateAdapterCapabilities StateAdapterError StateListener StatePath StatePersistenceMode StatePrimitive StateProvider StateResult StateSnapshot StateSpec StateSubscription StateSuccess StateValue STORAGE_PROVIDERS StorageAdapter StorageAdapterError StorageAssetReference StorageImageAssetSource StorageListAdapter StorageListInput StorageListResult StorageObjectMetadata StorageOkResult StorageProvider StoragePublicUrlInput StoragePublicUrlResult StorageRemoveInput StorageResolveAdapter StorageResolvedAccess StorageResolvedAsset StorageResolveInput StorageResolveResult StorageResult StorageSpec StorageUploadInput StorageUploadResult ThemeConfig ThemeGlobalTokenOverrides ThemeModeConfig ThemeNumericTokenOverrides ThemeRecipeFieldOverrides ThemeRecipeOverrides ThemeRecipeOverrideValue ThemeStringTokenOverrides ThemeTypographyHeadingOverrides ThemeTypographyTokenOverrides ToggleDarkModeAction UiBindableEventMeta UiBindableEventPayloadMeta UiBindablePropMeta UiBindableValueFieldMeta UiBindableValueMeta UiBindableValueType UiComponentBindingMeta UiComponentBlueprint UiComponentBlueprintIcon UiComponentCategory UiComponentEventMeta UiComponentEventPayloadFieldMeta UiComponentEventPayloadFieldType UiComponentEventPayloadKind UiComponentI18nFieldMeta UiComponentI18nMeta UiComponentMeta UiComponentMetaRegistry UiComponentPackageManifest UiComponentPropArrayItemSchema UiComponentPropSchema UiComponentPropType UiComponentPropValue UiComponentSlotMeta UiNode UiNodeRepeatSpec UrlImageAssetSource validateSecretPayload VerifyOtpInput"
             >
               <h3>src/index.ts</h3>
               <p class="muted">Configured entrypoint</p>
@@ -685,11 +718,15 @@
                 <code>AnkhoragePermissionName</code>, <code>AnkhPackageMetadata</code>,
                 <code>AnkhProviderReference</code>, <code>ApiDataSourceBaseConfig</code>,
                 <code>ApiDataSourceConfig</code>, <code>ApiOrigin</code>, <code>ApiProtocol</code>,
-                <code>APP_CATEGORIES</code>, <code>AppCategory</code>, <code>AppManifest</code>,
-                <code>AppManifestParseResult</code>, <code>AppSettings</code>,
-                <code>AUTH_IDENTIFIER_KINDS</code>, <code>AUTH_OAUTH_CANCELLATION_REASONS</code>,
-                <code>AUTH_OAUTH_ERROR_CODES</code>, <code>AUTH_OAUTH_ERROR_STAGES</code>,
-                <code>AUTH_OAUTH_PROVIDER_IDS</code>,
+                <code>APP_CATEGORIES</code>, <code>APP_DEPLOY_TARGET_IDS</code>,
+                <code>AppCategory</code>, <code>AppDeployAndroidTargetConfig</code>,
+                <code>AppDeployIosTargetConfig</code>, <code>AppDeployManifest</code>,
+                <code>AppDeployProviderSelection</code>, <code>AppDeployTargetId</code>,
+                <code>AppDeployTargets</code>, <code>AppDeployWebTargetConfig</code>,
+                <code>AppManifest</code>, <code>AppManifestParseResult</code>,
+                <code>AppSettings</code>, <code>AUTH_IDENTIFIER_KINDS</code>,
+                <code>AUTH_OAUTH_CANCELLATION_REASONS</code>, <code>AUTH_OAUTH_ERROR_CODES</code>,
+                <code>AUTH_OAUTH_ERROR_STAGES</code>, <code>AUTH_OAUTH_PROVIDER_IDS</code>,
                 <code>AUTH_OAUTH_TRANSPORT_CANCELLATION_REASONS</code>,
                 <code>AUTH_OAUTH_TRANSPORT_ERROR_CODES</code>,
                 <code>AUTH_PROFILE_CREATE_STRATEGIES</code>, <code>AUTH_PROFILE_FIELDS</code>,
@@ -779,13 +816,13 @@
                 <code>GeneratedApiSeedRecord</code>, <code>GeneratedRestApiDataSourceConfig</code>,
                 <code>IconSpec</code>, <code>ImageAssetSource</code>, <code>ImageMetadata</code>,
                 <code>InfraManifest</code>, <code>InfraSecretStoreSpec</code>,
-                <code>isAppManifest</code>, <code>isMediaAssetReference</code>,
-                <code>KnownAuthOAuthProviderId</code>, <code>KnownAuthProfileField</code>,
-                <code>KnownAuthProvider</code>, <code>KnownAuthSignUpField</code>,
-                <code>KnownComponentEventDto</code>, <code>KnownDatabaseProvider</code>,
-                <code>KnownDeploymentTarget</code>, <code>KnownSecretStoreProvider</code>,
-                <code>KnownStateProvider</code>, <code>ManifestValue</code>,
-                <code>MEDIA_ASSET_KINDS</code>, <code>MediaAsset</code>,
+                <code>isAppDeployManifest</code>, <code>isAppManifest</code>,
+                <code>isMediaAssetReference</code>, <code>KnownAuthOAuthProviderId</code>,
+                <code>KnownAuthProfileField</code>, <code>KnownAuthProvider</code>,
+                <code>KnownAuthSignUpField</code>, <code>KnownComponentEventDto</code>,
+                <code>KnownDatabaseProvider</code>, <code>KnownDeploymentTarget</code>,
+                <code>KnownSecretStoreProvider</code>, <code>KnownStateProvider</code>,
+                <code>ManifestValue</code>, <code>MEDIA_ASSET_KINDS</code>, <code>MediaAsset</code>,
                 <code>MediaAssetKind</code>, <code>MediaAssetMetadata</code>,
                 <code>MediaAssetReference</code>, <code>MediaAssetRegistry</code>,
                 <code>MediaAssetSource</code>, <code>MediaBundledSource</code>,
@@ -989,15 +1026,15 @@
             </article>
             <article
               class="item"
-              data-search="src/types.ts src/auth.ts src/bindings.ts src/data/index.ts src/media.ts src/requirements.ts src/theme.ts Action ActionType AlertAction APP_CATEGORIES AppCategory AppManifest AppSettings AUTH_PROFILE_CREATE_STRATEGIES AUTH_PROFILE_FIELDS AUTH_PROFILE_PRIMARY_KEY_STRATEGIES AUTH_PROFILE_UPDATE_STRATEGIES AUTH_PROVIDERS AUTH_SCOPES AUTH_SIGN_IN_IDENTIFIERS AUTH_SIGN_UP_POLICIES AuthProfileCreateStrategy AuthProfileField AuthProfilePrimaryKeyStrategy AuthProfileSpec AuthProfileUpdateStrategy AuthProvider AuthScope AuthSignInIdentifier AuthSignInSpec AuthSignUpPolicy AuthSignUpSpec AuthSpec AUTHZ_ENGINES AUTHZ_KINDS AuthzEngine AuthzKind AuthzSpec ButtonPressEventDto CollectionItemPressEventDto CollectionItemPressPayload ComponentEventDto ComponentEventDtoKind ComponentEventPayloadValue ConsoleAction DATABASE_PROVIDERS DATABASE_TIERS DatabaseProvider DatabaseSpec DatabaseTier DEPLOYMENT_TARGETS DeploymentSpec DeploymentTarget FilterAction FormSubmitEventDto FormSubmitValues IconSpec InfraManifest KnownAuthProfileField KnownAuthProvider KnownComponentEventDto KnownDatabaseProvider KnownDeploymentTarget KnownStateProvider ManifestValue NavigateAction NAVIGATOR_TYPES NavigatorSpec NavigatorType NetworkingSpec RouteDefinition ScreenSpec SearchAction SetLanguageAction SplashScreenAssetSpec SplashScreenModeSpec SplashScreenResizeMode SplashScreenSpec STATE_PERSISTENCE_MODES STATE_PROVIDERS StatePersistenceMode StateProvider StateSpec STORAGE_PROVIDERS StorageProvider StorageSpec ThemeConfig ThemeModeConfig ToggleDarkModeAction UiNode UiNodeRepeatSpec"
+              data-search="src/types.ts src/auth.ts src/bindings.ts src/data/index.ts src/deploy.ts src/media.ts src/requirements.ts src/theme.ts Action ActionType AlertAction APP_CATEGORIES AppCategory AppManifest AppSettings AUTH_PROFILE_CREATE_STRATEGIES AUTH_PROFILE_FIELDS AUTH_PROFILE_PRIMARY_KEY_STRATEGIES AUTH_PROFILE_UPDATE_STRATEGIES AUTH_PROVIDERS AUTH_SCOPES AUTH_SIGN_IN_IDENTIFIERS AUTH_SIGN_UP_POLICIES AuthProfileCreateStrategy AuthProfileField AuthProfilePrimaryKeyStrategy AuthProfileSpec AuthProfileUpdateStrategy AuthProvider AuthScope AuthSignInIdentifier AuthSignInSpec AuthSignUpPolicy AuthSignUpSpec AuthSpec AUTHZ_ENGINES AUTHZ_KINDS AuthzEngine AuthzKind AuthzSpec ButtonPressEventDto CollectionItemPressEventDto CollectionItemPressPayload ComponentEventDto ComponentEventDtoKind ComponentEventPayloadValue ConsoleAction DATABASE_PROVIDERS DATABASE_TIERS DatabaseProvider DatabaseSpec DatabaseTier DEPLOYMENT_TARGETS DeploymentSpec DeploymentTarget FilterAction FormSubmitEventDto FormSubmitValues IconSpec InfraManifest KnownAuthProfileField KnownAuthProvider KnownComponentEventDto KnownDatabaseProvider KnownDeploymentTarget KnownStateProvider ManifestValue NavigateAction NAVIGATOR_TYPES NavigatorSpec NavigatorType NetworkingSpec RouteDefinition ScreenSpec SearchAction SetLanguageAction SplashScreenAssetSpec SplashScreenModeSpec SplashScreenResizeMode SplashScreenSpec STATE_PERSISTENCE_MODES STATE_PROVIDERS StatePersistenceMode StateProvider StateSpec STORAGE_PROVIDERS StorageProvider StorageSpec ThemeConfig ThemeModeConfig ToggleDarkModeAction UiNode UiNodeRepeatSpec"
             >
               <h3>src/types.ts</h3>
               <p class="muted">Referenced module</p>
               <p>
                 <strong>Dependencies:</strong> <code>src/auth.ts</code>,
                 <code>src/bindings.ts</code>, <code>src/data/index.ts</code>,
-                <code>src/media.ts</code>, <code>src/requirements.ts</code>,
-                <code>src/theme.ts</code>
+                <code>src/deploy.ts</code>, <code>src/media.ts</code>,
+                <code>src/requirements.ts</code>, <code>src/theme.ts</code>
               </p>
               <p>
                 <strong>Exports:</strong> <code>Action</code>, <code>ActionType</code>,
@@ -1043,11 +1080,13 @@
             </article>
             <article
               class="item"
-              data-search="src/ui.ts src/types.ts UiBindableEventMeta UiBindableEventPayloadMeta UiBindablePropMeta UiBindableValueFieldMeta UiBindableValueMeta UiBindableValueType UiComponentBindingMeta UiComponentBlueprint UiComponentBlueprintIcon UiComponentCategory UiComponentEventMeta UiComponentEventPayloadFieldMeta UiComponentEventPayloadFieldType UiComponentEventPayloadKind UiComponentI18nFieldMeta UiComponentI18nMeta UiComponentMeta UiComponentMetaRegistry UiComponentPackageManifest UiComponentPropArrayItemSchema UiComponentPropSchema UiComponentPropType UiComponentPropValue UiComponentSlotMeta"
+              data-search="src/ui.ts src/media.ts src/types.ts UiBindableEventMeta UiBindableEventPayloadMeta UiBindablePropMeta UiBindableValueFieldMeta UiBindableValueMeta UiBindableValueType UiComponentBindingMeta UiComponentBlueprint UiComponentBlueprintIcon UiComponentCategory UiComponentEventMeta UiComponentEventPayloadFieldMeta UiComponentEventPayloadFieldType UiComponentEventPayloadKind UiComponentI18nFieldMeta UiComponentI18nMeta UiComponentMeta UiComponentMetaRegistry UiComponentPackageManifest UiComponentPropArrayItemSchema UiComponentPropSchema UiComponentPropType UiComponentPropValue UiComponentSlotMeta"
             >
               <h3>src/ui.ts</h3>
               <p class="muted">Referenced module</p>
-              <p><strong>Dependencies:</strong> <code>src/types.ts</code></p>
+              <p>
+                <strong>Dependencies:</strong> <code>src/media.ts</code>, <code>src/types.ts</code>
+              </p>
               <p>
                 <strong>Exports:</strong> <code>UiBindableEventMeta</code>,
                 <code>UiBindableEventPayloadMeta</code>, <code>UiBindablePropMeta</code>,
@@ -1077,7 +1116,7 @@
                 data-search="AppManifestParseResult unknown src/appManifest.ts "
               >
                 <h4>AppManifestParseResult</h4>
-                <p class="muted">unknown • <code>src/appManifest.ts:16:1</code></p>
+                <p class="muted">unknown • <code>src/appManifest.ts:17:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -1088,7 +1127,7 @@
                 data-search="isAppManifest function src/appManifest.ts  (value: unknown) =&gt; boolean"
               >
                 <h4>isAppManifest</h4>
-                <p class="muted">function • <code>src/appManifest.ts:50:1</code></p>
+                <p class="muted">function • <code>src/appManifest.ts:52:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -1122,7 +1161,7 @@
                 data-search="parseAppManifest function src/appManifest.ts  AppManifestParseResult (value: unknown) =&gt; AppManifestParseResult"
               >
                 <h4>parseAppManifest</h4>
-                <p class="muted">function • <code>src/appManifest.ts:43:1</code></p>
+                <p class="muted">function • <code>src/appManifest.ts:45:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -1153,6 +1192,43 @@
                     </tbody>
                   </table>
                   <p><strong>Returns:</strong> <code>AppManifestParseResult</code></p>
+                </div>
+              </article>
+            </section>
+            <section>
+              <h3>src/appManifest/deploy.ts</h3>
+              <article
+                class="item"
+                id="symbol-isappdeploymanifest"
+                data-search="isAppDeployManifest function src/appManifest/deploy.ts  (value: unknown) =&gt; boolean"
+              >
+                <h4>isAppDeployManifest</h4>
+                <p class="muted">function • <code>src/appManifest/deploy.ts:18:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+                <div>
+                  <h5>Signature</h5>
+                  <pre>(value: unknown) =&gt; boolean</pre>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>value</code></td>
+                        <td><code>unknown</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p><strong>Returns:</strong> <code>boolean</code></p>
                 </div>
               </article>
             </section>
@@ -7520,6 +7596,306 @@
               </article>
             </section>
             <section>
+              <h3>src/deploy.ts</h3>
+              <article
+                class="item"
+                id="symbol-app-deploy-target-ids"
+                data-search="APP_DEPLOY_TARGET_IDS value src/deploy.ts "
+              >
+                <h4>APP_DEPLOY_TARGET_IDS</h4>
+                <p class="muted">value • <code>src/deploy.ts:1:14</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-appdeployandroidtargetconfig"
+                data-search="AppDeployAndroidTargetConfig type src/deploy.ts  AppDeployProviderSelection"
+              >
+                <h4>AppDeployAndroidTargetConfig</h4>
+                <p class="muted">type • <code>src/deploy.ts:15:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">AppDeployProviderSelection</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>enabled</code></td>
+                      <td>property</td>
+                      <td><code>boolean</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>package</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>providers</code></td>
+                      <td>property</td>
+                      <td><code>AppDeployProviderSelection | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-appdeployiostargetconfig"
+                data-search="AppDeployIosTargetConfig type src/deploy.ts  AppDeployProviderSelection"
+              >
+                <h4>AppDeployIosTargetConfig</h4>
+                <p class="muted">type • <code>src/deploy.ts:21:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">AppDeployProviderSelection</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>bundleIdentifier</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>enabled</code></td>
+                      <td>property</td>
+                      <td><code>boolean</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>providers</code></td>
+                      <td>property</td>
+                      <td><code>AppDeployProviderSelection | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-appdeploymanifest"
+                data-search="AppDeployManifest type src/deploy.ts  AppDeployTargets"
+              >
+                <h4>AppDeployManifest</h4>
+                <p class="muted">type • <code>src/deploy.ts:33:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">AppDeployTargets</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>targets</code></td>
+                      <td>property</td>
+                      <td><code>AppDeployTargets</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-appdeployproviderselection"
+                data-search="AppDeployProviderSelection type src/deploy.ts "
+              >
+                <h4>AppDeployProviderSelection</h4>
+                <p class="muted">type • <code>src/deploy.ts:5:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>build</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>publish</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-appdeploytargetid"
+                data-search="AppDeployTargetId unknown src/deploy.ts "
+              >
+                <h4>AppDeployTargetId</h4>
+                <p class="muted">unknown • <code>src/deploy.ts:3:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-appdeploytargets"
+                data-search="AppDeployTargets type src/deploy.ts  AppDeployAndroidTargetConfig AppDeployIosTargetConfig AppDeployWebTargetConfig"
+              >
+                <h4>AppDeployTargets</h4>
+                <p class="muted">type • <code>src/deploy.ts:27:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">AppDeployAndroidTargetConfig</li>
+                    <li class="chip">AppDeployIosTargetConfig</li>
+                    <li class="chip">AppDeployWebTargetConfig</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>android</code></td>
+                      <td>property</td>
+                      <td><code>AppDeployAndroidTargetConfig | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>ios</code></td>
+                      <td>property</td>
+                      <td><code>AppDeployIosTargetConfig | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>web</code></td>
+                      <td>property</td>
+                      <td><code>AppDeployWebTargetConfig | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-appdeploywebtargetconfig"
+                data-search="AppDeployWebTargetConfig type src/deploy.ts  AppDeployProviderSelection"
+              >
+                <h4>AppDeployWebTargetConfig</h4>
+                <p class="muted">type • <code>src/deploy.ts:10:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">AppDeployProviderSelection</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>enabled</code></td>
+                      <td>property</td>
+                      <td><code>boolean</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>providers</code></td>
+                      <td>property</td>
+                      <td><code>AppDeployProviderSelection | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+            </section>
+            <section>
               <h3>src/media.ts</h3>
               <article
                 class="item"
@@ -11015,7 +11391,7 @@
               <h3>src/types.ts</h3>
               <article class="item" id="symbol-action" data-search="Action unknown src/types.ts ">
                 <h4>Action</h4>
-                <p class="muted">unknown • <code>src/types.ts:87:1</code></p>
+                <p class="muted">unknown • <code>src/types.ts:88:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -11026,7 +11402,7 @@
                 data-search="ActionType unknown src/types.ts "
               >
                 <h4>ActionType</h4>
-                <p class="muted">unknown • <code>src/types.ts:30:1</code></p>
+                <p class="muted">unknown • <code>src/types.ts:31:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -11037,7 +11413,7 @@
                 data-search="AlertAction type src/types.ts "
               >
                 <h4>AlertAction</h4>
-                <p class="muted">type • <code>src/types.ts:47:1</code></p>
+                <p class="muted">type • <code>src/types.ts:48:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -11076,7 +11452,7 @@
                 data-search="APP_CATEGORIES value src/types.ts "
               >
                 <h4>APP_CATEGORIES</h4>
-                <p class="muted">value • <code>src/types.ts:149:14</code></p>
+                <p class="muted">value • <code>src/types.ts:150:14</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -11087,7 +11463,7 @@
                 data-search="AppCategory unknown src/types.ts "
               >
                 <h4>AppCategory</h4>
-                <p class="muted">unknown • <code>src/types.ts:174:1</code></p>
+                <p class="muted">unknown • <code>src/types.ts:175:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -11095,16 +11471,17 @@
               <article
                 class="item"
                 id="symbol-appmanifest"
-                data-search="AppManifest type src/types.ts  AppCategory AppSettings ComponentDataBinding DataSourceConfig GeneratedApiDefinition InfraManifest MediaManifest NavigatorSpec ScreenSpec SplashScreenSpec ThemeConfig"
+                data-search="AppManifest type src/types.ts  AppCategory AppDeployManifest AppSettings ComponentDataBinding DataSourceConfig GeneratedApiDefinition InfraManifest MediaManifest NavigatorSpec ScreenSpec SplashScreenSpec ThemeConfig"
               >
                 <h4>AppManifest</h4>
-                <p class="muted">type • <code>src/types.ts:388:1</code></p>
+                <p class="muted">type • <code>src/types.ts:389:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
                   <strong>Related symbols:</strong>
                   <ul class="chips">
                     <li class="chip">AppCategory</li>
+                    <li class="chip">AppDeployManifest</li>
                     <li class="chip">AppSettings</li>
                     <li class="chip">ComponentDataBinding</li>
                     <li class="chip">DataSourceConfig</li>
@@ -11165,6 +11542,13 @@
                           import(&quot;./src/index&quot;).DataSourceConfig&gt;&gt; | undefined</code
                         >
                       </td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>deploy</code></td>
+                      <td>property</td>
+                      <td><code>AppDeployManifest | undefined</code></td>
                       <td>no</td>
                       <td></td>
                     </tr>
@@ -11251,7 +11635,7 @@
                 data-search="AppSettings type src/types.ts "
               >
                 <h4>AppSettings</h4>
-                <p class="muted">type • <code>src/types.ts:380:1</code></p>
+                <p class="muted">type • <code>src/types.ts:381:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -11290,7 +11674,7 @@
                 data-search="AUTH_PROFILE_CREATE_STRATEGIES value src/types.ts "
               >
                 <h4>AUTH_PROFILE_CREATE_STRATEGIES</h4>
-                <p class="muted">value • <code>src/types.ts:229:14</code></p>
+                <p class="muted">value • <code>src/types.ts:230:14</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -11301,7 +11685,7 @@
                 data-search="AUTH_PROFILE_FIELDS value src/types.ts "
               >
                 <h4>AUTH_PROFILE_FIELDS</h4>
-                <p class="muted">value • <code>src/types.ts:216:14</code></p>
+                <p class="muted">value • <code>src/types.ts:217:14</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -11312,7 +11696,7 @@
                 data-search="AUTH_PROFILE_PRIMARY_KEY_STRATEGIES value src/types.ts "
               >
                 <h4>AUTH_PROFILE_PRIMARY_KEY_STRATEGIES</h4>
-                <p class="muted">value • <code>src/types.ts:226:14</code></p>
+                <p class="muted">value • <code>src/types.ts:227:14</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -11323,7 +11707,7 @@
                 data-search="AUTH_PROFILE_UPDATE_STRATEGIES value src/types.ts "
               >
                 <h4>AUTH_PROFILE_UPDATE_STRATEGIES</h4>
-                <p class="muted">value • <code>src/types.ts:232:14</code></p>
+                <p class="muted">value • <code>src/types.ts:233:14</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -11334,7 +11718,7 @@
                 data-search="AUTH_PROVIDERS value src/types.ts "
               >
                 <h4>AUTH_PROVIDERS</h4>
-                <p class="muted">value • <code>src/types.ts:206:14</code></p>
+                <p class="muted">value • <code>src/types.ts:207:14</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -11345,7 +11729,7 @@
                 data-search="AUTH_SCOPES value src/types.ts "
               >
                 <h4>AUTH_SCOPES</h4>
-                <p class="muted">value • <code>src/types.ts:203:14</code></p>
+                <p class="muted">value • <code>src/types.ts:204:14</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -11356,7 +11740,7 @@
                 data-search="AUTH_SIGN_IN_IDENTIFIERS value src/types.ts "
               >
                 <h4>AUTH_SIGN_IN_IDENTIFIERS</h4>
-                <p class="muted">value • <code>src/types.ts:210:14</code></p>
+                <p class="muted">value • <code>src/types.ts:211:14</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -11367,7 +11751,7 @@
                 data-search="AUTH_SIGN_UP_POLICIES value src/types.ts "
               >
                 <h4>AUTH_SIGN_UP_POLICIES</h4>
-                <p class="muted">value • <code>src/types.ts:213:14</code></p>
+                <p class="muted">value • <code>src/types.ts:214:14</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -11378,7 +11762,7 @@
                 data-search="AuthProfileCreateStrategy unknown src/types.ts "
               >
                 <h4>AuthProfileCreateStrategy</h4>
-                <p class="muted">unknown • <code>src/types.ts:230:1</code></p>
+                <p class="muted">unknown • <code>src/types.ts:231:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -11389,7 +11773,7 @@
                 data-search="AuthProfileField unknown src/types.ts "
               >
                 <h4>AuthProfileField</h4>
-                <p class="muted">unknown • <code>src/types.ts:224:1</code></p>
+                <p class="muted">unknown • <code>src/types.ts:225:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -11400,7 +11784,7 @@
                 data-search="AuthProfilePrimaryKeyStrategy unknown src/types.ts "
               >
                 <h4>AuthProfilePrimaryKeyStrategy</h4>
-                <p class="muted">unknown • <code>src/types.ts:227:1</code></p>
+                <p class="muted">unknown • <code>src/types.ts:228:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -11411,7 +11795,7 @@
                 data-search="AuthProfileSpec type src/types.ts  AuthProfileField"
               >
                 <h4>AuthProfileSpec</h4>
-                <p class="muted">type • <code>src/types.ts:345:1</code></p>
+                <p class="muted">type • <code>src/types.ts:346:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -11480,7 +11864,7 @@
                 data-search="AuthProfileUpdateStrategy unknown src/types.ts "
               >
                 <h4>AuthProfileUpdateStrategy</h4>
-                <p class="muted">unknown • <code>src/types.ts:233:1</code></p>
+                <p class="muted">unknown • <code>src/types.ts:234:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -11491,7 +11875,7 @@
                 data-search="AuthProvider unknown src/types.ts "
               >
                 <h4>AuthProvider</h4>
-                <p class="muted">unknown • <code>src/types.ts:208:1</code></p>
+                <p class="muted">unknown • <code>src/types.ts:209:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -11502,7 +11886,7 @@
                 data-search="AuthScope unknown src/types.ts "
               >
                 <h4>AuthScope</h4>
-                <p class="muted">unknown • <code>src/types.ts:204:1</code></p>
+                <p class="muted">unknown • <code>src/types.ts:205:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -11513,7 +11897,7 @@
                 data-search="AuthSignInIdentifier unknown src/types.ts "
               >
                 <h4>AuthSignInIdentifier</h4>
-                <p class="muted">unknown • <code>src/types.ts:211:1</code></p>
+                <p class="muted">unknown • <code>src/types.ts:212:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -11524,7 +11908,7 @@
                 data-search="AuthSignInSpec type src/types.ts "
               >
                 <h4>AuthSignInSpec</h4>
-                <p class="muted">type • <code>src/types.ts:335:1</code></p>
+                <p class="muted">type • <code>src/types.ts:336:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -11560,7 +11944,7 @@
                 data-search="AuthSignUpPolicy unknown src/types.ts "
               >
                 <h4>AuthSignUpPolicy</h4>
-                <p class="muted">unknown • <code>src/types.ts:214:1</code></p>
+                <p class="muted">unknown • <code>src/types.ts:215:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -11571,7 +11955,7 @@
                 data-search="AuthSignUpSpec type src/types.ts  AuthSignUpField"
               >
                 <h4>AuthSignUpSpec</h4>
-                <p class="muted">type • <code>src/types.ts:339:1</code></p>
+                <p class="muted">type • <code>src/types.ts:340:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -11627,7 +12011,7 @@
                 data-search="AuthSpec type src/types.ts  AuthFlowConfig AuthOAuthConfig AuthProfileSpec AuthProvider AuthSignInSpec AuthSignUpSpec AuthzSpec"
               >
                 <h4>AuthSpec</h4>
-                <p class="muted">type • <code>src/types.ts:353:1</code></p>
+                <p class="muted">type • <code>src/types.ts:354:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -11721,7 +12105,7 @@
                 data-search="AUTHZ_ENGINES value src/types.ts "
               >
                 <h4>AUTHZ_ENGINES</h4>
-                <p class="muted">value • <code>src/types.ts:200:14</code></p>
+                <p class="muted">value • <code>src/types.ts:201:14</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -11732,7 +12116,7 @@
                 data-search="AUTHZ_KINDS value src/types.ts "
               >
                 <h4>AUTHZ_KINDS</h4>
-                <p class="muted">value • <code>src/types.ts:197:14</code></p>
+                <p class="muted">value • <code>src/types.ts:198:14</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -11743,7 +12127,7 @@
                 data-search="AuthzEngine unknown src/types.ts "
               >
                 <h4>AuthzEngine</h4>
-                <p class="muted">unknown • <code>src/types.ts:201:1</code></p>
+                <p class="muted">unknown • <code>src/types.ts:202:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -11754,7 +12138,7 @@
                 data-search="AuthzKind unknown src/types.ts "
               >
                 <h4>AuthzKind</h4>
-                <p class="muted">unknown • <code>src/types.ts:198:1</code></p>
+                <p class="muted">unknown • <code>src/types.ts:199:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -11765,7 +12149,7 @@
                 data-search="AuthzSpec type src/types.ts "
               >
                 <h4>AuthzSpec</h4>
-                <p class="muted">type • <code>src/types.ts:330:1</code></p>
+                <p class="muted">type • <code>src/types.ts:331:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -11804,7 +12188,7 @@
                 data-search="ButtonPressEventDto unknown src/types.ts "
               >
                 <h4>ButtonPressEventDto</h4>
-                <p class="muted">unknown • <code>src/types.ts:124:1</code></p>
+                <p class="muted">unknown • <code>src/types.ts:125:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -11815,7 +12199,7 @@
                 data-search="CollectionItemPressEventDto unknown src/types.ts "
               >
                 <h4>CollectionItemPressEventDto</h4>
-                <p class="muted">unknown • <code>src/types.ts:131:1</code></p>
+                <p class="muted">unknown • <code>src/types.ts:132:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -11826,7 +12210,7 @@
                 data-search="CollectionItemPressPayload type src/types.ts  ManifestValue"
               >
                 <h4>CollectionItemPressPayload</h4>
-                <p class="muted">type • <code>src/types.ts:126:1</code></p>
+                <p class="muted">type • <code>src/types.ts:127:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -11870,7 +12254,7 @@
                 data-search="ComponentEventDto type src/types.ts "
               >
                 <h4>ComponentEventDto</h4>
-                <p class="muted">type • <code>src/types.ts:106:1</code></p>
+                <p class="muted">type • <code>src/types.ts:107:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -11916,7 +12300,7 @@
                 data-search="ComponentEventDtoKind unknown src/types.ts "
               >
                 <h4>ComponentEventDtoKind</h4>
-                <p class="muted">unknown • <code>src/types.ts:136:1</code></p>
+                <p class="muted">unknown • <code>src/types.ts:137:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -11927,7 +12311,7 @@
                 data-search="ComponentEventPayloadValue unknown src/types.ts "
               >
                 <h4>ComponentEventPayloadValue</h4>
-                <p class="muted">unknown • <code>src/types.ts:104:1</code></p>
+                <p class="muted">unknown • <code>src/types.ts:105:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -11938,7 +12322,7 @@
                 data-search="ConsoleAction type src/types.ts "
               >
                 <h4>ConsoleAction</h4>
-                <p class="muted">type • <code>src/types.ts:54:1</code></p>
+                <p class="muted">type • <code>src/types.ts:55:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -11977,7 +12361,7 @@
                 data-search="DATABASE_PROVIDERS value src/types.ts "
               >
                 <h4>DATABASE_PROVIDERS</h4>
-                <p class="muted">value • <code>src/types.ts:180:14</code></p>
+                <p class="muted">value • <code>src/types.ts:181:14</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -11988,7 +12372,7 @@
                 data-search="DATABASE_TIERS value src/types.ts "
               >
                 <h4>DATABASE_TIERS</h4>
-                <p class="muted">value • <code>src/types.ts:184:14</code></p>
+                <p class="muted">value • <code>src/types.ts:185:14</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -11999,7 +12383,7 @@
                 data-search="DatabaseProvider unknown src/types.ts "
               >
                 <h4>DatabaseProvider</h4>
-                <p class="muted">unknown • <code>src/types.ts:182:1</code></p>
+                <p class="muted">unknown • <code>src/types.ts:183:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -12010,7 +12394,7 @@
                 data-search="DatabaseSpec type src/types.ts  DatabaseProvider"
               >
                 <h4>DatabaseSpec</h4>
-                <p class="muted">type • <code>src/types.ts:315:1</code></p>
+                <p class="muted">type • <code>src/types.ts:316:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -12054,7 +12438,7 @@
                 data-search="DatabaseTier unknown src/types.ts "
               >
                 <h4>DatabaseTier</h4>
-                <p class="muted">unknown • <code>src/types.ts:185:1</code></p>
+                <p class="muted">unknown • <code>src/types.ts:186:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -12065,7 +12449,7 @@
                 data-search="DEPLOYMENT_TARGETS value src/types.ts "
               >
                 <h4>DEPLOYMENT_TARGETS</h4>
-                <p class="muted">value • <code>src/types.ts:176:14</code></p>
+                <p class="muted">value • <code>src/types.ts:177:14</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -12076,7 +12460,7 @@
                 data-search="DeploymentSpec type src/types.ts  DeploymentTarget"
               >
                 <h4>DeploymentSpec</h4>
-                <p class="muted">type • <code>src/types.ts:310:1</code></p>
+                <p class="muted">type • <code>src/types.ts:311:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -12120,7 +12504,7 @@
                 data-search="DeploymentTarget unknown src/types.ts "
               >
                 <h4>DeploymentTarget</h4>
-                <p class="muted">unknown • <code>src/types.ts:178:1</code></p>
+                <p class="muted">unknown • <code>src/types.ts:179:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -12131,7 +12515,7 @@
                 data-search="FilterAction type src/types.ts "
               >
                 <h4>FilterAction</h4>
-                <p class="muted">type • <code>src/types.ts:79:1</code></p>
+                <p class="muted">type • <code>src/types.ts:80:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -12170,7 +12554,7 @@
                 data-search="FormSubmitEventDto unknown src/types.ts "
               >
                 <h4>FormSubmitEventDto</h4>
-                <p class="muted">unknown • <code>src/types.ts:117:1</code></p>
+                <p class="muted">unknown • <code>src/types.ts:118:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -12181,14 +12565,14 @@
                 data-search="FormSubmitValues unknown src/types.ts "
               >
                 <h4>FormSubmitValues</h4>
-                <p class="muted">unknown • <code>src/types.ts:115:1</code></p>
+                <p class="muted">unknown • <code>src/types.ts:116:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
               </article>
               <article class="item" id="symbol-iconspec" data-search="IconSpec type src/types.ts ">
                 <h4>IconSpec</h4>
-                <p class="muted">type • <code>src/types.ts:235:1</code></p>
+                <p class="muted">type • <code>src/types.ts:236:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -12241,7 +12625,7 @@
                 data-search="InfraManifest type src/types.ts  AuthSpec DatabaseSpec DeploymentSpec InfraSecretStoreSpec NetworkingSpec StateSpec StorageSpec"
               >
                 <h4>InfraManifest</h4>
-                <p class="muted">type • <code>src/types.ts:369:1</code></p>
+                <p class="muted">type • <code>src/types.ts:370:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -12340,7 +12724,7 @@
                 data-search="KnownAuthProfileField unknown src/types.ts "
               >
                 <h4>KnownAuthProfileField</h4>
-                <p class="muted">unknown • <code>src/types.ts:223:1</code></p>
+                <p class="muted">unknown • <code>src/types.ts:224:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -12351,7 +12735,7 @@
                 data-search="KnownAuthProvider unknown src/types.ts "
               >
                 <h4>KnownAuthProvider</h4>
-                <p class="muted">unknown • <code>src/types.ts:207:1</code></p>
+                <p class="muted">unknown • <code>src/types.ts:208:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -12362,7 +12746,7 @@
                 data-search="KnownComponentEventDto unknown src/types.ts "
               >
                 <h4>KnownComponentEventDto</h4>
-                <p class="muted">unknown • <code>src/types.ts:141:1</code></p>
+                <p class="muted">unknown • <code>src/types.ts:142:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -12373,7 +12757,7 @@
                 data-search="KnownDatabaseProvider unknown src/types.ts "
               >
                 <h4>KnownDatabaseProvider</h4>
-                <p class="muted">unknown • <code>src/types.ts:181:1</code></p>
+                <p class="muted">unknown • <code>src/types.ts:182:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -12384,7 +12768,7 @@
                 data-search="KnownDeploymentTarget unknown src/types.ts "
               >
                 <h4>KnownDeploymentTarget</h4>
-                <p class="muted">unknown • <code>src/types.ts:177:1</code></p>
+                <p class="muted">unknown • <code>src/types.ts:178:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -12395,7 +12779,7 @@
                 data-search="KnownStateProvider unknown src/types.ts "
               >
                 <h4>KnownStateProvider</h4>
-                <p class="muted">unknown • <code>src/types.ts:191:1</code></p>
+                <p class="muted">unknown • <code>src/types.ts:192:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -12406,7 +12790,7 @@
                 data-search="ManifestValue unknown src/types.ts "
               >
                 <h4>ManifestValue</h4>
-                <p class="muted">unknown • <code>src/types.ts:96:1</code></p>
+                <p class="muted">unknown • <code>src/types.ts:97:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -12417,7 +12801,7 @@
                 data-search="NavigateAction type src/types.ts "
               >
                 <h4>NavigateAction</h4>
-                <p class="muted">type • <code>src/types.ts:39:1</code></p>
+                <p class="muted">type • <code>src/types.ts:40:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -12460,7 +12844,7 @@
                 data-search="NAVIGATOR_TYPES value src/types.ts "
               >
                 <h4>NAVIGATOR_TYPES</h4>
-                <p class="muted">value • <code>src/types.ts:146:14</code></p>
+                <p class="muted">value • <code>src/types.ts:147:14</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -12471,7 +12855,7 @@
                 data-search="NavigatorSpec type src/types.ts  RouteDefinition"
               >
                 <h4>NavigatorSpec</h4>
-                <p class="muted">type • <code>src/types.ts:269:1</code></p>
+                <p class="muted">type • <code>src/types.ts:270:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -12531,7 +12915,7 @@
                 data-search="NavigatorType unknown src/types.ts "
               >
                 <h4>NavigatorType</h4>
-                <p class="muted">unknown • <code>src/types.ts:147:1</code></p>
+                <p class="muted">unknown • <code>src/types.ts:148:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -12542,7 +12926,7 @@
                 data-search="NetworkingSpec type src/types.ts "
               >
                 <h4>NetworkingSpec</h4>
-                <p class="muted">type • <code>src/types.ts:364:1</code></p>
+                <p class="muted">type • <code>src/types.ts:365:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -12581,7 +12965,7 @@
                 data-search="RouteDefinition type src/types.ts  IconSpec NavigatorSpec"
               >
                 <h4>RouteDefinition</h4>
-                <p class="muted">type • <code>src/types.ts:276:1</code></p>
+                <p class="muted">type • <code>src/types.ts:277:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -12668,7 +13052,7 @@
                 data-search="ScreenSpec type src/types.ts  OperationScreenDataLoaderDefinition ScreenRequirements UiNode"
               >
                 <h4>ScreenSpec</h4>
-                <p class="muted">type • <code>src/types.ts:259:1</code></p>
+                <p class="muted">type • <code>src/types.ts:260:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -12755,7 +13139,7 @@
                 data-search="SearchAction type src/types.ts "
               >
                 <h4>SearchAction</h4>
-                <p class="muted">type • <code>src/types.ts:71:1</code></p>
+                <p class="muted">type • <code>src/types.ts:72:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -12794,7 +13178,7 @@
                 data-search="SetLanguageAction type src/types.ts "
               >
                 <h4>SetLanguageAction</h4>
-                <p class="muted">type • <code>src/types.ts:64:1</code></p>
+                <p class="muted">type • <code>src/types.ts:65:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -12833,7 +13217,7 @@
                 data-search="SplashScreenAssetSpec type src/types.ts  SplashScreenResizeMode"
               >
                 <h4>SplashScreenAssetSpec</h4>
-                <p class="muted">type • <code>src/types.ts:296:1</code></p>
+                <p class="muted">type • <code>src/types.ts:297:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -12884,7 +13268,7 @@
                 data-search="SplashScreenModeSpec type src/types.ts  SplashScreenResizeMode"
               >
                 <h4>SplashScreenModeSpec</h4>
-                <p class="muted">type • <code>src/types.ts:302:1</code></p>
+                <p class="muted">type • <code>src/types.ts:303:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -12942,7 +13326,7 @@
                 data-search="SplashScreenResizeMode unknown src/types.ts "
               >
                 <h4>SplashScreenResizeMode</h4>
-                <p class="muted">unknown • <code>src/types.ts:294:1</code></p>
+                <p class="muted">unknown • <code>src/types.ts:295:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -12953,7 +13337,7 @@
                 data-search="SplashScreenSpec type src/types.ts  SplashScreenModeSpec SplashScreenResizeMode"
               >
                 <h4>SplashScreenSpec</h4>
-                <p class="muted">type • <code>src/types.ts:306:1</code></p>
+                <p class="muted">type • <code>src/types.ts:307:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -13019,7 +13403,7 @@
                 data-search="STATE_PERSISTENCE_MODES value src/types.ts "
               >
                 <h4>STATE_PERSISTENCE_MODES</h4>
-                <p class="muted">value • <code>src/types.ts:194:14</code></p>
+                <p class="muted">value • <code>src/types.ts:195:14</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -13030,7 +13414,7 @@
                 data-search="STATE_PROVIDERS value src/types.ts "
               >
                 <h4>STATE_PROVIDERS</h4>
-                <p class="muted">value • <code>src/types.ts:190:14</code></p>
+                <p class="muted">value • <code>src/types.ts:191:14</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -13041,7 +13425,7 @@
                 data-search="StatePersistenceMode unknown src/types.ts "
               >
                 <h4>StatePersistenceMode</h4>
-                <p class="muted">unknown • <code>src/types.ts:195:1</code></p>
+                <p class="muted">unknown • <code>src/types.ts:196:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -13052,7 +13436,7 @@
                 data-search="StateProvider unknown src/types.ts "
               >
                 <h4>StateProvider</h4>
-                <p class="muted">unknown • <code>src/types.ts:192:1</code></p>
+                <p class="muted">unknown • <code>src/types.ts:193:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -13063,7 +13447,7 @@
                 data-search="StateSpec type src/types.ts  StateProvider"
               >
                 <h4>StateSpec</h4>
-                <p class="muted">type • <code>src/types.ts:325:1</code></p>
+                <p class="muted">type • <code>src/types.ts:326:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -13112,7 +13496,7 @@
                 data-search="STORAGE_PROVIDERS value src/types.ts "
               >
                 <h4>STORAGE_PROVIDERS</h4>
-                <p class="muted">value • <code>src/types.ts:187:14</code></p>
+                <p class="muted">value • <code>src/types.ts:188:14</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -13123,7 +13507,7 @@
                 data-search="StorageProvider unknown src/types.ts "
               >
                 <h4>StorageProvider</h4>
-                <p class="muted">unknown • <code>src/types.ts:188:1</code></p>
+                <p class="muted">unknown • <code>src/types.ts:189:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -13134,7 +13518,7 @@
                 data-search="StorageSpec type src/types.ts "
               >
                 <h4>StorageSpec</h4>
-                <p class="muted">type • <code>src/types.ts:320:1</code></p>
+                <p class="muted">type • <code>src/types.ts:321:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -13173,7 +13557,7 @@
                 data-search="ThemeConfig type src/types.ts  ThemeGlobalTokenOverrides ThemeModeConfig ThemeRecipeOverrides"
               >
                 <h4>ThemeConfig</h4>
-                <p class="muted">type • <code>src/types.ts:19:1</code></p>
+                <p class="muted">type • <code>src/types.ts:20:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -13247,7 +13631,7 @@
                 data-search="ThemeModeConfig type src/types.ts "
               >
                 <h4>ThemeModeConfig</h4>
-                <p class="muted">type • <code>src/types.ts:14:1</code></p>
+                <p class="muted">type • <code>src/types.ts:15:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -13292,7 +13676,7 @@
                 data-search="ToggleDarkModeAction type src/types.ts "
               >
                 <h4>ToggleDarkModeAction</h4>
-                <p class="muted">type • <code>src/types.ts:59:1</code></p>
+                <p class="muted">type • <code>src/types.ts:60:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -13331,7 +13715,7 @@
                 data-search="UiNode type src/types.ts  UiNodeRepeatSpec"
               >
                 <h4>UiNode</h4>
-                <p class="muted">type • <code>src/types.ts:249:1</code></p>
+                <p class="muted">type • <code>src/types.ts:250:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -13410,7 +13794,7 @@
                 data-search="UiNodeRepeatSpec type src/types.ts  BindingValueSource UiNode"
               >
                 <h4>UiNodeRepeatSpec</h4>
-                <p class="muted">type • <code>src/types.ts:242:1</code></p>
+                <p class="muted">type • <code>src/types.ts:243:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -13472,7 +13856,7 @@
                 data-search="UiBindableEventMeta type src/ui.ts  UiBindableEventPayloadMeta"
               >
                 <h4>UiBindableEventMeta</h4>
-                <p class="muted">type • <code>src/ui.ts:129:1</code></p>
+                <p class="muted">type • <code>src/ui.ts:132:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -13523,7 +13907,7 @@
                 data-search="UiBindableEventPayloadMeta type src/ui.ts  UiComponentEventPayloadFieldMeta UiComponentEventPayloadKind"
               >
                 <h4>UiBindableEventPayloadMeta</h4>
-                <p class="muted">type • <code>src/ui.ts:124:1</code></p>
+                <p class="muted">type • <code>src/ui.ts:127:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -13568,7 +13952,7 @@
                 data-search="UiBindablePropMeta type src/ui.ts  UiBindableValueMeta"
               >
                 <h4>UiBindablePropMeta</h4>
-                <p class="muted">type • <code>src/ui.ts:115:1</code></p>
+                <p class="muted">type • <code>src/ui.ts:118:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -13640,7 +14024,7 @@
                 data-search="UiBindableValueFieldMeta type src/ui.ts  UiBindableValueType"
               >
                 <h4>UiBindableValueFieldMeta</h4>
-                <p class="muted">type • <code>src/ui.ts:99:1</code></p>
+                <p class="muted">type • <code>src/ui.ts:102:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -13705,7 +14089,7 @@
                 data-search="UiBindableValueMeta type src/ui.ts  UiBindableValueFieldMeta UiBindableValueType"
               >
                 <h4>UiBindableValueMeta</h4>
-                <p class="muted">type • <code>src/ui.ts:107:1</code></p>
+                <p class="muted">type • <code>src/ui.ts:110:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -13771,7 +14155,7 @@
                 data-search="UiBindableValueType unknown src/ui.ts "
               >
                 <h4>UiBindableValueType</h4>
-                <p class="muted">unknown • <code>src/ui.ts:88:1</code></p>
+                <p class="muted">unknown • <code>src/ui.ts:91:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -13782,7 +14166,7 @@
                 data-search="UiComponentBindingMeta type src/ui.ts  UiBindableEventMeta UiBindablePropMeta"
               >
                 <h4>UiComponentBindingMeta</h4>
-                <p class="muted">type • <code>src/ui.ts:135:1</code></p>
+                <p class="muted">type • <code>src/ui.ts:138:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -13837,7 +14221,7 @@
                 data-search="UiComponentBlueprint type src/ui.ts  UiComponentBlueprintIcon UiComponentPropValue"
               >
                 <h4>UiComponentBlueprint</h4>
-                <p class="muted">type • <code>src/ui.ts:49:1</code></p>
+                <p class="muted">type • <code>src/ui.ts:52:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -13894,7 +14278,7 @@
                 data-search="UiComponentBlueprintIcon type src/ui.ts "
               >
                 <h4>UiComponentBlueprintIcon</h4>
-                <p class="muted">type • <code>src/ui.ts:44:1</code></p>
+                <p class="muted">type • <code>src/ui.ts:47:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -13933,7 +14317,7 @@
                 data-search="UiComponentCategory unknown src/ui.ts "
               >
                 <h4>UiComponentCategory</h4>
-                <p class="muted">unknown • <code>src/ui.ts:3:1</code></p>
+                <p class="muted">unknown • <code>src/ui.ts:4:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -13944,7 +14328,7 @@
                 data-search="UiComponentEventMeta type src/ui.ts  UiComponentEventPayloadFieldMeta UiComponentEventPayloadKind"
               >
                 <h4>UiComponentEventMeta</h4>
-                <p class="muted">type • <code>src/ui.ts:81:1</code></p>
+                <p class="muted">type • <code>src/ui.ts:84:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -14003,7 +14387,7 @@
                 data-search="UiComponentEventPayloadFieldMeta type src/ui.ts  UiComponentEventPayloadFieldType"
               >
                 <h4>UiComponentEventPayloadFieldMeta</h4>
-                <p class="muted">type • <code>src/ui.ts:74:1</code></p>
+                <p class="muted">type • <code>src/ui.ts:77:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -14061,7 +14445,7 @@
                 data-search="UiComponentEventPayloadFieldType unknown src/ui.ts "
               >
                 <h4>UiComponentEventPayloadFieldType</h4>
-                <p class="muted">unknown • <code>src/ui.ts:66:1</code></p>
+                <p class="muted">unknown • <code>src/ui.ts:69:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -14072,7 +14456,7 @@
                 data-search="UiComponentEventPayloadKind unknown src/ui.ts "
               >
                 <h4>UiComponentEventPayloadKind</h4>
-                <p class="muted">unknown • <code>src/ui.ts:64:1</code></p>
+                <p class="muted">unknown • <code>src/ui.ts:67:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -14083,7 +14467,7 @@
                 data-search="UiComponentI18nFieldMeta type src/ui.ts "
               >
                 <h4>UiComponentI18nFieldMeta</h4>
-                <p class="muted">type • <code>src/ui.ts:55:1</code></p>
+                <p class="muted">type • <code>src/ui.ts:58:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -14122,7 +14506,7 @@
                 data-search="UiComponentI18nMeta type src/ui.ts  UiComponentI18nFieldMeta"
               >
                 <h4>UiComponentI18nMeta</h4>
-                <p class="muted">type • <code>src/ui.ts:60:1</code></p>
+                <p class="muted">type • <code>src/ui.ts:63:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -14159,7 +14543,7 @@
                 data-search="UiComponentMeta type src/ui.ts  UiComponentBindingMeta UiComponentBlueprint UiComponentCategory UiComponentEventMeta UiComponentI18nMeta UiComponentPropSchema UiComponentSlotMeta"
               >
                 <h4>UiComponentMeta</h4>
-                <p class="muted">type • <code>src/ui.ts:145:1</code></p>
+                <p class="muted">type • <code>src/ui.ts:148:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -14291,7 +14675,7 @@
                 data-search="UiComponentMetaRegistry unknown src/ui.ts "
               >
                 <h4>UiComponentMetaRegistry</h4>
-                <p class="muted">unknown • <code>src/ui.ts:160:1</code></p>
+                <p class="muted">unknown • <code>src/ui.ts:163:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -14302,7 +14686,7 @@
                 data-search="UiComponentPackageManifest type src/ui.ts  UiComponentMeta"
               >
                 <h4>UiComponentPackageManifest</h4>
-                <p class="muted">type • <code>src/ui.ts:162:1</code></p>
+                <p class="muted">type • <code>src/ui.ts:165:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -14353,7 +14737,7 @@
                 data-search="UiComponentPropArrayItemSchema type src/ui.ts  UiComponentPropSchema"
               >
                 <h4>UiComponentPropArrayItemSchema</h4>
-                <p class="muted">type • <code>src/ui.ts:30:1</code></p>
+                <p class="muted">type • <code>src/ui.ts:32:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -14397,7 +14781,7 @@
                 data-search="UiComponentPropSchema type src/ui.ts  UiComponentPropArrayItemSchema UiComponentPropType UiComponentPropValue"
               >
                 <h4>UiComponentPropSchema</h4>
-                <p class="muted">type • <code>src/ui.ts:35:1</code></p>
+                <p class="muted">type • <code>src/ui.ts:37:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -14456,6 +14840,18 @@
                       <td></td>
                     </tr>
                     <tr>
+                      <td><code>mediaKinds</code></td>
+                      <td>property</td>
+                      <td>
+                        <code
+                          >readonly (&quot;image&quot; | &quot;audio&quot; | &quot;video&quot; |
+                          &quot;font&quot; | &quot;file&quot;)[] | undefined</code
+                        >
+                      </td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
                       <td><code>type</code></td>
                       <td>property</td>
                       <td><code>UiComponentPropType</code></td>
@@ -14471,7 +14867,7 @@
                 data-search="UiComponentPropType unknown src/ui.ts "
               >
                 <h4>UiComponentPropType</h4>
-                <p class="muted">unknown • <code>src/ui.ts:5:1</code></p>
+                <p class="muted">unknown • <code>src/ui.ts:6:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -14482,7 +14878,7 @@
                 data-search="UiComponentPropValue unknown src/ui.ts "
               >
                 <h4>UiComponentPropValue</h4>
-                <p class="muted">unknown • <code>src/ui.ts:20:1</code></p>
+                <p class="muted">unknown • <code>src/ui.ts:22:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -14493,7 +14889,7 @@
                 data-search="UiComponentSlotMeta type src/ui.ts "
               >
                 <h4>UiComponentSlotMeta</h4>
-                <p class="muted">type • <code>src/ui.ts:140:1</code></p>
+                <p class="muted">type • <code>src/ui.ts:143:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -14548,6 +14944,7 @@
                 package__ankhorage_contracts -.-&gt; module_src_appManifest_ts
                 module_src_appManifest_ts --&gt; module_src_appManifest_bindings_ts
                 module_src_appManifest_ts --&gt; module_src_appManifest_dataSources_ts
+                module_src_appManifest_ts --&gt; module_src_appManifest_deploy_ts
                 module_src_appManifest_ts --&gt; module_src_appManifest_generatedApis_ts
                 module_src_appManifest_ts --&gt; module_src_appManifest_infra_ts
                 module_src_appManifest_ts --&gt; module_src_appManifest_media_ts
@@ -14560,6 +14957,10 @@
                 module_src_appManifest_dataSources_ts[&quot;src/appManifest/dataSources.ts&quot;]
                 package__ankhorage_contracts -.-&gt; module_src_appManifest_dataSources_ts
                 module_src_appManifest_dataSources_ts --&gt; module_src_appManifest_shared_ts
+                module_src_appManifest_deploy_ts[&quot;src/appManifest/deploy.ts&quot;]
+                package__ankhorage_contracts -.-&gt; module_src_appManifest_deploy_ts
+                module_src_appManifest_deploy_ts --&gt; module_src_appManifest_shared_ts
+                module_src_appManifest_deploy_ts --&gt; module_src_deploy_ts
                 module_src_appManifest_generatedApis_ts[&quot;src/appManifest/generatedApis.ts&quot;]
                 package__ankhorage_contracts -.-&gt; module_src_appManifest_generatedApis_ts
                 module_src_appManifest_generatedApis_ts --&gt; module_src_appManifest_shared_ts
@@ -14625,7 +15026,9 @@
                 module_src_data_values_ts module_src_data_values_ts[&quot;src/data/values.ts&quot;]
                 package__ankhorage_contracts -.-&gt; module_src_data_values_ts
                 module_src_db_ts[&quot;src/db.ts&quot;] package__ankhorage_contracts -.-&gt;
-                module_src_db_ts module_src_index_ts[&quot;src/index.ts&quot;]
+                module_src_db_ts module_src_deploy_ts[&quot;src/deploy.ts&quot;]
+                package__ankhorage_contracts -.-&gt; module_src_deploy_ts
+                module_src_index_ts[&quot;src/index.ts&quot;]
                 module_src_media_ts[&quot;src/media.ts&quot;] package__ankhorage_contracts -.-&gt;
                 module_src_media_ts module_src_requirements_ts[&quot;src/requirements.ts&quot;]
                 package__ankhorage_contracts -.-&gt; module_src_requirements_ts
@@ -14644,10 +15047,11 @@
                 module_src_types_ts[&quot;src/types.ts&quot;] package__ankhorage_contracts -.-&gt;
                 module_src_types_ts module_src_types_ts --&gt; module_src_auth_ts
                 module_src_types_ts --&gt; module_src_bindings_ts module_src_types_ts --&gt;
-                module_src_data_index_ts module_src_types_ts --&gt; module_src_media_ts
-                module_src_types_ts --&gt; module_src_requirements_ts module_src_types_ts --&gt;
-                module_src_theme_ts module_src_ui_ts[&quot;src/ui.ts&quot;]
-                package__ankhorage_contracts -.-&gt; module_src_ui_ts module_src_ui_ts --&gt;
+                module_src_data_index_ts module_src_types_ts --&gt; module_src_deploy_ts
+                module_src_types_ts --&gt; module_src_media_ts module_src_types_ts --&gt;
+                module_src_requirements_ts module_src_types_ts --&gt; module_src_theme_ts
+                module_src_ui_ts[&quot;src/ui.ts&quot;] package__ankhorage_contracts -.-&gt;
+                module_src_ui_ts module_src_ui_ts --&gt; module_src_media_ts module_src_ui_ts --&gt;
                 module_src_types_ts
               </div>
               <details>
@@ -14661,6 +15065,7 @@ graph TD
   package__ankhorage_contracts -.-&gt; module_src_appManifest_ts
   module_src_appManifest_ts --&gt; module_src_appManifest_bindings_ts
   module_src_appManifest_ts --&gt; module_src_appManifest_dataSources_ts
+  module_src_appManifest_ts --&gt; module_src_appManifest_deploy_ts
   module_src_appManifest_ts --&gt; module_src_appManifest_generatedApis_ts
   module_src_appManifest_ts --&gt; module_src_appManifest_infra_ts
   module_src_appManifest_ts --&gt; module_src_appManifest_media_ts
@@ -14673,6 +15078,10 @@ graph TD
   module_src_appManifest_dataSources_ts[&quot;src/appManifest/dataSources.ts&quot;]
   package__ankhorage_contracts -.-&gt; module_src_appManifest_dataSources_ts
   module_src_appManifest_dataSources_ts --&gt; module_src_appManifest_shared_ts
+  module_src_appManifest_deploy_ts[&quot;src/appManifest/deploy.ts&quot;]
+  package__ankhorage_contracts -.-&gt; module_src_appManifest_deploy_ts
+  module_src_appManifest_deploy_ts --&gt; module_src_appManifest_shared_ts
+  module_src_appManifest_deploy_ts --&gt; module_src_deploy_ts
   module_src_appManifest_generatedApis_ts[&quot;src/appManifest/generatedApis.ts&quot;]
   package__ankhorage_contracts -.-&gt; module_src_appManifest_generatedApis_ts
   module_src_appManifest_generatedApis_ts --&gt; module_src_appManifest_shared_ts
@@ -14744,6 +15153,8 @@ graph TD
   package__ankhorage_contracts -.-&gt; module_src_data_values_ts
   module_src_db_ts[&quot;src/db.ts&quot;]
   package__ankhorage_contracts -.-&gt; module_src_db_ts
+  module_src_deploy_ts[&quot;src/deploy.ts&quot;]
+  package__ankhorage_contracts -.-&gt; module_src_deploy_ts
   module_src_index_ts[&quot;src/index.ts&quot;]
   module_src_media_ts[&quot;src/media.ts&quot;]
   package__ankhorage_contracts -.-&gt; module_src_media_ts
@@ -14768,11 +15179,13 @@ graph TD
   module_src_types_ts --&gt; module_src_auth_ts
   module_src_types_ts --&gt; module_src_bindings_ts
   module_src_types_ts --&gt; module_src_data_index_ts
+  module_src_types_ts --&gt; module_src_deploy_ts
   module_src_types_ts --&gt; module_src_media_ts
   module_src_types_ts --&gt; module_src_requirements_ts
   module_src_types_ts --&gt; module_src_theme_ts
   module_src_ui_ts[&quot;src/ui.ts&quot;]
   package__ankhorage_contracts -.-&gt; module_src_ui_ts
+  module_src_ui_ts --&gt; module_src_media_ts
   module_src_ui_ts --&gt; module_src_types_ts
 </pre
                 >
@@ -14788,6 +15201,7 @@ graph TD
                 graph LR module_src_appManifest_ts[&quot;src/appManifest.ts&quot;]
                 module_src_appManifest_bindings_ts[&quot;src/appManifest/bindings.ts&quot;]
                 module_src_appManifest_dataSources_ts[&quot;src/appManifest/dataSources.ts&quot;]
+                module_src_appManifest_deploy_ts[&quot;src/appManifest/deploy.ts&quot;]
                 module_src_appManifest_generatedApis_ts[&quot;src/appManifest/generatedApis.ts&quot;]
                 module_src_appManifest_infra_ts[&quot;src/appManifest/infra.ts&quot;]
                 module_src_appManifest_media_ts[&quot;src/appManifest/media.ts&quot;]
@@ -14807,6 +15221,7 @@ graph TD
                 module_src_data_sources_ts[&quot;src/data/sources.ts&quot;]
                 module_src_data_values_ts[&quot;src/data/values.ts&quot;]
                 module_src_db_ts[&quot;src/db.ts&quot;]
+                module_src_deploy_ts[&quot;src/deploy.ts&quot;]
                 module_src_index_ts[&quot;src/index.ts&quot;]
                 module_src_media_ts[&quot;src/media.ts&quot;]
                 module_src_requirements_ts[&quot;src/requirements.ts&quot;]
@@ -14820,6 +15235,7 @@ graph TD
                 module_src_ui_ts[&quot;src/ui.ts&quot;] module_src_appManifest_ts --&gt;
                 module_src_appManifest_bindings_ts module_src_appManifest_ts --&gt;
                 module_src_appManifest_dataSources_ts module_src_appManifest_ts --&gt;
+                module_src_appManifest_deploy_ts module_src_appManifest_ts --&gt;
                 module_src_appManifest_generatedApis_ts module_src_appManifest_ts --&gt;
                 module_src_appManifest_infra_ts module_src_appManifest_ts --&gt;
                 module_src_appManifest_media_ts module_src_appManifest_ts --&gt;
@@ -14827,7 +15243,9 @@ graph TD
                 module_src_appManifest_shared_ts module_src_appManifest_ts --&gt;
                 module_src_types_ts module_src_appManifest_bindings_ts --&gt;
                 module_src_appManifest_shared_ts module_src_appManifest_dataSources_ts --&gt;
-                module_src_appManifest_shared_ts module_src_appManifest_generatedApis_ts --&gt;
+                module_src_appManifest_shared_ts module_src_appManifest_deploy_ts --&gt;
+                module_src_appManifest_shared_ts module_src_appManifest_deploy_ts --&gt;
+                module_src_deploy_ts module_src_appManifest_generatedApis_ts --&gt;
                 module_src_appManifest_shared_ts module_src_appManifest_infra_ts --&gt;
                 module_src_appManifest_shared_ts module_src_appManifest_infra_ts --&gt;
                 module_src_auth_ts module_src_appManifest_infra_ts --&gt; module_src_types_ts
@@ -14860,9 +15278,10 @@ graph TD
                 module_src_secretManifest_ts --&gt; module_src_secrets_ts module_src_types_ts --&gt;
                 module_src_auth_ts module_src_types_ts --&gt; module_src_bindings_ts
                 module_src_types_ts --&gt; module_src_data_index_ts module_src_types_ts --&gt;
-                module_src_media_ts module_src_types_ts --&gt; module_src_requirements_ts
-                module_src_types_ts --&gt; module_src_theme_ts module_src_ui_ts --&gt;
-                module_src_types_ts
+                module_src_deploy_ts module_src_types_ts --&gt; module_src_media_ts
+                module_src_types_ts --&gt; module_src_requirements_ts module_src_types_ts --&gt;
+                module_src_theme_ts module_src_ui_ts --&gt; module_src_media_ts module_src_ui_ts
+                --&gt; module_src_types_ts
               </div>
               <details>
                 <summary>View Mermaid source</summary>
@@ -14871,6 +15290,7 @@ graph LR
   module_src_appManifest_ts[&quot;src/appManifest.ts&quot;]
   module_src_appManifest_bindings_ts[&quot;src/appManifest/bindings.ts&quot;]
   module_src_appManifest_dataSources_ts[&quot;src/appManifest/dataSources.ts&quot;]
+  module_src_appManifest_deploy_ts[&quot;src/appManifest/deploy.ts&quot;]
   module_src_appManifest_generatedApis_ts[&quot;src/appManifest/generatedApis.ts&quot;]
   module_src_appManifest_infra_ts[&quot;src/appManifest/infra.ts&quot;]
   module_src_appManifest_media_ts[&quot;src/appManifest/media.ts&quot;]
@@ -14890,6 +15310,7 @@ graph LR
   module_src_data_sources_ts[&quot;src/data/sources.ts&quot;]
   module_src_data_values_ts[&quot;src/data/values.ts&quot;]
   module_src_db_ts[&quot;src/db.ts&quot;]
+  module_src_deploy_ts[&quot;src/deploy.ts&quot;]
   module_src_index_ts[&quot;src/index.ts&quot;]
   module_src_media_ts[&quot;src/media.ts&quot;]
   module_src_requirements_ts[&quot;src/requirements.ts&quot;]
@@ -14903,6 +15324,7 @@ graph LR
   module_src_ui_ts[&quot;src/ui.ts&quot;]
   module_src_appManifest_ts --&gt; module_src_appManifest_bindings_ts
   module_src_appManifest_ts --&gt; module_src_appManifest_dataSources_ts
+  module_src_appManifest_ts --&gt; module_src_appManifest_deploy_ts
   module_src_appManifest_ts --&gt; module_src_appManifest_generatedApis_ts
   module_src_appManifest_ts --&gt; module_src_appManifest_infra_ts
   module_src_appManifest_ts --&gt; module_src_appManifest_media_ts
@@ -14911,6 +15333,8 @@ graph LR
   module_src_appManifest_ts --&gt; module_src_types_ts
   module_src_appManifest_bindings_ts --&gt; module_src_appManifest_shared_ts
   module_src_appManifest_dataSources_ts --&gt; module_src_appManifest_shared_ts
+  module_src_appManifest_deploy_ts --&gt; module_src_appManifest_shared_ts
+  module_src_appManifest_deploy_ts --&gt; module_src_deploy_ts
   module_src_appManifest_generatedApis_ts --&gt; module_src_appManifest_shared_ts
   module_src_appManifest_infra_ts --&gt; module_src_appManifest_shared_ts
   module_src_appManifest_infra_ts --&gt; module_src_auth_ts
@@ -14949,9 +15373,11 @@ graph LR
   module_src_types_ts --&gt; module_src_auth_ts
   module_src_types_ts --&gt; module_src_bindings_ts
   module_src_types_ts --&gt; module_src_data_index_ts
+  module_src_types_ts --&gt; module_src_deploy_ts
   module_src_types_ts --&gt; module_src_media_ts
   module_src_types_ts --&gt; module_src_requirements_ts
   module_src_types_ts --&gt; module_src_theme_ts
+  module_src_ui_ts --&gt; module_src_media_ts
   module_src_ui_ts --&gt; module_src_types_ts
 </pre
                 >
@@ -14964,6 +15390,7 @@ graph LR
                 graph LR module_src_appManifest_ts[&quot;src/appManifest.ts&quot;]
                 module_src_appManifest_bindings_ts[&quot;src/appManifest/bindings.ts&quot;]
                 module_src_appManifest_dataSources_ts[&quot;src/appManifest/dataSources.ts&quot;]
+                module_src_appManifest_deploy_ts[&quot;src/appManifest/deploy.ts&quot;]
                 module_src_appManifest_generatedApis_ts[&quot;src/appManifest/generatedApis.ts&quot;]
                 module_src_appManifest_infra_ts[&quot;src/appManifest/infra.ts&quot;]
                 module_src_appManifest_media_ts[&quot;src/appManifest/media.ts&quot;]
@@ -14983,6 +15410,7 @@ graph LR
                 module_src_data_sources_ts[&quot;src/data/sources.ts&quot;]
                 module_src_data_values_ts[&quot;src/data/values.ts&quot;]
                 module_src_db_ts[&quot;src/db.ts&quot;]
+                module_src_deploy_ts[&quot;src/deploy.ts&quot;]
                 module_src_index_ts[&quot;src/index.ts&quot;]
                 module_src_media_ts[&quot;src/media.ts&quot;]
                 module_src_requirements_ts[&quot;src/requirements.ts&quot;]
@@ -15037,16 +15465,38 @@ graph LR
                 export_ApiOrigin export_ApiProtocol[&quot;ApiProtocol&quot;]
                 module_src_data_sources_ts --&gt; export_ApiProtocol
                 export_APP_CATEGORIES[&quot;APP_CATEGORIES&quot;] module_src_types_ts --&gt;
-                export_APP_CATEGORIES export_AppCategory[&quot;AppCategory&quot;]
+                export_APP_CATEGORIES
+                export_APP_DEPLOY_TARGET_IDS[&quot;APP_DEPLOY_TARGET_IDS&quot;] module_src_deploy_ts
+                --&gt; export_APP_DEPLOY_TARGET_IDS export_AppCategory[&quot;AppCategory&quot;]
                 module_src_types_ts --&gt; export_AppCategory
+                export_AppDeployAndroidTargetConfig[&quot;AppDeployAndroidTargetConfig&quot;]
+                module_src_deploy_ts --&gt; export_AppDeployAndroidTargetConfig
+                export_AppDeployAndroidTargetConfig -.-&gt; export_AppDeployProviderSelection
+                export_AppDeployIosTargetConfig[&quot;AppDeployIosTargetConfig&quot;]
+                module_src_deploy_ts --&gt; export_AppDeployIosTargetConfig
+                export_AppDeployIosTargetConfig -.-&gt; export_AppDeployProviderSelection
+                export_AppDeployManifest[&quot;AppDeployManifest&quot;] module_src_deploy_ts --&gt;
+                export_AppDeployManifest export_AppDeployManifest -.-&gt; export_AppDeployTargets
+                export_AppDeployProviderSelection[&quot;AppDeployProviderSelection&quot;]
+                module_src_deploy_ts --&gt; export_AppDeployProviderSelection
+                export_AppDeployTargetId[&quot;AppDeployTargetId&quot;] module_src_deploy_ts --&gt;
+                export_AppDeployTargetId export_AppDeployTargets[&quot;AppDeployTargets&quot;]
+                module_src_deploy_ts --&gt; export_AppDeployTargets export_AppDeployTargets -.-&gt;
+                export_AppDeployAndroidTargetConfig export_AppDeployTargets -.-&gt;
+                export_AppDeployIosTargetConfig export_AppDeployTargets -.-&gt;
+                export_AppDeployWebTargetConfig
+                export_AppDeployWebTargetConfig[&quot;AppDeployWebTargetConfig&quot;]
+                module_src_deploy_ts --&gt; export_AppDeployWebTargetConfig
+                export_AppDeployWebTargetConfig -.-&gt; export_AppDeployProviderSelection
                 export_AppManifest[&quot;AppManifest&quot;] module_src_types_ts --&gt;
                 export_AppManifest export_AppManifest -.-&gt; export_AppCategory export_AppManifest
-                -.-&gt; export_AppSettings export_AppManifest -.-&gt; export_ComponentDataBinding
-                export_AppManifest -.-&gt; export_DataSourceConfig export_AppManifest -.-&gt;
-                export_GeneratedApiDefinition export_AppManifest -.-&gt; export_InfraManifest
-                export_AppManifest -.-&gt; export_MediaManifest export_AppManifest -.-&gt;
-                export_NavigatorSpec export_AppManifest -.-&gt; export_ScreenSpec export_AppManifest
-                -.-&gt; export_SplashScreenSpec export_AppManifest -.-&gt; export_ThemeConfig
+                -.-&gt; export_AppDeployManifest export_AppManifest -.-&gt; export_AppSettings
+                export_AppManifest -.-&gt; export_ComponentDataBinding export_AppManifest -.-&gt;
+                export_DataSourceConfig export_AppManifest -.-&gt; export_GeneratedApiDefinition
+                export_AppManifest -.-&gt; export_InfraManifest export_AppManifest -.-&gt;
+                export_MediaManifest export_AppManifest -.-&gt; export_NavigatorSpec
+                export_AppManifest -.-&gt; export_ScreenSpec export_AppManifest -.-&gt;
+                export_SplashScreenSpec export_AppManifest -.-&gt; export_ThemeConfig
                 export_AppManifestParseResult[&quot;AppManifestParseResult&quot;]
                 module_src_appManifest_ts --&gt; export_AppManifestParseResult
                 export_AppSettings[&quot;AppSettings&quot;] module_src_types_ts --&gt;
@@ -15495,6 +15945,8 @@ graph LR
                 export_InfraSecretStoreSpec[&quot;InfraSecretStoreSpec&quot;]
                 module_src_secretManifest_ts --&gt; export_InfraSecretStoreSpec
                 export_InfraSecretStoreSpec -.-&gt; export_SecretStoreProvider
+                export_isAppDeployManifest[&quot;isAppDeployManifest&quot;]
+                module_src_appManifest_deploy_ts --&gt; export_isAppDeployManifest
                 export_isAppManifest[&quot;isAppManifest&quot;] module_src_appManifest_ts --&gt;
                 export_isAppManifest export_isMediaAssetReference[&quot;isMediaAssetReference&quot;]
                 module_src_media_ts --&gt; export_isMediaAssetReference
@@ -15879,6 +16331,7 @@ graph LR
   module_src_appManifest_ts[&quot;src/appManifest.ts&quot;]
   module_src_appManifest_bindings_ts[&quot;src/appManifest/bindings.ts&quot;]
   module_src_appManifest_dataSources_ts[&quot;src/appManifest/dataSources.ts&quot;]
+  module_src_appManifest_deploy_ts[&quot;src/appManifest/deploy.ts&quot;]
   module_src_appManifest_generatedApis_ts[&quot;src/appManifest/generatedApis.ts&quot;]
   module_src_appManifest_infra_ts[&quot;src/appManifest/infra.ts&quot;]
   module_src_appManifest_media_ts[&quot;src/appManifest/media.ts&quot;]
@@ -15898,6 +16351,7 @@ graph LR
   module_src_data_sources_ts[&quot;src/data/sources.ts&quot;]
   module_src_data_values_ts[&quot;src/data/values.ts&quot;]
   module_src_db_ts[&quot;src/db.ts&quot;]
+  module_src_deploy_ts[&quot;src/deploy.ts&quot;]
   module_src_index_ts[&quot;src/index.ts&quot;]
   module_src_media_ts[&quot;src/media.ts&quot;]
   module_src_requirements_ts[&quot;src/requirements.ts&quot;]
@@ -15960,11 +16414,35 @@ graph LR
   module_src_data_sources_ts --&gt; export_ApiProtocol
   export_APP_CATEGORIES[&quot;APP_CATEGORIES&quot;]
   module_src_types_ts --&gt; export_APP_CATEGORIES
+  export_APP_DEPLOY_TARGET_IDS[&quot;APP_DEPLOY_TARGET_IDS&quot;]
+  module_src_deploy_ts --&gt; export_APP_DEPLOY_TARGET_IDS
   export_AppCategory[&quot;AppCategory&quot;]
   module_src_types_ts --&gt; export_AppCategory
+  export_AppDeployAndroidTargetConfig[&quot;AppDeployAndroidTargetConfig&quot;]
+  module_src_deploy_ts --&gt; export_AppDeployAndroidTargetConfig
+  export_AppDeployAndroidTargetConfig -.-&gt; export_AppDeployProviderSelection
+  export_AppDeployIosTargetConfig[&quot;AppDeployIosTargetConfig&quot;]
+  module_src_deploy_ts --&gt; export_AppDeployIosTargetConfig
+  export_AppDeployIosTargetConfig -.-&gt; export_AppDeployProviderSelection
+  export_AppDeployManifest[&quot;AppDeployManifest&quot;]
+  module_src_deploy_ts --&gt; export_AppDeployManifest
+  export_AppDeployManifest -.-&gt; export_AppDeployTargets
+  export_AppDeployProviderSelection[&quot;AppDeployProviderSelection&quot;]
+  module_src_deploy_ts --&gt; export_AppDeployProviderSelection
+  export_AppDeployTargetId[&quot;AppDeployTargetId&quot;]
+  module_src_deploy_ts --&gt; export_AppDeployTargetId
+  export_AppDeployTargets[&quot;AppDeployTargets&quot;]
+  module_src_deploy_ts --&gt; export_AppDeployTargets
+  export_AppDeployTargets -.-&gt; export_AppDeployAndroidTargetConfig
+  export_AppDeployTargets -.-&gt; export_AppDeployIosTargetConfig
+  export_AppDeployTargets -.-&gt; export_AppDeployWebTargetConfig
+  export_AppDeployWebTargetConfig[&quot;AppDeployWebTargetConfig&quot;]
+  module_src_deploy_ts --&gt; export_AppDeployWebTargetConfig
+  export_AppDeployWebTargetConfig -.-&gt; export_AppDeployProviderSelection
   export_AppManifest[&quot;AppManifest&quot;]
   module_src_types_ts --&gt; export_AppManifest
   export_AppManifest -.-&gt; export_AppCategory
+  export_AppManifest -.-&gt; export_AppDeployManifest
   export_AppManifest -.-&gt; export_AppSettings
   export_AppManifest -.-&gt; export_ComponentDataBinding
   export_AppManifest -.-&gt; export_DataSourceConfig
@@ -16510,6 +16988,8 @@ graph LR
   export_InfraSecretStoreSpec[&quot;InfraSecretStoreSpec&quot;]
   module_src_secretManifest_ts --&gt; export_InfraSecretStoreSpec
   export_InfraSecretStoreSpec -.-&gt; export_SecretStoreProvider
+  export_isAppDeployManifest[&quot;isAppDeployManifest&quot;]
+  module_src_appManifest_deploy_ts --&gt; export_isAppDeployManifest
   export_isAppManifest[&quot;isAppManifest&quot;]
   module_src_appManifest_ts --&gt; export_isAppManifest
   export_isMediaAssetReference[&quot;isMediaAssetReference&quot;]
@@ -16962,27 +17442,27 @@ graph LR
             <h2>src/appManifest.ts</h2>
             <article class="item" data-search="parseAppManifest src/appManifest.ts ">
               <h3>parseAppManifest</h3>
-              <p class="muted"><code>src/appManifest.ts:43:1</code></p>
+              <p class="muted"><code>src/appManifest.ts:45:1</code></p>
               <p class="empty">No description available.</p>
             </article>
             <article class="item" data-search="isAppManifest src/appManifest.ts ">
               <h3>isAppManifest</h3>
-              <p class="muted"><code>src/appManifest.ts:50:1</code></p>
+              <p class="muted"><code>src/appManifest.ts:52:1</code></p>
               <p class="empty">No description available.</p>
             </article>
             <article class="item" data-search="hasRequiredManifestKeys src/appManifest.ts ">
               <h3>hasRequiredManifestKeys</h3>
-              <p class="muted"><code>src/appManifest.ts:71:1</code></p>
+              <p class="muted"><code>src/appManifest.ts:74:1</code></p>
               <p class="empty">No description available.</p>
             </article>
             <article class="item" data-search="isActiveThemeMode src/appManifest.ts ">
               <h3>isActiveThemeMode</h3>
-              <p class="muted"><code>src/appManifest.ts:77:1</code></p>
+              <p class="muted"><code>src/appManifest.ts:80:1</code></p>
               <p class="empty">No description available.</p>
             </article>
             <article class="item" data-search="isAppSettings src/appManifest.ts ">
               <h3>isAppSettings</h3>
-              <p class="muted"><code>src/appManifest.ts:81:1</code></p>
+              <p class="muted"><code>src/appManifest.ts:84:1</code></p>
               <p class="empty">No description available.</p>
             </article>
           </section>
@@ -17209,6 +17689,61 @@ graph LR
             <article class="item" data-search="isAdapterRef src/appManifest/dataSources.ts ">
               <h3>isAdapterRef</h3>
               <p class="muted"><code>src/appManifest/dataSources.ts:166:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+          </section>
+        </section>
+        <section
+          id="view-src-appmanifest-deploy-ts"
+          class="view"
+          data-view="src/appManifest/deploy.ts"
+          hidden
+        >
+          <section class="panel">
+            <h2>src/appManifest/deploy.ts</h2>
+            <article class="item" data-search="isAppDeployManifest src/appManifest/deploy.ts ">
+              <h3>isAppDeployManifest</h3>
+              <p class="muted"><code>src/appManifest/deploy.ts:18:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="isAppDeployTargets src/appManifest/deploy.ts ">
+              <h3>isAppDeployTargets</h3>
+              <p class="muted"><code>src/appManifest/deploy.ts:22:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="isWebTarget src/appManifest/deploy.ts ">
+              <h3>isWebTarget</h3>
+              <p class="muted"><code>src/appManifest/deploy.ts:32:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="isAndroidTarget src/appManifest/deploy.ts ">
+              <h3>isAndroidTarget</h3>
+              <p class="muted"><code>src/appManifest/deploy.ts:41:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="isIosTarget src/appManifest/deploy.ts ">
+              <h3>isIosTarget</h3>
+              <p class="muted"><code>src/appManifest/deploy.ts:51:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="isOptionalProviders src/appManifest/deploy.ts ">
+              <h3>isOptionalProviders</h3>
+              <p class="muted"><code>src/appManifest/deploy.ts:61:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="isProviderSelection src/appManifest/deploy.ts ">
+              <h3>isProviderSelection</h3>
+              <p class="muted"><code>src/appManifest/deploy.ts:65:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="isNonEmptyString src/appManifest/deploy.ts ">
+              <h3>isNonEmptyString</h3>
+              <p class="muted"><code>src/appManifest/deploy.ts:74:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="hasOnlyKeys src/appManifest/deploy.ts ">
+              <h3>hasOnlyKeys</h3>
+              <p class="muted"><code>src/appManifest/deploy.ts:78:1</code></p>
               <p class="empty">No description available.</p>
             </article>
           </section>
