@@ -1,0 +1,57 @@
+name: Refresh deterministic Contracts docs
+
+on:
+  push:
+    branches:
+      - adm13/theme-authoring-source
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: adm13/theme-authoring-source
+          fetch-depth: 0
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: '1.3.13'
+      - name: Update Paradox
+        run: python3 -c "from pathlib import Path; p=Path('package.json'); s=p.read_text(); old='\"@ankhorage/paradox\": \"^0.1.16\"'; assert s.count(old)==1; p.write_text(s.replace(old, '\"@ankhorage/paradox\": \"^0.1.20\"'))"
+      - name: Install
+        run: bun install
+      - name: Regenerate docs
+        run: |
+          bun run docs
+          bun run format
+      - name: Check deterministic output
+        run: |
+          if grep -R -n -E '/home/runner/|/Users/' README.md paradox; then
+            echo 'Absolute machine path found in generated docs.'
+            exit 1
+          fi
+      - name: Validate
+        run: |
+          bun run build
+          bun run lint
+          bun run format:check
+          bun run knip
+          bun run test
+          bun run typecheck
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/refresh-deterministic-docs.yml
+          git add package.json bun.lock README.md paradox
+          git commit -m "Regenerate Contracts docs deterministically"
+      - name: Check changeset
+        run: bun run changeset:status
+      - name: Push
+        run: git push origin HEAD:adm13/theme-authoring-source
