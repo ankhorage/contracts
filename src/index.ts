@@ -1,3 +1,4 @@
+export * from './appManifest';
 export * from './auth';
 export * from './bindings';
 export * from './cli';
