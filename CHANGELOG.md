@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 7.1.0
+
+### Minor Changes
+
+- 97fbc01: Add canonical serializable theme-global token overrides and generic component/pattern recipe override values without duplicating runtime token state or package-owned recipe metadata.
+
 ## 7.0.0
 
 ### Major Changes
