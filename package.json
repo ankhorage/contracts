@@ -45,6 +45,10 @@
       "types": "./dist/db.d.ts",
       "default": "./dist/db.js"
     },
+    "./deploy": {
+      "types": "./dist/deploy.d.ts",
+      "default": "./dist/deploy.js"
+    },
     "./runtime": {
       "types": "./dist/runtimeCallbacks.d.ts",
       "default": "./dist/runtimeCallbacks.js"
