@@ -7,6 +7,7 @@ import type {
   ScreenDataLoaderDefinition,
 } from './bindings';
 import type { DataSourceRegistry, GeneratedApiRegistry } from './data';
+import type { AppDeployManifest } from './deploy';
 import type { MediaManifest } from './media';
 import type { ScreenRequirements } from './requirements';
 import type { ThemeGlobalTokenOverrides, ThemeRecipeOverrides } from './theme';
@@ -401,6 +402,8 @@ export interface AppManifest {
   splashScreen?: SplashScreenSpec;
   /** Studio-managed authoring media. Runtime/user uploads are intentionally separate. */
   media?: MediaManifest;
+  /** App distribution desired state. Infrastructure deployment remains under `infra.deployment`. */
+  deploy?: AppDeployManifest;
   infra: InfraManifest;
   navigator: NavigatorSpec;
   screens: Record<string, ScreenSpec>;
