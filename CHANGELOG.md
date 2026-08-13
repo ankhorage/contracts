@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 7.8.0
+
+### Minor Changes
+
+- e0358fc: Add neutral setup requirement metadata for target-, environment-, and transport-aware administration planning.
+
 ## 7.7.0
 
 ### Minor Changes
