@@ -51,8 +51,7 @@ export type AuthOAuthSetupFieldPersistence =
   (typeof AUTH_OAUTH_SETUP_FIELD_PERSISTENCE_KINDS)[number];
 
 export const AUTH_OAUTH_SETUP_FIELD_SENSITIVITIES = ['public', 'secret'] as const;
-export type AuthOAuthSetupFieldSensitivity =
-  (typeof AUTH_OAUTH_SETUP_FIELD_SENSITIVITIES)[number];
+export type AuthOAuthSetupFieldSensitivity = (typeof AUTH_OAUTH_SETUP_FIELD_SENSITIVITIES)[number];
 
 export const AUTH_OAUTH_SETUP_CALLBACK_ROLES = ['provider', 'app'] as const;
 export type AuthOAuthSetupCallbackRole = (typeof AUTH_OAUTH_SETUP_CALLBACK_ROLES)[number];
