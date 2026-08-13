@@ -69,7 +69,7 @@ jobs:
           bun run format
           bunx @ankhorage/ankh doctor validate .
           bun run changeset:status
-          unexpected="$(git diff --name-only | grep -Ev '^(README\.md|paradox/|\.github/workflows/auth4-contracts-.*\.yml)$' || true)"
+          unexpected="$(git diff --name-only | grep -Ev '^(README\.md|paradox/|\.github/workflows/auth4-contracts-)' || true)"
           if [ -n "$unexpected" ]; then
             echo 'Unexpected authored-source mutation after validation:'
             echo "$unexpected"
