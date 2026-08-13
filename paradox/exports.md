@@ -186,6 +186,12 @@ Kind: `value`
 Module: `src/types.ts`
 Source: `src/types.ts:150:14`
 
+## APP_DEPLOY_ENVIRONMENT_IDS
+
+Kind: `value`
+Module: `src/deploy.ts`
+Source: `src/deploy.ts:12:14`
+
 ## APP_DEPLOY_TARGET_IDS
 
 Kind: `value`
@@ -202,7 +208,7 @@ Source: `src/types.ts:175:1`
 
 Kind: `type`
 Module: `src/deploy.ts`
-Source: `src/deploy.ts:15:1`
+Source: `src/deploy.ts:26:1`
 
 ### Members
 
@@ -211,12 +217,19 @@ Source: `src/deploy.ts:15:1`
 | enabled   | property | `boolean`                                 | yes      |             |
 | package   | property | `string`                                  | yes      |             |
 | providers | property | `AppDeployProviderSelection \| undefined` | no       |             |
+| scheme    | property | `string \| undefined`                     | no       |             |
+
+## AppDeployEnvironmentId
+
+Kind: `unknown`
+Module: `src/deploy.ts`
+Source: `src/deploy.ts:14:1`
 
 ## AppDeployIosTargetConfig
 
 Kind: `type`
 Module: `src/deploy.ts`
-Source: `src/deploy.ts:21:1`
+Source: `src/deploy.ts:34:1`
 
 ### Members
 
@@ -225,12 +238,13 @@ Source: `src/deploy.ts:21:1`
 | bundleIdentifier | property | `string`                                  | yes      |             |
 | enabled          | property | `boolean`                                 | yes      |             |
 | providers        | property | `AppDeployProviderSelection \| undefined` | no       |             |
+| scheme           | property | `string \| undefined`                     | no       |             |
 
 ## AppDeployManifest
 
 Kind: `type`
 Module: `src/deploy.ts`
-Source: `src/deploy.ts:33:1`
+Source: `src/deploy.ts:48:1`
 
 ### Members
 
@@ -242,7 +256,7 @@ Source: `src/deploy.ts:33:1`
 
 Kind: `type`
 Module: `src/deploy.ts`
-Source: `src/deploy.ts:5:1`
+Source: `src/deploy.ts:16:1`
 
 ### Members
 
@@ -261,7 +275,7 @@ Source: `src/deploy.ts:3:1`
 
 Kind: `type`
 Module: `src/deploy.ts`
-Source: `src/deploy.ts:27:1`
+Source: `src/deploy.ts:42:1`
 
 ### Members
 
@@ -275,7 +289,7 @@ Source: `src/deploy.ts:27:1`
 
 Kind: `type`
 Module: `src/deploy.ts`
-Source: `src/deploy.ts:10:1`
+Source: `src/deploy.ts:21:1`
 
 ### Members
 
@@ -2272,7 +2286,7 @@ Source: `src/secretManifest.ts:3:1`
 
 Kind: `function`
 Module: `src/appManifest/deploy.ts`
-Source: `src/appManifest/deploy.ts:18:1`
+Source: `src/appManifest/deploy.ts:19:1`
 
 ### Signatures
 

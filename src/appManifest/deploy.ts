@@ -12,8 +12,9 @@ const DEPLOY_KEYS = new Set(['targets']);
 const TARGET_KEYS = new Set(['web', 'android', 'ios']);
 const PROVIDER_KEYS = new Set(['build', 'publish']);
 const WEB_KEYS = new Set(['enabled', 'providers']);
-const ANDROID_KEYS = new Set(['enabled', 'package', 'providers']);
-const IOS_KEYS = new Set(['enabled', 'bundleIdentifier', 'providers']);
+const ANDROID_KEYS = new Set(['enabled', 'package', 'scheme', 'providers']);
+const IOS_KEYS = new Set(['enabled', 'bundleIdentifier', 'scheme', 'providers']);
+const URI_SCHEME_PATTERN = /^[A-Za-z][A-Za-z0-9+.-]*$/u;
 
 export function isAppDeployManifest(value: unknown): value is AppDeployManifest {
   return isRecord(value) && hasOnlyKeys(value, DEPLOY_KEYS) && isAppDeployTargets(value.targets);
@@ -44,6 +45,7 @@ function isAndroidTarget(value: unknown): value is AppDeployAndroidTargetConfig 
     hasOnlyKeys(value, ANDROID_KEYS) &&
     typeof value.enabled === 'boolean' &&
     isNonEmptyString(value.package) &&
+    isOptionalScheme(value.scheme) &&
     isOptionalProviders(value.providers)
   );
 }
@@ -54,8 +56,13 @@ function isIosTarget(value: unknown): value is AppDeployIosTargetConfig {
     hasOnlyKeys(value, IOS_KEYS) &&
     typeof value.enabled === 'boolean' &&
     isNonEmptyString(value.bundleIdentifier) &&
+    isOptionalScheme(value.scheme) &&
     isOptionalProviders(value.providers)
   );
+}
+
+function isOptionalScheme(value: unknown): value is string | undefined {
+  return value === undefined || (typeof value === 'string' && URI_SCHEME_PATTERN.test(value));
 }
 
 function isOptionalProviders(value: unknown): value is AppDeployProviderSelection | undefined {
