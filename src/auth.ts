@@ -1,3 +1,4 @@
+import type { AppDeployEnvironmentId, AppDeployTargetId } from './deploy';
 import type { SecretRef } from './secrets';
 import type { IconSpec } from './types';
 
@@ -37,6 +38,71 @@ export const AUTH_OAUTH_PROVIDER_IDS = [
 ] as const;
 export type KnownAuthOAuthProviderId = (typeof AUTH_OAUTH_PROVIDER_IDS)[number];
 export type AuthOAuthProviderId = KnownAuthOAuthProviderId | (string & {});
+
+export const AUTH_OAUTH_TRANSPORT_IDS = ['brokeredRedirect'] as const;
+export type KnownAuthOAuthTransportId = (typeof AUTH_OAUTH_TRANSPORT_IDS)[number];
+export type AuthOAuthTransportId = KnownAuthOAuthTransportId | (string & {});
+
+export const AUTH_OAUTH_SETUP_FIELD_PERSISTENCE_KINDS = [
+  'trustedCredential',
+  'publicConfig',
+] as const;
+export type AuthOAuthSetupFieldPersistence =
+  (typeof AUTH_OAUTH_SETUP_FIELD_PERSISTENCE_KINDS)[number];
+
+export const AUTH_OAUTH_SETUP_FIELD_SENSITIVITIES = ['public', 'secret'] as const;
+export type AuthOAuthSetupFieldSensitivity =
+  (typeof AUTH_OAUTH_SETUP_FIELD_SENSITIVITIES)[number];
+
+export const AUTH_OAUTH_SETUP_CALLBACK_ROLES = ['provider', 'app'] as const;
+export type AuthOAuthSetupCallbackRole = (typeof AUTH_OAUTH_SETUP_CALLBACK_ROLES)[number];
+
+export interface AuthOAuthSetupFieldRequirement {
+  readonly kind: 'field';
+  /** Adapter-owned stable key. The contract does not prescribe provider-specific field names. */
+  readonly key: string;
+  readonly label: string;
+  readonly required: boolean;
+  readonly sensitivity: AuthOAuthSetupFieldSensitivity;
+  readonly persistence: AuthOAuthSetupFieldPersistence;
+  /** Present only when a field belongs to one application target rather than the backend setup. */
+  readonly target?: AppDeployTargetId;
+  readonly description?: string;
+}
+
+export interface AuthOAuthSetupCallbackRequirement {
+  readonly kind: 'callback';
+  readonly role: AuthOAuthSetupCallbackRole;
+  readonly label: string;
+  readonly required: boolean;
+  /** App callbacks may be target-specific; provider/backend callbacks normally omit this. */
+  readonly target?: AppDeployTargetId;
+  readonly description?: string;
+}
+
+export type AuthOAuthSetupRequirement =
+  | AuthOAuthSetupFieldRequirement
+  | AuthOAuthSetupCallbackRequirement;
+
+/**
+ * Adapter-neutral description of the OAuth setup Studio or Doctor should surface for one
+ * provider/transport/environment combination. It contains requirements only, never credential
+ * values, tokens, callback authorization data, or other secret material.
+ */
+export interface AuthOAuthSetupPlan {
+  readonly provider: AuthOAuthProviderId;
+  readonly transport: AuthOAuthTransportId;
+  readonly environment: AppDeployEnvironmentId;
+  /** Enabled application targets considered while deriving this plan. */
+  readonly targets: readonly AppDeployTargetId[];
+  readonly requirements: readonly AuthOAuthSetupRequirement[];
+}
+
+/** Backend-owned setup capabilities used by administration planning, separate from runtime OAuth. */
+export interface AuthOAuthSetupCapabilities {
+  readonly providers: readonly AuthOAuthProviderId[];
+  readonly transports: readonly AuthOAuthTransportId[];
+}
 
 export interface AuthIdentifier {
   kind: AuthIdentifierKind;
