@@ -50,10 +50,7 @@ describe('OAuth setup requirement contracts', () => {
     };
 
     expect(AUTH_OAUTH_TRANSPORT_IDS).toEqual(['brokeredRedirect']);
-    expect(AUTH_OAUTH_SETUP_FIELD_PERSISTENCE_KINDS).toEqual([
-      'trustedCredential',
-      'publicConfig',
-    ]);
+    expect(AUTH_OAUTH_SETUP_FIELD_PERSISTENCE_KINDS).toEqual(['trustedCredential', 'publicConfig']);
     expect(AUTH_OAUTH_SETUP_FIELD_SENSITIVITIES).toEqual(['public', 'secret']);
     expect(AUTH_OAUTH_SETUP_CALLBACK_ROLES).toEqual(['provider', 'app']);
     expect(plan.environment).toBe('local');
