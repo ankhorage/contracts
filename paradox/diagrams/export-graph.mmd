@@ -85,6 +85,8 @@ graph LR
   module_src_data_sources_ts --> export_ApiProtocol
   export_APP_CATEGORIES["APP_CATEGORIES"]
   module_src_types_ts --> export_APP_CATEGORIES
+  export_APP_DEPLOY_ENVIRONMENT_IDS["APP_DEPLOY_ENVIRONMENT_IDS"]
+  module_src_deploy_ts --> export_APP_DEPLOY_ENVIRONMENT_IDS
   export_APP_DEPLOY_TARGET_IDS["APP_DEPLOY_TARGET_IDS"]
   module_src_deploy_ts --> export_APP_DEPLOY_TARGET_IDS
   export_AppCategory["AppCategory"]
@@ -92,6 +94,8 @@ graph LR
   export_AppDeployAndroidTargetConfig["AppDeployAndroidTargetConfig"]
   module_src_deploy_ts --> export_AppDeployAndroidTargetConfig
   export_AppDeployAndroidTargetConfig -.-> export_AppDeployProviderSelection
+  export_AppDeployEnvironmentId["AppDeployEnvironmentId"]
+  module_src_deploy_ts --> export_AppDeployEnvironmentId
   export_AppDeployIosTargetConfig["AppDeployIosTargetConfig"]
   module_src_deploy_ts --> export_AppDeployIosTargetConfig
   export_AppDeployIosTargetConfig -.-> export_AppDeployProviderSelection
