@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 7.7.0
+
+### Minor Changes
+
+- 00d608f: Add canonical application environment IDs and stable native scheme identity to app deployment target contracts.
+
 ## 7.6.0
 
 ### Minor Changes
