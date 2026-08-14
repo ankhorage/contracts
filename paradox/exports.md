@@ -78,14 +78,14 @@ Source: `src/cli/index.ts:7:1`
 | aliases    | property | `readonly string[] \| undefined` | no       |             |
 | capability | property | `${string}.${string}`            | yes      |             |
 | examples   | property | `readonly string[] \| undefined` | no       |             |
-| path       | property | `readonly [string, ...string[]]` | yes      |             |
+| path       | property | `readonly string[]`              | yes      |             |
 | summary    | property | `string`                         | yes      |             |
 
 ## AnkhCommandProviderManifest
 
 Kind: `type`
 Module: `src/cli/index.ts`
-Source: `src/cli/index.ts:15:1`
+Source: `src/cli/index.ts:20:1`
 
 ### Members
 
@@ -125,7 +125,7 @@ Source: `src/requirements.ts:12:1`
 
 Kind: `type`
 Module: `src/cli/index.ts`
-Source: `src/cli/index.ts:23:1`
+Source: `src/cli/index.ts:28:1`
 
 ### Members
 
@@ -149,18 +149,18 @@ Source: `src/data/sources.ts:22:1`
 
 ### Members
 
-| Name        | Kind     | Type                                                                      | Required | Description |
-| ----------- | -------- | ------------------------------------------------------------------------- | -------- | ----------- |
-| credential  | property | `CredentialRef \| undefined`                                              | no       |             |
-| description | property | `string \| undefined`                                                     | no       |             |
-| endpoints   | property | `Readonly<Record<string, import("./src/index").DataEndpointConfig>>`      | yes      |             |
-| id          | property | `string`                                                                  | yes      |             |
-| kind        | property | `"api"`                                                                   | yes      |             |
-| metadata    | property | `DataContractValue \| undefined`                                          | no       |             |
-| name        | property | `string \| undefined`                                                     | no       |             |
-| origin      | property | `ApiOrigin`                                                               | yes      |             |
-| protocol    | property | `ApiProtocol`                                                             | yes      |             |
-| schemas     | property | `Readonly<Record<string, import("./src/index").DataSchema>> \| undefined` | no       |             |
+| Name        | Kind     | Type                                                                                                       | Required | Description |
+| ----------- | -------- | ---------------------------------------------------------------------------------------------------------- | -------- | ----------- |
+| credential  | property | `CredentialRef \| undefined`                                                                               | no       |             |
+| description | property | `string \| undefined`                                                                                      | no       |             |
+| endpoints   | property | `Readonly<Record<string, import("/Users/a_rtiphishl_e/git/contracts/src/index").DataEndpointConfig>>`      | yes      |             |
+| id          | property | `string`                                                                                                   | yes      |             |
+| kind        | property | `"api"`                                                                                                    | yes      |             |
+| metadata    | property | `DataContractValue \| undefined`                                                                           | no       |             |
+| name        | property | `string \| undefined`                                                                                      | no       |             |
+| origin      | property | `ApiOrigin`                                                                                                | yes      |             |
+| protocol    | property | `ApiProtocol`                                                                                              | yes      |             |
+| schemas     | property | `Readonly<Record<string, import("/Users/a_rtiphishl_e/git/contracts/src/index").DataSchema>> \| undefined` | no       |             |
 
 ## ApiDataSourceConfig
 
@@ -310,10 +310,10 @@ Source: `src/types.ts:389:1`
 | --------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------ | -------- | ----------- |
 | activeThemeId   | property | `string`                                                                                                                       | yes      |             |
 | activeThemeMode | property | `"dark" \| "light" \| undefined`                                                                                               | no       |             |
-| dataBindings    | property | `Readonly<Record<string, import("./src/bindings").ComponentDataBinding>> \| undefined`                                         | no       |             |
-| dataSources     | property | `Readonly<Record<string, import("./src/index").DataSourceConfig>> \| undefined`                                                | no       |             |
+| dataBindings    | property | `Readonly<Record<string, import("/Users/a_rtiphishl_e/git/contracts/src/bindings").ComponentDataBinding>> \| undefined`        | no       |             |
+| dataSources     | property | `Readonly<Record<string, import("/Users/a_rtiphishl_e/git/contracts/src/index").DataSourceConfig>> \| undefined`               | no       |             |
 | deploy          | property | `AppDeployManifest \| undefined`                                                                                               | no       |             |
-| generatedApis   | property | `Readonly<Record<string, import("./src/index").GeneratedApiDefinition>> \| undefined`                                          | no       |             |
+| generatedApis   | property | `Readonly<Record<string, import("/Users/a_rtiphishl_e/git/contracts/src/index").GeneratedApiDefinition>> \| undefined`         | no       |             |
 | infra           | property | `InfraManifest`                                                                                                                | yes      |             |
 | media           | property | `MediaManifest \| undefined`                                                                                                   | no       |             |
 | metadata        | property | `{ name: string; slug: string; version: string; category: AppCategory; themeId: string; created?: string; updated?: string; }` | yes      |             |
@@ -346,43 +346,67 @@ Source: `src/types.ts:381:1`
 
 Kind: `value`
 Module: `src/auth.ts`
-Source: `src/auth.ts:4:14`
+Source: `src/auth.ts:5:14`
 
 ## AUTH_OAUTH_CANCELLATION_REASONS
 
 Kind: `value`
 Module: `src/auth.ts`
-Source: `src/auth.ts:217:14`
+Source: `src/auth.ts:282:14`
 
 ## AUTH_OAUTH_ERROR_CODES
 
 Kind: `value`
 Module: `src/auth.ts`
-Source: `src/auth.ts:184:14`
+Source: `src/auth.ts:249:14`
 
 ## AUTH_OAUTH_ERROR_STAGES
 
 Kind: `value`
 Module: `src/auth.ts`
-Source: `src/auth.ts:174:14`
+Source: `src/auth.ts:239:14`
 
 ## AUTH_OAUTH_PROVIDER_IDS
 
 Kind: `value`
 Module: `src/auth.ts`
-Source: `src/auth.ts:17:14`
+Source: `src/auth.ts:18:14`
+
+## AUTH_OAUTH_SETUP_CALLBACK_ROLES
+
+Kind: `value`
+Module: `src/auth.ts`
+Source: `src/auth.ts:56:14`
+
+## AUTH_OAUTH_SETUP_FIELD_PERSISTENCE_KINDS
+
+Kind: `value`
+Module: `src/auth.ts`
+Source: `src/auth.ts:46:14`
+
+## AUTH_OAUTH_SETUP_FIELD_SENSITIVITIES
+
+Kind: `value`
+Module: `src/auth.ts`
+Source: `src/auth.ts:53:14`
 
 ## AUTH_OAUTH_TRANSPORT_CANCELLATION_REASONS
 
 Kind: `value`
 Module: `src/auth.ts`
-Source: `src/auth.ts:210:14`
+Source: `src/auth.ts:275:14`
 
 ## AUTH_OAUTH_TRANSPORT_ERROR_CODES
 
 Kind: `value`
 Module: `src/auth.ts`
-Source: `src/auth.ts:223:14`
+Source: `src/auth.ts:288:14`
+
+## AUTH_OAUTH_TRANSPORT_IDS
+
+Kind: `value`
+Module: `src/auth.ts`
+Source: `src/auth.ts:42:14`
 
 ## AUTH_PROFILE_CREATE_STRATEGIES
 
@@ -430,7 +454,7 @@ Source: `src/types.ts:211:14`
 
 Kind: `value`
 Module: `src/auth.ts`
-Source: `src/auth.ts:7:14`
+Source: `src/auth.ts:8:14`
 
 ## AUTH_SIGN_UP_POLICIES
 
@@ -442,7 +466,7 @@ Source: `src/types.ts:214:14`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:317:1`
+Source: `src/auth.ts:382:1`
 
 ### Members
 
@@ -462,7 +486,7 @@ Source: `src/auth.ts:317:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:309:1`
+Source: `src/auth.ts:374:1`
 
 ### Members
 
@@ -478,7 +502,7 @@ Source: `src/auth.ts:309:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:126:1`
+Source: `src/auth.ts:191:1`
 
 ### Members
 
@@ -492,7 +516,7 @@ Source: `src/auth.ts:126:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:46:1`
+Source: `src/auth.ts:111:1`
 
 ### Members
 
@@ -510,7 +534,7 @@ Source: `src/auth.ts:46:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:41:1`
+Source: `src/auth.ts:106:1`
 
 ### Members
 
@@ -523,13 +547,13 @@ Source: `src/auth.ts:41:1`
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:5:1`
+Source: `src/auth.ts:6:1`
 
 ## AuthOAuthAdapter
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:302:1`
+Source: `src/auth.ts:367:1`
 
 ### Members
 
@@ -543,7 +567,7 @@ Source: `src/auth.ts:302:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:242:1`
+Source: `src/auth.ts:307:1`
 
 ### Members
 
@@ -558,19 +582,19 @@ Source: `src/auth.ts:242:1`
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:259:1`
+Source: `src/auth.ts:324:1`
 
 ## AuthOAuthCancellationReason
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:221:1`
+Source: `src/auth.ts:286:1`
 
 ## AuthOAuthCapabilities
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:297:1`
+Source: `src/auth.ts:362:1`
 
 ### Members
 
@@ -582,13 +606,13 @@ Source: `src/auth.ts:297:1`
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:278:1`
+Source: `src/auth.ts:343:1`
 
 ## AuthOAuthConfig
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:89:1`
+Source: `src/auth.ts:154:1`
 
 ### Members
 
@@ -602,7 +626,7 @@ Source: `src/auth.ts:89:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:203:1`
+Source: `src/auth.ts:268:1`
 
 ### Members
 
@@ -613,25 +637,25 @@ Source: `src/auth.ts:203:1`
 | message     | property | `string`                                                                                                                                                                                                                                                                                                                                                                                     | yes      |             |
 | provider    | property | `AuthOAuthProviderId \| undefined`                                                                                                                                                                                                                                                                                                                                                           | no       |             |
 | recoverable | property | `boolean`                                                                                                                                                                                                                                                                                                                                                                                    | yes      |             |
-| stage       | property | `"start" \| "transport" \| "callback" \| "exchange" \| "session" \| "profile"`                                                                                                                                                                                                                                                                                                               | yes      |             |
+| stage       | property | `"callback" \| "start" \| "transport" \| "exchange" \| "session" \| "profile"`                                                                                                                                                                                                                                                                                                               | yes      |             |
 
 ## AuthOAuthErrorCode
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:201:1`
+Source: `src/auth.ts:266:1`
 
 ## AuthOAuthErrorStage
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:182:1`
+Source: `src/auth.ts:247:1`
 
 ## AuthOAuthProviderConfig
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:78:1`
+Source: `src/auth.ts:143:1`
 
 ### Members
 
@@ -649,25 +673,114 @@ Source: `src/auth.ts:78:1`
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:39:1`
+Source: `src/auth.ts:40:1`
+
+## AuthOAuthSetupCallbackRequirement
+
+Kind: `type`
+Module: `src/auth.ts`
+Source: `src/auth.ts:72:1`
+
+### Members
+
+| Name        | Kind     | Type                                       | Required | Description |
+| ----------- | -------- | ------------------------------------------ | -------- | ----------- |
+| description | property | `string \| undefined`                      | no       |             |
+| kind        | property | `"callback"`                               | yes      |             |
+| label       | property | `string`                                   | yes      |             |
+| required    | property | `boolean`                                  | yes      |             |
+| role        | property | `"provider" \| "app"`                      | yes      |             |
+| target      | property | `"web" \| "android" \| "ios" \| undefined` | no       |             |
+
+## AuthOAuthSetupCallbackRole
+
+Kind: `unknown`
+Module: `src/auth.ts`
+Source: `src/auth.ts:57:1`
+
+## AuthOAuthSetupCapabilities
+
+Kind: `type`
+Module: `src/auth.ts`
+Source: `src/auth.ts:101:1`
+
+### Members
+
+| Name       | Kind     | Type                              | Required | Description |
+| ---------- | -------- | --------------------------------- | -------- | ----------- |
+| providers  | property | `readonly AuthOAuthProviderId[]`  | yes      |             |
+| transports | property | `readonly AuthOAuthTransportId[]` | yes      |             |
+
+## AuthOAuthSetupFieldPersistence
+
+Kind: `unknown`
+Module: `src/auth.ts`
+Source: `src/auth.ts:50:1`
+
+## AuthOAuthSetupFieldRequirement
+
+Kind: `type`
+Module: `src/auth.ts`
+Source: `src/auth.ts:59:1`
+
+### Members
+
+| Name        | Kind     | Type                                       | Required | Description |
+| ----------- | -------- | ------------------------------------------ | -------- | ----------- |
+| description | property | `string \| undefined`                      | no       |             |
+| key         | property | `string`                                   | yes      |             |
+| kind        | property | `"field"`                                  | yes      |             |
+| label       | property | `string`                                   | yes      |             |
+| persistence | property | `"trustedCredential" \| "publicConfig"`    | yes      |             |
+| required    | property | `boolean`                                  | yes      |             |
+| sensitivity | property | `"public" \| "secret"`                     | yes      |             |
+| target      | property | `"web" \| "android" \| "ios" \| undefined` | no       |             |
+
+## AuthOAuthSetupFieldSensitivity
+
+Kind: `unknown`
+Module: `src/auth.ts`
+Source: `src/auth.ts:54:1`
+
+## AuthOAuthSetupPlan
+
+Kind: `type`
+Module: `src/auth.ts`
+Source: `src/auth.ts:91:1`
+
+### Members
+
+| Name         | Kind     | Type                                       | Required | Description |
+| ------------ | -------- | ------------------------------------------ | -------- | ----------- |
+| environment  | property | `"local" \| "preview" \| "production"`     | yes      |             |
+| provider     | property | `AuthOAuthProviderId`                      | yes      |             |
+| requirements | property | `readonly AuthOAuthSetupRequirement[]`     | yes      |             |
+| targets      | property | `readonly ("web" \| "android" \| "ios")[]` | yes      |             |
+| transport    | property | `AuthOAuthTransportId`                     | yes      |             |
+
+## AuthOAuthSetupRequirement
+
+Kind: `unknown`
+Module: `src/auth.ts`
+Source: `src/auth.ts:82:1`
 
 ## AuthOAuthStartResult
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:249:1`
+Source: `src/auth.ts:314:1`
 
 ## AuthOAuthTransportCancellationReason
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:214:1`
+Source: `src/auth.ts:279:1`
 
 ## AuthOAuthTransportError
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:229:1`
+Source: `src/auth.ts:294:1`
 
 ### Members
 
@@ -681,7 +794,13 @@ Source: `src/auth.ts:229:1`
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:227:1`
+Source: `src/auth.ts:292:1`
+
+## AuthOAuthTransportId
+
+Kind: `unknown`
+Module: `src/auth.ts`
+Source: `src/auth.ts:44:1`
 
 ## AuthProfileCreateStrategy
 
@@ -711,11 +830,11 @@ Source: `src/types.ts:346:1`
 
 | Name           | Kind     | Type                                       | Required | Description |
 | -------------- | -------- | ------------------------------------------ | -------- | ----------- |
-| createStrategy | property | `"api" \| "trigger" \| "app" \| undefined` | no       |             |
+| createStrategy | property | `"app" \| "api" \| "trigger" \| undefined` | no       |             |
 | fields         | property | `AuthProfileField[]`                       | yes      |             |
 | primaryKey     | property | `"authUserId" \| undefined`                | no       |             |
 | table          | property | `string \| undefined`                      | no       |             |
-| updateStrategy | property | `"api" \| "app" \| undefined`              | no       |             |
+| updateStrategy | property | `"app" \| "api" \| undefined`              | no       |             |
 
 ## AuthProfileUpdateStrategy
 
@@ -733,7 +852,7 @@ Source: `src/types.ts:209:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:95:1`
+Source: `src/auth.ts:160:1`
 
 ### Members
 
@@ -750,7 +869,7 @@ Source: `src/auth.ts:95:1`
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:132:1`
+Source: `src/auth.ts:197:1`
 
 ## AuthScope
 
@@ -762,7 +881,7 @@ Source: `src/types.ts:205:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:118:1`
+Source: `src/auth.ts:183:1`
 
 ### Members
 
@@ -778,7 +897,7 @@ Source: `src/auth.ts:118:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:69:1`
+Source: `src/auth.ts:134:1`
 
 ### Members
 
@@ -808,7 +927,7 @@ Source: `src/types.ts:336:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:73:1`
+Source: `src/auth.ts:138:1`
 
 ### Members
 
@@ -821,7 +940,7 @@ Source: `src/auth.ts:73:1`
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:15:1`
+Source: `src/auth.ts:16:1`
 
 ## AuthSignUpPolicy
 
@@ -866,7 +985,7 @@ Source: `src/types.ts:354:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:108:1`
+Source: `src/auth.ts:173:1`
 
 ### Members
 
@@ -1062,7 +1181,7 @@ Source: `src/types.ts:127:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:273:1`
+Source: `src/auth.ts:338:1`
 
 ### Members
 
@@ -1219,17 +1338,17 @@ Source: `src/data/sources.ts:63:1`
 
 ### Members
 
-| Name        | Kind     | Type                                                                      | Required | Description |
-| ----------- | -------- | ------------------------------------------------------------------------- | -------- | ----------- |
-| adapter     | property | `DatabaseAdapterRef`                                                      | yes      |             |
-| credential  | property | `CredentialRef \| undefined`                                              | no       |             |
-| description | property | `string \| undefined`                                                     | no       |             |
-| endpoints   | property | `Readonly<Record<string, import("./src/index").DataEndpointConfig>>`      | yes      |             |
-| id          | property | `string`                                                                  | yes      |             |
-| kind        | property | `"database"`                                                              | yes      |             |
-| metadata    | property | `DataContractValue \| undefined`                                          | no       |             |
-| name        | property | `string \| undefined`                                                     | no       |             |
-| schemas     | property | `Readonly<Record<string, import("./src/index").DataSchema>> \| undefined` | no       |             |
+| Name        | Kind     | Type                                                                                                       | Required | Description |
+| ----------- | -------- | ---------------------------------------------------------------------------------------------------------- | -------- | ----------- |
+| adapter     | property | `DatabaseAdapterRef`                                                                                       | yes      |             |
+| credential  | property | `CredentialRef \| undefined`                                                                               | no       |             |
+| description | property | `string \| undefined`                                                                                      | no       |             |
+| endpoints   | property | `Readonly<Record<string, import("/Users/a_rtiphishl_e/git/contracts/src/index").DataEndpointConfig>>`      | yes      |             |
+| id          | property | `string`                                                                                                   | yes      |             |
+| kind        | property | `"database"`                                                                                               | yes      |             |
+| metadata    | property | `DataContractValue \| undefined`                                                                           | no       |             |
+| name        | property | `string \| undefined`                                                                                      | no       |             |
+| schemas     | property | `Readonly<Record<string, import("/Users/a_rtiphishl_e/git/contracts/src/index").DataSchema>> \| undefined` | no       |             |
 
 ## DatabaseProvider
 
@@ -1517,16 +1636,16 @@ Source: `src/data/sources.ts:11:1`
 
 ### Members
 
-| Name        | Kind     | Type                                                                      | Required | Description |
-| ----------- | -------- | ------------------------------------------------------------------------- | -------- | ----------- |
-| credential  | property | `CredentialRef \| undefined`                                              | no       |             |
-| description | property | `string \| undefined`                                                     | no       |             |
-| endpoints   | property | `Readonly<Record<string, import("./src/index").DataEndpointConfig>>`      | yes      |             |
-| id          | property | `string`                                                                  | yes      |             |
-| kind        | property | `DataSourceKind`                                                          | yes      |             |
-| metadata    | property | `DataContractValue \| undefined`                                          | no       |             |
-| name        | property | `string \| undefined`                                                     | no       |             |
-| schemas     | property | `Readonly<Record<string, import("./src/index").DataSchema>> \| undefined` | no       |             |
+| Name        | Kind     | Type                                                                                                       | Required | Description |
+| ----------- | -------- | ---------------------------------------------------------------------------------------------------------- | -------- | ----------- |
+| credential  | property | `CredentialRef \| undefined`                                                                               | no       |             |
+| description | property | `string \| undefined`                                                                                      | no       |             |
+| endpoints   | property | `Readonly<Record<string, import("/Users/a_rtiphishl_e/git/contracts/src/index").DataEndpointConfig>>`      | yes      |             |
+| id          | property | `string`                                                                                                   | yes      |             |
+| kind        | property | `DataSourceKind`                                                                                           | yes      |             |
+| metadata    | property | `DataContractValue \| undefined`                                                                           | no       |             |
+| name        | property | `string \| undefined`                                                                                      | no       |             |
+| schemas     | property | `Readonly<Record<string, import("/Users/a_rtiphishl_e/git/contracts/src/index").DataSchema>> \| undefined` | no       |             |
 
 ## DataSourceConfig
 
@@ -1945,7 +2064,7 @@ Source: `src/db.ts:77:1`
 
 Kind: `value`
 Module: `src/auth.ts`
-Source: `src/auth.ts:56:14`
+Source: `src/auth.ts:121:14`
 
 ## DEPLOYMENT_TARGETS
 
@@ -2006,20 +2125,20 @@ Source: `src/data/sources.ts:41:1`
 
 ### Members
 
-| Name          | Kind     | Type                                                                           | Required | Description |
-| ------------- | -------- | ------------------------------------------------------------------------------ | -------- | ----------- |
-| credential    | property | `CredentialRef \| undefined`                                                   | no       |             |
-| description   | property | `string \| undefined`                                                          | no       |             |
-| endpoints     | property | `Readonly<Record<string, import("./src/index").DataEndpointConfig>>`           | yes      |             |
-| endpointUrl   | property | `string`                                                                       | yes      |             |
-| id            | property | `string`                                                                       | yes      |             |
-| introspection | property | `{ readonly enabled: boolean; readonly schemaVersion?: string; } \| undefined` | no       |             |
-| kind          | property | `"api"`                                                                        | yes      |             |
-| metadata      | property | `DataContractValue \| undefined`                                               | no       |             |
-| name          | property | `string \| undefined`                                                          | no       |             |
-| origin        | property | `"external"`                                                                   | yes      |             |
-| protocol      | property | `"graphql"`                                                                    | yes      |             |
-| schemas       | property | `Readonly<Record<string, import("./src/index").DataSchema>> \| undefined`      | no       |             |
+| Name          | Kind     | Type                                                                                                       | Required | Description |
+| ------------- | -------- | ---------------------------------------------------------------------------------------------------------- | -------- | ----------- |
+| credential    | property | `CredentialRef \| undefined`                                                                               | no       |             |
+| description   | property | `string \| undefined`                                                                                      | no       |             |
+| endpoints     | property | `Readonly<Record<string, import("/Users/a_rtiphishl_e/git/contracts/src/index").DataEndpointConfig>>`      | yes      |             |
+| endpointUrl   | property | `string`                                                                                                   | yes      |             |
+| id            | property | `string`                                                                                                   | yes      |             |
+| introspection | property | `{ readonly enabled: boolean; readonly schemaVersion?: string; } \| undefined`                             | no       |             |
+| kind          | property | `"api"`                                                                                                    | yes      |             |
+| metadata      | property | `DataContractValue \| undefined`                                                                           | no       |             |
+| name          | property | `string \| undefined`                                                                                      | no       |             |
+| origin        | property | `"external"`                                                                                               | yes      |             |
+| protocol      | property | `"graphql"`                                                                                                | yes      |             |
+| schemas       | property | `Readonly<Record<string, import("/Users/a_rtiphishl_e/git/contracts/src/index").DataSchema>> \| undefined` | no       |             |
 
 ## ExternalRestApiDataSourceConfig
 
@@ -2029,20 +2148,20 @@ Source: `src/data/sources.ts:34:1`
 
 ### Members
 
-| Name        | Kind     | Type                                                                      | Required | Description |
-| ----------- | -------- | ------------------------------------------------------------------------- | -------- | ----------- |
-| baseUrl     | property | `string`                                                                  | yes      |             |
-| credential  | property | `CredentialRef \| undefined`                                              | no       |             |
-| description | property | `string \| undefined`                                                     | no       |             |
-| endpoints   | property | `Readonly<Record<string, import("./src/index").DataEndpointConfig>>`      | yes      |             |
-| id          | property | `string`                                                                  | yes      |             |
-| kind        | property | `"api"`                                                                   | yes      |             |
-| metadata    | property | `DataContractValue \| undefined`                                          | no       |             |
-| name        | property | `string \| undefined`                                                     | no       |             |
-| openApi     | property | `OpenApiDocumentRef \| undefined`                                         | no       |             |
-| origin      | property | `"external"`                                                              | yes      |             |
-| protocol    | property | `"rest"`                                                                  | yes      |             |
-| schemas     | property | `Readonly<Record<string, import("./src/index").DataSchema>> \| undefined` | no       |             |
+| Name        | Kind     | Type                                                                                                       | Required | Description |
+| ----------- | -------- | ---------------------------------------------------------------------------------------------------------- | -------- | ----------- |
+| baseUrl     | property | `string`                                                                                                   | yes      |             |
+| credential  | property | `CredentialRef \| undefined`                                                                               | no       |             |
+| description | property | `string \| undefined`                                                                                      | no       |             |
+| endpoints   | property | `Readonly<Record<string, import("/Users/a_rtiphishl_e/git/contracts/src/index").DataEndpointConfig>>`      | yes      |             |
+| id          | property | `string`                                                                                                   | yes      |             |
+| kind        | property | `"api"`                                                                                                    | yes      |             |
+| metadata    | property | `DataContractValue \| undefined`                                                                           | no       |             |
+| name        | property | `string \| undefined`                                                                                      | no       |             |
+| openApi     | property | `OpenApiDocumentRef \| undefined`                                                                          | no       |             |
+| origin      | property | `"external"`                                                                                               | yes      |             |
+| protocol    | property | `"rest"`                                                                                                   | yes      |             |
+| schemas     | property | `Readonly<Record<string, import("/Users/a_rtiphishl_e/git/contracts/src/index").DataSchema>> \| undefined` | no       |             |
 
 ## FilterAction
 
@@ -2200,20 +2319,20 @@ Source: `src/data/sources.ts:51:1`
 
 ### Members
 
-| Name           | Kind     | Type                                                                      | Required | Description |
-| -------------- | -------- | ------------------------------------------------------------------------- | -------- | ----------- |
-| adapter        | property | `DatabaseAdapterRef`                                                      | yes      |             |
-| credential     | property | `CredentialRef \| undefined`                                              | no       |             |
-| description    | property | `string \| undefined`                                                     | no       |             |
-| endpoints      | property | `Readonly<Record<string, import("./src/index").DataEndpointConfig>>`      | yes      |             |
-| generatedApiId | property | `string`                                                                  | yes      |             |
-| id             | property | `string`                                                                  | yes      |             |
-| kind           | property | `"api"`                                                                   | yes      |             |
-| metadata       | property | `DataContractValue \| undefined`                                          | no       |             |
-| name           | property | `string \| undefined`                                                     | no       |             |
-| origin         | property | `"generated"`                                                             | yes      |             |
-| protocol       | property | `"rest"`                                                                  | yes      |             |
-| schemas        | property | `Readonly<Record<string, import("./src/index").DataSchema>> \| undefined` | no       |             |
+| Name           | Kind     | Type                                                                                                       | Required | Description |
+| -------------- | -------- | ---------------------------------------------------------------------------------------------------------- | -------- | ----------- |
+| adapter        | property | `DatabaseAdapterRef`                                                                                       | yes      |             |
+| credential     | property | `CredentialRef \| undefined`                                                                               | no       |             |
+| description    | property | `string \| undefined`                                                                                      | no       |             |
+| endpoints      | property | `Readonly<Record<string, import("/Users/a_rtiphishl_e/git/contracts/src/index").DataEndpointConfig>>`      | yes      |             |
+| generatedApiId | property | `string`                                                                                                   | yes      |             |
+| id             | property | `string`                                                                                                   | yes      |             |
+| kind           | property | `"api"`                                                                                                    | yes      |             |
+| metadata       | property | `DataContractValue \| undefined`                                                                           | no       |             |
+| name           | property | `string \| undefined`                                                                                      | no       |             |
+| origin         | property | `"generated"`                                                                                              | yes      |             |
+| protocol       | property | `"rest"`                                                                                                   | yes      |             |
+| schemas        | property | `Readonly<Record<string, import("/Users/a_rtiphishl_e/git/contracts/src/index").DataSchema>> \| undefined` | no       |             |
 
 ## IconSpec
 
@@ -2322,7 +2441,13 @@ Source: `src/media.ts:58:1`
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:38:1`
+Source: `src/auth.ts:39:1`
+
+## KnownAuthOAuthTransportId
+
+Kind: `unknown`
+Module: `src/auth.ts`
+Source: `src/auth.ts:43:1`
 
 ## KnownAuthProfileField
 
@@ -2340,7 +2465,7 @@ Source: `src/types.ts:208:1`
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:14:1`
+Source: `src/auth.ts:15:1`
 
 ## KnownComponentEventDto
 
@@ -2646,7 +2771,7 @@ Source: `src/appManifest.ts:45:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:162:1`
+Source: `src/auth.ts:227:1`
 
 ### Members
 
@@ -2676,7 +2801,7 @@ Source: `src/bindings.ts:67:1`
 
 Kind: `function`
 Module: `src/auth.ts`
-Source: `src/auth.ts:65:1`
+Source: `src/auth.ts:130:1`
 
 ### Signatures
 
@@ -2805,15 +2930,15 @@ Source: `src/types.ts:260:1`
 
 ### Members
 
-| Name        | Kind     | Type                                                                                   | Required | Description |
-| ----------- | -------- | -------------------------------------------------------------------------------------- | -------- | ----------- |
-| dataLoaders | property | `readonly import("./src/bindings").OperationScreenDataLoaderDefinition[] \| undefined` | no       |             |
-| description | property | `string \| undefined`                                                                  | no       |             |
-| id          | property | `string`                                                                               | yes      |             |
-| name        | property | `string`                                                                               | yes      |             |
-| requires    | property | `ScreenRequirements \| undefined`                                                      | no       |             |
-| root        | property | `UiNode`                                                                               | yes      |             |
-| title       | property | `string \| undefined`                                                                  | no       |             |
+| Name        | Kind     | Type                                                                                                                    | Required | Description |
+| ----------- | -------- | ----------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
+| dataLoaders | property | `readonly import("/Users/a_rtiphishl_e/git/contracts/src/bindings").OperationScreenDataLoaderDefinition[] \| undefined` | no       |             |
+| description | property | `string \| undefined`                                                                                                   | no       |             |
+| id          | property | `string`                                                                                                                | yes      |             |
+| name        | property | `string`                                                                                                                | yes      |             |
+| requires    | property | `ScreenRequirements \| undefined`                                                                                       | no       |             |
+| root        | property | `UiNode`                                                                                                                | yes      |             |
+| title       | property | `string \| undefined`                                                                                                   | no       |             |
 
 ## SearchAction
 
@@ -3038,7 +3163,7 @@ Source: `src/types.ts:65:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:142:1`
+Source: `src/auth.ts:207:1`
 
 ### Members
 
@@ -3054,7 +3179,7 @@ Source: `src/auth.ts:142:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:158:1`
+Source: `src/auth.ts:223:1`
 
 ### Members
 
@@ -3066,7 +3191,7 @@ Source: `src/auth.ts:158:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:150:1`
+Source: `src/auth.ts:215:1`
 
 ### Members
 
@@ -3133,7 +3258,7 @@ Source: `src/types.ts:307:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:235:1`
+Source: `src/auth.ts:300:1`
 
 ### Members
 
@@ -3259,7 +3384,7 @@ Source: `src/types.ts:326:1`
 
 | Name        | Kind     | Type                                                       | Required | Description |
 | ----------- | -------- | ---------------------------------------------------------- | -------- | ----------- |
-| persistence | property | `"database" \| "none" \| "local" \| "secure" \| undefined` | no       |             |
+| persistence | property | `"local" \| "database" \| "none" \| "secure" \| undefined` | no       |             |
 | provider    | property | `StateProvider`                                            | yes      |             |
 
 ## StateSubscription
@@ -4065,7 +4190,7 @@ Source: `src/secrets.ts:146:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:167:1`
+Source: `src/auth.ts:232:1`
 
 ### Members
 

@@ -38,6 +38,26 @@ describe('cli contracts', () => {
     expect(manifest.commands[0].path).toEqual(['up']);
   });
 
+  it('accepts an empty path as a category-root command', () => {
+    const deployCommand = {
+      path: [],
+      summary: 'Deploy the authored release',
+      capability: 'deploy.release',
+      examples: ['ankh deploy'],
+    } as const satisfies AnkhCommandDescriptor;
+
+    const manifest = {
+      id: '@ankhorage/deploy',
+      category: 'deploy',
+      version: '1.0.0',
+      capabilities: ['deploy.release'],
+      commands: [deployCommand],
+    } as const satisfies AnkhCommandProviderManifest;
+
+    expect(manifest.commands[0].path).toEqual([]);
+    expect(JSON.parse(JSON.stringify(manifest))).toEqual(manifest);
+  });
+
   it('accepts metadata-only packages without a provider module', () => {
     const packageMetadata = {
       category: 'contracts',
