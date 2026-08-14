@@ -142,10 +142,18 @@ graph LR
   module_src_auth_ts --> export_AUTH_OAUTH_ERROR_STAGES
   export_AUTH_OAUTH_PROVIDER_IDS["AUTH_OAUTH_PROVIDER_IDS"]
   module_src_auth_ts --> export_AUTH_OAUTH_PROVIDER_IDS
+  export_AUTH_OAUTH_SETUP_CALLBACK_ROLES["AUTH_OAUTH_SETUP_CALLBACK_ROLES"]
+  module_src_auth_ts --> export_AUTH_OAUTH_SETUP_CALLBACK_ROLES
+  export_AUTH_OAUTH_SETUP_FIELD_PERSISTENCE_KINDS["AUTH_OAUTH_SETUP_FIELD_PERSISTENCE_KINDS"]
+  module_src_auth_ts --> export_AUTH_OAUTH_SETUP_FIELD_PERSISTENCE_KINDS
+  export_AUTH_OAUTH_SETUP_FIELD_SENSITIVITIES["AUTH_OAUTH_SETUP_FIELD_SENSITIVITIES"]
+  module_src_auth_ts --> export_AUTH_OAUTH_SETUP_FIELD_SENSITIVITIES
   export_AUTH_OAUTH_TRANSPORT_CANCELLATION_REASONS["AUTH_OAUTH_TRANSPORT_CANCELLATION_REASONS"]
   module_src_auth_ts --> export_AUTH_OAUTH_TRANSPORT_CANCELLATION_REASONS
   export_AUTH_OAUTH_TRANSPORT_ERROR_CODES["AUTH_OAUTH_TRANSPORT_ERROR_CODES"]
   module_src_auth_ts --> export_AUTH_OAUTH_TRANSPORT_ERROR_CODES
+  export_AUTH_OAUTH_TRANSPORT_IDS["AUTH_OAUTH_TRANSPORT_IDS"]
+  module_src_auth_ts --> export_AUTH_OAUTH_TRANSPORT_IDS
   export_AUTH_PROFILE_CREATE_STRATEGIES["AUTH_PROFILE_CREATE_STRATEGIES"]
   module_src_types_ts --> export_AUTH_PROFILE_CREATE_STRATEGIES
   export_AUTH_PROFILE_FIELDS["AUTH_PROFILE_FIELDS"]
@@ -221,6 +229,27 @@ graph LR
   export_AuthOAuthProviderConfig -.-> export_IconSpec
   export_AuthOAuthProviderId["AuthOAuthProviderId"]
   module_src_auth_ts --> export_AuthOAuthProviderId
+  export_AuthOAuthSetupCallbackRequirement["AuthOAuthSetupCallbackRequirement"]
+  module_src_auth_ts --> export_AuthOAuthSetupCallbackRequirement
+  export_AuthOAuthSetupCallbackRole["AuthOAuthSetupCallbackRole"]
+  module_src_auth_ts --> export_AuthOAuthSetupCallbackRole
+  export_AuthOAuthSetupCapabilities["AuthOAuthSetupCapabilities"]
+  module_src_auth_ts --> export_AuthOAuthSetupCapabilities
+  export_AuthOAuthSetupCapabilities -.-> export_AuthOAuthProviderId
+  export_AuthOAuthSetupCapabilities -.-> export_AuthOAuthTransportId
+  export_AuthOAuthSetupFieldPersistence["AuthOAuthSetupFieldPersistence"]
+  module_src_auth_ts --> export_AuthOAuthSetupFieldPersistence
+  export_AuthOAuthSetupFieldRequirement["AuthOAuthSetupFieldRequirement"]
+  module_src_auth_ts --> export_AuthOAuthSetupFieldRequirement
+  export_AuthOAuthSetupFieldSensitivity["AuthOAuthSetupFieldSensitivity"]
+  module_src_auth_ts --> export_AuthOAuthSetupFieldSensitivity
+  export_AuthOAuthSetupPlan["AuthOAuthSetupPlan"]
+  module_src_auth_ts --> export_AuthOAuthSetupPlan
+  export_AuthOAuthSetupPlan -.-> export_AuthOAuthProviderId
+  export_AuthOAuthSetupPlan -.-> export_AuthOAuthSetupRequirement
+  export_AuthOAuthSetupPlan -.-> export_AuthOAuthTransportId
+  export_AuthOAuthSetupRequirement["AuthOAuthSetupRequirement"]
+  module_src_auth_ts --> export_AuthOAuthSetupRequirement
   export_AuthOAuthStartResult["AuthOAuthStartResult"]
   module_src_auth_ts --> export_AuthOAuthStartResult
   export_AuthOAuthTransportCancellationReason["AuthOAuthTransportCancellationReason"]
@@ -229,6 +258,8 @@ graph LR
   module_src_auth_ts --> export_AuthOAuthTransportError
   export_AuthOAuthTransportErrorCode["AuthOAuthTransportErrorCode"]
   module_src_auth_ts --> export_AuthOAuthTransportErrorCode
+  export_AuthOAuthTransportId["AuthOAuthTransportId"]
+  module_src_auth_ts --> export_AuthOAuthTransportId
   export_AuthProfileCreateStrategy["AuthProfileCreateStrategy"]
   module_src_types_ts --> export_AuthProfileCreateStrategy
   export_AuthProfileField["AuthProfileField"]
@@ -671,6 +702,8 @@ graph LR
   module_src_media_ts --> export_isMediaAssetReference
   export_KnownAuthOAuthProviderId["KnownAuthOAuthProviderId"]
   module_src_auth_ts --> export_KnownAuthOAuthProviderId
+  export_KnownAuthOAuthTransportId["KnownAuthOAuthTransportId"]
+  module_src_auth_ts --> export_KnownAuthOAuthTransportId
   export_KnownAuthProfileField["KnownAuthProfileField"]
   module_src_types_ts --> export_KnownAuthProfileField
   export_KnownAuthProvider["KnownAuthProvider"]

@@ -5,7 +5,12 @@ export type AnkhProviderReference = `./${string}`;
 export type AnkhCapabilityId = `${string}.${string}`;
 
 export interface AnkhCommandDescriptor {
-  readonly path: readonly [string, ...string[]];
+  /**
+   * Command path relative to the provider category.
+   *
+   * An empty path declares the command at the category root.
+   */
+  readonly path: readonly string[];
   readonly summary: string;
   readonly capability: AnkhCapabilityId;
   readonly aliases?: readonly string[];

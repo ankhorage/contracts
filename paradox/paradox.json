@@ -12,7 +12,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v7.6.0",
+      "value": "v7.8.0",
       "color": "cb3837"
     },
     {
@@ -59,10 +59,7 @@
     }
   ],
   "usage": null,
-  "readmeUsageDescription": null,
   "readmeUsage": [],
-  "readmeCli": null,
-  "readmeConfig": null,
   "config": null,
   "entrypoints": ["src/index.ts"],
   "modules": [
@@ -151,15 +148,19 @@
     {
       "path": "src/auth.ts",
       "isEntrypoint": false,
-      "dependencies": ["src/secrets.ts", "src/types.ts"],
+      "dependencies": ["src/deploy.ts", "src/secrets.ts", "src/types.ts"],
       "exports": [
         "AUTH_IDENTIFIER_KINDS",
         "AUTH_OAUTH_CANCELLATION_REASONS",
         "AUTH_OAUTH_ERROR_CODES",
         "AUTH_OAUTH_ERROR_STAGES",
         "AUTH_OAUTH_PROVIDER_IDS",
+        "AUTH_OAUTH_SETUP_CALLBACK_ROLES",
+        "AUTH_OAUTH_SETUP_FIELD_PERSISTENCE_KINDS",
+        "AUTH_OAUTH_SETUP_FIELD_SENSITIVITIES",
         "AUTH_OAUTH_TRANSPORT_CANCELLATION_REASONS",
         "AUTH_OAUTH_TRANSPORT_ERROR_CODES",
+        "AUTH_OAUTH_TRANSPORT_IDS",
         "AUTH_SIGN_UP_FIELDS",
         "AuthAdapter",
         "AuthAdapterCapabilities",
@@ -179,10 +180,19 @@
         "AuthOAuthErrorStage",
         "AuthOAuthProviderConfig",
         "AuthOAuthProviderId",
+        "AuthOAuthSetupCallbackRequirement",
+        "AuthOAuthSetupCallbackRole",
+        "AuthOAuthSetupCapabilities",
+        "AuthOAuthSetupFieldPersistence",
+        "AuthOAuthSetupFieldRequirement",
+        "AuthOAuthSetupFieldSensitivity",
+        "AuthOAuthSetupPlan",
+        "AuthOAuthSetupRequirement",
         "AuthOAuthStartResult",
         "AuthOAuthTransportCancellationReason",
         "AuthOAuthTransportError",
         "AuthOAuthTransportErrorCode",
+        "AuthOAuthTransportId",
         "AuthProviderConfig",
         "AuthResult",
         "AuthSession",
@@ -193,6 +203,7 @@
         "CompleteOAuthAuthorizationInput",
         "DEFAULT_AUTH_FLOW",
         "KnownAuthOAuthProviderId",
+        "KnownAuthOAuthTransportId",
         "KnownAuthSignUpField",
         "PasswordResetInput",
         "resolveAuthFlow",
@@ -543,8 +554,12 @@
         "AUTH_OAUTH_ERROR_CODES",
         "AUTH_OAUTH_ERROR_STAGES",
         "AUTH_OAUTH_PROVIDER_IDS",
+        "AUTH_OAUTH_SETUP_CALLBACK_ROLES",
+        "AUTH_OAUTH_SETUP_FIELD_PERSISTENCE_KINDS",
+        "AUTH_OAUTH_SETUP_FIELD_SENSITIVITIES",
         "AUTH_OAUTH_TRANSPORT_CANCELLATION_REASONS",
         "AUTH_OAUTH_TRANSPORT_ERROR_CODES",
+        "AUTH_OAUTH_TRANSPORT_IDS",
         "AUTH_PROFILE_CREATE_STRATEGIES",
         "AUTH_PROFILE_FIELDS",
         "AUTH_PROFILE_PRIMARY_KEY_STRATEGIES",
@@ -572,10 +587,19 @@
         "AuthOAuthErrorStage",
         "AuthOAuthProviderConfig",
         "AuthOAuthProviderId",
+        "AuthOAuthSetupCallbackRequirement",
+        "AuthOAuthSetupCallbackRole",
+        "AuthOAuthSetupCapabilities",
+        "AuthOAuthSetupFieldPersistence",
+        "AuthOAuthSetupFieldRequirement",
+        "AuthOAuthSetupFieldSensitivity",
+        "AuthOAuthSetupPlan",
+        "AuthOAuthSetupRequirement",
         "AuthOAuthStartResult",
         "AuthOAuthTransportCancellationReason",
         "AuthOAuthTransportError",
         "AuthOAuthTransportErrorCode",
+        "AuthOAuthTransportId",
         "AuthProfileCreateStrategy",
         "AuthProfileField",
         "AuthProfilePrimaryKeyStrategy",
@@ -731,6 +755,7 @@
         "isAppManifest",
         "isMediaAssetReference",
         "KnownAuthOAuthProviderId",
+        "KnownAuthOAuthTransportId",
         "KnownAuthProfileField",
         "KnownAuthProvider",
         "KnownAuthSignUpField",
@@ -1402,7 +1427,7 @@
         {
           "name": "path",
           "kind": "property",
-          "type": "readonly [string, ...string[]]",
+          "type": "readonly string[]",
           "required": true,
           "description": null
         },
@@ -1425,7 +1450,7 @@
       "modulePath": "src/cli/index.ts",
       "sourceLocation": {
         "filePath": "src/cli/index.ts",
-        "line": 15,
+        "line": 20,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1551,7 +1576,7 @@
       "modulePath": "src/cli/index.ts",
       "sourceLocation": {
         "filePath": "src/cli/index.ts",
-        "line": 23,
+        "line": 28,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1640,7 +1665,7 @@
         {
           "name": "endpoints",
           "kind": "property",
-          "type": "Readonly<Record<string, import(\"./src/index\").DataEndpointConfig>>",
+          "type": "Readonly<Record<string, import(\"/Users/a_rtiphishl_e/git/contracts/src/index\").DataEndpointConfig>>",
           "required": true,
           "description": null
         },
@@ -1689,7 +1714,7 @@
         {
           "name": "schemas",
           "kind": "property",
-          "type": "Readonly<Record<string, import(\"./src/index\").DataSchema>> | undefined",
+          "type": "Readonly<Record<string, import(\"/Users/a_rtiphishl_e/git/contracts/src/index\").DataSchema>> | undefined",
           "required": false,
           "description": null
         }
@@ -2134,14 +2159,14 @@
         {
           "name": "dataBindings",
           "kind": "property",
-          "type": "Readonly<Record<string, import(\"./src/bindings\").ComponentDataBinding>> | undefined",
+          "type": "Readonly<Record<string, import(\"/Users/a_rtiphishl_e/git/contracts/src/bindings\").ComponentDataBinding>> | undefined",
           "required": false,
           "description": null
         },
         {
           "name": "dataSources",
           "kind": "property",
-          "type": "Readonly<Record<string, import(\"./src/index\").DataSourceConfig>> | undefined",
+          "type": "Readonly<Record<string, import(\"/Users/a_rtiphishl_e/git/contracts/src/index\").DataSourceConfig>> | undefined",
           "required": false,
           "description": null
         },
@@ -2155,7 +2180,7 @@
         {
           "name": "generatedApis",
           "kind": "property",
-          "type": "Readonly<Record<string, import(\"./src/index\").GeneratedApiDefinition>> | undefined",
+          "type": "Readonly<Record<string, import(\"/Users/a_rtiphishl_e/git/contracts/src/index\").GeneratedApiDefinition>> | undefined",
           "required": false,
           "description": null
         },
@@ -2278,7 +2303,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 4,
+        "line": 5,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -2296,7 +2321,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 217,
+        "line": 282,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -2314,7 +2339,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 184,
+        "line": 249,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -2332,7 +2357,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 174,
+        "line": 239,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -2350,7 +2375,61 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 17,
+        "line": 18,
+        "column": 14
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "AUTH_OAUTH_SETUP_CALLBACK_ROLES",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "value",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 56,
+        "column": 14
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "AUTH_OAUTH_SETUP_FIELD_PERSISTENCE_KINDS",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "value",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 46,
+        "column": 14
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "AUTH_OAUTH_SETUP_FIELD_SENSITIVITIES",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "value",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 53,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -2368,7 +2447,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 210,
+        "line": 275,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -2386,7 +2465,25 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 223,
+        "line": 288,
+        "column": 14
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "AUTH_OAUTH_TRANSPORT_IDS",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "value",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 42,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -2530,7 +2627,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 7,
+        "line": 8,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -2566,7 +2663,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 317,
+        "line": 382,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2659,7 +2756,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 309,
+        "line": 374,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2713,7 +2810,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 126,
+        "line": 191,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2753,7 +2850,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 46,
+        "line": 111,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2821,7 +2918,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 41,
+        "line": 106,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2854,7 +2951,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 5,
+        "line": 6,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2872,7 +2969,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 302,
+        "line": 367,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2918,7 +3015,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 242,
+        "line": 307,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2965,7 +3062,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 259,
+        "line": 324,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2983,7 +3080,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 221,
+        "line": 286,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3001,7 +3098,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 297,
+        "line": 362,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3027,7 +3124,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 278,
+        "line": 343,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3045,7 +3142,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 89,
+        "line": 154,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3085,7 +3182,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 203,
+        "line": 268,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3130,7 +3227,7 @@
         {
           "name": "stage",
           "kind": "property",
-          "type": "\"start\" | \"transport\" | \"callback\" | \"exchange\" | \"session\" | \"profile\"",
+          "type": "\"callback\" | \"start\" | \"transport\" | \"exchange\" | \"session\" | \"profile\"",
           "required": true,
           "description": null
         }
@@ -3146,7 +3243,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 201,
+        "line": 266,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3164,7 +3261,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 182,
+        "line": 247,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3182,7 +3279,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 78,
+        "line": 143,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3250,7 +3347,306 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 39,
+        "line": 40,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "AuthOAuthSetupCallbackRequirement",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 72,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "description",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "kind",
+          "kind": "property",
+          "type": "\"callback\"",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "label",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "required",
+          "kind": "property",
+          "type": "boolean",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "role",
+          "kind": "property",
+          "type": "\"provider\" | \"app\"",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "target",
+          "kind": "property",
+          "type": "\"web\" | \"android\" | \"ios\" | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "AuthOAuthSetupCallbackRole",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 57,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "AuthOAuthSetupCapabilities",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 101,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["AuthOAuthProviderId", "AuthOAuthTransportId"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "providers",
+          "kind": "property",
+          "type": "readonly AuthOAuthProviderId[]",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "transports",
+          "kind": "property",
+          "type": "readonly AuthOAuthTransportId[]",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "AuthOAuthSetupFieldPersistence",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 50,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "AuthOAuthSetupFieldRequirement",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 59,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "description",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "key",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "kind",
+          "kind": "property",
+          "type": "\"field\"",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "label",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "persistence",
+          "kind": "property",
+          "type": "\"trustedCredential\" | \"publicConfig\"",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "required",
+          "kind": "property",
+          "type": "boolean",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "sensitivity",
+          "kind": "property",
+          "type": "\"public\" | \"secret\"",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "target",
+          "kind": "property",
+          "type": "\"web\" | \"android\" | \"ios\" | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "AuthOAuthSetupFieldSensitivity",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 54,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "AuthOAuthSetupPlan",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 91,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [
+        "AuthOAuthProviderId",
+        "AuthOAuthSetupRequirement",
+        "AuthOAuthTransportId"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "environment",
+          "kind": "property",
+          "type": "\"local\" | \"preview\" | \"production\"",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "provider",
+          "kind": "property",
+          "type": "AuthOAuthProviderId",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "requirements",
+          "kind": "property",
+          "type": "readonly AuthOAuthSetupRequirement[]",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "targets",
+          "kind": "property",
+          "type": "readonly (\"web\" | \"android\" | \"ios\")[]",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "transport",
+          "kind": "property",
+          "type": "AuthOAuthTransportId",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "AuthOAuthSetupRequirement",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 82,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3268,7 +3664,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 249,
+        "line": 314,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3286,7 +3682,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 214,
+        "line": 279,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3304,7 +3700,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 229,
+        "line": 294,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3344,7 +3740,25 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 227,
+        "line": 292,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "AuthOAuthTransportId",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 44,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3426,7 +3840,7 @@
         {
           "name": "createStrategy",
           "kind": "property",
-          "type": "\"api\" | \"trigger\" | \"app\" | undefined",
+          "type": "\"app\" | \"api\" | \"trigger\" | undefined",
           "required": false,
           "description": null
         },
@@ -3454,7 +3868,7 @@
         {
           "name": "updateStrategy",
           "kind": "property",
-          "type": "\"api\" | \"app\" | undefined",
+          "type": "\"app\" | \"api\" | undefined",
           "required": false,
           "description": null
         }
@@ -3506,7 +3920,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 95,
+        "line": 160,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3567,7 +3981,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 132,
+        "line": 197,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3603,7 +4017,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 118,
+        "line": 183,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3657,7 +4071,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 69,
+        "line": 134,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3727,7 +4141,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 73,
+        "line": 138,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3760,7 +4174,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 15,
+        "line": 16,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3919,7 +4333,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 108,
+        "line": 173,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4491,7 +4905,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 273,
+        "line": 338,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4977,7 +5391,7 @@
         {
           "name": "endpoints",
           "kind": "property",
-          "type": "Readonly<Record<string, import(\"./src/index\").DataEndpointConfig>>",
+          "type": "Readonly<Record<string, import(\"/Users/a_rtiphishl_e/git/contracts/src/index\").DataEndpointConfig>>",
           "required": true,
           "description": null
         },
@@ -5012,7 +5426,7 @@
         {
           "name": "schemas",
           "kind": "property",
-          "type": "Readonly<Record<string, import(\"./src/index\").DataSchema>> | undefined",
+          "type": "Readonly<Record<string, import(\"/Users/a_rtiphishl_e/git/contracts/src/index\").DataSchema>> | undefined",
           "required": false,
           "description": null
         }
@@ -6025,7 +6439,7 @@
         {
           "name": "endpoints",
           "kind": "property",
-          "type": "Readonly<Record<string, import(\"./src/index\").DataEndpointConfig>>",
+          "type": "Readonly<Record<string, import(\"/Users/a_rtiphishl_e/git/contracts/src/index\").DataEndpointConfig>>",
           "required": true,
           "description": null
         },
@@ -6060,7 +6474,7 @@
         {
           "name": "schemas",
           "kind": "property",
-          "type": "Readonly<Record<string, import(\"./src/index\").DataSchema>> | undefined",
+          "type": "Readonly<Record<string, import(\"/Users/a_rtiphishl_e/git/contracts/src/index\").DataSchema>> | undefined",
           "required": false,
           "description": null
         }
@@ -7351,7 +7765,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 56,
+        "line": 121,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -7538,7 +7952,7 @@
         {
           "name": "endpoints",
           "kind": "property",
-          "type": "Readonly<Record<string, import(\"./src/index\").DataEndpointConfig>>",
+          "type": "Readonly<Record<string, import(\"/Users/a_rtiphishl_e/git/contracts/src/index\").DataEndpointConfig>>",
           "required": true,
           "description": null
         },
@@ -7601,7 +8015,7 @@
         {
           "name": "schemas",
           "kind": "property",
-          "type": "Readonly<Record<string, import(\"./src/index\").DataSchema>> | undefined",
+          "type": "Readonly<Record<string, import(\"/Users/a_rtiphishl_e/git/contracts/src/index\").DataSchema>> | undefined",
           "required": false,
           "description": null
         }
@@ -7654,7 +8068,7 @@
         {
           "name": "endpoints",
           "kind": "property",
-          "type": "Readonly<Record<string, import(\"./src/index\").DataEndpointConfig>>",
+          "type": "Readonly<Record<string, import(\"/Users/a_rtiphishl_e/git/contracts/src/index\").DataEndpointConfig>>",
           "required": true,
           "description": null
         },
@@ -7710,7 +8124,7 @@
         {
           "name": "schemas",
           "kind": "property",
-          "type": "Readonly<Record<string, import(\"./src/index\").DataSchema>> | undefined",
+          "type": "Readonly<Record<string, import(\"/Users/a_rtiphishl_e/git/contracts/src/index\").DataSchema>> | undefined",
           "required": false,
           "description": null
         }
@@ -8250,7 +8664,7 @@
         {
           "name": "endpoints",
           "kind": "property",
-          "type": "Readonly<Record<string, import(\"./src/index\").DataEndpointConfig>>",
+          "type": "Readonly<Record<string, import(\"/Users/a_rtiphishl_e/git/contracts/src/index\").DataEndpointConfig>>",
           "required": true,
           "description": null
         },
@@ -8306,7 +8720,7 @@
         {
           "name": "schemas",
           "kind": "property",
-          "type": "Readonly<Record<string, import(\"./src/index\").DataSchema>> | undefined",
+          "type": "Readonly<Record<string, import(\"/Users/a_rtiphishl_e/git/contracts/src/index\").DataSchema>> | undefined",
           "required": false,
           "description": null
         }
@@ -8639,7 +9053,25 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 38,
+        "line": 39,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "KnownAuthOAuthTransportId",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 43,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8693,7 +9125,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 14,
+        "line": 15,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9602,7 +10034,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 162,
+        "line": 227,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9701,7 +10133,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 65,
+        "line": 130,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10066,7 +10498,7 @@
         {
           "name": "dataLoaders",
           "kind": "property",
-          "type": "readonly import(\"./src/bindings\").OperationScreenDataLoaderDefinition[] | undefined",
+          "type": "readonly import(\"/Users/a_rtiphishl_e/git/contracts/src/bindings\").OperationScreenDataLoaderDefinition[] | undefined",
           "required": false,
           "description": null
         },
@@ -10779,7 +11211,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 142,
+        "line": 207,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10833,7 +11265,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 158,
+        "line": 223,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10859,7 +11291,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 150,
+        "line": 215,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11072,7 +11504,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 235,
+        "line": 300,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11447,7 +11879,7 @@
         {
           "name": "persistence",
           "kind": "property",
-          "type": "\"database\" | \"none\" | \"local\" | \"secure\" | undefined",
+          "type": "\"local\" | \"database\" | \"none\" | \"secure\" | undefined",
           "required": false,
           "description": null
         },
@@ -13932,7 +14364,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 167,
+        "line": 232,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -14914,7 +15346,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 65,
+        "line": 130,
         "column": 1
       }
     },
@@ -15084,6 +15516,11 @@
         "fromPath": "src/appManifest.ts",
         "toPath": "src/types.ts",
         "sourcePath": "src/appManifest.ts"
+      },
+      {
+        "fromPath": "src/auth.ts",
+        "toPath": "src/deploy.ts",
+        "sourcePath": "src/auth.ts"
       },
       {
         "fromPath": "src/auth.ts",
@@ -17005,6 +17442,31 @@
         "sourcePath": "src/auth.ts"
       },
       {
+        "fromSymbol": "AuthOAuthSetupPlan",
+        "toType": "AuthOAuthProviderId",
+        "sourcePath": "src/auth.ts"
+      },
+      {
+        "fromSymbol": "AuthOAuthSetupPlan",
+        "toType": "AuthOAuthSetupRequirement",
+        "sourcePath": "src/auth.ts"
+      },
+      {
+        "fromSymbol": "AuthOAuthSetupPlan",
+        "toType": "AuthOAuthTransportId",
+        "sourcePath": "src/auth.ts"
+      },
+      {
+        "fromSymbol": "AuthOAuthSetupCapabilities",
+        "toType": "AuthOAuthProviderId",
+        "sourcePath": "src/auth.ts"
+      },
+      {
+        "fromSymbol": "AuthOAuthSetupCapabilities",
+        "toType": "AuthOAuthTransportId",
+        "sourcePath": "src/auth.ts"
+      },
+      {
         "fromSymbol": "AuthSignUpConfig",
         "toType": "AuthSignUpField",
         "sourcePath": "src/auth.ts"
@@ -17540,6 +18002,11 @@
         "sourcePath": "src/data/sources.ts"
       },
       {
+        "fromSymbol": "DataSourceBaseConfig",
+        "toType": "Users",
+        "sourcePath": "src/data/sources.ts"
+      },
+      {
         "fromSymbol": "ApiDataSourceBaseConfig",
         "toType": "ApiOrigin",
         "sourcePath": "src/data/sources.ts"
@@ -17575,6 +18042,11 @@
         "sourcePath": "src/data/sources.ts"
       },
       {
+        "fromSymbol": "ApiDataSourceBaseConfig",
+        "toType": "Users",
+        "sourcePath": "src/data/sources.ts"
+      },
+      {
         "fromSymbol": "ExternalRestApiDataSourceConfig",
         "toType": "CredentialRef",
         "sourcePath": "src/data/sources.ts"
@@ -17605,6 +18077,11 @@
         "sourcePath": "src/data/sources.ts"
       },
       {
+        "fromSymbol": "ExternalRestApiDataSourceConfig",
+        "toType": "Users",
+        "sourcePath": "src/data/sources.ts"
+      },
+      {
         "fromSymbol": "ExternalGraphQlApiDataSourceConfig",
         "toType": "CredentialRef",
         "sourcePath": "src/data/sources.ts"
@@ -17627,6 +18104,11 @@
       {
         "fromSymbol": "ExternalGraphQlApiDataSourceConfig",
         "toType": "Readonly",
+        "sourcePath": "src/data/sources.ts"
+      },
+      {
+        "fromSymbol": "ExternalGraphQlApiDataSourceConfig",
+        "toType": "Users",
         "sourcePath": "src/data/sources.ts"
       },
       {
@@ -17660,6 +18142,11 @@
         "sourcePath": "src/data/sources.ts"
       },
       {
+        "fromSymbol": "GeneratedRestApiDataSourceConfig",
+        "toType": "Users",
+        "sourcePath": "src/data/sources.ts"
+      },
+      {
         "fromSymbol": "DatabaseDataSourceConfig",
         "toType": "CredentialRef",
         "sourcePath": "src/data/sources.ts"
@@ -17687,6 +18174,11 @@
       {
         "fromSymbol": "DatabaseDataSourceConfig",
         "toType": "Readonly",
+        "sourcePath": "src/data/sources.ts"
+      },
+      {
+        "fromSymbol": "DatabaseDataSourceConfig",
+        "toType": "Users",
         "sourcePath": "src/data/sources.ts"
       },
       {
@@ -18370,6 +18862,11 @@
         "sourcePath": "src/types.ts"
       },
       {
+        "fromSymbol": "ScreenSpec",
+        "toType": "Users",
+        "sourcePath": "src/types.ts"
+      },
+      {
         "fromSymbol": "NavigatorSpec",
         "toType": "RouteDefinition",
         "sourcePath": "src/types.ts"
@@ -18572,6 +19069,11 @@
       {
         "fromSymbol": "AppManifest",
         "toType": "ThemeConfig",
+        "sourcePath": "src/types.ts"
+      },
+      {
+        "fromSymbol": "AppManifest",
+        "toType": "Users",
         "sourcePath": "src/types.ts"
       },
       {
