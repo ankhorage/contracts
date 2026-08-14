@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 7.9.0
+
+### Minor Changes
+
+- 1fa1570: Allow CLI provider manifests to declare category-root commands with an empty command path.
+
 ## 7.8.0
 
 ### Minor Changes
