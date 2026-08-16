@@ -1,7 +1,6 @@
 import { isComponentDataBindingRegistry } from './appManifest/bindings';
 import { isDataSourceRegistry } from './appManifest/dataSources';
 import { isAppDeployManifest } from './appManifest/deploy';
-import { isGeneratedApiRegistry } from './appManifest/generatedApis';
 import { isInfraManifest } from './appManifest/infra';
 import { isMediaManifest } from './appManifest/media';
 import {
@@ -11,7 +10,7 @@ import {
   isSplashScreenSpec,
   isThemeConfig,
 } from './appManifest/screens';
-import { isOptionalString, isRecord, isStringArray } from './appManifest/shared';
+import { isRecord, isStringArray } from './appManifest/shared';
 import type { AppManifest } from './types';
 
 export type AppManifestParseResult =
@@ -29,7 +28,6 @@ const APP_MANIFEST_KEY_POLICY = {
   infra: 'required',
   navigator: 'required',
   screens: 'required',
-  generatedApis: 'optional',
   dataSources: 'optional',
   dataBindings: 'optional',
   settings: 'required',
@@ -53,6 +51,7 @@ export function isAppManifest(value: unknown): value is AppManifest {
   return (
     isRecord(value) &&
     hasRequiredManifestKeys(value) &&
+    !('generatedApis' in value) &&
     isManifestMetadata(value.metadata) &&
     Array.isArray(value.themes) &&
     value.themes.every(isThemeConfig) &&
@@ -64,7 +63,6 @@ export function isAppManifest(value: unknown): value is AppManifest {
     isInfraManifest(value.infra) &&
     isNavigatorSpec(value.navigator) &&
     isScreenRegistry(value.screens) &&
-    (value.generatedApis === undefined || isGeneratedApiRegistry(value.generatedApis)) &&
     (value.dataSources === undefined || isDataSourceRegistry(value.dataSources)) &&
     (value.dataBindings === undefined || isComponentDataBindingRegistry(value.dataBindings)) &&
     isAppSettings(value.settings)
@@ -84,9 +82,9 @@ function isActiveThemeMode(value: unknown): boolean {
 function isAppSettings(value: unknown): boolean {
   return (
     isRecord(value) &&
+    !('apiBaseUrl' in value) &&
     isRecord(value.localization) &&
     typeof value.localization.defaultLocale === 'string' &&
-    isStringArray(value.localization.locales) &&
-    isOptionalString(value.apiBaseUrl)
+    isStringArray(value.localization.locales)
   );
 }

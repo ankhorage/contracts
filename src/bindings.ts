@@ -1,4 +1,4 @@
-import type { DataSourceId, EndpointId, OperationId } from './data';
+import type { ApiId, EndpointId, OperationId } from './data';
 
 export type ComponentInstanceId = string;
 export type ComponentTypeId = string;
@@ -18,7 +18,7 @@ export type BindingDataPath = string;
 export type BindingValueTransform = 'lowercase' | 'trim' | 'uppercase';
 
 export interface BindingOperationRef {
-  readonly dataSourceId: DataSourceId;
+  readonly apiId: ApiId;
   readonly operationId: OperationId;
   readonly endpointId?: EndpointId;
 }

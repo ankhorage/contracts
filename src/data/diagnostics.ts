@@ -1,4 +1,4 @@
-import type { DataSourceId, EndpointId, OperationId } from './ids';
+import type { ApiId, DataSourceId, EndpointId, OperationId } from './ids';
 
 export type DataDiagnosticSeverity = 'error' | 'info' | 'warning';
 
@@ -7,6 +7,7 @@ export type DataDiagnosticCode =
   | 'duplicate-operation-id'
   | 'invalid-config'
   | 'missing-adapter'
+  | 'missing-api'
   | 'missing-credential'
   | 'missing-data-source'
   | 'missing-endpoint'
@@ -22,6 +23,7 @@ export interface DataSourceDiagnostic {
   readonly code: DataDiagnosticCode;
   readonly message: string;
   readonly severity: DataDiagnosticSeverity;
+  readonly apiId?: ApiId;
   readonly dataSourceId?: DataSourceId;
   readonly endpointId?: EndpointId;
   readonly operationId?: OperationId;

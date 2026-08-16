@@ -12,6 +12,7 @@ import {
   STATE_PERSISTENCE_MODES,
   STORAGE_PROVIDERS,
 } from '../types';
+import { isApiDefinitionList } from './apis';
 import {
   isOptionalBoolean,
   isOptionalString,
@@ -42,6 +43,7 @@ export function isInfraManifest(value: unknown): boolean {
     (value.storage === undefined || isStorageSpec(value.storage)) &&
     (value.state === undefined || isStateSpec(value.state)) &&
     (value.networking === undefined || isNetworkingSpec(value.networking)) &&
+    (value.apis === undefined || isApiDefinitionList(value.apis)) &&
     Array.isArray(value.modules) &&
     value.modules.every((moduleId) => typeof moduleId === 'string') &&
     (value.modulesConfig === undefined || isRecord(value.modulesConfig)) &&

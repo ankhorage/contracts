@@ -1,3 +1,4 @@
+export type ApiId = string;
 export type DataSourceId = string;
 export type EndpointId = string;
 export type OperationId = string;

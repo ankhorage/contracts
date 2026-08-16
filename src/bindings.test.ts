@@ -26,7 +26,7 @@ describe('component data-binding contracts', () => {
           source: {
             kind: 'operation',
             operation: {
-              dataSourceId: 'cms',
+              apiId: 'cms',
               endpointId: 'pages',
               operationId: 'pages.getHome',
             },
@@ -66,7 +66,7 @@ describe('component data-binding contracts', () => {
       {
         kind: 'operation',
         operation: {
-          dataSourceId: 'search-api',
+          apiId: 'search-api',
           operationId: 'search.query',
         },
         path: '$.results',
@@ -83,7 +83,7 @@ describe('component data-binding contracts', () => {
     ]);
   });
 
-  it('serializes an event binding that executes a data-source operation', () => {
+  it('serializes an event binding that executes an API operation', () => {
     const input: BindingInputMap = {
       email: {
         kind: 'source',
@@ -122,7 +122,7 @@ describe('component data-binding contracts', () => {
       target: {
         kind: 'operation',
         operation: {
-          dataSourceId: 'contact-api',
+          apiId: 'contact-api',
           endpointId: 'messages',
           operationId: 'messages.create',
         },
@@ -165,7 +165,7 @@ describe('component data-binding contracts', () => {
       kind: 'operation',
       id: 'product-detail',
       operation: {
-        dataSourceId: 'nutrition-api',
+        apiId: 'nutrition',
         endpointId: 'products',
         operationId: 'nutrition.products.getById',
       },
@@ -186,7 +186,7 @@ describe('component data-binding contracts', () => {
 
   it('serializes scanner lookup and conditional navigation intent using existing generic bindings', () => {
     const productLookupOperation = {
-      dataSourceId: 'nutrition-api',
+      apiId: 'nutrition',
       endpointId: 'products',
       operationId: 'products.lookupByBarcode',
     } as const;
@@ -308,7 +308,7 @@ describe('component data-binding contracts', () => {
 
   it('serializes repeated container nodes with generic item-context bindings', () => {
     const productsListOperation = {
-      dataSourceId: 'catalog-api',
+      apiId: 'catalog-api',
       endpointId: 'products',
       operationId: 'products.list',
     } as const;
@@ -439,7 +439,7 @@ describe('component data-binding contracts', () => {
               target: {
                 kind: 'operation',
                 operation: {
-                  dataSourceId: 'contact-api',
+                  apiId: 'contact-api',
                   operationId: 'messages.create',
                 },
               },
@@ -453,12 +453,12 @@ describe('component data-binding contracts', () => {
     expect(bindings['submit-button']?.events?.press?.[0]?.target.kind).toBe('operation');
   });
 
-  it('serializes app-level dataSources and dataBindings on the manifest', () => {
+  it('serializes app-level APIs and dataBindings on the manifest', () => {
     const propBinding: PropBinding = {
       source: {
         kind: 'operation',
         operation: {
-          dataSourceId: 'cms',
+          apiId: 'cms',
           endpointId: 'pages',
           operationId: 'pages.getHome',
         },
@@ -490,6 +490,31 @@ describe('component data-binding contracts', () => {
       ],
       activeThemeId: 'default',
       infra: {
+        apis: [
+          {
+            id: 'cms',
+            origin: 'external',
+            protocol: 'rest',
+            baseUrl: 'https://cms.example.com',
+            endpoints: {
+              pages: {
+                id: 'pages',
+                kind: 'http',
+                path: '/pages/home',
+                operations: {
+                  'pages.getHome': {
+                    id: 'pages.getHome',
+                    endpointId: 'pages',
+                    protocol: 'http',
+                    intent: 'read',
+                    method: 'GET',
+                    path: '/pages/home',
+                  },
+                },
+              },
+            },
+          },
+        ],
         modules: [],
       },
       navigator: {
@@ -517,30 +542,6 @@ describe('component data-binding contracts', () => {
           },
         },
       },
-      dataSources: {
-        cms: {
-          id: 'cms',
-          kind: 'rest',
-          baseUrl: 'https://cms.example.com',
-          endpoints: {
-            pages: {
-              id: 'pages',
-              kind: 'http',
-              path: '/pages/home',
-              operations: {
-                'pages.getHome': {
-                  id: 'pages.getHome',
-                  endpointId: 'pages',
-                  protocol: 'http',
-                  intent: 'read',
-                  method: 'GET',
-                  path: '/pages/home',
-                },
-              },
-            },
-          },
-        },
-      },
       dataBindings: {
         'hero-title': {
           componentId: 'hero-title',
@@ -555,19 +556,11 @@ describe('component data-binding contracts', () => {
           defaultLocale: 'en',
           locales: ['en'],
         },
-        authFlow: {
-          signInRoute: '/sign-in',
-          signUpRoute: '/sign-up',
-          signOutRoute: '/sign-out',
-          forgotPasswordRoute: '/forgot-password',
-          postSignInRoute: '/',
-          unauthorizedRoute: '/sign-in',
-        },
       },
     };
 
     assertSerializable(manifest);
     expect(manifest.dataBindings?.['hero-title']?.props?.children?.source.kind).toBe('operation');
-    expect(manifest.dataSources?.cms?.kind).toBe('rest');
+    expect(manifest.infra.apis?.[0]?.id).toBe('cms');
   });
 });
