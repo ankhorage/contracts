@@ -1,6 +1,20 @@
-import { isManifestValue, isOptionalBoolean, isOptionalString, isRecord, isStringArray } from './shared';
+import {
+  isManifestValue,
+  isOptionalBoolean,
+  isOptionalString,
+  isRecord,
+  isStringArray,
+} from './shared';
 
-const DATA_SCHEMA_TYPES = new Set(['array', 'boolean', 'integer', 'null', 'number', 'object', 'string']);
+const DATA_SCHEMA_TYPES = new Set([
+  'array',
+  'boolean',
+  'integer',
+  'null',
+  'number',
+  'object',
+  'string',
+]);
 const OPERATION_INTENTS = new Set(['action', 'create', 'delete', 'read', 'update']);
 const PARAMETER_LOCATIONS = new Set(['body', 'cookie', 'header', 'path', 'query']);
 
@@ -121,7 +135,10 @@ function isDataSchema(value: unknown): boolean {
 function isDataSchemaType(value: unknown): boolean {
   if (value === undefined) return true;
   if (typeof value === 'string') return DATA_SCHEMA_TYPES.has(value);
-  return Array.isArray(value) && value.every((entry) => typeof entry === 'string' && DATA_SCHEMA_TYPES.has(entry));
+  return (
+    Array.isArray(value) &&
+    value.every((entry) => typeof entry === 'string' && DATA_SCHEMA_TYPES.has(entry))
+  );
 }
 
 function isOptionalSchemaScalars(value: Record<string, unknown>): boolean {
