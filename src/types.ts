@@ -6,7 +6,7 @@ import type {
   ComponentDataBindingRegistry,
   ScreenDataLoaderDefinition,
 } from './bindings';
-import type { DataSourceRegistry, GeneratedApiRegistry } from './data';
+import type { ApiDefinition, DataSourceRegistry } from './data';
 import type { AppDeployManifest } from './deploy';
 import type { MediaManifest } from './media';
 import type { ScreenRequirements } from './requirements';
@@ -374,6 +374,7 @@ export interface InfraManifest {
   storage?: StorageSpec;
   state?: StateSpec;
   networking?: NetworkingSpec;
+  apis?: readonly ApiDefinition[];
   modules: string[];
   modulesConfig?: Record<string, unknown>;
 }
@@ -407,7 +408,6 @@ export interface AppManifest {
   infra: InfraManifest;
   navigator: NavigatorSpec;
   screens: Record<string, ScreenSpec>;
-  generatedApis?: GeneratedApiRegistry;
   dataSources?: DataSourceRegistry;
   dataBindings?: ComponentDataBindingRegistry;
   settings: AppSettings;
