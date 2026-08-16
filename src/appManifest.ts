@@ -1,7 +1,6 @@
 import { isComponentDataBindingRegistry } from './appManifest/bindings';
 import { isDataSourceRegistry } from './appManifest/dataSources';
 import { isAppDeployManifest } from './appManifest/deploy';
-import { isGeneratedApiRegistry } from './appManifest/generatedApis';
 import { isInfraManifest } from './appManifest/infra';
 import { isMediaManifest } from './appManifest/media';
 import {
@@ -29,7 +28,6 @@ const APP_MANIFEST_KEY_POLICY = {
   infra: 'required',
   navigator: 'required',
   screens: 'required',
-  generatedApis: 'optional',
   dataSources: 'optional',
   dataBindings: 'optional',
   settings: 'required',
@@ -53,6 +51,7 @@ export function isAppManifest(value: unknown): value is AppManifest {
   return (
     isRecord(value) &&
     hasRequiredManifestKeys(value) &&
+    !('generatedApis' in value) &&
     isManifestMetadata(value.metadata) &&
     Array.isArray(value.themes) &&
     value.themes.every(isThemeConfig) &&
@@ -64,7 +63,6 @@ export function isAppManifest(value: unknown): value is AppManifest {
     isInfraManifest(value.infra) &&
     isNavigatorSpec(value.navigator) &&
     isScreenRegistry(value.screens) &&
-    (value.generatedApis === undefined || isGeneratedApiRegistry(value.generatedApis)) &&
     (value.dataSources === undefined || isDataSourceRegistry(value.dataSources)) &&
     (value.dataBindings === undefined || isComponentDataBindingRegistry(value.dataBindings)) &&
     isAppSettings(value.settings)
