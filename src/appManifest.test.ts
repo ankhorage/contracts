@@ -139,7 +139,6 @@ function createManifest(): Record<string, unknown> {
       },
     },
     settings: {
-      apiBaseUrl: 'https://example.test/api',
       localization: { defaultLocale: 'en', locales: ['en', 'de'] },
     },
   };
@@ -212,6 +211,14 @@ describe('AppManifest runtime parsing', () => {
       kind: 'operation',
       operation: { dataSourceId: 'nutrition', operationId: 'products.list' },
     };
+
+    expect(isAppManifest(manifest)).toBe(false);
+  });
+
+  it('rejects settings.apiBaseUrl as removed parallel API state', () => {
+    const manifest = createManifest();
+    const settings = manifest.settings as Record<string, unknown>;
+    settings.apiBaseUrl = 'https://example.test/api';
 
     expect(isAppManifest(manifest)).toBe(false);
   });
