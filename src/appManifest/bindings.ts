@@ -83,7 +83,7 @@ function isBindingCondition(value: unknown): boolean {
 function isBindingOperationRef(value: unknown): boolean {
   return (
     isRecord(value) &&
-    typeof value.dataSourceId === 'string' &&
+    typeof value.apiId === 'string' &&
     typeof value.operationId === 'string' &&
     isOptionalString(value.endpointId)
   );
