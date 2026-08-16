@@ -21,9 +21,7 @@ const DATABASE_SOURCE_KEYS = new Set([
 export function isDataSourceRegistry(value: unknown): boolean {
   return (
     isRecord(value) &&
-    Object.entries(value).every(
-      ([id, source]) => isDatabaseDataSource(source) && source.id === id,
-    )
+    Object.entries(value).every(([id, source]) => isDatabaseDataSource(source) && source.id === id)
   );
 }
 
