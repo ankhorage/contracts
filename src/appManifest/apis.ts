@@ -28,7 +28,9 @@ export function isApiDefinitionList(value: unknown): value is ApiDefinitionList 
 function isApiDefinition(value: unknown): value is ApiDefinition {
   if (!isApiBaseDefinition(value)) return false;
   if (value.origin === 'external' && value.protocol === 'rest') return isExternalRestApi(value);
-  if (value.origin === 'external' && value.protocol === 'graphql') return isExternalGraphQlApi(value);
+  if (value.origin === 'external' && value.protocol === 'graphql') {
+    return isExternalGraphQlApi(value);
+  }
   if (value.origin === 'internal' && value.protocol === 'rest') return isInternalRestApi(value);
   return false;
 }
