@@ -43,6 +43,41 @@ function createManifest(): Record<string, unknown> {
       storage: { provider: 'auto', buckets: ['media'] },
       state: { provider: 'legend', persistence: 'local' },
       networking: { domain: 'example.test', cdn: false },
+      apis: [
+        {
+          id: 'nutrition',
+          origin: 'external',
+          protocol: 'rest',
+          baseUrl: 'https://api.ankhorage.com/v1/nutrition',
+          schemas: {
+            Product: {
+              type: 'object',
+              required: ['id', 'name'],
+              properties: {
+                id: { type: 'string', format: 'uuid' },
+                name: { type: 'string' },
+              },
+            },
+          },
+          endpoints: {
+            products: {
+              id: 'products',
+              kind: 'http',
+              path: '/products',
+              operations: {
+                'products.list': {
+                  id: 'products.list',
+                  endpointId: 'products',
+                  protocol: 'http',
+                  intent: 'read',
+                  method: 'GET',
+                  path: '/products',
+                },
+              },
+            },
+          },
+        },
+      ],
       modules: ['expo-localization'],
       modulesConfig: { localization: { defaultLocale: 'en' } },
     },
@@ -76,8 +111,8 @@ function createManifest(): Record<string, unknown> {
         dataLoaders: [
           {
             kind: 'operation',
-            id: 'load-users',
-            operation: { dataSourceId: 'external', endpointId: 'main', operationId: 'list' },
+            id: 'load-products',
+            operation: { apiId: 'nutrition', endpointId: 'products', operationId: 'products.list' },
           },
         ],
         requires: {
@@ -86,42 +121,12 @@ function createManifest(): Record<string, unknown> {
         },
       },
     },
-    generatedApis: {
-      users: {
-        id: 'users',
-        protocol: 'rest',
-        basePath: '/users',
-        database: { id: 'primary', kind: 'database' },
-        resources: [
-          {
-            id: 'users',
-            path: '/users',
-            collection: {
-              name: 'users',
-              fields: [{ name: 'id', type: 'uuid', required: true }],
-              primaryKey: 'id',
-            },
-            operations: ['list', 'read'],
-          },
-        ],
-      },
-    },
     dataSources: {
-      external: {
-        id: 'external',
-        kind: 'api',
-        origin: 'external',
-        protocol: 'rest',
-        baseUrl: 'https://example.test',
-        endpoints: {
-          main: {
-            id: 'main',
-            kind: 'http',
-            operations: {
-              list: { id: 'list', protocol: 'rest', intent: 'read', path: '/users' },
-            },
-          },
-        },
+      primary: {
+        id: 'primary',
+        kind: 'database',
+        adapter: { id: 'primary-db', kind: 'database' },
+        endpoints: {},
       },
     },
     dataBindings: {
@@ -141,7 +146,7 @@ function createManifest(): Record<string, unknown> {
 }
 
 describe('AppManifest runtime parsing', () => {
-  it('accepts the canonical manifest including optional nested sections', () => {
+  it('accepts the canonical manifest including infra APIs', () => {
     const manifest = createManifest();
 
     expect(isAppManifest(manifest)).toBe(true);
@@ -165,6 +170,50 @@ describe('AppManifest runtime parsing', () => {
       ok: false,
       message: 'Value is not a canonical AppManifest.',
     });
+  });
+
+  it('rejects duplicate canonical API ids', () => {
+    const manifest = createManifest();
+    const infra = manifest.infra as Record<string, unknown>;
+    const apis = infra.apis as Record<string, unknown>[];
+    apis.push(structuredClone(apis[0]));
+
+    expect(isAppManifest(manifest)).toBe(false);
+  });
+
+  it('rejects generatedApis as removed parallel API state', () => {
+    const manifest = createManifest();
+    manifest.generatedApis = {};
+
+    expect(isAppManifest(manifest)).toBe(false);
+  });
+
+  it('rejects API-flavoured dataSources', () => {
+    const manifest = createManifest();
+    manifest.dataSources = {
+      external: {
+        id: 'external',
+        kind: 'api',
+        origin: 'external',
+        protocol: 'rest',
+        baseUrl: 'https://example.test',
+        endpoints: {},
+      },
+    };
+
+    expect(isAppManifest(manifest)).toBe(false);
+  });
+
+  it('rejects old dataSourceId API binding references', () => {
+    const manifest = createManifest();
+    const screens = manifest.screens as Record<string, Record<string, unknown>>;
+    const loaders = screens.home?.dataLoaders as Record<string, unknown>[];
+    loaders[0] = {
+      kind: 'operation',
+      operation: { dataSourceId: 'nutrition', operationId: 'products.list' },
+    };
+
+    expect(isAppManifest(manifest)).toBe(false);
   });
 
   it('rejects transient media URLs at the manifest boundary', () => {
