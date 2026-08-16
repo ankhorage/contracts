@@ -6,7 +6,7 @@ import type {
   ComponentDataBindingRegistry,
   ScreenDataLoaderDefinition,
 } from './bindings';
-import type { ApiDefinition, DataSourceRegistry } from './data';
+import type { ApiDefinitionList, DataSourceRegistry } from './data';
 import type { AppDeployManifest } from './deploy';
 import type { MediaManifest } from './media';
 import type { ScreenRequirements } from './requirements';
@@ -374,13 +374,12 @@ export interface InfraManifest {
   storage?: StorageSpec;
   state?: StateSpec;
   networking?: NetworkingSpec;
-  apis?: readonly ApiDefinition[];
+  apis?: ApiDefinitionList;
   modules: string[];
   modulesConfig?: Record<string, unknown>;
 }
 
 export interface AppSettings {
-  apiBaseUrl?: string;
   localization: {
     defaultLocale: string;
     locales: string[];
