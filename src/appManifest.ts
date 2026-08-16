@@ -10,7 +10,7 @@ import {
   isSplashScreenSpec,
   isThemeConfig,
 } from './appManifest/screens';
-import { isOptionalString, isRecord, isStringArray } from './appManifest/shared';
+import { isRecord, isStringArray } from './appManifest/shared';
 import type { AppManifest } from './types';
 
 export type AppManifestParseResult =
@@ -82,9 +82,9 @@ function isActiveThemeMode(value: unknown): boolean {
 function isAppSettings(value: unknown): boolean {
   return (
     isRecord(value) &&
+    !('apiBaseUrl' in value) &&
     isRecord(value.localization) &&
     typeof value.localization.defaultLocale === 'string' &&
-    isStringArray(value.localization.locales) &&
-    isOptionalString(value.apiBaseUrl)
+    isStringArray(value.localization.locales)
   );
 }
