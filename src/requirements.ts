@@ -14,6 +14,7 @@ export type AnkhoragePermissionName = (typeof ANKHORAGE_PERMISSION_NAMES)[number
 export const ANKHORAGE_CAPABILITY_NAMES = [
   'barcodeScanner',
   'cameraPreview',
+  'ebookReader',
   'mediaPicker',
   'filePicker',
   'location',

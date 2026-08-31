@@ -12,7 +12,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v7.8.0",
+      "value": "v8.0.0",
       "color": "cb3837"
     },
     {
@@ -59,7 +59,10 @@
     }
   ],
   "usage": null,
+  "readmeUsageDescription": null,
   "readmeUsage": [],
+  "readmeCli": null,
+  "readmeConfig": null,
   "config": null,
   "entrypoints": ["src/index.ts"],
   "modules": [
@@ -70,7 +73,6 @@
         "src/appManifest/bindings.ts",
         "src/appManifest/dataSources.ts",
         "src/appManifest/deploy.ts",
-        "src/appManifest/generatedApis.ts",
         "src/appManifest/infra.ts",
         "src/appManifest/media.ts",
         "src/appManifest/screens.ts",
@@ -78,6 +80,12 @@
         "src/types.ts"
       ],
       "exports": ["AppManifestParseResult", "isAppManifest", "parseAppManifest"]
+    },
+    {
+      "path": "src/appManifest/apis.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/appManifest/data.ts", "src/appManifest/shared.ts", "src/data/index.ts"],
+      "exports": ["isApiDefinitionList"]
     },
     {
       "path": "src/appManifest/bindings.ts",
@@ -90,9 +98,20 @@
       ]
     },
     {
-      "path": "src/appManifest/dataSources.ts",
+      "path": "src/appManifest/data.ts",
       "isEntrypoint": false,
       "dependencies": ["src/appManifest/shared.ts"],
+      "exports": [
+        "isAdapterRef",
+        "isCredentialRef",
+        "isDataEndpointRegistry",
+        "isDataSchemaRegistry"
+      ]
+    },
+    {
+      "path": "src/appManifest/dataSources.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/appManifest/data.ts", "src/appManifest/shared.ts"],
       "exports": ["isDataSourceRegistry"]
     },
     {
@@ -102,15 +121,14 @@
       "exports": ["isAppDeployManifest"]
     },
     {
-      "path": "src/appManifest/generatedApis.ts",
-      "isEntrypoint": false,
-      "dependencies": ["src/appManifest/shared.ts"],
-      "exports": ["isGeneratedApiRegistry"]
-    },
-    {
       "path": "src/appManifest/infra.ts",
       "isEntrypoint": false,
-      "dependencies": ["src/appManifest/shared.ts", "src/auth.ts", "src/types.ts"],
+      "dependencies": [
+        "src/appManifest/apis.ts",
+        "src/appManifest/shared.ts",
+        "src/auth.ts",
+        "src/types.ts"
+      ],
       "exports": ["isInfraManifest"]
     },
     {
@@ -259,18 +277,24 @@
     {
       "path": "src/data/apis.ts",
       "isEntrypoint": false,
-      "dependencies": ["src/data/refs.ts", "src/data/values.ts", "src/db.ts"],
+      "dependencies": [
+        "src/data/endpoints.ts",
+        "src/data/ids.ts",
+        "src/data/refs.ts",
+        "src/data/schemas.ts",
+        "src/data/values.ts"
+      ],
       "exports": [
-        "GENERATED_API_CRUD_OPERATIONS",
-        "GeneratedApiAuthRequirement",
-        "GeneratedApiCrudOperation",
-        "GeneratedApiDefinition",
-        "GeneratedApiId",
-        "GeneratedApiOperationPolicyRef",
-        "GeneratedApiRegistry",
-        "GeneratedApiResourceDefinition",
-        "GeneratedApiResourceId",
-        "GeneratedApiSeedRecord"
+        "ApiBaseDefinition",
+        "ApiDefinition",
+        "ApiDefinitionList",
+        "ApiOrigin",
+        "ApiProtocol",
+        "ExternalGraphQlApiDefinition",
+        "ExternalRestApiDefinition",
+        "GraphQlIntrospectionConfig",
+        "InternalRestApiDefinition",
+        "OpenApiDocumentRef"
       ]
     },
     {
@@ -301,6 +325,7 @@
       "dependencies": [],
       "exports": [
         "AdapterId",
+        "ApiId",
         "CredentialId",
         "DataSourceId",
         "EndpointId",
@@ -316,8 +341,10 @@
         "AdapterId",
         "AdapterKind",
         "AdapterRef",
-        "ApiDataSourceBaseConfig",
-        "ApiDataSourceConfig",
+        "ApiBaseDefinition",
+        "ApiDefinition",
+        "ApiDefinitionList",
+        "ApiId",
         "ApiOrigin",
         "ApiProtocol",
         "CredentialId",
@@ -348,7 +375,6 @@
         "DataSchemaRef",
         "DataSchemaRegistry",
         "DataSchemaSlot",
-        "DataSourceBaseConfig",
         "DataSourceConfig",
         "DataSourceDiagnostic",
         "DataSourceDiagnosticResult",
@@ -356,19 +382,10 @@
         "DataSourceKind",
         "DataSourceRegistry",
         "EndpointId",
-        "ExternalGraphQlApiDataSourceConfig",
-        "ExternalRestApiDataSourceConfig",
-        "GENERATED_API_CRUD_OPERATIONS",
-        "GeneratedApiAuthRequirement",
-        "GeneratedApiCrudOperation",
-        "GeneratedApiDefinition",
-        "GeneratedApiId",
-        "GeneratedApiOperationPolicyRef",
-        "GeneratedApiRegistry",
-        "GeneratedApiResourceDefinition",
-        "GeneratedApiResourceId",
-        "GeneratedApiSeedRecord",
-        "GeneratedRestApiDataSourceConfig",
+        "ExternalGraphQlApiDefinition",
+        "ExternalRestApiDefinition",
+        "GraphQlIntrospectionConfig",
+        "InternalRestApiDefinition",
         "OpenApiDocumentRef",
         "OperationId",
         "SchemaId"
@@ -432,19 +449,10 @@
         "src/data/values.ts"
       ],
       "exports": [
-        "ApiDataSourceBaseConfig",
-        "ApiDataSourceConfig",
-        "ApiOrigin",
-        "ApiProtocol",
         "DatabaseDataSourceConfig",
-        "DataSourceBaseConfig",
         "DataSourceConfig",
         "DataSourceKind",
-        "DataSourceRegistry",
-        "ExternalGraphQlApiDataSourceConfig",
-        "ExternalRestApiDataSourceConfig",
-        "GeneratedRestApiDataSourceConfig",
-        "OpenApiDocumentRef"
+        "DataSourceRegistry"
       ]
     },
     {
@@ -530,8 +538,10 @@
         "AnkhoragePermissionName",
         "AnkhPackageMetadata",
         "AnkhProviderReference",
-        "ApiDataSourceBaseConfig",
-        "ApiDataSourceConfig",
+        "ApiBaseDefinition",
+        "ApiDefinition",
+        "ApiDefinitionList",
+        "ApiId",
         "ApiOrigin",
         "ApiProtocol",
         "APP_CATEGORIES",
@@ -683,7 +693,6 @@
         "DataSchemaRef",
         "DataSchemaRegistry",
         "DataSchemaSlot",
-        "DataSourceBaseConfig",
         "DataSourceConfig",
         "DataSourceDiagnostic",
         "DataSourceDiagnosticResult",
@@ -728,29 +737,20 @@
         "EndpointId",
         "EventBinding",
         "EventBindingTarget",
-        "ExternalGraphQlApiDataSourceConfig",
-        "ExternalRestApiDataSourceConfig",
+        "ExternalGraphQlApiDefinition",
+        "ExternalRestApiDefinition",
         "FilterAction",
         "findForbiddenInlineSecretFields",
         "FORBIDDEN_INLINE_SECRET_FIELDS",
         "FormSubmitEventDto",
         "FormSubmitValues",
-        "GENERATED_API_CRUD_OPERATIONS",
-        "GeneratedApiAuthRequirement",
-        "GeneratedApiCrudOperation",
-        "GeneratedApiDefinition",
-        "GeneratedApiId",
-        "GeneratedApiOperationPolicyRef",
-        "GeneratedApiRegistry",
-        "GeneratedApiResourceDefinition",
-        "GeneratedApiResourceId",
-        "GeneratedApiSeedRecord",
-        "GeneratedRestApiDataSourceConfig",
+        "GraphQlIntrospectionConfig",
         "IconSpec",
         "ImageAssetSource",
         "ImageMetadata",
         "InfraManifest",
         "InfraSecretStoreSpec",
+        "InternalRestApiDefinition",
         "isAppDeployManifest",
         "isAppManifest",
         "isMediaAssetReference",
@@ -1237,7 +1237,7 @@
       "modulePath": "src/data/ids.ts",
       "sourceLocation": {
         "filePath": "src/data/ids.ts",
-        "line": 6,
+        "line": 7,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1540,7 +1540,7 @@
       "modulePath": "src/requirements.ts",
       "sourceLocation": {
         "filePath": "src/requirements.ts",
-        "line": 24,
+        "line": 25,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1626,15 +1626,15 @@
       "structuredRows": []
     },
     {
-      "name": "ApiDataSourceBaseConfig",
+      "name": "ApiBaseDefinition",
       "description": null,
       "isReadme": false,
       "examples": [],
       "kind": "type",
-      "modulePath": "src/data/sources.ts",
+      "modulePath": "src/data/apis.ts",
       "sourceLocation": {
-        "filePath": "src/data/sources.ts",
-        "line": 22,
+        "filePath": "src/data/apis.ts",
+        "line": 10,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1665,7 +1665,7 @@
         {
           "name": "endpoints",
           "kind": "property",
-          "type": "Readonly<Record<string, import(\"/Users/a_rtiphishl_e/git/contracts/src/index\").DataEndpointConfig>>",
+          "type": "Readonly<Record<string, import(\"./src/index\").DataEndpointConfig>>",
           "required": true,
           "description": null
         },
@@ -1673,13 +1673,6 @@
           "name": "id",
           "kind": "property",
           "type": "string",
-          "required": true,
-          "description": null
-        },
-        {
-          "name": "kind",
-          "kind": "property",
-          "type": "\"api\"",
           "required": true,
           "description": null
         },
@@ -1714,7 +1707,7 @@
         {
           "name": "schemas",
           "kind": "property",
-          "type": "Readonly<Record<string, import(\"/Users/a_rtiphishl_e/git/contracts/src/index\").DataSchema>> | undefined",
+          "type": "Readonly<Record<string, import(\"./src/index\").DataSchema>> | undefined",
           "required": false,
           "description": null
         }
@@ -1722,15 +1715,51 @@
       "structuredRows": []
     },
     {
-      "name": "ApiDataSourceConfig",
+      "name": "ApiDefinition",
       "description": null,
       "isReadme": false,
       "examples": [],
       "kind": "unknown",
-      "modulePath": "src/data/sources.ts",
+      "modulePath": "src/data/apis.ts",
       "sourceLocation": {
-        "filePath": "src/data/sources.ts",
-        "line": 58,
+        "filePath": "src/data/apis.ts",
+        "line": 60,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "ApiDefinitionList",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/data/apis.ts",
+      "sourceLocation": {
+        "filePath": "src/data/apis.ts",
+        "line": 65,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "ApiId",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/data/ids.ts",
+      "sourceLocation": {
+        "filePath": "src/data/ids.ts",
+        "line": 1,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1745,10 +1774,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "unknown",
-      "modulePath": "src/data/sources.ts",
+      "modulePath": "src/data/apis.ts",
       "sourceLocation": {
-        "filePath": "src/data/sources.ts",
-        "line": 8,
+        "filePath": "src/data/apis.ts",
+        "line": 7,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1763,10 +1792,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "unknown",
-      "modulePath": "src/data/sources.ts",
+      "modulePath": "src/data/apis.ts",
       "sourceLocation": {
-        "filePath": "src/data/sources.ts",
-        "line": 9,
+        "filePath": "src/data/apis.ts",
+        "line": 8,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2131,8 +2160,7 @@
         "AppDeployManifest",
         "AppSettings",
         "ComponentDataBinding",
-        "DataSourceConfig",
-        "GeneratedApiDefinition",
+        "DatabaseDataSourceConfig",
         "InfraManifest",
         "MediaManifest",
         "NavigatorSpec",
@@ -2159,14 +2187,14 @@
         {
           "name": "dataBindings",
           "kind": "property",
-          "type": "Readonly<Record<string, import(\"/Users/a_rtiphishl_e/git/contracts/src/bindings\").ComponentDataBinding>> | undefined",
+          "type": "Readonly<Record<string, import(\"./src/bindings\").ComponentDataBinding>> | undefined",
           "required": false,
           "description": null
         },
         {
           "name": "dataSources",
           "kind": "property",
-          "type": "Readonly<Record<string, import(\"/Users/a_rtiphishl_e/git/contracts/src/index\").DataSourceConfig>> | undefined",
+          "type": "Readonly<Record<string, import(\"./src/index\").DatabaseDataSourceConfig>> | undefined",
           "required": false,
           "description": null
         },
@@ -2174,13 +2202,6 @@
           "name": "deploy",
           "kind": "property",
           "type": "AppDeployManifest | undefined",
-          "required": false,
-          "description": null
-        },
-        {
-          "name": "generatedApis",
-          "kind": "property",
-          "type": "Readonly<Record<string, import(\"/Users/a_rtiphishl_e/git/contracts/src/index\").GeneratedApiDefinition>> | undefined",
           "required": false,
           "description": null
         },
@@ -2252,7 +2273,7 @@
       "modulePath": "src/appManifest.ts",
       "sourceLocation": {
         "filePath": "src/appManifest.ts",
-        "line": 17,
+        "line": 16,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2270,20 +2291,13 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 381,
+        "line": 382,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
-        {
-          "name": "apiBaseUrl",
-          "kind": "property",
-          "type": "string | undefined",
-          "required": false,
-          "description": null
-        },
         {
           "name": "localization",
           "kind": "property",
@@ -3840,7 +3854,7 @@
         {
           "name": "createStrategy",
           "kind": "property",
-          "type": "\"app\" | \"api\" | \"trigger\" | undefined",
+          "type": "\"app\" | \"trigger\" | \"api\" | undefined",
           "required": false,
           "description": null
         },
@@ -4717,7 +4731,7 @@
       "signatures": [],
       "members": [
         {
-          "name": "dataSourceId",
+          "name": "apiId",
           "kind": "property",
           "type": "string",
           "required": true,
@@ -5097,7 +5111,7 @@
       "modulePath": "src/requirements.ts",
       "sourceLocation": {
         "filePath": "src/requirements.ts",
-        "line": 39,
+        "line": 40,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -5181,7 +5195,7 @@
       "modulePath": "src/data/ids.ts",
       "sourceLocation": {
         "filePath": "src/data/ids.ts",
-        "line": 5,
+        "line": 6,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -5354,7 +5368,7 @@
       "modulePath": "src/data/sources.ts",
       "sourceLocation": {
         "filePath": "src/data/sources.ts",
-        "line": 63,
+        "line": 9,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -5391,7 +5405,7 @@
         {
           "name": "endpoints",
           "kind": "property",
-          "type": "Readonly<Record<string, import(\"/Users/a_rtiphishl_e/git/contracts/src/index\").DataEndpointConfig>>",
+          "type": "Readonly<Record<string, import(\"./src/index\").DataEndpointConfig>>",
           "required": true,
           "description": null
         },
@@ -5426,7 +5440,7 @@
         {
           "name": "schemas",
           "kind": "property",
-          "type": "Readonly<Record<string, import(\"/Users/a_rtiphishl_e/git/contracts/src/index\").DataSchema>> | undefined",
+          "type": "Readonly<Record<string, import(\"./src/index\").DataSchema>> | undefined",
           "required": false,
           "description": null
         }
@@ -6401,87 +6415,6 @@
       "structuredRows": []
     },
     {
-      "name": "DataSourceBaseConfig",
-      "description": null,
-      "isReadme": false,
-      "examples": [],
-      "kind": "type",
-      "modulePath": "src/data/sources.ts",
-      "sourceLocation": {
-        "filePath": "src/data/sources.ts",
-        "line": 11,
-        "column": 1
-      },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": [
-        "CredentialRef",
-        "DataContractValue",
-        "DataEndpointConfig",
-        "DataSchema",
-        "DataSourceKind"
-      ],
-      "signatures": [],
-      "members": [
-        {
-          "name": "credential",
-          "kind": "property",
-          "type": "CredentialRef | undefined",
-          "required": false,
-          "description": null
-        },
-        {
-          "name": "description",
-          "kind": "property",
-          "type": "string | undefined",
-          "required": false,
-          "description": null
-        },
-        {
-          "name": "endpoints",
-          "kind": "property",
-          "type": "Readonly<Record<string, import(\"/Users/a_rtiphishl_e/git/contracts/src/index\").DataEndpointConfig>>",
-          "required": true,
-          "description": null
-        },
-        {
-          "name": "id",
-          "kind": "property",
-          "type": "string",
-          "required": true,
-          "description": null
-        },
-        {
-          "name": "kind",
-          "kind": "property",
-          "type": "DataSourceKind",
-          "required": true,
-          "description": null
-        },
-        {
-          "name": "metadata",
-          "kind": "property",
-          "type": "DataContractValue | undefined",
-          "required": false,
-          "description": null
-        },
-        {
-          "name": "name",
-          "kind": "property",
-          "type": "string | undefined",
-          "required": false,
-          "description": null
-        },
-        {
-          "name": "schemas",
-          "kind": "property",
-          "type": "Readonly<Record<string, import(\"/Users/a_rtiphishl_e/git/contracts/src/index\").DataSchema>> | undefined",
-          "required": false,
-          "description": null
-        }
-      ],
-      "structuredRows": []
-    },
-    {
       "name": "DataSourceConfig",
       "description": null,
       "isReadme": false,
@@ -6490,7 +6423,7 @@
       "modulePath": "src/data/sources.ts",
       "sourceLocation": {
         "filePath": "src/data/sources.ts",
-        "line": 68,
+        "line": 21,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -6508,13 +6441,20 @@
       "modulePath": "src/data/diagnostics.ts",
       "sourceLocation": {
         "filePath": "src/data/diagnostics.ts",
-        "line": 21,
+        "line": 22,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
       "relatedSymbols": ["DataDiagnosticCode", "DataDiagnosticSeverity"],
       "signatures": [],
       "members": [
+        {
+          "name": "apiId",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
         {
           "name": "code",
           "kind": "property",
@@ -6583,7 +6523,7 @@
       "modulePath": "src/data/diagnostics.ts",
       "sourceLocation": {
         "filePath": "src/data/diagnostics.ts",
-        "line": 32,
+        "line": 34,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -6601,7 +6541,7 @@
       "modulePath": "src/data/ids.ts",
       "sourceLocation": {
         "filePath": "src/data/ids.ts",
-        "line": 1,
+        "line": 2,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -6637,7 +6577,7 @@
       "modulePath": "src/data/sources.ts",
       "sourceLocation": {
         "filePath": "src/data/sources.ts",
-        "line": 70,
+        "line": 22,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -7852,7 +7792,7 @@
       "modulePath": "src/data/ids.ts",
       "sourceLocation": {
         "filePath": "src/data/ids.ts",
-        "line": 2,
+        "line": 3,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -7920,19 +7860,25 @@
       "structuredRows": []
     },
     {
-      "name": "ExternalGraphQlApiDataSourceConfig",
+      "name": "ExternalGraphQlApiDefinition",
       "description": null,
       "isReadme": false,
       "examples": [],
       "kind": "type",
-      "modulePath": "src/data/sources.ts",
+      "modulePath": "src/data/apis.ts",
       "sourceLocation": {
-        "filePath": "src/data/sources.ts",
-        "line": 41,
+        "filePath": "src/data/apis.ts",
+        "line": 40,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["CredentialRef", "DataContractValue", "DataEndpointConfig", "DataSchema"],
+      "relatedSymbols": [
+        "CredentialRef",
+        "DataContractValue",
+        "DataEndpointConfig",
+        "DataSchema",
+        "GraphQlIntrospectionConfig"
+      ],
       "signatures": [],
       "members": [
         {
@@ -7952,7 +7898,7 @@
         {
           "name": "endpoints",
           "kind": "property",
-          "type": "Readonly<Record<string, import(\"/Users/a_rtiphishl_e/git/contracts/src/index\").DataEndpointConfig>>",
+          "type": "Readonly<Record<string, import(\"./src/index\").DataEndpointConfig>>",
           "required": true,
           "description": null
         },
@@ -7973,15 +7919,8 @@
         {
           "name": "introspection",
           "kind": "property",
-          "type": "{ readonly enabled: boolean; readonly schemaVersion?: string; } | undefined",
+          "type": "GraphQlIntrospectionConfig | undefined",
           "required": false,
-          "description": null
-        },
-        {
-          "name": "kind",
-          "kind": "property",
-          "type": "\"api\"",
-          "required": true,
           "description": null
         },
         {
@@ -8015,7 +7954,7 @@
         {
           "name": "schemas",
           "kind": "property",
-          "type": "Readonly<Record<string, import(\"/Users/a_rtiphishl_e/git/contracts/src/index\").DataSchema>> | undefined",
+          "type": "Readonly<Record<string, import(\"./src/index\").DataSchema>> | undefined",
           "required": false,
           "description": null
         }
@@ -8023,15 +7962,15 @@
       "structuredRows": []
     },
     {
-      "name": "ExternalRestApiDataSourceConfig",
+      "name": "ExternalRestApiDefinition",
       "description": null,
       "isReadme": false,
       "examples": [],
       "kind": "type",
-      "modulePath": "src/data/sources.ts",
+      "modulePath": "src/data/apis.ts",
       "sourceLocation": {
-        "filePath": "src/data/sources.ts",
-        "line": 34,
+        "filePath": "src/data/apis.ts",
+        "line": 28,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8068,7 +8007,7 @@
         {
           "name": "endpoints",
           "kind": "property",
-          "type": "Readonly<Record<string, import(\"/Users/a_rtiphishl_e/git/contracts/src/index\").DataEndpointConfig>>",
+          "type": "Readonly<Record<string, import(\"./src/index\").DataEndpointConfig>>",
           "required": true,
           "description": null
         },
@@ -8076,13 +8015,6 @@
           "name": "id",
           "kind": "property",
           "type": "string",
-          "required": true,
-          "description": null
-        },
-        {
-          "name": "kind",
-          "kind": "property",
-          "type": "\"api\"",
           "required": true,
           "description": null
         },
@@ -8124,7 +8056,7 @@
         {
           "name": "schemas",
           "kind": "property",
-          "type": "Readonly<Record<string, import(\"/Users/a_rtiphishl_e/git/contracts/src/index\").DataSchema>> | undefined",
+          "type": "Readonly<Record<string, import(\"./src/index\").DataSchema>> | undefined",
           "required": false,
           "description": null
         }
@@ -8251,25 +8183,7 @@
       "structuredRows": []
     },
     {
-      "name": "GENERATED_API_CRUD_OPERATIONS",
-      "description": null,
-      "isReadme": false,
-      "examples": [],
-      "kind": "value",
-      "modulePath": "src/data/apis.ts",
-      "sourceLocation": {
-        "filePath": "src/data/apis.ts",
-        "line": 5,
-        "column": 14
-      },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": [],
-      "signatures": [],
-      "members": [],
-      "structuredRows": []
-    },
-    {
-      "name": "GeneratedApiAuthRequirement",
+      "name": "GraphQlIntrospectionConfig",
       "description": null,
       "isReadme": false,
       "examples": [],
@@ -8277,184 +8191,7 @@
       "modulePath": "src/data/apis.ts",
       "sourceLocation": {
         "filePath": "src/data/apis.ts",
-        "line": 18,
-        "column": 1
-      },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["DataContractValue"],
-      "signatures": [],
-      "members": [
-        {
-          "name": "metadata",
-          "kind": "property",
-          "type": "DataContractValue | undefined",
-          "required": false,
-          "description": null
-        },
-        {
-          "name": "permissions",
-          "kind": "property",
-          "type": "readonly string[] | undefined",
-          "required": false,
-          "description": null
-        },
-        {
-          "name": "policy",
-          "kind": "property",
-          "type": "string | undefined",
-          "required": false,
-          "description": null
-        },
-        {
-          "name": "required",
-          "kind": "property",
-          "type": "boolean | undefined",
-          "required": false,
-          "description": null
-        },
-        {
-          "name": "roles",
-          "kind": "property",
-          "type": "readonly string[] | undefined",
-          "required": false,
-          "description": null
-        }
-      ],
-      "structuredRows": []
-    },
-    {
-      "name": "GeneratedApiCrudOperation",
-      "description": null,
-      "isReadme": false,
-      "examples": [],
-      "kind": "unknown",
-      "modulePath": "src/data/apis.ts",
-      "sourceLocation": {
-        "filePath": "src/data/apis.ts",
-        "line": 12,
-        "column": 1
-      },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": [],
-      "signatures": [],
-      "members": [],
-      "structuredRows": []
-    },
-    {
-      "name": "GeneratedApiDefinition",
-      "description": null,
-      "isReadme": false,
-      "examples": [],
-      "kind": "type",
-      "modulePath": "src/data/apis.ts",
-      "sourceLocation": {
-        "filePath": "src/data/apis.ts",
-        "line": 50,
-        "column": 1
-      },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": [
-        "DatabaseAdapterRef",
-        "DataContractValue",
-        "GeneratedApiAuthRequirement",
-        "GeneratedApiResourceDefinition"
-      ],
-      "signatures": [],
-      "members": [
-        {
-          "name": "auth",
-          "kind": "property",
-          "type": "GeneratedApiAuthRequirement | undefined",
-          "required": false,
-          "description": null
-        },
-        {
-          "name": "basePath",
-          "kind": "property",
-          "type": "string",
-          "required": true,
-          "description": null
-        },
-        {
-          "name": "database",
-          "kind": "property",
-          "type": "DatabaseAdapterRef",
-          "required": true,
-          "description": null
-        },
-        {
-          "name": "description",
-          "kind": "property",
-          "type": "string | undefined",
-          "required": false,
-          "description": null
-        },
-        {
-          "name": "id",
-          "kind": "property",
-          "type": "string",
-          "required": true,
-          "description": null
-        },
-        {
-          "name": "metadata",
-          "kind": "property",
-          "type": "DataContractValue | undefined",
-          "required": false,
-          "description": null
-        },
-        {
-          "name": "name",
-          "kind": "property",
-          "type": "string | undefined",
-          "required": false,
-          "description": null
-        },
-        {
-          "name": "protocol",
-          "kind": "property",
-          "type": "\"rest\"",
-          "required": true,
-          "description": null
-        },
-        {
-          "name": "resources",
-          "kind": "property",
-          "type": "readonly GeneratedApiResourceDefinition[]",
-          "required": true,
-          "description": null
-        }
-      ],
-      "structuredRows": []
-    },
-    {
-      "name": "GeneratedApiId",
-      "description": null,
-      "isReadme": false,
-      "examples": [],
-      "kind": "unknown",
-      "modulePath": "src/data/apis.ts",
-      "sourceLocation": {
-        "filePath": "src/data/apis.ts",
-        "line": 14,
-        "column": 1
-      },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": [],
-      "signatures": [],
-      "members": [],
-      "structuredRows": []
-    },
-    {
-      "name": "GeneratedApiOperationPolicyRef",
-      "description": null,
-      "isReadme": false,
-      "examples": [],
-      "kind": "type",
-      "modulePath": "src/data/apis.ts",
-      "sourceLocation": {
-        "filePath": "src/data/apis.ts",
-        "line": 26,
+        "line": 35,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8462,265 +8199,16 @@
       "signatures": [],
       "members": [
         {
-          "name": "id",
+          "name": "enabled",
           "kind": "property",
-          "type": "string",
+          "type": "boolean",
           "required": true,
           "description": null
         },
         {
-          "name": "operation",
-          "kind": "property",
-          "type": "\"list\" | \"read\" | \"create\" | \"update\" | \"delete\" | undefined",
-          "required": false,
-          "description": null
-        }
-      ],
-      "structuredRows": []
-    },
-    {
-      "name": "GeneratedApiRegistry",
-      "description": null,
-      "isReadme": false,
-      "examples": [],
-      "kind": "unknown",
-      "modulePath": "src/data/apis.ts",
-      "sourceLocation": {
-        "filePath": "src/data/apis.ts",
-        "line": 62,
-        "column": 1
-      },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": [],
-      "signatures": [],
-      "members": [],
-      "structuredRows": []
-    },
-    {
-      "name": "GeneratedApiResourceDefinition",
-      "description": null,
-      "isReadme": false,
-      "examples": [],
-      "kind": "type",
-      "modulePath": "src/data/apis.ts",
-      "sourceLocation": {
-        "filePath": "src/data/apis.ts",
-        "line": 31,
-        "column": 1
-      },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": [
-        "DataContractValue",
-        "DbCollectionDefinition",
-        "GeneratedApiOperationPolicyRef"
-      ],
-      "signatures": [],
-      "members": [
-        {
-          "name": "collection",
-          "kind": "property",
-          "type": "DbCollectionDefinition",
-          "required": true,
-          "description": null
-        },
-        {
-          "name": "description",
+          "name": "schemaVersion",
           "kind": "property",
           "type": "string | undefined",
-          "required": false,
-          "description": null
-        },
-        {
-          "name": "id",
-          "kind": "property",
-          "type": "string",
-          "required": true,
-          "description": null
-        },
-        {
-          "name": "metadata",
-          "kind": "property",
-          "type": "DataContractValue | undefined",
-          "required": false,
-          "description": null
-        },
-        {
-          "name": "name",
-          "kind": "property",
-          "type": "string | undefined",
-          "required": false,
-          "description": null
-        },
-        {
-          "name": "operations",
-          "kind": "property",
-          "type": "readonly (\"list\" | \"read\" | \"create\" | \"update\" | \"delete\")[]",
-          "required": true,
-          "description": null
-        },
-        {
-          "name": "path",
-          "kind": "property",
-          "type": "string",
-          "required": true,
-          "description": null
-        },
-        {
-          "name": "policies",
-          "kind": "property",
-          "type": "readonly GeneratedApiOperationPolicyRef[] | undefined",
-          "required": false,
-          "description": null
-        },
-        {
-          "name": "seed",
-          "kind": "property",
-          "type": "readonly Readonly<Record<string, DataContractValue>>[] | undefined",
-          "required": false,
-          "description": null
-        }
-      ],
-      "structuredRows": []
-    },
-    {
-      "name": "GeneratedApiResourceId",
-      "description": null,
-      "isReadme": false,
-      "examples": [],
-      "kind": "unknown",
-      "modulePath": "src/data/apis.ts",
-      "sourceLocation": {
-        "filePath": "src/data/apis.ts",
-        "line": 15,
-        "column": 1
-      },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": [],
-      "signatures": [],
-      "members": [],
-      "structuredRows": []
-    },
-    {
-      "name": "GeneratedApiSeedRecord",
-      "description": null,
-      "isReadme": false,
-      "examples": [],
-      "kind": "unknown",
-      "modulePath": "src/data/apis.ts",
-      "sourceLocation": {
-        "filePath": "src/data/apis.ts",
-        "line": 16,
-        "column": 1
-      },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": [],
-      "signatures": [],
-      "members": [],
-      "structuredRows": []
-    },
-    {
-      "name": "GeneratedRestApiDataSourceConfig",
-      "description": null,
-      "isReadme": false,
-      "examples": [],
-      "kind": "type",
-      "modulePath": "src/data/sources.ts",
-      "sourceLocation": {
-        "filePath": "src/data/sources.ts",
-        "line": 51,
-        "column": 1
-      },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": [
-        "CredentialRef",
-        "DatabaseAdapterRef",
-        "DataContractValue",
-        "DataEndpointConfig",
-        "DataSchema"
-      ],
-      "signatures": [],
-      "members": [
-        {
-          "name": "adapter",
-          "kind": "property",
-          "type": "DatabaseAdapterRef",
-          "required": true,
-          "description": null
-        },
-        {
-          "name": "credential",
-          "kind": "property",
-          "type": "CredentialRef | undefined",
-          "required": false,
-          "description": null
-        },
-        {
-          "name": "description",
-          "kind": "property",
-          "type": "string | undefined",
-          "required": false,
-          "description": null
-        },
-        {
-          "name": "endpoints",
-          "kind": "property",
-          "type": "Readonly<Record<string, import(\"/Users/a_rtiphishl_e/git/contracts/src/index\").DataEndpointConfig>>",
-          "required": true,
-          "description": null
-        },
-        {
-          "name": "generatedApiId",
-          "kind": "property",
-          "type": "string",
-          "required": true,
-          "description": null
-        },
-        {
-          "name": "id",
-          "kind": "property",
-          "type": "string",
-          "required": true,
-          "description": null
-        },
-        {
-          "name": "kind",
-          "kind": "property",
-          "type": "\"api\"",
-          "required": true,
-          "description": null
-        },
-        {
-          "name": "metadata",
-          "kind": "property",
-          "type": "DataContractValue | undefined",
-          "required": false,
-          "description": null
-        },
-        {
-          "name": "name",
-          "kind": "property",
-          "type": "string | undefined",
-          "required": false,
-          "description": null
-        },
-        {
-          "name": "origin",
-          "kind": "property",
-          "type": "\"generated\"",
-          "required": true,
-          "description": null
-        },
-        {
-          "name": "protocol",
-          "kind": "property",
-          "type": "\"rest\"",
-          "required": true,
-          "description": null
-        },
-        {
-          "name": "schemas",
-          "kind": "property",
-          "type": "Readonly<Record<string, import(\"/Users/a_rtiphishl_e/git/contracts/src/index\").DataSchema>> | undefined",
           "required": false,
           "description": null
         }
@@ -8846,6 +8334,7 @@
       },
       "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
+        "ApiDefinitionList",
         "AuthSpec",
         "DatabaseSpec",
         "DeploymentSpec",
@@ -8856,6 +8345,13 @@
       ],
       "signatures": [],
       "members": [
+        {
+          "name": "apis",
+          "kind": "property",
+          "type": "ApiDefinitionList | undefined",
+          "required": false,
+          "description": null
+        },
         {
           "name": "auth",
           "kind": "property",
@@ -8949,6 +8445,95 @@
       "structuredRows": []
     },
     {
+      "name": "InternalRestApiDefinition",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/data/apis.ts",
+      "sourceLocation": {
+        "filePath": "src/data/apis.ts",
+        "line": 54,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["CredentialRef", "DataContractValue", "DataEndpointConfig", "DataSchema"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "basePath",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "credential",
+          "kind": "property",
+          "type": "CredentialRef | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "description",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "endpoints",
+          "kind": "property",
+          "type": "Readonly<Record<string, import(\"./src/index\").DataEndpointConfig>>",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "id",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "metadata",
+          "kind": "property",
+          "type": "DataContractValue | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "name",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "origin",
+          "kind": "property",
+          "type": "\"internal\"",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "protocol",
+          "kind": "property",
+          "type": "\"rest\"",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "schemas",
+          "kind": "property",
+          "type": "Readonly<Record<string, import(\"./src/index\").DataSchema>> | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
       "name": "isAppDeployManifest",
       "description": null,
       "isReadme": false,
@@ -8989,7 +8574,7 @@
       "modulePath": "src/appManifest.ts",
       "sourceLocation": {
         "filePath": "src/appManifest.ts",
-        "line": 52,
+        "line": 50,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9894,10 +9479,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "type",
-      "modulePath": "src/data/sources.ts",
+      "modulePath": "src/data/apis.ts",
       "sourceLocation": {
-        "filePath": "src/data/sources.ts",
-        "line": 28,
+        "filePath": "src/data/apis.ts",
+        "line": 22,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9937,7 +9522,7 @@
       "modulePath": "src/data/ids.ts",
       "sourceLocation": {
         "filePath": "src/data/ids.ts",
-        "line": 3,
+        "line": 4,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10002,7 +9587,7 @@
       "modulePath": "src/appManifest.ts",
       "sourceLocation": {
         "filePath": "src/appManifest.ts",
-        "line": 45,
+        "line": 43,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10367,7 +9952,7 @@
       "modulePath": "src/data/ids.ts",
       "sourceLocation": {
         "filePath": "src/data/ids.ts",
-        "line": 4,
+        "line": 5,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10385,7 +9970,7 @@
       "modulePath": "src/requirements.ts",
       "sourceLocation": {
         "filePath": "src/requirements.ts",
-        "line": 30,
+        "line": 31,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10395,7 +9980,7 @@
         {
           "name": "capability",
           "kind": "property",
-          "type": "\"notifications\" | \"clipboard\" | \"barcodeScanner\" | \"cameraPreview\" | \"mediaPicker\" | \"filePicker\" | \"location\"",
+          "type": "\"notifications\" | \"clipboard\" | \"barcodeScanner\" | \"cameraPreview\" | \"ebookReader\" | \"mediaPicker\" | \"filePicker\" | \"location\"",
           "required": true,
           "description": null
         }
@@ -10429,7 +10014,7 @@
       "modulePath": "src/requirements.ts",
       "sourceLocation": {
         "filePath": "src/requirements.ts",
-        "line": 26,
+        "line": 27,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10455,7 +10040,7 @@
       "modulePath": "src/requirements.ts",
       "sourceLocation": {
         "filePath": "src/requirements.ts",
-        "line": 34,
+        "line": 35,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10498,7 +10083,7 @@
         {
           "name": "dataLoaders",
           "kind": "property",
-          "type": "readonly import(\"/Users/a_rtiphishl_e/git/contracts/src/bindings\").OperationScreenDataLoaderDefinition[] | undefined",
+          "type": "readonly import(\"./src/bindings\").OperationScreenDataLoaderDefinition[] | undefined",
           "required": false,
           "description": null
         },
@@ -14410,7 +13995,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest.ts",
-        "line": 45,
+        "line": 43,
         "column": 1
       }
     },
@@ -14419,7 +14004,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest.ts",
-        "line": 52,
+        "line": 50,
         "column": 1
       }
     },
@@ -14428,7 +14013,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest.ts",
-        "line": 74,
+        "line": 72,
         "column": 1
       }
     },
@@ -14437,7 +14022,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest.ts",
-        "line": 80,
+        "line": 78,
         "column": 1
       }
     },
@@ -14446,7 +14031,97 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest.ts",
-        "line": 84,
+        "line": 82,
+        "column": 1
+      }
+    },
+    {
+      "name": "isApiDefinitionList",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/apis.ts",
+        "line": 22,
+        "column": 1
+      }
+    },
+    {
+      "name": "isApiDefinition",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/apis.ts",
+        "line": 28,
+        "column": 1
+      }
+    },
+    {
+      "name": "isApiBaseDefinition",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/apis.ts",
+        "line": 38,
+        "column": 1
+      }
+    },
+    {
+      "name": "isExternalRestApi",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/apis.ts",
+        "line": 53,
+        "column": 1
+      }
+    },
+    {
+      "name": "isExternalGraphQlApi",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/apis.ts",
+        "line": 61,
+        "column": 1
+      }
+    },
+    {
+      "name": "isInternalRestApi",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/apis.ts",
+        "line": 69,
+        "column": 1
+      }
+    },
+    {
+      "name": "isOpenApiDocumentRef",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/apis.ts",
+        "line": 73,
+        "column": 1
+      }
+    },
+    {
+      "name": "isGraphQlIntrospection",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/apis.ts",
+        "line": 83,
+        "column": 1
+      }
+    },
+    {
+      "name": "isNonEmptyString",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/apis.ts",
+        "line": 92,
+        "column": 1
+      }
+    },
+    {
+      "name": "hasOnlyKeys",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/apis.ts",
+        "line": 96,
         "column": 1
       }
     },
@@ -14577,29 +14252,155 @@
       }
     },
     {
+      "name": "isDataEndpointRegistry",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/data.ts",
+        "line": 21,
+        "column": 1
+      }
+    },
+    {
+      "name": "isDataSchemaRegistry",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/data.ts",
+        "line": 25,
+        "column": 1
+      }
+    },
+    {
+      "name": "isCredentialRef",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/data.ts",
+        "line": 29,
+        "column": 1
+      }
+    },
+    {
+      "name": "isAdapterRef",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/data.ts",
+        "line": 39,
+        "column": 1
+      }
+    },
+    {
+      "name": "isDataEndpointConfig",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/data.ts",
+        "line": 50,
+        "column": 1
+      }
+    },
+    {
+      "name": "isDataOperationConfig",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/data.ts",
+        "line": 66,
+        "column": 1
+      }
+    },
+    {
+      "name": "isDataOperationRequest",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/data.ts",
+        "line": 86,
+        "column": 1
+      }
+    },
+    {
+      "name": "isDataOperationParameter",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/data.ts",
+        "line": 96,
+        "column": 1
+      }
+    },
+    {
+      "name": "isDataOperationResponse",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/data.ts",
+        "line": 109,
+        "column": 1
+      }
+    },
+    {
+      "name": "isDataSchemaSlot",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/data.ts",
+        "line": 121,
+        "column": 1
+      }
+    },
+    {
+      "name": "isDataSchema",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/data.ts",
+        "line": 128,
+        "column": 1
+      }
+    },
+    {
+      "name": "isDataSchemaType",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/data.ts",
+        "line": 135,
+        "column": 1
+      }
+    },
+    {
+      "name": "isOptionalSchemaScalars",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/data.ts",
+        "line": 144,
+        "column": 1
+      }
+    },
+    {
+      "name": "isOptionalSchemaCollections",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/data.ts",
+        "line": 158,
+        "column": 1
+      }
+    },
+    {
+      "name": "isOptionalSchemaComposition",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/data.ts",
+        "line": 170,
+        "column": 1
+      }
+    },
+    {
+      "name": "isDataSchemaRef",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/data.ts",
+        "line": 177,
+        "column": 1
+      }
+    },
+    {
       "name": "isDataSourceRegistry",
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest/dataSources.ts",
-        "line": 3,
-        "column": 1
-      }
-    },
-    {
-      "name": "isDataSourceConfig",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/appManifest/dataSources.ts",
-        "line": 7,
-        "column": 1
-      }
-    },
-    {
-      "name": "hasBaseDataSourceShape",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/appManifest/dataSources.ts",
-        "line": 15,
+        "line": 21,
         "column": 1
       }
     },
@@ -14608,124 +14409,16 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest/dataSources.ts",
-        "line": 29,
+        "line": 28,
         "column": 1
       }
     },
     {
-      "name": "isGeneratedDataSource",
+      "name": "hasOnlyKeys",
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest/dataSources.ts",
-        "line": 35,
-        "column": 1
-      }
-    },
-    {
-      "name": "isExternalDataSource",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/appManifest/dataSources.ts",
-        "line": 45,
-        "column": 1
-      }
-    },
-    {
-      "name": "isOpenApiDocumentRef",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/appManifest/dataSources.ts",
-        "line": 63,
-        "column": 1
-      }
-    },
-    {
-      "name": "isGraphQlIntrospection",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/appManifest/dataSources.ts",
-        "line": 72,
-        "column": 1
-      }
-    },
-    {
-      "name": "isDataEndpointRegistry",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/appManifest/dataSources.ts",
-        "line": 78,
-        "column": 1
-      }
-    },
-    {
-      "name": "isDataEndpointConfig",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/appManifest/dataSources.ts",
-        "line": 82,
-        "column": 1
-      }
-    },
-    {
-      "name": "isDataOperationConfig",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/appManifest/dataSources.ts",
-        "line": 98,
-        "column": 1
-      }
-    },
-    {
-      "name": "isDataOperationRequest",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/appManifest/dataSources.ts",
-        "line": 118,
-        "column": 1
-      }
-    },
-    {
-      "name": "isDataOperationParameter",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/appManifest/dataSources.ts",
-        "line": 127,
-        "column": 1
-      }
-    },
-    {
-      "name": "isDataOperationResponse",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/appManifest/dataSources.ts",
-        "line": 140,
-        "column": 1
-      }
-    },
-    {
-      "name": "isDataSchemaSlot",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/appManifest/dataSources.ts",
-        "line": 152,
-        "column": 1
-      }
-    },
-    {
-      "name": "isCredentialRef",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/appManifest/dataSources.ts",
-        "line": 156,
-        "column": 1
-      }
-    },
-    {
-      "name": "isAdapterRef",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/appManifest/dataSources.ts",
-        "line": 166,
+        "line": 46,
         "column": 1
       }
     },
@@ -14820,119 +14513,11 @@
       }
     },
     {
-      "name": "isGeneratedApiRegistry",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/appManifest/generatedApis.ts",
-        "line": 9,
-        "column": 1
-      }
-    },
-    {
-      "name": "isGeneratedApiDefinition",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/appManifest/generatedApis.ts",
-        "line": 13,
-        "column": 1
-      }
-    },
-    {
-      "name": "isDatabaseAdapterRef",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/appManifest/generatedApis.ts",
-        "line": 29,
-        "column": 1
-      }
-    },
-    {
-      "name": "isGeneratedApiAuthRequirement",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/appManifest/generatedApis.ts",
-        "line": 33,
-        "column": 1
-      }
-    },
-    {
-      "name": "isGeneratedApiResourceDefinition",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/appManifest/generatedApis.ts",
-        "line": 44,
-        "column": 1
-      }
-    },
-    {
-      "name": "isSeedRecords",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/appManifest/generatedApis.ts",
-        "line": 61,
-        "column": 1
-      }
-    },
-    {
-      "name": "isGeneratedApiCrudOperation",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/appManifest/generatedApis.ts",
-        "line": 68,
-        "column": 1
-      }
-    },
-    {
-      "name": "isGeneratedApiPolicyRef",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/appManifest/generatedApis.ts",
-        "line": 72,
-        "column": 1
-      }
-    },
-    {
-      "name": "isDbCollectionDefinition",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/appManifest/generatedApis.ts",
-        "line": 80,
-        "column": 1
-      }
-    },
-    {
-      "name": "isDbFieldDefinition",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/appManifest/generatedApis.ts",
-        "line": 91,
-        "column": 1
-      }
-    },
-    {
-      "name": "isDbDefaultValue",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/appManifest/generatedApis.ts",
-        "line": 103,
-        "column": 1
-      }
-    },
-    {
-      "name": "isAdapterRef",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/appManifest/generatedApis.ts",
-        "line": 113,
-        "column": 1
-      }
-    },
-    {
       "name": "isInfraManifest",
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest/infra.ts",
-        "line": 36,
+        "line": 37,
         "column": 1
       }
     },
@@ -14941,7 +14526,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest/infra.ts",
-        "line": 53,
+        "line": 55,
         "column": 1
       }
     },
@@ -14950,7 +14535,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest/infra.ts",
-        "line": 59,
+        "line": 61,
         "column": 1
       }
     },
@@ -14959,7 +14544,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest/infra.ts",
-        "line": 68,
+        "line": 70,
         "column": 1
       }
     },
@@ -14968,7 +14553,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest/infra.ts",
-        "line": 77,
+        "line": 79,
         "column": 1
       }
     },
@@ -14977,7 +14562,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest/infra.ts",
-        "line": 86,
+        "line": 88,
         "column": 1
       }
     },
@@ -14986,7 +14571,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest/infra.ts",
-        "line": 90,
+        "line": 92,
         "column": 1
       }
     },
@@ -14995,7 +14580,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest/infra.ts",
-        "line": 105,
+        "line": 107,
         "column": 1
       }
     },
@@ -15004,7 +14589,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest/infra.ts",
-        "line": 115,
+        "line": 117,
         "column": 1
       }
     },
@@ -15013,7 +14598,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest/infra.ts",
-        "line": 128,
+        "line": 130,
         "column": 1
       }
     },
@@ -15022,7 +14607,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest/infra.ts",
-        "line": 138,
+        "line": 140,
         "column": 1
       }
     },
@@ -15031,7 +14616,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest/infra.ts",
-        "line": 148,
+        "line": 150,
         "column": 1
       }
     },
@@ -15040,7 +14625,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest/infra.ts",
-        "line": 158,
+        "line": 160,
         "column": 1
       }
     },
@@ -15049,7 +14634,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest/infra.ts",
-        "line": 172,
+        "line": 174,
         "column": 1
       }
     },
@@ -15058,7 +14643,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest/infra.ts",
-        "line": 189,
+        "line": 191,
         "column": 1
       }
     },
@@ -15489,11 +15074,6 @@
       },
       {
         "fromPath": "src/appManifest.ts",
-        "toPath": "src/appManifest/generatedApis.ts",
-        "sourcePath": "src/appManifest.ts"
-      },
-      {
-        "fromPath": "src/appManifest.ts",
         "toPath": "src/appManifest/infra.ts",
         "sourcePath": "src/appManifest.ts"
       },
@@ -15683,9 +15263,34 @@
         "sourcePath": "src/ui.ts"
       },
       {
+        "fromPath": "src/appManifest/apis.ts",
+        "toPath": "src/data/index.ts",
+        "sourcePath": "src/appManifest/apis.ts"
+      },
+      {
+        "fromPath": "src/appManifest/apis.ts",
+        "toPath": "src/appManifest/data.ts",
+        "sourcePath": "src/appManifest/apis.ts"
+      },
+      {
+        "fromPath": "src/appManifest/apis.ts",
+        "toPath": "src/appManifest/shared.ts",
+        "sourcePath": "src/appManifest/apis.ts"
+      },
+      {
         "fromPath": "src/appManifest/bindings.ts",
         "toPath": "src/appManifest/shared.ts",
         "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromPath": "src/appManifest/data.ts",
+        "toPath": "src/appManifest/shared.ts",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromPath": "src/appManifest/dataSources.ts",
+        "toPath": "src/appManifest/data.ts",
+        "sourcePath": "src/appManifest/dataSources.ts"
       },
       {
         "fromPath": "src/appManifest/dataSources.ts",
@@ -15703,11 +15308,6 @@
         "sourcePath": "src/appManifest/deploy.ts"
       },
       {
-        "fromPath": "src/appManifest/generatedApis.ts",
-        "toPath": "src/appManifest/shared.ts",
-        "sourcePath": "src/appManifest/generatedApis.ts"
-      },
-      {
         "fromPath": "src/appManifest/infra.ts",
         "toPath": "src/auth.ts",
         "sourcePath": "src/appManifest/infra.ts"
@@ -15715,6 +15315,11 @@
       {
         "fromPath": "src/appManifest/infra.ts",
         "toPath": "src/types.ts",
+        "sourcePath": "src/appManifest/infra.ts"
+      },
+      {
+        "fromPath": "src/appManifest/infra.ts",
+        "toPath": "src/appManifest/apis.ts",
         "sourcePath": "src/appManifest/infra.ts"
       },
       {
@@ -15749,12 +15354,22 @@
       },
       {
         "fromPath": "src/data/apis.ts",
-        "toPath": "src/db.ts",
+        "toPath": "src/data/endpoints.ts",
+        "sourcePath": "src/data/apis.ts"
+      },
+      {
+        "fromPath": "src/data/apis.ts",
+        "toPath": "src/data/ids.ts",
         "sourcePath": "src/data/apis.ts"
       },
       {
         "fromPath": "src/data/apis.ts",
         "toPath": "src/data/refs.ts",
+        "sourcePath": "src/data/apis.ts"
+      },
+      {
+        "fromPath": "src/data/apis.ts",
+        "toPath": "src/data/schemas.ts",
         "sourcePath": "src/data/apis.ts"
       },
       {
@@ -15967,12 +15582,6 @@
       },
       {
         "fromSymbol": "isAppManifest",
-        "toSymbol": "isGeneratedApiRegistry",
-        "callExpression": "isGeneratedApiRegistry",
-        "sourcePath": "src/appManifest.ts"
-      },
-      {
-        "fromSymbol": "isAppManifest",
         "toSymbol": "isDataSourceRegistry",
         "callExpression": "isDataSourceRegistry",
         "sourcePath": "src/appManifest.ts"
@@ -16002,10 +15611,154 @@
         "sourcePath": "src/appManifest.ts"
       },
       {
-        "fromSymbol": "isAppSettings",
+        "fromSymbol": "isApiDefinition",
+        "toSymbol": "isApiBaseDefinition",
+        "callExpression": "isApiBaseDefinition",
+        "sourcePath": "src/appManifest/apis.ts"
+      },
+      {
+        "fromSymbol": "isApiDefinition",
+        "toSymbol": "isExternalRestApi",
+        "callExpression": "isExternalRestApi",
+        "sourcePath": "src/appManifest/apis.ts"
+      },
+      {
+        "fromSymbol": "isApiDefinition",
+        "toSymbol": "isExternalGraphQlApi",
+        "callExpression": "isExternalGraphQlApi",
+        "sourcePath": "src/appManifest/apis.ts"
+      },
+      {
+        "fromSymbol": "isApiDefinition",
+        "toSymbol": "isInternalRestApi",
+        "callExpression": "isInternalRestApi",
+        "sourcePath": "src/appManifest/apis.ts"
+      },
+      {
+        "fromSymbol": "isApiBaseDefinition",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/apis.ts"
+      },
+      {
+        "fromSymbol": "isApiBaseDefinition",
+        "toSymbol": "isNonEmptyString",
+        "callExpression": "isNonEmptyString",
+        "sourcePath": "src/appManifest/apis.ts"
+      },
+      {
+        "fromSymbol": "isApiBaseDefinition",
         "toSymbol": "isOptionalString",
         "callExpression": "isOptionalString",
-        "sourcePath": "src/appManifest.ts"
+        "sourcePath": "src/appManifest/apis.ts"
+      },
+      {
+        "fromSymbol": "isApiBaseDefinition",
+        "toSymbol": "isCredentialRef",
+        "callExpression": "isCredentialRef",
+        "sourcePath": "src/appManifest/apis.ts"
+      },
+      {
+        "fromSymbol": "isApiBaseDefinition",
+        "toSymbol": "isDataEndpointRegistry",
+        "callExpression": "isDataEndpointRegistry",
+        "sourcePath": "src/appManifest/apis.ts"
+      },
+      {
+        "fromSymbol": "isApiBaseDefinition",
+        "toSymbol": "isDataSchemaRegistry",
+        "callExpression": "isDataSchemaRegistry",
+        "sourcePath": "src/appManifest/apis.ts"
+      },
+      {
+        "fromSymbol": "isApiBaseDefinition",
+        "toSymbol": "isManifestValue",
+        "callExpression": "isManifestValue",
+        "sourcePath": "src/appManifest/apis.ts"
+      },
+      {
+        "fromSymbol": "isExternalRestApi",
+        "toSymbol": "hasOnlyKeys",
+        "callExpression": "hasOnlyKeys",
+        "sourcePath": "src/appManifest/apis.ts"
+      },
+      {
+        "fromSymbol": "isExternalRestApi",
+        "toSymbol": "isNonEmptyString",
+        "callExpression": "isNonEmptyString",
+        "sourcePath": "src/appManifest/apis.ts"
+      },
+      {
+        "fromSymbol": "isExternalRestApi",
+        "toSymbol": "isOpenApiDocumentRef",
+        "callExpression": "isOpenApiDocumentRef",
+        "sourcePath": "src/appManifest/apis.ts"
+      },
+      {
+        "fromSymbol": "isExternalGraphQlApi",
+        "toSymbol": "hasOnlyKeys",
+        "callExpression": "hasOnlyKeys",
+        "sourcePath": "src/appManifest/apis.ts"
+      },
+      {
+        "fromSymbol": "isExternalGraphQlApi",
+        "toSymbol": "isNonEmptyString",
+        "callExpression": "isNonEmptyString",
+        "sourcePath": "src/appManifest/apis.ts"
+      },
+      {
+        "fromSymbol": "isExternalGraphQlApi",
+        "toSymbol": "isGraphQlIntrospection",
+        "callExpression": "isGraphQlIntrospection",
+        "sourcePath": "src/appManifest/apis.ts"
+      },
+      {
+        "fromSymbol": "isInternalRestApi",
+        "toSymbol": "hasOnlyKeys",
+        "callExpression": "hasOnlyKeys",
+        "sourcePath": "src/appManifest/apis.ts"
+      },
+      {
+        "fromSymbol": "isInternalRestApi",
+        "toSymbol": "isNonEmptyString",
+        "callExpression": "isNonEmptyString",
+        "sourcePath": "src/appManifest/apis.ts"
+      },
+      {
+        "fromSymbol": "isOpenApiDocumentRef",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/apis.ts"
+      },
+      {
+        "fromSymbol": "isOpenApiDocumentRef",
+        "toSymbol": "hasOnlyKeys",
+        "callExpression": "hasOnlyKeys",
+        "sourcePath": "src/appManifest/apis.ts"
+      },
+      {
+        "fromSymbol": "isOpenApiDocumentRef",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/apis.ts"
+      },
+      {
+        "fromSymbol": "isGraphQlIntrospection",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/apis.ts"
+      },
+      {
+        "fromSymbol": "isGraphQlIntrospection",
+        "toSymbol": "hasOnlyKeys",
+        "callExpression": "hasOnlyKeys",
+        "sourcePath": "src/appManifest/apis.ts"
+      },
+      {
+        "fromSymbol": "isGraphQlIntrospection",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/apis.ts"
       },
       {
         "fromSymbol": "isComponentDataBindingRegistry",
@@ -16242,283 +15995,319 @@
         "sourcePath": "src/appManifest/bindings.ts"
       },
       {
+        "fromSymbol": "isDataEndpointRegistry",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "isDataSchemaRegistry",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "isCredentialRef",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "isCredentialRef",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "isAdapterRef",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "isAdapterRef",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "isAdapterRef",
+        "toSymbol": "isManifestValue",
+        "callExpression": "isManifestValue",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "isDataEndpointConfig",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "isDataEndpointConfig",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "isDataEndpointConfig",
+        "toSymbol": "isCredentialRef",
+        "callExpression": "isCredentialRef",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "isDataEndpointConfig",
+        "toSymbol": "isManifestValue",
+        "callExpression": "isManifestValue",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "isDataOperationConfig",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "isDataOperationConfig",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "isDataOperationConfig",
+        "toSymbol": "isDataOperationRequest",
+        "callExpression": "isDataOperationRequest",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "isDataOperationConfig",
+        "toSymbol": "isDataOperationResponse",
+        "callExpression": "isDataOperationResponse",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "isDataOperationConfig",
+        "toSymbol": "isCredentialRef",
+        "callExpression": "isCredentialRef",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "isDataOperationConfig",
+        "toSymbol": "isManifestValue",
+        "callExpression": "isManifestValue",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "isDataOperationRequest",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "isDataOperationRequest",
+        "toSymbol": "isDataSchemaSlot",
+        "callExpression": "isDataSchemaSlot",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "isDataOperationRequest",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "isDataOperationParameter",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "isDataOperationParameter",
+        "toSymbol": "isDataSchemaSlot",
+        "callExpression": "isDataSchemaSlot",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "isDataOperationParameter",
+        "toSymbol": "isOptionalBoolean",
+        "callExpression": "isOptionalBoolean",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "isDataOperationParameter",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "isDataOperationParameter",
+        "toSymbol": "isManifestValue",
+        "callExpression": "isManifestValue",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "isDataOperationResponse",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "isDataOperationResponse",
+        "toSymbol": "isDataSchemaSlot",
+        "callExpression": "isDataSchemaSlot",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "isDataOperationResponse",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "isDataSchemaSlot",
+        "toSymbol": "isDataSchema",
+        "callExpression": "isDataSchema",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "isDataSchemaSlot",
+        "toSymbol": "isDataSchemaRef",
+        "callExpression": "isDataSchemaRef",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "isDataSchema",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "isDataSchema",
+        "toSymbol": "isDataSchemaType",
+        "callExpression": "isDataSchemaType",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "isDataSchema",
+        "toSymbol": "isOptionalSchemaScalars",
+        "callExpression": "isOptionalSchemaScalars",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "isDataSchema",
+        "toSymbol": "isOptionalSchemaCollections",
+        "callExpression": "isOptionalSchemaCollections",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "isDataSchema",
+        "toSymbol": "isOptionalSchemaComposition",
+        "callExpression": "isOptionalSchemaComposition",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "isOptionalSchemaScalars",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "isOptionalSchemaScalars",
+        "toSymbol": "isOptionalBoolean",
+        "callExpression": "isOptionalBoolean",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "isOptionalSchemaScalars",
+        "toSymbol": "isManifestValue",
+        "callExpression": "isManifestValue",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "isOptionalSchemaScalars",
+        "toSymbol": "isDataSchemaRef",
+        "callExpression": "isDataSchemaRef",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "isOptionalSchemaCollections",
+        "toSymbol": "isStringArray",
+        "callExpression": "isStringArray",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "isOptionalSchemaCollections",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "isOptionalSchemaCollections",
+        "toSymbol": "isDataSchema",
+        "callExpression": "isDataSchema",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "isDataSchemaRef",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
         "fromSymbol": "isDataSourceRegistry",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
         "sourcePath": "src/appManifest/dataSources.ts"
       },
       {
-        "fromSymbol": "isDataSourceConfig",
-        "toSymbol": "hasBaseDataSourceShape",
-        "callExpression": "hasBaseDataSourceShape",
-        "sourcePath": "src/appManifest/dataSources.ts"
-      },
-      {
-        "fromSymbol": "isDataSourceConfig",
+        "fromSymbol": "src/appManifest/dataSources.ts",
         "toSymbol": "isDatabaseDataSource",
         "callExpression": "isDatabaseDataSource",
         "sourcePath": "src/appManifest/dataSources.ts"
       },
       {
-        "fromSymbol": "isDataSourceConfig",
-        "toSymbol": "isGeneratedDataSource",
-        "callExpression": "isGeneratedDataSource",
-        "sourcePath": "src/appManifest/dataSources.ts"
-      },
-      {
-        "fromSymbol": "isDataSourceConfig",
-        "toSymbol": "isExternalDataSource",
-        "callExpression": "isExternalDataSource",
-        "sourcePath": "src/appManifest/dataSources.ts"
-      },
-      {
-        "fromSymbol": "hasBaseDataSourceShape",
+        "fromSymbol": "isDatabaseDataSource",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
         "sourcePath": "src/appManifest/dataSources.ts"
       },
       {
-        "fromSymbol": "hasBaseDataSourceShape",
+        "fromSymbol": "isDatabaseDataSource",
+        "toSymbol": "hasOnlyKeys",
+        "callExpression": "hasOnlyKeys",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "isDatabaseDataSource",
         "toSymbol": "isOptionalString",
         "callExpression": "isOptionalString",
         "sourcePath": "src/appManifest/dataSources.ts"
       },
       {
-        "fromSymbol": "hasBaseDataSourceShape",
+        "fromSymbol": "isDatabaseDataSource",
         "toSymbol": "isCredentialRef",
         "callExpression": "isCredentialRef",
         "sourcePath": "src/appManifest/dataSources.ts"
       },
       {
-        "fromSymbol": "hasBaseDataSourceShape",
+        "fromSymbol": "isDatabaseDataSource",
+        "toSymbol": "isAdapterRef",
+        "callExpression": "isAdapterRef",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "isDatabaseDataSource",
         "toSymbol": "isDataEndpointRegistry",
         "callExpression": "isDataEndpointRegistry",
         "sourcePath": "src/appManifest/dataSources.ts"
       },
       {
-        "fromSymbol": "hasBaseDataSourceShape",
-        "toSymbol": "isManifestValue",
-        "callExpression": "isManifestValue",
+        "fromSymbol": "isDatabaseDataSource",
+        "toSymbol": "isDataSchemaRegistry",
+        "callExpression": "isDataSchemaRegistry",
         "sourcePath": "src/appManifest/dataSources.ts"
       },
       {
         "fromSymbol": "isDatabaseDataSource",
-        "toSymbol": "isRecord",
-        "callExpression": "isRecord",
-        "sourcePath": "src/appManifest/dataSources.ts"
-      },
-      {
-        "fromSymbol": "isDatabaseDataSource",
-        "toSymbol": "isAdapterRef",
-        "callExpression": "isAdapterRef",
-        "sourcePath": "src/appManifest/dataSources.ts"
-      },
-      {
-        "fromSymbol": "isGeneratedDataSource",
-        "toSymbol": "isRecord",
-        "callExpression": "isRecord",
-        "sourcePath": "src/appManifest/dataSources.ts"
-      },
-      {
-        "fromSymbol": "isGeneratedDataSource",
-        "toSymbol": "isAdapterRef",
-        "callExpression": "isAdapterRef",
-        "sourcePath": "src/appManifest/dataSources.ts"
-      },
-      {
-        "fromSymbol": "isExternalDataSource",
-        "toSymbol": "isOpenApiDocumentRef",
-        "callExpression": "isOpenApiDocumentRef",
-        "sourcePath": "src/appManifest/dataSources.ts"
-      },
-      {
-        "fromSymbol": "isExternalDataSource",
-        "toSymbol": "isGraphQlIntrospection",
-        "callExpression": "isGraphQlIntrospection",
-        "sourcePath": "src/appManifest/dataSources.ts"
-      },
-      {
-        "fromSymbol": "isOpenApiDocumentRef",
-        "toSymbol": "isRecord",
-        "callExpression": "isRecord",
-        "sourcePath": "src/appManifest/dataSources.ts"
-      },
-      {
-        "fromSymbol": "isOpenApiDocumentRef",
-        "toSymbol": "isOptionalString",
-        "callExpression": "isOptionalString",
-        "sourcePath": "src/appManifest/dataSources.ts"
-      },
-      {
-        "fromSymbol": "isGraphQlIntrospection",
-        "toSymbol": "isRecord",
-        "callExpression": "isRecord",
-        "sourcePath": "src/appManifest/dataSources.ts"
-      },
-      {
-        "fromSymbol": "isGraphQlIntrospection",
-        "toSymbol": "isOptionalString",
-        "callExpression": "isOptionalString",
-        "sourcePath": "src/appManifest/dataSources.ts"
-      },
-      {
-        "fromSymbol": "isDataEndpointRegistry",
-        "toSymbol": "isRecord",
-        "callExpression": "isRecord",
-        "sourcePath": "src/appManifest/dataSources.ts"
-      },
-      {
-        "fromSymbol": "isDataEndpointConfig",
-        "toSymbol": "isRecord",
-        "callExpression": "isRecord",
-        "sourcePath": "src/appManifest/dataSources.ts"
-      },
-      {
-        "fromSymbol": "isDataEndpointConfig",
-        "toSymbol": "isOptionalString",
-        "callExpression": "isOptionalString",
-        "sourcePath": "src/appManifest/dataSources.ts"
-      },
-      {
-        "fromSymbol": "isDataEndpointConfig",
-        "toSymbol": "isCredentialRef",
-        "callExpression": "isCredentialRef",
-        "sourcePath": "src/appManifest/dataSources.ts"
-      },
-      {
-        "fromSymbol": "isDataEndpointConfig",
-        "toSymbol": "isManifestValue",
-        "callExpression": "isManifestValue",
-        "sourcePath": "src/appManifest/dataSources.ts"
-      },
-      {
-        "fromSymbol": "isDataOperationConfig",
-        "toSymbol": "isRecord",
-        "callExpression": "isRecord",
-        "sourcePath": "src/appManifest/dataSources.ts"
-      },
-      {
-        "fromSymbol": "isDataOperationConfig",
-        "toSymbol": "isOptionalString",
-        "callExpression": "isOptionalString",
-        "sourcePath": "src/appManifest/dataSources.ts"
-      },
-      {
-        "fromSymbol": "isDataOperationConfig",
-        "toSymbol": "isDataOperationRequest",
-        "callExpression": "isDataOperationRequest",
-        "sourcePath": "src/appManifest/dataSources.ts"
-      },
-      {
-        "fromSymbol": "isDataOperationConfig",
-        "toSymbol": "isDataOperationResponse",
-        "callExpression": "isDataOperationResponse",
-        "sourcePath": "src/appManifest/dataSources.ts"
-      },
-      {
-        "fromSymbol": "isDataOperationConfig",
-        "toSymbol": "isCredentialRef",
-        "callExpression": "isCredentialRef",
-        "sourcePath": "src/appManifest/dataSources.ts"
-      },
-      {
-        "fromSymbol": "isDataOperationConfig",
-        "toSymbol": "isManifestValue",
-        "callExpression": "isManifestValue",
-        "sourcePath": "src/appManifest/dataSources.ts"
-      },
-      {
-        "fromSymbol": "isDataOperationRequest",
-        "toSymbol": "isRecord",
-        "callExpression": "isRecord",
-        "sourcePath": "src/appManifest/dataSources.ts"
-      },
-      {
-        "fromSymbol": "isDataOperationRequest",
-        "toSymbol": "isDataSchemaSlot",
-        "callExpression": "isDataSchemaSlot",
-        "sourcePath": "src/appManifest/dataSources.ts"
-      },
-      {
-        "fromSymbol": "isDataOperationParameter",
-        "toSymbol": "isRecord",
-        "callExpression": "isRecord",
-        "sourcePath": "src/appManifest/dataSources.ts"
-      },
-      {
-        "fromSymbol": "isDataOperationParameter",
-        "toSymbol": "isDataSchemaSlot",
-        "callExpression": "isDataSchemaSlot",
-        "sourcePath": "src/appManifest/dataSources.ts"
-      },
-      {
-        "fromSymbol": "isDataOperationParameter",
-        "toSymbol": "isOptionalBoolean",
-        "callExpression": "isOptionalBoolean",
-        "sourcePath": "src/appManifest/dataSources.ts"
-      },
-      {
-        "fromSymbol": "isDataOperationParameter",
-        "toSymbol": "isOptionalString",
-        "callExpression": "isOptionalString",
-        "sourcePath": "src/appManifest/dataSources.ts"
-      },
-      {
-        "fromSymbol": "isDataOperationParameter",
-        "toSymbol": "isManifestValue",
-        "callExpression": "isManifestValue",
-        "sourcePath": "src/appManifest/dataSources.ts"
-      },
-      {
-        "fromSymbol": "isDataOperationResponse",
-        "toSymbol": "isRecord",
-        "callExpression": "isRecord",
-        "sourcePath": "src/appManifest/dataSources.ts"
-      },
-      {
-        "fromSymbol": "isDataOperationResponse",
-        "toSymbol": "isDataSchemaSlot",
-        "callExpression": "isDataSchemaSlot",
-        "sourcePath": "src/appManifest/dataSources.ts"
-      },
-      {
-        "fromSymbol": "isDataOperationResponse",
-        "toSymbol": "isOptionalString",
-        "callExpression": "isOptionalString",
-        "sourcePath": "src/appManifest/dataSources.ts"
-      },
-      {
-        "fromSymbol": "isDataSchemaSlot",
-        "toSymbol": "isRecord",
-        "callExpression": "isRecord",
-        "sourcePath": "src/appManifest/dataSources.ts"
-      },
-      {
-        "fromSymbol": "isCredentialRef",
-        "toSymbol": "isRecord",
-        "callExpression": "isRecord",
-        "sourcePath": "src/appManifest/dataSources.ts"
-      },
-      {
-        "fromSymbol": "isCredentialRef",
-        "toSymbol": "isOptionalString",
-        "callExpression": "isOptionalString",
-        "sourcePath": "src/appManifest/dataSources.ts"
-      },
-      {
-        "fromSymbol": "isAdapterRef",
-        "toSymbol": "isRecord",
-        "callExpression": "isRecord",
-        "sourcePath": "src/appManifest/dataSources.ts"
-      },
-      {
-        "fromSymbol": "isAdapterRef",
-        "toSymbol": "isOptionalString",
-        "callExpression": "isOptionalString",
-        "sourcePath": "src/appManifest/dataSources.ts"
-      },
-      {
-        "fromSymbol": "isAdapterRef",
         "toSymbol": "isManifestValue",
         "callExpression": "isManifestValue",
         "sourcePath": "src/appManifest/dataSources.ts"
@@ -16674,180 +16463,6 @@
         "sourcePath": "src/appManifest/deploy.ts"
       },
       {
-        "fromSymbol": "isGeneratedApiRegistry",
-        "toSymbol": "isRecord",
-        "callExpression": "isRecord",
-        "sourcePath": "src/appManifest/generatedApis.ts"
-      },
-      {
-        "fromSymbol": "isGeneratedApiDefinition",
-        "toSymbol": "isRecord",
-        "callExpression": "isRecord",
-        "sourcePath": "src/appManifest/generatedApis.ts"
-      },
-      {
-        "fromSymbol": "isGeneratedApiDefinition",
-        "toSymbol": "isOptionalString",
-        "callExpression": "isOptionalString",
-        "sourcePath": "src/appManifest/generatedApis.ts"
-      },
-      {
-        "fromSymbol": "isGeneratedApiDefinition",
-        "toSymbol": "isDatabaseAdapterRef",
-        "callExpression": "isDatabaseAdapterRef",
-        "sourcePath": "src/appManifest/generatedApis.ts"
-      },
-      {
-        "fromSymbol": "isGeneratedApiDefinition",
-        "toSymbol": "isGeneratedApiAuthRequirement",
-        "callExpression": "isGeneratedApiAuthRequirement",
-        "sourcePath": "src/appManifest/generatedApis.ts"
-      },
-      {
-        "fromSymbol": "isGeneratedApiDefinition",
-        "toSymbol": "isManifestValue",
-        "callExpression": "isManifestValue",
-        "sourcePath": "src/appManifest/generatedApis.ts"
-      },
-      {
-        "fromSymbol": "isDatabaseAdapterRef",
-        "toSymbol": "isRecord",
-        "callExpression": "isRecord",
-        "sourcePath": "src/appManifest/generatedApis.ts"
-      },
-      {
-        "fromSymbol": "isDatabaseAdapterRef",
-        "toSymbol": "isAdapterRef",
-        "callExpression": "isAdapterRef",
-        "sourcePath": "src/appManifest/generatedApis.ts"
-      },
-      {
-        "fromSymbol": "isGeneratedApiAuthRequirement",
-        "toSymbol": "isRecord",
-        "callExpression": "isRecord",
-        "sourcePath": "src/appManifest/generatedApis.ts"
-      },
-      {
-        "fromSymbol": "isGeneratedApiAuthRequirement",
-        "toSymbol": "isOptionalBoolean",
-        "callExpression": "isOptionalBoolean",
-        "sourcePath": "src/appManifest/generatedApis.ts"
-      },
-      {
-        "fromSymbol": "isGeneratedApiAuthRequirement",
-        "toSymbol": "isStringArray",
-        "callExpression": "isStringArray",
-        "sourcePath": "src/appManifest/generatedApis.ts"
-      },
-      {
-        "fromSymbol": "isGeneratedApiAuthRequirement",
-        "toSymbol": "isOptionalString",
-        "callExpression": "isOptionalString",
-        "sourcePath": "src/appManifest/generatedApis.ts"
-      },
-      {
-        "fromSymbol": "isGeneratedApiAuthRequirement",
-        "toSymbol": "isManifestValue",
-        "callExpression": "isManifestValue",
-        "sourcePath": "src/appManifest/generatedApis.ts"
-      },
-      {
-        "fromSymbol": "isGeneratedApiResourceDefinition",
-        "toSymbol": "isRecord",
-        "callExpression": "isRecord",
-        "sourcePath": "src/appManifest/generatedApis.ts"
-      },
-      {
-        "fromSymbol": "isGeneratedApiResourceDefinition",
-        "toSymbol": "isOptionalString",
-        "callExpression": "isOptionalString",
-        "sourcePath": "src/appManifest/generatedApis.ts"
-      },
-      {
-        "fromSymbol": "isGeneratedApiResourceDefinition",
-        "toSymbol": "isDbCollectionDefinition",
-        "callExpression": "isDbCollectionDefinition",
-        "sourcePath": "src/appManifest/generatedApis.ts"
-      },
-      {
-        "fromSymbol": "isGeneratedApiResourceDefinition",
-        "toSymbol": "isSeedRecords",
-        "callExpression": "isSeedRecords",
-        "sourcePath": "src/appManifest/generatedApis.ts"
-      },
-      {
-        "fromSymbol": "isGeneratedApiResourceDefinition",
-        "toSymbol": "isManifestValue",
-        "callExpression": "isManifestValue",
-        "sourcePath": "src/appManifest/generatedApis.ts"
-      },
-      {
-        "fromSymbol": "src/appManifest/generatedApis.ts",
-        "toSymbol": "isRecord",
-        "callExpression": "isRecord",
-        "sourcePath": "src/appManifest/generatedApis.ts"
-      },
-      {
-        "fromSymbol": "isGeneratedApiPolicyRef",
-        "toSymbol": "isRecord",
-        "callExpression": "isRecord",
-        "sourcePath": "src/appManifest/generatedApis.ts"
-      },
-      {
-        "fromSymbol": "isGeneratedApiPolicyRef",
-        "toSymbol": "isGeneratedApiCrudOperation",
-        "callExpression": "isGeneratedApiCrudOperation",
-        "sourcePath": "src/appManifest/generatedApis.ts"
-      },
-      {
-        "fromSymbol": "isDbCollectionDefinition",
-        "toSymbol": "isRecord",
-        "callExpression": "isRecord",
-        "sourcePath": "src/appManifest/generatedApis.ts"
-      },
-      {
-        "fromSymbol": "isDbCollectionDefinition",
-        "toSymbol": "isOptionalString",
-        "callExpression": "isOptionalString",
-        "sourcePath": "src/appManifest/generatedApis.ts"
-      },
-      {
-        "fromSymbol": "isDbFieldDefinition",
-        "toSymbol": "isRecord",
-        "callExpression": "isRecord",
-        "sourcePath": "src/appManifest/generatedApis.ts"
-      },
-      {
-        "fromSymbol": "isDbFieldDefinition",
-        "toSymbol": "isOptionalBoolean",
-        "callExpression": "isOptionalBoolean",
-        "sourcePath": "src/appManifest/generatedApis.ts"
-      },
-      {
-        "fromSymbol": "isDbFieldDefinition",
-        "toSymbol": "isDbDefaultValue",
-        "callExpression": "isDbDefaultValue",
-        "sourcePath": "src/appManifest/generatedApis.ts"
-      },
-      {
-        "fromSymbol": "isAdapterRef",
-        "toSymbol": "isRecord",
-        "callExpression": "isRecord",
-        "sourcePath": "src/appManifest/generatedApis.ts"
-      },
-      {
-        "fromSymbol": "isAdapterRef",
-        "toSymbol": "isOptionalString",
-        "callExpression": "isOptionalString",
-        "sourcePath": "src/appManifest/generatedApis.ts"
-      },
-      {
-        "fromSymbol": "isAdapterRef",
-        "toSymbol": "isManifestValue",
-        "callExpression": "isManifestValue",
-        "sourcePath": "src/appManifest/generatedApis.ts"
-      },
-      {
         "fromSymbol": "isInfraManifest",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
@@ -16887,6 +16502,12 @@
         "fromSymbol": "isInfraManifest",
         "toSymbol": "isNetworkingSpec",
         "callExpression": "isNetworkingSpec",
+        "sourcePath": "src/appManifest/infra.ts"
+      },
+      {
+        "fromSymbol": "isInfraManifest",
+        "toSymbol": "isApiDefinitionList",
+        "callExpression": "isApiDefinitionList",
         "sourcePath": "src/appManifest/infra.ts"
       },
       {
@@ -17752,48 +17373,123 @@
         "sourcePath": "src/cli/index.ts"
       },
       {
-        "fromSymbol": "GeneratedApiAuthRequirement",
+        "fromSymbol": "ApiBaseDefinition",
+        "toType": "ApiOrigin",
+        "sourcePath": "src/data/apis.ts"
+      },
+      {
+        "fromSymbol": "ApiBaseDefinition",
+        "toType": "ApiProtocol",
+        "sourcePath": "src/data/apis.ts"
+      },
+      {
+        "fromSymbol": "ApiBaseDefinition",
+        "toType": "CredentialRef",
+        "sourcePath": "src/data/apis.ts"
+      },
+      {
+        "fromSymbol": "ApiBaseDefinition",
         "toType": "DataContractValue",
         "sourcePath": "src/data/apis.ts"
       },
       {
-        "fromSymbol": "GeneratedApiResourceDefinition",
-        "toType": "DataContractValue",
+        "fromSymbol": "ApiBaseDefinition",
+        "toType": "DataEndpointConfig",
         "sourcePath": "src/data/apis.ts"
       },
       {
-        "fromSymbol": "GeneratedApiResourceDefinition",
-        "toType": "DbCollectionDefinition",
+        "fromSymbol": "ApiBaseDefinition",
+        "toType": "DataSchema",
         "sourcePath": "src/data/apis.ts"
       },
       {
-        "fromSymbol": "GeneratedApiResourceDefinition",
-        "toType": "GeneratedApiOperationPolicyRef",
-        "sourcePath": "src/data/apis.ts"
-      },
-      {
-        "fromSymbol": "GeneratedApiResourceDefinition",
+        "fromSymbol": "ApiBaseDefinition",
         "toType": "Readonly",
         "sourcePath": "src/data/apis.ts"
       },
       {
-        "fromSymbol": "GeneratedApiDefinition",
-        "toType": "DatabaseAdapterRef",
+        "fromSymbol": "ExternalRestApiDefinition",
+        "toType": "CredentialRef",
         "sourcePath": "src/data/apis.ts"
       },
       {
-        "fromSymbol": "GeneratedApiDefinition",
+        "fromSymbol": "ExternalRestApiDefinition",
         "toType": "DataContractValue",
         "sourcePath": "src/data/apis.ts"
       },
       {
-        "fromSymbol": "GeneratedApiDefinition",
-        "toType": "GeneratedApiAuthRequirement",
+        "fromSymbol": "ExternalRestApiDefinition",
+        "toType": "DataEndpointConfig",
         "sourcePath": "src/data/apis.ts"
       },
       {
-        "fromSymbol": "GeneratedApiDefinition",
-        "toType": "GeneratedApiResourceDefinition",
+        "fromSymbol": "ExternalRestApiDefinition",
+        "toType": "DataSchema",
+        "sourcePath": "src/data/apis.ts"
+      },
+      {
+        "fromSymbol": "ExternalRestApiDefinition",
+        "toType": "OpenApiDocumentRef",
+        "sourcePath": "src/data/apis.ts"
+      },
+      {
+        "fromSymbol": "ExternalRestApiDefinition",
+        "toType": "Readonly",
+        "sourcePath": "src/data/apis.ts"
+      },
+      {
+        "fromSymbol": "ExternalGraphQlApiDefinition",
+        "toType": "CredentialRef",
+        "sourcePath": "src/data/apis.ts"
+      },
+      {
+        "fromSymbol": "ExternalGraphQlApiDefinition",
+        "toType": "DataContractValue",
+        "sourcePath": "src/data/apis.ts"
+      },
+      {
+        "fromSymbol": "ExternalGraphQlApiDefinition",
+        "toType": "DataEndpointConfig",
+        "sourcePath": "src/data/apis.ts"
+      },
+      {
+        "fromSymbol": "ExternalGraphQlApiDefinition",
+        "toType": "DataSchema",
+        "sourcePath": "src/data/apis.ts"
+      },
+      {
+        "fromSymbol": "ExternalGraphQlApiDefinition",
+        "toType": "GraphQlIntrospectionConfig",
+        "sourcePath": "src/data/apis.ts"
+      },
+      {
+        "fromSymbol": "ExternalGraphQlApiDefinition",
+        "toType": "Readonly",
+        "sourcePath": "src/data/apis.ts"
+      },
+      {
+        "fromSymbol": "InternalRestApiDefinition",
+        "toType": "CredentialRef",
+        "sourcePath": "src/data/apis.ts"
+      },
+      {
+        "fromSymbol": "InternalRestApiDefinition",
+        "toType": "DataContractValue",
+        "sourcePath": "src/data/apis.ts"
+      },
+      {
+        "fromSymbol": "InternalRestApiDefinition",
+        "toType": "DataEndpointConfig",
+        "sourcePath": "src/data/apis.ts"
+      },
+      {
+        "fromSymbol": "InternalRestApiDefinition",
+        "toType": "DataSchema",
+        "sourcePath": "src/data/apis.ts"
+      },
+      {
+        "fromSymbol": "InternalRestApiDefinition",
+        "toType": "Readonly",
         "sourcePath": "src/data/apis.ts"
       },
       {
@@ -17972,181 +17668,6 @@
         "sourcePath": "src/data/schemas.ts"
       },
       {
-        "fromSymbol": "DataSourceBaseConfig",
-        "toType": "CredentialRef",
-        "sourcePath": "src/data/sources.ts"
-      },
-      {
-        "fromSymbol": "DataSourceBaseConfig",
-        "toType": "DataContractValue",
-        "sourcePath": "src/data/sources.ts"
-      },
-      {
-        "fromSymbol": "DataSourceBaseConfig",
-        "toType": "DataEndpointConfig",
-        "sourcePath": "src/data/sources.ts"
-      },
-      {
-        "fromSymbol": "DataSourceBaseConfig",
-        "toType": "DataSchema",
-        "sourcePath": "src/data/sources.ts"
-      },
-      {
-        "fromSymbol": "DataSourceBaseConfig",
-        "toType": "DataSourceKind",
-        "sourcePath": "src/data/sources.ts"
-      },
-      {
-        "fromSymbol": "DataSourceBaseConfig",
-        "toType": "Readonly",
-        "sourcePath": "src/data/sources.ts"
-      },
-      {
-        "fromSymbol": "DataSourceBaseConfig",
-        "toType": "Users",
-        "sourcePath": "src/data/sources.ts"
-      },
-      {
-        "fromSymbol": "ApiDataSourceBaseConfig",
-        "toType": "ApiOrigin",
-        "sourcePath": "src/data/sources.ts"
-      },
-      {
-        "fromSymbol": "ApiDataSourceBaseConfig",
-        "toType": "ApiProtocol",
-        "sourcePath": "src/data/sources.ts"
-      },
-      {
-        "fromSymbol": "ApiDataSourceBaseConfig",
-        "toType": "CredentialRef",
-        "sourcePath": "src/data/sources.ts"
-      },
-      {
-        "fromSymbol": "ApiDataSourceBaseConfig",
-        "toType": "DataContractValue",
-        "sourcePath": "src/data/sources.ts"
-      },
-      {
-        "fromSymbol": "ApiDataSourceBaseConfig",
-        "toType": "DataEndpointConfig",
-        "sourcePath": "src/data/sources.ts"
-      },
-      {
-        "fromSymbol": "ApiDataSourceBaseConfig",
-        "toType": "DataSchema",
-        "sourcePath": "src/data/sources.ts"
-      },
-      {
-        "fromSymbol": "ApiDataSourceBaseConfig",
-        "toType": "Readonly",
-        "sourcePath": "src/data/sources.ts"
-      },
-      {
-        "fromSymbol": "ApiDataSourceBaseConfig",
-        "toType": "Users",
-        "sourcePath": "src/data/sources.ts"
-      },
-      {
-        "fromSymbol": "ExternalRestApiDataSourceConfig",
-        "toType": "CredentialRef",
-        "sourcePath": "src/data/sources.ts"
-      },
-      {
-        "fromSymbol": "ExternalRestApiDataSourceConfig",
-        "toType": "DataContractValue",
-        "sourcePath": "src/data/sources.ts"
-      },
-      {
-        "fromSymbol": "ExternalRestApiDataSourceConfig",
-        "toType": "DataEndpointConfig",
-        "sourcePath": "src/data/sources.ts"
-      },
-      {
-        "fromSymbol": "ExternalRestApiDataSourceConfig",
-        "toType": "DataSchema",
-        "sourcePath": "src/data/sources.ts"
-      },
-      {
-        "fromSymbol": "ExternalRestApiDataSourceConfig",
-        "toType": "OpenApiDocumentRef",
-        "sourcePath": "src/data/sources.ts"
-      },
-      {
-        "fromSymbol": "ExternalRestApiDataSourceConfig",
-        "toType": "Readonly",
-        "sourcePath": "src/data/sources.ts"
-      },
-      {
-        "fromSymbol": "ExternalRestApiDataSourceConfig",
-        "toType": "Users",
-        "sourcePath": "src/data/sources.ts"
-      },
-      {
-        "fromSymbol": "ExternalGraphQlApiDataSourceConfig",
-        "toType": "CredentialRef",
-        "sourcePath": "src/data/sources.ts"
-      },
-      {
-        "fromSymbol": "ExternalGraphQlApiDataSourceConfig",
-        "toType": "DataContractValue",
-        "sourcePath": "src/data/sources.ts"
-      },
-      {
-        "fromSymbol": "ExternalGraphQlApiDataSourceConfig",
-        "toType": "DataEndpointConfig",
-        "sourcePath": "src/data/sources.ts"
-      },
-      {
-        "fromSymbol": "ExternalGraphQlApiDataSourceConfig",
-        "toType": "DataSchema",
-        "sourcePath": "src/data/sources.ts"
-      },
-      {
-        "fromSymbol": "ExternalGraphQlApiDataSourceConfig",
-        "toType": "Readonly",
-        "sourcePath": "src/data/sources.ts"
-      },
-      {
-        "fromSymbol": "ExternalGraphQlApiDataSourceConfig",
-        "toType": "Users",
-        "sourcePath": "src/data/sources.ts"
-      },
-      {
-        "fromSymbol": "GeneratedRestApiDataSourceConfig",
-        "toType": "CredentialRef",
-        "sourcePath": "src/data/sources.ts"
-      },
-      {
-        "fromSymbol": "GeneratedRestApiDataSourceConfig",
-        "toType": "DatabaseAdapterRef",
-        "sourcePath": "src/data/sources.ts"
-      },
-      {
-        "fromSymbol": "GeneratedRestApiDataSourceConfig",
-        "toType": "DataContractValue",
-        "sourcePath": "src/data/sources.ts"
-      },
-      {
-        "fromSymbol": "GeneratedRestApiDataSourceConfig",
-        "toType": "DataEndpointConfig",
-        "sourcePath": "src/data/sources.ts"
-      },
-      {
-        "fromSymbol": "GeneratedRestApiDataSourceConfig",
-        "toType": "DataSchema",
-        "sourcePath": "src/data/sources.ts"
-      },
-      {
-        "fromSymbol": "GeneratedRestApiDataSourceConfig",
-        "toType": "Readonly",
-        "sourcePath": "src/data/sources.ts"
-      },
-      {
-        "fromSymbol": "GeneratedRestApiDataSourceConfig",
-        "toType": "Users",
-        "sourcePath": "src/data/sources.ts"
-      },
-      {
         "fromSymbol": "DatabaseDataSourceConfig",
         "toType": "CredentialRef",
         "sourcePath": "src/data/sources.ts"
@@ -18174,11 +17695,6 @@
       {
         "fromSymbol": "DatabaseDataSourceConfig",
         "toType": "Readonly",
-        "sourcePath": "src/data/sources.ts"
-      },
-      {
-        "fromSymbol": "DatabaseDataSourceConfig",
-        "toType": "Users",
         "sourcePath": "src/data/sources.ts"
       },
       {
@@ -18862,11 +18378,6 @@
         "sourcePath": "src/types.ts"
       },
       {
-        "fromSymbol": "ScreenSpec",
-        "toType": "Users",
-        "sourcePath": "src/types.ts"
-      },
-      {
         "fromSymbol": "NavigatorSpec",
         "toType": "RouteDefinition",
         "sourcePath": "src/types.ts"
@@ -18973,6 +18484,11 @@
       },
       {
         "fromSymbol": "InfraManifest",
+        "toType": "ApiDefinitionList",
+        "sourcePath": "src/types.ts"
+      },
+      {
+        "fromSymbol": "InfraManifest",
         "toType": "AuthSpec",
         "sourcePath": "src/types.ts"
       },
@@ -19028,12 +18544,7 @@
       },
       {
         "fromSymbol": "AppManifest",
-        "toType": "DataSourceConfig",
-        "sourcePath": "src/types.ts"
-      },
-      {
-        "fromSymbol": "AppManifest",
-        "toType": "GeneratedApiDefinition",
+        "toType": "DatabaseDataSourceConfig",
         "sourcePath": "src/types.ts"
       },
       {
@@ -19069,11 +18580,6 @@
       {
         "fromSymbol": "AppManifest",
         "toType": "ThemeConfig",
-        "sourcePath": "src/types.ts"
-      },
-      {
-        "fromSymbol": "AppManifest",
-        "toType": "Users",
         "sourcePath": "src/types.ts"
       },
       {
