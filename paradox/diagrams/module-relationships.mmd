@@ -1,9 +1,10 @@
 graph LR
   module_src_appManifest_ts["src/appManifest.ts"]
+  module_src_appManifest_apis_ts["src/appManifest/apis.ts"]
   module_src_appManifest_bindings_ts["src/appManifest/bindings.ts"]
+  module_src_appManifest_data_ts["src/appManifest/data.ts"]
   module_src_appManifest_dataSources_ts["src/appManifest/dataSources.ts"]
   module_src_appManifest_deploy_ts["src/appManifest/deploy.ts"]
-  module_src_appManifest_generatedApis_ts["src/appManifest/generatedApis.ts"]
   module_src_appManifest_infra_ts["src/appManifest/infra.ts"]
   module_src_appManifest_media_ts["src/appManifest/media.ts"]
   module_src_appManifest_screens_ts["src/appManifest/screens.ts"]
@@ -37,17 +38,21 @@ graph LR
   module_src_appManifest_ts --> module_src_appManifest_bindings_ts
   module_src_appManifest_ts --> module_src_appManifest_dataSources_ts
   module_src_appManifest_ts --> module_src_appManifest_deploy_ts
-  module_src_appManifest_ts --> module_src_appManifest_generatedApis_ts
   module_src_appManifest_ts --> module_src_appManifest_infra_ts
   module_src_appManifest_ts --> module_src_appManifest_media_ts
   module_src_appManifest_ts --> module_src_appManifest_screens_ts
   module_src_appManifest_ts --> module_src_appManifest_shared_ts
   module_src_appManifest_ts --> module_src_types_ts
+  module_src_appManifest_apis_ts --> module_src_appManifest_data_ts
+  module_src_appManifest_apis_ts --> module_src_appManifest_shared_ts
+  module_src_appManifest_apis_ts --> module_src_data_index_ts
   module_src_appManifest_bindings_ts --> module_src_appManifest_shared_ts
+  module_src_appManifest_data_ts --> module_src_appManifest_shared_ts
+  module_src_appManifest_dataSources_ts --> module_src_appManifest_data_ts
   module_src_appManifest_dataSources_ts --> module_src_appManifest_shared_ts
   module_src_appManifest_deploy_ts --> module_src_appManifest_shared_ts
   module_src_appManifest_deploy_ts --> module_src_deploy_ts
-  module_src_appManifest_generatedApis_ts --> module_src_appManifest_shared_ts
+  module_src_appManifest_infra_ts --> module_src_appManifest_apis_ts
   module_src_appManifest_infra_ts --> module_src_appManifest_shared_ts
   module_src_appManifest_infra_ts --> module_src_auth_ts
   module_src_appManifest_infra_ts --> module_src_types_ts
@@ -60,9 +65,11 @@ graph LR
   module_src_auth_ts --> module_src_secrets_ts
   module_src_auth_ts --> module_src_types_ts
   module_src_bindings_ts --> module_src_data_index_ts
+  module_src_data_apis_ts --> module_src_data_endpoints_ts
+  module_src_data_apis_ts --> module_src_data_ids_ts
   module_src_data_apis_ts --> module_src_data_refs_ts
+  module_src_data_apis_ts --> module_src_data_schemas_ts
   module_src_data_apis_ts --> module_src_data_values_ts
-  module_src_data_apis_ts --> module_src_db_ts
   module_src_data_diagnostics_ts --> module_src_data_ids_ts
   module_src_data_endpoints_ts --> module_src_data_ids_ts
   module_src_data_endpoints_ts --> module_src_data_operations_ts

@@ -117,7 +117,7 @@ function createManifest(): Record<string, unknown> {
         ],
         requires: {
           permissions: [{ permission: 'camera' }],
-          capabilities: [{ capability: 'barcodeScanner' }],
+          capabilities: [{ capability: 'barcodeScanner' }, { capability: 'ebookReader' }],
         },
       },
     },
