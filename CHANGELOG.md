@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 8.0.1
+
+### Patch Changes
+
+- f932e26: Add the canonical `ebookReader` platform requirement capability for manifest-authored EPUB and PDF reader surfaces.
+
 ## 8.0.0
 
 ### Major Changes
