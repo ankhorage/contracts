@@ -2,13 +2,7 @@ import type { SchemaId } from './ids';
 import type { DataContractValue } from './values';
 
 export type DataSchemaPrimitiveType =
-  | 'array'
-  | 'boolean'
-  | 'integer'
-  | 'null'
-  | 'number'
-  | 'object'
-  | 'string';
+  'array' | 'boolean' | 'integer' | 'null' | 'number' | 'object' | 'string';
 
 export interface DataSchemaRef {
   readonly id: SchemaId;

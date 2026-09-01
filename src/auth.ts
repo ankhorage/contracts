@@ -80,8 +80,7 @@ export interface AuthOAuthSetupCallbackRequirement {
 }
 
 export type AuthOAuthSetupRequirement =
-  | AuthOAuthSetupFieldRequirement
-  | AuthOAuthSetupCallbackRequirement;
+  AuthOAuthSetupFieldRequirement | AuthOAuthSetupCallbackRequirement;
 
 /**
  * Adapter-neutral description of the OAuth setup Studio or Doctor should surface for one

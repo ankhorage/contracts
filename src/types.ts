@@ -29,13 +29,7 @@ export interface ThemeConfig {
 }
 
 export type ActionType =
-  | 'navigate'
-  | 'alert'
-  | 'console'
-  | 'toggleDarkMode'
-  | 'setLanguage'
-  | 'search'
-  | 'filter';
+  'navigate' | 'alert' | 'console' | 'toggleDarkMode' | 'setLanguage' | 'search' | 'filter';
 
 export interface NavigateAction {
   type: 'navigate';
@@ -135,14 +129,10 @@ export type CollectionItemPressEventDto = ComponentEventDto<
 >;
 
 export type ComponentEventDtoKind =
-  | ButtonPressEventDto['type']
-  | CollectionItemPressEventDto['type']
-  | FormSubmitEventDto['type'];
+  ButtonPressEventDto['type'] | CollectionItemPressEventDto['type'] | FormSubmitEventDto['type'];
 
 export type KnownComponentEventDto =
-  | ButtonPressEventDto
-  | CollectionItemPressEventDto
-  | FormSubmitEventDto;
+  ButtonPressEventDto | CollectionItemPressEventDto | FormSubmitEventDto;
 
 export const NAVIGATOR_TYPES = ['stack', 'tabs', 'drawer'] as const;
 export type NavigatorType = (typeof NAVIGATOR_TYPES)[number];

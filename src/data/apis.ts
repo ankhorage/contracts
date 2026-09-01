@@ -58,8 +58,6 @@ export interface InternalRestApiDefinition extends ApiBaseDefinition {
 }
 
 export type ApiDefinition =
-  | ExternalGraphQlApiDefinition
-  | ExternalRestApiDefinition
-  | InternalRestApiDefinition;
+  ExternalGraphQlApiDefinition | ExternalRestApiDefinition | InternalRestApiDefinition;
 
 export type ApiDefinitionList = readonly ApiDefinition[];

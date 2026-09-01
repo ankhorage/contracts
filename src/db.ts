@@ -35,16 +35,7 @@ export interface DbPage {
 }
 
 export type DbFilterOperator =
-  | 'eq'
-  | 'neq'
-  | 'gt'
-  | 'gte'
-  | 'lt'
-  | 'lte'
-  | 'in'
-  | 'contains'
-  | 'startsWith'
-  | 'endsWith';
+  'eq' | 'neq' | 'gt' | 'gte' | 'lt' | 'lte' | 'in' | 'contains' | 'startsWith' | 'endsWith';
 
 export interface DbFilter {
   readonly field: string;
