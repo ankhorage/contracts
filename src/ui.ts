@@ -67,12 +67,7 @@ export interface UiComponentI18nMeta {
 export type UiComponentEventPayloadKind = ComponentEventDtoKind | (string & {});
 
 export type UiComponentEventPayloadFieldType =
-  | 'boolean'
-  | 'number'
-  | 'object'
-  | 'record'
-  | 'string'
-  | 'unknown';
+  'boolean' | 'number' | 'object' | 'record' | 'string' | 'unknown';
 
 export interface UiComponentEventPayloadFieldMeta {
   readonly path: string;

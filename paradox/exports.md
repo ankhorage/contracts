@@ -4,7 +4,7 @@
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:88:1`
+Source: `src/types.ts:82:1`
 
 ## ActionType
 
@@ -44,7 +44,7 @@ Source: `src/data/refs.ts:15:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:48:1`
+Source: `src/types.ts:42:1`
 
 ### Members
 
@@ -171,7 +171,7 @@ Source: `src/data/apis.ts:60:1`
 
 Kind: `unknown`
 Module: `src/data/apis.ts`
-Source: `src/data/apis.ts:65:1`
+Source: `src/data/apis.ts:63:1`
 
 ## ApiId
 
@@ -195,7 +195,7 @@ Source: `src/data/apis.ts:8:1`
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:150:14`
+Source: `src/types.ts:140:14`
 
 ## APP_DEPLOY_ENVIRONMENT_IDS
 
@@ -213,7 +213,7 @@ Source: `src/deploy.ts:1:14`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:175:1`
+Source: `src/types.ts:165:1`
 
 ## AppDeployAndroidTargetConfig
 
@@ -313,7 +313,7 @@ Source: `src/deploy.ts:21:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:389:1`
+Source: `src/types.ts:379:1`
 
 ### Members
 
@@ -343,7 +343,7 @@ Source: `src/appManifest.ts:16:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:382:1`
+Source: `src/types.ts:372:1`
 
 ### Members
 
@@ -361,19 +361,19 @@ Source: `src/auth.ts:5:14`
 
 Kind: `value`
 Module: `src/auth.ts`
-Source: `src/auth.ts:282:14`
+Source: `src/auth.ts:281:14`
 
 ## AUTH_OAUTH_ERROR_CODES
 
 Kind: `value`
 Module: `src/auth.ts`
-Source: `src/auth.ts:249:14`
+Source: `src/auth.ts:248:14`
 
 ## AUTH_OAUTH_ERROR_STAGES
 
 Kind: `value`
 Module: `src/auth.ts`
-Source: `src/auth.ts:239:14`
+Source: `src/auth.ts:238:14`
 
 ## AUTH_OAUTH_PROVIDER_IDS
 
@@ -403,13 +403,13 @@ Source: `src/auth.ts:53:14`
 
 Kind: `value`
 Module: `src/auth.ts`
-Source: `src/auth.ts:275:14`
+Source: `src/auth.ts:274:14`
 
 ## AUTH_OAUTH_TRANSPORT_ERROR_CODES
 
 Kind: `value`
 Module: `src/auth.ts`
-Source: `src/auth.ts:288:14`
+Source: `src/auth.ts:287:14`
 
 ## AUTH_OAUTH_TRANSPORT_IDS
 
@@ -421,43 +421,43 @@ Source: `src/auth.ts:42:14`
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:230:14`
+Source: `src/types.ts:220:14`
 
 ## AUTH_PROFILE_FIELDS
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:217:14`
+Source: `src/types.ts:207:14`
 
 ## AUTH_PROFILE_PRIMARY_KEY_STRATEGIES
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:227:14`
+Source: `src/types.ts:217:14`
 
 ## AUTH_PROFILE_UPDATE_STRATEGIES
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:233:14`
+Source: `src/types.ts:223:14`
 
 ## AUTH_PROVIDERS
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:207:14`
+Source: `src/types.ts:197:14`
 
 ## AUTH_SCOPES
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:204:14`
+Source: `src/types.ts:194:14`
 
 ## AUTH_SIGN_IN_IDENTIFIERS
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:211:14`
+Source: `src/types.ts:201:14`
 
 ## AUTH_SIGN_UP_FIELDS
 
@@ -469,13 +469,13 @@ Source: `src/auth.ts:8:14`
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:214:14`
+Source: `src/types.ts:204:14`
 
 ## AuthAdapter
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:382:1`
+Source: `src/auth.ts:381:1`
 
 ### Members
 
@@ -495,7 +495,7 @@ Source: `src/auth.ts:382:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:374:1`
+Source: `src/auth.ts:373:1`
 
 ### Members
 
@@ -511,7 +511,7 @@ Source: `src/auth.ts:374:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:191:1`
+Source: `src/auth.ts:190:1`
 
 ### Members
 
@@ -525,7 +525,7 @@ Source: `src/auth.ts:191:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:111:1`
+Source: `src/auth.ts:110:1`
 
 ### Members
 
@@ -543,7 +543,7 @@ Source: `src/auth.ts:111:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:106:1`
+Source: `src/auth.ts:105:1`
 
 ### Members
 
@@ -562,7 +562,7 @@ Source: `src/auth.ts:6:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:367:1`
+Source: `src/auth.ts:366:1`
 
 ### Members
 
@@ -576,7 +576,7 @@ Source: `src/auth.ts:367:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:307:1`
+Source: `src/auth.ts:306:1`
 
 ### Members
 
@@ -591,19 +591,19 @@ Source: `src/auth.ts:307:1`
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:324:1`
+Source: `src/auth.ts:323:1`
 
 ## AuthOAuthCancellationReason
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:286:1`
+Source: `src/auth.ts:285:1`
 
 ## AuthOAuthCapabilities
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:362:1`
+Source: `src/auth.ts:361:1`
 
 ### Members
 
@@ -615,13 +615,13 @@ Source: `src/auth.ts:362:1`
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:343:1`
+Source: `src/auth.ts:342:1`
 
 ## AuthOAuthConfig
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:154:1`
+Source: `src/auth.ts:153:1`
 
 ### Members
 
@@ -635,7 +635,7 @@ Source: `src/auth.ts:154:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:268:1`
+Source: `src/auth.ts:267:1`
 
 ### Members
 
@@ -652,19 +652,19 @@ Source: `src/auth.ts:268:1`
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:266:1`
+Source: `src/auth.ts:265:1`
 
 ## AuthOAuthErrorStage
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:247:1`
+Source: `src/auth.ts:246:1`
 
 ## AuthOAuthProviderConfig
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:143:1`
+Source: `src/auth.ts:142:1`
 
 ### Members
 
@@ -711,7 +711,7 @@ Source: `src/auth.ts:57:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:101:1`
+Source: `src/auth.ts:100:1`
 
 ### Members
 
@@ -755,7 +755,7 @@ Source: `src/auth.ts:54:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:91:1`
+Source: `src/auth.ts:90:1`
 
 ### Members
 
@@ -777,19 +777,19 @@ Source: `src/auth.ts:82:1`
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:314:1`
+Source: `src/auth.ts:313:1`
 
 ## AuthOAuthTransportCancellationReason
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:279:1`
+Source: `src/auth.ts:278:1`
 
 ## AuthOAuthTransportError
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:294:1`
+Source: `src/auth.ts:293:1`
 
 ### Members
 
@@ -803,7 +803,7 @@ Source: `src/auth.ts:294:1`
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:292:1`
+Source: `src/auth.ts:291:1`
 
 ## AuthOAuthTransportId
 
@@ -815,25 +815,25 @@ Source: `src/auth.ts:44:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:231:1`
+Source: `src/types.ts:221:1`
 
 ## AuthProfileField
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:225:1`
+Source: `src/types.ts:215:1`
 
 ## AuthProfilePrimaryKeyStrategy
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:228:1`
+Source: `src/types.ts:218:1`
 
 ## AuthProfileSpec
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:346:1`
+Source: `src/types.ts:336:1`
 
 ### Members
 
@@ -849,19 +849,19 @@ Source: `src/types.ts:346:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:234:1`
+Source: `src/types.ts:224:1`
 
 ## AuthProvider
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:209:1`
+Source: `src/types.ts:199:1`
 
 ## AuthProviderConfig
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:160:1`
+Source: `src/auth.ts:159:1`
 
 ### Members
 
@@ -878,19 +878,19 @@ Source: `src/auth.ts:160:1`
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:197:1`
+Source: `src/auth.ts:196:1`
 
 ## AuthScope
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:205:1`
+Source: `src/types.ts:195:1`
 
 ## AuthSession
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:183:1`
+Source: `src/auth.ts:182:1`
 
 ### Members
 
@@ -906,7 +906,7 @@ Source: `src/auth.ts:183:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:134:1`
+Source: `src/auth.ts:133:1`
 
 ### Members
 
@@ -918,13 +918,13 @@ Source: `src/auth.ts:134:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:212:1`
+Source: `src/types.ts:202:1`
 
 ## AuthSignInSpec
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:336:1`
+Source: `src/types.ts:326:1`
 
 ### Members
 
@@ -936,7 +936,7 @@ Source: `src/types.ts:336:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:138:1`
+Source: `src/auth.ts:137:1`
 
 ### Members
 
@@ -955,13 +955,13 @@ Source: `src/auth.ts:16:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:215:1`
+Source: `src/types.ts:205:1`
 
 ## AuthSignUpSpec
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:340:1`
+Source: `src/types.ts:330:1`
 
 ### Members
 
@@ -975,7 +975,7 @@ Source: `src/types.ts:340:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:354:1`
+Source: `src/types.ts:344:1`
 
 ### Members
 
@@ -994,7 +994,7 @@ Source: `src/types.ts:354:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:173:1`
+Source: `src/auth.ts:172:1`
 
 ### Members
 
@@ -1012,31 +1012,31 @@ Source: `src/auth.ts:173:1`
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:201:14`
+Source: `src/types.ts:191:14`
 
 ## AUTHZ_KINDS
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:198:14`
+Source: `src/types.ts:188:14`
 
 ## AuthzEngine
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:202:1`
+Source: `src/types.ts:192:1`
 
 ## AuthzKind
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:199:1`
+Source: `src/types.ts:189:1`
 
 ## AuthzSpec
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:331:1`
+Source: `src/types.ts:321:1`
 
 ### Members
 
@@ -1165,19 +1165,19 @@ Source: `src/bindings.ts:18:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:125:1`
+Source: `src/types.ts:119:1`
 
 ## CollectionItemPressEventDto
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:132:1`
+Source: `src/types.ts:126:1`
 
 ## CollectionItemPressPayload
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:127:1`
+Source: `src/types.ts:121:1`
 
 ### Members
 
@@ -1190,7 +1190,7 @@ Source: `src/types.ts:127:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:338:1`
+Source: `src/auth.ts:337:1`
 
 ### Members
 
@@ -1224,7 +1224,7 @@ Source: `src/bindings.ts:137:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:107:1`
+Source: `src/types.ts:101:1`
 
 ### Members
 
@@ -1238,13 +1238,13 @@ Source: `src/types.ts:107:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:137:1`
+Source: `src/types.ts:131:1`
 
 ## ComponentEventPayloadValue
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:105:1`
+Source: `src/types.ts:99:1`
 
 ## ComponentInstanceId
 
@@ -1275,7 +1275,7 @@ Source: `src/bindings.ts:4:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:55:1`
+Source: `src/types.ts:49:1`
 
 ### Members
 
@@ -1315,13 +1315,13 @@ Source: `src/data/refs.ts:6:1`
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:181:14`
+Source: `src/types.ts:171:14`
 
 ## DATABASE_TIERS
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:185:14`
+Source: `src/types.ts:175:14`
 
 ## DatabaseAdapterRef
 
@@ -1363,13 +1363,13 @@ Source: `src/data/sources.ts:9:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:183:1`
+Source: `src/types.ts:173:1`
 
 ## DatabaseSpec
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:316:1`
+Source: `src/types.ts:306:1`
 
 ### Members
 
@@ -1382,7 +1382,7 @@ Source: `src/types.ts:316:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:186:1`
+Source: `src/types.ts:176:1`
 
 ## DataContractValue
 
@@ -1438,7 +1438,7 @@ Source: `src/data/endpoints.ts:20:1`
 
 Kind: `type`
 Module: `src/data/operations.ts`
-Source: `src/data/operations.ts:50:1`
+Source: `src/data/operations.ts:43:1`
 
 ### Members
 
@@ -1474,7 +1474,7 @@ Source: `src/data/operations.ts:8:1`
 
 Kind: `type`
 Module: `src/data/operations.ts`
-Source: `src/data/operations.ts:41:1`
+Source: `src/data/operations.ts:34:1`
 
 ### Members
 
@@ -1491,7 +1491,7 @@ Source: `src/data/operations.ts:41:1`
 
 Kind: `type`
 Module: `src/data/operations.ts`
-Source: `src/data/operations.ts:22:1`
+Source: `src/data/operations.ts:15:1`
 
 ### Members
 
@@ -1509,25 +1509,25 @@ Source: `src/data/operations.ts:22:1`
 
 Kind: `unknown`
 Module: `src/data/operations.ts`
-Source: `src/data/operations.ts:20:1`
+Source: `src/data/operations.ts:13:1`
 
 ## DataOperationProtocol
 
 Kind: `unknown`
 Module: `src/data/operations.ts`
-Source: `src/data/operations.ts:18:1`
+Source: `src/data/operations.ts:11:1`
 
 ## DataOperationRegistry
 
 Kind: `unknown`
 Module: `src/data/operations.ts`
-Source: `src/data/operations.ts:66:1`
+Source: `src/data/operations.ts:59:1`
 
 ## DataOperationRequest
 
 Kind: `type`
 Module: `src/data/operations.ts`
-Source: `src/data/operations.ts:30:1`
+Source: `src/data/operations.ts:23:1`
 
 ### Members
 
@@ -1542,7 +1542,7 @@ Source: `src/data/operations.ts:30:1`
 
 Kind: `type`
 Module: `src/data/operations.ts`
-Source: `src/data/operations.ts:35:1`
+Source: `src/data/operations.ts:28:1`
 
 ### Members
 
@@ -1564,7 +1564,7 @@ Source: `src/data/values.ts:11:1`
 
 Kind: `type`
 Module: `src/data/schemas.ts`
-Source: `src/data/schemas.ts:22:1`
+Source: `src/data/schemas.ts:16:1`
 
 ### Members
 
@@ -1597,7 +1597,7 @@ Source: `src/data/schemas.ts:4:1`
 
 Kind: `type`
 Module: `src/data/schemas.ts`
-Source: `src/data/schemas.ts:17:1`
+Source: `src/data/schemas.ts:11:1`
 
 ### Members
 
@@ -1610,7 +1610,7 @@ Source: `src/data/schemas.ts:17:1`
 
 Kind: `type`
 Module: `src/data/schemas.ts`
-Source: `src/data/schemas.ts:13:1`
+Source: `src/data/schemas.ts:7:1`
 
 ### Members
 
@@ -1622,13 +1622,13 @@ Source: `src/data/schemas.ts:13:1`
 
 Kind: `unknown`
 Module: `src/data/schemas.ts`
-Source: `src/data/schemas.ts:41:1`
+Source: `src/data/schemas.ts:35:1`
 
 ## DataSchemaSlot
 
 Kind: `type`
 Module: `src/data/schemas.ts`
-Source: `src/data/schemas.ts:43:1`
+Source: `src/data/schemas.ts:37:1`
 
 ### Members
 
@@ -1691,7 +1691,7 @@ Source: `src/data/sources.ts:22:1`
 
 Kind: `type`
 Module: `src/db.ts`
-Source: `src/db.ts:92:1`
+Source: `src/db.ts:83:1`
 
 ### Members
 
@@ -1709,7 +1709,7 @@ Source: `src/db.ts:92:1`
 
 Kind: `type`
 Module: `src/db.ts`
-Source: `src/db.ts:86:1`
+Source: `src/db.ts:77:1`
 
 ### Members
 
@@ -1737,7 +1737,7 @@ Source: `src/db.ts:3:1`
 
 Kind: `type`
 Module: `src/db.ts`
-Source: `src/db.ts:187:1`
+Source: `src/db.ts:178:1`
 
 ### Members
 
@@ -1753,7 +1753,7 @@ Source: `src/db.ts:187:1`
 
 Kind: `type`
 Module: `src/db.ts`
-Source: `src/db.ts:182:1`
+Source: `src/db.ts:173:1`
 
 ### Members
 
@@ -1766,13 +1766,13 @@ Source: `src/db.ts:182:1`
 
 Kind: `unknown`
 Module: `src/db.ts`
-Source: `src/db.ts:171:1`
+Source: `src/db.ts:162:1`
 
 ## DbChangeEvent
 
 Kind: `type`
 Module: `src/db.ts`
-Source: `src/db.ts:112:1`
+Source: `src/db.ts:103:1`
 
 ### Members
 
@@ -1789,19 +1789,19 @@ Source: `src/db.ts:112:1`
 
 Kind: `unknown`
 Module: `src/db.ts`
-Source: `src/db.ts:110:1`
+Source: `src/db.ts:101:1`
 
 ## DbChangeListener
 
 Kind: `unknown`
 Module: `src/db.ts`
-Source: `src/db.ts:121:1`
+Source: `src/db.ts:112:1`
 
 ## DbCollectionDefinition
 
 Kind: `type`
 Module: `src/db.ts`
-Source: `src/db.ts:159:1`
+Source: `src/db.ts:150:1`
 
 ### Members
 
@@ -1816,7 +1816,7 @@ Source: `src/db.ts:159:1`
 
 Kind: `type`
 Module: `src/db.ts`
-Source: `src/db.ts:166:1`
+Source: `src/db.ts:157:1`
 
 ### Members
 
@@ -1829,13 +1829,13 @@ Source: `src/db.ts:166:1`
 
 Kind: `unknown`
 Module: `src/db.ts`
-Source: `src/db.ts:129:1`
+Source: `src/db.ts:120:1`
 
 ## DbDeleteInput
 
 Kind: `type`
 Module: `src/db.ts`
-Source: `src/db.ts:82:1`
+Source: `src/db.ts:73:1`
 
 ### Members
 
@@ -1849,7 +1849,7 @@ Source: `src/db.ts:82:1`
 
 Kind: `type`
 Module: `src/db.ts`
-Source: `src/db.ts:151:1`
+Source: `src/db.ts:142:1`
 
 ### Members
 
@@ -1865,13 +1865,13 @@ Source: `src/db.ts:151:1`
 
 Kind: `unknown`
 Module: `src/db.ts`
-Source: `src/db.ts:149:1`
+Source: `src/db.ts:140:1`
 
 ## DbFilter
 
 Kind: `type`
 Module: `src/db.ts`
-Source: `src/db.ts:49:1`
+Source: `src/db.ts:40:1`
 
 ### Members
 
@@ -1891,7 +1891,7 @@ Source: `src/db.ts:37:1`
 
 Kind: `type`
 Module: `src/db.ts`
-Source: `src/db.ts:67:1`
+Source: `src/db.ts:58:1`
 
 ### Members
 
@@ -1907,7 +1907,7 @@ Source: `src/db.ts:67:1`
 
 Kind: `type`
 Module: `src/db.ts`
-Source: `src/db.ts:73:1`
+Source: `src/db.ts:64:1`
 
 ### Members
 
@@ -1934,7 +1934,7 @@ Source: `src/db.ts:32:1`
 
 Kind: `type`
 Module: `src/db.ts`
-Source: `src/db.ts:136:1`
+Source: `src/db.ts:127:1`
 
 ### Members
 
@@ -1952,7 +1952,7 @@ Source: `src/db.ts:1:1`
 
 Kind: `type`
 Module: `src/db.ts`
-Source: `src/db.ts:131:1`
+Source: `src/db.ts:122:1`
 
 ### Members
 
@@ -1973,7 +1973,7 @@ Source: `src/db.ts:18:1`
 
 Kind: `type`
 Module: `src/db.ts`
-Source: `src/db.ts:60:1`
+Source: `src/db.ts:51:1`
 
 ### Members
 
@@ -2009,7 +2009,7 @@ Source: `src/db.ts:25:1`
 
 Kind: `type`
 Module: `src/db.ts`
-Source: `src/db.ts:125:1`
+Source: `src/db.ts:116:1`
 
 ### Members
 
@@ -2027,7 +2027,7 @@ Source: `src/db.ts:9:1`
 
 Kind: `type`
 Module: `src/db.ts`
-Source: `src/db.ts:55:1`
+Source: `src/db.ts:46:1`
 
 ### Members
 
@@ -2040,7 +2040,7 @@ Source: `src/db.ts:55:1`
 
 Kind: `type`
 Module: `src/db.ts`
-Source: `src/db.ts:77:1`
+Source: `src/db.ts:68:1`
 
 ### Members
 
@@ -2055,19 +2055,19 @@ Source: `src/db.ts:77:1`
 
 Kind: `value`
 Module: `src/auth.ts`
-Source: `src/auth.ts:121:14`
+Source: `src/auth.ts:120:14`
 
 ## DEPLOYMENT_TARGETS
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:177:14`
+Source: `src/types.ts:167:14`
 
 ## DeploymentSpec
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:311:1`
+Source: `src/types.ts:301:1`
 
 ### Members
 
@@ -2080,7 +2080,7 @@ Source: `src/types.ts:311:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:179:1`
+Source: `src/types.ts:169:1`
 
 ## EndpointId
 
@@ -2156,7 +2156,7 @@ Source: `src/data/apis.ts:28:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:80:1`
+Source: `src/types.ts:74:1`
 
 ### Members
 
@@ -2187,13 +2187,13 @@ Source: `src/secrets.ts:174:14`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:118:1`
+Source: `src/types.ts:112:1`
 
 ## FormSubmitValues
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:116:1`
+Source: `src/types.ts:110:1`
 
 ## GraphQlIntrospectionConfig
 
@@ -2212,7 +2212,7 @@ Source: `src/data/apis.ts:35:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:236:1`
+Source: `src/types.ts:226:1`
 
 ### Members
 
@@ -2247,7 +2247,7 @@ Source: `src/storage.ts:102:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:370:1`
+Source: `src/types.ts:360:1`
 
 ### Members
 
@@ -2349,13 +2349,13 @@ Source: `src/auth.ts:43:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:224:1`
+Source: `src/types.ts:214:1`
 
 ## KnownAuthProvider
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:208:1`
+Source: `src/types.ts:198:1`
 
 ## KnownAuthSignUpField
 
@@ -2367,19 +2367,19 @@ Source: `src/auth.ts:15:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:142:1`
+Source: `src/types.ts:134:1`
 
 ## KnownDatabaseProvider
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:182:1`
+Source: `src/types.ts:172:1`
 
 ## KnownDeploymentTarget
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:178:1`
+Source: `src/types.ts:168:1`
 
 ## KnownSecretStoreProvider
 
@@ -2391,13 +2391,13 @@ Source: `src/secrets.ts:2:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:192:1`
+Source: `src/types.ts:182:1`
 
 ## ManifestValue
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:97:1`
+Source: `src/types.ts:91:1`
 
 ## MEDIA_ASSET_KINDS
 
@@ -2543,7 +2543,7 @@ Source: `src/media.ts:13:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:40:1`
+Source: `src/types.ts:34:1`
 
 ### Members
 
@@ -2556,13 +2556,13 @@ Source: `src/types.ts:40:1`
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:147:14`
+Source: `src/types.ts:137:14`
 
 ## NavigatorSpec
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:270:1`
+Source: `src/types.ts:260:1`
 
 ### Members
 
@@ -2577,13 +2577,13 @@ Source: `src/types.ts:270:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:148:1`
+Source: `src/types.ts:138:1`
 
 ## NetworkingSpec
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:365:1`
+Source: `src/types.ts:355:1`
 
 ### Members
 
@@ -2667,7 +2667,7 @@ Source: `src/appManifest.ts:43:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:227:1`
+Source: `src/auth.ts:226:1`
 
 ### Members
 
@@ -2697,7 +2697,7 @@ Source: `src/bindings.ts:67:1`
 
 Kind: `function`
 Module: `src/auth.ts`
-Source: `src/auth.ts:130:1`
+Source: `src/auth.ts:129:1`
 
 ### Signatures
 
@@ -2709,7 +2709,7 @@ Source: `src/auth.ts:130:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:277:1`
+Source: `src/types.ts:267:1`
 
 ### Members
 
@@ -2822,7 +2822,7 @@ Source: `src/requirements.ts:35:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:260:1`
+Source: `src/types.ts:250:1`
 
 ### Members
 
@@ -2840,7 +2840,7 @@ Source: `src/types.ts:260:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:72:1`
+Source: `src/types.ts:66:1`
 
 ### Members
 
@@ -3046,7 +3046,7 @@ Source: `src/secrets.ts:46:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:65:1`
+Source: `src/types.ts:59:1`
 
 ### Members
 
@@ -3059,7 +3059,7 @@ Source: `src/types.ts:65:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:207:1`
+Source: `src/auth.ts:206:1`
 
 ### Members
 
@@ -3075,7 +3075,7 @@ Source: `src/auth.ts:207:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:223:1`
+Source: `src/auth.ts:222:1`
 
 ### Members
 
@@ -3087,7 +3087,7 @@ Source: `src/auth.ts:223:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:215:1`
+Source: `src/auth.ts:214:1`
 
 ### Members
 
@@ -3103,7 +3103,7 @@ Source: `src/auth.ts:215:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:297:1`
+Source: `src/types.ts:287:1`
 
 ### Members
 
@@ -3117,7 +3117,7 @@ Source: `src/types.ts:297:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:303:1`
+Source: `src/types.ts:293:1`
 
 ### Members
 
@@ -3132,13 +3132,13 @@ Source: `src/types.ts:303:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:295:1`
+Source: `src/types.ts:285:1`
 
 ## SplashScreenSpec
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:307:1`
+Source: `src/types.ts:297:1`
 
 ### Members
 
@@ -3154,7 +3154,7 @@ Source: `src/types.ts:307:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:300:1`
+Source: `src/auth.ts:299:1`
 
 ### Members
 
@@ -3169,13 +3169,13 @@ Source: `src/auth.ts:300:1`
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:195:14`
+Source: `src/types.ts:185:14`
 
 ## STATE_PROVIDERS
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:191:14`
+Source: `src/types.ts:181:14`
 
 ## StateAdapter
 
@@ -3237,7 +3237,7 @@ Source: `src/state.ts:10:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:196:1`
+Source: `src/types.ts:186:1`
 
 ## StatePrimitive
 
@@ -3249,7 +3249,7 @@ Source: `src/state.ts:1:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:193:1`
+Source: `src/types.ts:183:1`
 
 ## StateResult
 
@@ -3274,7 +3274,7 @@ Source: `src/state.ts:40:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:326:1`
+Source: `src/types.ts:316:1`
 
 ### Members
 
@@ -3311,7 +3311,7 @@ Source: `src/state.ts:3:1`
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:188:14`
+Source: `src/types.ts:178:14`
 
 ## StorageAdapter
 
@@ -3448,7 +3448,7 @@ Source: `src/storage.ts:7:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:189:1`
+Source: `src/types.ts:179:1`
 
 ## StoragePublicUrlInput
 
@@ -3563,7 +3563,7 @@ Source: `src/storage.ts:11:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:321:1`
+Source: `src/types.ts:311:1`
 
 ### Members
 
@@ -3716,7 +3716,7 @@ Source: `src/theme.ts:15:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:60:1`
+Source: `src/types.ts:54:1`
 
 ### Members
 
@@ -3729,7 +3729,7 @@ Source: `src/types.ts:60:1`
 
 Kind: `type`
 Module: `src/ui.ts`
-Source: `src/ui.ts:132:1`
+Source: `src/ui.ts:127:1`
 
 ### Members
 
@@ -3743,7 +3743,7 @@ Source: `src/ui.ts:132:1`
 
 Kind: `type`
 Module: `src/ui.ts`
-Source: `src/ui.ts:127:1`
+Source: `src/ui.ts:122:1`
 
 ### Members
 
@@ -3756,7 +3756,7 @@ Source: `src/ui.ts:127:1`
 
 Kind: `type`
 Module: `src/ui.ts`
-Source: `src/ui.ts:118:1`
+Source: `src/ui.ts:113:1`
 
 ### Members
 
@@ -3773,7 +3773,7 @@ Source: `src/ui.ts:118:1`
 
 Kind: `type`
 Module: `src/ui.ts`
-Source: `src/ui.ts:102:1`
+Source: `src/ui.ts:97:1`
 
 ### Members
 
@@ -3789,7 +3789,7 @@ Source: `src/ui.ts:102:1`
 
 Kind: `type`
 Module: `src/ui.ts`
-Source: `src/ui.ts:110:1`
+Source: `src/ui.ts:105:1`
 
 ### Members
 
@@ -3805,13 +3805,13 @@ Source: `src/ui.ts:110:1`
 
 Kind: `unknown`
 Module: `src/ui.ts`
-Source: `src/ui.ts:91:1`
+Source: `src/ui.ts:86:1`
 
 ## UiComponentBindingMeta
 
 Kind: `type`
 Module: `src/ui.ts`
-Source: `src/ui.ts:138:1`
+Source: `src/ui.ts:133:1`
 
 ### Members
 
@@ -3857,7 +3857,7 @@ Source: `src/ui.ts:4:1`
 
 Kind: `type`
 Module: `src/ui.ts`
-Source: `src/ui.ts:84:1`
+Source: `src/ui.ts:79:1`
 
 ### Members
 
@@ -3872,7 +3872,7 @@ Source: `src/ui.ts:84:1`
 
 Kind: `type`
 Module: `src/ui.ts`
-Source: `src/ui.ts:77:1`
+Source: `src/ui.ts:72:1`
 
 ### Members
 
@@ -3924,7 +3924,7 @@ Source: `src/ui.ts:63:1`
 
 Kind: `type`
 Module: `src/ui.ts`
-Source: `src/ui.ts:148:1`
+Source: `src/ui.ts:143:1`
 
 ### Members
 
@@ -3947,13 +3947,13 @@ Source: `src/ui.ts:148:1`
 
 Kind: `unknown`
 Module: `src/ui.ts`
-Source: `src/ui.ts:163:1`
+Source: `src/ui.ts:158:1`
 
 ## UiComponentPackageManifest
 
 Kind: `type`
 Module: `src/ui.ts`
-Source: `src/ui.ts:165:1`
+Source: `src/ui.ts:160:1`
 
 ### Members
 
@@ -4010,7 +4010,7 @@ Source: `src/ui.ts:22:1`
 
 Kind: `type`
 Module: `src/ui.ts`
-Source: `src/ui.ts:143:1`
+Source: `src/ui.ts:138:1`
 
 ### Members
 
@@ -4023,7 +4023,7 @@ Source: `src/ui.ts:143:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:250:1`
+Source: `src/types.ts:240:1`
 
 ### Members
 
@@ -4041,7 +4041,7 @@ Source: `src/types.ts:250:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:243:1`
+Source: `src/types.ts:233:1`
 
 ### Members
 
@@ -4086,7 +4086,7 @@ Source: `src/secrets.ts:146:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:232:1`
+Source: `src/auth.ts:231:1`
 
 ### Members
 

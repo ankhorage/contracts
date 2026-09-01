@@ -6,14 +6,7 @@ import type { DataContractValue } from './values';
 export type DataOperationIntent = 'action' | 'create' | 'delete' | 'read' | 'update';
 
 export type DataOperationMethod =
-  | 'DELETE'
-  | 'GET'
-  | 'HEAD'
-  | 'OPTIONS'
-  | 'PATCH'
-  | 'POST'
-  | 'PUT'
-  | (string & {});
+  'DELETE' | 'GET' | 'HEAD' | 'OPTIONS' | 'PATCH' | 'POST' | 'PUT' | (string & {});
 
 export type DataOperationProtocol = 'database' | 'graphql' | 'http' | (string & {});
 
