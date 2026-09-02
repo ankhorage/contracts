@@ -152,6 +152,32 @@ describe('AppManifest runtime parsing', () => {
     expect(parseAppManifest(manifest)).toEqual({ ok: true, manifest });
   });
 
+  it('accepts an optional GitHub repository configuration', () => {
+    const manifest = createManifest();
+    manifest.repository = {
+      provider: 'github',
+      owner: 'ankhorage',
+      name: 'example',
+      url: 'https://github.com/ankhorage/example',
+      defaultBranch: 'main',
+    };
+
+    expect(parseAppManifest(manifest)).toEqual({ ok: true, manifest });
+  });
+
+  it('rejects malformed GitHub repository configurations', () => {
+    const manifest = createManifest();
+    manifest.repository = {
+      provider: 'gitlab',
+      owner: 'ankhorage',
+      name: 'example',
+      url: 'https://github.com/ankhorage/example',
+      defaultBranch: 'main',
+    };
+
+    expect(isAppManifest(manifest)).toBe(false);
+  });
+
   it('rejects missing required top-level sections', () => {
     const manifest = createManifest();
     delete manifest.settings;

@@ -376,6 +376,14 @@ export interface AppSettings {
   };
 }
 
+export interface AppRepositoryConfig {
+  readonly provider: 'github';
+  readonly owner: string;
+  readonly name: string;
+  readonly url: string;
+  readonly defaultBranch: 'main';
+}
+
 export interface AppManifest {
   metadata: {
     name: string;
@@ -399,5 +407,6 @@ export interface AppManifest {
   screens: Record<string, ScreenSpec>;
   dataSources?: DataSourceRegistry;
   dataBindings?: ComponentDataBindingRegistry;
+  repository?: AppRepositoryConfig;
   settings: AppSettings;
 }
