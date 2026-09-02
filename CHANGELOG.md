@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 8.0.2
+
+### Patch Changes
+
+- 19d45dc: Update Ankhorage dependencies: `@ankhorage/color-theory`.
+
 ## 8.0.1
 
 ### Patch Changes
