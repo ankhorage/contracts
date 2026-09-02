@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 8.1.0
+
+### Minor Changes
+
+- 061bba3: Add the canonical optional GitHub repository configuration to `AppManifest`.
+
 ## 8.0.2
 
 ### Patch Changes
