@@ -30,6 +30,7 @@ const APP_MANIFEST_KEY_POLICY = {
   screens: 'required',
   dataSources: 'optional',
   dataBindings: 'optional',
+  repository: 'optional',
   settings: 'required',
 } as const satisfies Record<keyof AppManifest, 'optional' | 'required'>;
 
@@ -65,6 +66,7 @@ export function isAppManifest(value: unknown): value is AppManifest {
     isScreenRegistry(value.screens) &&
     (value.dataSources === undefined || isDataSourceRegistry(value.dataSources)) &&
     (value.dataBindings === undefined || isComponentDataBindingRegistry(value.dataBindings)) &&
+    (value.repository === undefined || isAppRepositoryConfig(value.repository)) &&
     isAppSettings(value.settings)
   );
 }
@@ -77,6 +79,20 @@ function hasRequiredManifestKeys(value: Record<string, unknown>): boolean {
 
 function isActiveThemeMode(value: unknown): boolean {
   return value === undefined || value === 'dark' || value === 'light';
+}
+
+function isAppRepositoryConfig(value: unknown): boolean {
+  return (
+    isRecord(value) &&
+    value.provider === 'github' &&
+    typeof value.owner === 'string' &&
+    value.owner.length > 0 &&
+    typeof value.name === 'string' &&
+    value.name.length > 0 &&
+    typeof value.url === 'string' &&
+    value.url.length > 0 &&
+    value.defaultBranch === 'main'
+  );
 }
 
 function isAppSettings(value: unknown): boolean {
