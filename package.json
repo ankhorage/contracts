@@ -10,7 +10,7 @@
     ]
   },
   "dependencies": {
-    "@ankhorage/color-theory": "^0.0.8"
+    "@ankhorage/color-theory": "^0.3.0"
   },
   "devDependencies": {
     "@ankhorage/devtools": "^1.9.4",
