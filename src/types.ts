@@ -377,7 +377,7 @@ export interface AppSettings {
   };
 }
 
-export interface AppManifest extends RepositoryConfig {
+export interface AppManifest {
   metadata: {
     name: string;
     slug: string;
@@ -400,5 +400,6 @@ export interface AppManifest extends RepositoryConfig {
   screens: Record<string, ScreenSpec>;
   dataSources?: DataSourceRegistry;
   dataBindings?: ComponentDataBindingRegistry;
+  repository?: RepositoryConfig;
   settings: AppSettings;
 }
