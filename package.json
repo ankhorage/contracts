@@ -71,6 +71,10 @@
     "./media": {
       "types": "./dist/media.d.ts",
       "default": "./dist/media.js"
+    },
+    "./repository": {
+      "types": "./dist/repository.d.ts",
+      "default": "./dist/repository.js"
     }
   },
   "description": "Serializable app, action, theme, auth, and secret-store contracts for Ankhorage.",
