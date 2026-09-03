@@ -9,6 +9,7 @@ import type {
 import type { ApiDefinitionList, DataSourceRegistry } from './data';
 import type { AppDeployManifest } from './deploy';
 import type { MediaManifest } from './media';
+import type { RepositoryConfig } from './repository';
 import type { ScreenRequirements } from './requirements';
 import type { ThemeGlobalTokenOverrides, ThemeRecipeOverrides } from './theme';
 
@@ -376,14 +377,6 @@ export interface AppSettings {
   };
 }
 
-export interface AppRepositoryConfig {
-  readonly provider: 'github';
-  readonly owner: string;
-  readonly name: string;
-  readonly url: string;
-  readonly defaultBranch: 'main';
-}
-
 export interface AppManifest {
   metadata: {
     name: string;
@@ -407,6 +400,6 @@ export interface AppManifest {
   screens: Record<string, ScreenSpec>;
   dataSources?: DataSourceRegistry;
   dataBindings?: ComponentDataBindingRegistry;
-  repository?: AppRepositoryConfig;
+  repository?: RepositoryConfig;
   settings: AppSettings;
 }
