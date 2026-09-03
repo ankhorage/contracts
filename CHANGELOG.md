@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 8.2.0
+
+### Minor Changes
+
+- a2e43e3: Export the reusable `RepositoryConfig` contract slice and compose `AppManifest` from it.
+
 ## 8.1.0
 
 ### Minor Changes
