@@ -65,7 +65,8 @@ export interface AdaptiveTabsConfig {
   web?: Omit<CustomTabsConfig, 'implementation'>;
 }
 
-export type TabsImplementationConfig = AdaptiveTabsConfig | CustomTabsConfig | JavaScriptTabsConfig | NativeTabsConfig;
+export type TabsImplementationConfig =
+  AdaptiveTabsConfig | CustomTabsConfig | JavaScriptTabsConfig | NativeTabsConfig;
 
 interface NavigatorNodeBase {
   initialRouteName?: string;
