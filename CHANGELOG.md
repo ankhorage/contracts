@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 9.0.0
+
+### Major Changes
+
+- f41542b: Rename the serialized `RepositoryConfig` contract to `RepositoryManifest` while keeping `manifest.repository` as the canonical singular repository desired-state property.
+
 ## 8.2.0
 
 ### Minor Changes
