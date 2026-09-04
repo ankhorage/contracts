@@ -4,8 +4,8 @@ import { isAppDeployManifest } from './appManifest/deploy';
 import { isInfraManifest } from './appManifest/infra';
 import { isMediaManifest } from './appManifest/media';
 import {
+  isAppNavigatorManifest,
   isManifestMetadata,
-  isNavigatorSpec,
   isScreenRegistry,
   isSplashScreenSpec,
   isThemeConfig,
@@ -62,7 +62,7 @@ export function isAppManifest(value: unknown): value is AppManifest {
     (value.media === undefined || isMediaManifest(value.media)) &&
     (value.deploy === undefined || isAppDeployManifest(value.deploy)) &&
     isInfraManifest(value.infra) &&
-    isNavigatorSpec(value.navigator) &&
+    isAppNavigatorManifest(value.navigator) &&
     isScreenRegistry(value.screens) &&
     (value.dataSources === undefined || isDataSourceRegistry(value.dataSources)) &&
     (value.dataBindings === undefined || isComponentDataBindingRegistry(value.dataBindings)) &&
