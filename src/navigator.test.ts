@@ -46,7 +46,7 @@ describe('app navigator manifest topology', () => {
   });
 });
 
-describe('app navigator manifest presentation', () => {
+describe('app navigator manifest custom presentation', () => {
   it('accepts fixed and registered custom Web presentations', () => {
     expect(
       isAppNavigatorManifest({
@@ -87,7 +87,9 @@ describe('app navigator manifest presentation', () => {
       }),
     ).toBe(false);
   });
+});
 
+describe('app navigator manifest composition', () => {
   it('keeps nested topology separate from app-level flow metadata', () => {
     expect(
       isAppNavigatorManifest({
