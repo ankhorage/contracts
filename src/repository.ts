@@ -1,4 +1,4 @@
-export interface RepositoryConfig {
+export interface RepositoryManifest {
   readonly provider: 'github';
   readonly owner: string;
   readonly name: string;
