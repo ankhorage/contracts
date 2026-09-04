@@ -9,7 +9,7 @@ import type {
 import type { ApiDefinitionList, DataSourceRegistry } from './data';
 import type { AppDeployManifest } from './deploy';
 import type { MediaManifest } from './media';
-import type { RepositoryConfig } from './repository';
+import type { RepositoryManifest } from './repository';
 import type { ScreenRequirements } from './requirements';
 import type { ThemeGlobalTokenOverrides, ThemeRecipeOverrides } from './theme';
 
@@ -400,6 +400,6 @@ export interface AppManifest {
   screens: Record<string, ScreenSpec>;
   dataSources?: DataSourceRegistry;
   dataBindings?: ComponentDataBindingRegistry;
-  repository?: RepositoryConfig;
+  repository?: RepositoryManifest;
   settings: AppSettings;
 }
