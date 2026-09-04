@@ -9,6 +9,7 @@ import type {
 import type { ApiDefinitionList, DataSourceRegistry } from './data';
 import type { AppDeployManifest } from './deploy';
 import type { MediaManifest } from './media';
+import type { AppNavigatorManifest } from './navigator';
 import type { RepositoryManifest } from './repository';
 import type { ScreenRequirements } from './requirements';
 import type { ThemeGlobalTokenOverrides, ThemeRecipeOverrides } from './theme';
@@ -135,9 +136,6 @@ export type ComponentEventDtoKind =
 export type KnownComponentEventDto =
   ButtonPressEventDto | CollectionItemPressEventDto | FormSubmitEventDto;
 
-export const NAVIGATOR_TYPES = ['stack', 'tabs', 'drawer'] as const;
-export type NavigatorType = (typeof NAVIGATOR_TYPES)[number];
-
 export const APP_CATEGORIES = [
   'books_reading',
   'business_productivity',
@@ -258,31 +256,6 @@ export interface ScreenSpec {
   requires?: ScreenRequirements;
 }
 
-export interface NavigatorSpec {
-  type: NavigatorType;
-  initialRouteName?: string;
-  routes: RouteDefinition[];
-  options?: Record<string, unknown>;
-}
-
-export interface RouteDefinition {
-  name: string;
-  path?: string;
-  label?: string;
-  icon?: IconSpec;
-  /**
-   * Whether this route appears in Tabs and Drawer primary navigation.
-   *
-   * Omitted routes are visible by default. Setting this to `false` hides the
-   * route from primary navigation without making it unnavigable. Stack
-   * navigators preserve the value but do not present primary navigation.
-   */
-  showInPrimaryNavigation?: boolean;
-  guards?: string[];
-  screenId?: string;
-  navigator?: NavigatorSpec;
-}
-
 export type SplashScreenResizeMode = 'contain' | 'cover' | 'native';
 
 export interface SplashScreenAssetSpec {
@@ -396,7 +369,7 @@ export interface AppManifest {
   /** App distribution desired state. Infrastructure deployment remains under `infra.deployment`. */
   deploy?: AppDeployManifest;
   infra: InfraManifest;
-  navigator: NavigatorSpec;
+  navigator: AppNavigatorManifest;
   screens: Record<string, ScreenSpec>;
   dataSources?: DataSourceRegistry;
   dataBindings?: ComponentDataBindingRegistry;
