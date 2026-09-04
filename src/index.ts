@@ -6,6 +6,7 @@ export * from './data';
 export * from './db';
 export * from './deploy';
 export * from './media';
+export * from './navigator';
 export * from './repository';
 export * from './requirements';
 export * from './runtimeCallbacks';
