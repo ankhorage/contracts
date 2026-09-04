@@ -5,8 +5,8 @@ import { describe, expect, it } from 'bun:test';
 
 import { isAppNavigatorManifest } from './appManifest/screens';
 import {
-  NAVIGATOR_PRESETS,
   type AppNavigatorManifest,
+  NAVIGATOR_PRESETS,
   type TabsNavigatorConfig,
 } from './navigator';
 
@@ -28,7 +28,7 @@ function createAdaptiveTabs(): AppNavigatorManifest {
   };
 }
 
-describe('app navigator manifest contract', () => {
+describe('app navigator manifest topology', () => {
   it('keeps canonical topology presets finite and authorable', () => {
     expect(NAVIGATOR_PRESETS).toContain('root-stack-tabs-stack');
     expect(NAVIGATOR_PRESETS).toContain('root-stack-drawer-tabs-stack');
@@ -44,7 +44,9 @@ describe('app navigator manifest contract', () => {
 
     expect(isAppNavigatorManifest(navigator)).toBe(true);
   });
+});
 
+describe('app navigator manifest presentation', () => {
   it('accepts fixed and registered custom Web presentations', () => {
     expect(
       isAppNavigatorManifest({
