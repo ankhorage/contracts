@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 10.0.0
+
+### Major Changes
+
+- 8835ea2: Replace the legacy `NavigatorSpec` contract with the focused `AppNavigatorManifest` slice, publish it through `@ankhorage/contracts/navigator`, and add typed topology presets plus adaptive, JavaScript, native, and custom tab implementation/presentation desired state.
+
 ## 9.0.0
 
 ### Major Changes
