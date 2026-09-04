@@ -34,35 +34,35 @@ export const JAVASCRIPT_TABS_PRESENTATIONS = ['bottom', 'top'] as const;
 export type JavaScriptTabsPresentation = (typeof JAVASCRIPT_TABS_PRESENTATIONS)[number];
 
 export interface ResponsiveTabsPresentation {
-  readonly compact: FixedCustomTabsPresentation;
-  readonly medium?: FixedCustomTabsPresentation;
-  readonly expanded: FixedCustomTabsPresentation;
+  compact: FixedCustomTabsPresentation;
+  medium?: FixedCustomTabsPresentation;
+  expanded: FixedCustomTabsPresentation;
 }
 
 export interface CustomTabsConfig {
-  readonly implementation: 'custom';
-  readonly presentation: CustomTabsPresentation;
-  readonly responsive?: ResponsiveTabsPresentation;
+  implementation: 'custom';
+  presentation: CustomTabsPresentation;
+  responsive?: ResponsiveTabsPresentation;
   /** Serializable registered presentation id used when `presentation` is `custom`. */
-  readonly customPresentationId?: string;
+  customPresentationId?: string;
 }
 
 export interface NativeTabsConfig {
-  readonly implementation: 'native';
+  implementation: 'native';
 }
 
 export interface JavaScriptTabsConfig {
-  readonly implementation: 'javascript';
-  readonly presentation?: JavaScriptTabsPresentation;
+  implementation: 'javascript';
+  presentation?: JavaScriptTabsPresentation;
 }
 
 export interface AdaptiveTabsConfig {
   /** Omission selects the canonical adaptive default. */
-  readonly implementation?: 'adaptive';
+  implementation?: 'adaptive';
   /** Android/iOS branch. Expo Router may expose this implementation as unstable. */
-  readonly native?: NativeTabsConfig;
+  native?: NativeTabsConfig;
   /** Web branch rendered through headless custom tabs. */
-  readonly web?: Omit<CustomTabsConfig, 'implementation'>;
+  web?: Omit<CustomTabsConfig, 'implementation'>;
 }
 
 export type TabsImplementationConfig =
@@ -72,22 +72,22 @@ export type TabsImplementationConfig =
   | NativeTabsConfig;
 
 interface NavigatorNodeBase {
-  readonly initialRouteName?: string;
-  readonly routes: readonly RouteDefinition[];
+  initialRouteName?: string;
+  routes: RouteDefinition[];
   /** Typed upstream options can be layered by the owning Navigator package. */
-  readonly options?: Record<string, unknown>;
+  options?: Record<string, unknown>;
 }
 
 export interface StackNavigatorNode extends NavigatorNodeBase {
-  readonly type: 'stack';
+  type: 'stack';
 }
 
 export interface DrawerNavigatorNode extends NavigatorNodeBase {
-  readonly type: 'drawer';
+  type: 'drawer';
 }
 
 export type TabsNavigatorConfig = {
-  readonly type: 'tabs';
+  type: 'tabs';
 } & TabsImplementationConfig;
 
 export type TabsNavigatorNode = NavigatorNodeBase & TabsNavigatorConfig;
@@ -95,34 +95,34 @@ export type TabsNavigatorNode = NavigatorNodeBase & TabsNavigatorConfig;
 export type NavigatorNode = DrawerNavigatorNode | StackNavigatorNode | TabsNavigatorNode;
 
 export interface RouteDefinition {
-  readonly name: string;
-  readonly path?: string;
-  readonly label?: string;
-  readonly icon?: IconSpec;
+  name: string;
+  path?: string;
+  label?: string;
+  icon?: IconSpec;
   /** Hide this route from primary Tabs/Drawer presentation without making it unnavigable. */
-  readonly showInPrimaryNavigation?: boolean;
-  readonly guards?: readonly string[];
-  readonly screenId?: string;
-  readonly navigator?: NavigatorNode;
+  showInPrimaryNavigation?: boolean;
+  guards?: string[];
+  screenId?: string;
+  navigator?: NavigatorNode;
 }
 
 export interface NavigatorFlows {
-  readonly onboarding?: boolean;
-  readonly authentication?: boolean;
+  onboarding?: boolean;
+  authentication?: boolean;
 }
 
 export interface NavigatorDefaults {
-  readonly tabs?: TabsImplementationConfig;
+  tabs?: TabsImplementationConfig;
 }
 
 export interface NavigatorPlatformConfig {
-  readonly tabs?: TabsImplementationConfig;
+  tabs?: TabsImplementationConfig;
 }
 
 export interface NavigatorPlatforms {
-  readonly android?: NavigatorPlatformConfig;
-  readonly ios?: NavigatorPlatformConfig;
-  readonly web?: NavigatorPlatformConfig;
+  android?: NavigatorPlatformConfig;
+  ios?: NavigatorPlatformConfig;
+  web?: NavigatorPlatformConfig;
 }
 
 /**
@@ -132,8 +132,8 @@ export interface NavigatorPlatforms {
  * a redundant `root` wrapper. The standalone Navigator capability consumes this slice directly.
  */
 export type AppNavigatorManifest = NavigatorNode & {
-  readonly preset?: NavigatorPreset;
-  readonly flows?: NavigatorFlows;
-  readonly defaults?: NavigatorDefaults;
-  readonly platforms?: NavigatorPlatforms;
+  preset?: NavigatorPreset;
+  flows?: NavigatorFlows;
+  defaults?: NavigatorDefaults;
+  platforms?: NavigatorPlatforms;
 };
