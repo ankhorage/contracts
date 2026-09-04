@@ -66,7 +66,7 @@ export function isAppManifest(value: unknown): value is AppManifest {
     isScreenRegistry(value.screens) &&
     (value.dataSources === undefined || isDataSourceRegistry(value.dataSources)) &&
     (value.dataBindings === undefined || isComponentDataBindingRegistry(value.dataBindings)) &&
-    (value.repository === undefined || isAppRepositoryConfig(value.repository)) &&
+    (value.repository === undefined || isRepositoryManifest(value.repository)) &&
     isAppSettings(value.settings)
   );
 }
@@ -81,7 +81,7 @@ function isActiveThemeMode(value: unknown): boolean {
   return value === undefined || value === 'dark' || value === 'light';
 }
 
-function isAppRepositoryConfig(value: unknown): boolean {
+function isRepositoryManifest(value: unknown): boolean {
   return (
     isRecord(value) &&
     value.provider === 'github' &&
