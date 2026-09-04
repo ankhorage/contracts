@@ -9,6 +9,7 @@ import {
 } from '../navigator';
 import { APP_CATEGORIES } from '../types';
 import { isBindingValueSource, isScreenDataLoaderDefinition } from './bindings';
+import { isIconSpec } from './icon';
 import {
   isOptionalBoolean,
   isOptionalNumber,
@@ -154,18 +155,6 @@ function isRouteDefinition(value: unknown): boolean {
     (value.guards === undefined || isStringArray(value.guards)) &&
     isOptionalString(value.screenId) &&
     (value.navigator === undefined || isNavigatorNode(value.navigator))
-  );
-}
-
-function isIconSpec(value: unknown): boolean {
-  return (
-    isRecord(value) &&
-    typeof value.name === 'string' &&
-    isOptionalString(value.provider) &&
-    (value.size === undefined ||
-      typeof value.size === 'string' ||
-      typeof value.size === 'number') &&
-    isOptionalString(value.color)
   );
 }
 

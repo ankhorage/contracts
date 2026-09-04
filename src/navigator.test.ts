@@ -38,6 +38,29 @@ describe('app navigator manifest topology', () => {
     expect(isAppNavigatorManifest(createAdaptiveTabs())).toBe(true);
   });
 
+  it('accepts SVG media icon references without a provider', () => {
+    const navigator = createAdaptiveTabs();
+    navigator.routes[0] = {
+      ...navigator.routes[0],
+      icon: { source: { mediaId: 'navigation-home' } },
+    };
+
+    expect(isAppNavigatorManifest(navigator)).toBe(true);
+  });
+
+  it('rejects icon definitions that mix named and media sources', () => {
+    const navigator = createAdaptiveTabs();
+    navigator.routes[0] = {
+      ...navigator.routes[0],
+      icon: {
+        name: 'home-outline',
+        source: { mediaId: 'navigation-home' },
+      } as never,
+    };
+
+    expect(isAppNavigatorManifest(navigator)).toBe(false);
+  });
+
   it('treats omitted tabs implementation as the canonical adaptive default', () => {
     const tabs: TabsNavigatorConfig = { type: 'tabs' };
     const navigator: AppNavigatorManifest = { ...tabs, routes: [] };
