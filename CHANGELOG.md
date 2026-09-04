@@ -1,5 +1,12 @@
 # @ankhorage/contracts
 
+## 10.1.0
+
+### Minor Changes
+
+- 958b0a2: Allow manifest icon specifications to reference SVG media assets through a mutually exclusive
+  `source` branch.
+
 ## 10.0.0
 
 ### Major Changes
