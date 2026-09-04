@@ -8,7 +8,7 @@ import type {
 } from './bindings';
 import type { ApiDefinitionList, DataSourceRegistry } from './data';
 import type { AppDeployManifest } from './deploy';
-import type { MediaManifest } from './media';
+import type { MediaAssetReference, MediaManifest } from './media';
 import type { AppNavigatorManifest } from './navigator';
 import type { RepositoryManifest } from './repository';
 import type { ScreenRequirements } from './requirements';
@@ -222,12 +222,24 @@ export type AuthProfileCreateStrategy = (typeof AUTH_PROFILE_CREATE_STRATEGIES)[
 export const AUTH_PROFILE_UPDATE_STRATEGIES = ['api', 'app'] as const;
 export type AuthProfileUpdateStrategy = (typeof AUTH_PROFILE_UPDATE_STRATEGIES)[number];
 
-export interface IconSpec {
-  name: string;
-  provider?: string;
+interface IconPresentationSpec {
   size?: number | string;
   color?: string;
 }
+
+export interface NamedIconSpec extends IconPresentationSpec {
+  name: string;
+  provider?: string;
+  source?: never;
+}
+
+export interface SvgIconSpec extends IconPresentationSpec {
+  source: MediaAssetReference;
+  name?: never;
+  provider?: never;
+}
+
+export type IconSpec = NamedIconSpec | SvgIconSpec;
 
 export interface UiNodeRepeatSpec {
   source: BindingValueSource;

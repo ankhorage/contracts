@@ -13,6 +13,7 @@ import {
   STORAGE_PROVIDERS,
 } from '../types';
 import { isApiDefinitionList } from './apis';
+import { isIconSpec } from './icon';
 import {
   isOptionalBoolean,
   isOptionalString,
@@ -185,17 +186,5 @@ function isAuthProfileSpec(value: unknown): boolean {
     (value.updateStrategy === undefined ||
       (typeof value.updateStrategy === 'string' &&
         AUTH_PROFILE_UPDATE_STRATEGY_SET.has(value.updateStrategy)))
-  );
-}
-
-function isIconSpec(value: unknown): boolean {
-  return (
-    isRecord(value) &&
-    typeof value.name === 'string' &&
-    isOptionalString(value.provider) &&
-    (value.size === undefined ||
-      typeof value.size === 'string' ||
-      typeof value.size === 'number') &&
-    isOptionalString(value.color)
   );
 }
