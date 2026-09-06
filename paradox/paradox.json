@@ -2,6 +2,8 @@
   "packageName": "CONTRACTS",
   "packageId": "@ankhorage/contracts",
   "description": "Serializable app, action, theme, auth, and secret-store contracts for Ankhorage.",
+  "collaborators": null,
+  "donation": null,
   "badges": [
     {
       "id": "license",
@@ -12,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v8.0.1",
+      "value": "v10.1.0",
       "color": "cb3837"
     },
     {
@@ -121,10 +123,17 @@
       "exports": ["isAppDeployManifest"]
     },
     {
+      "path": "src/appManifest/icon.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/appManifest/shared.ts", "src/media.ts"],
+      "exports": ["isIconSpec"]
+    },
+    {
       "path": "src/appManifest/infra.ts",
       "isEntrypoint": false,
       "dependencies": [
         "src/appManifest/apis.ts",
+        "src/appManifest/icon.ts",
         "src/appManifest/shared.ts",
         "src/auth.ts",
         "src/types.ts"
@@ -138,12 +147,36 @@
       "exports": ["isMediaManifest"]
     },
     {
+      "path": "src/appManifest/navigator.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/appManifest/icon.ts",
+        "src/appManifest/navigatorOptions.ts",
+        "src/appManifest/shared.ts",
+        "src/navigator.ts"
+      ],
+      "exports": ["isAppNavigatorManifest"]
+    },
+    {
+      "path": "src/appManifest/navigatorOptions.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/appManifest/shared.ts", "src/navigator.ts"],
+      "exports": [
+        "hasOnlyKeys",
+        "isDrawerNavigatorOptions",
+        "isNavigatorScreenReference",
+        "isStackImplementationConfig",
+        "isStackScreenOptions",
+        "isTabsImplementationConfig"
+      ]
+    },
+    {
       "path": "src/appManifest/screens.ts",
       "isEntrypoint": false,
       "dependencies": ["src/appManifest/bindings.ts", "src/appManifest/shared.ts", "src/types.ts"],
       "exports": [
+        "isAppNavigatorManifest",
         "isManifestMetadata",
-        "isNavigatorSpec",
         "isScreenRegistry",
         "isSplashScreenSpec",
         "isThemeConfig"
@@ -527,6 +560,7 @@
         "AdapterId",
         "AdapterKind",
         "AdapterRef",
+        "AdaptiveTabsConfig",
         "AlertAction",
         "AnkhCapabilityId",
         "AnkhCommandCategory",
@@ -558,6 +592,7 @@
         "AppDeployWebTargetConfig",
         "AppManifest",
         "AppManifestParseResult",
+        "AppNavigatorManifest",
         "AppSettings",
         "AUTH_IDENTIFIER_KINDS",
         "AUTH_OAUTH_CANCELLATION_REASONS",
@@ -663,6 +698,12 @@
         "CredentialId",
         "CredentialKind",
         "CredentialRef",
+        "CUSTOM_TABS_PRESENTATIONS",
+        "CustomNavigatorNode",
+        "CustomTabsConfig",
+        "CustomTabsPresentation",
+        "CustomTabsPresentationConfig",
+        "CustomTabsWebConfig",
         "DATABASE_PROVIDERS",
         "DATABASE_TIERS",
         "DatabaseAdapterRef",
@@ -734,6 +775,12 @@
         "DEPLOYMENT_TARGETS",
         "DeploymentSpec",
         "DeploymentTarget",
+        "DRAWER_POSITIONS",
+        "DRAWER_TYPES",
+        "DrawerNavigatorNode",
+        "DrawerNavigatorOptions",
+        "DrawerPosition",
+        "DrawerType",
         "EndpointId",
         "EventBinding",
         "EventBindingTarget",
@@ -741,6 +788,8 @@
         "ExternalRestApiDefinition",
         "FilterAction",
         "findForbiddenInlineSecretFields",
+        "FIXED_CUSTOM_TABS_PRESENTATIONS",
+        "FixedCustomTabsPresentation",
         "FORBIDDEN_INLINE_SECRET_FIELDS",
         "FormSubmitEventDto",
         "FormSubmitValues",
@@ -754,6 +803,12 @@
         "isAppDeployManifest",
         "isAppManifest",
         "isMediaAssetReference",
+        "JAVASCRIPT_STACK_PRESENTATIONS",
+        "JAVASCRIPT_TABS_PRESENTATIONS",
+        "JavaScriptStackPresentation",
+        "JavaScriptStackScreenOptions",
+        "JavaScriptTabsConfig",
+        "JavaScriptTabsPresentation",
         "KnownAuthOAuthProviderId",
         "KnownAuthOAuthTransportId",
         "KnownAuthProfileField",
@@ -777,9 +832,20 @@
         "MediaStorageAdapter",
         "MediaStorageSource",
         "MediaUrlSource",
+        "NamedIconSpec",
+        "NATIVE_TABS_MINIMIZE_BEHAVIORS",
+        "NativeTabsConfig",
+        "NativeTabsMinimizeBehavior",
         "NavigateAction",
+        "NAVIGATOR_PRESETS",
         "NAVIGATOR_TYPES",
-        "NavigatorSpec",
+        "NavigatorDefaults",
+        "NavigatorFlows",
+        "NavigatorNode",
+        "NavigatorPlatformConfig",
+        "NavigatorPlatforms",
+        "NavigatorPreset",
+        "NavigatorScreenReference",
         "NavigatorType",
         "NetworkingSpec",
         "normalizeSecretRef",
@@ -790,7 +856,9 @@
         "parseAppManifest",
         "PasswordResetInput",
         "PropBinding",
+        "RepositoryManifest",
         "resolveAuthFlow",
+        "ResponsiveTabsPresentation",
         "RouteDefinition",
         "RuntimeCallback",
         "RuntimeCallbackArgs",
@@ -826,10 +894,20 @@
         "SignInInput",
         "SignOutInput",
         "SignUpInput",
+        "SlotNavigatorNode",
         "SplashScreenAssetSpec",
         "SplashScreenModeSpec",
         "SplashScreenResizeMode",
         "SplashScreenSpec",
+        "SplitViewNavigatorNode",
+        "STACK_IMPLEMENTATIONS",
+        "STACK_PRESENTATIONS",
+        "StackHeaderOptions",
+        "StackImplementation",
+        "StackImplementationConfig",
+        "StackNavigatorNode",
+        "StackPresentation",
+        "StackScreenOptions",
         "StartOAuthAuthorizationInput",
         "STATE_PERSISTENCE_MODES",
         "STATE_PROVIDERS",
@@ -870,6 +948,10 @@
         "StorageSpec",
         "StorageUploadInput",
         "StorageUploadResult",
+        "SvgIconSpec",
+        "TabsImplementationConfig",
+        "TabsNavigatorConfig",
+        "TabsNavigatorNode",
         "ThemeConfig",
         "ThemeGlobalTokenOverrides",
         "ThemeModeConfig",
@@ -930,6 +1012,69 @@
         "MediaStorageSource",
         "MediaUrlSource"
       ]
+    },
+    {
+      "path": "src/navigator.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/types.ts"],
+      "exports": [
+        "AdaptiveTabsConfig",
+        "AppNavigatorManifest",
+        "CUSTOM_TABS_PRESENTATIONS",
+        "CustomNavigatorNode",
+        "CustomTabsConfig",
+        "CustomTabsPresentation",
+        "CustomTabsPresentationConfig",
+        "CustomTabsWebConfig",
+        "DRAWER_POSITIONS",
+        "DRAWER_TYPES",
+        "DrawerNavigatorNode",
+        "DrawerNavigatorOptions",
+        "DrawerPosition",
+        "DrawerType",
+        "FIXED_CUSTOM_TABS_PRESENTATIONS",
+        "FixedCustomTabsPresentation",
+        "JAVASCRIPT_STACK_PRESENTATIONS",
+        "JAVASCRIPT_TABS_PRESENTATIONS",
+        "JavaScriptStackPresentation",
+        "JavaScriptStackScreenOptions",
+        "JavaScriptTabsConfig",
+        "JavaScriptTabsPresentation",
+        "NATIVE_TABS_MINIMIZE_BEHAVIORS",
+        "NativeTabsConfig",
+        "NativeTabsMinimizeBehavior",
+        "NAVIGATOR_PRESETS",
+        "NAVIGATOR_TYPES",
+        "NavigatorDefaults",
+        "NavigatorFlows",
+        "NavigatorNode",
+        "NavigatorPlatformConfig",
+        "NavigatorPlatforms",
+        "NavigatorPreset",
+        "NavigatorScreenReference",
+        "NavigatorType",
+        "ResponsiveTabsPresentation",
+        "RouteDefinition",
+        "SlotNavigatorNode",
+        "SplitViewNavigatorNode",
+        "STACK_IMPLEMENTATIONS",
+        "STACK_PRESENTATIONS",
+        "StackHeaderOptions",
+        "StackImplementation",
+        "StackImplementationConfig",
+        "StackNavigatorNode",
+        "StackPresentation",
+        "StackScreenOptions",
+        "TabsImplementationConfig",
+        "TabsNavigatorConfig",
+        "TabsNavigatorNode"
+      ]
+    },
+    {
+      "path": "src/repository.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": ["RepositoryManifest"]
     },
     {
       "path": "src/requirements.ts",
@@ -1068,6 +1213,8 @@
         "src/data/index.ts",
         "src/deploy.ts",
         "src/media.ts",
+        "src/navigator.ts",
+        "src/repository.ts",
         "src/requirements.ts",
         "src/theme.ts"
       ],
@@ -1131,12 +1278,9 @@
         "KnownDeploymentTarget",
         "KnownStateProvider",
         "ManifestValue",
+        "NamedIconSpec",
         "NavigateAction",
-        "NAVIGATOR_TYPES",
-        "NavigatorSpec",
-        "NavigatorType",
         "NetworkingSpec",
-        "RouteDefinition",
         "ScreenSpec",
         "SearchAction",
         "SetLanguageAction",
@@ -1152,6 +1296,7 @@
         "STORAGE_PROVIDERS",
         "StorageProvider",
         "StorageSpec",
+        "SvgIconSpec",
         "ThemeConfig",
         "ThemeModeConfig",
         "ToggleDarkModeAction",
@@ -1201,7 +1346,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 82,
+        "line": 84,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1219,7 +1364,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 31,
+        "line": 33,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1319,6 +1464,46 @@
       "structuredRows": []
     },
     {
+      "name": "AdaptiveTabsConfig",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/navigator.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator.ts",
+        "line": 165,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["CustomTabsPresentationConfig", "NativeTabsConfig"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "implementation",
+          "kind": "property",
+          "type": "\"adaptive\" | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "native",
+          "kind": "property",
+          "type": "NativeTabsConfig | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "web",
+          "kind": "property",
+          "type": "CustomTabsPresentationConfig | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
       "name": "AlertAction",
       "description": null,
       "isReadme": false,
@@ -1327,7 +1512,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 42,
+        "line": 44,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1665,7 +1850,7 @@
         {
           "name": "endpoints",
           "kind": "property",
-          "type": "Readonly<Record<string, import(\"./src/index\").DataEndpointConfig>>",
+          "type": "Readonly<Record<string, import(\"./endpoints\").DataEndpointConfig>>",
           "required": true,
           "description": null
         },
@@ -1707,7 +1892,7 @@
         {
           "name": "schemas",
           "kind": "property",
-          "type": "Readonly<Record<string, import(\"./src/index\").DataSchema>> | undefined",
+          "type": "Readonly<Record<string, import(\"./schemas\").DataSchema>> | undefined",
           "required": false,
           "description": null
         }
@@ -1813,7 +1998,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 140,
+        "line": 139,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -1867,7 +2052,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 165,
+        "line": 164,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2151,19 +2336,20 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 379,
+        "line": 365,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "AppCategory",
         "AppDeployManifest",
+        "AppNavigatorManifest",
         "AppSettings",
         "ComponentDataBinding",
         "DatabaseDataSourceConfig",
         "InfraManifest",
         "MediaManifest",
-        "NavigatorSpec",
+        "RepositoryManifest",
         "ScreenSpec",
         "SplashScreenSpec",
         "ThemeConfig"
@@ -2187,14 +2373,14 @@
         {
           "name": "dataBindings",
           "kind": "property",
-          "type": "Readonly<Record<string, import(\"./src/bindings\").ComponentDataBinding>> | undefined",
+          "type": "Readonly<Record<string, import(\"./bindings\").ComponentDataBinding>> | undefined",
           "required": false,
           "description": null
         },
         {
           "name": "dataSources",
           "kind": "property",
-          "type": "Readonly<Record<string, import(\"./src/index\").DatabaseDataSourceConfig>> | undefined",
+          "type": "Readonly<Record<string, import(\"./data\").DatabaseDataSourceConfig>> | undefined",
           "required": false,
           "description": null
         },
@@ -2229,8 +2415,15 @@
         {
           "name": "navigator",
           "kind": "property",
-          "type": "NavigatorSpec",
+          "type": "AppNavigatorManifest",
           "required": true,
+          "description": null
+        },
+        {
+          "name": "repository",
+          "kind": "property",
+          "type": "RepositoryManifest | undefined",
+          "required": false,
           "description": null
         },
         {
@@ -2283,6 +2476,24 @@
       "structuredRows": []
     },
     {
+      "name": "AppNavigatorManifest",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/navigator.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator.ts",
+        "line": 267,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
       "name": "AppSettings",
       "description": null,
       "isReadme": false,
@@ -2291,7 +2502,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 372,
+        "line": 358,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2515,7 +2726,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 220,
+        "line": 219,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -2533,7 +2744,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 207,
+        "line": 206,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -2551,7 +2762,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 217,
+        "line": 216,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -2569,7 +2780,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 223,
+        "line": 222,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -2587,7 +2798,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 197,
+        "line": 196,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -2605,7 +2816,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 194,
+        "line": 193,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -2623,7 +2834,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 201,
+        "line": 200,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -2659,7 +2870,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 204,
+        "line": 203,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -3790,7 +4001,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 221,
+        "line": 220,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3808,7 +4019,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 215,
+        "line": 214,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3826,7 +4037,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 218,
+        "line": 217,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3844,7 +4055,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 336,
+        "line": 322,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3898,7 +4109,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 224,
+        "line": 223,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3916,7 +4127,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 199,
+        "line": 198,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4013,7 +4224,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 195,
+        "line": 194,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4111,7 +4322,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 202,
+        "line": 201,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4129,7 +4340,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 326,
+        "line": 312,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4206,7 +4417,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 205,
+        "line": 204,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4224,7 +4435,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 330,
+        "line": 316,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4264,7 +4475,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 344,
+        "line": 330,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4415,7 +4626,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 191,
+        "line": 190,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -4433,7 +4644,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 188,
+        "line": 187,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -4451,7 +4662,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 192,
+        "line": 191,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4469,7 +4680,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 189,
+        "line": 188,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4487,7 +4698,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 321,
+        "line": 307,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4850,7 +5061,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 119,
+        "line": 121,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4868,7 +5079,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 126,
+        "line": 128,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4886,7 +5097,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 121,
+        "line": 123,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -5017,7 +5228,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 101,
+        "line": 103,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -5057,7 +5268,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 131,
+        "line": 133,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -5075,7 +5286,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 99,
+        "line": 101,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -5162,7 +5373,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 49,
+        "line": 51,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -5270,6 +5481,150 @@
       "structuredRows": []
     },
     {
+      "name": "CUSTOM_TABS_PRESENTATIONS",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "value",
+      "modulePath": "src/navigator.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator.ts",
+        "line": 100,
+        "column": 14
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "CustomNavigatorNode",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/navigator.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator.ts",
+        "line": 212,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["ManifestValue", "RouteDefinition"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "config",
+          "kind": "property",
+          "type": "Readonly<Record<string, ManifestValue>> | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "initialRouteName",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "navigatorId",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "routes",
+          "kind": "property",
+          "type": "RouteDefinition[]",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "type",
+          "kind": "property",
+          "type": "\"custom\"",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "CustomTabsConfig",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/navigator.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator.ts",
+        "line": 142,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "CustomTabsPresentation",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/navigator.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator.ts",
+        "line": 105,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "CustomTabsPresentationConfig",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/navigator.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator.ts",
+        "line": 124,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "CustomTabsWebConfig",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/navigator.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator.ts",
+        "line": 146,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
       "name": "DATABASE_PROVIDERS",
       "description": null,
       "isReadme": false,
@@ -5278,7 +5633,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 171,
+        "line": 170,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -5296,7 +5651,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 175,
+        "line": 174,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -5405,7 +5760,7 @@
         {
           "name": "endpoints",
           "kind": "property",
-          "type": "Readonly<Record<string, import(\"./src/index\").DataEndpointConfig>>",
+          "type": "Readonly<Record<string, import(\"./endpoints\").DataEndpointConfig>>",
           "required": true,
           "description": null
         },
@@ -5440,7 +5795,7 @@
         {
           "name": "schemas",
           "kind": "property",
-          "type": "Readonly<Record<string, import(\"./src/index\").DataSchema>> | undefined",
+          "type": "Readonly<Record<string, import(\"./schemas\").DataSchema>> | undefined",
           "required": false,
           "description": null
         }
@@ -5456,7 +5811,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 173,
+        "line": 172,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -5474,7 +5829,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 306,
+        "line": 292,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -5507,7 +5862,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 176,
+        "line": 175,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -7723,7 +8078,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 167,
+        "line": 166,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -7741,7 +8096,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 301,
+        "line": 287,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -7774,7 +8129,173 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 169,
+        "line": 168,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "DRAWER_POSITIONS",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "value",
+      "modulePath": "src/navigator.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator.ts",
+        "line": 84,
+        "column": 14
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "DRAWER_TYPES",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "value",
+      "modulePath": "src/navigator.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator.ts",
+        "line": 87,
+        "column": 14
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "DrawerNavigatorNode",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/navigator.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator.ts",
+        "line": 190,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["DrawerNavigatorOptions", "RouteDefinition"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "initialRouteName",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "options",
+          "kind": "property",
+          "type": "DrawerNavigatorOptions | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "routes",
+          "kind": "property",
+          "type": "RouteDefinition[]",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "type",
+          "kind": "property",
+          "type": "\"drawer\"",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "DrawerNavigatorOptions",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/navigator.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator.ts",
+        "line": 90,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "drawerPosition",
+          "kind": "property",
+          "type": "\"left\" | \"right\" | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "drawerType",
+          "kind": "property",
+          "type": "\"front\" | \"back\" | \"slide\" | \"permanent\" | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "headerShown",
+          "kind": "property",
+          "type": "boolean | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "swipeEnabled",
+          "kind": "property",
+          "type": "boolean | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "DrawerPosition",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/navigator.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator.ts",
+        "line": 85,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "DrawerType",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/navigator.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator.ts",
+        "line": 88,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -7898,7 +8419,7 @@
         {
           "name": "endpoints",
           "kind": "property",
-          "type": "Readonly<Record<string, import(\"./src/index\").DataEndpointConfig>>",
+          "type": "Readonly<Record<string, import(\"./endpoints\").DataEndpointConfig>>",
           "required": true,
           "description": null
         },
@@ -7954,7 +8475,7 @@
         {
           "name": "schemas",
           "kind": "property",
-          "type": "Readonly<Record<string, import(\"./src/index\").DataSchema>> | undefined",
+          "type": "Readonly<Record<string, import(\"./schemas\").DataSchema>> | undefined",
           "required": false,
           "description": null
         }
@@ -8007,7 +8528,7 @@
         {
           "name": "endpoints",
           "kind": "property",
-          "type": "Readonly<Record<string, import(\"./src/index\").DataEndpointConfig>>",
+          "type": "Readonly<Record<string, import(\"./endpoints\").DataEndpointConfig>>",
           "required": true,
           "description": null
         },
@@ -8056,7 +8577,7 @@
         {
           "name": "schemas",
           "kind": "property",
-          "type": "Readonly<Record<string, import(\"./src/index\").DataSchema>> | undefined",
+          "type": "Readonly<Record<string, import(\"./schemas\").DataSchema>> | undefined",
           "required": false,
           "description": null
         }
@@ -8072,7 +8593,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 74,
+        "line": 76,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8129,6 +8650,42 @@
       "structuredRows": []
     },
     {
+      "name": "FIXED_CUSTOM_TABS_PRESENTATIONS",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "value",
+      "modulePath": "src/navigator.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator.ts",
+        "line": 97,
+        "column": 14
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "FixedCustomTabsPresentation",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/navigator.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator.ts",
+        "line": 98,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
       "name": "FORBIDDEN_INLINE_SECRET_FIELDS",
       "description": null,
       "isReadme": false,
@@ -8155,7 +8712,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 112,
+        "line": 114,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8173,7 +8730,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 110,
+        "line": 112,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8220,46 +8777,17 @@
       "description": null,
       "isReadme": false,
       "examples": [],
-      "kind": "type",
+      "kind": "unknown",
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 226,
+        "line": 242,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
-      "members": [
-        {
-          "name": "color",
-          "kind": "property",
-          "type": "string | undefined",
-          "required": false,
-          "description": null
-        },
-        {
-          "name": "name",
-          "kind": "property",
-          "type": "string",
-          "required": true,
-          "description": null
-        },
-        {
-          "name": "provider",
-          "kind": "property",
-          "type": "string | undefined",
-          "required": false,
-          "description": null
-        },
-        {
-          "name": "size",
-          "kind": "property",
-          "type": "string | number | undefined",
-          "required": false,
-          "description": null
-        }
-      ],
+      "members": [],
       "structuredRows": []
     },
     {
@@ -8329,7 +8857,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 360,
+        "line": 346,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8484,7 +9012,7 @@
         {
           "name": "endpoints",
           "kind": "property",
-          "type": "Readonly<Record<string, import(\"./src/index\").DataEndpointConfig>>",
+          "type": "Readonly<Record<string, import(\"./endpoints\").DataEndpointConfig>>",
           "required": true,
           "description": null
         },
@@ -8526,7 +9054,7 @@
         {
           "name": "schemas",
           "kind": "property",
-          "type": "Readonly<Record<string, import(\"./src/index\").DataSchema>> | undefined",
+          "type": "Readonly<Record<string, import(\"./schemas\").DataSchema>> | undefined",
           "required": false,
           "description": null
         }
@@ -8574,7 +9102,7 @@
       "modulePath": "src/appManifest.ts",
       "sourceLocation": {
         "filePath": "src/appManifest.ts",
-        "line": 50,
+        "line": 51,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8630,6 +9158,129 @@
       "structuredRows": []
     },
     {
+      "name": "JAVASCRIPT_STACK_PRESENTATIONS",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "value",
+      "modulePath": "src/navigator.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator.ts",
+        "line": 40,
+        "column": 14
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "JAVASCRIPT_TABS_PRESENTATIONS",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "value",
+      "modulePath": "src/navigator.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator.ts",
+        "line": 107,
+        "column": 14
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "JavaScriptStackPresentation",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/navigator.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator.ts",
+        "line": 41,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "JavaScriptStackScreenOptions",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/navigator.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator.ts",
+        "line": 64,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "JavaScriptTabsConfig",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/navigator.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator.ts",
+        "line": 160,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "implementation",
+          "kind": "property",
+          "type": "\"javascript\"",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "presentation",
+          "kind": "property",
+          "type": "\"bottom\" | \"top\" | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "JavaScriptTabsPresentation",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/navigator.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator.ts",
+        "line": 108,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
       "name": "KnownAuthOAuthProviderId",
       "description": null,
       "isReadme": false,
@@ -8674,7 +9325,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 214,
+        "line": 213,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8692,7 +9343,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 198,
+        "line": 197,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8728,7 +9379,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 134,
+        "line": 136,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8746,7 +9397,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 172,
+        "line": 171,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8764,7 +9415,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 168,
+        "line": 167,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8800,7 +9451,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 182,
+        "line": 181,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8818,7 +9469,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 91,
+        "line": 93,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9261,6 +9912,136 @@
       "structuredRows": []
     },
     {
+      "name": "NamedIconSpec",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/types.ts",
+      "sourceLocation": {
+        "filePath": "src/types.ts",
+        "line": 230,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "color",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "name",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "provider",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "size",
+          "kind": "property",
+          "type": "string | number | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "source",
+          "kind": "property",
+          "type": "undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "NATIVE_TABS_MINIMIZE_BEHAVIORS",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "value",
+      "modulePath": "src/navigator.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator.ts",
+        "line": 110,
+        "column": 14
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "NativeTabsConfig",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/navigator.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator.ts",
+        "line": 152,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["NavigatorScreenReference"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "bottomAccessory",
+          "kind": "property",
+          "type": "NavigatorScreenReference | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "implementation",
+          "kind": "property",
+          "type": "\"native\"",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "minimizeBehavior",
+          "kind": "property",
+          "type": "\"automatic\" | \"never\" | \"onScrollDown\" | \"onScrollUp\" | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "NativeTabsMinimizeBehavior",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/navigator.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator.ts",
+        "line": 116,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
       "name": "NavigateAction",
       "description": null,
       "isReadme": false,
@@ -9269,7 +10050,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 34,
+        "line": 36,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9294,15 +10075,15 @@
       "structuredRows": []
     },
     {
-      "name": "NAVIGATOR_TYPES",
+      "name": "NAVIGATOR_PRESETS",
       "description": null,
       "isReadme": false,
       "examples": [],
       "kind": "value",
-      "modulePath": "src/types.ts",
+      "modulePath": "src/navigator.ts",
       "sourceLocation": {
-        "filePath": "src/types.ts",
-        "line": 137,
+        "filePath": "src/navigator.ts",
+        "line": 6,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -9312,46 +10093,218 @@
       "structuredRows": []
     },
     {
-      "name": "NavigatorSpec",
+      "name": "NAVIGATOR_TYPES",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "value",
+      "modulePath": "src/navigator.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator.ts",
+        "line": 3,
+        "column": 14
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "NavigatorDefaults",
       "description": null,
       "isReadme": false,
       "examples": [],
       "kind": "type",
-      "modulePath": "src/types.ts",
+      "modulePath": "src/navigator.ts",
       "sourceLocation": {
-        "filePath": "src/types.ts",
-        "line": 260,
+        "filePath": "src/navigator.ts",
+        "line": 245,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["RouteDefinition"],
+      "relatedSymbols": ["StackImplementationConfig", "TabsImplementationConfig"],
       "signatures": [],
       "members": [
         {
-          "name": "initialRouteName",
+          "name": "stack",
           "kind": "property",
-          "type": "string | undefined",
+          "type": "StackImplementationConfig | undefined",
           "required": false,
           "description": null
         },
         {
-          "name": "options",
+          "name": "tabs",
           "kind": "property",
-          "type": "Record<string, unknown> | undefined",
+          "type": "TabsImplementationConfig | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "NavigatorFlows",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/navigator.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator.ts",
+        "line": 240,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "authentication",
+          "kind": "property",
+          "type": "boolean | undefined",
           "required": false,
           "description": null
         },
         {
-          "name": "routes",
+          "name": "onboarding",
           "kind": "property",
-          "type": "RouteDefinition[]",
-          "required": true,
+          "type": "boolean | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "NavigatorNode",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/navigator.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator.ts",
+        "line": 218,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "NavigatorPlatformConfig",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/navigator.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator.ts",
+        "line": 250,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["StackImplementationConfig", "TabsImplementationConfig"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "stack",
+          "kind": "property",
+          "type": "StackImplementationConfig | undefined",
+          "required": false,
           "description": null
         },
         {
-          "name": "type",
+          "name": "tabs",
           "kind": "property",
-          "type": "\"stack\" | \"tabs\" | \"drawer\"",
+          "type": "TabsImplementationConfig | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "NavigatorPlatforms",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/navigator.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator.ts",
+        "line": 255,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["NavigatorPlatformConfig"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "android",
+          "kind": "property",
+          "type": "NavigatorPlatformConfig | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "ios",
+          "kind": "property",
+          "type": "NavigatorPlatformConfig | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "web",
+          "kind": "property",
+          "type": "NavigatorPlatformConfig | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "NavigatorPreset",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/navigator.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator.ts",
+        "line": 24,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "NavigatorScreenReference",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/navigator.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator.ts",
+        "line": 148,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "screenId",
+          "kind": "property",
+          "type": "string",
           "required": true,
           "description": null
         }
@@ -9364,10 +10317,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "unknown",
-      "modulePath": "src/types.ts",
+      "modulePath": "src/navigator.ts",
       "sourceLocation": {
-        "filePath": "src/types.ts",
-        "line": 138,
+        "filePath": "src/navigator.ts",
+        "line": 4,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9385,7 +10338,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 355,
+        "line": 341,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9587,7 +10540,7 @@
       "modulePath": "src/appManifest.ts",
       "sourceLocation": {
         "filePath": "src/appManifest.ts",
-        "line": 43,
+        "line": 44,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9710,6 +10663,60 @@
       "structuredRows": []
     },
     {
+      "name": "RepositoryManifest",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/repository.ts",
+      "sourceLocation": {
+        "filePath": "src/repository.ts",
+        "line": 1,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "defaultBranch",
+          "kind": "property",
+          "type": "\"main\"",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "name",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "owner",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "provider",
+          "kind": "property",
+          "type": "\"github\"",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "url",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
       "name": "resolveAuthFlow",
       "description": null,
       "isReadme": false,
@@ -9742,19 +10749,59 @@
       "structuredRows": []
     },
     {
+      "name": "ResponsiveTabsPresentation",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/navigator.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator.ts",
+        "line": 118,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "compact",
+          "kind": "property",
+          "type": "\"bottom\" | \"top\" | \"rail\" | \"sidebar\"",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "expanded",
+          "kind": "property",
+          "type": "\"bottom\" | \"top\" | \"rail\" | \"sidebar\"",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "medium",
+          "kind": "property",
+          "type": "\"bottom\" | \"top\" | \"rail\" | \"sidebar\" | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
       "name": "RouteDefinition",
       "description": null,
       "isReadme": false,
       "examples": [],
       "kind": "type",
-      "modulePath": "src/types.ts",
+      "modulePath": "src/navigator.ts",
       "sourceLocation": {
-        "filePath": "src/types.ts",
-        "line": 267,
+        "filePath": "src/navigator.ts",
+        "line": 226,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["IconSpec", "NavigatorSpec"],
+      "relatedSymbols": ["IconSpec", "NavigatorNode", "StackScreenOptions"],
       "signatures": [],
       "members": [
         {
@@ -9788,7 +10835,7 @@
         {
           "name": "navigator",
           "kind": "property",
-          "type": "NavigatorSpec | undefined",
+          "type": "NavigatorNode | undefined",
           "required": false,
           "description": null
         },
@@ -9810,6 +10857,13 @@
           "name": "showInPrimaryNavigation",
           "kind": "property",
           "type": "boolean | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "stackOptions",
+          "kind": "property",
+          "type": "StackScreenOptions | undefined",
           "required": false,
           "description": null
         }
@@ -10073,7 +11127,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 250,
+        "line": 261,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10083,7 +11137,7 @@
         {
           "name": "dataLoaders",
           "kind": "property",
-          "type": "readonly import(\"./src/bindings\").OperationScreenDataLoaderDefinition[] | undefined",
+          "type": "readonly import(\"./bindings\").OperationScreenDataLoaderDefinition[] | undefined",
           "required": false,
           "description": null
         },
@@ -10141,7 +11195,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 66,
+        "line": 68,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10763,7 +11817,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 59,
+        "line": 61,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10922,6 +11976,46 @@
       "structuredRows": []
     },
     {
+      "name": "SlotNavigatorNode",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/navigator.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator.ts",
+        "line": 182,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["RouteDefinition"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "initialRouteName",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "routes",
+          "kind": "property",
+          "type": "RouteDefinition[]",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "type",
+          "kind": "property",
+          "type": "\"slot\"",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
       "name": "SplashScreenAssetSpec",
       "description": null,
       "isReadme": false,
@@ -10930,7 +12024,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 287,
+        "line": 273,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10970,7 +12064,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 293,
+        "line": 279,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11017,7 +12111,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 285,
+        "line": 271,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11035,7 +12129,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 297,
+        "line": 283,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11078,6 +12172,240 @@
           "description": null
         }
       ],
+      "structuredRows": []
+    },
+    {
+      "name": "SplitViewNavigatorNode",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/navigator.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator.ts",
+        "line": 201,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["NavigatorScreenReference", "RouteDefinition"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "columns",
+          "kind": "property",
+          "type": "{ primary: NavigatorScreenReference; supplementary?: NavigatorScreenReference; }",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "initialRouteName",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "inspector",
+          "kind": "property",
+          "type": "NavigatorScreenReference | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "routes",
+          "kind": "property",
+          "type": "RouteDefinition[]",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "topColumnForCollapsing",
+          "kind": "property",
+          "type": "\"primary\" | \"supplementary\" | \"secondary\" | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "type",
+          "kind": "property",
+          "type": "\"split-view\"",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "STACK_IMPLEMENTATIONS",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "value",
+      "modulePath": "src/navigator.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator.ts",
+        "line": 26,
+        "column": 14
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "STACK_PRESENTATIONS",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "value",
+      "modulePath": "src/navigator.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator.ts",
+        "line": 29,
+        "column": 14
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "StackHeaderOptions",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/navigator.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator.ts",
+        "line": 43,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "headerBackVisible",
+          "kind": "property",
+          "type": "boolean | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "headerShown",
+          "kind": "property",
+          "type": "boolean | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "headerTransparent",
+          "kind": "property",
+          "type": "boolean | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "title",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "StackImplementation",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/navigator.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator.ts",
+        "line": 27,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "StackImplementationConfig",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/navigator.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator.ts",
+        "line": 68,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "StackNavigatorNode",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/navigator.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator.ts",
+        "line": 186,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "StackPresentation",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/navigator.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator.ts",
+        "line": 38,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "StackScreenOptions",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/navigator.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator.ts",
+        "line": 50,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
       "structuredRows": []
     },
     {
@@ -11136,7 +12464,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 185,
+        "line": 184,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -11154,7 +12482,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 181,
+        "line": 180,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -11349,7 +12677,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 186,
+        "line": 185,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11385,7 +12713,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 183,
+        "line": 182,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11454,7 +12782,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 316,
+        "line": 302,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11549,7 +12877,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 178,
+        "line": 177,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -12005,7 +13333,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 179,
+        "line": 178,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12332,7 +13660,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 311,
+        "line": 297,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12375,7 +13703,7 @@
         {
           "name": "body",
           "kind": "property",
-          "type": "Uint8Array",
+          "type": "Uint8Array<ArrayBufferLike>",
           "required": true,
           "description": null
         },
@@ -12451,6 +13779,114 @@
       "structuredRows": []
     },
     {
+      "name": "SvgIconSpec",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/types.ts",
+      "sourceLocation": {
+        "filePath": "src/types.ts",
+        "line": 236,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["MediaAssetReference"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "color",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "name",
+          "kind": "property",
+          "type": "undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "provider",
+          "kind": "property",
+          "type": "undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "size",
+          "kind": "property",
+          "type": "string | number | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "source",
+          "kind": "property",
+          "type": "MediaAssetReference",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "TabsImplementationConfig",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/navigator.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator.ts",
+        "line": 174,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "TabsNavigatorConfig",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/navigator.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator.ts",
+        "line": 195,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "TabsNavigatorNode",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/navigator.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator.ts",
+        "line": 199,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
       "name": "ThemeConfig",
       "description": null,
       "isReadme": false,
@@ -12459,7 +13895,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 20,
+        "line": 22,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12567,7 +14003,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 15,
+        "line": 17,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12577,7 +14013,7 @@
         {
           "name": "harmony",
           "kind": "property",
-          "type": "\"monochromatic\" | \"analogous\" | \"complementary\" | \"triadic\" | \"tetradic\" | \"splitComplementary\"",
+          "type": "\"monochromatic\" | \"analogous\" | \"complementary\" | \"splitComplementary\" | \"triadic\" | \"tetradic\" | \"square\"",
           "required": true,
           "description": null
         },
@@ -12785,7 +14221,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 54,
+        "line": 56,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -13734,7 +15170,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 240,
+        "line": 251,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -13802,7 +15238,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 233,
+        "line": 244,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -13995,7 +15431,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest.ts",
-        "line": 43,
+        "line": 44,
         "column": 1
       }
     },
@@ -14004,7 +15440,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest.ts",
-        "line": 50,
+        "line": 51,
         "column": 1
       }
     },
@@ -14013,7 +15449,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest.ts",
-        "line": 72,
+        "line": 74,
         "column": 1
       }
     },
@@ -14022,7 +15458,16 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest.ts",
-        "line": 78,
+        "line": 80,
+        "column": 1
+      }
+    },
+    {
+      "name": "isRepositoryManifest",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest.ts",
+        "line": 84,
         "column": 1
       }
     },
@@ -14031,7 +15476,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest.ts",
-        "line": 82,
+        "line": 98,
         "column": 1
       }
     },
@@ -14513,11 +15958,20 @@
       }
     },
     {
+      "name": "isIconSpec",
+      "description": "Validate a serializable icon as either a named font glyph or an SVG media reference.",
+      "sourceLocation": {
+        "filePath": "src/appManifest/icon.ts",
+        "line": 5,
+        "column": 1
+      }
+    },
+    {
       "name": "isInfraManifest",
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest/infra.ts",
-        "line": 37,
+        "line": 38,
         "column": 1
       }
     },
@@ -14526,7 +15980,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest/infra.ts",
-        "line": 55,
+        "line": 56,
         "column": 1
       }
     },
@@ -14535,7 +15989,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest/infra.ts",
-        "line": 61,
+        "line": 62,
         "column": 1
       }
     },
@@ -14544,7 +15998,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest/infra.ts",
-        "line": 70,
+        "line": 71,
         "column": 1
       }
     },
@@ -14553,7 +16007,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest/infra.ts",
-        "line": 79,
+        "line": 80,
         "column": 1
       }
     },
@@ -14562,7 +16016,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest/infra.ts",
-        "line": 88,
+        "line": 89,
         "column": 1
       }
     },
@@ -14571,7 +16025,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest/infra.ts",
-        "line": 92,
+        "line": 93,
         "column": 1
       }
     },
@@ -14580,7 +16034,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest/infra.ts",
-        "line": 107,
+        "line": 108,
         "column": 1
       }
     },
@@ -14589,7 +16043,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest/infra.ts",
-        "line": 117,
+        "line": 118,
         "column": 1
       }
     },
@@ -14598,7 +16052,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest/infra.ts",
-        "line": 130,
+        "line": 131,
         "column": 1
       }
     },
@@ -14607,7 +16061,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest/infra.ts",
-        "line": 140,
+        "line": 141,
         "column": 1
       }
     },
@@ -14616,7 +16070,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest/infra.ts",
-        "line": 150,
+        "line": 151,
         "column": 1
       }
     },
@@ -14625,7 +16079,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest/infra.ts",
-        "line": 160,
+        "line": 161,
         "column": 1
       }
     },
@@ -14634,16 +16088,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest/infra.ts",
-        "line": 174,
-        "column": 1
-      }
-    },
-    {
-      "name": "isIconSpec",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/appManifest/infra.ts",
-        "line": 191,
+        "line": 175,
         "column": 1
       }
     },
@@ -14738,11 +16183,281 @@
       }
     },
     {
+      "name": "isAppNavigatorManifest",
+      "description": "Validate the complete serialized `AppManifest.navigator` slice.",
+      "sourceLocation": {
+        "filePath": "src/appManifest/navigator.ts",
+        "line": 17,
+        "column": 1
+      }
+    },
+    {
+      "name": "isNavigatorNode",
+      "description": "Validate one nested navigator node independently from app-level authoring metadata.",
+      "sourceLocation": {
+        "filePath": "src/appManifest/navigator.ts",
+        "line": 30,
+        "column": 1
+      }
+    },
+    {
+      "name": "isRouteDefinition",
+      "description": "Validate one route and preserve its portable metadata and nested navigator.",
+      "sourceLocation": {
+        "filePath": "src/appManifest/navigator.ts",
+        "line": 64,
+        "column": 1
+      }
+    },
+    {
+      "name": "isSplitViewNavigatorNode",
+      "description": "Validate Split View screen references without duplicating the routed secondary tree.",
+      "sourceLocation": {
+        "filePath": "src/appManifest/navigator.ts",
+        "line": 80,
+        "column": 1
+      }
+    },
+    {
+      "name": "isCustomNavigatorNode",
+      "description": "Validate a registered custom navigator with JSON-safe configuration only.",
+      "sourceLocation": {
+        "filePath": "src/appManifest/navigator.ts",
+        "line": 98,
+        "column": 1
+      }
+    },
+    {
+      "name": "isNavigatorJsonRecord",
+      "description": "Validate an acyclic, finite JSON object used by a custom navigator adapter.",
+      "sourceLocation": {
+        "filePath": "src/appManifest/navigator.ts",
+        "line": 108,
+        "column": 1
+      }
+    },
+    {
+      "name": "isNavigatorJsonValue",
+      "description": "Recursively validate the portable manifest value domain and reject cycles.",
+      "sourceLocation": {
+        "filePath": "src/appManifest/navigator.ts",
+        "line": 113,
+        "column": 1
+      }
+    },
+    {
+      "name": "isNavigatorFlows",
+      "description": "Validate optional app-level navigator flow intent.",
+      "sourceLocation": {
+        "filePath": "src/appManifest/navigator.ts",
+        "line": 138,
+        "column": 1
+      }
+    },
+    {
+      "name": "isNavigatorDefaults",
+      "description": "Validate package-owned navigator defaults without requiring a navigator node type.",
+      "sourceLocation": {
+        "filePath": "src/appManifest/navigator.ts",
+        "line": 147,
+        "column": 1
+      }
+    },
+    {
+      "name": "isNavigatorPlatforms",
+      "description": "Validate per-platform navigator implementation overrides.",
+      "sourceLocation": {
+        "filePath": "src/appManifest/navigator.ts",
+        "line": 159,
+        "column": 1
+      }
+    },
+    {
+      "name": "isNavigatorPlatformConfig",
+      "description": "Validate one platform-specific navigator override slice.",
+      "sourceLocation": {
+        "filePath": "src/appManifest/navigator.ts",
+        "line": 170,
+        "column": 1
+      }
+    },
+    {
+      "name": "isStackImplementationConfig",
+      "description": "Validate stable native, JavaScript, or alpha Experimental Stack desired state.",
+      "sourceLocation": {
+        "filePath": "src/appManifest/navigatorOptions.ts",
+        "line": 23,
+        "column": 1
+      }
+    },
+    {
+      "name": "isStackScreenOptions",
+      "description": "Validate the serializable native-stack screen option subset.",
+      "sourceLocation": {
+        "filePath": "src/appManifest/navigatorOptions.ts",
+        "line": 37,
+        "column": 1
+      }
+    },
+    {
+      "name": "isDrawerNavigatorOptions",
+      "description": "Validate the finite serializable Drawer option subset.",
+      "sourceLocation": {
+        "filePath": "src/appManifest/navigatorOptions.ts",
+        "line": 66,
+        "column": 1
+      }
+    },
+    {
+      "name": "isTabsImplementationConfig",
+      "description": "Validate tabs implementation desired state, with omitted implementation meaning adaptive.",
+      "sourceLocation": {
+        "filePath": "src/appManifest/navigatorOptions.ts",
+        "line": 81,
+        "column": 1
+      }
+    },
+    {
+      "name": "isNavigatorScreenReference",
+      "description": "Validate a reference into the app-owned screen registry.",
+      "sourceLocation": {
+        "filePath": "src/appManifest/navigatorOptions.ts",
+        "line": 95,
+        "column": 1
+      }
+    },
+    {
+      "name": "hasOnlyKeys",
+      "description": "Check that a finite configuration object contains no unsupported keys.",
+      "sourceLocation": {
+        "filePath": "src/appManifest/navigatorOptions.ts",
+        "line": 100,
+        "column": 1
+      }
+    },
+    {
+      "name": "isJavaScriptStackScreenOptions",
+      "description": "Validate JavaScript Stack options without accepting native-only presentations.",
+      "sourceLocation": {
+        "filePath": "src/appManifest/navigatorOptions.ts",
+        "line": 109,
+        "column": 1
+      }
+    },
+    {
+      "name": "isStackHeaderOptions",
+      "description": "Validate the portable header subset supported by Experimental Stack.",
+      "sourceLocation": {
+        "filePath": "src/appManifest/navigatorOptions.ts",
+        "line": 127,
+        "column": 1
+      }
+    },
+    {
+      "name": "isStackHeaderOptionsShape",
+      "description": "Validate shared stack header field values after branch-specific key filtering.",
+      "sourceLocation": {
+        "filePath": "src/appManifest/navigatorOptions.ts",
+        "line": 136,
+        "column": 1
+      }
+    },
+    {
+      "name": "isSheetAllowedDetents",
+      "description": "Validate sorted, finite native sheet detents or the fit-to-content sentinel.",
+      "sourceLocation": {
+        "filePath": "src/appManifest/navigatorOptions.ts",
+        "line": 146,
+        "column": 1
+      }
+    },
+    {
+      "name": "isAdaptiveTabsConfig",
+      "description": "Validate an adaptive tabs branch and reject implementation-specific conflicts.",
+      "sourceLocation": {
+        "filePath": "src/appManifest/navigatorOptions.ts",
+        "line": 160,
+        "column": 1
+      }
+    },
+    {
+      "name": "isFullNativeTabsConfig",
+      "description": "Validate the top-level native tabs implementation.",
+      "sourceLocation": {
+        "filePath": "src/appManifest/navigatorOptions.ts",
+        "line": 176,
+        "column": 1
+      }
+    },
+    {
+      "name": "isJavaScriptTabsConfig",
+      "description": "Validate the top-level JavaScript tabs implementation.",
+      "sourceLocation": {
+        "filePath": "src/appManifest/navigatorOptions.ts",
+        "line": 190,
+        "column": 1
+      }
+    },
+    {
+      "name": "isNativeTabsConfig",
+      "description": "Validate the native branch used by adaptive tabs.",
+      "sourceLocation": {
+        "filePath": "src/appManifest/navigatorOptions.ts",
+        "line": 208,
+        "column": 1
+      }
+    },
+    {
+      "name": "isNativeTabsFields",
+      "description": "Validate fields supported by the native tabs branch.",
+      "sourceLocation": {
+        "filePath": "src/appManifest/navigatorOptions.ts",
+        "line": 218,
+        "column": 1
+      }
+    },
+    {
+      "name": "isCustomTabsWebConfig",
+      "description": "Validate the implementation-free custom-tabs Web branch inside adaptive tabs.",
+      "sourceLocation": {
+        "filePath": "src/appManifest/navigatorOptions.ts",
+        "line": 228,
+        "column": 1
+      }
+    },
+    {
+      "name": "isCustomTabsPresentationConfig",
+      "description": "Validate custom-tab presentation and its conditional serializable configuration.",
+      "sourceLocation": {
+        "filePath": "src/appManifest/navigatorOptions.ts",
+        "line": 237,
+        "column": 1
+      }
+    },
+    {
+      "name": "isResponsiveTabsPresentation",
+      "description": "Validate semantic compact/medium/expanded custom-tab presentation mapping.",
+      "sourceLocation": {
+        "filePath": "src/appManifest/navigatorOptions.ts",
+        "line": 262,
+        "column": 1
+      }
+    },
+    {
+      "name": "hasNoDefinedKeys",
+      "description": "Check that mutually exclusive branch fields are absent.",
+      "sourceLocation": {
+        "filePath": "src/appManifest/navigatorOptions.ts",
+        "line": 276,
+        "column": 1
+      }
+    },
+    {
       "name": "isManifestMetadata",
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest/screens.ts",
-        "line": 18,
+        "line": 13,
         "column": 1
       }
     },
@@ -14751,16 +16466,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest/screens.ts",
-        "line": 32,
-        "column": 1
-      }
-    },
-    {
-      "name": "isNavigatorSpec",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/appManifest/screens.ts",
-        "line": 42,
+        "line": 27,
         "column": 1
       }
     },
@@ -14769,7 +16475,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest/screens.ts",
-        "line": 54,
+        "line": 37,
         "column": 1
       }
     },
@@ -14778,7 +16484,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest/screens.ts",
-        "line": 64,
+        "line": 47,
         "column": 1
       }
     },
@@ -14787,7 +16493,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest/screens.ts",
-        "line": 72,
+        "line": 55,
         "column": 1
       }
     },
@@ -14796,7 +16502,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest/screens.ts",
-        "line": 81,
+        "line": 64,
         "column": 1
       }
     },
@@ -14805,7 +16511,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest/screens.ts",
-        "line": 95,
+        "line": 78,
         "column": 1
       }
     },
@@ -14814,25 +16520,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest/screens.ts",
-        "line": 105,
-        "column": 1
-      }
-    },
-    {
-      "name": "isRouteDefinition",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/appManifest/screens.ts",
-        "line": 120,
-        "column": 1
-      }
-    },
-    {
-      "name": "isIconSpec",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/appManifest/screens.ts",
-        "line": 134,
+        "line": 88,
         "column": 1
       }
     },
@@ -14841,7 +16529,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest/screens.ts",
-        "line": 146,
+        "line": 103,
         "column": 1
       }
     },
@@ -14850,7 +16538,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest/screens.ts",
-        "line": 158,
+        "line": 115,
         "column": 1
       }
     },
@@ -14859,7 +16547,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/appManifest/screens.ts",
-        "line": 166,
+        "line": 123,
         "column": 1
       }
     },
@@ -15164,6 +16852,16 @@
       },
       {
         "fromPath": "src/index.ts",
+        "toPath": "src/navigator.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/repository.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
         "toPath": "src/requirements.ts",
         "sourcePath": "src/index.ts"
       },
@@ -15208,6 +16906,11 @@
         "sourcePath": "src/index.ts"
       },
       {
+        "fromPath": "src/navigator.ts",
+        "toPath": "src/types.ts",
+        "sourcePath": "src/navigator.ts"
+      },
+      {
         "fromPath": "src/runtimeCallbacks.ts",
         "toPath": "src/types.ts",
         "sourcePath": "src/runtimeCallbacks.ts"
@@ -15240,6 +16943,16 @@
       {
         "fromPath": "src/types.ts",
         "toPath": "src/media.ts",
+        "sourcePath": "src/types.ts"
+      },
+      {
+        "fromPath": "src/types.ts",
+        "toPath": "src/navigator.ts",
+        "sourcePath": "src/types.ts"
+      },
+      {
+        "fromPath": "src/types.ts",
+        "toPath": "src/repository.ts",
         "sourcePath": "src/types.ts"
       },
       {
@@ -15308,6 +17021,16 @@
         "sourcePath": "src/appManifest/deploy.ts"
       },
       {
+        "fromPath": "src/appManifest/icon.ts",
+        "toPath": "src/media.ts",
+        "sourcePath": "src/appManifest/icon.ts"
+      },
+      {
+        "fromPath": "src/appManifest/icon.ts",
+        "toPath": "src/appManifest/shared.ts",
+        "sourcePath": "src/appManifest/icon.ts"
+      },
+      {
         "fromPath": "src/appManifest/infra.ts",
         "toPath": "src/auth.ts",
         "sourcePath": "src/appManifest/infra.ts"
@@ -15320,6 +17043,11 @@
       {
         "fromPath": "src/appManifest/infra.ts",
         "toPath": "src/appManifest/apis.ts",
+        "sourcePath": "src/appManifest/infra.ts"
+      },
+      {
+        "fromPath": "src/appManifest/infra.ts",
+        "toPath": "src/appManifest/icon.ts",
         "sourcePath": "src/appManifest/infra.ts"
       },
       {
@@ -15338,6 +17066,36 @@
         "sourcePath": "src/appManifest/media.ts"
       },
       {
+        "fromPath": "src/appManifest/navigator.ts",
+        "toPath": "src/navigator.ts",
+        "sourcePath": "src/appManifest/navigator.ts"
+      },
+      {
+        "fromPath": "src/appManifest/navigator.ts",
+        "toPath": "src/appManifest/icon.ts",
+        "sourcePath": "src/appManifest/navigator.ts"
+      },
+      {
+        "fromPath": "src/appManifest/navigator.ts",
+        "toPath": "src/appManifest/navigatorOptions.ts",
+        "sourcePath": "src/appManifest/navigator.ts"
+      },
+      {
+        "fromPath": "src/appManifest/navigator.ts",
+        "toPath": "src/appManifest/shared.ts",
+        "sourcePath": "src/appManifest/navigator.ts"
+      },
+      {
+        "fromPath": "src/appManifest/navigatorOptions.ts",
+        "toPath": "src/navigator.ts",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
+        "fromPath": "src/appManifest/navigatorOptions.ts",
+        "toPath": "src/appManifest/shared.ts",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
         "fromPath": "src/appManifest/screens.ts",
         "toPath": "src/types.ts",
         "sourcePath": "src/appManifest/screens.ts"
@@ -15350,6 +17108,11 @@
       {
         "fromPath": "src/appManifest/screens.ts",
         "toPath": "src/appManifest/shared.ts",
+        "sourcePath": "src/appManifest/screens.ts"
+      },
+      {
+        "fromPath": "src/appManifest/screens.ts",
+        "toPath": "src/appManifest/navigator.ts",
         "sourcePath": "src/appManifest/screens.ts"
       },
       {
@@ -15570,8 +17333,8 @@
       },
       {
         "fromSymbol": "isAppManifest",
-        "toSymbol": "isNavigatorSpec",
-        "callExpression": "isNavigatorSpec",
+        "toSymbol": "isAppNavigatorManifest",
+        "callExpression": "isAppNavigatorManifest",
         "sourcePath": "src/appManifest.ts"
       },
       {
@@ -15594,8 +17357,20 @@
       },
       {
         "fromSymbol": "isAppManifest",
+        "toSymbol": "isRepositoryManifest",
+        "callExpression": "isRepositoryManifest",
+        "sourcePath": "src/appManifest.ts"
+      },
+      {
+        "fromSymbol": "isAppManifest",
         "toSymbol": "isAppSettings",
         "callExpression": "isAppSettings",
+        "sourcePath": "src/appManifest.ts"
+      },
+      {
+        "fromSymbol": "isRepositoryManifest",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
         "sourcePath": "src/appManifest.ts"
       },
       {
@@ -16463,6 +18238,24 @@
         "sourcePath": "src/appManifest/deploy.ts"
       },
       {
+        "fromSymbol": "isIconSpec",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/icon.ts"
+      },
+      {
+        "fromSymbol": "isIconSpec",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/icon.ts"
+      },
+      {
+        "fromSymbol": "isIconSpec",
+        "toSymbol": "isMediaAssetReference",
+        "callExpression": "isMediaAssetReference",
+        "sourcePath": "src/appManifest/icon.ts"
+      },
+      {
         "fromSymbol": "isInfraManifest",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
@@ -16691,18 +18484,6 @@
         "sourcePath": "src/appManifest/infra.ts"
       },
       {
-        "fromSymbol": "isIconSpec",
-        "toSymbol": "isRecord",
-        "callExpression": "isRecord",
-        "sourcePath": "src/appManifest/infra.ts"
-      },
-      {
-        "fromSymbol": "isIconSpec",
-        "toSymbol": "isOptionalString",
-        "callExpression": "isOptionalString",
-        "sourcePath": "src/appManifest/infra.ts"
-      },
-      {
         "fromSymbol": "isMediaManifest",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
@@ -16829,6 +18610,498 @@
         "sourcePath": "src/appManifest/media.ts"
       },
       {
+        "fromSymbol": "isAppNavigatorManifest",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/navigator.ts"
+      },
+      {
+        "fromSymbol": "isAppNavigatorManifest",
+        "toSymbol": "isNavigatorNode",
+        "callExpression": "isNavigatorNode",
+        "sourcePath": "src/appManifest/navigator.ts"
+      },
+      {
+        "fromSymbol": "isAppNavigatorManifest",
+        "toSymbol": "isNavigatorFlows",
+        "callExpression": "isNavigatorFlows",
+        "sourcePath": "src/appManifest/navigator.ts"
+      },
+      {
+        "fromSymbol": "isAppNavigatorManifest",
+        "toSymbol": "isNavigatorDefaults",
+        "callExpression": "isNavigatorDefaults",
+        "sourcePath": "src/appManifest/navigator.ts"
+      },
+      {
+        "fromSymbol": "isAppNavigatorManifest",
+        "toSymbol": "isNavigatorPlatforms",
+        "callExpression": "isNavigatorPlatforms",
+        "sourcePath": "src/appManifest/navigator.ts"
+      },
+      {
+        "fromSymbol": "isNavigatorNode",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/navigator.ts"
+      },
+      {
+        "fromSymbol": "isNavigatorNode",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/navigator.ts"
+      },
+      {
+        "fromSymbol": "isNavigatorNode",
+        "toSymbol": "isStackImplementationConfig",
+        "callExpression": "isStackImplementationConfig",
+        "sourcePath": "src/appManifest/navigator.ts"
+      },
+      {
+        "fromSymbol": "isNavigatorNode",
+        "toSymbol": "isTabsImplementationConfig",
+        "callExpression": "isTabsImplementationConfig",
+        "sourcePath": "src/appManifest/navigator.ts"
+      },
+      {
+        "fromSymbol": "isNavigatorNode",
+        "toSymbol": "isDrawerNavigatorOptions",
+        "callExpression": "isDrawerNavigatorOptions",
+        "sourcePath": "src/appManifest/navigator.ts"
+      },
+      {
+        "fromSymbol": "isNavigatorNode",
+        "toSymbol": "isSplitViewNavigatorNode",
+        "callExpression": "isSplitViewNavigatorNode",
+        "sourcePath": "src/appManifest/navigator.ts"
+      },
+      {
+        "fromSymbol": "isNavigatorNode",
+        "toSymbol": "isCustomNavigatorNode",
+        "callExpression": "isCustomNavigatorNode",
+        "sourcePath": "src/appManifest/navigator.ts"
+      },
+      {
+        "fromSymbol": "isRouteDefinition",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/navigator.ts"
+      },
+      {
+        "fromSymbol": "isRouteDefinition",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/navigator.ts"
+      },
+      {
+        "fromSymbol": "isRouteDefinition",
+        "toSymbol": "isIconSpec",
+        "callExpression": "isIconSpec",
+        "sourcePath": "src/appManifest/navigator.ts"
+      },
+      {
+        "fromSymbol": "isRouteDefinition",
+        "toSymbol": "isOptionalBoolean",
+        "callExpression": "isOptionalBoolean",
+        "sourcePath": "src/appManifest/navigator.ts"
+      },
+      {
+        "fromSymbol": "isRouteDefinition",
+        "toSymbol": "isStringArray",
+        "callExpression": "isStringArray",
+        "sourcePath": "src/appManifest/navigator.ts"
+      },
+      {
+        "fromSymbol": "isRouteDefinition",
+        "toSymbol": "isStackScreenOptions",
+        "callExpression": "isStackScreenOptions",
+        "sourcePath": "src/appManifest/navigator.ts"
+      },
+      {
+        "fromSymbol": "isRouteDefinition",
+        "toSymbol": "isNavigatorNode",
+        "callExpression": "isNavigatorNode",
+        "sourcePath": "src/appManifest/navigator.ts"
+      },
+      {
+        "fromSymbol": "isSplitViewNavigatorNode",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/navigator.ts"
+      },
+      {
+        "fromSymbol": "isSplitViewNavigatorNode",
+        "toSymbol": "hasOnlyKeys",
+        "callExpression": "hasOnlyKeys",
+        "sourcePath": "src/appManifest/navigator.ts"
+      },
+      {
+        "fromSymbol": "isSplitViewNavigatorNode",
+        "toSymbol": "isNavigatorScreenReference",
+        "callExpression": "isNavigatorScreenReference",
+        "sourcePath": "src/appManifest/navigator.ts"
+      },
+      {
+        "fromSymbol": "isCustomNavigatorNode",
+        "toSymbol": "isNavigatorJsonRecord",
+        "callExpression": "isNavigatorJsonRecord",
+        "sourcePath": "src/appManifest/navigator.ts"
+      },
+      {
+        "fromSymbol": "isNavigatorJsonRecord",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/navigator.ts"
+      },
+      {
+        "fromSymbol": "isNavigatorJsonRecord",
+        "toSymbol": "isNavigatorJsonValue",
+        "callExpression": "isNavigatorJsonValue",
+        "sourcePath": "src/appManifest/navigator.ts"
+      },
+      {
+        "fromSymbol": "src/appManifest/navigator.ts",
+        "toSymbol": "isNavigatorJsonValue",
+        "callExpression": "isNavigatorJsonValue",
+        "sourcePath": "src/appManifest/navigator.ts"
+      },
+      {
+        "fromSymbol": "isNavigatorFlows",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/navigator.ts"
+      },
+      {
+        "fromSymbol": "isNavigatorFlows",
+        "toSymbol": "isOptionalBoolean",
+        "callExpression": "isOptionalBoolean",
+        "sourcePath": "src/appManifest/navigator.ts"
+      },
+      {
+        "fromSymbol": "isNavigatorDefaults",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/navigator.ts"
+      },
+      {
+        "fromSymbol": "isNavigatorDefaults",
+        "toSymbol": "hasOnlyKeys",
+        "callExpression": "hasOnlyKeys",
+        "sourcePath": "src/appManifest/navigator.ts"
+      },
+      {
+        "fromSymbol": "isNavigatorDefaults",
+        "toSymbol": "isTabsImplementationConfig",
+        "callExpression": "isTabsImplementationConfig",
+        "sourcePath": "src/appManifest/navigator.ts"
+      },
+      {
+        "fromSymbol": "isNavigatorDefaults",
+        "toSymbol": "isStackImplementationConfig",
+        "callExpression": "isStackImplementationConfig",
+        "sourcePath": "src/appManifest/navigator.ts"
+      },
+      {
+        "fromSymbol": "isNavigatorPlatforms",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/navigator.ts"
+      },
+      {
+        "fromSymbol": "isNavigatorPlatforms",
+        "toSymbol": "hasOnlyKeys",
+        "callExpression": "hasOnlyKeys",
+        "sourcePath": "src/appManifest/navigator.ts"
+      },
+      {
+        "fromSymbol": "isNavigatorPlatforms",
+        "toSymbol": "isNavigatorPlatformConfig",
+        "callExpression": "isNavigatorPlatformConfig",
+        "sourcePath": "src/appManifest/navigator.ts"
+      },
+      {
+        "fromSymbol": "isNavigatorPlatformConfig",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/navigator.ts"
+      },
+      {
+        "fromSymbol": "isNavigatorPlatformConfig",
+        "toSymbol": "hasOnlyKeys",
+        "callExpression": "hasOnlyKeys",
+        "sourcePath": "src/appManifest/navigator.ts"
+      },
+      {
+        "fromSymbol": "isNavigatorPlatformConfig",
+        "toSymbol": "isTabsImplementationConfig",
+        "callExpression": "isTabsImplementationConfig",
+        "sourcePath": "src/appManifest/navigator.ts"
+      },
+      {
+        "fromSymbol": "isNavigatorPlatformConfig",
+        "toSymbol": "isStackImplementationConfig",
+        "callExpression": "isStackImplementationConfig",
+        "sourcePath": "src/appManifest/navigator.ts"
+      },
+      {
+        "fromSymbol": "isStackImplementationConfig",
+        "toSymbol": "isStackScreenOptions",
+        "callExpression": "isStackScreenOptions",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
+        "fromSymbol": "isStackImplementationConfig",
+        "toSymbol": "isJavaScriptStackScreenOptions",
+        "callExpression": "isJavaScriptStackScreenOptions",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
+        "fromSymbol": "isStackImplementationConfig",
+        "toSymbol": "isStackHeaderOptions",
+        "callExpression": "isStackHeaderOptions",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
+        "fromSymbol": "isStackScreenOptions",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
+        "fromSymbol": "isStackScreenOptions",
+        "toSymbol": "hasOnlyKeys",
+        "callExpression": "hasOnlyKeys",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
+        "fromSymbol": "isStackScreenOptions",
+        "toSymbol": "isStackHeaderOptionsShape",
+        "callExpression": "isStackHeaderOptionsShape",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
+        "fromSymbol": "isStackScreenOptions",
+        "toSymbol": "isSheetAllowedDetents",
+        "callExpression": "isSheetAllowedDetents",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
+        "fromSymbol": "isStackScreenOptions",
+        "toSymbol": "isOptionalBoolean",
+        "callExpression": "isOptionalBoolean",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
+        "fromSymbol": "isDrawerNavigatorOptions",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
+        "fromSymbol": "isDrawerNavigatorOptions",
+        "toSymbol": "hasOnlyKeys",
+        "callExpression": "hasOnlyKeys",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
+        "fromSymbol": "isDrawerNavigatorOptions",
+        "toSymbol": "isOptionalBoolean",
+        "callExpression": "isOptionalBoolean",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
+        "fromSymbol": "isTabsImplementationConfig",
+        "toSymbol": "isAdaptiveTabsConfig",
+        "callExpression": "isAdaptiveTabsConfig",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
+        "fromSymbol": "isTabsImplementationConfig",
+        "toSymbol": "isFullNativeTabsConfig",
+        "callExpression": "isFullNativeTabsConfig",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
+        "fromSymbol": "isTabsImplementationConfig",
+        "toSymbol": "isJavaScriptTabsConfig",
+        "callExpression": "isJavaScriptTabsConfig",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
+        "fromSymbol": "isTabsImplementationConfig",
+        "toSymbol": "hasNoDefinedKeys",
+        "callExpression": "hasNoDefinedKeys",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
+        "fromSymbol": "isTabsImplementationConfig",
+        "toSymbol": "isCustomTabsPresentationConfig",
+        "callExpression": "isCustomTabsPresentationConfig",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
+        "fromSymbol": "isNavigatorScreenReference",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
+        "fromSymbol": "isNavigatorScreenReference",
+        "toSymbol": "hasOnlyKeys",
+        "callExpression": "hasOnlyKeys",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
+        "fromSymbol": "isJavaScriptStackScreenOptions",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
+        "fromSymbol": "isJavaScriptStackScreenOptions",
+        "toSymbol": "hasOnlyKeys",
+        "callExpression": "hasOnlyKeys",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
+        "fromSymbol": "isJavaScriptStackScreenOptions",
+        "toSymbol": "isStackHeaderOptionsShape",
+        "callExpression": "isStackHeaderOptionsShape",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
+        "fromSymbol": "isStackHeaderOptions",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
+        "fromSymbol": "isStackHeaderOptions",
+        "toSymbol": "hasOnlyKeys",
+        "callExpression": "hasOnlyKeys",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
+        "fromSymbol": "isStackHeaderOptions",
+        "toSymbol": "isStackHeaderOptionsShape",
+        "callExpression": "isStackHeaderOptionsShape",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
+        "fromSymbol": "isStackHeaderOptionsShape",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
+        "fromSymbol": "isStackHeaderOptionsShape",
+        "toSymbol": "isOptionalBoolean",
+        "callExpression": "isOptionalBoolean",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
+        "fromSymbol": "isAdaptiveTabsConfig",
+        "toSymbol": "hasNoDefinedKeys",
+        "callExpression": "hasNoDefinedKeys",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
+        "fromSymbol": "isAdaptiveTabsConfig",
+        "toSymbol": "isNativeTabsConfig",
+        "callExpression": "isNativeTabsConfig",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
+        "fromSymbol": "isAdaptiveTabsConfig",
+        "toSymbol": "isCustomTabsWebConfig",
+        "callExpression": "isCustomTabsWebConfig",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
+        "fromSymbol": "isFullNativeTabsConfig",
+        "toSymbol": "hasNoDefinedKeys",
+        "callExpression": "hasNoDefinedKeys",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
+        "fromSymbol": "isFullNativeTabsConfig",
+        "toSymbol": "isNativeTabsFields",
+        "callExpression": "isNativeTabsFields",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
+        "fromSymbol": "isJavaScriptTabsConfig",
+        "toSymbol": "hasNoDefinedKeys",
+        "callExpression": "hasNoDefinedKeys",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
+        "fromSymbol": "isNativeTabsConfig",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
+        "fromSymbol": "isNativeTabsConfig",
+        "toSymbol": "hasOnlyKeys",
+        "callExpression": "hasOnlyKeys",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
+        "fromSymbol": "isNativeTabsConfig",
+        "toSymbol": "isNativeTabsFields",
+        "callExpression": "isNativeTabsFields",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
+        "fromSymbol": "isNativeTabsFields",
+        "toSymbol": "isNavigatorScreenReference",
+        "callExpression": "isNavigatorScreenReference",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
+        "fromSymbol": "isCustomTabsWebConfig",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
+        "fromSymbol": "isCustomTabsWebConfig",
+        "toSymbol": "hasOnlyKeys",
+        "callExpression": "hasOnlyKeys",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
+        "fromSymbol": "isCustomTabsWebConfig",
+        "toSymbol": "isCustomTabsPresentationConfig",
+        "callExpression": "isCustomTabsPresentationConfig",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
+        "fromSymbol": "isCustomTabsPresentationConfig",
+        "toSymbol": "isResponsiveTabsPresentation",
+        "callExpression": "isResponsiveTabsPresentation",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
+        "fromSymbol": "isCustomTabsPresentationConfig",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
+        "fromSymbol": "isResponsiveTabsPresentation",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
+        "fromSymbol": "isResponsiveTabsPresentation",
+        "toSymbol": "hasOnlyKeys",
+        "callExpression": "hasOnlyKeys",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
         "fromSymbol": "isManifestMetadata",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
@@ -16850,18 +19123,6 @@
         "fromSymbol": "isThemeConfig",
         "toSymbol": "isThemeModeConfig",
         "callExpression": "isThemeModeConfig",
-        "sourcePath": "src/appManifest/screens.ts"
-      },
-      {
-        "fromSymbol": "isNavigatorSpec",
-        "toSymbol": "isRecord",
-        "callExpression": "isRecord",
-        "sourcePath": "src/appManifest/screens.ts"
-      },
-      {
-        "fromSymbol": "isNavigatorSpec",
-        "toSymbol": "isOptionalString",
-        "callExpression": "isOptionalString",
         "sourcePath": "src/appManifest/screens.ts"
       },
       {
@@ -16958,54 +19219,6 @@
         "fromSymbol": "isScreenSpec",
         "toSymbol": "isUiNode",
         "callExpression": "isUiNode",
-        "sourcePath": "src/appManifest/screens.ts"
-      },
-      {
-        "fromSymbol": "isRouteDefinition",
-        "toSymbol": "isRecord",
-        "callExpression": "isRecord",
-        "sourcePath": "src/appManifest/screens.ts"
-      },
-      {
-        "fromSymbol": "isRouteDefinition",
-        "toSymbol": "isOptionalString",
-        "callExpression": "isOptionalString",
-        "sourcePath": "src/appManifest/screens.ts"
-      },
-      {
-        "fromSymbol": "isRouteDefinition",
-        "toSymbol": "isIconSpec",
-        "callExpression": "isIconSpec",
-        "sourcePath": "src/appManifest/screens.ts"
-      },
-      {
-        "fromSymbol": "isRouteDefinition",
-        "toSymbol": "isOptionalBoolean",
-        "callExpression": "isOptionalBoolean",
-        "sourcePath": "src/appManifest/screens.ts"
-      },
-      {
-        "fromSymbol": "isRouteDefinition",
-        "toSymbol": "isStringArray",
-        "callExpression": "isStringArray",
-        "sourcePath": "src/appManifest/screens.ts"
-      },
-      {
-        "fromSymbol": "isRouteDefinition",
-        "toSymbol": "isNavigatorSpec",
-        "callExpression": "isNavigatorSpec",
-        "sourcePath": "src/appManifest/screens.ts"
-      },
-      {
-        "fromSymbol": "isIconSpec",
-        "toSymbol": "isRecord",
-        "callExpression": "isRecord",
-        "sourcePath": "src/appManifest/screens.ts"
-      },
-      {
-        "fromSymbol": "isIconSpec",
-        "toSymbol": "isOptionalString",
-        "callExpression": "isOptionalString",
         "sourcePath": "src/appManifest/screens.ts"
       },
       {
@@ -17923,6 +20136,101 @@
         "sourcePath": "src/media.ts"
       },
       {
+        "fromSymbol": "NativeTabsConfig",
+        "toType": "NavigatorScreenReference",
+        "sourcePath": "src/navigator.ts"
+      },
+      {
+        "fromSymbol": "AdaptiveTabsConfig",
+        "toType": "CustomTabsPresentationConfig",
+        "sourcePath": "src/navigator.ts"
+      },
+      {
+        "fromSymbol": "AdaptiveTabsConfig",
+        "toType": "NativeTabsConfig",
+        "sourcePath": "src/navigator.ts"
+      },
+      {
+        "fromSymbol": "SlotNavigatorNode",
+        "toType": "RouteDefinition",
+        "sourcePath": "src/navigator.ts"
+      },
+      {
+        "fromSymbol": "DrawerNavigatorNode",
+        "toType": "DrawerNavigatorOptions",
+        "sourcePath": "src/navigator.ts"
+      },
+      {
+        "fromSymbol": "DrawerNavigatorNode",
+        "toType": "RouteDefinition",
+        "sourcePath": "src/navigator.ts"
+      },
+      {
+        "fromSymbol": "SplitViewNavigatorNode",
+        "toType": "NavigatorScreenReference",
+        "sourcePath": "src/navigator.ts"
+      },
+      {
+        "fromSymbol": "SplitViewNavigatorNode",
+        "toType": "RouteDefinition",
+        "sourcePath": "src/navigator.ts"
+      },
+      {
+        "fromSymbol": "CustomNavigatorNode",
+        "toType": "ManifestValue",
+        "sourcePath": "src/navigator.ts"
+      },
+      {
+        "fromSymbol": "CustomNavigatorNode",
+        "toType": "Readonly",
+        "sourcePath": "src/navigator.ts"
+      },
+      {
+        "fromSymbol": "CustomNavigatorNode",
+        "toType": "RouteDefinition",
+        "sourcePath": "src/navigator.ts"
+      },
+      {
+        "fromSymbol": "RouteDefinition",
+        "toType": "IconSpec",
+        "sourcePath": "src/navigator.ts"
+      },
+      {
+        "fromSymbol": "RouteDefinition",
+        "toType": "NavigatorNode",
+        "sourcePath": "src/navigator.ts"
+      },
+      {
+        "fromSymbol": "RouteDefinition",
+        "toType": "StackScreenOptions",
+        "sourcePath": "src/navigator.ts"
+      },
+      {
+        "fromSymbol": "NavigatorDefaults",
+        "toType": "StackImplementationConfig",
+        "sourcePath": "src/navigator.ts"
+      },
+      {
+        "fromSymbol": "NavigatorDefaults",
+        "toType": "TabsImplementationConfig",
+        "sourcePath": "src/navigator.ts"
+      },
+      {
+        "fromSymbol": "NavigatorPlatformConfig",
+        "toType": "StackImplementationConfig",
+        "sourcePath": "src/navigator.ts"
+      },
+      {
+        "fromSymbol": "NavigatorPlatformConfig",
+        "toType": "TabsImplementationConfig",
+        "sourcePath": "src/navigator.ts"
+      },
+      {
+        "fromSymbol": "NavigatorPlatforms",
+        "toType": "NavigatorPlatformConfig",
+        "sourcePath": "src/navigator.ts"
+      },
+      {
         "fromSymbol": "ScreenRequirements",
         "toType": "ScreenCapabilityRequirement",
         "sourcePath": "src/requirements.ts"
@@ -18116,6 +20424,11 @@
         "fromSymbol": "StateAdapter",
         "toType": "TValue",
         "sourcePath": "src/state.ts"
+      },
+      {
+        "fromSymbol": "StorageUploadInput",
+        "toType": "ArrayBufferLike",
+        "sourcePath": "src/storage.ts"
       },
       {
         "fromSymbol": "StorageUploadInput",
@@ -18348,6 +20661,11 @@
         "sourcePath": "src/types.ts"
       },
       {
+        "fromSymbol": "SvgIconSpec",
+        "toType": "MediaAssetReference",
+        "sourcePath": "src/types.ts"
+      },
+      {
         "fromSymbol": "UiNodeRepeatSpec",
         "toType": "BindingValueSource",
         "sourcePath": "src/types.ts"
@@ -18375,21 +20693,6 @@
       {
         "fromSymbol": "ScreenSpec",
         "toType": "UiNode",
-        "sourcePath": "src/types.ts"
-      },
-      {
-        "fromSymbol": "NavigatorSpec",
-        "toType": "RouteDefinition",
-        "sourcePath": "src/types.ts"
-      },
-      {
-        "fromSymbol": "RouteDefinition",
-        "toType": "IconSpec",
-        "sourcePath": "src/types.ts"
-      },
-      {
-        "fromSymbol": "RouteDefinition",
-        "toType": "NavigatorSpec",
         "sourcePath": "src/types.ts"
       },
       {
@@ -18534,6 +20837,11 @@
       },
       {
         "fromSymbol": "AppManifest",
+        "toType": "AppNavigatorManifest",
+        "sourcePath": "src/types.ts"
+      },
+      {
+        "fromSymbol": "AppManifest",
         "toType": "AppSettings",
         "sourcePath": "src/types.ts"
       },
@@ -18559,12 +20867,12 @@
       },
       {
         "fromSymbol": "AppManifest",
-        "toType": "NavigatorSpec",
+        "toType": "Readonly",
         "sourcePath": "src/types.ts"
       },
       {
         "fromSymbol": "AppManifest",
-        "toType": "Readonly",
+        "toType": "RepositoryManifest",
         "sourcePath": "src/types.ts"
       },
       {

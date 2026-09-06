@@ -5,8 +5,11 @@ graph LR
   module_src_appManifest_data_ts["src/appManifest/data.ts"]
   module_src_appManifest_dataSources_ts["src/appManifest/dataSources.ts"]
   module_src_appManifest_deploy_ts["src/appManifest/deploy.ts"]
+  module_src_appManifest_icon_ts["src/appManifest/icon.ts"]
   module_src_appManifest_infra_ts["src/appManifest/infra.ts"]
   module_src_appManifest_media_ts["src/appManifest/media.ts"]
+  module_src_appManifest_navigator_ts["src/appManifest/navigator.ts"]
+  module_src_appManifest_navigatorOptions_ts["src/appManifest/navigatorOptions.ts"]
   module_src_appManifest_screens_ts["src/appManifest/screens.ts"]
   module_src_appManifest_shared_ts["src/appManifest/shared.ts"]
   module_src_auth_ts["src/auth.ts"]
@@ -26,6 +29,8 @@ graph LR
   module_src_deploy_ts["src/deploy.ts"]
   module_src_index_ts["src/index.ts"]
   module_src_media_ts["src/media.ts"]
+  module_src_navigator_ts["src/navigator.ts"]
+  module_src_repository_ts["src/repository.ts"]
   module_src_requirements_ts["src/requirements.ts"]
   module_src_runtimeCallbacks_ts["src/runtimeCallbacks.ts"]
   module_src_secretManifest_ts["src/secretManifest.ts"]
@@ -52,12 +57,21 @@ graph LR
   module_src_appManifest_dataSources_ts --> module_src_appManifest_shared_ts
   module_src_appManifest_deploy_ts --> module_src_appManifest_shared_ts
   module_src_appManifest_deploy_ts --> module_src_deploy_ts
+  module_src_appManifest_icon_ts --> module_src_appManifest_shared_ts
+  module_src_appManifest_icon_ts --> module_src_media_ts
   module_src_appManifest_infra_ts --> module_src_appManifest_apis_ts
+  module_src_appManifest_infra_ts --> module_src_appManifest_icon_ts
   module_src_appManifest_infra_ts --> module_src_appManifest_shared_ts
   module_src_appManifest_infra_ts --> module_src_auth_ts
   module_src_appManifest_infra_ts --> module_src_types_ts
   module_src_appManifest_media_ts --> module_src_appManifest_shared_ts
   module_src_appManifest_media_ts --> module_src_media_ts
+  module_src_appManifest_navigator_ts --> module_src_appManifest_icon_ts
+  module_src_appManifest_navigator_ts --> module_src_appManifest_navigatorOptions_ts
+  module_src_appManifest_navigator_ts --> module_src_appManifest_shared_ts
+  module_src_appManifest_navigator_ts --> module_src_navigator_ts
+  module_src_appManifest_navigatorOptions_ts --> module_src_appManifest_shared_ts
+  module_src_appManifest_navigatorOptions_ts --> module_src_navigator_ts
   module_src_appManifest_screens_ts --> module_src_appManifest_bindings_ts
   module_src_appManifest_screens_ts --> module_src_appManifest_shared_ts
   module_src_appManifest_screens_ts --> module_src_types_ts
@@ -88,6 +102,7 @@ graph LR
   module_src_data_sources_ts --> module_src_data_refs_ts
   module_src_data_sources_ts --> module_src_data_schemas_ts
   module_src_data_sources_ts --> module_src_data_values_ts
+  module_src_navigator_ts --> module_src_types_ts
   module_src_runtimeCallbacks_ts --> module_src_types_ts
   module_src_secretManifest_ts --> module_src_secrets_ts
   module_src_types_ts --> module_src_auth_ts
@@ -95,6 +110,8 @@ graph LR
   module_src_types_ts --> module_src_data_index_ts
   module_src_types_ts --> module_src_deploy_ts
   module_src_types_ts --> module_src_media_ts
+  module_src_types_ts --> module_src_navigator_ts
+  module_src_types_ts --> module_src_repository_ts
   module_src_types_ts --> module_src_requirements_ts
   module_src_types_ts --> module_src_theme_ts
   module_src_ui_ts --> module_src_media_ts
