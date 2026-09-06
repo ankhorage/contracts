@@ -5,8 +5,11 @@ graph LR
   module_src_appManifest_data_ts["src/appManifest/data.ts"]
   module_src_appManifest_dataSources_ts["src/appManifest/dataSources.ts"]
   module_src_appManifest_deploy_ts["src/appManifest/deploy.ts"]
+  module_src_appManifest_icon_ts["src/appManifest/icon.ts"]
   module_src_appManifest_infra_ts["src/appManifest/infra.ts"]
   module_src_appManifest_media_ts["src/appManifest/media.ts"]
+  module_src_appManifest_navigator_ts["src/appManifest/navigator.ts"]
+  module_src_appManifest_navigatorOptions_ts["src/appManifest/navigatorOptions.ts"]
   module_src_appManifest_screens_ts["src/appManifest/screens.ts"]
   module_src_appManifest_shared_ts["src/appManifest/shared.ts"]
   module_src_auth_ts["src/auth.ts"]
@@ -26,6 +29,8 @@ graph LR
   module_src_deploy_ts["src/deploy.ts"]
   module_src_index_ts["src/index.ts"]
   module_src_media_ts["src/media.ts"]
+  module_src_navigator_ts["src/navigator.ts"]
+  module_src_repository_ts["src/repository.ts"]
   module_src_requirements_ts["src/requirements.ts"]
   module_src_runtimeCallbacks_ts["src/runtimeCallbacks.ts"]
   module_src_secretManifest_ts["src/secretManifest.ts"]
@@ -47,6 +52,10 @@ graph LR
   module_src_data_refs_ts --> export_AdapterRef
   export_AdapterRef -.-> export_AdapterKind
   export_AdapterRef -.-> export_DataContractValue
+  export_AdaptiveTabsConfig["AdaptiveTabsConfig"]
+  module_src_navigator_ts --> export_AdaptiveTabsConfig
+  export_AdaptiveTabsConfig -.-> export_CustomTabsPresentationConfig
+  export_AdaptiveTabsConfig -.-> export_NativeTabsConfig
   export_AlertAction["AlertAction"]
   module_src_types_ts --> export_AlertAction
   export_AnkhCapabilityId["AnkhCapabilityId"]
@@ -123,17 +132,20 @@ graph LR
   module_src_types_ts --> export_AppManifest
   export_AppManifest -.-> export_AppCategory
   export_AppManifest -.-> export_AppDeployManifest
+  export_AppManifest -.-> export_AppNavigatorManifest
   export_AppManifest -.-> export_AppSettings
   export_AppManifest -.-> export_ComponentDataBinding
   export_AppManifest -.-> export_DatabaseDataSourceConfig
   export_AppManifest -.-> export_InfraManifest
   export_AppManifest -.-> export_MediaManifest
-  export_AppManifest -.-> export_NavigatorSpec
+  export_AppManifest -.-> export_RepositoryManifest
   export_AppManifest -.-> export_ScreenSpec
   export_AppManifest -.-> export_SplashScreenSpec
   export_AppManifest -.-> export_ThemeConfig
   export_AppManifestParseResult["AppManifestParseResult"]
   module_src_appManifest_ts --> export_AppManifestParseResult
+  export_AppNavigatorManifest["AppNavigatorManifest"]
+  module_src_navigator_ts --> export_AppNavigatorManifest
   export_AppSettings["AppSettings"]
   module_src_types_ts --> export_AppSettings
   export_AUTH_IDENTIFIER_KINDS["AUTH_IDENTIFIER_KINDS"]
@@ -400,6 +412,20 @@ graph LR
   export_CredentialRef["CredentialRef"]
   module_src_data_refs_ts --> export_CredentialRef
   export_CredentialRef -.-> export_CredentialKind
+  export_CUSTOM_TABS_PRESENTATIONS["CUSTOM_TABS_PRESENTATIONS"]
+  module_src_navigator_ts --> export_CUSTOM_TABS_PRESENTATIONS
+  export_CustomNavigatorNode["CustomNavigatorNode"]
+  module_src_navigator_ts --> export_CustomNavigatorNode
+  export_CustomNavigatorNode -.-> export_ManifestValue
+  export_CustomNavigatorNode -.-> export_RouteDefinition
+  export_CustomTabsConfig["CustomTabsConfig"]
+  module_src_navigator_ts --> export_CustomTabsConfig
+  export_CustomTabsPresentation["CustomTabsPresentation"]
+  module_src_navigator_ts --> export_CustomTabsPresentation
+  export_CustomTabsPresentationConfig["CustomTabsPresentationConfig"]
+  module_src_navigator_ts --> export_CustomTabsPresentationConfig
+  export_CustomTabsWebConfig["CustomTabsWebConfig"]
+  module_src_navigator_ts --> export_CustomTabsWebConfig
   export_DATABASE_PROVIDERS["DATABASE_PROVIDERS"]
   module_src_types_ts --> export_DATABASE_PROVIDERS
   export_DATABASE_TIERS["DATABASE_TIERS"]
@@ -606,6 +632,20 @@ graph LR
   export_DeploymentSpec -.-> export_DeploymentTarget
   export_DeploymentTarget["DeploymentTarget"]
   module_src_types_ts --> export_DeploymentTarget
+  export_DRAWER_POSITIONS["DRAWER_POSITIONS"]
+  module_src_navigator_ts --> export_DRAWER_POSITIONS
+  export_DRAWER_TYPES["DRAWER_TYPES"]
+  module_src_navigator_ts --> export_DRAWER_TYPES
+  export_DrawerNavigatorNode["DrawerNavigatorNode"]
+  module_src_navigator_ts --> export_DrawerNavigatorNode
+  export_DrawerNavigatorNode -.-> export_DrawerNavigatorOptions
+  export_DrawerNavigatorNode -.-> export_RouteDefinition
+  export_DrawerNavigatorOptions["DrawerNavigatorOptions"]
+  module_src_navigator_ts --> export_DrawerNavigatorOptions
+  export_DrawerPosition["DrawerPosition"]
+  module_src_navigator_ts --> export_DrawerPosition
+  export_DrawerType["DrawerType"]
+  module_src_navigator_ts --> export_DrawerType
   export_EndpointId["EndpointId"]
   module_src_data_ids_ts --> export_EndpointId
   export_EventBinding["EventBinding"]
@@ -633,6 +673,10 @@ graph LR
   module_src_types_ts --> export_FilterAction
   export_findForbiddenInlineSecretFields["findForbiddenInlineSecretFields"]
   module_src_secrets_ts --> export_findForbiddenInlineSecretFields
+  export_FIXED_CUSTOM_TABS_PRESENTATIONS["FIXED_CUSTOM_TABS_PRESENTATIONS"]
+  module_src_navigator_ts --> export_FIXED_CUSTOM_TABS_PRESENTATIONS
+  export_FixedCustomTabsPresentation["FixedCustomTabsPresentation"]
+  module_src_navigator_ts --> export_FixedCustomTabsPresentation
   export_FORBIDDEN_INLINE_SECRET_FIELDS["FORBIDDEN_INLINE_SECRET_FIELDS"]
   module_src_secrets_ts --> export_FORBIDDEN_INLINE_SECRET_FIELDS
   export_FormSubmitEventDto["FormSubmitEventDto"]
@@ -672,6 +716,18 @@ graph LR
   module_src_appManifest_ts --> export_isAppManifest
   export_isMediaAssetReference["isMediaAssetReference"]
   module_src_media_ts --> export_isMediaAssetReference
+  export_JAVASCRIPT_STACK_PRESENTATIONS["JAVASCRIPT_STACK_PRESENTATIONS"]
+  module_src_navigator_ts --> export_JAVASCRIPT_STACK_PRESENTATIONS
+  export_JAVASCRIPT_TABS_PRESENTATIONS["JAVASCRIPT_TABS_PRESENTATIONS"]
+  module_src_navigator_ts --> export_JAVASCRIPT_TABS_PRESENTATIONS
+  export_JavaScriptStackPresentation["JavaScriptStackPresentation"]
+  module_src_navigator_ts --> export_JavaScriptStackPresentation
+  export_JavaScriptStackScreenOptions["JavaScriptStackScreenOptions"]
+  module_src_navigator_ts --> export_JavaScriptStackScreenOptions
+  export_JavaScriptTabsConfig["JavaScriptTabsConfig"]
+  module_src_navigator_ts --> export_JavaScriptTabsConfig
+  export_JavaScriptTabsPresentation["JavaScriptTabsPresentation"]
+  module_src_navigator_ts --> export_JavaScriptTabsPresentation
   export_KnownAuthOAuthProviderId["KnownAuthOAuthProviderId"]
   module_src_auth_ts --> export_KnownAuthOAuthProviderId
   export_KnownAuthOAuthTransportId["KnownAuthOAuthTransportId"]
@@ -733,15 +789,42 @@ graph LR
   module_src_media_ts --> export_MediaStorageSource
   export_MediaUrlSource["MediaUrlSource"]
   module_src_media_ts --> export_MediaUrlSource
+  export_NamedIconSpec["NamedIconSpec"]
+  module_src_types_ts --> export_NamedIconSpec
+  export_NATIVE_TABS_MINIMIZE_BEHAVIORS["NATIVE_TABS_MINIMIZE_BEHAVIORS"]
+  module_src_navigator_ts --> export_NATIVE_TABS_MINIMIZE_BEHAVIORS
+  export_NativeTabsConfig["NativeTabsConfig"]
+  module_src_navigator_ts --> export_NativeTabsConfig
+  export_NativeTabsConfig -.-> export_NavigatorScreenReference
+  export_NativeTabsMinimizeBehavior["NativeTabsMinimizeBehavior"]
+  module_src_navigator_ts --> export_NativeTabsMinimizeBehavior
   export_NavigateAction["NavigateAction"]
   module_src_types_ts --> export_NavigateAction
+  export_NAVIGATOR_PRESETS["NAVIGATOR_PRESETS"]
+  module_src_navigator_ts --> export_NAVIGATOR_PRESETS
   export_NAVIGATOR_TYPES["NAVIGATOR_TYPES"]
-  module_src_types_ts --> export_NAVIGATOR_TYPES
-  export_NavigatorSpec["NavigatorSpec"]
-  module_src_types_ts --> export_NavigatorSpec
-  export_NavigatorSpec -.-> export_RouteDefinition
+  module_src_navigator_ts --> export_NAVIGATOR_TYPES
+  export_NavigatorDefaults["NavigatorDefaults"]
+  module_src_navigator_ts --> export_NavigatorDefaults
+  export_NavigatorDefaults -.-> export_StackImplementationConfig
+  export_NavigatorDefaults -.-> export_TabsImplementationConfig
+  export_NavigatorFlows["NavigatorFlows"]
+  module_src_navigator_ts --> export_NavigatorFlows
+  export_NavigatorNode["NavigatorNode"]
+  module_src_navigator_ts --> export_NavigatorNode
+  export_NavigatorPlatformConfig["NavigatorPlatformConfig"]
+  module_src_navigator_ts --> export_NavigatorPlatformConfig
+  export_NavigatorPlatformConfig -.-> export_StackImplementationConfig
+  export_NavigatorPlatformConfig -.-> export_TabsImplementationConfig
+  export_NavigatorPlatforms["NavigatorPlatforms"]
+  module_src_navigator_ts --> export_NavigatorPlatforms
+  export_NavigatorPlatforms -.-> export_NavigatorPlatformConfig
+  export_NavigatorPreset["NavigatorPreset"]
+  module_src_navigator_ts --> export_NavigatorPreset
+  export_NavigatorScreenReference["NavigatorScreenReference"]
+  module_src_navigator_ts --> export_NavigatorScreenReference
   export_NavigatorType["NavigatorType"]
-  module_src_types_ts --> export_NavigatorType
+  module_src_navigator_ts --> export_NavigatorType
   export_NetworkingSpec["NetworkingSpec"]
   module_src_types_ts --> export_NetworkingSpec
   export_normalizeSecretRef["normalizeSecretRef"]
@@ -771,13 +854,18 @@ graph LR
   export_PropBinding -.-> export_BindingLifecycleBehavior
   export_PropBinding -.-> export_BindingValueSource
   export_PropBinding -.-> export_BindingValueTransform
+  export_RepositoryManifest["RepositoryManifest"]
+  module_src_repository_ts --> export_RepositoryManifest
   export_resolveAuthFlow["resolveAuthFlow"]
   module_src_auth_ts --> export_resolveAuthFlow
   export_resolveAuthFlow -.-> export_AuthFlowConfig
+  export_ResponsiveTabsPresentation["ResponsiveTabsPresentation"]
+  module_src_navigator_ts --> export_ResponsiveTabsPresentation
   export_RouteDefinition["RouteDefinition"]
-  module_src_types_ts --> export_RouteDefinition
+  module_src_navigator_ts --> export_RouteDefinition
   export_RouteDefinition -.-> export_IconSpec
-  export_RouteDefinition -.-> export_NavigatorSpec
+  export_RouteDefinition -.-> export_NavigatorNode
+  export_RouteDefinition -.-> export_StackScreenOptions
   export_RuntimeCallback["RuntimeCallback"]
   module_src_runtimeCallbacks_ts --> export_RuntimeCallback
   export_RuntimeCallbackArgs["RuntimeCallbackArgs"]
@@ -871,6 +959,9 @@ graph LR
   export_SignUpInput["SignUpInput"]
   module_src_auth_ts --> export_SignUpInput
   export_SignUpInput -.-> export_AuthIdentifier
+  export_SlotNavigatorNode["SlotNavigatorNode"]
+  module_src_navigator_ts --> export_SlotNavigatorNode
+  export_SlotNavigatorNode -.-> export_RouteDefinition
   export_SplashScreenAssetSpec["SplashScreenAssetSpec"]
   module_src_types_ts --> export_SplashScreenAssetSpec
   export_SplashScreenAssetSpec -.-> export_SplashScreenResizeMode
@@ -883,6 +974,26 @@ graph LR
   module_src_types_ts --> export_SplashScreenSpec
   export_SplashScreenSpec -.-> export_SplashScreenModeSpec
   export_SplashScreenSpec -.-> export_SplashScreenResizeMode
+  export_SplitViewNavigatorNode["SplitViewNavigatorNode"]
+  module_src_navigator_ts --> export_SplitViewNavigatorNode
+  export_SplitViewNavigatorNode -.-> export_NavigatorScreenReference
+  export_SplitViewNavigatorNode -.-> export_RouteDefinition
+  export_STACK_IMPLEMENTATIONS["STACK_IMPLEMENTATIONS"]
+  module_src_navigator_ts --> export_STACK_IMPLEMENTATIONS
+  export_STACK_PRESENTATIONS["STACK_PRESENTATIONS"]
+  module_src_navigator_ts --> export_STACK_PRESENTATIONS
+  export_StackHeaderOptions["StackHeaderOptions"]
+  module_src_navigator_ts --> export_StackHeaderOptions
+  export_StackImplementation["StackImplementation"]
+  module_src_navigator_ts --> export_StackImplementation
+  export_StackImplementationConfig["StackImplementationConfig"]
+  module_src_navigator_ts --> export_StackImplementationConfig
+  export_StackNavigatorNode["StackNavigatorNode"]
+  module_src_navigator_ts --> export_StackNavigatorNode
+  export_StackPresentation["StackPresentation"]
+  module_src_navigator_ts --> export_StackPresentation
+  export_StackScreenOptions["StackScreenOptions"]
+  module_src_navigator_ts --> export_StackScreenOptions
   export_StartOAuthAuthorizationInput["StartOAuthAuthorizationInput"]
   module_src_auth_ts --> export_StartOAuthAuthorizationInput
   export_StartOAuthAuthorizationInput -.-> export_AuthOAuthProviderId
@@ -992,6 +1103,15 @@ graph LR
   export_StorageUploadResult["StorageUploadResult"]
   module_src_storage_ts --> export_StorageUploadResult
   export_StorageUploadResult -.-> export_StorageAssetReference
+  export_SvgIconSpec["SvgIconSpec"]
+  module_src_types_ts --> export_SvgIconSpec
+  export_SvgIconSpec -.-> export_MediaAssetReference
+  export_TabsImplementationConfig["TabsImplementationConfig"]
+  module_src_navigator_ts --> export_TabsImplementationConfig
+  export_TabsNavigatorConfig["TabsNavigatorConfig"]
+  module_src_navigator_ts --> export_TabsNavigatorConfig
+  export_TabsNavigatorNode["TabsNavigatorNode"]
+  module_src_navigator_ts --> export_TabsNavigatorNode
   export_ThemeConfig["ThemeConfig"]
   module_src_types_ts --> export_ThemeConfig
   export_ThemeConfig -.-> export_ThemeGlobalTokenOverrides

@@ -4,13 +4,13 @@
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:82:1`
+Source: `src/types.ts:84:1`
 
 ## ActionType
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:31:1`
+Source: `src/types.ts:33:1`
 
 ## AdapterId
 
@@ -40,11 +40,25 @@ Source: `src/data/refs.ts:15:1`
 | kind        | property | `AdapterKind`                    | yes      |             |
 | packageName | property | `string \| undefined`            | no       |             |
 
+## AdaptiveTabsConfig
+
+Kind: `type`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:165:1`
+
+### Members
+
+| Name           | Kind     | Type                                        | Required | Description |
+| -------------- | -------- | ------------------------------------------- | -------- | ----------- |
+| implementation | property | `"adaptive" \| undefined`                   | no       |             |
+| native         | property | `NativeTabsConfig \| undefined`             | no       |             |
+| web            | property | `CustomTabsPresentationConfig \| undefined` | no       |             |
+
 ## AlertAction
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:42:1`
+Source: `src/types.ts:44:1`
 
 ### Members
 
@@ -149,17 +163,17 @@ Source: `src/data/apis.ts:10:1`
 
 ### Members
 
-| Name        | Kind     | Type                                                                      | Required | Description |
-| ----------- | -------- | ------------------------------------------------------------------------- | -------- | ----------- |
-| credential  | property | `CredentialRef \| undefined`                                              | no       |             |
-| description | property | `string \| undefined`                                                     | no       |             |
-| endpoints   | property | `Readonly<Record<string, import("./src/index").DataEndpointConfig>>`      | yes      |             |
-| id          | property | `string`                                                                  | yes      |             |
-| metadata    | property | `DataContractValue \| undefined`                                          | no       |             |
-| name        | property | `string \| undefined`                                                     | no       |             |
-| origin      | property | `ApiOrigin`                                                               | yes      |             |
-| protocol    | property | `ApiProtocol`                                                             | yes      |             |
-| schemas     | property | `Readonly<Record<string, import("./src/index").DataSchema>> \| undefined` | no       |             |
+| Name        | Kind     | Type                                                                    | Required | Description |
+| ----------- | -------- | ----------------------------------------------------------------------- | -------- | ----------- |
+| credential  | property | `CredentialRef \| undefined`                                            | no       |             |
+| description | property | `string \| undefined`                                                   | no       |             |
+| endpoints   | property | `Readonly<Record<string, import("./endpoints").DataEndpointConfig>>`    | yes      |             |
+| id          | property | `string`                                                                | yes      |             |
+| metadata    | property | `DataContractValue \| undefined`                                        | no       |             |
+| name        | property | `string \| undefined`                                                   | no       |             |
+| origin      | property | `ApiOrigin`                                                             | yes      |             |
+| protocol    | property | `ApiProtocol`                                                           | yes      |             |
+| schemas     | property | `Readonly<Record<string, import("./schemas").DataSchema>> \| undefined` | no       |             |
 
 ## ApiDefinition
 
@@ -195,7 +209,7 @@ Source: `src/data/apis.ts:8:1`
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:140:14`
+Source: `src/types.ts:139:14`
 
 ## APP_DEPLOY_ENVIRONMENT_IDS
 
@@ -213,7 +227,7 @@ Source: `src/deploy.ts:1:14`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:165:1`
+Source: `src/types.ts:164:1`
 
 ## AppDeployAndroidTargetConfig
 
@@ -313,7 +327,7 @@ Source: `src/deploy.ts:21:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:379:1`
+Source: `src/types.ts:365:1`
 
 ### Members
 
@@ -321,13 +335,14 @@ Source: `src/types.ts:379:1`
 | --------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------ | -------- | ----------- |
 | activeThemeId   | property | `string`                                                                                                                       | yes      |             |
 | activeThemeMode | property | `"dark" \| "light" \| undefined`                                                                                               | no       |             |
-| dataBindings    | property | `Readonly<Record<string, import("./src/bindings").ComponentDataBinding>> \| undefined`                                         | no       |             |
-| dataSources     | property | `Readonly<Record<string, import("./src/index").DatabaseDataSourceConfig>> \| undefined`                                        | no       |             |
+| dataBindings    | property | `Readonly<Record<string, import("./bindings").ComponentDataBinding>> \| undefined`                                             | no       |             |
+| dataSources     | property | `Readonly<Record<string, import("./data").DatabaseDataSourceConfig>> \| undefined`                                             | no       |             |
 | deploy          | property | `AppDeployManifest \| undefined`                                                                                               | no       |             |
 | infra           | property | `InfraManifest`                                                                                                                | yes      |             |
 | media           | property | `MediaManifest \| undefined`                                                                                                   | no       |             |
 | metadata        | property | `{ name: string; slug: string; version: string; category: AppCategory; themeId: string; created?: string; updated?: string; }` | yes      |             |
-| navigator       | property | `NavigatorSpec`                                                                                                                | yes      |             |
+| navigator       | property | `AppNavigatorManifest`                                                                                                         | yes      |             |
+| repository      | property | `RepositoryManifest \| undefined`                                                                                              | no       |             |
 | screens         | property | `Record<string, ScreenSpec>`                                                                                                   | yes      |             |
 | settings        | property | `AppSettings`                                                                                                                  | yes      |             |
 | splashScreen    | property | `SplashScreenSpec \| undefined`                                                                                                | no       |             |
@@ -339,11 +354,17 @@ Kind: `unknown`
 Module: `src/appManifest.ts`
 Source: `src/appManifest.ts:16:1`
 
+## AppNavigatorManifest
+
+Kind: `unknown`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:267:1`
+
 ## AppSettings
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:372:1`
+Source: `src/types.ts:358:1`
 
 ### Members
 
@@ -421,43 +442,43 @@ Source: `src/auth.ts:42:14`
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:220:14`
+Source: `src/types.ts:219:14`
 
 ## AUTH_PROFILE_FIELDS
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:207:14`
+Source: `src/types.ts:206:14`
 
 ## AUTH_PROFILE_PRIMARY_KEY_STRATEGIES
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:217:14`
+Source: `src/types.ts:216:14`
 
 ## AUTH_PROFILE_UPDATE_STRATEGIES
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:223:14`
+Source: `src/types.ts:222:14`
 
 ## AUTH_PROVIDERS
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:197:14`
+Source: `src/types.ts:196:14`
 
 ## AUTH_SCOPES
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:194:14`
+Source: `src/types.ts:193:14`
 
 ## AUTH_SIGN_IN_IDENTIFIERS
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:201:14`
+Source: `src/types.ts:200:14`
 
 ## AUTH_SIGN_UP_FIELDS
 
@@ -469,7 +490,7 @@ Source: `src/auth.ts:8:14`
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:204:14`
+Source: `src/types.ts:203:14`
 
 ## AuthAdapter
 
@@ -815,25 +836,25 @@ Source: `src/auth.ts:44:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:221:1`
+Source: `src/types.ts:220:1`
 
 ## AuthProfileField
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:215:1`
+Source: `src/types.ts:214:1`
 
 ## AuthProfilePrimaryKeyStrategy
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:218:1`
+Source: `src/types.ts:217:1`
 
 ## AuthProfileSpec
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:336:1`
+Source: `src/types.ts:322:1`
 
 ### Members
 
@@ -849,13 +870,13 @@ Source: `src/types.ts:336:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:224:1`
+Source: `src/types.ts:223:1`
 
 ## AuthProvider
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:199:1`
+Source: `src/types.ts:198:1`
 
 ## AuthProviderConfig
 
@@ -884,7 +905,7 @@ Source: `src/auth.ts:196:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:195:1`
+Source: `src/types.ts:194:1`
 
 ## AuthSession
 
@@ -918,13 +939,13 @@ Source: `src/auth.ts:133:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:202:1`
+Source: `src/types.ts:201:1`
 
 ## AuthSignInSpec
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:326:1`
+Source: `src/types.ts:312:1`
 
 ### Members
 
@@ -955,13 +976,13 @@ Source: `src/auth.ts:16:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:205:1`
+Source: `src/types.ts:204:1`
 
 ## AuthSignUpSpec
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:330:1`
+Source: `src/types.ts:316:1`
 
 ### Members
 
@@ -975,7 +996,7 @@ Source: `src/types.ts:330:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:344:1`
+Source: `src/types.ts:330:1`
 
 ### Members
 
@@ -1012,31 +1033,31 @@ Source: `src/auth.ts:172:1`
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:191:14`
+Source: `src/types.ts:190:14`
 
 ## AUTHZ_KINDS
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:188:14`
+Source: `src/types.ts:187:14`
 
 ## AuthzEngine
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:192:1`
+Source: `src/types.ts:191:1`
 
 ## AuthzKind
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:189:1`
+Source: `src/types.ts:188:1`
 
 ## AuthzSpec
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:321:1`
+Source: `src/types.ts:307:1`
 
 ### Members
 
@@ -1165,19 +1186,19 @@ Source: `src/bindings.ts:18:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:119:1`
+Source: `src/types.ts:121:1`
 
 ## CollectionItemPressEventDto
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:126:1`
+Source: `src/types.ts:128:1`
 
 ## CollectionItemPressPayload
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:121:1`
+Source: `src/types.ts:123:1`
 
 ### Members
 
@@ -1224,7 +1245,7 @@ Source: `src/bindings.ts:137:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:101:1`
+Source: `src/types.ts:103:1`
 
 ### Members
 
@@ -1238,13 +1259,13 @@ Source: `src/types.ts:101:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:131:1`
+Source: `src/types.ts:133:1`
 
 ## ComponentEventPayloadValue
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:99:1`
+Source: `src/types.ts:101:1`
 
 ## ComponentInstanceId
 
@@ -1275,7 +1296,7 @@ Source: `src/bindings.ts:4:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:49:1`
+Source: `src/types.ts:51:1`
 
 ### Members
 
@@ -1311,17 +1332,63 @@ Source: `src/data/refs.ts:6:1`
 | label | property | `string \| undefined`             | no       |             |
 | scope | property | `string \| undefined`             | no       |             |
 
+## CUSTOM_TABS_PRESENTATIONS
+
+Kind: `value`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:100:14`
+
+## CustomNavigatorNode
+
+Kind: `type`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:212:1`
+
+### Members
+
+| Name             | Kind     | Type                                                   | Required | Description |
+| ---------------- | -------- | ------------------------------------------------------ | -------- | ----------- |
+| config           | property | `Readonly<Record<string, ManifestValue>> \| undefined` | no       |             |
+| initialRouteName | property | `string \| undefined`                                  | no       |             |
+| navigatorId      | property | `string`                                               | yes      |             |
+| routes           | property | `RouteDefinition[]`                                    | yes      |             |
+| type             | property | `"custom"`                                             | yes      |             |
+
+## CustomTabsConfig
+
+Kind: `unknown`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:142:1`
+
+## CustomTabsPresentation
+
+Kind: `unknown`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:105:1`
+
+## CustomTabsPresentationConfig
+
+Kind: `unknown`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:124:1`
+
+## CustomTabsWebConfig
+
+Kind: `unknown`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:146:1`
+
 ## DATABASE_PROVIDERS
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:171:14`
+Source: `src/types.ts:170:14`
 
 ## DATABASE_TIERS
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:175:14`
+Source: `src/types.ts:174:14`
 
 ## DatabaseAdapterRef
 
@@ -1347,29 +1414,29 @@ Source: `src/data/sources.ts:9:1`
 
 ### Members
 
-| Name        | Kind     | Type                                                                      | Required | Description |
-| ----------- | -------- | ------------------------------------------------------------------------- | -------- | ----------- |
-| adapter     | property | `DatabaseAdapterRef`                                                      | yes      |             |
-| credential  | property | `CredentialRef \| undefined`                                              | no       |             |
-| description | property | `string \| undefined`                                                     | no       |             |
-| endpoints   | property | `Readonly<Record<string, import("./src/index").DataEndpointConfig>>`      | yes      |             |
-| id          | property | `string`                                                                  | yes      |             |
-| kind        | property | `"database"`                                                              | yes      |             |
-| metadata    | property | `DataContractValue \| undefined`                                          | no       |             |
-| name        | property | `string \| undefined`                                                     | no       |             |
-| schemas     | property | `Readonly<Record<string, import("./src/index").DataSchema>> \| undefined` | no       |             |
+| Name        | Kind     | Type                                                                    | Required | Description |
+| ----------- | -------- | ----------------------------------------------------------------------- | -------- | ----------- |
+| adapter     | property | `DatabaseAdapterRef`                                                    | yes      |             |
+| credential  | property | `CredentialRef \| undefined`                                            | no       |             |
+| description | property | `string \| undefined`                                                   | no       |             |
+| endpoints   | property | `Readonly<Record<string, import("./endpoints").DataEndpointConfig>>`    | yes      |             |
+| id          | property | `string`                                                                | yes      |             |
+| kind        | property | `"database"`                                                            | yes      |             |
+| metadata    | property | `DataContractValue \| undefined`                                        | no       |             |
+| name        | property | `string \| undefined`                                                   | no       |             |
+| schemas     | property | `Readonly<Record<string, import("./schemas").DataSchema>> \| undefined` | no       |             |
 
 ## DatabaseProvider
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:173:1`
+Source: `src/types.ts:172:1`
 
 ## DatabaseSpec
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:306:1`
+Source: `src/types.ts:292:1`
 
 ### Members
 
@@ -1382,7 +1449,7 @@ Source: `src/types.ts:306:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:176:1`
+Source: `src/types.ts:175:1`
 
 ## DataContractValue
 
@@ -2061,13 +2128,13 @@ Source: `src/auth.ts:120:14`
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:167:14`
+Source: `src/types.ts:166:14`
 
 ## DeploymentSpec
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:301:1`
+Source: `src/types.ts:287:1`
 
 ### Members
 
@@ -2080,7 +2147,61 @@ Source: `src/types.ts:301:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:169:1`
+Source: `src/types.ts:168:1`
+
+## DRAWER_POSITIONS
+
+Kind: `value`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:84:14`
+
+## DRAWER_TYPES
+
+Kind: `value`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:87:14`
+
+## DrawerNavigatorNode
+
+Kind: `type`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:190:1`
+
+### Members
+
+| Name             | Kind     | Type                                  | Required | Description |
+| ---------------- | -------- | ------------------------------------- | -------- | ----------- |
+| initialRouteName | property | `string \| undefined`                 | no       |             |
+| options          | property | `DrawerNavigatorOptions \| undefined` | no       |             |
+| routes           | property | `RouteDefinition[]`                   | yes      |             |
+| type             | property | `"drawer"`                            | yes      |             |
+
+## DrawerNavigatorOptions
+
+Kind: `type`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:90:1`
+
+### Members
+
+| Name           | Kind     | Type                                                       | Required | Description |
+| -------------- | -------- | ---------------------------------------------------------- | -------- | ----------- |
+| drawerPosition | property | `"left" \| "right" \| undefined`                           | no       |             |
+| drawerType     | property | `"front" \| "back" \| "slide" \| "permanent" \| undefined` | no       |             |
+| headerShown    | property | `boolean \| undefined`                                     | no       |             |
+| swipeEnabled   | property | `boolean \| undefined`                                     | no       |             |
+
+## DrawerPosition
+
+Kind: `unknown`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:85:1`
+
+## DrawerType
+
+Kind: `unknown`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:88:1`
 
 ## EndpointId
 
@@ -2116,19 +2237,19 @@ Source: `src/data/apis.ts:40:1`
 
 ### Members
 
-| Name          | Kind     | Type                                                                      | Required | Description |
-| ------------- | -------- | ------------------------------------------------------------------------- | -------- | ----------- |
-| credential    | property | `CredentialRef \| undefined`                                              | no       |             |
-| description   | property | `string \| undefined`                                                     | no       |             |
-| endpoints     | property | `Readonly<Record<string, import("./src/index").DataEndpointConfig>>`      | yes      |             |
-| endpointUrl   | property | `string`                                                                  | yes      |             |
-| id            | property | `string`                                                                  | yes      |             |
-| introspection | property | `GraphQlIntrospectionConfig \| undefined`                                 | no       |             |
-| metadata      | property | `DataContractValue \| undefined`                                          | no       |             |
-| name          | property | `string \| undefined`                                                     | no       |             |
-| origin        | property | `"external"`                                                              | yes      |             |
-| protocol      | property | `"graphql"`                                                               | yes      |             |
-| schemas       | property | `Readonly<Record<string, import("./src/index").DataSchema>> \| undefined` | no       |             |
+| Name          | Kind     | Type                                                                    | Required | Description |
+| ------------- | -------- | ----------------------------------------------------------------------- | -------- | ----------- |
+| credential    | property | `CredentialRef \| undefined`                                            | no       |             |
+| description   | property | `string \| undefined`                                                   | no       |             |
+| endpoints     | property | `Readonly<Record<string, import("./endpoints").DataEndpointConfig>>`    | yes      |             |
+| endpointUrl   | property | `string`                                                                | yes      |             |
+| id            | property | `string`                                                                | yes      |             |
+| introspection | property | `GraphQlIntrospectionConfig \| undefined`                               | no       |             |
+| metadata      | property | `DataContractValue \| undefined`                                        | no       |             |
+| name          | property | `string \| undefined`                                                   | no       |             |
+| origin        | property | `"external"`                                                            | yes      |             |
+| protocol      | property | `"graphql"`                                                             | yes      |             |
+| schemas       | property | `Readonly<Record<string, import("./schemas").DataSchema>> \| undefined` | no       |             |
 
 ## ExternalRestApiDefinition
 
@@ -2138,25 +2259,25 @@ Source: `src/data/apis.ts:28:1`
 
 ### Members
 
-| Name        | Kind     | Type                                                                      | Required | Description |
-| ----------- | -------- | ------------------------------------------------------------------------- | -------- | ----------- |
-| baseUrl     | property | `string`                                                                  | yes      |             |
-| credential  | property | `CredentialRef \| undefined`                                              | no       |             |
-| description | property | `string \| undefined`                                                     | no       |             |
-| endpoints   | property | `Readonly<Record<string, import("./src/index").DataEndpointConfig>>`      | yes      |             |
-| id          | property | `string`                                                                  | yes      |             |
-| metadata    | property | `DataContractValue \| undefined`                                          | no       |             |
-| name        | property | `string \| undefined`                                                     | no       |             |
-| openApi     | property | `OpenApiDocumentRef \| undefined`                                         | no       |             |
-| origin      | property | `"external"`                                                              | yes      |             |
-| protocol    | property | `"rest"`                                                                  | yes      |             |
-| schemas     | property | `Readonly<Record<string, import("./src/index").DataSchema>> \| undefined` | no       |             |
+| Name        | Kind     | Type                                                                    | Required | Description |
+| ----------- | -------- | ----------------------------------------------------------------------- | -------- | ----------- |
+| baseUrl     | property | `string`                                                                | yes      |             |
+| credential  | property | `CredentialRef \| undefined`                                            | no       |             |
+| description | property | `string \| undefined`                                                   | no       |             |
+| endpoints   | property | `Readonly<Record<string, import("./endpoints").DataEndpointConfig>>`    | yes      |             |
+| id          | property | `string`                                                                | yes      |             |
+| metadata    | property | `DataContractValue \| undefined`                                        | no       |             |
+| name        | property | `string \| undefined`                                                   | no       |             |
+| openApi     | property | `OpenApiDocumentRef \| undefined`                                       | no       |             |
+| origin      | property | `"external"`                                                            | yes      |             |
+| protocol    | property | `"rest"`                                                                | yes      |             |
+| schemas     | property | `Readonly<Record<string, import("./schemas").DataSchema>> \| undefined` | no       |             |
 
 ## FilterAction
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:74:1`
+Source: `src/types.ts:76:1`
 
 ### Members
 
@@ -2177,6 +2298,18 @@ Source: `src/secrets.ts:183:1`
   - value: `unknown`
   - returns: `readonly string[]`
 
+## FIXED_CUSTOM_TABS_PRESENTATIONS
+
+Kind: `value`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:97:14`
+
+## FixedCustomTabsPresentation
+
+Kind: `unknown`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:98:1`
+
 ## FORBIDDEN_INLINE_SECRET_FIELDS
 
 Kind: `value`
@@ -2187,13 +2320,13 @@ Source: `src/secrets.ts:174:14`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:112:1`
+Source: `src/types.ts:114:1`
 
 ## FormSubmitValues
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:110:1`
+Source: `src/types.ts:112:1`
 
 ## GraphQlIntrospectionConfig
 
@@ -2210,18 +2343,9 @@ Source: `src/data/apis.ts:35:1`
 
 ## IconSpec
 
-Kind: `type`
+Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:226:1`
-
-### Members
-
-| Name     | Kind     | Type                            | Required | Description |
-| -------- | -------- | ------------------------------- | -------- | ----------- |
-| color    | property | `string \| undefined`           | no       |             |
-| name     | property | `string`                        | yes      |             |
-| provider | property | `string \| undefined`           | no       |             |
-| size     | property | `string \| number \| undefined` | no       |             |
+Source: `src/types.ts:242:1`
 
 ## ImageAssetSource
 
@@ -2247,7 +2371,7 @@ Source: `src/storage.ts:102:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:360:1`
+Source: `src/types.ts:346:1`
 
 ### Members
 
@@ -2284,18 +2408,18 @@ Source: `src/data/apis.ts:54:1`
 
 ### Members
 
-| Name        | Kind     | Type                                                                      | Required | Description |
-| ----------- | -------- | ------------------------------------------------------------------------- | -------- | ----------- |
-| basePath    | property | `string`                                                                  | yes      |             |
-| credential  | property | `CredentialRef \| undefined`                                              | no       |             |
-| description | property | `string \| undefined`                                                     | no       |             |
-| endpoints   | property | `Readonly<Record<string, import("./src/index").DataEndpointConfig>>`      | yes      |             |
-| id          | property | `string`                                                                  | yes      |             |
-| metadata    | property | `DataContractValue \| undefined`                                          | no       |             |
-| name        | property | `string \| undefined`                                                     | no       |             |
-| origin      | property | `"internal"`                                                              | yes      |             |
-| protocol    | property | `"rest"`                                                                  | yes      |             |
-| schemas     | property | `Readonly<Record<string, import("./src/index").DataSchema>> \| undefined` | no       |             |
+| Name        | Kind     | Type                                                                    | Required | Description |
+| ----------- | -------- | ----------------------------------------------------------------------- | -------- | ----------- |
+| basePath    | property | `string`                                                                | yes      |             |
+| credential  | property | `CredentialRef \| undefined`                                            | no       |             |
+| description | property | `string \| undefined`                                                   | no       |             |
+| endpoints   | property | `Readonly<Record<string, import("./endpoints").DataEndpointConfig>>`    | yes      |             |
+| id          | property | `string`                                                                | yes      |             |
+| metadata    | property | `DataContractValue \| undefined`                                        | no       |             |
+| name        | property | `string \| undefined`                                                   | no       |             |
+| origin      | property | `"internal"`                                                            | yes      |             |
+| protocol    | property | `"rest"`                                                                | yes      |             |
+| schemas     | property | `Readonly<Record<string, import("./schemas").DataSchema>> \| undefined` | no       |             |
 
 ## isAppDeployManifest
 
@@ -2313,7 +2437,7 @@ Source: `src/appManifest/deploy.ts:19:1`
 
 Kind: `function`
 Module: `src/appManifest.ts`
-Source: `src/appManifest.ts:50:1`
+Source: `src/appManifest.ts:51:1`
 
 ### Signatures
 
@@ -2333,6 +2457,49 @@ Source: `src/media.ts:58:1`
   - value: `unknown`
   - returns: `boolean`
 
+## JAVASCRIPT_STACK_PRESENTATIONS
+
+Kind: `value`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:40:14`
+
+## JAVASCRIPT_TABS_PRESENTATIONS
+
+Kind: `value`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:107:14`
+
+## JavaScriptStackPresentation
+
+Kind: `unknown`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:41:1`
+
+## JavaScriptStackScreenOptions
+
+Kind: `unknown`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:64:1`
+
+## JavaScriptTabsConfig
+
+Kind: `type`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:160:1`
+
+### Members
+
+| Name           | Kind     | Type                             | Required | Description |
+| -------------- | -------- | -------------------------------- | -------- | ----------- |
+| implementation | property | `"javascript"`                   | yes      |             |
+| presentation   | property | `"bottom" \| "top" \| undefined` | no       |             |
+
+## JavaScriptTabsPresentation
+
+Kind: `unknown`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:108:1`
+
 ## KnownAuthOAuthProviderId
 
 Kind: `unknown`
@@ -2349,13 +2516,13 @@ Source: `src/auth.ts:43:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:214:1`
+Source: `src/types.ts:213:1`
 
 ## KnownAuthProvider
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:198:1`
+Source: `src/types.ts:197:1`
 
 ## KnownAuthSignUpField
 
@@ -2367,19 +2534,19 @@ Source: `src/auth.ts:15:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:134:1`
+Source: `src/types.ts:136:1`
 
 ## KnownDatabaseProvider
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:172:1`
+Source: `src/types.ts:171:1`
 
 ## KnownDeploymentTarget
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:168:1`
+Source: `src/types.ts:167:1`
 
 ## KnownSecretStoreProvider
 
@@ -2391,13 +2558,13 @@ Source: `src/secrets.ts:2:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:182:1`
+Source: `src/types.ts:181:1`
 
 ## ManifestValue
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:91:1`
+Source: `src/types.ts:93:1`
 
 ## MEDIA_ASSET_KINDS
 
@@ -2539,11 +2706,53 @@ Source: `src/media.ts:13:1`
 | kind | property | `"url"`  | yes      |             |
 | url  | property | `string` | yes      |             |
 
+## NamedIconSpec
+
+Kind: `type`
+Module: `src/types.ts`
+Source: `src/types.ts:230:1`
+
+### Members
+
+| Name     | Kind     | Type                            | Required | Description |
+| -------- | -------- | ------------------------------- | -------- | ----------- |
+| color    | property | `string \| undefined`           | no       |             |
+| name     | property | `string`                        | yes      |             |
+| provider | property | `string \| undefined`           | no       |             |
+| size     | property | `string \| number \| undefined` | no       |             |
+| source   | property | `undefined`                     | no       |             |
+
+## NATIVE_TABS_MINIMIZE_BEHAVIORS
+
+Kind: `value`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:110:14`
+
+## NativeTabsConfig
+
+Kind: `type`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:152:1`
+
+### Members
+
+| Name             | Kind     | Type                                                                    | Required | Description |
+| ---------------- | -------- | ----------------------------------------------------------------------- | -------- | ----------- |
+| bottomAccessory  | property | `NavigatorScreenReference \| undefined`                                 | no       |             |
+| implementation   | property | `"native"`                                                              | yes      |             |
+| minimizeBehavior | property | `"automatic" \| "never" \| "onScrollDown" \| "onScrollUp" \| undefined` | no       |             |
+
+## NativeTabsMinimizeBehavior
+
+Kind: `unknown`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:116:1`
+
 ## NavigateAction
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:34:1`
+Source: `src/types.ts:36:1`
 
 ### Members
 
@@ -2552,38 +2761,106 @@ Source: `src/types.ts:34:1`
 | payload | property | `{ route: string; params?: Record<string, number \| string>; }` | yes      |             |
 | type    | property | `"navigate"`                                                    | yes      |             |
 
+## NAVIGATOR_PRESETS
+
+Kind: `value`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:6:14`
+
 ## NAVIGATOR_TYPES
 
 Kind: `value`
-Module: `src/types.ts`
-Source: `src/types.ts:137:14`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:3:14`
 
-## NavigatorSpec
+## NavigatorDefaults
 
 Kind: `type`
-Module: `src/types.ts`
-Source: `src/types.ts:260:1`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:245:1`
 
 ### Members
 
-| Name             | Kind     | Type                                   | Required | Description |
-| ---------------- | -------- | -------------------------------------- | -------- | ----------- |
-| initialRouteName | property | `string \| undefined`                  | no       |             |
-| options          | property | `Record<string, unknown> \| undefined` | no       |             |
-| routes           | property | `RouteDefinition[]`                    | yes      |             |
-| type             | property | `"stack" \| "tabs" \| "drawer"`        | yes      |             |
+| Name  | Kind     | Type                                     | Required | Description |
+| ----- | -------- | ---------------------------------------- | -------- | ----------- |
+| stack | property | `StackImplementationConfig \| undefined` | no       |             |
+| tabs  | property | `TabsImplementationConfig \| undefined`  | no       |             |
+
+## NavigatorFlows
+
+Kind: `type`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:240:1`
+
+### Members
+
+| Name           | Kind     | Type                   | Required | Description |
+| -------------- | -------- | ---------------------- | -------- | ----------- |
+| authentication | property | `boolean \| undefined` | no       |             |
+| onboarding     | property | `boolean \| undefined` | no       |             |
+
+## NavigatorNode
+
+Kind: `unknown`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:218:1`
+
+## NavigatorPlatformConfig
+
+Kind: `type`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:250:1`
+
+### Members
+
+| Name  | Kind     | Type                                     | Required | Description |
+| ----- | -------- | ---------------------------------------- | -------- | ----------- |
+| stack | property | `StackImplementationConfig \| undefined` | no       |             |
+| tabs  | property | `TabsImplementationConfig \| undefined`  | no       |             |
+
+## NavigatorPlatforms
+
+Kind: `type`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:255:1`
+
+### Members
+
+| Name    | Kind     | Type                                   | Required | Description |
+| ------- | -------- | -------------------------------------- | -------- | ----------- |
+| android | property | `NavigatorPlatformConfig \| undefined` | no       |             |
+| ios     | property | `NavigatorPlatformConfig \| undefined` | no       |             |
+| web     | property | `NavigatorPlatformConfig \| undefined` | no       |             |
+
+## NavigatorPreset
+
+Kind: `unknown`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:24:1`
+
+## NavigatorScreenReference
+
+Kind: `type`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:148:1`
+
+### Members
+
+| Name     | Kind     | Type     | Required | Description |
+| -------- | -------- | -------- | -------- | ----------- |
+| screenId | property | `string` | yes      |             |
 
 ## NavigatorType
 
 Kind: `unknown`
-Module: `src/types.ts`
-Source: `src/types.ts:138:1`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:4:1`
 
 ## NetworkingSpec
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:355:1`
+Source: `src/types.ts:341:1`
 
 ### Members
 
@@ -2655,7 +2932,7 @@ Source: `src/bindings.ts:97:1`
 
 Kind: `function`
 Module: `src/appManifest.ts`
-Source: `src/appManifest.ts:43:1`
+Source: `src/appManifest.ts:44:1`
 
 ### Signatures
 
@@ -2693,6 +2970,22 @@ Source: `src/bindings.ts:67:1`
 | source     | property | `BindingValueSource`                            | yes      |             |
 | transforms | property | `readonly BindingValueTransform[] \| undefined` | no       |             |
 
+## RepositoryManifest
+
+Kind: `type`
+Module: `src/repository.ts`
+Source: `src/repository.ts:1:1`
+
+### Members
+
+| Name          | Kind     | Type       | Required | Description |
+| ------------- | -------- | ---------- | -------- | ----------- |
+| defaultBranch | property | `"main"`   | yes      |             |
+| name          | property | `string`   | yes      |             |
+| owner         | property | `string`   | yes      |             |
+| provider      | property | `"github"` | yes      |             |
+| url           | property | `string`   | yes      |             |
+
 ## resolveAuthFlow
 
 Kind: `function`
@@ -2705,24 +2998,39 @@ Source: `src/auth.ts:129:1`
   - flow: `AuthFlowConfig | undefined` (optional)
   - returns: `AuthFlowConfig`
 
-## RouteDefinition
+## ResponsiveTabsPresentation
 
 Kind: `type`
-Module: `src/types.ts`
-Source: `src/types.ts:267:1`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:118:1`
 
 ### Members
 
-| Name                    | Kind     | Type                         | Required | Description |
-| ----------------------- | -------- | ---------------------------- | -------- | ----------- |
-| guards                  | property | `string[] \| undefined`      | no       |             |
-| icon                    | property | `IconSpec \| undefined`      | no       |             |
-| label                   | property | `string \| undefined`        | no       |             |
-| name                    | property | `string`                     | yes      |             |
-| navigator               | property | `NavigatorSpec \| undefined` | no       |             |
-| path                    | property | `string \| undefined`        | no       |             |
-| screenId                | property | `string \| undefined`        | no       |             |
-| showInPrimaryNavigation | property | `boolean \| undefined`       | no       |             |
+| Name     | Kind     | Type                                                    | Required | Description |
+| -------- | -------- | ------------------------------------------------------- | -------- | ----------- |
+| compact  | property | `"bottom" \| "top" \| "rail" \| "sidebar"`              | yes      |             |
+| expanded | property | `"bottom" \| "top" \| "rail" \| "sidebar"`              | yes      |             |
+| medium   | property | `"bottom" \| "top" \| "rail" \| "sidebar" \| undefined` | no       |             |
+
+## RouteDefinition
+
+Kind: `type`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:226:1`
+
+### Members
+
+| Name                    | Kind     | Type                              | Required | Description |
+| ----------------------- | -------- | --------------------------------- | -------- | ----------- |
+| guards                  | property | `string[] \| undefined`           | no       |             |
+| icon                    | property | `IconSpec \| undefined`           | no       |             |
+| label                   | property | `string \| undefined`             | no       |             |
+| name                    | property | `string`                          | yes      |             |
+| navigator               | property | `NavigatorNode \| undefined`      | no       |             |
+| path                    | property | `string \| undefined`             | no       |             |
+| screenId                | property | `string \| undefined`             | no       |             |
+| showInPrimaryNavigation | property | `boolean \| undefined`            | no       |             |
+| stackOptions            | property | `StackScreenOptions \| undefined` | no       |             |
 
 ## RuntimeCallback
 
@@ -2822,25 +3130,25 @@ Source: `src/requirements.ts:35:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:250:1`
+Source: `src/types.ts:261:1`
 
 ### Members
 
-| Name        | Kind     | Type                                                                                   | Required | Description |
-| ----------- | -------- | -------------------------------------------------------------------------------------- | -------- | ----------- |
-| dataLoaders | property | `readonly import("./src/bindings").OperationScreenDataLoaderDefinition[] \| undefined` | no       |             |
-| description | property | `string \| undefined`                                                                  | no       |             |
-| id          | property | `string`                                                                               | yes      |             |
-| name        | property | `string`                                                                               | yes      |             |
-| requires    | property | `ScreenRequirements \| undefined`                                                      | no       |             |
-| root        | property | `UiNode`                                                                               | yes      |             |
-| title       | property | `string \| undefined`                                                                  | no       |             |
+| Name        | Kind     | Type                                                                               | Required | Description |
+| ----------- | -------- | ---------------------------------------------------------------------------------- | -------- | ----------- |
+| dataLoaders | property | `readonly import("./bindings").OperationScreenDataLoaderDefinition[] \| undefined` | no       |             |
+| description | property | `string \| undefined`                                                              | no       |             |
+| id          | property | `string`                                                                           | yes      |             |
+| name        | property | `string`                                                                           | yes      |             |
+| requires    | property | `ScreenRequirements \| undefined`                                                  | no       |             |
+| root        | property | `UiNode`                                                                           | yes      |             |
+| title       | property | `string \| undefined`                                                              | no       |             |
 
 ## SearchAction
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:66:1`
+Source: `src/types.ts:68:1`
 
 ### Members
 
@@ -3046,7 +3354,7 @@ Source: `src/secrets.ts:46:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:59:1`
+Source: `src/types.ts:61:1`
 
 ### Members
 
@@ -3099,11 +3407,25 @@ Source: `src/auth.ts:214:1`
 | profile    | property | `Record<string, unknown> \| undefined` | no       |             |
 | redirectTo | property | `string \| undefined`                  | no       |             |
 
+## SlotNavigatorNode
+
+Kind: `type`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:182:1`
+
+### Members
+
+| Name             | Kind     | Type                  | Required | Description |
+| ---------------- | -------- | --------------------- | -------- | ----------- |
+| initialRouteName | property | `string \| undefined` | no       |             |
+| routes           | property | `RouteDefinition[]`   | yes      |             |
+| type             | property | `"slot"`              | yes      |             |
+
 ## SplashScreenAssetSpec
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:287:1`
+Source: `src/types.ts:273:1`
 
 ### Members
 
@@ -3117,7 +3439,7 @@ Source: `src/types.ts:287:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:293:1`
+Source: `src/types.ts:279:1`
 
 ### Members
 
@@ -3132,13 +3454,13 @@ Source: `src/types.ts:293:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:285:1`
+Source: `src/types.ts:271:1`
 
 ## SplashScreenSpec
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:297:1`
+Source: `src/types.ts:283:1`
 
 ### Members
 
@@ -3149,6 +3471,80 @@ Source: `src/types.ts:297:1`
 | image           | property | `string \| undefined`                 | no       |             |
 | imageWidth      | property | `number \| undefined`                 | no       |             |
 | resizeMode      | property | `SplashScreenResizeMode \| undefined` | no       |             |
+
+## SplitViewNavigatorNode
+
+Kind: `type`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:201:1`
+
+### Members
+
+| Name                   | Kind     | Type                                                                               | Required | Description |
+| ---------------------- | -------- | ---------------------------------------------------------------------------------- | -------- | ----------- |
+| columns                | property | `{ primary: NavigatorScreenReference; supplementary?: NavigatorScreenReference; }` | yes      |             |
+| initialRouteName       | property | `string \| undefined`                                                              | no       |             |
+| inspector              | property | `NavigatorScreenReference \| undefined`                                            | no       |             |
+| routes                 | property | `RouteDefinition[]`                                                                | yes      |             |
+| topColumnForCollapsing | property | `"primary" \| "supplementary" \| "secondary" \| undefined`                         | no       |             |
+| type                   | property | `"split-view"`                                                                     | yes      |             |
+
+## STACK_IMPLEMENTATIONS
+
+Kind: `value`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:26:14`
+
+## STACK_PRESENTATIONS
+
+Kind: `value`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:29:14`
+
+## StackHeaderOptions
+
+Kind: `type`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:43:1`
+
+### Members
+
+| Name              | Kind     | Type                   | Required | Description |
+| ----------------- | -------- | ---------------------- | -------- | ----------- |
+| headerBackVisible | property | `boolean \| undefined` | no       |             |
+| headerShown       | property | `boolean \| undefined` | no       |             |
+| headerTransparent | property | `boolean \| undefined` | no       |             |
+| title             | property | `string \| undefined`  | no       |             |
+
+## StackImplementation
+
+Kind: `unknown`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:27:1`
+
+## StackImplementationConfig
+
+Kind: `unknown`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:68:1`
+
+## StackNavigatorNode
+
+Kind: `unknown`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:186:1`
+
+## StackPresentation
+
+Kind: `unknown`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:38:1`
+
+## StackScreenOptions
+
+Kind: `unknown`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:50:1`
 
 ## StartOAuthAuthorizationInput
 
@@ -3169,13 +3565,13 @@ Source: `src/auth.ts:299:1`
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:185:14`
+Source: `src/types.ts:184:14`
 
 ## STATE_PROVIDERS
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:181:14`
+Source: `src/types.ts:180:14`
 
 ## StateAdapter
 
@@ -3237,7 +3633,7 @@ Source: `src/state.ts:10:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:186:1`
+Source: `src/types.ts:185:1`
 
 ## StatePrimitive
 
@@ -3249,7 +3645,7 @@ Source: `src/state.ts:1:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:183:1`
+Source: `src/types.ts:182:1`
 
 ## StateResult
 
@@ -3274,7 +3670,7 @@ Source: `src/state.ts:40:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:316:1`
+Source: `src/types.ts:302:1`
 
 ### Members
 
@@ -3311,7 +3707,7 @@ Source: `src/state.ts:3:1`
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:178:14`
+Source: `src/types.ts:177:14`
 
 ## StorageAdapter
 
@@ -3448,7 +3844,7 @@ Source: `src/storage.ts:7:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:179:1`
+Source: `src/types.ts:178:1`
 
 ## StoragePublicUrlInput
 
@@ -3563,7 +3959,7 @@ Source: `src/storage.ts:11:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:311:1`
+Source: `src/types.ts:297:1`
 
 ### Members
 
@@ -3580,15 +3976,15 @@ Source: `src/storage.ts:25:1`
 
 ### Members
 
-| Name         | Kind     | Type                   | Required | Description |
-| ------------ | -------- | ---------------------- | -------- | ----------- |
-| body         | property | `Uint8Array`           | yes      |             |
-| bucket       | property | `string`               | yes      |             |
-| cacheControl | property | `string \| undefined`  | no       |             |
-| contentType  | property | `string \| undefined`  | no       |             |
-| path         | property | `string`               | yes      |             |
-| storageId    | property | `string \| undefined`  | no       |             |
-| upsert       | property | `boolean \| undefined` | no       |             |
+| Name         | Kind     | Type                          | Required | Description |
+| ------------ | -------- | ----------------------------- | -------- | ----------- |
+| body         | property | `Uint8Array<ArrayBufferLike>` | yes      |             |
+| bucket       | property | `string`                      | yes      |             |
+| cacheControl | property | `string \| undefined`         | no       |             |
+| contentType  | property | `string \| undefined`         | no       |             |
+| path         | property | `string`                      | yes      |             |
+| storageId    | property | `string \| undefined`         | no       |             |
+| upsert       | property | `boolean \| undefined`        | no       |             |
 
 ## StorageUploadResult
 
@@ -3602,11 +3998,45 @@ Source: `src/storage.ts:35:1`
 | ----- | -------- | ----------------------- | -------- | ----------- |
 | asset | property | `StorageAssetReference` | yes      |             |
 
+## SvgIconSpec
+
+Kind: `type`
+Module: `src/types.ts`
+Source: `src/types.ts:236:1`
+
+### Members
+
+| Name     | Kind     | Type                            | Required | Description |
+| -------- | -------- | ------------------------------- | -------- | ----------- |
+| color    | property | `string \| undefined`           | no       |             |
+| name     | property | `undefined`                     | no       |             |
+| provider | property | `undefined`                     | no       |             |
+| size     | property | `string \| number \| undefined` | no       |             |
+| source   | property | `MediaAssetReference`           | yes      |             |
+
+## TabsImplementationConfig
+
+Kind: `unknown`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:174:1`
+
+## TabsNavigatorConfig
+
+Kind: `unknown`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:195:1`
+
+## TabsNavigatorNode
+
+Kind: `unknown`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:199:1`
+
 ## ThemeConfig
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:20:1`
+Source: `src/types.ts:22:1`
 
 ### Members
 
@@ -3638,14 +4068,14 @@ Source: `src/theme.ts:28:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:15:1`
+Source: `src/types.ts:17:1`
 
 ### Members
 
-| Name         | Kind     | Type                                                                                                   | Required | Description |
-| ------------ | -------- | ------------------------------------------------------------------------------------------------------ | -------- | ----------- |
-| harmony      | property | `"monochromatic" \| "analogous" \| "complementary" \| "triadic" \| "tetradic" \| "splitComplementary"` | yes      |             |
-| primaryColor | property | `string`                                                                                               | yes      |             |
+| Name         | Kind     | Type                                                                                                               | Required | Description |
+| ------------ | -------- | ------------------------------------------------------------------------------------------------------------------ | -------- | ----------- |
+| harmony      | property | `"monochromatic" \| "analogous" \| "complementary" \| "splitComplementary" \| "triadic" \| "tetradic" \| "square"` | yes      |             |
+| primaryColor | property | `string`                                                                                                           | yes      |             |
 
 ## ThemeNumericTokenOverrides
 
@@ -3716,7 +4146,7 @@ Source: `src/theme.ts:15:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:54:1`
+Source: `src/types.ts:56:1`
 
 ### Members
 
@@ -4023,7 +4453,7 @@ Source: `src/ui.ts:138:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:240:1`
+Source: `src/types.ts:251:1`
 
 ### Members
 
@@ -4041,7 +4471,7 @@ Source: `src/types.ts:240:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:233:1`
+Source: `src/types.ts:244:1`
 
 ### Members
 

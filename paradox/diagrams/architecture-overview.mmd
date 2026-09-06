@@ -31,9 +31,14 @@ graph TD
   package__ankhorage_contracts -.-> module_src_appManifest_deploy_ts
   module_src_appManifest_deploy_ts --> module_src_appManifest_shared_ts
   module_src_appManifest_deploy_ts --> module_src_deploy_ts
+  module_src_appManifest_icon_ts["src/appManifest/icon.ts"]
+  package__ankhorage_contracts -.-> module_src_appManifest_icon_ts
+  module_src_appManifest_icon_ts --> module_src_appManifest_shared_ts
+  module_src_appManifest_icon_ts --> module_src_media_ts
   module_src_appManifest_infra_ts["src/appManifest/infra.ts"]
   package__ankhorage_contracts -.-> module_src_appManifest_infra_ts
   module_src_appManifest_infra_ts --> module_src_appManifest_apis_ts
+  module_src_appManifest_infra_ts --> module_src_appManifest_icon_ts
   module_src_appManifest_infra_ts --> module_src_appManifest_shared_ts
   module_src_appManifest_infra_ts --> module_src_auth_ts
   module_src_appManifest_infra_ts --> module_src_types_ts
@@ -41,6 +46,16 @@ graph TD
   package__ankhorage_contracts -.-> module_src_appManifest_media_ts
   module_src_appManifest_media_ts --> module_src_appManifest_shared_ts
   module_src_appManifest_media_ts --> module_src_media_ts
+  module_src_appManifest_navigator_ts["src/appManifest/navigator.ts"]
+  package__ankhorage_contracts -.-> module_src_appManifest_navigator_ts
+  module_src_appManifest_navigator_ts --> module_src_appManifest_icon_ts
+  module_src_appManifest_navigator_ts --> module_src_appManifest_navigatorOptions_ts
+  module_src_appManifest_navigator_ts --> module_src_appManifest_shared_ts
+  module_src_appManifest_navigator_ts --> module_src_navigator_ts
+  module_src_appManifest_navigatorOptions_ts["src/appManifest/navigatorOptions.ts"]
+  package__ankhorage_contracts -.-> module_src_appManifest_navigatorOptions_ts
+  module_src_appManifest_navigatorOptions_ts --> module_src_appManifest_shared_ts
+  module_src_appManifest_navigatorOptions_ts --> module_src_navigator_ts
   module_src_appManifest_screens_ts["src/appManifest/screens.ts"]
   package__ankhorage_contracts -.-> module_src_appManifest_screens_ts
   module_src_appManifest_screens_ts --> module_src_appManifest_bindings_ts
@@ -108,6 +123,11 @@ graph TD
   module_src_index_ts["src/index.ts"]
   module_src_media_ts["src/media.ts"]
   package__ankhorage_contracts -.-> module_src_media_ts
+  module_src_navigator_ts["src/navigator.ts"]
+  package__ankhorage_contracts -.-> module_src_navigator_ts
+  module_src_navigator_ts --> module_src_types_ts
+  module_src_repository_ts["src/repository.ts"]
+  package__ankhorage_contracts -.-> module_src_repository_ts
   module_src_requirements_ts["src/requirements.ts"]
   package__ankhorage_contracts -.-> module_src_requirements_ts
   module_src_runtimeCallbacks_ts["src/runtimeCallbacks.ts"]
@@ -131,6 +151,8 @@ graph TD
   module_src_types_ts --> module_src_data_index_ts
   module_src_types_ts --> module_src_deploy_ts
   module_src_types_ts --> module_src_media_ts
+  module_src_types_ts --> module_src_navigator_ts
+  module_src_types_ts --> module_src_repository_ts
   module_src_types_ts --> module_src_requirements_ts
   module_src_types_ts --> module_src_theme_ts
   module_src_ui_ts["src/ui.ts"]

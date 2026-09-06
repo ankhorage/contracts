@@ -80,7 +80,7 @@ describe('contracts', () => {
   });
 
   it('exports stable platform constants', () => {
-    expect(NAVIGATOR_TYPES).toEqual(['stack', 'tabs', 'drawer']);
+    expect(NAVIGATOR_TYPES).toEqual(['slot', 'stack', 'tabs', 'drawer', 'split-view', 'custom']);
     expect(APP_CATEGORIES).toEqual([
       'books_reading',
       'business_productivity',
