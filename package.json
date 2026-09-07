@@ -104,7 +104,7 @@
     "CHANGELOG.md",
     "LICENSE"
   ],
-  "packageManager": "bun@1.4.1",
+  "packageManager": "bun@1.4.2",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ankhorage/contracts.git"
