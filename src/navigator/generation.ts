@@ -1,3 +1,10 @@
+import type {
+  NavigatorCapabilityId,
+  NavigatorDiagnostic,
+  NavigatorPlan,
+  NavigatorSupportStatus,
+} from './planning';
+
 export interface NavigatorGeneratedFile {
   path: string;
   contents: string;
@@ -7,11 +14,22 @@ export interface NavigatorGenerationBindings {
   screens: Readonly<Record<string, NavigatorScreenModule>>;
   guards: Readonly<Record<string, NavigatorScreenModule>>;
   iconSourceResolver?: NavigatorScreenModule;
-  flows?: {
-    onboardingRoute?: string;
-    authenticationRoute?: string;
-  };
   tabPresentations?: Readonly<Record<string, NavigatorScreenModule>>;
+}
+
+export interface NavigatorDependencyRequirement {
+  packageName: string;
+  versionRange: string;
+  kind: 'dependency' | 'peerDependency';
+}
+
+export interface NavigatorGenerationResult {
+  support: NavigatorSupportStatus;
+  capabilityIds: readonly NavigatorCapabilityId[];
+  dependencies: readonly NavigatorDependencyRequirement[];
+  diagnostics: readonly NavigatorDiagnostic[];
+  plan: NavigatorPlan;
+  files: readonly NavigatorGeneratedFile[];
 }
 
 /** Options for placing Navigator-owned files inside a consumer-owned Expo Router app shell. */

@@ -6,7 +6,7 @@ import { describe, expect, it } from 'bun:test';
 import { isAppNavigatorManifest } from './appManifest/screens';
 import type {
   CustomNavigatorNode,
-  CustomTabsConfig,
+  HeadlessTabsConfig,
   NavigatorNode,
   StackImplementationConfig,
 } from './navigator';
@@ -20,9 +20,9 @@ describe('app navigator manifest type discrimination', () => {
       implementation: 'experimental',
       options: { presentation: 'modal' },
     };
-    // @ts-expect-error Fixed custom tabs do not accept a registered custom presentation id.
-    const tabs: CustomTabsConfig = {
-      implementation: 'custom',
+    // @ts-expect-error Fixed headless tabs do not accept a registered custom presentation id.
+    const tabs: HeadlessTabsConfig = {
+      implementation: 'headless',
       presentation: 'sidebar',
       customPresentationId: 'workspace-tabs',
     };
@@ -64,6 +64,33 @@ describe('app navigator manifest stack validation', () => {
         type: 'stack',
         implementation: 'native',
         minimizeBehavior: 'never',
+        routes: [],
+      }),
+    ).toBe(false);
+  });
+});
+
+describe('app navigator manifest removed fields', () => {
+  it('rejects flow metadata and the superseded custom Tabs implementation', () => {
+    expect(
+      isAppNavigatorManifest({
+        type: 'stack',
+        flows: { onboarding: true },
+        routes: [],
+      }),
+    ).toBe(false);
+    expect(
+      isAppNavigatorManifest({
+        type: 'tabs',
+        implementation: 'custom',
+        presentation: 'bottom',
+        routes: [],
+      }),
+    ).toBe(false);
+    expect(
+      isAppNavigatorManifest({
+        type: 'stack',
+        preset: 'root-stack-tabs',
         routes: [],
       }),
     ).toBe(false);

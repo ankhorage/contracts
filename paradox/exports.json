@@ -138,7 +138,7 @@
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["CustomTabsPresentationConfig", "NativeTabsConfig"],
+    "relatedSymbols": ["HeadlessTabsPresentationConfig", "NativeTabsConfig"],
     "signatures": [],
     "members": [
       {
@@ -158,7 +158,7 @@
       {
         "name": "web",
         "kind": "property",
-        "type": "CustomTabsPresentationConfig | undefined",
+        "type": "HeadlessTabsPresentationConfig | undefined",
         "required": false,
         "description": null
       }
@@ -1146,7 +1146,7 @@
     "modulePath": "src/navigator.ts",
     "sourceLocation": {
       "filePath": "src/navigator.ts",
-      "line": 267,
+      "line": 262,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -4064,7 +4064,7 @@
     "modulePath": "src/navigator/planning.ts",
     "sourceLocation": {
       "filePath": "src/navigator/planning.ts",
-      "line": 38,
+      "line": 39,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -4187,24 +4187,6 @@
         "description": null
       }
     ],
-    "structuredRows": []
-  },
-  {
-    "name": "CUSTOM_TABS_PRESENTATIONS",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "value",
-    "modulePath": "src/navigator.ts",
-    "sourceLocation": {
-      "filePath": "src/navigator.ts",
-      "line": 100,
-      "column": 14
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [],
     "structuredRows": []
   },
   {
@@ -4391,78 +4373,6 @@
     "sourceLocation": {
       "filePath": "src/navigator/extensions.ts",
       "line": 22,
-      "column": 1
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "CustomTabsConfig",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "unknown",
-    "modulePath": "src/navigator.ts",
-    "sourceLocation": {
-      "filePath": "src/navigator.ts",
-      "line": 142,
-      "column": 1
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "CustomTabsPresentation",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "unknown",
-    "modulePath": "src/navigator.ts",
-    "sourceLocation": {
-      "filePath": "src/navigator.ts",
-      "line": 105,
-      "column": 1
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "CustomTabsPresentationConfig",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "unknown",
-    "modulePath": "src/navigator.ts",
-    "sourceLocation": {
-      "filePath": "src/navigator.ts",
-      "line": 124,
-      "column": 1
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "CustomTabsWebConfig",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "unknown",
-    "modulePath": "src/navigator.ts",
-    "sourceLocation": {
-      "filePath": "src/navigator.ts",
-      "line": 146,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -7236,7 +7146,7 @@
     "modulePath": "src/navigator/planning.ts",
     "sourceLocation": {
       "filePath": "src/navigator/planning.ts",
-      "line": 45,
+      "line": 46,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -7515,7 +7425,7 @@
     "structuredRows": []
   },
   {
-    "name": "FIXED_CUSTOM_TABS_PRESENTATIONS",
+    "name": "FIXED_HEADLESS_TABS_PRESENTATIONS",
     "description": null,
     "isReadme": false,
     "examples": [],
@@ -7533,7 +7443,7 @@
     "structuredRows": []
   },
   {
-    "name": "FixedCustomTabsPresentation",
+    "name": "FixedHeadlessTabsPresentation",
     "description": null,
     "isReadme": false,
     "examples": [],
@@ -7635,6 +7545,96 @@
         "description": null
       }
     ],
+    "structuredRows": []
+  },
+  {
+    "name": "HEADLESS_TABS_PRESENTATIONS",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "value",
+    "modulePath": "src/navigator.ts",
+    "sourceLocation": {
+      "filePath": "src/navigator.ts",
+      "line": 100,
+      "column": 14
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "HeadlessTabsConfig",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/navigator.ts",
+    "sourceLocation": {
+      "filePath": "src/navigator.ts",
+      "line": 142,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "HeadlessTabsPresentation",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/navigator.ts",
+    "sourceLocation": {
+      "filePath": "src/navigator.ts",
+      "line": 105,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "HeadlessTabsPresentationConfig",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/navigator.ts",
+    "sourceLocation": {
+      "filePath": "src/navigator.ts",
+      "line": 124,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "HeadlessTabsWebConfig",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/navigator.ts",
+    "sourceLocation": {
+      "filePath": "src/navigator.ts",
+      "line": 146,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
     "structuredRows": []
   },
   {
@@ -8984,7 +8984,7 @@
     "modulePath": "src/navigator/planning.ts",
     "sourceLocation": {
       "filePath": "src/navigator/planning.ts",
-      "line": 55,
+      "line": 56,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -9002,7 +9002,7 @@
     "modulePath": "src/navigator/planning.ts",
     "sourceLocation": {
       "filePath": "src/navigator/planning.ts",
-      "line": 67,
+      "line": 68,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -9063,13 +9063,270 @@
     "modulePath": "src/navigator/planning.ts",
     "sourceLocation": {
       "filePath": "src/navigator/planning.ts",
-      "line": 77,
+      "line": 78,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "NavigatorCapabilityDescriptor",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/navigator/catalog.ts",
+    "sourceLocation": {
+      "filePath": "src/navigator/catalog.ts",
+      "line": 57,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [
+      "NavigatorApiStability",
+      "NavigatorCapabilityRequirement",
+      "NavigatorCapabilityTarget",
+      "NavigatorDependencyRequirement",
+      "NavigatorImplementation",
+      "NavigatorPresentation"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "dependencies",
+        "kind": "property",
+        "type": "readonly NavigatorDependencyRequirement[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "implementation",
+        "kind": "property",
+        "type": "NavigatorImplementation | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "incompatibilities",
+        "kind": "property",
+        "type": "readonly string[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "limitations",
+        "kind": "property",
+        "type": "readonly string[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "presentation",
+        "kind": "property",
+        "type": "NavigatorPresentation | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "requirements",
+        "kind": "property",
+        "type": "readonly NavigatorCapabilityRequirement[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "stability",
+        "kind": "property",
+        "type": "NavigatorApiStability",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "targets",
+        "kind": "property",
+        "type": "readonly NavigatorCapabilityTarget[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "topology",
+        "kind": "property",
+        "type": "\"custom\" | \"slot\" | \"drawer\" | \"split-view\" | \"stack\" | \"tabs\"",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "NavigatorCapabilityId",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/navigator/planning.ts",
+    "sourceLocation": {
+      "filePath": "src/navigator/planning.ts",
+      "line": 80,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "NavigatorCapabilityRequirement",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/navigator/catalog.ts",
+    "sourceLocation": {
+      "filePath": "src/navigator/catalog.ts",
+      "line": 52,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "description",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "NavigatorCapabilityTarget",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/navigator/catalog.ts",
+    "sourceLocation": {
+      "filePath": "src/navigator/catalog.ts",
+      "line": 46,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [
+      "NavigatorCapabilityVerification",
+      "NavigatorRuntimePlatform",
+      "NavigatorSupportStatus"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "platform",
+        "kind": "property",
+        "type": "NavigatorRuntimePlatform",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "support",
+        "kind": "property",
+        "type": "NavigatorSupportStatus",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "verification",
+        "kind": "property",
+        "type": "readonly NavigatorCapabilityVerification[]",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "NavigatorCapabilityVerification",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/navigator/catalog.ts",
+    "sourceLocation": {
+      "filePath": "src/navigator/catalog.ts",
+      "line": 41,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["NavigatorVerificationKind", "NavigatorVerificationStatus"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "kind",
+        "kind": "property",
+        "type": "NavigatorVerificationKind",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "status",
+        "kind": "property",
+        "type": "NavigatorVerificationStatus",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "NavigatorCatalog",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/navigator/catalog.ts",
+    "sourceLocation": {
+      "filePath": "src/navigator/catalog.ts",
+      "line": 76,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["NavigatorCapabilityDescriptor", "NavigatorPresetDescriptor"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "capabilities",
+        "kind": "property",
+        "type": "readonly NavigatorCapabilityDescriptor[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "presets",
+        "kind": "property",
+        "type": "readonly NavigatorPresetDescriptor[]",
+        "required": true,
+        "description": null
+      }
+    ],
     "structuredRows": []
   },
   {
@@ -9081,7 +9338,7 @@
     "modulePath": "src/navigator.ts",
     "sourceLocation": {
       "filePath": "src/navigator.ts",
-      "line": 245,
+      "line": 240,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -9106,6 +9363,46 @@
     "structuredRows": []
   },
   {
+    "name": "NavigatorDependencyRequirement",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/navigator/generation.ts",
+    "sourceLocation": {
+      "filePath": "src/navigator/generation.ts",
+      "line": 20,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "kind",
+        "kind": "property",
+        "type": "\"dependency\" | \"peerDependency\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "packageName",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "versionRange",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
     "name": "NavigatorDiagnostic",
     "description": null,
     "isReadme": false,
@@ -9114,7 +9411,7 @@
     "modulePath": "src/navigator/planning.ts",
     "sourceLocation": {
       "filePath": "src/navigator/planning.ts",
-      "line": 79,
+      "line": 82,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -9153,39 +9450,6 @@
     "structuredRows": []
   },
   {
-    "name": "NavigatorFlows",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "type",
-    "modulePath": "src/navigator.ts",
-    "sourceLocation": {
-      "filePath": "src/navigator.ts",
-      "line": 240,
-      "column": 1
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [
-      {
-        "name": "authentication",
-        "kind": "property",
-        "type": "boolean | undefined",
-        "required": false,
-        "description": null
-      },
-      {
-        "name": "onboarding",
-        "kind": "property",
-        "type": "boolean | undefined",
-        "required": false,
-        "description": null
-      }
-    ],
-    "structuredRows": []
-  },
-  {
     "name": "NavigatorGeneratedFile",
     "description": null,
     "isReadme": false,
@@ -9194,7 +9458,7 @@
     "modulePath": "src/navigator/generation.ts",
     "sourceLocation": {
       "filePath": "src/navigator/generation.ts",
-      "line": 1,
+      "line": 8,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -9227,20 +9491,13 @@
     "modulePath": "src/navigator/generation.ts",
     "sourceLocation": {
       "filePath": "src/navigator/generation.ts",
-      "line": 6,
+      "line": 13,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
     "relatedSymbols": ["NavigatorScreenModule"],
     "signatures": [],
     "members": [
-      {
-        "name": "flows",
-        "kind": "property",
-        "type": "{ onboardingRoute?: string; authenticationRoute?: string; } | undefined",
-        "required": false,
-        "description": null
-      },
       {
         "name": "guards",
         "kind": "property",
@@ -9281,7 +9538,7 @@
     "modulePath": "src/navigator/generation.ts",
     "sourceLocation": {
       "filePath": "src/navigator/generation.ts",
-      "line": 18,
+      "line": 36,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -9303,6 +9560,91 @@
         "description": null
       }
     ],
+    "structuredRows": []
+  },
+  {
+    "name": "NavigatorGenerationResult",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/navigator/generation.ts",
+    "sourceLocation": {
+      "filePath": "src/navigator/generation.ts",
+      "line": 26,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [
+      "NavigatorDependencyRequirement",
+      "NavigatorDiagnostic",
+      "NavigatorGeneratedFile",
+      "NavigatorPlan",
+      "NavigatorSupportStatus"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "capabilityIds",
+        "kind": "property",
+        "type": "readonly string[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "dependencies",
+        "kind": "property",
+        "type": "readonly NavigatorDependencyRequirement[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "diagnostics",
+        "kind": "property",
+        "type": "readonly NavigatorDiagnostic[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "files",
+        "kind": "property",
+        "type": "readonly NavigatorGeneratedFile[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "plan",
+        "kind": "property",
+        "type": "NavigatorPlan",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "support",
+        "kind": "property",
+        "type": "NavigatorSupportStatus",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "NavigatorImplementation",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/navigator/catalog.ts",
+    "sourceLocation": {
+      "filePath": "src/navigator/catalog.ts",
+      "line": 32,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
     "structuredRows": []
   },
   {
@@ -9332,7 +9674,7 @@
     "modulePath": "src/navigator/planning.ts",
     "sourceLocation": {
       "filePath": "src/navigator/planning.ts",
-      "line": 86,
+      "line": 89,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -9429,17 +9771,37 @@
     "modulePath": "src/navigator/planning.ts",
     "sourceLocation": {
       "filePath": "src/navigator/planning.ts",
-      "line": 114,
+      "line": 117,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["NavigatorDiagnostic", "NavigatorNodePlan", "NavigatorValidationContext"],
+    "relatedSymbols": [
+      "NavigatorDependencyRequirement",
+      "NavigatorDiagnostic",
+      "NavigatorNodePlan",
+      "NavigatorSupportStatus",
+      "NavigatorValidationContext"
+    ],
     "signatures": [],
     "members": [
+      {
+        "name": "capabilityIds",
+        "kind": "property",
+        "type": "readonly string[]",
+        "required": true,
+        "description": null
+      },
       {
         "name": "context",
         "kind": "property",
         "type": "NavigatorValidationContext",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "dependencies",
+        "kind": "property",
+        "type": "readonly NavigatorDependencyRequirement[]",
         "required": true,
         "description": null
       },
@@ -9451,13 +9813,6 @@
         "description": null
       },
       {
-        "name": "flows",
-        "kind": "property",
-        "type": "{ onboarding: boolean; authentication: boolean; }",
-        "required": true,
-        "description": null
-      },
-      {
         "name": "root",
         "kind": "property",
         "type": "NavigatorNodePlan",
@@ -9465,9 +9820,9 @@
         "description": null
       },
       {
-        "name": "supported",
+        "name": "support",
         "kind": "property",
-        "type": "boolean",
+        "type": "NavigatorSupportStatus",
         "required": true,
         "description": null
       }
@@ -9483,7 +9838,7 @@
     "modulePath": "src/navigator.ts",
     "sourceLocation": {
       "filePath": "src/navigator.ts",
-      "line": 250,
+      "line": 245,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -9516,7 +9871,7 @@
     "modulePath": "src/navigator.ts",
     "sourceLocation": {
       "filePath": "src/navigator.ts",
-      "line": 255,
+      "line": 250,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -9548,6 +9903,24 @@
     "structuredRows": []
   },
   {
+    "name": "NavigatorPresentation",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/navigator/catalog.ts",
+    "sourceLocation": {
+      "filePath": "src/navigator/catalog.ts",
+      "line": 34,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
     "name": "NavigatorPreset",
     "description": null,
     "isReadme": false,
@@ -9566,6 +9939,46 @@
     "structuredRows": []
   },
   {
+    "name": "NavigatorPresetDescriptor",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/navigator/catalog.ts",
+    "sourceLocation": {
+      "filePath": "src/navigator/catalog.ts",
+      "line": 70,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "description",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "\"custom\" | \"slot\" | \"drawer\" | \"split-view\" | \"stack\" | \"tabs\" | \"tabs-stack\" | \"stack-tabs\" | \"stack-tabs-stack\" | \"drawer-stack\" | \"stack-drawer\" | \"stack-drawer-stack\" | \"drawer-tabs\" | \"drawer-tabs-stack\" | \"stack-drawer-tabs\" | \"stack-drawer-tabs-stack\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "topology",
+        "kind": "property",
+        "type": "readonly (\"custom\" | \"slot\" | \"drawer\" | \"split-view\" | \"stack\" | \"tabs\")[]",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
     "name": "NavigatorResponsiveSize",
     "description": null,
     "isReadme": false,
@@ -9574,7 +9987,7 @@
     "modulePath": "src/navigator/planning.ts",
     "sourceLocation": {
       "filePath": "src/navigator/planning.ts",
-      "line": 125,
+      "line": 126,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -9592,7 +10005,7 @@
     "modulePath": "src/navigator/planning.ts",
     "sourceLocation": {
       "filePath": "src/navigator/planning.ts",
-      "line": 127,
+      "line": 128,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -9674,7 +10087,7 @@
     "modulePath": "src/navigator/planning.ts",
     "sourceLocation": {
       "filePath": "src/navigator/planning.ts",
-      "line": 139,
+      "line": 140,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -9692,7 +10105,7 @@
     "modulePath": "src/navigator/generation.ts",
     "sourceLocation": {
       "filePath": "src/navigator/generation.ts",
-      "line": 25,
+      "line": 43,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -9751,7 +10164,7 @@
     "modulePath": "src/navigator/planning.ts",
     "sourceLocation": {
       "filePath": "src/navigator/planning.ts",
-      "line": 141,
+      "line": 142,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -9787,7 +10200,7 @@
     "modulePath": "src/navigator/planning.ts",
     "sourceLocation": {
       "filePath": "src/navigator/planning.ts",
-      "line": 143,
+      "line": 144,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -9809,6 +10222,42 @@
         "description": null
       }
     ],
+    "structuredRows": []
+  },
+  {
+    "name": "NavigatorVerificationKind",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/navigator/catalog.ts",
+    "sourceLocation": {
+      "filePath": "src/navigator/catalog.ts",
+      "line": 16,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "NavigatorVerificationStatus",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/navigator/catalog.ts",
+    "sourceLocation": {
+      "filePath": "src/navigator/catalog.ts",
+      "line": 30,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
     "structuredRows": []
   },
   {
@@ -10231,7 +10680,7 @@
     "structuredRows": []
   },
   {
-    "name": "ResolvedCustomTabsPresentation",
+    "name": "ResolvedHeadlessTabsPresentation",
     "description": null,
     "isReadme": false,
     "examples": [],
@@ -10239,7 +10688,7 @@
     "modulePath": "src/navigator/planning.ts",
     "sourceLocation": {
       "filePath": "src/navigator/planning.ts",
-      "line": 11,
+      "line": 12,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -10272,7 +10721,7 @@
     "modulePath": "src/navigator/planning.ts",
     "sourceLocation": {
       "filePath": "src/navigator/planning.ts",
-      "line": 16,
+      "line": 17,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -10290,7 +10739,7 @@
     "modulePath": "src/navigator/planning.ts",
     "sourceLocation": {
       "filePath": "src/navigator/planning.ts",
-      "line": 18,
+      "line": 19,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -11273,7 +11722,7 @@
       {
         "name": "code",
         "kind": "property",
-        "type": "\"provider_error\" | \"unavailable\" | \"invalid_config\" | \"invalid_reference\" | \"invalid_payload\" | \"not_found\" | \"conflict\" | \"permission_denied\"",
+        "type": "\"provider_error\" | \"invalid_config\" | \"invalid_reference\" | \"invalid_payload\" | \"not_found\" | \"conflict\" | \"permission_denied\" | \"unavailable\"",
         "required": true,
         "description": null
       },
@@ -13446,7 +13895,7 @@
     "modulePath": "src/navigator/planning.ts",
     "sourceLocation": {
       "filePath": "src/navigator/planning.ts",
-      "line": 26,
+      "line": 27,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
