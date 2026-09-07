@@ -13,7 +13,7 @@
     "@ankhorage/color-theory": "^0.3.0"
   },
   "devDependencies": {
-    "@ankhorage/devtools": "^1.11.0",
+    "@ankhorage/devtools": "^1.11.7",
     "@ankhorage/paradox": "^0.1.24",
     "@types/bun": "^1.4.1",
     "@types/node": "^25.2.3",
@@ -104,7 +104,7 @@
     "CHANGELOG.md",
     "LICENSE"
   ],
-  "packageManager": "bun@1.4.1",
+  "packageManager": "bun@1.4.2",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ankhorage/contracts.git"
