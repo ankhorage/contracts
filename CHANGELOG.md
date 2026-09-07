@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 11.1.0
+
+### Minor Changes
+
+- 8a62b08: Expose the portable Navigator planning, generation, and custom-registration contracts through the navigator subpath. Group related declarations by topic so Navigator and Studio can consume canonical shared types without depending on another capability's type exports.
+
 ## 11.0.0
 
 ### Major Changes
