@@ -1119,6 +1119,51 @@
       ]
     },
     {
+      "path": "src/navigator/extensions.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/navigator.ts", "src/navigator/planning.ts"],
+      "exports": [
+        "CustomNavigatorConfigIssue",
+        "CustomNavigatorRegistration",
+        "CustomNavigatorRegistry"
+      ]
+    },
+    {
+      "path": "src/navigator/generation.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "NavigatorGeneratedFile",
+        "NavigatorGenerationBindings",
+        "NavigatorGenerationOptions",
+        "NavigatorScreenModule"
+      ]
+    },
+    {
+      "path": "src/navigator/planning.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/navigator.ts", "src/navigator/extensions.ts"],
+      "exports": [
+        "CreateNavigatorPlanOptions",
+        "ExpoRouterNavigatorModule",
+        "NavigatorAdapterId",
+        "NavigatorAdapterPlan",
+        "NavigatorApiStability",
+        "NavigatorDiagnostic",
+        "NavigatorNodePlan",
+        "NavigatorPlan",
+        "NavigatorResponsiveSize",
+        "NavigatorRoutePlan",
+        "NavigatorRuntimePlatform",
+        "NavigatorSupportStatus",
+        "NavigatorValidationContext",
+        "ResolvedCustomTabsPresentation",
+        "ResolvedTabsImplementation",
+        "ResolvedTabsPresentation",
+        "TabsNavigatorPlan"
+      ]
+    },
+    {
       "path": "src/repository.ts",
       "isEntrypoint": false,
       "dependencies": [],
@@ -1350,51 +1395,6 @@
         "ToggleDarkModeAction",
         "UiNode",
         "UiNodeRepeatSpec"
-      ]
-    },
-    {
-      "path": "src/types/navigatorExtensions.ts",
-      "isEntrypoint": false,
-      "dependencies": ["src/navigator.ts", "src/types/navigatorPlanning.ts"],
-      "exports": [
-        "CustomNavigatorConfigIssue",
-        "CustomNavigatorRegistration",
-        "CustomNavigatorRegistry"
-      ]
-    },
-    {
-      "path": "src/types/navigatorGeneration.ts",
-      "isEntrypoint": false,
-      "dependencies": [],
-      "exports": [
-        "NavigatorGeneratedFile",
-        "NavigatorGenerationBindings",
-        "NavigatorGenerationOptions",
-        "NavigatorScreenModule"
-      ]
-    },
-    {
-      "path": "src/types/navigatorPlanning.ts",
-      "isEntrypoint": false,
-      "dependencies": ["src/navigator.ts", "src/types/navigatorExtensions.ts"],
-      "exports": [
-        "CreateNavigatorPlanOptions",
-        "ExpoRouterNavigatorModule",
-        "NavigatorAdapterId",
-        "NavigatorAdapterPlan",
-        "NavigatorApiStability",
-        "NavigatorDiagnostic",
-        "NavigatorNodePlan",
-        "NavigatorPlan",
-        "NavigatorResponsiveSize",
-        "NavigatorRoutePlan",
-        "NavigatorRuntimePlatform",
-        "NavigatorSupportStatus",
-        "NavigatorValidationContext",
-        "ResolvedCustomTabsPresentation",
-        "ResolvedTabsImplementation",
-        "ResolvedTabsPresentation",
-        "TabsNavigatorPlan"
       ]
     },
     {
@@ -5496,9 +5496,9 @@
       "isReadme": false,
       "examples": [],
       "kind": "type",
-      "modulePath": "src/types/navigatorPlanning.ts",
+      "modulePath": "src/navigator/planning.ts",
       "sourceLocation": {
-        "filePath": "src/types/navigatorPlanning.ts",
+        "filePath": "src/navigator/planning.ts",
         "line": 38,
         "column": 1
       },
@@ -5648,9 +5648,9 @@
       "isReadme": false,
       "examples": [],
       "kind": "type",
-      "modulePath": "src/types/navigatorExtensions.ts",
+      "modulePath": "src/navigator/extensions.ts",
       "sourceLocation": {
-        "filePath": "src/types/navigatorExtensions.ts",
+        "filePath": "src/navigator/extensions.ts",
         "line": 3,
         "column": 1
       },
@@ -5742,9 +5742,9 @@
       "isReadme": false,
       "examples": [],
       "kind": "type",
-      "modulePath": "src/types/navigatorExtensions.ts",
+      "modulePath": "src/navigator/extensions.ts",
       "sourceLocation": {
-        "filePath": "src/types/navigatorExtensions.ts",
+        "filePath": "src/navigator/extensions.ts",
         "line": 9,
         "column": 1
       },
@@ -5822,9 +5822,9 @@
       "isReadme": false,
       "examples": [],
       "kind": "unknown",
-      "modulePath": "src/types/navigatorExtensions.ts",
+      "modulePath": "src/navigator/extensions.ts",
       "sourceLocation": {
-        "filePath": "src/types/navigatorExtensions.ts",
+        "filePath": "src/navigator/extensions.ts",
         "line": 22,
         "column": 1
       },
@@ -8668,9 +8668,9 @@
       "isReadme": false,
       "examples": [],
       "kind": "unknown",
-      "modulePath": "src/types/navigatorPlanning.ts",
+      "modulePath": "src/navigator/planning.ts",
       "sourceLocation": {
-        "filePath": "src/types/navigatorPlanning.ts",
+        "filePath": "src/navigator/planning.ts",
         "line": 45,
         "column": 1
       },
@@ -10416,9 +10416,9 @@
       "isReadme": false,
       "examples": [],
       "kind": "unknown",
-      "modulePath": "src/types/navigatorPlanning.ts",
+      "modulePath": "src/navigator/planning.ts",
       "sourceLocation": {
-        "filePath": "src/types/navigatorPlanning.ts",
+        "filePath": "src/navigator/planning.ts",
         "line": 55,
         "column": 1
       },
@@ -10434,9 +10434,9 @@
       "isReadme": false,
       "examples": [],
       "kind": "type",
-      "modulePath": "src/types/navigatorPlanning.ts",
+      "modulePath": "src/navigator/planning.ts",
       "sourceLocation": {
-        "filePath": "src/types/navigatorPlanning.ts",
+        "filePath": "src/navigator/planning.ts",
         "line": 67,
         "column": 1
       },
@@ -10495,9 +10495,9 @@
       "isReadme": false,
       "examples": [],
       "kind": "unknown",
-      "modulePath": "src/types/navigatorPlanning.ts",
+      "modulePath": "src/navigator/planning.ts",
       "sourceLocation": {
-        "filePath": "src/types/navigatorPlanning.ts",
+        "filePath": "src/navigator/planning.ts",
         "line": 77,
         "column": 1
       },
@@ -10546,9 +10546,9 @@
       "isReadme": false,
       "examples": [],
       "kind": "type",
-      "modulePath": "src/types/navigatorPlanning.ts",
+      "modulePath": "src/navigator/planning.ts",
       "sourceLocation": {
-        "filePath": "src/types/navigatorPlanning.ts",
+        "filePath": "src/navigator/planning.ts",
         "line": 79,
         "column": 1
       },
@@ -10626,9 +10626,9 @@
       "isReadme": false,
       "examples": [],
       "kind": "type",
-      "modulePath": "src/types/navigatorGeneration.ts",
+      "modulePath": "src/navigator/generation.ts",
       "sourceLocation": {
-        "filePath": "src/types/navigatorGeneration.ts",
+        "filePath": "src/navigator/generation.ts",
         "line": 1,
         "column": 1
       },
@@ -10659,9 +10659,9 @@
       "isReadme": false,
       "examples": [],
       "kind": "type",
-      "modulePath": "src/types/navigatorGeneration.ts",
+      "modulePath": "src/navigator/generation.ts",
       "sourceLocation": {
-        "filePath": "src/types/navigatorGeneration.ts",
+        "filePath": "src/navigator/generation.ts",
         "line": 6,
         "column": 1
       },
@@ -10713,9 +10713,9 @@
       "isReadme": false,
       "examples": [],
       "kind": "type",
-      "modulePath": "src/types/navigatorGeneration.ts",
+      "modulePath": "src/navigator/generation.ts",
       "sourceLocation": {
-        "filePath": "src/types/navigatorGeneration.ts",
+        "filePath": "src/navigator/generation.ts",
         "line": 18,
         "column": 1
       },
@@ -10764,9 +10764,9 @@
       "isReadme": false,
       "examples": [],
       "kind": "type",
-      "modulePath": "src/types/navigatorPlanning.ts",
+      "modulePath": "src/navigator/planning.ts",
       "sourceLocation": {
-        "filePath": "src/types/navigatorPlanning.ts",
+        "filePath": "src/navigator/planning.ts",
         "line": 86,
         "column": 1
       },
@@ -10861,9 +10861,9 @@
       "isReadme": false,
       "examples": [],
       "kind": "type",
-      "modulePath": "src/types/navigatorPlanning.ts",
+      "modulePath": "src/navigator/planning.ts",
       "sourceLocation": {
-        "filePath": "src/types/navigatorPlanning.ts",
+        "filePath": "src/navigator/planning.ts",
         "line": 114,
         "column": 1
       },
@@ -11006,9 +11006,9 @@
       "isReadme": false,
       "examples": [],
       "kind": "unknown",
-      "modulePath": "src/types/navigatorPlanning.ts",
+      "modulePath": "src/navigator/planning.ts",
       "sourceLocation": {
-        "filePath": "src/types/navigatorPlanning.ts",
+        "filePath": "src/navigator/planning.ts",
         "line": 125,
         "column": 1
       },
@@ -11024,9 +11024,9 @@
       "isReadme": false,
       "examples": [],
       "kind": "type",
-      "modulePath": "src/types/navigatorPlanning.ts",
+      "modulePath": "src/navigator/planning.ts",
       "sourceLocation": {
-        "filePath": "src/types/navigatorPlanning.ts",
+        "filePath": "src/navigator/planning.ts",
         "line": 127,
         "column": 1
       },
@@ -11106,9 +11106,9 @@
       "isReadme": false,
       "examples": [],
       "kind": "unknown",
-      "modulePath": "src/types/navigatorPlanning.ts",
+      "modulePath": "src/navigator/planning.ts",
       "sourceLocation": {
-        "filePath": "src/types/navigatorPlanning.ts",
+        "filePath": "src/navigator/planning.ts",
         "line": 139,
         "column": 1
       },
@@ -11124,9 +11124,9 @@
       "isReadme": false,
       "examples": [],
       "kind": "type",
-      "modulePath": "src/types/navigatorGeneration.ts",
+      "modulePath": "src/navigator/generation.ts",
       "sourceLocation": {
-        "filePath": "src/types/navigatorGeneration.ts",
+        "filePath": "src/navigator/generation.ts",
         "line": 25,
         "column": 1
       },
@@ -11183,9 +11183,9 @@
       "isReadme": false,
       "examples": [],
       "kind": "unknown",
-      "modulePath": "src/types/navigatorPlanning.ts",
+      "modulePath": "src/navigator/planning.ts",
       "sourceLocation": {
-        "filePath": "src/types/navigatorPlanning.ts",
+        "filePath": "src/navigator/planning.ts",
         "line": 141,
         "column": 1
       },
@@ -11219,9 +11219,9 @@
       "isReadme": false,
       "examples": [],
       "kind": "type",
-      "modulePath": "src/types/navigatorPlanning.ts",
+      "modulePath": "src/navigator/planning.ts",
       "sourceLocation": {
-        "filePath": "src/types/navigatorPlanning.ts",
+        "filePath": "src/navigator/planning.ts",
         "line": 143,
         "column": 1
       },
@@ -11671,9 +11671,9 @@
       "isReadme": false,
       "examples": [],
       "kind": "type",
-      "modulePath": "src/types/navigatorPlanning.ts",
+      "modulePath": "src/navigator/planning.ts",
       "sourceLocation": {
-        "filePath": "src/types/navigatorPlanning.ts",
+        "filePath": "src/navigator/planning.ts",
         "line": 11,
         "column": 1
       },
@@ -11704,9 +11704,9 @@
       "isReadme": false,
       "examples": [],
       "kind": "unknown",
-      "modulePath": "src/types/navigatorPlanning.ts",
+      "modulePath": "src/navigator/planning.ts",
       "sourceLocation": {
-        "filePath": "src/types/navigatorPlanning.ts",
+        "filePath": "src/navigator/planning.ts",
         "line": 16,
         "column": 1
       },
@@ -11722,9 +11722,9 @@
       "isReadme": false,
       "examples": [],
       "kind": "unknown",
-      "modulePath": "src/types/navigatorPlanning.ts",
+      "modulePath": "src/navigator/planning.ts",
       "sourceLocation": {
-        "filePath": "src/types/navigatorPlanning.ts",
+        "filePath": "src/navigator/planning.ts",
         "line": 18,
         "column": 1
       },
@@ -14878,9 +14878,9 @@
       "isReadme": false,
       "examples": [],
       "kind": "type",
-      "modulePath": "src/types/navigatorPlanning.ts",
+      "modulePath": "src/navigator/planning.ts",
       "sourceLocation": {
-        "filePath": "src/types/navigatorPlanning.ts",
+        "filePath": "src/navigator/planning.ts",
         "line": 26,
         "column": 1
       },
@@ -17986,17 +17986,17 @@
       },
       {
         "fromPath": "src/navigator.ts",
-        "toPath": "src/types/navigatorExtensions.ts",
+        "toPath": "src/navigator/extensions.ts",
         "sourcePath": "src/navigator.ts"
       },
       {
         "fromPath": "src/navigator.ts",
-        "toPath": "src/types/navigatorGeneration.ts",
+        "toPath": "src/navigator/generation.ts",
         "sourcePath": "src/navigator.ts"
       },
       {
         "fromPath": "src/navigator.ts",
-        "toPath": "src/types/navigatorPlanning.ts",
+        "toPath": "src/navigator/planning.ts",
         "sourcePath": "src/navigator.ts"
       },
       {
@@ -18365,24 +18365,24 @@
         "sourcePath": "src/data/sources.ts"
       },
       {
-        "fromPath": "src/types/navigatorExtensions.ts",
+        "fromPath": "src/navigator/extensions.ts",
         "toPath": "src/navigator.ts",
-        "sourcePath": "src/types/navigatorExtensions.ts"
+        "sourcePath": "src/navigator/extensions.ts"
       },
       {
-        "fromPath": "src/types/navigatorExtensions.ts",
-        "toPath": "src/types/navigatorPlanning.ts",
-        "sourcePath": "src/types/navigatorExtensions.ts"
+        "fromPath": "src/navigator/extensions.ts",
+        "toPath": "src/navigator/planning.ts",
+        "sourcePath": "src/navigator/extensions.ts"
       },
       {
-        "fromPath": "src/types/navigatorPlanning.ts",
+        "fromPath": "src/navigator/planning.ts",
         "toPath": "src/navigator.ts",
-        "sourcePath": "src/types/navigatorPlanning.ts"
+        "sourcePath": "src/navigator/planning.ts"
       },
       {
-        "fromPath": "src/types/navigatorPlanning.ts",
-        "toPath": "src/types/navigatorExtensions.ts",
-        "sourcePath": "src/types/navigatorPlanning.ts"
+        "fromPath": "src/navigator/planning.ts",
+        "toPath": "src/navigator/extensions.ts",
+        "sourcePath": "src/navigator/planning.ts"
       }
     ],
     "calls": [
@@ -21348,167 +21348,167 @@
       {
         "fromSymbol": "CustomNavigatorRegistration",
         "toType": "CustomNavigatorConfigIssue",
-        "sourcePath": "src/types/navigatorExtensions.ts"
+        "sourcePath": "src/navigator/extensions.ts"
       },
       {
         "fromSymbol": "CustomNavigatorRegistration",
         "toType": "CustomNavigatorNode",
-        "sourcePath": "src/types/navigatorExtensions.ts"
+        "sourcePath": "src/navigator/extensions.ts"
       },
       {
         "fromSymbol": "CustomNavigatorRegistration",
         "toType": "NavigatorApiStability",
-        "sourcePath": "src/types/navigatorExtensions.ts"
+        "sourcePath": "src/navigator/extensions.ts"
       },
       {
         "fromSymbol": "CustomNavigatorRegistration",
         "toType": "NavigatorRuntimePlatform",
-        "sourcePath": "src/types/navigatorExtensions.ts"
+        "sourcePath": "src/navigator/extensions.ts"
       },
       {
         "fromSymbol": "NavigatorGenerationBindings",
         "toType": "NavigatorScreenModule",
-        "sourcePath": "src/types/navigatorGeneration.ts"
+        "sourcePath": "src/navigator/generation.ts"
       },
       {
         "fromSymbol": "NavigatorGenerationBindings",
         "toType": "Readonly",
-        "sourcePath": "src/types/navigatorGeneration.ts"
+        "sourcePath": "src/navigator/generation.ts"
       },
       {
         "fromSymbol": "CreateNavigatorPlanOptions",
         "toType": "CustomNavigatorRegistry",
-        "sourcePath": "src/types/navigatorPlanning.ts"
+        "sourcePath": "src/navigator/planning.ts"
       },
       {
         "fromSymbol": "CreateNavigatorPlanOptions",
         "toType": "NavigatorResponsiveSize",
-        "sourcePath": "src/types/navigatorPlanning.ts"
+        "sourcePath": "src/navigator/planning.ts"
       },
       {
         "fromSymbol": "CreateNavigatorPlanOptions",
         "toType": "NavigatorRuntimePlatform",
-        "sourcePath": "src/types/navigatorPlanning.ts"
+        "sourcePath": "src/navigator/planning.ts"
       },
       {
         "fromSymbol": "NavigatorAdapterPlan",
         "toType": "NavigatorAdapterId",
-        "sourcePath": "src/types/navigatorPlanning.ts"
+        "sourcePath": "src/navigator/planning.ts"
       },
       {
         "fromSymbol": "NavigatorAdapterPlan",
         "toType": "NavigatorApiStability",
-        "sourcePath": "src/types/navigatorPlanning.ts"
+        "sourcePath": "src/navigator/planning.ts"
       },
       {
         "fromSymbol": "NavigatorAdapterPlan",
         "toType": "NavigatorSupportStatus",
-        "sourcePath": "src/types/navigatorPlanning.ts"
+        "sourcePath": "src/navigator/planning.ts"
       },
       {
         "fromSymbol": "NavigatorNodePlan",
         "toType": "CustomNavigatorNode",
-        "sourcePath": "src/types/navigatorPlanning.ts"
+        "sourcePath": "src/navigator/planning.ts"
       },
       {
         "fromSymbol": "NavigatorNodePlan",
         "toType": "DrawerNavigatorOptions",
-        "sourcePath": "src/types/navigatorPlanning.ts"
+        "sourcePath": "src/navigator/planning.ts"
       },
       {
         "fromSymbol": "NavigatorNodePlan",
         "toType": "NavigatorAdapterPlan",
-        "sourcePath": "src/types/navigatorPlanning.ts"
+        "sourcePath": "src/navigator/planning.ts"
       },
       {
         "fromSymbol": "NavigatorNodePlan",
         "toType": "NavigatorRoutePlan",
-        "sourcePath": "src/types/navigatorPlanning.ts"
+        "sourcePath": "src/navigator/planning.ts"
       },
       {
         "fromSymbol": "NavigatorNodePlan",
         "toType": "StackImplementation",
-        "sourcePath": "src/types/navigatorPlanning.ts"
+        "sourcePath": "src/navigator/planning.ts"
       },
       {
         "fromSymbol": "NavigatorNodePlan",
         "toType": "StackScreenOptions",
-        "sourcePath": "src/types/navigatorPlanning.ts"
+        "sourcePath": "src/navigator/planning.ts"
       },
       {
         "fromSymbol": "NavigatorNodePlan",
         "toType": "TabsNavigatorPlan",
-        "sourcePath": "src/types/navigatorPlanning.ts"
+        "sourcePath": "src/navigator/planning.ts"
       },
       {
         "fromSymbol": "NavigatorPlan",
         "toType": "NavigatorDiagnostic",
-        "sourcePath": "src/types/navigatorPlanning.ts"
+        "sourcePath": "src/navigator/planning.ts"
       },
       {
         "fromSymbol": "NavigatorPlan",
         "toType": "NavigatorNodePlan",
-        "sourcePath": "src/types/navigatorPlanning.ts"
+        "sourcePath": "src/navigator/planning.ts"
       },
       {
         "fromSymbol": "NavigatorPlan",
         "toType": "NavigatorValidationContext",
-        "sourcePath": "src/types/navigatorPlanning.ts"
+        "sourcePath": "src/navigator/planning.ts"
       },
       {
         "fromSymbol": "NavigatorRoutePlan",
         "toType": "IconSpec",
-        "sourcePath": "src/types/navigatorPlanning.ts"
+        "sourcePath": "src/navigator/planning.ts"
       },
       {
         "fromSymbol": "NavigatorRoutePlan",
         "toType": "NavigatorNodePlan",
-        "sourcePath": "src/types/navigatorPlanning.ts"
+        "sourcePath": "src/navigator/planning.ts"
       },
       {
         "fromSymbol": "NavigatorRoutePlan",
         "toType": "StackScreenOptions",
-        "sourcePath": "src/types/navigatorPlanning.ts"
+        "sourcePath": "src/navigator/planning.ts"
       },
       {
         "fromSymbol": "NavigatorValidationContext",
         "toType": "NavigatorRuntimePlatform",
-        "sourcePath": "src/types/navigatorPlanning.ts"
+        "sourcePath": "src/navigator/planning.ts"
       },
       {
         "fromSymbol": "ResolvedCustomTabsPresentation",
         "toType": "ResolvedTabsPresentation",
-        "sourcePath": "src/types/navigatorPlanning.ts"
+        "sourcePath": "src/navigator/planning.ts"
       },
       {
         "fromSymbol": "TabsNavigatorPlan",
         "toType": "ExpoRouterNavigatorModule",
-        "sourcePath": "src/types/navigatorPlanning.ts"
+        "sourcePath": "src/navigator/planning.ts"
       },
       {
         "fromSymbol": "TabsNavigatorPlan",
         "toType": "NavigatorApiStability",
-        "sourcePath": "src/types/navigatorPlanning.ts"
+        "sourcePath": "src/navigator/planning.ts"
       },
       {
         "fromSymbol": "TabsNavigatorPlan",
         "toType": "NavigatorResponsiveSize",
-        "sourcePath": "src/types/navigatorPlanning.ts"
+        "sourcePath": "src/navigator/planning.ts"
       },
       {
         "fromSymbol": "TabsNavigatorPlan",
         "toType": "Readonly",
-        "sourcePath": "src/types/navigatorPlanning.ts"
+        "sourcePath": "src/navigator/planning.ts"
       },
       {
         "fromSymbol": "TabsNavigatorPlan",
         "toType": "ResolvedTabsImplementation",
-        "sourcePath": "src/types/navigatorPlanning.ts"
+        "sourcePath": "src/navigator/planning.ts"
       },
       {
         "fromSymbol": "TabsNavigatorPlan",
         "toType": "ResolvedTabsPresentation",
-        "sourcePath": "src/types/navigatorPlanning.ts"
+        "sourcePath": "src/navigator/planning.ts"
       },
       {
         "fromSymbol": "ScreenRequirements",

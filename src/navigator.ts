@@ -275,13 +275,13 @@ export type {
   CustomNavigatorConfigIssue,
   CustomNavigatorRegistration,
   CustomNavigatorRegistry,
-} from './types/navigatorExtensions';
+} from './navigator/extensions';
 export type {
   NavigatorGeneratedFile,
   NavigatorGenerationBindings,
   NavigatorGenerationOptions,
   NavigatorScreenModule,
-} from './types/navigatorGeneration';
+} from './navigator/generation';
 export type {
   CreateNavigatorPlanOptions,
   ExpoRouterNavigatorModule,
@@ -300,4 +300,4 @@ export type {
   ResolvedTabsImplementation,
   ResolvedTabsPresentation,
   TabsNavigatorPlan,
-} from './types/navigatorPlanning';
+} from './navigator/planning';

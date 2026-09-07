@@ -1,5 +1,5 @@
 import type { CustomNavigatorNode } from '../navigator';
-import type { NavigatorApiStability, NavigatorRuntimePlatform } from './navigatorPlanning';
+import type { NavigatorApiStability, NavigatorRuntimePlatform } from './planning';
 export interface CustomNavigatorConfigIssue {
   code: string;
   message: string;

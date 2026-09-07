@@ -6,7 +6,7 @@ import type {
   StackImplementation,
   StackScreenOptions,
 } from '../navigator';
-import type { CustomNavigatorRegistry } from './navigatorExtensions';
+import type { CustomNavigatorRegistry } from './extensions';
 
 export interface ResolvedCustomTabsPresentation {
   presentation: ResolvedTabsPresentation;

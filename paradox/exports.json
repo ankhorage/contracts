@@ -4061,9 +4061,9 @@
     "isReadme": false,
     "examples": [],
     "kind": "type",
-    "modulePath": "src/types/navigatorPlanning.ts",
+    "modulePath": "src/navigator/planning.ts",
     "sourceLocation": {
-      "filePath": "src/types/navigatorPlanning.ts",
+      "filePath": "src/navigator/planning.ts",
       "line": 38,
       "column": 1
     },
@@ -4213,9 +4213,9 @@
     "isReadme": false,
     "examples": [],
     "kind": "type",
-    "modulePath": "src/types/navigatorExtensions.ts",
+    "modulePath": "src/navigator/extensions.ts",
     "sourceLocation": {
-      "filePath": "src/types/navigatorExtensions.ts",
+      "filePath": "src/navigator/extensions.ts",
       "line": 3,
       "column": 1
     },
@@ -4307,9 +4307,9 @@
     "isReadme": false,
     "examples": [],
     "kind": "type",
-    "modulePath": "src/types/navigatorExtensions.ts",
+    "modulePath": "src/navigator/extensions.ts",
     "sourceLocation": {
-      "filePath": "src/types/navigatorExtensions.ts",
+      "filePath": "src/navigator/extensions.ts",
       "line": 9,
       "column": 1
     },
@@ -4387,9 +4387,9 @@
     "isReadme": false,
     "examples": [],
     "kind": "unknown",
-    "modulePath": "src/types/navigatorExtensions.ts",
+    "modulePath": "src/navigator/extensions.ts",
     "sourceLocation": {
-      "filePath": "src/types/navigatorExtensions.ts",
+      "filePath": "src/navigator/extensions.ts",
       "line": 22,
       "column": 1
     },
@@ -7233,9 +7233,9 @@
     "isReadme": false,
     "examples": [],
     "kind": "unknown",
-    "modulePath": "src/types/navigatorPlanning.ts",
+    "modulePath": "src/navigator/planning.ts",
     "sourceLocation": {
-      "filePath": "src/types/navigatorPlanning.ts",
+      "filePath": "src/navigator/planning.ts",
       "line": 45,
       "column": 1
     },
@@ -8981,9 +8981,9 @@
     "isReadme": false,
     "examples": [],
     "kind": "unknown",
-    "modulePath": "src/types/navigatorPlanning.ts",
+    "modulePath": "src/navigator/planning.ts",
     "sourceLocation": {
-      "filePath": "src/types/navigatorPlanning.ts",
+      "filePath": "src/navigator/planning.ts",
       "line": 55,
       "column": 1
     },
@@ -8999,9 +8999,9 @@
     "isReadme": false,
     "examples": [],
     "kind": "type",
-    "modulePath": "src/types/navigatorPlanning.ts",
+    "modulePath": "src/navigator/planning.ts",
     "sourceLocation": {
-      "filePath": "src/types/navigatorPlanning.ts",
+      "filePath": "src/navigator/planning.ts",
       "line": 67,
       "column": 1
     },
@@ -9060,9 +9060,9 @@
     "isReadme": false,
     "examples": [],
     "kind": "unknown",
-    "modulePath": "src/types/navigatorPlanning.ts",
+    "modulePath": "src/navigator/planning.ts",
     "sourceLocation": {
-      "filePath": "src/types/navigatorPlanning.ts",
+      "filePath": "src/navigator/planning.ts",
       "line": 77,
       "column": 1
     },
@@ -9111,9 +9111,9 @@
     "isReadme": false,
     "examples": [],
     "kind": "type",
-    "modulePath": "src/types/navigatorPlanning.ts",
+    "modulePath": "src/navigator/planning.ts",
     "sourceLocation": {
-      "filePath": "src/types/navigatorPlanning.ts",
+      "filePath": "src/navigator/planning.ts",
       "line": 79,
       "column": 1
     },
@@ -9191,9 +9191,9 @@
     "isReadme": false,
     "examples": [],
     "kind": "type",
-    "modulePath": "src/types/navigatorGeneration.ts",
+    "modulePath": "src/navigator/generation.ts",
     "sourceLocation": {
-      "filePath": "src/types/navigatorGeneration.ts",
+      "filePath": "src/navigator/generation.ts",
       "line": 1,
       "column": 1
     },
@@ -9224,9 +9224,9 @@
     "isReadme": false,
     "examples": [],
     "kind": "type",
-    "modulePath": "src/types/navigatorGeneration.ts",
+    "modulePath": "src/navigator/generation.ts",
     "sourceLocation": {
-      "filePath": "src/types/navigatorGeneration.ts",
+      "filePath": "src/navigator/generation.ts",
       "line": 6,
       "column": 1
     },
@@ -9278,9 +9278,9 @@
     "isReadme": false,
     "examples": [],
     "kind": "type",
-    "modulePath": "src/types/navigatorGeneration.ts",
+    "modulePath": "src/navigator/generation.ts",
     "sourceLocation": {
-      "filePath": "src/types/navigatorGeneration.ts",
+      "filePath": "src/navigator/generation.ts",
       "line": 18,
       "column": 1
     },
@@ -9329,9 +9329,9 @@
     "isReadme": false,
     "examples": [],
     "kind": "type",
-    "modulePath": "src/types/navigatorPlanning.ts",
+    "modulePath": "src/navigator/planning.ts",
     "sourceLocation": {
-      "filePath": "src/types/navigatorPlanning.ts",
+      "filePath": "src/navigator/planning.ts",
       "line": 86,
       "column": 1
     },
@@ -9426,9 +9426,9 @@
     "isReadme": false,
     "examples": [],
     "kind": "type",
-    "modulePath": "src/types/navigatorPlanning.ts",
+    "modulePath": "src/navigator/planning.ts",
     "sourceLocation": {
-      "filePath": "src/types/navigatorPlanning.ts",
+      "filePath": "src/navigator/planning.ts",
       "line": 114,
       "column": 1
     },
@@ -9571,9 +9571,9 @@
     "isReadme": false,
     "examples": [],
     "kind": "unknown",
-    "modulePath": "src/types/navigatorPlanning.ts",
+    "modulePath": "src/navigator/planning.ts",
     "sourceLocation": {
-      "filePath": "src/types/navigatorPlanning.ts",
+      "filePath": "src/navigator/planning.ts",
       "line": 125,
       "column": 1
     },
@@ -9589,9 +9589,9 @@
     "isReadme": false,
     "examples": [],
     "kind": "type",
-    "modulePath": "src/types/navigatorPlanning.ts",
+    "modulePath": "src/navigator/planning.ts",
     "sourceLocation": {
-      "filePath": "src/types/navigatorPlanning.ts",
+      "filePath": "src/navigator/planning.ts",
       "line": 127,
       "column": 1
     },
@@ -9671,9 +9671,9 @@
     "isReadme": false,
     "examples": [],
     "kind": "unknown",
-    "modulePath": "src/types/navigatorPlanning.ts",
+    "modulePath": "src/navigator/planning.ts",
     "sourceLocation": {
-      "filePath": "src/types/navigatorPlanning.ts",
+      "filePath": "src/navigator/planning.ts",
       "line": 139,
       "column": 1
     },
@@ -9689,9 +9689,9 @@
     "isReadme": false,
     "examples": [],
     "kind": "type",
-    "modulePath": "src/types/navigatorGeneration.ts",
+    "modulePath": "src/navigator/generation.ts",
     "sourceLocation": {
-      "filePath": "src/types/navigatorGeneration.ts",
+      "filePath": "src/navigator/generation.ts",
       "line": 25,
       "column": 1
     },
@@ -9748,9 +9748,9 @@
     "isReadme": false,
     "examples": [],
     "kind": "unknown",
-    "modulePath": "src/types/navigatorPlanning.ts",
+    "modulePath": "src/navigator/planning.ts",
     "sourceLocation": {
-      "filePath": "src/types/navigatorPlanning.ts",
+      "filePath": "src/navigator/planning.ts",
       "line": 141,
       "column": 1
     },
@@ -9784,9 +9784,9 @@
     "isReadme": false,
     "examples": [],
     "kind": "type",
-    "modulePath": "src/types/navigatorPlanning.ts",
+    "modulePath": "src/navigator/planning.ts",
     "sourceLocation": {
-      "filePath": "src/types/navigatorPlanning.ts",
+      "filePath": "src/navigator/planning.ts",
       "line": 143,
       "column": 1
     },
@@ -10236,9 +10236,9 @@
     "isReadme": false,
     "examples": [],
     "kind": "type",
-    "modulePath": "src/types/navigatorPlanning.ts",
+    "modulePath": "src/navigator/planning.ts",
     "sourceLocation": {
-      "filePath": "src/types/navigatorPlanning.ts",
+      "filePath": "src/navigator/planning.ts",
       "line": 11,
       "column": 1
     },
@@ -10269,9 +10269,9 @@
     "isReadme": false,
     "examples": [],
     "kind": "unknown",
-    "modulePath": "src/types/navigatorPlanning.ts",
+    "modulePath": "src/navigator/planning.ts",
     "sourceLocation": {
-      "filePath": "src/types/navigatorPlanning.ts",
+      "filePath": "src/navigator/planning.ts",
       "line": 16,
       "column": 1
     },
@@ -10287,9 +10287,9 @@
     "isReadme": false,
     "examples": [],
     "kind": "unknown",
-    "modulePath": "src/types/navigatorPlanning.ts",
+    "modulePath": "src/navigator/planning.ts",
     "sourceLocation": {
-      "filePath": "src/types/navigatorPlanning.ts",
+      "filePath": "src/navigator/planning.ts",
       "line": 18,
       "column": 1
     },
@@ -13443,9 +13443,9 @@
     "isReadme": false,
     "examples": [],
     "kind": "type",
-    "modulePath": "src/types/navigatorPlanning.ts",
+    "modulePath": "src/navigator/planning.ts",
     "sourceLocation": {
-      "filePath": "src/types/navigatorPlanning.ts",
+      "filePath": "src/navigator/planning.ts",
       "line": 26,
       "column": 1
     },

@@ -1308,8 +1308,8 @@ Source: `src/types.ts:51:1`
 ## CreateNavigatorPlanOptions
 
 Kind: `type`
-Module: `src/types/navigatorPlanning.ts`
-Source: `src/types/navigatorPlanning.ts:38:1`
+Module: `src/navigator/planning.ts`
+Source: `src/navigator/planning.ts:38:1`
 
 ### Members
 
@@ -1356,8 +1356,8 @@ Source: `src/navigator.ts:100:14`
 ## CustomNavigatorConfigIssue
 
 Kind: `type`
-Module: `src/types/navigatorExtensions.ts`
-Source: `src/types/navigatorExtensions.ts:3:1`
+Module: `src/navigator/extensions.ts`
+Source: `src/navigator/extensions.ts:3:1`
 
 ### Members
 
@@ -1386,8 +1386,8 @@ Source: `src/navigator.ts:212:1`
 ## CustomNavigatorRegistration
 
 Kind: `type`
-Module: `src/types/navigatorExtensions.ts`
-Source: `src/types/navigatorExtensions.ts:9:1`
+Module: `src/navigator/extensions.ts`
+Source: `src/navigator/extensions.ts:9:1`
 
 ### Members
 
@@ -1405,8 +1405,8 @@ Source: `src/types/navigatorExtensions.ts:9:1`
 ## CustomNavigatorRegistry
 
 Kind: `unknown`
-Module: `src/types/navigatorExtensions.ts`
-Source: `src/types/navigatorExtensions.ts:22:1`
+Module: `src/navigator/extensions.ts`
+Source: `src/navigator/extensions.ts:22:1`
 
 ## CustomTabsConfig
 
@@ -2286,8 +2286,8 @@ Source: `src/bindings.ts:114:1`
 ## ExpoRouterNavigatorModule
 
 Kind: `unknown`
-Module: `src/types/navigatorPlanning.ts`
-Source: `src/types/navigatorPlanning.ts:45:1`
+Module: `src/navigator/planning.ts`
+Source: `src/navigator/planning.ts:45:1`
 
 ## ExternalGraphQlApiDefinition
 
@@ -2836,14 +2836,14 @@ Source: `src/navigator.ts:3:14`
 ## NavigatorAdapterId
 
 Kind: `unknown`
-Module: `src/types/navigatorPlanning.ts`
-Source: `src/types/navigatorPlanning.ts:55:1`
+Module: `src/navigator/planning.ts`
+Source: `src/navigator/planning.ts:55:1`
 
 ## NavigatorAdapterPlan
 
 Kind: `type`
-Module: `src/types/navigatorPlanning.ts`
-Source: `src/types/navigatorPlanning.ts:67:1`
+Module: `src/navigator/planning.ts`
+Source: `src/navigator/planning.ts:67:1`
 
 ### Members
 
@@ -2859,8 +2859,8 @@ Source: `src/types/navigatorPlanning.ts:67:1`
 ## NavigatorApiStability
 
 Kind: `unknown`
-Module: `src/types/navigatorPlanning.ts`
-Source: `src/types/navigatorPlanning.ts:77:1`
+Module: `src/navigator/planning.ts`
+Source: `src/navigator/planning.ts:77:1`
 
 ## NavigatorDefaults
 
@@ -2878,8 +2878,8 @@ Source: `src/navigator.ts:245:1`
 ## NavigatorDiagnostic
 
 Kind: `type`
-Module: `src/types/navigatorPlanning.ts`
-Source: `src/types/navigatorPlanning.ts:79:1`
+Module: `src/navigator/planning.ts`
+Source: `src/navigator/planning.ts:79:1`
 
 ### Members
 
@@ -2906,8 +2906,8 @@ Source: `src/navigator.ts:240:1`
 ## NavigatorGeneratedFile
 
 Kind: `type`
-Module: `src/types/navigatorGeneration.ts`
-Source: `src/types/navigatorGeneration.ts:1:1`
+Module: `src/navigator/generation.ts`
+Source: `src/navigator/generation.ts:1:1`
 
 ### Members
 
@@ -2919,8 +2919,8 @@ Source: `src/types/navigatorGeneration.ts:1:1`
 ## NavigatorGenerationBindings
 
 Kind: `type`
-Module: `src/types/navigatorGeneration.ts`
-Source: `src/types/navigatorGeneration.ts:6:1`
+Module: `src/navigator/generation.ts`
+Source: `src/navigator/generation.ts:6:1`
 
 ### Members
 
@@ -2935,8 +2935,8 @@ Source: `src/types/navigatorGeneration.ts:6:1`
 ## NavigatorGenerationOptions
 
 Kind: `type`
-Module: `src/types/navigatorGeneration.ts`
-Source: `src/types/navigatorGeneration.ts:18:1`
+Module: `src/navigator/generation.ts`
+Source: `src/navigator/generation.ts:18:1`
 
 ### Members
 
@@ -2954,8 +2954,8 @@ Source: `src/navigator.ts:218:1`
 ## NavigatorNodePlan
 
 Kind: `type`
-Module: `src/types/navigatorPlanning.ts`
-Source: `src/types/navigatorPlanning.ts:86:1`
+Module: `src/navigator/planning.ts`
+Source: `src/navigator/planning.ts:86:1`
 
 ### Members
 
@@ -2975,8 +2975,8 @@ Source: `src/types/navigatorPlanning.ts:86:1`
 ## NavigatorPlan
 
 Kind: `type`
-Module: `src/types/navigatorPlanning.ts`
-Source: `src/types/navigatorPlanning.ts:114:1`
+Module: `src/navigator/planning.ts`
+Source: `src/navigator/planning.ts:114:1`
 
 ### Members
 
@@ -3024,14 +3024,14 @@ Source: `src/navigator.ts:24:1`
 ## NavigatorResponsiveSize
 
 Kind: `unknown`
-Module: `src/types/navigatorPlanning.ts`
-Source: `src/types/navigatorPlanning.ts:125:1`
+Module: `src/navigator/planning.ts`
+Source: `src/navigator/planning.ts:125:1`
 
 ## NavigatorRoutePlan
 
 Kind: `type`
-Module: `src/types/navigatorPlanning.ts`
-Source: `src/types/navigatorPlanning.ts:127:1`
+Module: `src/navigator/planning.ts`
+Source: `src/navigator/planning.ts:127:1`
 
 ### Members
 
@@ -3050,14 +3050,14 @@ Source: `src/types/navigatorPlanning.ts:127:1`
 ## NavigatorRuntimePlatform
 
 Kind: `unknown`
-Module: `src/types/navigatorPlanning.ts`
-Source: `src/types/navigatorPlanning.ts:139:1`
+Module: `src/navigator/planning.ts`
+Source: `src/navigator/planning.ts:139:1`
 
 ## NavigatorScreenModule
 
 Kind: `type`
-Module: `src/types/navigatorGeneration.ts`
-Source: `src/types/navigatorGeneration.ts:25:1`
+Module: `src/navigator/generation.ts`
+Source: `src/navigator/generation.ts:25:1`
 
 ### Members
 
@@ -3081,8 +3081,8 @@ Source: `src/navigator.ts:148:1`
 ## NavigatorSupportStatus
 
 Kind: `unknown`
-Module: `src/types/navigatorPlanning.ts`
-Source: `src/types/navigatorPlanning.ts:141:1`
+Module: `src/navigator/planning.ts`
+Source: `src/navigator/planning.ts:141:1`
 
 ## NavigatorType
 
@@ -3093,8 +3093,8 @@ Source: `src/navigator.ts:4:1`
 ## NavigatorValidationContext
 
 Kind: `type`
-Module: `src/types/navigatorPlanning.ts`
-Source: `src/types/navigatorPlanning.ts:143:1`
+Module: `src/navigator/planning.ts`
+Source: `src/navigator/planning.ts:143:1`
 
 ### Members
 
@@ -3248,8 +3248,8 @@ Source: `src/auth.ts:129:1`
 ## ResolvedCustomTabsPresentation
 
 Kind: `type`
-Module: `src/types/navigatorPlanning.ts`
-Source: `src/types/navigatorPlanning.ts:11:1`
+Module: `src/navigator/planning.ts`
+Source: `src/navigator/planning.ts:11:1`
 
 ### Members
 
@@ -3261,14 +3261,14 @@ Source: `src/types/navigatorPlanning.ts:11:1`
 ## ResolvedTabsImplementation
 
 Kind: `unknown`
-Module: `src/types/navigatorPlanning.ts`
-Source: `src/types/navigatorPlanning.ts:16:1`
+Module: `src/navigator/planning.ts`
+Source: `src/navigator/planning.ts:16:1`
 
 ## ResolvedTabsPresentation
 
 Kind: `unknown`
-Module: `src/types/navigatorPlanning.ts`
-Source: `src/types/navigatorPlanning.ts:18:1`
+Module: `src/navigator/planning.ts`
+Source: `src/navigator/planning.ts:18:1`
 
 ## ResponsiveTabsPresentation
 
@@ -4307,8 +4307,8 @@ Source: `src/navigator.ts:199:1`
 ## TabsNavigatorPlan
 
 Kind: `type`
-Module: `src/types/navigatorPlanning.ts`
-Source: `src/types/navigatorPlanning.ts:26:1`
+Module: `src/navigator/planning.ts`
+Source: `src/navigator/planning.ts:26:1`
 
 ### Members
 
