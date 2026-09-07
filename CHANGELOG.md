@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 12.0.1
+
+### Patch Changes
+
+- 4a6a112: Export the standalone AppNavigatorManifest structural type guard from the navigator contract.
+
 ## 12.0.0
 
 ### Major Changes
