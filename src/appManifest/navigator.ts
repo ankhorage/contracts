@@ -1,4 +1,4 @@
-import { NAVIGATOR_PRESETS, NAVIGATOR_TYPES } from '../navigator';
+import { type AppNavigatorManifest, NAVIGATOR_PRESETS, NAVIGATOR_TYPES } from '../navigator';
 import { isIconSpec } from './icon';
 import {
   hasOnlyKeys,
@@ -10,16 +10,13 @@ import {
 } from './navigatorOptions';
 import { isOptionalBoolean, isOptionalString, isRecord, isStringArray } from './shared';
 
-const NAVIGATOR_PRESET_SET = new Set<string>(NAVIGATOR_PRESETS);
-const NAVIGATOR_TYPE_SET = new Set<string>(NAVIGATOR_TYPES);
-
 /*** Validate the complete serialized `AppManifest.navigator` slice. */
-export function isAppNavigatorManifest(value: unknown): boolean {
+export function isAppNavigatorManifest(value: unknown): value is AppNavigatorManifest {
   return (
     isRecord(value) &&
     isNavigatorNode(value) &&
     (value.preset === undefined ||
-      (typeof value.preset === 'string' && NAVIGATOR_PRESET_SET.has(value.preset))) &&
+      (typeof value.preset === 'string' && hasNavigatorPreset(value.preset))) &&
     value.flows === undefined &&
     (value.defaults === undefined || isNavigatorDefaults(value.defaults)) &&
     (value.platforms === undefined || isNavigatorPlatforms(value.platforms))
@@ -31,7 +28,7 @@ function isNavigatorNode(value: unknown): boolean {
   if (
     !isRecord(value) ||
     typeof value.type !== 'string' ||
-    !NAVIGATOR_TYPE_SET.has(value.type) ||
+    !hasNavigatorType(value.type) ||
     !isOptionalString(value.initialRouteName) ||
     !Array.isArray(value.routes) ||
     !value.routes.every(isRouteDefinition)
@@ -58,6 +55,16 @@ function isNavigatorNode(value: unknown): boolean {
     default:
       return false;
   }
+}
+
+/*** Check a serialized preset against the public contract without eager cyclic initialization. */
+function hasNavigatorPreset(value: string): boolean {
+  return (NAVIGATOR_PRESETS as readonly string[]).includes(value);
+}
+
+/*** Check a serialized topology against the public contract without eager cyclic initialization. */
+function hasNavigatorType(value: string): boolean {
+  return (NAVIGATOR_TYPES as readonly string[]).includes(value);
 }
 
 /*** Validate one route and preserve its portable metadata and nested navigator. */

@@ -1,5 +1,7 @@
 import type { IconSpec, ManifestValue } from './types';
 
+export { isAppNavigatorManifest } from './appManifest/navigator';
+
 export const NAVIGATOR_TYPES = ['slot', 'stack', 'tabs', 'drawer', 'split-view', 'custom'] as const;
 export type NavigatorType = (typeof NAVIGATOR_TYPES)[number];
 

@@ -44,7 +44,7 @@ Source: `src/data/refs.ts:15:1`
 
 Kind: `type`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:165:1`
+Source: `src/navigator.ts:167:1`
 
 ### Members
 
@@ -358,7 +358,7 @@ Source: `src/appManifest.ts:16:1`
 
 Kind: `unknown`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:262:1`
+Source: `src/navigator.ts:264:1`
 
 ## AppSettings
 
@@ -1365,7 +1365,7 @@ Source: `src/navigator/extensions.ts:3:1`
 
 Kind: `type`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:212:1`
+Source: `src/navigator.ts:214:1`
 
 ### Members
 
@@ -2177,19 +2177,19 @@ Source: `src/types.ts:168:1`
 
 Kind: `value`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:84:14`
+Source: `src/navigator.ts:86:14`
 
 ## DRAWER_TYPES
 
 Kind: `value`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:87:14`
+Source: `src/navigator.ts:89:14`
 
 ## DrawerNavigatorNode
 
 Kind: `type`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:190:1`
+Source: `src/navigator.ts:192:1`
 
 ### Members
 
@@ -2204,7 +2204,7 @@ Source: `src/navigator.ts:190:1`
 
 Kind: `type`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:90:1`
+Source: `src/navigator.ts:92:1`
 
 ### Members
 
@@ -2219,13 +2219,13 @@ Source: `src/navigator.ts:90:1`
 
 Kind: `unknown`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:85:1`
+Source: `src/navigator.ts:87:1`
 
 ## DrawerType
 
 Kind: `unknown`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:88:1`
+Source: `src/navigator.ts:90:1`
 
 ## EndpointId
 
@@ -2332,13 +2332,13 @@ Source: `src/secrets.ts:183:1`
 
 Kind: `value`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:97:14`
+Source: `src/navigator.ts:99:14`
 
 ## FixedHeadlessTabsPresentation
 
 Kind: `unknown`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:98:1`
+Source: `src/navigator.ts:100:1`
 
 ## FORBIDDEN_INLINE_SECRET_FIELDS
 
@@ -2375,31 +2375,31 @@ Source: `src/data/apis.ts:35:1`
 
 Kind: `value`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:100:14`
+Source: `src/navigator.ts:102:14`
 
 ## HeadlessTabsConfig
 
 Kind: `unknown`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:142:1`
+Source: `src/navigator.ts:144:1`
 
 ## HeadlessTabsPresentation
 
 Kind: `unknown`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:105:1`
+Source: `src/navigator.ts:107:1`
 
 ## HeadlessTabsPresentationConfig
 
 Kind: `unknown`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:124:1`
+Source: `src/navigator.ts:126:1`
 
 ## HeadlessTabsWebConfig
 
 Kind: `unknown`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:146:1`
+Source: `src/navigator.ts:148:1`
 
 ## IconSpec
 
@@ -2505,6 +2505,20 @@ Source: `src/appManifest.ts:51:1`
   - value: `unknown`
   - returns: `boolean`
 
+## isAppNavigatorManifest
+
+Kind: `function`
+Module: `src/appManifest/navigator.ts`
+Source: `src/appManifest/navigator.ts:14:1`
+
+Validate the complete serialized `AppManifest.navigator` slice.
+
+### Signatures
+
+- `(value: unknown) => boolean`
+  - value: `unknown`
+  - returns: `boolean`
+
 ## isMediaAssetReference
 
 Kind: `function`
@@ -2521,31 +2535,31 @@ Source: `src/media.ts:58:1`
 
 Kind: `value`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:40:14`
+Source: `src/navigator.ts:42:14`
 
 ## JAVASCRIPT_TABS_PRESENTATIONS
 
 Kind: `value`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:107:14`
+Source: `src/navigator.ts:109:14`
 
 ## JavaScriptStackPresentation
 
 Kind: `unknown`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:41:1`
+Source: `src/navigator.ts:43:1`
 
 ## JavaScriptStackScreenOptions
 
 Kind: `unknown`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:64:1`
+Source: `src/navigator.ts:66:1`
 
 ## JavaScriptTabsConfig
 
 Kind: `type`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:160:1`
+Source: `src/navigator.ts:162:1`
 
 ### Members
 
@@ -2558,7 +2572,7 @@ Source: `src/navigator.ts:160:1`
 
 Kind: `unknown`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:108:1`
+Source: `src/navigator.ts:110:1`
 
 ## KnownAuthOAuthProviderId
 
@@ -2786,13 +2800,13 @@ Source: `src/types.ts:230:1`
 
 Kind: `value`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:110:14`
+Source: `src/navigator.ts:112:14`
 
 ## NativeTabsConfig
 
 Kind: `type`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:152:1`
+Source: `src/navigator.ts:154:1`
 
 ### Members
 
@@ -2806,7 +2820,7 @@ Source: `src/navigator.ts:152:1`
 
 Kind: `unknown`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:116:1`
+Source: `src/navigator.ts:118:1`
 
 ## NavigateAction
 
@@ -2825,13 +2839,13 @@ Source: `src/types.ts:36:1`
 
 Kind: `value`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:6:14`
+Source: `src/navigator.ts:8:14`
 
 ## NAVIGATOR_TYPES
 
 Kind: `value`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:3:14`
+Source: `src/navigator.ts:5:14`
 
 ## NavigatorAdapterId
 
@@ -2946,7 +2960,7 @@ Source: `src/navigator/catalog.ts:76:1`
 
 Kind: `type`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:240:1`
+Source: `src/navigator.ts:242:1`
 
 ### Members
 
@@ -3052,7 +3066,7 @@ Source: `src/navigator/catalog.ts:32:1`
 
 Kind: `unknown`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:218:1`
+Source: `src/navigator.ts:220:1`
 
 ## NavigatorNodePlan
 
@@ -3096,7 +3110,7 @@ Source: `src/navigator/planning.ts:117:1`
 
 Kind: `type`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:245:1`
+Source: `src/navigator.ts:247:1`
 
 ### Members
 
@@ -3109,7 +3123,7 @@ Source: `src/navigator.ts:245:1`
 
 Kind: `type`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:250:1`
+Source: `src/navigator.ts:252:1`
 
 ### Members
 
@@ -3129,7 +3143,7 @@ Source: `src/navigator/catalog.ts:34:1`
 
 Kind: `unknown`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:24:1`
+Source: `src/navigator.ts:26:1`
 
 ## NavigatorPresetDescriptor
 
@@ -3194,7 +3208,7 @@ Source: `src/navigator/generation.ts:43:1`
 
 Kind: `type`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:148:1`
+Source: `src/navigator.ts:150:1`
 
 ### Members
 
@@ -3212,7 +3226,7 @@ Source: `src/navigator/planning.ts:142:1`
 
 Kind: `unknown`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:4:1`
+Source: `src/navigator.ts:6:1`
 
 ## NavigatorValidationContext
 
@@ -3410,7 +3424,7 @@ Source: `src/navigator/planning.ts:19:1`
 
 Kind: `type`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:118:1`
+Source: `src/navigator.ts:120:1`
 
 ### Members
 
@@ -3424,7 +3438,7 @@ Source: `src/navigator.ts:118:1`
 
 Kind: `type`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:226:1`
+Source: `src/navigator.ts:228:1`
 
 ### Members
 
@@ -3819,7 +3833,7 @@ Source: `src/auth.ts:214:1`
 
 Kind: `type`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:182:1`
+Source: `src/navigator.ts:184:1`
 
 ### Members
 
@@ -3884,7 +3898,7 @@ Source: `src/types.ts:283:1`
 
 Kind: `type`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:201:1`
+Source: `src/navigator.ts:203:1`
 
 ### Members
 
@@ -3901,19 +3915,19 @@ Source: `src/navigator.ts:201:1`
 
 Kind: `value`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:26:14`
+Source: `src/navigator.ts:28:14`
 
 ## STACK_PRESENTATIONS
 
 Kind: `value`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:29:14`
+Source: `src/navigator.ts:31:14`
 
 ## StackHeaderOptions
 
 Kind: `type`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:43:1`
+Source: `src/navigator.ts:45:1`
 
 ### Members
 
@@ -3928,31 +3942,31 @@ Source: `src/navigator.ts:43:1`
 
 Kind: `unknown`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:27:1`
+Source: `src/navigator.ts:29:1`
 
 ## StackImplementationConfig
 
 Kind: `unknown`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:68:1`
+Source: `src/navigator.ts:70:1`
 
 ## StackNavigatorNode
 
 Kind: `unknown`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:186:1`
+Source: `src/navigator.ts:188:1`
 
 ## StackPresentation
 
 Kind: `unknown`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:38:1`
+Source: `src/navigator.ts:40:1`
 
 ## StackScreenOptions
 
 Kind: `unknown`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:50:1`
+Source: `src/navigator.ts:52:1`
 
 ## StartOAuthAuthorizationInput
 
@@ -4426,19 +4440,19 @@ Source: `src/types.ts:236:1`
 
 Kind: `unknown`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:174:1`
+Source: `src/navigator.ts:176:1`
 
 ## TabsNavigatorConfig
 
 Kind: `unknown`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:195:1`
+Source: `src/navigator.ts:197:1`
 
 ## TabsNavigatorNode
 
 Kind: `unknown`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:199:1`
+Source: `src/navigator.ts:201:1`
 
 ## TabsNavigatorPlan
 
