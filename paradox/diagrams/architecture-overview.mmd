@@ -126,6 +126,16 @@ graph TD
   module_src_navigator_ts["src/navigator.ts"]
   package__ankhorage_contracts -.-> module_src_navigator_ts
   module_src_navigator_ts --> module_src_types_ts
+  module_src_navigator_extensions_ts["src/navigator/extensions.ts"]
+  package__ankhorage_contracts -.-> module_src_navigator_extensions_ts
+  module_src_navigator_extensions_ts --> module_src_navigator_ts
+  module_src_navigator_extensions_ts --> module_src_navigator_planning_ts
+  module_src_navigator_generation_ts["src/navigator/generation.ts"]
+  package__ankhorage_contracts -.-> module_src_navigator_generation_ts
+  module_src_navigator_planning_ts["src/navigator/planning.ts"]
+  package__ankhorage_contracts -.-> module_src_navigator_planning_ts
+  module_src_navigator_planning_ts --> module_src_navigator_ts
+  module_src_navigator_planning_ts --> module_src_navigator_extensions_ts
   module_src_repository_ts["src/repository.ts"]
   package__ankhorage_contracts -.-> module_src_repository_ts
   module_src_requirements_ts["src/requirements.ts"]

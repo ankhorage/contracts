@@ -270,3 +270,34 @@ export type AppNavigatorManifest = NavigatorNode & {
   defaults?: NavigatorDefaults;
   platforms?: NavigatorPlatforms;
 };
+
+export type {
+  CustomNavigatorConfigIssue,
+  CustomNavigatorRegistration,
+  CustomNavigatorRegistry,
+} from './navigator/extensions';
+export type {
+  NavigatorGeneratedFile,
+  NavigatorGenerationBindings,
+  NavigatorGenerationOptions,
+  NavigatorScreenModule,
+} from './navigator/generation';
+export type {
+  CreateNavigatorPlanOptions,
+  ExpoRouterNavigatorModule,
+  NavigatorAdapterId,
+  NavigatorAdapterPlan,
+  NavigatorApiStability,
+  NavigatorDiagnostic,
+  NavigatorNodePlan,
+  NavigatorPlan,
+  NavigatorResponsiveSize,
+  NavigatorRoutePlan,
+  NavigatorRuntimePlatform,
+  NavigatorSupportStatus,
+  NavigatorValidationContext,
+  ResolvedCustomTabsPresentation,
+  ResolvedTabsImplementation,
+  ResolvedTabsPresentation,
+  TabsNavigatorPlan,
+} from './navigator/planning';

@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v10.1.0",
+      "value": "v11.0.0",
       "color": "cb3837"
     },
     {
@@ -695,11 +695,15 @@
         "ComponentRequirements",
         "ComponentTypeId",
         "ConsoleAction",
+        "CreateNavigatorPlanOptions",
         "CredentialId",
         "CredentialKind",
         "CredentialRef",
         "CUSTOM_TABS_PRESENTATIONS",
+        "CustomNavigatorConfigIssue",
         "CustomNavigatorNode",
+        "CustomNavigatorRegistration",
+        "CustomNavigatorRegistry",
         "CustomTabsConfig",
         "CustomTabsPresentation",
         "CustomTabsPresentationConfig",
@@ -784,6 +788,7 @@
         "EndpointId",
         "EventBinding",
         "EventBindingTarget",
+        "ExpoRouterNavigatorModule",
         "ExternalGraphQlApiDefinition",
         "ExternalRestApiDefinition",
         "FilterAction",
@@ -839,14 +844,29 @@
         "NavigateAction",
         "NAVIGATOR_PRESETS",
         "NAVIGATOR_TYPES",
+        "NavigatorAdapterId",
+        "NavigatorAdapterPlan",
+        "NavigatorApiStability",
         "NavigatorDefaults",
+        "NavigatorDiagnostic",
         "NavigatorFlows",
+        "NavigatorGeneratedFile",
+        "NavigatorGenerationBindings",
+        "NavigatorGenerationOptions",
         "NavigatorNode",
+        "NavigatorNodePlan",
+        "NavigatorPlan",
         "NavigatorPlatformConfig",
         "NavigatorPlatforms",
         "NavigatorPreset",
+        "NavigatorResponsiveSize",
+        "NavigatorRoutePlan",
+        "NavigatorRuntimePlatform",
+        "NavigatorScreenModule",
         "NavigatorScreenReference",
+        "NavigatorSupportStatus",
         "NavigatorType",
+        "NavigatorValidationContext",
         "NetworkingSpec",
         "normalizeSecretRef",
         "normalizeSecretScope",
@@ -858,6 +878,9 @@
         "PropBinding",
         "RepositoryManifest",
         "resolveAuthFlow",
+        "ResolvedCustomTabsPresentation",
+        "ResolvedTabsImplementation",
+        "ResolvedTabsPresentation",
         "ResponsiveTabsPresentation",
         "RouteDefinition",
         "RuntimeCallback",
@@ -952,6 +975,7 @@
         "TabsImplementationConfig",
         "TabsNavigatorConfig",
         "TabsNavigatorNode",
+        "TabsNavigatorPlan",
         "ThemeConfig",
         "ThemeGlobalTokenOverrides",
         "ThemeModeConfig",
@@ -1020,8 +1044,12 @@
       "exports": [
         "AdaptiveTabsConfig",
         "AppNavigatorManifest",
+        "CreateNavigatorPlanOptions",
         "CUSTOM_TABS_PRESENTATIONS",
+        "CustomNavigatorConfigIssue",
         "CustomNavigatorNode",
+        "CustomNavigatorRegistration",
+        "CustomNavigatorRegistry",
         "CustomTabsConfig",
         "CustomTabsPresentation",
         "CustomTabsPresentationConfig",
@@ -1032,6 +1060,7 @@
         "DrawerNavigatorOptions",
         "DrawerPosition",
         "DrawerType",
+        "ExpoRouterNavigatorModule",
         "FIXED_CUSTOM_TABS_PRESENTATIONS",
         "FixedCustomTabsPresentation",
         "JAVASCRIPT_STACK_PRESENTATIONS",
@@ -1045,14 +1074,32 @@
         "NativeTabsMinimizeBehavior",
         "NAVIGATOR_PRESETS",
         "NAVIGATOR_TYPES",
+        "NavigatorAdapterId",
+        "NavigatorAdapterPlan",
+        "NavigatorApiStability",
         "NavigatorDefaults",
+        "NavigatorDiagnostic",
         "NavigatorFlows",
+        "NavigatorGeneratedFile",
+        "NavigatorGenerationBindings",
+        "NavigatorGenerationOptions",
         "NavigatorNode",
+        "NavigatorNodePlan",
+        "NavigatorPlan",
         "NavigatorPlatformConfig",
         "NavigatorPlatforms",
         "NavigatorPreset",
+        "NavigatorResponsiveSize",
+        "NavigatorRoutePlan",
+        "NavigatorRuntimePlatform",
+        "NavigatorScreenModule",
         "NavigatorScreenReference",
+        "NavigatorSupportStatus",
         "NavigatorType",
+        "NavigatorValidationContext",
+        "ResolvedCustomTabsPresentation",
+        "ResolvedTabsImplementation",
+        "ResolvedTabsPresentation",
         "ResponsiveTabsPresentation",
         "RouteDefinition",
         "SlotNavigatorNode",
@@ -1067,7 +1114,53 @@
         "StackScreenOptions",
         "TabsImplementationConfig",
         "TabsNavigatorConfig",
-        "TabsNavigatorNode"
+        "TabsNavigatorNode",
+        "TabsNavigatorPlan"
+      ]
+    },
+    {
+      "path": "src/navigator/extensions.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/navigator.ts", "src/navigator/planning.ts"],
+      "exports": [
+        "CustomNavigatorConfigIssue",
+        "CustomNavigatorRegistration",
+        "CustomNavigatorRegistry"
+      ]
+    },
+    {
+      "path": "src/navigator/generation.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "NavigatorGeneratedFile",
+        "NavigatorGenerationBindings",
+        "NavigatorGenerationOptions",
+        "NavigatorScreenModule"
+      ]
+    },
+    {
+      "path": "src/navigator/planning.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/navigator.ts", "src/navigator/extensions.ts"],
+      "exports": [
+        "CreateNavigatorPlanOptions",
+        "ExpoRouterNavigatorModule",
+        "NavigatorAdapterId",
+        "NavigatorAdapterPlan",
+        "NavigatorApiStability",
+        "NavigatorDiagnostic",
+        "NavigatorNodePlan",
+        "NavigatorPlan",
+        "NavigatorResponsiveSize",
+        "NavigatorRoutePlan",
+        "NavigatorRuntimePlatform",
+        "NavigatorSupportStatus",
+        "NavigatorValidationContext",
+        "ResolvedCustomTabsPresentation",
+        "ResolvedTabsImplementation",
+        "ResolvedTabsPresentation",
+        "TabsNavigatorPlan"
       ]
     },
     {
@@ -5398,6 +5491,57 @@
       "structuredRows": []
     },
     {
+      "name": "CreateNavigatorPlanOptions",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/navigator/planning.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator/planning.ts",
+        "line": 38,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [
+        "CustomNavigatorRegistry",
+        "NavigatorResponsiveSize",
+        "NavigatorRuntimePlatform"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "customNavigators",
+          "kind": "property",
+          "type": "CustomNavigatorRegistry | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "expoRouterVersion",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "platform",
+          "kind": "property",
+          "type": "NavigatorRuntimePlatform",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "responsiveSize",
+          "kind": "property",
+          "type": "NavigatorResponsiveSize | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
       "name": "CredentialId",
       "description": null,
       "isReadme": false,
@@ -5499,6 +5643,46 @@
       "structuredRows": []
     },
     {
+      "name": "CustomNavigatorConfigIssue",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/navigator/extensions.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator/extensions.ts",
+        "line": 3,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "code",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "message",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "path",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
       "name": "CustomNavigatorNode",
       "description": null,
       "isReadme": false,
@@ -5550,6 +5734,104 @@
           "description": null
         }
       ],
+      "structuredRows": []
+    },
+    {
+      "name": "CustomNavigatorRegistration",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/navigator/extensions.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator/extensions.ts",
+        "line": 9,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [
+        "CustomNavigatorConfigIssue",
+        "CustomNavigatorNode",
+        "NavigatorApiStability",
+        "NavigatorRuntimePlatform"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "exportName",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "id",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "integration",
+          "kind": "property",
+          "type": "\"expo-router-standard\"",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "module",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "platforms",
+          "kind": "property",
+          "type": "readonly NavigatorRuntimePlatform[]",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "router",
+          "kind": "property",
+          "type": "\"stack\" | \"tab\"",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "stability",
+          "kind": "property",
+          "type": "NavigatorApiStability",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "validateConfig",
+          "kind": "property",
+          "type": "(config: CustomNavigatorNode[\"config\"]) => readonly CustomNavigatorConfigIssue[]",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "CustomNavigatorRegistry",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/navigator/extensions.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator/extensions.ts",
+        "line": 22,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
       "structuredRows": []
     },
     {
@@ -8381,6 +8663,24 @@
       "structuredRows": []
     },
     {
+      "name": "ExpoRouterNavigatorModule",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/navigator/planning.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator/planning.ts",
+        "line": 45,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
       "name": "ExternalGraphQlApiDefinition",
       "description": null,
       "isReadme": false,
@@ -10111,6 +10411,103 @@
       "structuredRows": []
     },
     {
+      "name": "NavigatorAdapterId",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/navigator/planning.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator/planning.ts",
+        "line": 55,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "NavigatorAdapterPlan",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/navigator/planning.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator/planning.ts",
+        "line": 67,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["NavigatorAdapterId", "NavigatorApiStability", "NavigatorSupportStatus"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "exportName",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "id",
+          "kind": "property",
+          "type": "NavigatorAdapterId",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "limitations",
+          "kind": "property",
+          "type": "readonly string[]",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "module",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "stability",
+          "kind": "property",
+          "type": "NavigatorApiStability",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "support",
+          "kind": "property",
+          "type": "NavigatorSupportStatus",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "NavigatorApiStability",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/navigator/planning.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator/planning.ts",
+        "line": 77,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
       "name": "NavigatorDefaults",
       "description": null,
       "isReadme": false,
@@ -10138,6 +10535,53 @@
           "kind": "property",
           "type": "TabsImplementationConfig | undefined",
           "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "NavigatorDiagnostic",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/navigator/planning.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator/planning.ts",
+        "line": 79,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "code",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "message",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "path",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "severity",
+          "kind": "property",
+          "type": "\"error\" | \"warning\"",
+          "required": true,
           "description": null
         }
       ],
@@ -10177,6 +10621,126 @@
       "structuredRows": []
     },
     {
+      "name": "NavigatorGeneratedFile",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/navigator/generation.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator/generation.ts",
+        "line": 1,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "contents",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "path",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "NavigatorGenerationBindings",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/navigator/generation.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator/generation.ts",
+        "line": 6,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["NavigatorScreenModule"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "flows",
+          "kind": "property",
+          "type": "{ onboardingRoute?: string; authenticationRoute?: string; } | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "guards",
+          "kind": "property",
+          "type": "Readonly<Record<string, NavigatorScreenModule>>",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "iconSourceResolver",
+          "kind": "property",
+          "type": "NavigatorScreenModule | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "screens",
+          "kind": "property",
+          "type": "Readonly<Record<string, NavigatorScreenModule>>",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "tabPresentations",
+          "kind": "property",
+          "type": "Readonly<Record<string, NavigatorScreenModule>> | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "NavigatorGenerationOptions",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/navigator/generation.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator/generation.ts",
+        "line": 18,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "includeScreenFiles",
+          "kind": "property",
+          "type": "boolean | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "rootDirectory",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
       "name": "NavigatorNode",
       "description": null,
       "isReadme": false,
@@ -10192,6 +10756,157 @@
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "NavigatorNodePlan",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/navigator/planning.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator/planning.ts",
+        "line": 86,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [
+        "CustomNavigatorNode",
+        "DrawerNavigatorOptions",
+        "NavigatorAdapterPlan",
+        "NavigatorRoutePlan",
+        "StackImplementation",
+        "StackScreenOptions",
+        "TabsNavigatorPlan"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "adapter",
+          "kind": "property",
+          "type": "NavigatorAdapterPlan",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "custom",
+          "kind": "property",
+          "type": "{ navigatorId: string; config?: CustomNavigatorNode[\"config\"]; } | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "drawer",
+          "kind": "property",
+          "type": "{ options?: DrawerNavigatorOptions; } | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "initialRouteName",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "pointer",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "routes",
+          "kind": "property",
+          "type": "readonly NavigatorRoutePlan[]",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "splitView",
+          "kind": "property",
+          "type": "{ columns: { primary: string; supplementary?: string; }; inspector?: string; topColumnForCollapsing?: \"primary\" | \"secondary\" | \"supplementary\"; } | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "stack",
+          "kind": "property",
+          "type": "{ implementation: StackImplementation; options?: StackScreenOptions; } | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "tabs",
+          "kind": "property",
+          "type": "TabsNavigatorPlan | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "type",
+          "kind": "property",
+          "type": "\"custom\" | \"slot\" | \"drawer\" | \"split-view\" | \"stack\" | \"tabs\"",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "NavigatorPlan",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/navigator/planning.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator/planning.ts",
+        "line": 114,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["NavigatorDiagnostic", "NavigatorNodePlan", "NavigatorValidationContext"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "context",
+          "kind": "property",
+          "type": "NavigatorValidationContext",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "diagnostics",
+          "kind": "property",
+          "type": "readonly NavigatorDiagnostic[]",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "flows",
+          "kind": "property",
+          "type": "{ onboarding: boolean; authentication: boolean; }",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "root",
+          "kind": "property",
+          "type": "NavigatorNodePlan",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "supported",
+          "kind": "property",
+          "type": "boolean",
+          "required": true,
+          "description": null
+        }
+      ],
       "structuredRows": []
     },
     {
@@ -10286,6 +11001,157 @@
       "structuredRows": []
     },
     {
+      "name": "NavigatorResponsiveSize",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/navigator/planning.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator/planning.ts",
+        "line": 125,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "NavigatorRoutePlan",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/navigator/planning.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator/planning.ts",
+        "line": 127,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["IconSpec", "NavigatorNodePlan", "StackScreenOptions"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "guards",
+          "kind": "property",
+          "type": "readonly string[]",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "icon",
+          "kind": "property",
+          "type": "import(\"..\").IconSpec | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "label",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "name",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "navigator",
+          "kind": "property",
+          "type": "NavigatorNodePlan | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "path",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "screenId",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "showInPrimaryNavigation",
+          "kind": "property",
+          "type": "boolean | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "stackOptions",
+          "kind": "property",
+          "type": "StackScreenOptions | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "NavigatorRuntimePlatform",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/navigator/planning.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator/planning.ts",
+        "line": 139,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "NavigatorScreenModule",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/navigator/generation.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator/generation.ts",
+        "line": 25,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "exportName",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "module",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
       "name": "NavigatorScreenReference",
       "description": null,
       "isReadme": false,
@@ -10312,6 +11178,24 @@
       "structuredRows": []
     },
     {
+      "name": "NavigatorSupportStatus",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/navigator/planning.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator/planning.ts",
+        "line": 141,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
       "name": "NavigatorType",
       "description": null,
       "isReadme": false,
@@ -10327,6 +11211,39 @@
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "NavigatorValidationContext",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/navigator/planning.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator/planning.ts",
+        "line": 143,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["NavigatorRuntimePlatform"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "expoRouterVersion",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "platform",
+          "kind": "property",
+          "type": "NavigatorRuntimePlatform",
+          "required": true,
+          "description": null
+        }
+      ],
       "structuredRows": []
     },
     {
@@ -10745,6 +11662,75 @@
           "returnDescription": null
         }
       ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "ResolvedCustomTabsPresentation",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/navigator/planning.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator/planning.ts",
+        "line": 11,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["ResolvedTabsPresentation"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "customPresentationId",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "presentation",
+          "kind": "property",
+          "type": "ResolvedTabsPresentation",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "ResolvedTabsImplementation",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/navigator/planning.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator/planning.ts",
+        "line": 16,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "ResolvedTabsPresentation",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/navigator/planning.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator/planning.ts",
+        "line": 18,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
       "members": [],
       "structuredRows": []
     },
@@ -11722,7 +12708,7 @@
         {
           "name": "code",
           "kind": "property",
-          "type": "\"provider_error\" | \"invalid_config\" | \"invalid_reference\" | \"invalid_payload\" | \"not_found\" | \"conflict\" | \"permission_denied\" | \"unavailable\"",
+          "type": "\"provider_error\" | \"unavailable\" | \"invalid_config\" | \"invalid_reference\" | \"invalid_payload\" | \"not_found\" | \"conflict\" | \"permission_denied\"",
           "required": true,
           "description": null
         },
@@ -13884,6 +14870,94 @@
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "TabsNavigatorPlan",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/navigator/planning.ts",
+      "sourceLocation": {
+        "filePath": "src/navigator/planning.ts",
+        "line": 26,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [
+        "ExpoRouterNavigatorModule",
+        "NavigatorApiStability",
+        "NavigatorResponsiveSize",
+        "ResolvedTabsImplementation",
+        "ResolvedTabsPresentation"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "bottomAccessoryScreenId",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "customPresentationId",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "exportName",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "implementation",
+          "kind": "property",
+          "type": "ResolvedTabsImplementation",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "minimizeBehavior",
+          "kind": "property",
+          "type": "\"automatic\" | \"never\" | \"onScrollDown\" | \"onScrollUp\" | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "module",
+          "kind": "property",
+          "type": "ExpoRouterNavigatorModule",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "presentation",
+          "kind": "property",
+          "type": "ResolvedTabsPresentation | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "presentations",
+          "kind": "property",
+          "type": "Readonly<Record<NavigatorResponsiveSize, ResolvedTabsPresentation>> | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "stability",
+          "kind": "property",
+          "type": "NavigatorApiStability",
+          "required": true,
+          "description": null
+        }
+      ],
       "structuredRows": []
     },
     {
@@ -16295,7 +17369,7 @@
       "description": "Validate the serializable native-stack screen option subset.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 37,
+        "line": 50,
         "column": 1
       }
     },
@@ -16304,7 +17378,7 @@
       "description": "Validate the finite serializable Drawer option subset.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 66,
+        "line": 79,
         "column": 1
       }
     },
@@ -16313,7 +17387,7 @@
       "description": "Validate tabs implementation desired state, with omitted implementation meaning adaptive.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 81,
+        "line": 94,
         "column": 1
       }
     },
@@ -16322,7 +17396,7 @@
       "description": "Validate a reference into the app-owned screen registry.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 95,
+        "line": 108,
         "column": 1
       }
     },
@@ -16331,7 +17405,7 @@
       "description": "Check that a finite configuration object contains no unsupported keys.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 100,
+        "line": 113,
         "column": 1
       }
     },
@@ -16340,7 +17414,7 @@
       "description": "Validate JavaScript Stack options without accepting native-only presentations.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 109,
+        "line": 122,
         "column": 1
       }
     },
@@ -16349,7 +17423,7 @@
       "description": "Validate the portable header subset supported by Experimental Stack.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 127,
+        "line": 140,
         "column": 1
       }
     },
@@ -16358,7 +17432,7 @@
       "description": "Validate shared stack header field values after branch-specific key filtering.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 136,
+        "line": 149,
         "column": 1
       }
     },
@@ -16367,7 +17441,7 @@
       "description": "Validate sorted, finite native sheet detents or the fit-to-content sentinel.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 146,
+        "line": 159,
         "column": 1
       }
     },
@@ -16376,7 +17450,7 @@
       "description": "Validate an adaptive tabs branch and reject implementation-specific conflicts.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 160,
+        "line": 173,
         "column": 1
       }
     },
@@ -16385,7 +17459,7 @@
       "description": "Validate the top-level native tabs implementation.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 176,
+        "line": 189,
         "column": 1
       }
     },
@@ -16394,7 +17468,7 @@
       "description": "Validate the top-level JavaScript tabs implementation.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 190,
+        "line": 203,
         "column": 1
       }
     },
@@ -16403,7 +17477,7 @@
       "description": "Validate the native branch used by adaptive tabs.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 208,
+        "line": 221,
         "column": 1
       }
     },
@@ -16412,7 +17486,7 @@
       "description": "Validate fields supported by the native tabs branch.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 218,
+        "line": 231,
         "column": 1
       }
     },
@@ -16421,7 +17495,7 @@
       "description": "Validate the implementation-free custom-tabs Web branch inside adaptive tabs.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 228,
+        "line": 241,
         "column": 1
       }
     },
@@ -16430,7 +17504,7 @@
       "description": "Validate custom-tab presentation and its conditional serializable configuration.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 237,
+        "line": 250,
         "column": 1
       }
     },
@@ -16439,7 +17513,7 @@
       "description": "Validate semantic compact/medium/expanded custom-tab presentation mapping.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 262,
+        "line": 275,
         "column": 1
       }
     },
@@ -16448,7 +17522,7 @@
       "description": "Check that mutually exclusive branch fields are absent.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 276,
+        "line": 289,
         "column": 1
       }
     },
@@ -16911,6 +17985,21 @@
         "sourcePath": "src/navigator.ts"
       },
       {
+        "fromPath": "src/navigator.ts",
+        "toPath": "src/navigator/extensions.ts",
+        "sourcePath": "src/navigator.ts"
+      },
+      {
+        "fromPath": "src/navigator.ts",
+        "toPath": "src/navigator/generation.ts",
+        "sourcePath": "src/navigator.ts"
+      },
+      {
+        "fromPath": "src/navigator.ts",
+        "toPath": "src/navigator/planning.ts",
+        "sourcePath": "src/navigator.ts"
+      },
+      {
         "fromPath": "src/runtimeCallbacks.ts",
         "toPath": "src/types.ts",
         "sourcePath": "src/runtimeCallbacks.ts"
@@ -17274,6 +18363,26 @@
         "fromPath": "src/data/sources.ts",
         "toPath": "src/data/values.ts",
         "sourcePath": "src/data/sources.ts"
+      },
+      {
+        "fromPath": "src/navigator/extensions.ts",
+        "toPath": "src/navigator.ts",
+        "sourcePath": "src/navigator/extensions.ts"
+      },
+      {
+        "fromPath": "src/navigator/extensions.ts",
+        "toPath": "src/navigator/planning.ts",
+        "sourcePath": "src/navigator/extensions.ts"
+      },
+      {
+        "fromPath": "src/navigator/planning.ts",
+        "toPath": "src/navigator.ts",
+        "sourcePath": "src/navigator/planning.ts"
+      },
+      {
+        "fromPath": "src/navigator/planning.ts",
+        "toPath": "src/navigator/extensions.ts",
+        "sourcePath": "src/navigator/planning.ts"
       }
     ],
     "calls": [
@@ -18845,6 +19954,12 @@
       },
       {
         "fromSymbol": "isStackImplementationConfig",
+        "toSymbol": "hasNoDefinedKeys",
+        "callExpression": "hasNoDefinedKeys",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
+        "fromSymbol": "isStackImplementationConfig",
         "toSymbol": "isStackScreenOptions",
         "callExpression": "isStackScreenOptions",
         "sourcePath": "src/appManifest/navigatorOptions.ts"
@@ -20229,6 +21344,171 @@
         "fromSymbol": "NavigatorPlatforms",
         "toType": "NavigatorPlatformConfig",
         "sourcePath": "src/navigator.ts"
+      },
+      {
+        "fromSymbol": "CustomNavigatorRegistration",
+        "toType": "CustomNavigatorConfigIssue",
+        "sourcePath": "src/navigator/extensions.ts"
+      },
+      {
+        "fromSymbol": "CustomNavigatorRegistration",
+        "toType": "CustomNavigatorNode",
+        "sourcePath": "src/navigator/extensions.ts"
+      },
+      {
+        "fromSymbol": "CustomNavigatorRegistration",
+        "toType": "NavigatorApiStability",
+        "sourcePath": "src/navigator/extensions.ts"
+      },
+      {
+        "fromSymbol": "CustomNavigatorRegistration",
+        "toType": "NavigatorRuntimePlatform",
+        "sourcePath": "src/navigator/extensions.ts"
+      },
+      {
+        "fromSymbol": "NavigatorGenerationBindings",
+        "toType": "NavigatorScreenModule",
+        "sourcePath": "src/navigator/generation.ts"
+      },
+      {
+        "fromSymbol": "NavigatorGenerationBindings",
+        "toType": "Readonly",
+        "sourcePath": "src/navigator/generation.ts"
+      },
+      {
+        "fromSymbol": "CreateNavigatorPlanOptions",
+        "toType": "CustomNavigatorRegistry",
+        "sourcePath": "src/navigator/planning.ts"
+      },
+      {
+        "fromSymbol": "CreateNavigatorPlanOptions",
+        "toType": "NavigatorResponsiveSize",
+        "sourcePath": "src/navigator/planning.ts"
+      },
+      {
+        "fromSymbol": "CreateNavigatorPlanOptions",
+        "toType": "NavigatorRuntimePlatform",
+        "sourcePath": "src/navigator/planning.ts"
+      },
+      {
+        "fromSymbol": "NavigatorAdapterPlan",
+        "toType": "NavigatorAdapterId",
+        "sourcePath": "src/navigator/planning.ts"
+      },
+      {
+        "fromSymbol": "NavigatorAdapterPlan",
+        "toType": "NavigatorApiStability",
+        "sourcePath": "src/navigator/planning.ts"
+      },
+      {
+        "fromSymbol": "NavigatorAdapterPlan",
+        "toType": "NavigatorSupportStatus",
+        "sourcePath": "src/navigator/planning.ts"
+      },
+      {
+        "fromSymbol": "NavigatorNodePlan",
+        "toType": "CustomNavigatorNode",
+        "sourcePath": "src/navigator/planning.ts"
+      },
+      {
+        "fromSymbol": "NavigatorNodePlan",
+        "toType": "DrawerNavigatorOptions",
+        "sourcePath": "src/navigator/planning.ts"
+      },
+      {
+        "fromSymbol": "NavigatorNodePlan",
+        "toType": "NavigatorAdapterPlan",
+        "sourcePath": "src/navigator/planning.ts"
+      },
+      {
+        "fromSymbol": "NavigatorNodePlan",
+        "toType": "NavigatorRoutePlan",
+        "sourcePath": "src/navigator/planning.ts"
+      },
+      {
+        "fromSymbol": "NavigatorNodePlan",
+        "toType": "StackImplementation",
+        "sourcePath": "src/navigator/planning.ts"
+      },
+      {
+        "fromSymbol": "NavigatorNodePlan",
+        "toType": "StackScreenOptions",
+        "sourcePath": "src/navigator/planning.ts"
+      },
+      {
+        "fromSymbol": "NavigatorNodePlan",
+        "toType": "TabsNavigatorPlan",
+        "sourcePath": "src/navigator/planning.ts"
+      },
+      {
+        "fromSymbol": "NavigatorPlan",
+        "toType": "NavigatorDiagnostic",
+        "sourcePath": "src/navigator/planning.ts"
+      },
+      {
+        "fromSymbol": "NavigatorPlan",
+        "toType": "NavigatorNodePlan",
+        "sourcePath": "src/navigator/planning.ts"
+      },
+      {
+        "fromSymbol": "NavigatorPlan",
+        "toType": "NavigatorValidationContext",
+        "sourcePath": "src/navigator/planning.ts"
+      },
+      {
+        "fromSymbol": "NavigatorRoutePlan",
+        "toType": "IconSpec",
+        "sourcePath": "src/navigator/planning.ts"
+      },
+      {
+        "fromSymbol": "NavigatorRoutePlan",
+        "toType": "NavigatorNodePlan",
+        "sourcePath": "src/navigator/planning.ts"
+      },
+      {
+        "fromSymbol": "NavigatorRoutePlan",
+        "toType": "StackScreenOptions",
+        "sourcePath": "src/navigator/planning.ts"
+      },
+      {
+        "fromSymbol": "NavigatorValidationContext",
+        "toType": "NavigatorRuntimePlatform",
+        "sourcePath": "src/navigator/planning.ts"
+      },
+      {
+        "fromSymbol": "ResolvedCustomTabsPresentation",
+        "toType": "ResolvedTabsPresentation",
+        "sourcePath": "src/navigator/planning.ts"
+      },
+      {
+        "fromSymbol": "TabsNavigatorPlan",
+        "toType": "ExpoRouterNavigatorModule",
+        "sourcePath": "src/navigator/planning.ts"
+      },
+      {
+        "fromSymbol": "TabsNavigatorPlan",
+        "toType": "NavigatorApiStability",
+        "sourcePath": "src/navigator/planning.ts"
+      },
+      {
+        "fromSymbol": "TabsNavigatorPlan",
+        "toType": "NavigatorResponsiveSize",
+        "sourcePath": "src/navigator/planning.ts"
+      },
+      {
+        "fromSymbol": "TabsNavigatorPlan",
+        "toType": "Readonly",
+        "sourcePath": "src/navigator/planning.ts"
+      },
+      {
+        "fromSymbol": "TabsNavigatorPlan",
+        "toType": "ResolvedTabsImplementation",
+        "sourcePath": "src/navigator/planning.ts"
+      },
+      {
+        "fromSymbol": "TabsNavigatorPlan",
+        "toType": "ResolvedTabsPresentation",
+        "sourcePath": "src/navigator/planning.ts"
       },
       {
         "fromSymbol": "ScreenRequirements",
