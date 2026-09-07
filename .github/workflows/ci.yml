@@ -87,13 +87,7 @@ jobs:
       - name: Check changesets
         if: github.event_name == 'pull_request'
         run: |
-          base_version="$(git show origin/main:package.json | node -p "JSON.parse(require('fs').readFileSync(0, 'utf8')).version")"
-          current_version="$(node -p "require('./package.json').version")"
-          consumed_changesets="$(git diff --name-status origin/main...HEAD -- .changeset | awk '$1 == "D" { count++ } END { print count + 0 }')"
-
-          if [ "$base_version" != "$current_version" ] && [ "$consumed_changesets" -gt 0 ]; then
-            echo "Version PR consumes $consumed_changesets changeset(s): $base_version -> $current_version"
-          elif node -e "const p=require('./package.json'); process.exit(p.scripts?.['changeset:status'] ? 0 : 1)"; then
+          if node -e "const p=require('./package.json'); process.exit(p.scripts?.['changeset:status'] ? 0 : 1)"; then
             bun run changeset:status
           else
             echo "No changeset:status script found; skipping."
