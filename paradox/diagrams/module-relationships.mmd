@@ -39,6 +39,9 @@ graph LR
   module_src_storage_ts["src/storage.ts"]
   module_src_theme_ts["src/theme.ts"]
   module_src_types_ts["src/types.ts"]
+  module_src_types_navigatorExtensions_ts["src/types/navigatorExtensions.ts"]
+  module_src_types_navigatorGeneration_ts["src/types/navigatorGeneration.ts"]
+  module_src_types_navigatorPlanning_ts["src/types/navigatorPlanning.ts"]
   module_src_ui_ts["src/ui.ts"]
   module_src_appManifest_ts --> module_src_appManifest_bindings_ts
   module_src_appManifest_ts --> module_src_appManifest_dataSources_ts
@@ -114,5 +117,9 @@ graph LR
   module_src_types_ts --> module_src_repository_ts
   module_src_types_ts --> module_src_requirements_ts
   module_src_types_ts --> module_src_theme_ts
+  module_src_types_navigatorExtensions_ts --> module_src_navigator_ts
+  module_src_types_navigatorExtensions_ts --> module_src_types_navigatorPlanning_ts
+  module_src_types_navigatorPlanning_ts --> module_src_navigator_ts
+  module_src_types_navigatorPlanning_ts --> module_src_types_navigatorExtensions_ts
   module_src_ui_ts --> module_src_media_ts
   module_src_ui_ts --> module_src_types_ts
