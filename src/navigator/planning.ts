@@ -7,13 +7,14 @@ import type {
   StackScreenOptions,
 } from '../navigator';
 import type { CustomNavigatorRegistry } from './extensions';
+import type { NavigatorDependencyRequirement } from './generation';
 
-export interface ResolvedCustomTabsPresentation {
+export interface ResolvedHeadlessTabsPresentation {
   presentation: ResolvedTabsPresentation;
   customPresentationId?: string;
 }
 
-export type ResolvedTabsImplementation = 'custom' | 'javascript' | 'native';
+export type ResolvedTabsImplementation = 'headless' | 'javascript' | 'native';
 
 export type ResolvedTabsPresentation = 'bottom' | 'top' | 'rail' | 'sidebar' | 'custom';
 
@@ -60,7 +61,7 @@ export type NavigatorAdapterId =
   | 'drawer'
   | 'tabs.native'
   | 'tabs.javascript'
-  | 'tabs.custom'
+  | 'tabs.headless'
   | 'split-view'
   | 'custom';
 
@@ -75,6 +76,8 @@ export interface NavigatorAdapterPlan {
 }
 
 export type NavigatorApiStability = 'stable' | 'alpha';
+
+export type NavigatorCapabilityId = string;
 
 export interface NavigatorDiagnostic {
   code: string;
@@ -115,11 +118,9 @@ export interface NavigatorPlan {
   context: NavigatorValidationContext;
   root: NavigatorNodePlan;
   diagnostics: readonly NavigatorDiagnostic[];
-  supported: boolean;
-  flows: {
-    onboarding: boolean;
-    authentication: boolean;
-  };
+  support: NavigatorSupportStatus;
+  capabilityIds: readonly NavigatorCapabilityId[];
+  dependencies: readonly NavigatorDependencyRequirement[];
 }
 
 export type NavigatorResponsiveSize = 'compact' | 'medium' | 'expanded';
@@ -138,7 +139,7 @@ export interface NavigatorRoutePlan {
 
 export type NavigatorRuntimePlatform = 'android' | 'ios' | 'web';
 
-export type NavigatorSupportStatus = 'supported' | 'unavailable';
+export type NavigatorSupportStatus = 'supported' | 'testing-only' | 'unsupported';
 
 export interface NavigatorValidationContext {
   platform: NavigatorRuntimePlatform;

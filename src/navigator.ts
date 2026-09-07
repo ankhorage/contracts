@@ -8,16 +8,16 @@ export const NAVIGATOR_PRESETS = [
   'stack',
   'tabs',
   'tabs-stack',
+  'stack-tabs',
+  'stack-tabs-stack',
   'drawer',
   'drawer-stack',
+  'stack-drawer',
+  'stack-drawer-stack',
   'drawer-tabs',
   'drawer-tabs-stack',
-  'root-stack-tabs',
-  'root-stack-tabs-stack',
-  'root-stack-drawer',
-  'root-stack-drawer-stack',
-  'root-stack-drawer-tabs',
-  'root-stack-drawer-tabs-stack',
+  'stack-drawer-tabs',
+  'stack-drawer-tabs-stack',
   'split-view',
   'custom',
 ] as const;
@@ -94,15 +94,15 @@ export interface DrawerNavigatorOptions {
   headerShown?: boolean;
 }
 
-export const FIXED_CUSTOM_TABS_PRESENTATIONS = ['bottom', 'top', 'rail', 'sidebar'] as const;
-export type FixedCustomTabsPresentation = (typeof FIXED_CUSTOM_TABS_PRESENTATIONS)[number];
+export const FIXED_HEADLESS_TABS_PRESENTATIONS = ['bottom', 'top', 'rail', 'sidebar'] as const;
+export type FixedHeadlessTabsPresentation = (typeof FIXED_HEADLESS_TABS_PRESENTATIONS)[number];
 
-export const CUSTOM_TABS_PRESENTATIONS = [
-  ...FIXED_CUSTOM_TABS_PRESENTATIONS,
+export const HEADLESS_TABS_PRESENTATIONS = [
+  ...FIXED_HEADLESS_TABS_PRESENTATIONS,
   'responsive',
   'custom',
 ] as const;
-export type CustomTabsPresentation = (typeof CUSTOM_TABS_PRESENTATIONS)[number];
+export type HeadlessTabsPresentation = (typeof HEADLESS_TABS_PRESENTATIONS)[number];
 
 export const JAVASCRIPT_TABS_PRESENTATIONS = ['bottom', 'top'] as const;
 export type JavaScriptTabsPresentation = (typeof JAVASCRIPT_TABS_PRESENTATIONS)[number];
@@ -116,14 +116,14 @@ export const NATIVE_TABS_MINIMIZE_BEHAVIORS = [
 export type NativeTabsMinimizeBehavior = (typeof NATIVE_TABS_MINIMIZE_BEHAVIORS)[number];
 
 export interface ResponsiveTabsPresentation {
-  compact: FixedCustomTabsPresentation;
-  medium?: FixedCustomTabsPresentation;
-  expanded: FixedCustomTabsPresentation;
+  compact: FixedHeadlessTabsPresentation;
+  medium?: FixedHeadlessTabsPresentation;
+  expanded: FixedHeadlessTabsPresentation;
 }
 
-export type CustomTabsPresentationConfig =
+export type HeadlessTabsPresentationConfig =
   | {
-      presentation: FixedCustomTabsPresentation;
+      presentation: FixedHeadlessTabsPresentation;
       responsive?: never;
       customPresentationId?: never;
     }
@@ -139,11 +139,11 @@ export type CustomTabsPresentationConfig =
       customPresentationId: string;
     };
 
-export type CustomTabsConfig = {
-  implementation: 'custom';
-} & CustomTabsPresentationConfig;
+export type HeadlessTabsConfig = {
+  implementation: 'headless';
+} & HeadlessTabsPresentationConfig;
 
-export type CustomTabsWebConfig = CustomTabsPresentationConfig;
+export type HeadlessTabsWebConfig = HeadlessTabsPresentationConfig;
 
 export interface NavigatorScreenReference {
   screenId: string;
@@ -167,12 +167,12 @@ export interface AdaptiveTabsConfig {
   implementation?: 'adaptive';
   /** Android/iOS branch. Expo Router may expose this implementation as unstable. */
   native?: NativeTabsConfig;
-  /** Web branch rendered through headless custom tabs. */
-  web?: CustomTabsWebConfig;
+  /** Web branch rendered through headless tabs. */
+  web?: HeadlessTabsWebConfig;
 }
 
 export type TabsImplementationConfig =
-  AdaptiveTabsConfig | CustomTabsConfig | JavaScriptTabsConfig | NativeTabsConfig;
+  AdaptiveTabsConfig | HeadlessTabsConfig | JavaScriptTabsConfig | NativeTabsConfig;
 
 interface NavigatorNodeBase {
   initialRouteName?: string;
@@ -237,11 +237,6 @@ export interface RouteDefinition {
   navigator?: NavigatorNode;
 }
 
-export interface NavigatorFlows {
-  onboarding?: boolean;
-  authentication?: boolean;
-}
-
 export interface NavigatorDefaults {
   tabs?: TabsImplementationConfig;
   stack?: StackImplementationConfig;
@@ -266,20 +261,33 @@ export interface NavigatorPlatforms {
  */
 export type AppNavigatorManifest = NavigatorNode & {
   preset?: NavigatorPreset;
-  flows?: NavigatorFlows;
   defaults?: NavigatorDefaults;
   platforms?: NavigatorPlatforms;
 };
 
+export type {
+  NavigatorCapabilityDescriptor,
+  NavigatorCapabilityRequirement,
+  NavigatorCapabilityTarget,
+  NavigatorCapabilityVerification,
+  NavigatorCatalog,
+  NavigatorImplementation,
+  NavigatorPresentation,
+  NavigatorPresetDescriptor,
+  NavigatorVerificationKind,
+  NavigatorVerificationStatus,
+} from './navigator/catalog';
 export type {
   CustomNavigatorConfigIssue,
   CustomNavigatorRegistration,
   CustomNavigatorRegistry,
 } from './navigator/extensions';
 export type {
+  NavigatorDependencyRequirement,
   NavigatorGeneratedFile,
   NavigatorGenerationBindings,
   NavigatorGenerationOptions,
+  NavigatorGenerationResult,
   NavigatorScreenModule,
 } from './navigator/generation';
 export type {
@@ -288,6 +296,7 @@ export type {
   NavigatorAdapterId,
   NavigatorAdapterPlan,
   NavigatorApiStability,
+  NavigatorCapabilityId,
   NavigatorDiagnostic,
   NavigatorNodePlan,
   NavigatorPlan,
@@ -296,7 +305,7 @@ export type {
   NavigatorRuntimePlatform,
   NavigatorSupportStatus,
   NavigatorValidationContext,
-  ResolvedCustomTabsPresentation,
+  ResolvedHeadlessTabsPresentation,
   ResolvedTabsImplementation,
   ResolvedTabsPresentation,
   TabsNavigatorPlan,

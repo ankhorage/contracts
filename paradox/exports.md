@@ -48,11 +48,11 @@ Source: `src/navigator.ts:165:1`
 
 ### Members
 
-| Name           | Kind     | Type                                        | Required | Description |
-| -------------- | -------- | ------------------------------------------- | -------- | ----------- |
-| implementation | property | `"adaptive" \| undefined`                   | no       |             |
-| native         | property | `NativeTabsConfig \| undefined`             | no       |             |
-| web            | property | `CustomTabsPresentationConfig \| undefined` | no       |             |
+| Name           | Kind     | Type                                          | Required | Description |
+| -------------- | -------- | --------------------------------------------- | -------- | ----------- |
+| implementation | property | `"adaptive" \| undefined`                     | no       |             |
+| native         | property | `NativeTabsConfig \| undefined`               | no       |             |
+| web            | property | `HeadlessTabsPresentationConfig \| undefined` | no       |             |
 
 ## AlertAction
 
@@ -358,7 +358,7 @@ Source: `src/appManifest.ts:16:1`
 
 Kind: `unknown`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:267:1`
+Source: `src/navigator.ts:262:1`
 
 ## AppSettings
 
@@ -1309,7 +1309,7 @@ Source: `src/types.ts:51:1`
 
 Kind: `type`
 Module: `src/navigator/planning.ts`
-Source: `src/navigator/planning.ts:38:1`
+Source: `src/navigator/planning.ts:39:1`
 
 ### Members
 
@@ -1346,12 +1346,6 @@ Source: `src/data/refs.ts:6:1`
 | kind  | property | `(string & {}) \| CredentialKind` | yes      |             |
 | label | property | `string \| undefined`             | no       |             |
 | scope | property | `string \| undefined`             | no       |             |
-
-## CUSTOM_TABS_PRESENTATIONS
-
-Kind: `value`
-Module: `src/navigator.ts`
-Source: `src/navigator.ts:100:14`
 
 ## CustomNavigatorConfigIssue
 
@@ -1407,30 +1401,6 @@ Source: `src/navigator/extensions.ts:9:1`
 Kind: `unknown`
 Module: `src/navigator/extensions.ts`
 Source: `src/navigator/extensions.ts:22:1`
-
-## CustomTabsConfig
-
-Kind: `unknown`
-Module: `src/navigator.ts`
-Source: `src/navigator.ts:142:1`
-
-## CustomTabsPresentation
-
-Kind: `unknown`
-Module: `src/navigator.ts`
-Source: `src/navigator.ts:105:1`
-
-## CustomTabsPresentationConfig
-
-Kind: `unknown`
-Module: `src/navigator.ts`
-Source: `src/navigator.ts:124:1`
-
-## CustomTabsWebConfig
-
-Kind: `unknown`
-Module: `src/navigator.ts`
-Source: `src/navigator.ts:146:1`
 
 ## DATABASE_PROVIDERS
 
@@ -2287,7 +2257,7 @@ Source: `src/bindings.ts:114:1`
 
 Kind: `unknown`
 Module: `src/navigator/planning.ts`
-Source: `src/navigator/planning.ts:45:1`
+Source: `src/navigator/planning.ts:46:1`
 
 ## ExternalGraphQlApiDefinition
 
@@ -2358,13 +2328,13 @@ Source: `src/secrets.ts:183:1`
   - value: `unknown`
   - returns: `readonly string[]`
 
-## FIXED_CUSTOM_TABS_PRESENTATIONS
+## FIXED_HEADLESS_TABS_PRESENTATIONS
 
 Kind: `value`
 Module: `src/navigator.ts`
 Source: `src/navigator.ts:97:14`
 
-## FixedCustomTabsPresentation
+## FixedHeadlessTabsPresentation
 
 Kind: `unknown`
 Module: `src/navigator.ts`
@@ -2400,6 +2370,36 @@ Source: `src/data/apis.ts:35:1`
 | ------------- | -------- | --------------------- | -------- | ----------- |
 | enabled       | property | `boolean`             | yes      |             |
 | schemaVersion | property | `string \| undefined` | no       |             |
+
+## HEADLESS_TABS_PRESENTATIONS
+
+Kind: `value`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:100:14`
+
+## HeadlessTabsConfig
+
+Kind: `unknown`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:142:1`
+
+## HeadlessTabsPresentation
+
+Kind: `unknown`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:105:1`
+
+## HeadlessTabsPresentationConfig
+
+Kind: `unknown`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:124:1`
+
+## HeadlessTabsWebConfig
+
+Kind: `unknown`
+Module: `src/navigator.ts`
+Source: `src/navigator.ts:146:1`
 
 ## IconSpec
 
@@ -2837,13 +2837,13 @@ Source: `src/navigator.ts:3:14`
 
 Kind: `unknown`
 Module: `src/navigator/planning.ts`
-Source: `src/navigator/planning.ts:55:1`
+Source: `src/navigator/planning.ts:56:1`
 
 ## NavigatorAdapterPlan
 
 Kind: `type`
 Module: `src/navigator/planning.ts`
-Source: `src/navigator/planning.ts:67:1`
+Source: `src/navigator/planning.ts:68:1`
 
 ### Members
 
@@ -2860,13 +2860,93 @@ Source: `src/navigator/planning.ts:67:1`
 
 Kind: `unknown`
 Module: `src/navigator/planning.ts`
-Source: `src/navigator/planning.ts:77:1`
+Source: `src/navigator/planning.ts:78:1`
+
+## NavigatorCapabilityDescriptor
+
+Kind: `type`
+Module: `src/navigator/catalog.ts`
+Source: `src/navigator/catalog.ts:57:1`
+
+### Members
+
+| Name              | Kind     | Type                                                                  | Required | Description |
+| ----------------- | -------- | --------------------------------------------------------------------- | -------- | ----------- |
+| dependencies      | property | `readonly NavigatorDependencyRequirement[]`                           | yes      |             |
+| id                | property | `string`                                                              | yes      |             |
+| implementation    | property | `NavigatorImplementation \| undefined`                                | no       |             |
+| incompatibilities | property | `readonly string[]`                                                   | yes      |             |
+| limitations       | property | `readonly string[]`                                                   | yes      |             |
+| presentation      | property | `NavigatorPresentation \| undefined`                                  | no       |             |
+| requirements      | property | `readonly NavigatorCapabilityRequirement[]`                           | yes      |             |
+| stability         | property | `NavigatorApiStability`                                               | yes      |             |
+| targets           | property | `readonly NavigatorCapabilityTarget[]`                                | yes      |             |
+| topology          | property | `"custom" \| "slot" \| "drawer" \| "split-view" \| "stack" \| "tabs"` | yes      |             |
+
+## NavigatorCapabilityId
+
+Kind: `unknown`
+Module: `src/navigator/planning.ts`
+Source: `src/navigator/planning.ts:80:1`
+
+## NavigatorCapabilityRequirement
+
+Kind: `type`
+Module: `src/navigator/catalog.ts`
+Source: `src/navigator/catalog.ts:52:1`
+
+### Members
+
+| Name        | Kind     | Type     | Required | Description |
+| ----------- | -------- | -------- | -------- | ----------- |
+| description | property | `string` | yes      |             |
+| id          | property | `string` | yes      |             |
+
+## NavigatorCapabilityTarget
+
+Kind: `type`
+Module: `src/navigator/catalog.ts`
+Source: `src/navigator/catalog.ts:46:1`
+
+### Members
+
+| Name         | Kind     | Type                                         | Required | Description |
+| ------------ | -------- | -------------------------------------------- | -------- | ----------- |
+| platform     | property | `NavigatorRuntimePlatform`                   | yes      |             |
+| support      | property | `NavigatorSupportStatus`                     | yes      |             |
+| verification | property | `readonly NavigatorCapabilityVerification[]` | yes      |             |
+
+## NavigatorCapabilityVerification
+
+Kind: `type`
+Module: `src/navigator/catalog.ts`
+Source: `src/navigator/catalog.ts:41:1`
+
+### Members
+
+| Name   | Kind     | Type                          | Required | Description |
+| ------ | -------- | ----------------------------- | -------- | ----------- |
+| kind   | property | `NavigatorVerificationKind`   | yes      |             |
+| status | property | `NavigatorVerificationStatus` | yes      |             |
+
+## NavigatorCatalog
+
+Kind: `type`
+Module: `src/navigator/catalog.ts`
+Source: `src/navigator/catalog.ts:76:1`
+
+### Members
+
+| Name         | Kind     | Type                                       | Required | Description |
+| ------------ | -------- | ------------------------------------------ | -------- | ----------- |
+| capabilities | property | `readonly NavigatorCapabilityDescriptor[]` | yes      |             |
+| presets      | property | `readonly NavigatorPresetDescriptor[]`     | yes      |             |
 
 ## NavigatorDefaults
 
 Kind: `type`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:245:1`
+Source: `src/navigator.ts:240:1`
 
 ### Members
 
@@ -2875,11 +2955,25 @@ Source: `src/navigator.ts:245:1`
 | stack | property | `StackImplementationConfig \| undefined` | no       |             |
 | tabs  | property | `TabsImplementationConfig \| undefined`  | no       |             |
 
+## NavigatorDependencyRequirement
+
+Kind: `type`
+Module: `src/navigator/generation.ts`
+Source: `src/navigator/generation.ts:20:1`
+
+### Members
+
+| Name         | Kind     | Type                               | Required | Description |
+| ------------ | -------- | ---------------------------------- | -------- | ----------- |
+| kind         | property | `"dependency" \| "peerDependency"` | yes      |             |
+| packageName  | property | `string`                           | yes      |             |
+| versionRange | property | `string`                           | yes      |             |
+
 ## NavigatorDiagnostic
 
 Kind: `type`
 Module: `src/navigator/planning.ts`
-Source: `src/navigator/planning.ts:79:1`
+Source: `src/navigator/planning.ts:82:1`
 
 ### Members
 
@@ -2890,24 +2984,11 @@ Source: `src/navigator/planning.ts:79:1`
 | path     | property | `string`               | yes      |             |
 | severity | property | `"error" \| "warning"` | yes      |             |
 
-## NavigatorFlows
-
-Kind: `type`
-Module: `src/navigator.ts`
-Source: `src/navigator.ts:240:1`
-
-### Members
-
-| Name           | Kind     | Type                   | Required | Description |
-| -------------- | -------- | ---------------------- | -------- | ----------- |
-| authentication | property | `boolean \| undefined` | no       |             |
-| onboarding     | property | `boolean \| undefined` | no       |             |
-
 ## NavigatorGeneratedFile
 
 Kind: `type`
 Module: `src/navigator/generation.ts`
-Source: `src/navigator/generation.ts:1:1`
+Source: `src/navigator/generation.ts:8:1`
 
 ### Members
 
@@ -2920,23 +3001,22 @@ Source: `src/navigator/generation.ts:1:1`
 
 Kind: `type`
 Module: `src/navigator/generation.ts`
-Source: `src/navigator/generation.ts:6:1`
+Source: `src/navigator/generation.ts:13:1`
 
 ### Members
 
-| Name               | Kind     | Type                                                                       | Required | Description |
-| ------------------ | -------- | -------------------------------------------------------------------------- | -------- | ----------- |
-| flows              | property | `{ onboardingRoute?: string; authenticationRoute?: string; } \| undefined` | no       |             |
-| guards             | property | `Readonly<Record<string, NavigatorScreenModule>>`                          | yes      |             |
-| iconSourceResolver | property | `NavigatorScreenModule \| undefined`                                       | no       |             |
-| screens            | property | `Readonly<Record<string, NavigatorScreenModule>>`                          | yes      |             |
-| tabPresentations   | property | `Readonly<Record<string, NavigatorScreenModule>> \| undefined`             | no       |             |
+| Name               | Kind     | Type                                                           | Required | Description |
+| ------------------ | -------- | -------------------------------------------------------------- | -------- | ----------- |
+| guards             | property | `Readonly<Record<string, NavigatorScreenModule>>`              | yes      |             |
+| iconSourceResolver | property | `NavigatorScreenModule \| undefined`                           | no       |             |
+| screens            | property | `Readonly<Record<string, NavigatorScreenModule>>`              | yes      |             |
+| tabPresentations   | property | `Readonly<Record<string, NavigatorScreenModule>> \| undefined` | no       |             |
 
 ## NavigatorGenerationOptions
 
 Kind: `type`
 Module: `src/navigator/generation.ts`
-Source: `src/navigator/generation.ts:18:1`
+Source: `src/navigator/generation.ts:36:1`
 
 ### Members
 
@@ -2944,6 +3024,29 @@ Source: `src/navigator/generation.ts:18:1`
 | ------------------ | -------- | ---------------------- | -------- | ----------- |
 | includeScreenFiles | property | `boolean \| undefined` | no       |             |
 | rootDirectory      | property | `string \| undefined`  | no       |             |
+
+## NavigatorGenerationResult
+
+Kind: `type`
+Module: `src/navigator/generation.ts`
+Source: `src/navigator/generation.ts:26:1`
+
+### Members
+
+| Name          | Kind     | Type                                        | Required | Description |
+| ------------- | -------- | ------------------------------------------- | -------- | ----------- |
+| capabilityIds | property | `readonly string[]`                         | yes      |             |
+| dependencies  | property | `readonly NavigatorDependencyRequirement[]` | yes      |             |
+| diagnostics   | property | `readonly NavigatorDiagnostic[]`            | yes      |             |
+| files         | property | `readonly NavigatorGeneratedFile[]`         | yes      |             |
+| plan          | property | `NavigatorPlan`                             | yes      |             |
+| support       | property | `NavigatorSupportStatus`                    | yes      |             |
+
+## NavigatorImplementation
+
+Kind: `unknown`
+Module: `src/navigator/catalog.ts`
+Source: `src/navigator/catalog.ts:32:1`
 
 ## NavigatorNode
 
@@ -2955,7 +3058,7 @@ Source: `src/navigator.ts:218:1`
 
 Kind: `type`
 Module: `src/navigator/planning.ts`
-Source: `src/navigator/planning.ts:86:1`
+Source: `src/navigator/planning.ts:89:1`
 
 ### Members
 
@@ -2976,23 +3079,24 @@ Source: `src/navigator/planning.ts:86:1`
 
 Kind: `type`
 Module: `src/navigator/planning.ts`
-Source: `src/navigator/planning.ts:114:1`
+Source: `src/navigator/planning.ts:117:1`
 
 ### Members
 
-| Name        | Kind     | Type                                                | Required | Description |
-| ----------- | -------- | --------------------------------------------------- | -------- | ----------- |
-| context     | property | `NavigatorValidationContext`                        | yes      |             |
-| diagnostics | property | `readonly NavigatorDiagnostic[]`                    | yes      |             |
-| flows       | property | `{ onboarding: boolean; authentication: boolean; }` | yes      |             |
-| root        | property | `NavigatorNodePlan`                                 | yes      |             |
-| supported   | property | `boolean`                                           | yes      |             |
+| Name          | Kind     | Type                                        | Required | Description |
+| ------------- | -------- | ------------------------------------------- | -------- | ----------- |
+| capabilityIds | property | `readonly string[]`                         | yes      |             |
+| context       | property | `NavigatorValidationContext`                | yes      |             |
+| dependencies  | property | `readonly NavigatorDependencyRequirement[]` | yes      |             |
+| diagnostics   | property | `readonly NavigatorDiagnostic[]`            | yes      |             |
+| root          | property | `NavigatorNodePlan`                         | yes      |             |
+| support       | property | `NavigatorSupportStatus`                    | yes      |             |
 
 ## NavigatorPlatformConfig
 
 Kind: `type`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:250:1`
+Source: `src/navigator.ts:245:1`
 
 ### Members
 
@@ -3005,7 +3109,7 @@ Source: `src/navigator.ts:250:1`
 
 Kind: `type`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:255:1`
+Source: `src/navigator.ts:250:1`
 
 ### Members
 
@@ -3015,23 +3119,43 @@ Source: `src/navigator.ts:255:1`
 | ios     | property | `NavigatorPlatformConfig \| undefined` | no       |             |
 | web     | property | `NavigatorPlatformConfig \| undefined` | no       |             |
 
+## NavigatorPresentation
+
+Kind: `unknown`
+Module: `src/navigator/catalog.ts`
+Source: `src/navigator/catalog.ts:34:1`
+
 ## NavigatorPreset
 
 Kind: `unknown`
 Module: `src/navigator.ts`
 Source: `src/navigator.ts:24:1`
 
+## NavigatorPresetDescriptor
+
+Kind: `type`
+Module: `src/navigator/catalog.ts`
+Source: `src/navigator/catalog.ts:70:1`
+
+### Members
+
+| Name        | Kind     | Type                                                                                                                                                                                                                                                                                | Required | Description |
+| ----------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
+| description | property | `string`                                                                                                                                                                                                                                                                            | yes      |             |
+| id          | property | `"custom" \| "slot" \| "drawer" \| "split-view" \| "stack" \| "tabs" \| "tabs-stack" \| "stack-tabs" \| "stack-tabs-stack" \| "drawer-stack" \| "stack-drawer" \| "stack-drawer-stack" \| "drawer-tabs" \| "drawer-tabs-stack" \| "stack-drawer-tabs" \| "stack-drawer-tabs-stack"` | yes      |             |
+| topology    | property | `readonly ("custom" \| "slot" \| "drawer" \| "split-view" \| "stack" \| "tabs")[]`                                                                                                                                                                                                  | yes      |             |
+
 ## NavigatorResponsiveSize
 
 Kind: `unknown`
 Module: `src/navigator/planning.ts`
-Source: `src/navigator/planning.ts:125:1`
+Source: `src/navigator/planning.ts:126:1`
 
 ## NavigatorRoutePlan
 
 Kind: `type`
 Module: `src/navigator/planning.ts`
-Source: `src/navigator/planning.ts:127:1`
+Source: `src/navigator/planning.ts:128:1`
 
 ### Members
 
@@ -3051,13 +3175,13 @@ Source: `src/navigator/planning.ts:127:1`
 
 Kind: `unknown`
 Module: `src/navigator/planning.ts`
-Source: `src/navigator/planning.ts:139:1`
+Source: `src/navigator/planning.ts:140:1`
 
 ## NavigatorScreenModule
 
 Kind: `type`
 Module: `src/navigator/generation.ts`
-Source: `src/navigator/generation.ts:25:1`
+Source: `src/navigator/generation.ts:43:1`
 
 ### Members
 
@@ -3082,7 +3206,7 @@ Source: `src/navigator.ts:148:1`
 
 Kind: `unknown`
 Module: `src/navigator/planning.ts`
-Source: `src/navigator/planning.ts:141:1`
+Source: `src/navigator/planning.ts:142:1`
 
 ## NavigatorType
 
@@ -3094,7 +3218,7 @@ Source: `src/navigator.ts:4:1`
 
 Kind: `type`
 Module: `src/navigator/planning.ts`
-Source: `src/navigator/planning.ts:143:1`
+Source: `src/navigator/planning.ts:144:1`
 
 ### Members
 
@@ -3102,6 +3226,18 @@ Source: `src/navigator/planning.ts:143:1`
 | ----------------- | -------- | -------------------------- | -------- | ----------- |
 | expoRouterVersion | property | `string`                   | yes      |             |
 | platform          | property | `NavigatorRuntimePlatform` | yes      |             |
+
+## NavigatorVerificationKind
+
+Kind: `unknown`
+Module: `src/navigator/catalog.ts`
+Source: `src/navigator/catalog.ts:16:1`
+
+## NavigatorVerificationStatus
+
+Kind: `unknown`
+Module: `src/navigator/catalog.ts`
+Source: `src/navigator/catalog.ts:30:1`
 
 ## NetworkingSpec
 
@@ -3245,11 +3381,11 @@ Source: `src/auth.ts:129:1`
   - flow: `AuthFlowConfig | undefined` (optional)
   - returns: `AuthFlowConfig`
 
-## ResolvedCustomTabsPresentation
+## ResolvedHeadlessTabsPresentation
 
 Kind: `type`
 Module: `src/navigator/planning.ts`
-Source: `src/navigator/planning.ts:11:1`
+Source: `src/navigator/planning.ts:12:1`
 
 ### Members
 
@@ -3262,13 +3398,13 @@ Source: `src/navigator/planning.ts:11:1`
 
 Kind: `unknown`
 Module: `src/navigator/planning.ts`
-Source: `src/navigator/planning.ts:16:1`
+Source: `src/navigator/planning.ts:17:1`
 
 ## ResolvedTabsPresentation
 
 Kind: `unknown`
 Module: `src/navigator/planning.ts`
-Source: `src/navigator/planning.ts:18:1`
+Source: `src/navigator/planning.ts:19:1`
 
 ## ResponsiveTabsPresentation
 
@@ -3595,7 +3731,7 @@ Source: `src/secrets.ts:36:1`
 | Name    | Kind     | Type                                                                                                                                                    | Required | Description |
 | ------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
 | cause   | property | `unknown`                                                                                                                                               | no       |             |
-| code    | property | `"provider_error" \| "unavailable" \| "invalid_config" \| "invalid_reference" \| "invalid_payload" \| "not_found" \| "conflict" \| "permission_denied"` | yes      |             |
+| code    | property | `"provider_error" \| "invalid_config" \| "invalid_reference" \| "invalid_payload" \| "not_found" \| "conflict" \| "permission_denied" \| "unavailable"` | yes      |             |
 | message | property | `string`                                                                                                                                                | yes      |             |
 
 ## SecretStoreErrorCode
@@ -4308,7 +4444,7 @@ Source: `src/navigator.ts:199:1`
 
 Kind: `type`
 Module: `src/navigator/planning.ts`
-Source: `src/navigator/planning.ts:26:1`
+Source: `src/navigator/planning.ts:27:1`
 
 ### Members
 

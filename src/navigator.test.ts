@@ -23,7 +23,6 @@ function createAdaptiveTabs(): AppNavigatorManifest {
         expanded: 'sidebar',
       },
     },
-    flows: { onboarding: true },
     routes: [{ name: 'home', path: '/', screenId: 'home' }],
   };
 }
@@ -85,11 +84,24 @@ const VALID_NAVIGATOR_NODES = [
 describe('app navigator manifest topology', () => {
   it('keeps canonical topology presets finite and authorable', () => {
     expect(NAVIGATOR_TYPES).toEqual(['slot', 'stack', 'tabs', 'drawer', 'split-view', 'custom']);
-    expect(NAVIGATOR_PRESETS).toContain('slot');
-    expect(NAVIGATOR_PRESETS).toContain('split-view');
-    expect(NAVIGATOR_PRESETS).toContain('custom');
-    expect(NAVIGATOR_PRESETS).toContain('root-stack-tabs-stack');
-    expect(NAVIGATOR_PRESETS).toContain('root-stack-drawer-tabs-stack');
+    expect(NAVIGATOR_PRESETS).toEqual([
+      'slot',
+      'stack',
+      'tabs',
+      'tabs-stack',
+      'stack-tabs',
+      'stack-tabs-stack',
+      'drawer',
+      'drawer-stack',
+      'stack-drawer',
+      'stack-drawer-stack',
+      'drawer-tabs',
+      'drawer-tabs-stack',
+      'stack-drawer-tabs',
+      'stack-drawer-tabs-stack',
+      'split-view',
+      'custom',
+    ]);
   });
 
   it('accepts adaptive native/Web tabs with responsive custom presentation', () => {
@@ -152,12 +164,12 @@ describe('app navigator manifest node variants', () => {
   });
 });
 
-describe('app navigator manifest custom presentation', () => {
+describe('app navigator manifest headless presentation', () => {
   it('accepts fixed and registered custom Web presentations', () => {
     expect(
       isAppNavigatorManifest({
         type: 'tabs',
-        implementation: 'custom',
+        implementation: 'headless',
         presentation: 'sidebar',
         routes: [],
       }),
@@ -166,7 +178,7 @@ describe('app navigator manifest custom presentation', () => {
     expect(
       isAppNavigatorManifest({
         type: 'tabs',
-        implementation: 'custom',
+        implementation: 'headless',
         presentation: 'custom',
         customPresentationId: 'workspace-tabs',
         routes: [],
@@ -178,7 +190,7 @@ describe('app navigator manifest custom presentation', () => {
     expect(
       isAppNavigatorManifest({
         type: 'tabs',
-        implementation: 'custom',
+        implementation: 'headless',
         presentation: 'responsive',
         routes: [],
       }),
@@ -187,7 +199,7 @@ describe('app navigator manifest custom presentation', () => {
     expect(
       isAppNavigatorManifest({
         type: 'tabs',
-        implementation: 'custom',
+        implementation: 'headless',
         presentation: 'custom',
         routes: [],
       }),
@@ -219,7 +231,7 @@ describe('app navigator manifest tabs branch validation', () => {
     expect(
       isAppNavigatorManifest({
         type: 'tabs',
-        implementation: 'custom',
+        implementation: 'headless',
         presentation: 'sidebar',
         customPresentationId: 'must-not-apply',
         routes: [],
@@ -229,7 +241,7 @@ describe('app navigator manifest tabs branch validation', () => {
     expect(
       isAppNavigatorManifest({
         type: 'tabs',
-        implementation: 'custom',
+        implementation: 'headless',
         presentation: 'custom',
         customPresentationId: 'workspace-tabs',
         responsive: { compact: 'bottom', expanded: 'sidebar' },
@@ -240,14 +252,21 @@ describe('app navigator manifest tabs branch validation', () => {
 });
 
 describe('app navigator manifest composition', () => {
-  it('keeps nested topology separate from app-level flow metadata', () => {
+  it('expresses app-owned sequences as ordinary guarded navigator branches', () => {
     expect(
       isAppNavigatorManifest({
         type: 'stack',
-        flows: { authentication: true },
         routes: [
           {
-            name: 'app',
+            name: 'entry',
+            navigator: {
+              type: 'stack',
+              routes: [{ name: 'step', screenId: 'step' }],
+            },
+          },
+          {
+            name: 'main',
+            guards: ['entry-complete'],
             navigator: {
               type: 'tabs',
               routes: [{ name: 'home', screenId: 'home' }],
@@ -257,7 +276,9 @@ describe('app navigator manifest composition', () => {
       }),
     ).toBe(true);
   });
+});
 
+describe('app navigator manifest route metadata', () => {
   it('preserves authored route names, labels, paths, guards, and visibility without inference', () => {
     const navigator = {
       type: 'stack',

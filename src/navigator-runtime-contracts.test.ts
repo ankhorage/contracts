@@ -2,8 +2,10 @@ import { expect, test } from 'bun:test';
 
 import type {
   CustomNavigatorRegistration,
+  NavigatorCatalog,
   NavigatorGeneratedFile,
   NavigatorGenerationBindings,
+  NavigatorGenerationResult,
   NavigatorPlan,
 } from './navigator';
 
@@ -32,10 +34,59 @@ test('keeps generation bindings and plan output portable across package boundari
       routes: [],
     },
     diagnostics: [],
-    supported: true,
-    flows: { onboarding: false, authentication: false },
+    support: 'supported',
+    capabilityIds: ['slot'],
+    dependencies: [],
   };
-  expect(JSON.parse(JSON.stringify({ bindings, file, plan }))).toEqual({ bindings, file, plan });
+  const result: NavigatorGenerationResult = {
+    support: plan.support,
+    capabilityIds: plan.capabilityIds,
+    dependencies: plan.dependencies,
+    diagnostics: plan.diagnostics,
+    plan,
+    files: [file],
+  };
+  expect(JSON.parse(JSON.stringify({ bindings, result }))).toEqual({ bindings, result });
+});
+
+test('separates capability taxonomy, target support, stability, and verification', () => {
+  const catalog: NavigatorCatalog = {
+    capabilities: [
+      {
+        id: 'tabs.headless.sidebar',
+        topology: 'tabs',
+        implementation: 'headless',
+        presentation: 'sidebar',
+        stability: 'stable',
+        targets: [
+          {
+            platform: 'web',
+            support: 'supported',
+            verification: [{ kind: 'browser', status: 'verified' }],
+          },
+          {
+            platform: 'ios',
+            support: 'testing-only',
+            verification: [{ kind: 'device', status: 'unverified' }],
+          },
+        ],
+        dependencies: [],
+        requirements: [],
+        incompatibilities: [],
+        limitations: [],
+      },
+    ],
+    presets: [
+      {
+        id: 'drawer',
+        description: 'Drawer as the root navigator with direct routes.',
+        topology: ['drawer'],
+      },
+    ],
+  };
+
+  expect(catalog.capabilities[0]?.targets[1]?.support).toBe('testing-only');
+  expect(catalog.presets[0]?.topology).toEqual(['drawer']);
 });
 
 test('describes a custom extension without importing Navigator or a UI runtime', () => {

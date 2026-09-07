@@ -20,7 +20,7 @@ export function isAppNavigatorManifest(value: unknown): boolean {
     isNavigatorNode(value) &&
     (value.preset === undefined ||
       (typeof value.preset === 'string' && NAVIGATOR_PRESET_SET.has(value.preset))) &&
-    (value.flows === undefined || isNavigatorFlows(value.flows)) &&
+    value.flows === undefined &&
     (value.defaults === undefined || isNavigatorDefaults(value.defaults)) &&
     (value.platforms === undefined || isNavigatorPlatforms(value.platforms))
   );
@@ -132,15 +132,6 @@ function isNavigatorJsonValue(value: unknown, ancestors: Set<object>): boolean {
   const isValid = Object.values(value).every((entry) => isNavigatorJsonValue(entry, ancestors));
   ancestors.delete(value);
   return isValid;
-}
-
-/*** Validate optional app-level navigator flow intent. */
-function isNavigatorFlows(value: unknown): boolean {
-  return (
-    isRecord(value) &&
-    isOptionalBoolean(value.onboarding) &&
-    isOptionalBoolean(value.authentication)
-  );
 }
 
 /*** Validate package-owned navigator defaults without requiring a navigator node type. */

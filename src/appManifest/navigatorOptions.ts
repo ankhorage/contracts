@@ -1,8 +1,8 @@
 import {
-  CUSTOM_TABS_PRESENTATIONS,
   DRAWER_POSITIONS,
   DRAWER_TYPES,
-  FIXED_CUSTOM_TABS_PRESENTATIONS,
+  FIXED_HEADLESS_TABS_PRESENTATIONS,
+  HEADLESS_TABS_PRESENTATIONS,
   JAVASCRIPT_STACK_PRESENTATIONS,
   JAVASCRIPT_TABS_PRESENTATIONS,
   NATIVE_TABS_MINIMIZE_BEHAVIORS,
@@ -10,10 +10,10 @@ import {
 } from '../navigator';
 import { isOptionalBoolean, isOptionalString, isRecord } from './shared';
 
-const CUSTOM_TABS_PRESENTATION_SET = new Set<string>(CUSTOM_TABS_PRESENTATIONS);
+const HEADLESS_TABS_PRESENTATION_SET = new Set<string>(HEADLESS_TABS_PRESENTATIONS);
 const DRAWER_POSITION_SET = new Set<string>(DRAWER_POSITIONS);
 const DRAWER_TYPE_SET = new Set<string>(DRAWER_TYPES);
-const FIXED_CUSTOM_TABS_PRESENTATION_SET = new Set<string>(FIXED_CUSTOM_TABS_PRESENTATIONS);
+const FIXED_HEADLESS_TABS_PRESENTATION_SET = new Set<string>(FIXED_HEADLESS_TABS_PRESENTATIONS);
 const JAVASCRIPT_STACK_PRESENTATION_SET = new Set<string>(JAVASCRIPT_STACK_PRESENTATIONS);
 const JAVASCRIPT_TABS_PRESENTATION_SET = new Set<string>(JAVASCRIPT_TABS_PRESENTATIONS);
 const NATIVE_TABS_MINIMIZE_BEHAVIOR_SET = new Set<string>(NATIVE_TABS_MINIMIZE_BEHAVIORS);
@@ -98,9 +98,9 @@ export function isTabsImplementationConfig(value: Record<string, unknown>): bool
   if (value.implementation === 'native') return isFullNativeTabsConfig(value);
   if (value.implementation === 'javascript') return isJavaScriptTabsConfig(value);
   return (
-    value.implementation === 'custom' &&
+    value.implementation === 'headless' &&
     hasNoDefinedKeys(value, ['options', 'native', 'web', 'minimizeBehavior', 'bottomAccessory']) &&
-    isCustomTabsPresentationConfig(value)
+    isHeadlessTabsPresentationConfig(value)
   );
 }
 
@@ -181,7 +181,7 @@ function isAdaptiveTabsConfig(value: Record<string, unknown>): boolean {
       'bottomAccessory',
     ]) &&
     (value.native === undefined || isNativeTabsConfig(value.native)) &&
-    (value.web === undefined || isCustomTabsWebConfig(value.web))
+    (value.web === undefined || isHeadlessTabsWebConfig(value.web))
   );
 }
 
@@ -237,20 +237,20 @@ function isNativeTabsFields(value: Record<string, unknown>): boolean {
   );
 }
 
-/*** Validate the implementation-free custom-tabs Web branch inside adaptive tabs. */
-function isCustomTabsWebConfig(value: unknown): boolean {
+/*** Validate the implementation-free headless-tabs Web branch inside adaptive tabs. */
+function isHeadlessTabsWebConfig(value: unknown): boolean {
   return (
     isRecord(value) &&
     hasOnlyKeys(value, ['presentation', 'responsive', 'customPresentationId']) &&
-    isCustomTabsPresentationConfig(value)
+    isHeadlessTabsPresentationConfig(value)
   );
 }
 
-/*** Validate custom-tab presentation and its conditional serializable configuration. */
-function isCustomTabsPresentationConfig(value: Record<string, unknown>): boolean {
+/*** Validate headless-tab presentation and its conditional serializable configuration. */
+function isHeadlessTabsPresentationConfig(value: Record<string, unknown>): boolean {
   if (
     typeof value.presentation !== 'string' ||
-    !CUSTOM_TABS_PRESENTATION_SET.has(value.presentation)
+    !HEADLESS_TABS_PRESENTATION_SET.has(value.presentation)
   ) {
     return false;
   }
@@ -258,7 +258,7 @@ function isCustomTabsPresentationConfig(value: Record<string, unknown>): boolean
     return false;
   }
   if (!isOptionalString(value.customPresentationId)) return false;
-  if (FIXED_CUSTOM_TABS_PRESENTATION_SET.has(value.presentation)) {
+  if (FIXED_HEADLESS_TABS_PRESENTATION_SET.has(value.presentation)) {
     return value.responsive === undefined && value.customPresentationId === undefined;
   }
   if (value.presentation === 'responsive') {
@@ -271,17 +271,18 @@ function isCustomTabsPresentationConfig(value: Record<string, unknown>): boolean
   );
 }
 
-/*** Validate semantic compact/medium/expanded custom-tab presentation mapping. */
+/*** Validate semantic compact/medium/expanded headless-tab presentation mapping. */
 function isResponsiveTabsPresentation(value: unknown): boolean {
   return (
     isRecord(value) &&
     hasOnlyKeys(value, ['compact', 'medium', 'expanded']) &&
     typeof value.compact === 'string' &&
-    FIXED_CUSTOM_TABS_PRESENTATION_SET.has(value.compact) &&
+    FIXED_HEADLESS_TABS_PRESENTATION_SET.has(value.compact) &&
     (value.medium === undefined ||
-      (typeof value.medium === 'string' && FIXED_CUSTOM_TABS_PRESENTATION_SET.has(value.medium))) &&
+      (typeof value.medium === 'string' &&
+        FIXED_HEADLESS_TABS_PRESENTATION_SET.has(value.medium))) &&
     typeof value.expanded === 'string' &&
-    FIXED_CUSTOM_TABS_PRESENTATION_SET.has(value.expanded)
+    FIXED_HEADLESS_TABS_PRESENTATION_SET.has(value.expanded)
   );
 }
 
