@@ -10,15 +10,6 @@ import {
 } from '../navigator';
 import { isOptionalBoolean, isOptionalString, isRecord } from './shared';
 
-const HEADLESS_TABS_PRESENTATION_SET = new Set<string>(HEADLESS_TABS_PRESENTATIONS);
-const DRAWER_POSITION_SET = new Set<string>(DRAWER_POSITIONS);
-const DRAWER_TYPE_SET = new Set<string>(DRAWER_TYPES);
-const FIXED_HEADLESS_TABS_PRESENTATION_SET = new Set<string>(FIXED_HEADLESS_TABS_PRESENTATIONS);
-const JAVASCRIPT_STACK_PRESENTATION_SET = new Set<string>(JAVASCRIPT_STACK_PRESENTATIONS);
-const JAVASCRIPT_TABS_PRESENTATION_SET = new Set<string>(JAVASCRIPT_TABS_PRESENTATIONS);
-const NATIVE_TABS_MINIMIZE_BEHAVIOR_SET = new Set<string>(NATIVE_TABS_MINIMIZE_BEHAVIORS);
-const STACK_PRESENTATION_SET = new Set<string>(STACK_PRESENTATIONS);
-
 /*** Validate stable native, JavaScript, or alpha Experimental Stack desired state. */
 export function isStackImplementationConfig(value: Record<string, unknown>): boolean {
   if (
@@ -61,7 +52,8 @@ export function isStackScreenOptions(value: unknown): boolean {
     ]) ||
     !isStackHeaderOptionsShape(value) ||
     (value.presentation !== undefined &&
-      (typeof value.presentation !== 'string' || !STACK_PRESENTATION_SET.has(value.presentation)))
+      (typeof value.presentation !== 'string' ||
+        !contains(STACK_PRESENTATIONS, value.presentation)))
   ) {
     return false;
   }
@@ -82,9 +74,9 @@ export function isDrawerNavigatorOptions(value: unknown): boolean {
     hasOnlyKeys(value, ['drawerPosition', 'drawerType', 'swipeEnabled', 'headerShown']) &&
     (value.drawerPosition === undefined ||
       (typeof value.drawerPosition === 'string' &&
-        DRAWER_POSITION_SET.has(value.drawerPosition))) &&
+        contains(DRAWER_POSITIONS, value.drawerPosition))) &&
     (value.drawerType === undefined ||
-      (typeof value.drawerType === 'string' && DRAWER_TYPE_SET.has(value.drawerType))) &&
+      (typeof value.drawerType === 'string' && contains(DRAWER_TYPES, value.drawerType))) &&
     isOptionalBoolean(value.swipeEnabled) &&
     isOptionalBoolean(value.headerShown)
   );
@@ -132,7 +124,7 @@ function isJavaScriptStackScreenOptions(value: unknown): boolean {
     isStackHeaderOptionsShape(value) &&
     (value.presentation === undefined ||
       (typeof value.presentation === 'string' &&
-        JAVASCRIPT_STACK_PRESENTATION_SET.has(value.presentation)))
+        contains(JAVASCRIPT_STACK_PRESENTATIONS, value.presentation)))
   );
 }
 
@@ -213,7 +205,7 @@ function isJavaScriptTabsConfig(value: Record<string, unknown>): boolean {
     ]) &&
     (value.presentation === undefined ||
       (typeof value.presentation === 'string' &&
-        JAVASCRIPT_TABS_PRESENTATION_SET.has(value.presentation)))
+        contains(JAVASCRIPT_TABS_PRESENTATIONS, value.presentation)))
   );
 }
 
@@ -232,7 +224,7 @@ function isNativeTabsFields(value: Record<string, unknown>): boolean {
   return (
     (value.minimizeBehavior === undefined ||
       (typeof value.minimizeBehavior === 'string' &&
-        NATIVE_TABS_MINIMIZE_BEHAVIOR_SET.has(value.minimizeBehavior))) &&
+        contains(NATIVE_TABS_MINIMIZE_BEHAVIORS, value.minimizeBehavior))) &&
     (value.bottomAccessory === undefined || isNavigatorScreenReference(value.bottomAccessory))
   );
 }
@@ -250,7 +242,7 @@ function isHeadlessTabsWebConfig(value: unknown): boolean {
 function isHeadlessTabsPresentationConfig(value: Record<string, unknown>): boolean {
   if (
     typeof value.presentation !== 'string' ||
-    !HEADLESS_TABS_PRESENTATION_SET.has(value.presentation)
+    !contains(HEADLESS_TABS_PRESENTATIONS, value.presentation)
   ) {
     return false;
   }
@@ -258,7 +250,7 @@ function isHeadlessTabsPresentationConfig(value: Record<string, unknown>): boole
     return false;
   }
   if (!isOptionalString(value.customPresentationId)) return false;
-  if (FIXED_HEADLESS_TABS_PRESENTATION_SET.has(value.presentation)) {
+  if (contains(FIXED_HEADLESS_TABS_PRESENTATIONS, value.presentation)) {
     return value.responsive === undefined && value.customPresentationId === undefined;
   }
   if (value.presentation === 'responsive') {
@@ -277,13 +269,18 @@ function isResponsiveTabsPresentation(value: unknown): boolean {
     isRecord(value) &&
     hasOnlyKeys(value, ['compact', 'medium', 'expanded']) &&
     typeof value.compact === 'string' &&
-    FIXED_HEADLESS_TABS_PRESENTATION_SET.has(value.compact) &&
+    contains(FIXED_HEADLESS_TABS_PRESENTATIONS, value.compact) &&
     (value.medium === undefined ||
       (typeof value.medium === 'string' &&
-        FIXED_HEADLESS_TABS_PRESENTATION_SET.has(value.medium))) &&
+        contains(FIXED_HEADLESS_TABS_PRESENTATIONS, value.medium))) &&
     typeof value.expanded === 'string' &&
-    FIXED_HEADLESS_TABS_PRESENTATION_SET.has(value.expanded)
+    contains(FIXED_HEADLESS_TABS_PRESENTATIONS, value.expanded)
   );
+}
+
+/*** Check a string against a public finite contract without eager cyclic initialization. */
+function contains(values: readonly string[], value: string): boolean {
+  return values.includes(value);
 }
 
 /*** Check that mutually exclusive branch fields are absent. */

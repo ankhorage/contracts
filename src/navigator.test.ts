@@ -1,14 +1,19 @@
 import { describe, expect, it } from 'bun:test';
 
-import { isAppNavigatorManifest } from './appManifest/screens';
 import {
   type AppNavigatorManifest,
+  isAppNavigatorManifest,
   NAVIGATOR_PRESETS,
   NAVIGATOR_TYPES,
   type NavigatorNode,
   type StackImplementationConfig,
   type TabsNavigatorConfig,
 } from './navigator';
+
+function parseNavigator(value: unknown): AppNavigatorManifest {
+  if (!isAppNavigatorManifest(value)) throw new Error('Expected a navigator manifest.');
+  return value;
+}
 
 function createAdaptiveTabs(): AppNavigatorManifest {
   return {
@@ -80,6 +85,12 @@ const VALID_NAVIGATOR_NODES = [
     routes: [],
   },
 ] as const satisfies readonly NavigatorNode[];
+
+it('narrows unknown input through the public navigator boundary', () => {
+  const manifest = parseNavigator({ type: 'drawer', routes: [] });
+
+  expect(manifest.type).toBe('drawer');
+});
 
 describe('app navigator manifest topology', () => {
   it('keeps canonical topology presets finite and authorable', () => {

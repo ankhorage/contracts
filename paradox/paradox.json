@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v11.1.0",
+      "value": "v12.0.0",
       "color": "cb3837"
     },
     {
@@ -807,6 +807,7 @@
         "InternalRestApiDefinition",
         "isAppDeployManifest",
         "isAppManifest",
+        "isAppNavigatorManifest",
         "isMediaAssetReference",
         "JAVASCRIPT_STACK_PRESENTATIONS",
         "JAVASCRIPT_TABS_PRESENTATIONS",
@@ -1075,6 +1076,7 @@
         "HeadlessTabsPresentation",
         "HeadlessTabsPresentationConfig",
         "HeadlessTabsWebConfig",
+        "isAppNavigatorManifest",
         "JAVASCRIPT_STACK_PRESENTATIONS",
         "JAVASCRIPT_TABS_PRESENTATIONS",
         "JavaScriptStackPresentation",
@@ -1617,7 +1619,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 165,
+        "line": 167,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2629,7 +2631,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 262,
+        "line": 264,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -5725,7 +5727,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 212,
+        "line": 214,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8391,7 +8393,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 84,
+        "line": 86,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -8409,7 +8411,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 87,
+        "line": 89,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -8427,7 +8429,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 190,
+        "line": 192,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8474,7 +8476,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 90,
+        "line": 92,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8521,7 +8523,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 85,
+        "line": 87,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8539,7 +8541,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 88,
+        "line": 90,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8920,7 +8922,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 97,
+        "line": 99,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -8938,7 +8940,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 98,
+        "line": 100,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9043,7 +9045,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 100,
+        "line": 102,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -9061,7 +9063,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 142,
+        "line": 144,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9079,7 +9081,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 105,
+        "line": 107,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9097,7 +9099,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 124,
+        "line": 126,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9115,7 +9117,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 146,
+        "line": 148,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9478,6 +9480,38 @@
       "structuredRows": []
     },
     {
+      "name": "isAppNavigatorManifest",
+      "description": "Validate the complete serialized `AppManifest.navigator` slice.",
+      "isReadme": false,
+      "examples": [],
+      "kind": "function",
+      "modulePath": "src/appManifest/navigator.ts",
+      "sourceLocation": {
+        "filePath": "src/appManifest/navigator.ts",
+        "line": 14,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [
+        {
+          "label": "(value: unknown) => boolean",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "unknown",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "boolean",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
       "name": "isMediaAssetReference",
       "description": null,
       "isReadme": false,
@@ -9518,7 +9552,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 40,
+        "line": 42,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -9536,7 +9570,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 107,
+        "line": 109,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -9554,7 +9588,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 41,
+        "line": 43,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9572,7 +9606,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 64,
+        "line": 66,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9590,7 +9624,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 160,
+        "line": 162,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9623,7 +9657,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 108,
+        "line": 110,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10326,7 +10360,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 110,
+        "line": 112,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -10344,7 +10378,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 152,
+        "line": 154,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10384,7 +10418,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 116,
+        "line": 118,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10435,7 +10469,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 6,
+        "line": 8,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -10453,7 +10487,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 3,
+        "line": 5,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -10825,7 +10859,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 240,
+        "line": 242,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11143,7 +11177,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 218,
+        "line": 220,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11325,7 +11359,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 245,
+        "line": 247,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11358,7 +11392,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 250,
+        "line": 252,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11416,7 +11450,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 24,
+        "line": 26,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11625,7 +11659,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 148,
+        "line": 150,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11669,7 +11703,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 4,
+        "line": 6,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12244,7 +12278,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 118,
+        "line": 120,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12284,7 +12318,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 226,
+        "line": 228,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -13471,7 +13505,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 182,
+        "line": 184,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -13670,7 +13704,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 201,
+        "line": 203,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -13731,7 +13765,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 26,
+        "line": 28,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -13749,7 +13783,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 29,
+        "line": 31,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -13767,7 +13801,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 43,
+        "line": 45,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -13814,7 +13848,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 27,
+        "line": 29,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -13832,7 +13866,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 68,
+        "line": 70,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -13850,7 +13884,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 186,
+        "line": 188,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -13868,7 +13902,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 38,
+        "line": 40,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -13886,7 +13920,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 50,
+        "line": 52,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -15328,7 +15362,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 174,
+        "line": 176,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -15346,7 +15380,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 195,
+        "line": 197,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -15364,7 +15398,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 199,
+        "line": 201,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -17762,7 +17796,7 @@
       "description": "Validate the complete serialized `AppManifest.navigator` slice.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigator.ts",
-        "line": 17,
+        "line": 14,
         "column": 1
       }
     },
@@ -17771,7 +17805,25 @@
       "description": "Validate one nested navigator node independently from app-level authoring metadata.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigator.ts",
-        "line": 30,
+        "line": 27,
+        "column": 1
+      }
+    },
+    {
+      "name": "hasNavigatorPreset",
+      "description": "Check a serialized preset against the public contract without eager cyclic initialization.",
+      "sourceLocation": {
+        "filePath": "src/appManifest/navigator.ts",
+        "line": 61,
+        "column": 1
+      }
+    },
+    {
+      "name": "hasNavigatorType",
+      "description": "Check a serialized topology against the public contract without eager cyclic initialization.",
+      "sourceLocation": {
+        "filePath": "src/appManifest/navigator.ts",
+        "line": 66,
         "column": 1
       }
     },
@@ -17780,7 +17832,7 @@
       "description": "Validate one route and preserve its portable metadata and nested navigator.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigator.ts",
-        "line": 64,
+        "line": 71,
         "column": 1
       }
     },
@@ -17789,7 +17841,7 @@
       "description": "Validate Split View screen references without duplicating the routed secondary tree.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigator.ts",
-        "line": 80,
+        "line": 87,
         "column": 1
       }
     },
@@ -17798,7 +17850,7 @@
       "description": "Validate a registered custom navigator with JSON-safe configuration only.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigator.ts",
-        "line": 98,
+        "line": 105,
         "column": 1
       }
     },
@@ -17807,7 +17859,7 @@
       "description": "Validate an acyclic, finite JSON object used by a custom navigator adapter.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigator.ts",
-        "line": 108,
+        "line": 115,
         "column": 1
       }
     },
@@ -17816,7 +17868,7 @@
       "description": "Recursively validate the portable manifest value domain and reject cycles.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigator.ts",
-        "line": 113,
+        "line": 120,
         "column": 1
       }
     },
@@ -17825,7 +17877,7 @@
       "description": "Validate package-owned navigator defaults without requiring a navigator node type.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigator.ts",
-        "line": 138,
+        "line": 145,
         "column": 1
       }
     },
@@ -17834,7 +17886,7 @@
       "description": "Validate per-platform navigator implementation overrides.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigator.ts",
-        "line": 150,
+        "line": 157,
         "column": 1
       }
     },
@@ -17843,7 +17895,7 @@
       "description": "Validate one platform-specific navigator override slice.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigator.ts",
-        "line": 161,
+        "line": 168,
         "column": 1
       }
     },
@@ -17852,7 +17904,7 @@
       "description": "Validate stable native, JavaScript, or alpha Experimental Stack desired state.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 23,
+        "line": 14,
         "column": 1
       }
     },
@@ -17861,7 +17913,7 @@
       "description": "Validate the serializable native-stack screen option subset.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 50,
+        "line": 41,
         "column": 1
       }
     },
@@ -17870,7 +17922,7 @@
       "description": "Validate the finite serializable Drawer option subset.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 79,
+        "line": 71,
         "column": 1
       }
     },
@@ -17879,7 +17931,7 @@
       "description": "Validate tabs implementation desired state, with omitted implementation meaning adaptive.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 94,
+        "line": 86,
         "column": 1
       }
     },
@@ -17888,7 +17940,7 @@
       "description": "Validate a reference into the app-owned screen registry.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 108,
+        "line": 100,
         "column": 1
       }
     },
@@ -17897,7 +17949,7 @@
       "description": "Check that a finite configuration object contains no unsupported keys.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 113,
+        "line": 105,
         "column": 1
       }
     },
@@ -17906,7 +17958,7 @@
       "description": "Validate JavaScript Stack options without accepting native-only presentations.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 122,
+        "line": 114,
         "column": 1
       }
     },
@@ -17915,7 +17967,7 @@
       "description": "Validate the portable header subset supported by Experimental Stack.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 140,
+        "line": 132,
         "column": 1
       }
     },
@@ -17924,7 +17976,7 @@
       "description": "Validate shared stack header field values after branch-specific key filtering.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 149,
+        "line": 141,
         "column": 1
       }
     },
@@ -17933,7 +17985,7 @@
       "description": "Validate sorted, finite native sheet detents or the fit-to-content sentinel.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 159,
+        "line": 151,
         "column": 1
       }
     },
@@ -17942,7 +17994,7 @@
       "description": "Validate an adaptive tabs branch and reject implementation-specific conflicts.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 173,
+        "line": 165,
         "column": 1
       }
     },
@@ -17951,7 +18003,7 @@
       "description": "Validate the top-level native tabs implementation.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 189,
+        "line": 181,
         "column": 1
       }
     },
@@ -17960,7 +18012,7 @@
       "description": "Validate the top-level JavaScript tabs implementation.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 203,
+        "line": 195,
         "column": 1
       }
     },
@@ -17969,7 +18021,7 @@
       "description": "Validate the native branch used by adaptive tabs.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 221,
+        "line": 213,
         "column": 1
       }
     },
@@ -17978,7 +18030,7 @@
       "description": "Validate fields supported by the native tabs branch.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 231,
+        "line": 223,
         "column": 1
       }
     },
@@ -17987,7 +18039,7 @@
       "description": "Validate the implementation-free headless-tabs Web branch inside adaptive tabs.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 241,
+        "line": 233,
         "column": 1
       }
     },
@@ -17996,7 +18048,7 @@
       "description": "Validate headless-tab presentation and its conditional serializable configuration.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 250,
+        "line": 242,
         "column": 1
       }
     },
@@ -18005,7 +18057,16 @@
       "description": "Validate semantic compact/medium/expanded headless-tab presentation mapping.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 275,
+        "line": 267,
+        "column": 1
+      }
+    },
+    {
+      "name": "contains",
+      "description": "Check a string against a public finite contract without eager cyclic initialization.",
+      "sourceLocation": {
+        "filePath": "src/appManifest/navigatorOptions.ts",
+        "line": 282,
         "column": 1
       }
     },
@@ -18014,7 +18075,7 @@
       "description": "Check that mutually exclusive branch fields are absent.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 290,
+        "line": 287,
         "column": 1
       }
     },
@@ -18262,6 +18323,14 @@
     },
     {
       "kind": "export",
+      "name": "isAppNavigatorManifest",
+      "sourcePath": "src/appManifest/navigator.ts",
+      "symbolName": "isAppNavigatorManifest",
+      "description": "Validate the complete serialized `AppManifest.navigator` slice.",
+      "isReadme": false
+    },
+    {
+      "kind": "export",
       "name": "isMediaAssetReference",
       "sourcePath": "src/media.ts",
       "symbolName": "isMediaAssetReference",
@@ -18474,6 +18543,11 @@
       {
         "fromPath": "src/navigator.ts",
         "toPath": "src/types.ts",
+        "sourcePath": "src/navigator.ts"
+      },
+      {
+        "fromPath": "src/navigator.ts",
+        "toPath": "src/appManifest/navigator.ts",
         "sourcePath": "src/navigator.ts"
       },
       {
@@ -20254,6 +20328,12 @@
       },
       {
         "fromSymbol": "isAppNavigatorManifest",
+        "toSymbol": "hasNavigatorPreset",
+        "callExpression": "hasNavigatorPreset",
+        "sourcePath": "src/appManifest/navigator.ts"
+      },
+      {
+        "fromSymbol": "isAppNavigatorManifest",
         "toSymbol": "isNavigatorDefaults",
         "callExpression": "isNavigatorDefaults",
         "sourcePath": "src/appManifest/navigator.ts"
@@ -20268,6 +20348,12 @@
         "fromSymbol": "isNavigatorNode",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/navigator.ts"
+      },
+      {
+        "fromSymbol": "isNavigatorNode",
+        "toSymbol": "hasNavigatorType",
+        "callExpression": "hasNavigatorType",
         "sourcePath": "src/appManifest/navigator.ts"
       },
       {
@@ -20500,6 +20586,12 @@
       },
       {
         "fromSymbol": "isStackScreenOptions",
+        "toSymbol": "contains",
+        "callExpression": "contains",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
+        "fromSymbol": "isStackScreenOptions",
         "toSymbol": "isSheetAllowedDetents",
         "callExpression": "isSheetAllowedDetents",
         "sourcePath": "src/appManifest/navigatorOptions.ts"
@@ -20520,6 +20612,12 @@
         "fromSymbol": "isDrawerNavigatorOptions",
         "toSymbol": "hasOnlyKeys",
         "callExpression": "hasOnlyKeys",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
+        "fromSymbol": "isDrawerNavigatorOptions",
+        "toSymbol": "contains",
+        "callExpression": "contains",
         "sourcePath": "src/appManifest/navigatorOptions.ts"
       },
       {
@@ -20589,6 +20687,12 @@
         "sourcePath": "src/appManifest/navigatorOptions.ts"
       },
       {
+        "fromSymbol": "isJavaScriptStackScreenOptions",
+        "toSymbol": "contains",
+        "callExpression": "contains",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
         "fromSymbol": "isStackHeaderOptions",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
@@ -20655,6 +20759,12 @@
         "sourcePath": "src/appManifest/navigatorOptions.ts"
       },
       {
+        "fromSymbol": "isJavaScriptTabsConfig",
+        "toSymbol": "contains",
+        "callExpression": "contains",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
         "fromSymbol": "isNativeTabsConfig",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
@@ -20670,6 +20780,12 @@
         "fromSymbol": "isNativeTabsConfig",
         "toSymbol": "isNativeTabsFields",
         "callExpression": "isNativeTabsFields",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
+        "fromSymbol": "isNativeTabsFields",
+        "toSymbol": "contains",
+        "callExpression": "contains",
         "sourcePath": "src/appManifest/navigatorOptions.ts"
       },
       {
@@ -20698,6 +20814,12 @@
       },
       {
         "fromSymbol": "isHeadlessTabsPresentationConfig",
+        "toSymbol": "contains",
+        "callExpression": "contains",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
+        "fromSymbol": "isHeadlessTabsPresentationConfig",
         "toSymbol": "isResponsiveTabsPresentation",
         "callExpression": "isResponsiveTabsPresentation",
         "sourcePath": "src/appManifest/navigatorOptions.ts"
@@ -20718,6 +20840,12 @@
         "fromSymbol": "isResponsiveTabsPresentation",
         "toSymbol": "hasOnlyKeys",
         "callExpression": "hasOnlyKeys",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
+        "fromSymbol": "isResponsiveTabsPresentation",
+        "toSymbol": "contains",
+        "callExpression": "contains",
         "sourcePath": "src/appManifest/navigatorOptions.ts"
       },
       {
