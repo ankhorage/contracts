@@ -1,5 +1,6 @@
 import { COLOR_HARMONIES } from '@ankhorage/color-theory';
 
+import { isMediaAssetReference } from '../media';
 import { APP_CATEGORIES } from '../types';
 import { isBindingValueSource, isScreenDataLoaderDefinition } from './bindings';
 import { isOptionalNumber, isOptionalString, isRecord } from './shared';
@@ -103,7 +104,7 @@ function isScreenSpec(value: unknown): boolean {
 function isSplashScreenModeSpec(value: unknown): boolean {
   return (
     isRecord(value) &&
-    isOptionalString(value.image) &&
+    (value.image === undefined || isMediaAssetReference(value.image)) &&
     isOptionalNumber(value.imageWidth) &&
     (value.resizeMode === undefined ||
       (typeof value.resizeMode === 'string' &&

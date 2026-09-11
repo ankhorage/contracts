@@ -199,12 +199,12 @@ describe('contracts', () => {
   it('accepts serializable splash screen branding on app manifests', () => {
     const splashScreen: SplashScreenSpec = {
       backgroundColor: '#ffffff',
-      image: './assets/splash/icon.png',
+      image: { mediaId: 'splash-logo' },
       imageWidth: 160,
       resizeMode: 'contain',
       dark: {
         backgroundColor: '#000000',
-        image: './assets/splash/icon-dark.png',
+        image: { mediaId: 'splash-logo-dark' },
         imageWidth: 160,
         resizeMode: 'contain',
       },
