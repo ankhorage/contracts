@@ -22,7 +22,7 @@ function createManifest(): Record<string, unknown> {
     activeThemeId: 'default',
     activeThemeMode: 'light',
     splashScreen: {
-      image: './assets/splash.png',
+      image: { mediaId: 'hero' },
       resizeMode: 'contain',
       backgroundColor: '#ffffff',
       dark: { backgroundColor: '#000000' },
@@ -150,6 +150,14 @@ describe('AppManifest runtime parsing', () => {
 
     expect(isAppManifest(manifest)).toBe(true);
     expect(parseAppManifest(manifest)).toEqual({ ok: true, manifest });
+  });
+
+  it('rejects raw splash screen image paths', () => {
+    const manifest = createManifest();
+    const splashScreen = manifest.splashScreen as Record<string, unknown>;
+    splashScreen.image = './assets/splash.png';
+
+    expect(isAppManifest(manifest)).toBe(false);
   });
 
   it('accepts an optional GitHub repository configuration', () => {
