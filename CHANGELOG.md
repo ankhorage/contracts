@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 13.0.0
+
+### Major Changes
+
+- ef01878: Replace raw splash-screen image paths with stable media asset references so generated hosts can resolve the current bundled asset location.
+
 ## 12.0.1
 
 ### Patch Changes
