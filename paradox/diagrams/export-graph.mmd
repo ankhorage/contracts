@@ -6,7 +6,6 @@ graph LR
   module_src_appManifest_dataSources_ts["src/appManifest/dataSources.ts"]
   module_src_appManifest_deploy_ts["src/appManifest/deploy.ts"]
   module_src_appManifest_icon_ts["src/appManifest/icon.ts"]
-  module_src_appManifest_infra_ts["src/appManifest/infra.ts"]
   module_src_appManifest_media_ts["src/appManifest/media.ts"]
   module_src_appManifest_navigator_ts["src/appManifest/navigator.ts"]
   module_src_appManifest_navigatorOptions_ts["src/appManifest/navigatorOptions.ts"]
@@ -27,7 +26,27 @@ graph LR
   module_src_data_values_ts["src/data/values.ts"]
   module_src_db_ts["src/db.ts"]
   module_src_deploy_ts["src/deploy.ts"]
+  module_src_environments_ts["src/environments.ts"]
+  module_src_features_appManifest_domain_constants_ts["src/features/appManifest/domain/constants.ts"]
+  module_src_features_appManifest_domain_isAppManifest_ts["src/features/appManifest/domain/isAppManifest.ts"]
+  module_src_features_appManifest_domain_parseAppManifest_ts["src/features/appManifest/domain/parseAppManifest.ts"]
+  module_src_features_appState_domain_isAppStateSpec_ts["src/features/appState/domain/isAppStateSpec.ts"]
+  module_src_features_infra_domain_constants_ts["src/features/infra/domain/constants.ts"]
+  module_src_features_infra_domain_infraFields_ts["src/features/infra/domain/infraFields.ts"]
+  module_src_features_infra_domain_isInfraAdapterDescriptor_ts["src/features/infra/domain/isInfraAdapterDescriptor.ts"]
+  module_src_features_infra_domain_isInfraAuthSpec_ts["src/features/infra/domain/isInfraAuthSpec.ts"]
+  module_src_features_infra_domain_isInfraCredentialRef_ts["src/features/infra/domain/isInfraCredentialRef.ts"]
+  module_src_features_infra_domain_isInfraDeploymentSpec_ts["src/features/infra/domain/isInfraDeploymentSpec.ts"]
+  module_src_features_infra_domain_isInfraEnvironmentSpec_ts["src/features/infra/domain/isInfraEnvironmentSpec.ts"]
+  module_src_features_infra_domain_isInfraManifest_ts["src/features/infra/domain/isInfraManifest.ts"]
+  module_src_features_infra_domain_isInfraShape_ts["src/features/infra/domain/isInfraShape.ts"]
+  module_src_features_infra_domain_isInfraWorkloadHealth_ts["src/features/infra/domain/isInfraWorkloadHealth.ts"]
+  module_src_features_infra_domain_isInfraWorkloadSpec_ts["src/features/infra/domain/isInfraWorkloadSpec.ts"]
+  module_src_features_infra_domain_isInfraWorkloadValue_ts["src/features/infra/domain/isInfraWorkloadValue.ts"]
+  module_src_features_infra_domain_parseInfraManifest_ts["src/features/infra/domain/parseInfraManifest.ts"]
+  module_src_features_infra_domain_validateInfraAdapterSelection_ts["src/features/infra/domain/validateInfraAdapterSelection.ts"]
   module_src_index_ts["src/index.ts"]
+  module_src_infra_ts["src/infra.ts"]
   module_src_media_ts["src/media.ts"]
   module_src_navigator_ts["src/navigator.ts"]
   module_src_navigator_catalog_ts["src/navigator/catalog.ts"]
@@ -37,12 +56,18 @@ graph LR
   module_src_repository_ts["src/repository.ts"]
   module_src_requirements_ts["src/requirements.ts"]
   module_src_runtimeCallbacks_ts["src/runtimeCallbacks.ts"]
-  module_src_secretManifest_ts["src/secretManifest.ts"]
   module_src_secrets_ts["src/secrets.ts"]
   module_src_state_ts["src/state.ts"]
   module_src_storage_ts["src/storage.ts"]
   module_src_theme_ts["src/theme.ts"]
   module_src_types_ts["src/types.ts"]
+  module_src_types_appManifest_ts["src/types/appManifest.ts"]
+  module_src_types_infraAdapters_ts["src/types/infraAdapters.ts"]
+  module_src_types_infraLifecycle_ts["src/types/infraLifecycle.ts"]
+  module_src_types_infraManifest_ts["src/types/infraManifest.ts"]
+  module_src_types_infraSecrets_ts["src/types/infraSecrets.ts"]
+  module_src_types_infraValidation_ts["src/types/infraValidation.ts"]
+  module_src_types_infraWorkload_ts["src/types/infraWorkload.ts"]
   module_src_ui_ts["src/ui.ts"]
   export_Action["Action"]
   module_src_types_ts --> export_Action
@@ -103,17 +128,15 @@ graph LR
   module_src_data_apis_ts --> export_ApiProtocol
   export_APP_CATEGORIES["APP_CATEGORIES"]
   module_src_types_ts --> export_APP_CATEGORIES
-  export_APP_DEPLOY_ENVIRONMENT_IDS["APP_DEPLOY_ENVIRONMENT_IDS"]
-  module_src_deploy_ts --> export_APP_DEPLOY_ENVIRONMENT_IDS
   export_APP_DEPLOY_TARGET_IDS["APP_DEPLOY_TARGET_IDS"]
   module_src_deploy_ts --> export_APP_DEPLOY_TARGET_IDS
+  export_APP_ENVIRONMENT_IDS["APP_ENVIRONMENT_IDS"]
+  module_src_environments_ts --> export_APP_ENVIRONMENT_IDS
   export_AppCategory["AppCategory"]
   module_src_types_ts --> export_AppCategory
   export_AppDeployAndroidTargetConfig["AppDeployAndroidTargetConfig"]
   module_src_deploy_ts --> export_AppDeployAndroidTargetConfig
   export_AppDeployAndroidTargetConfig -.-> export_AppDeployProviderSelection
-  export_AppDeployEnvironmentId["AppDeployEnvironmentId"]
-  module_src_deploy_ts --> export_AppDeployEnvironmentId
   export_AppDeployIosTargetConfig["AppDeployIosTargetConfig"]
   module_src_deploy_ts --> export_AppDeployIosTargetConfig
   export_AppDeployIosTargetConfig -.-> export_AppDeployProviderSelection
@@ -132,12 +155,15 @@ graph LR
   export_AppDeployWebTargetConfig["AppDeployWebTargetConfig"]
   module_src_deploy_ts --> export_AppDeployWebTargetConfig
   export_AppDeployWebTargetConfig -.-> export_AppDeployProviderSelection
+  export_AppEnvironmentId["AppEnvironmentId"]
+  module_src_environments_ts --> export_AppEnvironmentId
   export_AppManifest["AppManifest"]
   module_src_types_ts --> export_AppManifest
   export_AppManifest -.-> export_AppCategory
   export_AppManifest -.-> export_AppDeployManifest
   export_AppManifest -.-> export_AppNavigatorManifest
   export_AppManifest -.-> export_AppSettings
+  export_AppManifest -.-> export_AppStateSpec
   export_AppManifest -.-> export_ComponentDataBinding
   export_AppManifest -.-> export_DatabaseDataSourceConfig
   export_AppManifest -.-> export_InfraManifest
@@ -147,11 +173,13 @@ graph LR
   export_AppManifest -.-> export_SplashScreenSpec
   export_AppManifest -.-> export_ThemeConfig
   export_AppManifestParseResult["AppManifestParseResult"]
-  module_src_appManifest_ts --> export_AppManifestParseResult
+  module_src_types_appManifest_ts --> export_AppManifestParseResult
   export_AppNavigatorManifest["AppNavigatorManifest"]
   module_src_navigator_ts --> export_AppNavigatorManifest
   export_AppSettings["AppSettings"]
   module_src_types_ts --> export_AppSettings
+  export_AppStateSpec["AppStateSpec"]
+  module_src_state_ts --> export_AppStateSpec
   export_AUTH_IDENTIFIER_KINDS["AUTH_IDENTIFIER_KINDS"]
   module_src_auth_ts --> export_AUTH_IDENTIFIER_KINDS
   export_AUTH_OAUTH_CANCELLATION_REASONS["AUTH_OAUTH_CANCELLATION_REASONS"]
@@ -182,8 +210,6 @@ graph LR
   module_src_types_ts --> export_AUTH_PROFILE_PRIMARY_KEY_STRATEGIES
   export_AUTH_PROFILE_UPDATE_STRATEGIES["AUTH_PROFILE_UPDATE_STRATEGIES"]
   module_src_types_ts --> export_AUTH_PROFILE_UPDATE_STRATEGIES
-  export_AUTH_PROVIDERS["AUTH_PROVIDERS"]
-  module_src_types_ts --> export_AUTH_PROVIDERS
   export_AUTH_SCOPES["AUTH_SCOPES"]
   module_src_types_ts --> export_AUTH_SCOPES
   export_AUTH_SIGN_IN_IDENTIFIERS["AUTH_SIGN_IN_IDENTIFIERS"]
@@ -291,8 +317,6 @@ graph LR
   export_AuthProfileSpec -.-> export_AuthProfileField
   export_AuthProfileUpdateStrategy["AuthProfileUpdateStrategy"]
   module_src_types_ts --> export_AuthProfileUpdateStrategy
-  export_AuthProvider["AuthProvider"]
-  module_src_types_ts --> export_AuthProvider
   export_AuthProviderConfig["AuthProviderConfig"]
   module_src_auth_ts --> export_AuthProviderConfig
   export_AuthProviderConfig -.-> export_AuthOAuthConfig
@@ -321,27 +345,8 @@ graph LR
   export_AuthSignUpSpec["AuthSignUpSpec"]
   module_src_types_ts --> export_AuthSignUpSpec
   export_AuthSignUpSpec -.-> export_AuthSignUpField
-  export_AuthSpec["AuthSpec"]
-  module_src_types_ts --> export_AuthSpec
-  export_AuthSpec -.-> export_AuthFlowConfig
-  export_AuthSpec -.-> export_AuthOAuthConfig
-  export_AuthSpec -.-> export_AuthProfileSpec
-  export_AuthSpec -.-> export_AuthProvider
-  export_AuthSpec -.-> export_AuthSignInSpec
-  export_AuthSpec -.-> export_AuthSignUpSpec
-  export_AuthSpec -.-> export_AuthzSpec
   export_AuthUser["AuthUser"]
   module_src_auth_ts --> export_AuthUser
-  export_AUTHZ_ENGINES["AUTHZ_ENGINES"]
-  module_src_types_ts --> export_AUTHZ_ENGINES
-  export_AUTHZ_KINDS["AUTHZ_KINDS"]
-  module_src_types_ts --> export_AUTHZ_KINDS
-  export_AuthzEngine["AuthzEngine"]
-  module_src_types_ts --> export_AuthzEngine
-  export_AuthzKind["AuthzKind"]
-  module_src_types_ts --> export_AuthzKind
-  export_AuthzSpec["AuthzSpec"]
-  module_src_types_ts --> export_AuthzSpec
   export_BindingCondition["BindingCondition"]
   module_src_bindings_ts --> export_BindingCondition
   export_BindingCondition -.-> export_BindingConditionOperator
@@ -435,10 +440,6 @@ graph LR
   export_CustomNavigatorRegistration -.-> export_NavigatorRuntimePlatform
   export_CustomNavigatorRegistry["CustomNavigatorRegistry"]
   module_src_navigator_extensions_ts --> export_CustomNavigatorRegistry
-  export_DATABASE_PROVIDERS["DATABASE_PROVIDERS"]
-  module_src_types_ts --> export_DATABASE_PROVIDERS
-  export_DATABASE_TIERS["DATABASE_TIERS"]
-  module_src_types_ts --> export_DATABASE_TIERS
   export_DatabaseAdapterRef["DatabaseAdapterRef"]
   module_src_data_refs_ts --> export_DatabaseAdapterRef
   export_DatabaseAdapterRef -.-> export_DataContractValue
@@ -449,13 +450,6 @@ graph LR
   export_DatabaseDataSourceConfig -.-> export_DataContractValue
   export_DatabaseDataSourceConfig -.-> export_DataEndpointConfig
   export_DatabaseDataSourceConfig -.-> export_DataSchema
-  export_DatabaseProvider["DatabaseProvider"]
-  module_src_types_ts --> export_DatabaseProvider
-  export_DatabaseSpec["DatabaseSpec"]
-  module_src_types_ts --> export_DatabaseSpec
-  export_DatabaseSpec -.-> export_DatabaseProvider
-  export_DatabaseTier["DatabaseTier"]
-  module_src_types_ts --> export_DatabaseTier
   export_DataContractValue["DataContractValue"]
   module_src_data_values_ts --> export_DataContractValue
   export_DataDiagnosticCode["DataDiagnosticCode"]
@@ -634,13 +628,6 @@ graph LR
   export_DbUpdateInput -.-> export_DbFilter
   export_DEFAULT_AUTH_FLOW["DEFAULT_AUTH_FLOW"]
   module_src_auth_ts --> export_DEFAULT_AUTH_FLOW
-  export_DEPLOYMENT_TARGETS["DEPLOYMENT_TARGETS"]
-  module_src_types_ts --> export_DEPLOYMENT_TARGETS
-  export_DeploymentSpec["DeploymentSpec"]
-  module_src_types_ts --> export_DeploymentSpec
-  export_DeploymentSpec -.-> export_DeploymentTarget
-  export_DeploymentTarget["DeploymentTarget"]
-  module_src_types_ts --> export_DeploymentTarget
   export_DRAWER_POSITIONS["DRAWER_POSITIONS"]
   module_src_navigator_ts --> export_DRAWER_POSITIONS
   export_DRAWER_TYPES["DRAWER_TYPES"]
@@ -712,19 +699,193 @@ graph LR
   module_src_storage_ts --> export_ImageAssetSource
   export_ImageMetadata["ImageMetadata"]
   module_src_storage_ts --> export_ImageMetadata
+  export_INFRA_ADAPTER_CATALOG["INFRA_ADAPTER_CATALOG"]
+  module_src_features_infra_domain_constants_ts --> export_INFRA_ADAPTER_CATALOG
+  export_INFRA_RUNTIME_COMPATIBILITY["INFRA_RUNTIME_COMPATIBILITY"]
+  module_src_features_infra_domain_constants_ts --> export_INFRA_RUNTIME_COMPATIBILITY
+  export_InfraAdapterDescriptor["InfraAdapterDescriptor"]
+  module_src_types_infraAdapters_ts --> export_InfraAdapterDescriptor
+  export_InfraAdapterId["InfraAdapterId"]
+  module_src_types_infraManifest_ts --> export_InfraAdapterId
+  export_InfraAuthConfigMap["InfraAuthConfigMap"]
+  module_src_types_infraManifest_ts --> export_InfraAuthConfigMap
+  export_InfraAuthConfigMap -.-> export_AuthFlowConfig
+  export_InfraAuthConfigMap -.-> export_AuthOAuthConfig
+  export_InfraAuthConfigMap -.-> export_AuthProfileSpec
+  export_InfraAuthConfigMap -.-> export_AuthScope
+  export_InfraAuthConfigMap -.-> export_AuthSignInSpec
+  export_InfraAuthConfigMap -.-> export_AuthSignUpSpec
+  export_InfraAuthSpec["InfraAuthSpec"]
+  module_src_types_infraManifest_ts --> export_InfraAuthSpec
+  export_InfraAuthzConfigMap["InfraAuthzConfigMap"]
+  module_src_types_infraManifest_ts --> export_InfraAuthzConfigMap
+  export_InfraAuthzSpec["InfraAuthzSpec"]
+  module_src_types_infraManifest_ts --> export_InfraAuthzSpec
+  export_InfraCapability["InfraCapability"]
+  module_src_types_infraManifest_ts --> export_InfraCapability
+  export_InfraComputeAdapter["InfraComputeAdapter"]
+  module_src_types_infraAdapters_ts --> export_InfraComputeAdapter
+  export_InfraComputeAdapter -.-> export_InfraAdapterDescriptor
+  export_InfraComputeAdapter -.-> export_InfraComputeSelection
+  export_InfraComputeAdapter -.-> export_InfraComputeTarget
+  export_InfraComputeAdapter -.-> export_InfraDestroyRequest
+  export_InfraComputeAdapter -.-> export_InfraExecutionContext
+  export_InfraComputeAdapter -.-> export_InfraPlanAction
+  export_InfraComputeAdapter -.-> export_InfraReconcileResult
+  export_InfraComputeAdapter -.-> export_InfraResourceStatus
+  export_InfraComputeAdapter -.-> export_InfraResult
+  export_InfraComputeConfigMap["InfraComputeConfigMap"]
+  module_src_types_infraManifest_ts --> export_InfraComputeConfigMap
+  export_InfraComputeConfigMap -.-> export_InfraControlPlaneCredentialRef
+  export_InfraComputeProviderId["InfraComputeProviderId"]
+  module_src_types_infraManifest_ts --> export_InfraComputeProviderId
+  export_InfraComputeSelection["InfraComputeSelection"]
+  module_src_types_infraManifest_ts --> export_InfraComputeSelection
+  export_InfraComputeTarget["InfraComputeTarget"]
+  module_src_types_infraAdapters_ts --> export_InfraComputeTarget
+  export_InfraControlPlaneCredentialRef["InfraControlPlaneCredentialRef"]
+  module_src_types_infraSecrets_ts --> export_InfraControlPlaneCredentialRef
+  export_InfraDatabaseConfigMap["InfraDatabaseConfigMap"]
+  module_src_types_infraManifest_ts --> export_InfraDatabaseConfigMap
+  export_InfraDatabaseSpec["InfraDatabaseSpec"]
+  module_src_types_infraManifest_ts --> export_InfraDatabaseSpec
+  export_InfraDeploymentSpec["InfraDeploymentSpec"]
+  module_src_types_infraManifest_ts --> export_InfraDeploymentSpec
+  export_InfraDestroyRequest["InfraDestroyRequest"]
+  module_src_types_infraLifecycle_ts --> export_InfraDestroyRequest
+  export_InfraDestroyRequest -.-> export_AppEnvironmentId
+  export_InfraDestroyRequest -.-> export_InfraResourceIdentity
+  export_InfraDiagnostic["InfraDiagnostic"]
+  module_src_types_infraLifecycle_ts --> export_InfraDiagnostic
+  export_InfraDiagnostic -.-> export_InfraResourceIdentity
+  export_InfraEnvironmentSpec["InfraEnvironmentSpec"]
+  module_src_types_infraManifest_ts --> export_InfraEnvironmentSpec
+  export_InfraEnvironmentSpec -.-> export_AuthFlowConfig
+  export_InfraEnvironmentSpec -.-> export_AuthOAuthConfig
+  export_InfraEnvironmentSpec -.-> export_AuthProfileSpec
+  export_InfraEnvironmentSpec -.-> export_AuthScope
+  export_InfraEnvironmentSpec -.-> export_AuthSignInSpec
+  export_InfraEnvironmentSpec -.-> export_AuthSignUpSpec
+  export_InfraEnvironmentSpec -.-> export_InfraDeploymentSpec
+  export_InfraEnvironmentSpec -.-> export_InfraNetworkingSpec
+  export_InfraEnvironmentSpec -.-> export_InfraObjectStorageSpec
+  export_InfraEnvironmentSpec -.-> export_InfraWorkloadSpec
+  export_InfraExecutionContext["InfraExecutionContext"]
+  module_src_types_infraAdapters_ts --> export_InfraExecutionContext
+  export_InfraExecutionContext -.-> export_InfraControlPlaneCredentialRef
+  export_InfraExecutionContext -.-> export_InfraEnvironmentSpec
+  export_InfraExecutionContext -.-> export_InfraLedger
+  export_InfraExecutionContext -.-> export_InfraResult
+  export_InfraExecutionContext -.-> export_InfraSecretReference
+  export_InfraGeneratedArtifact["InfraGeneratedArtifact"]
+  module_src_types_infraLifecycle_ts --> export_InfraGeneratedArtifact
+  export_InfraGeneratedArtifact -.-> export_InfraResourceIdentity
+  export_InfraLedger["InfraLedger"]
+  module_src_types_infraLifecycle_ts --> export_InfraLedger
+  export_InfraLedger -.-> export_InfraOwnedResource
+  export_InfraLedger -.-> export_InfraResourceIdentity
   export_InfraManifest["InfraManifest"]
-  module_src_types_ts --> export_InfraManifest
+  module_src_types_infraManifest_ts --> export_InfraManifest
   export_InfraManifest -.-> export_ApiDefinitionList
-  export_InfraManifest -.-> export_AuthSpec
-  export_InfraManifest -.-> export_DatabaseSpec
-  export_InfraManifest -.-> export_DeploymentSpec
-  export_InfraManifest -.-> export_InfraSecretStoreSpec
-  export_InfraManifest -.-> export_NetworkingSpec
-  export_InfraManifest -.-> export_StateSpec
-  export_InfraManifest -.-> export_StorageSpec
+  export_InfraManifest -.-> export_InfraEnvironmentSpec
+  export_InfraNetworkingSpec["InfraNetworkingSpec"]
+  module_src_types_infraManifest_ts --> export_InfraNetworkingSpec
+  export_InfraObjectStorageConfigMap["InfraObjectStorageConfigMap"]
+  module_src_types_infraManifest_ts --> export_InfraObjectStorageConfigMap
+  export_InfraObjectStorageConfigMap -.-> export_InfraControlPlaneCredentialRef
+  export_InfraObjectStorageSpec["InfraObjectStorageSpec"]
+  module_src_types_infraManifest_ts --> export_InfraObjectStorageSpec
+  export_InfraOutput["InfraOutput"]
+  module_src_types_infraLifecycle_ts --> export_InfraOutput
+  export_InfraOwnedResource["InfraOwnedResource"]
+  module_src_types_infraLifecycle_ts --> export_InfraOwnedResource
+  export_InfraOwnedResource -.-> export_InfraResourceIdentity
+  export_InfraPlan["InfraPlan"]
+  module_src_types_infraLifecycle_ts --> export_InfraPlan
+  export_InfraPlan -.-> export_InfraPlanAction
+  export_InfraPlanAction["InfraPlanAction"]
+  module_src_types_infraLifecycle_ts --> export_InfraPlanAction
+  export_InfraPlanAction -.-> export_InfraResourceIdentity
+  export_InfraProviderFor["InfraProviderFor"]
+  module_src_types_infraManifest_ts --> export_InfraProviderFor
+  export_InfraReconcileResult["InfraReconcileResult"]
+  module_src_types_infraAdapters_ts --> export_InfraReconcileResult
+  export_InfraReconcileResult -.-> export_InfraOutput
+  export_InfraReconcileResult -.-> export_InfraOwnedResource
+  export_InfraResourceIdentity["InfraResourceIdentity"]
+  module_src_types_infraLifecycle_ts --> export_InfraResourceIdentity
+  export_InfraResourceStatus["InfraResourceStatus"]
+  module_src_types_infraLifecycle_ts --> export_InfraResourceStatus
+  export_InfraResourceStatus -.-> export_InfraDiagnostic
+  export_InfraResourceStatus -.-> export_InfraResourceIdentity
+  export_InfraResult["InfraResult"]
+  module_src_types_infraLifecycle_ts --> export_InfraResult
+  export_InfraRuntimeAdapter["InfraRuntimeAdapter"]
+  module_src_types_infraAdapters_ts --> export_InfraRuntimeAdapter
+  export_InfraRuntimeAdapter -.-> export_InfraAdapterDescriptor
+  export_InfraRuntimeAdapter -.-> export_InfraDestroyRequest
+  export_InfraRuntimeAdapter -.-> export_InfraExecutionContext
+  export_InfraRuntimeAdapter -.-> export_InfraGeneratedArtifact
+  export_InfraRuntimeAdapter -.-> export_InfraPlanAction
+  export_InfraRuntimeAdapter -.-> export_InfraReconcileResult
+  export_InfraRuntimeAdapter -.-> export_InfraResourceStatus
+  export_InfraRuntimeAdapter -.-> export_InfraResult
+  export_InfraRuntimeAdapter -.-> export_InfraRuntimeDesiredState
+  export_InfraRuntimeConfigMap["InfraRuntimeConfigMap"]
+  module_src_types_infraManifest_ts --> export_InfraRuntimeConfigMap
+  export_InfraRuntimeDesiredState["InfraRuntimeDesiredState"]
+  module_src_types_infraAdapters_ts --> export_InfraRuntimeDesiredState
+  export_InfraRuntimeDesiredState -.-> export_InfraComputeTarget
+  export_InfraRuntimeDesiredState -.-> export_InfraRuntimeSelection
+  export_InfraRuntimeDesiredState -.-> export_InfraWorkloadSpec
+  export_InfraRuntimeProviderId["InfraRuntimeProviderId"]
+  module_src_types_infraManifest_ts --> export_InfraRuntimeProviderId
+  export_InfraRuntimeSelection["InfraRuntimeSelection"]
+  module_src_types_infraManifest_ts --> export_InfraRuntimeSelection
+  export_InfraSecretReference["InfraSecretReference"]
+  module_src_types_infraSecrets_ts --> export_InfraSecretReference
+  export_InfraSecretStoreConfigMap["InfraSecretStoreConfigMap"]
+  module_src_types_infraManifest_ts --> export_InfraSecretStoreConfigMap
   export_InfraSecretStoreSpec["InfraSecretStoreSpec"]
-  module_src_secretManifest_ts --> export_InfraSecretStoreSpec
-  export_InfraSecretStoreSpec -.-> export_SecretStoreProvider
+  module_src_types_infraManifest_ts --> export_InfraSecretStoreSpec
+  export_InfraServiceAdapter["InfraServiceAdapter"]
+  module_src_types_infraAdapters_ts --> export_InfraServiceAdapter
+  export_InfraServiceAdapter -.-> export_InfraAdapterDescriptor
+  export_InfraServiceAdapter -.-> export_InfraDestroyRequest
+  export_InfraServiceAdapter -.-> export_InfraExecutionContext
+  export_InfraServiceAdapter -.-> export_InfraOutput
+  export_InfraServiceAdapter -.-> export_InfraPlanAction
+  export_InfraServiceAdapter -.-> export_InfraReconcileResult
+  export_InfraServiceAdapter -.-> export_InfraResourceStatus
+  export_InfraServiceAdapter -.-> export_InfraResult
+  export_InfraServiceAdapter -.-> export_InfraWorkloadSpec
+  export_InfraStatus["InfraStatus"]
+  module_src_types_infraLifecycle_ts --> export_InfraStatus
+  export_InfraStatus -.-> export_InfraResourceStatus
+  export_InfraWorkloadArtifact["InfraWorkloadArtifact"]
+  module_src_types_infraWorkload_ts --> export_InfraWorkloadArtifact
+  export_InfraWorkloadFileSpec["InfraWorkloadFileSpec"]
+  module_src_types_infraWorkload_ts --> export_InfraWorkloadFileSpec
+  export_InfraWorkloadFileSpec -.-> export_InfraWorkloadValue
+  export_InfraWorkloadHealthSpec["InfraWorkloadHealthSpec"]
+  module_src_types_infraWorkload_ts --> export_InfraWorkloadHealthSpec
+  export_InfraWorkloadPort["InfraWorkloadPort"]
+  module_src_types_infraWorkload_ts --> export_InfraWorkloadPort
+  export_InfraWorkloadResourceSpec["InfraWorkloadResourceSpec"]
+  module_src_types_infraWorkload_ts --> export_InfraWorkloadResourceSpec
+  export_InfraWorkloadSpec["InfraWorkloadSpec"]
+  module_src_types_infraWorkload_ts --> export_InfraWorkloadSpec
+  export_InfraWorkloadSpec -.-> export_InfraWorkloadArtifact
+  export_InfraWorkloadSpec -.-> export_InfraWorkloadFileSpec
+  export_InfraWorkloadSpec -.-> export_InfraWorkloadHealthSpec
+  export_InfraWorkloadSpec -.-> export_InfraWorkloadPort
+  export_InfraWorkloadSpec -.-> export_InfraWorkloadResourceSpec
+  export_InfraWorkloadSpec -.-> export_InfraWorkloadValue
+  export_InfraWorkloadSpec -.-> export_InfraWorkloadVolumeSpec
+  export_InfraWorkloadValue["InfraWorkloadValue"]
+  module_src_types_infraWorkload_ts --> export_InfraWorkloadValue
+  export_InfraWorkloadVolumeSpec["InfraWorkloadVolumeSpec"]
+  module_src_types_infraWorkload_ts --> export_InfraWorkloadVolumeSpec
   export_InternalRestApiDefinition["InternalRestApiDefinition"]
   module_src_data_apis_ts --> export_InternalRestApiDefinition
   export_InternalRestApiDefinition -.-> export_CredentialRef
@@ -734,9 +895,21 @@ graph LR
   export_isAppDeployManifest["isAppDeployManifest"]
   module_src_appManifest_deploy_ts --> export_isAppDeployManifest
   export_isAppManifest["isAppManifest"]
-  module_src_appManifest_ts --> export_isAppManifest
+  module_src_features_appManifest_domain_isAppManifest_ts --> export_isAppManifest
   export_isAppNavigatorManifest["isAppNavigatorManifest"]
   module_src_appManifest_navigator_ts --> export_isAppNavigatorManifest
+  export_isInfraAdapterDescriptor["isInfraAdapterDescriptor"]
+  module_src_features_infra_domain_isInfraAdapterDescriptor_ts --> export_isInfraAdapterDescriptor
+  export_isInfraAuthSpec["isInfraAuthSpec"]
+  module_src_features_infra_domain_isInfraAuthSpec_ts --> export_isInfraAuthSpec
+  export_isInfraDeploymentSpec["isInfraDeploymentSpec"]
+  module_src_features_infra_domain_isInfraDeploymentSpec_ts --> export_isInfraDeploymentSpec
+  export_isInfraEnvironmentSpec["isInfraEnvironmentSpec"]
+  module_src_features_infra_domain_isInfraEnvironmentSpec_ts --> export_isInfraEnvironmentSpec
+  export_isInfraManifest["isInfraManifest"]
+  module_src_features_infra_domain_isInfraManifest_ts --> export_isInfraManifest
+  export_isInfraWorkloadSpec["isInfraWorkloadSpec"]
+  module_src_features_infra_domain_isInfraWorkloadSpec_ts --> export_isInfraWorkloadSpec
   export_isMediaAssetReference["isMediaAssetReference"]
   module_src_media_ts --> export_isMediaAssetReference
   export_JAVASCRIPT_STACK_PRESENTATIONS["JAVASCRIPT_STACK_PRESENTATIONS"]
@@ -757,20 +930,12 @@ graph LR
   module_src_auth_ts --> export_KnownAuthOAuthTransportId
   export_KnownAuthProfileField["KnownAuthProfileField"]
   module_src_types_ts --> export_KnownAuthProfileField
-  export_KnownAuthProvider["KnownAuthProvider"]
-  module_src_types_ts --> export_KnownAuthProvider
   export_KnownAuthSignUpField["KnownAuthSignUpField"]
   module_src_auth_ts --> export_KnownAuthSignUpField
   export_KnownComponentEventDto["KnownComponentEventDto"]
   module_src_types_ts --> export_KnownComponentEventDto
-  export_KnownDatabaseProvider["KnownDatabaseProvider"]
-  module_src_types_ts --> export_KnownDatabaseProvider
-  export_KnownDeploymentTarget["KnownDeploymentTarget"]
-  module_src_types_ts --> export_KnownDeploymentTarget
   export_KnownSecretStoreProvider["KnownSecretStoreProvider"]
   module_src_secrets_ts --> export_KnownSecretStoreProvider
-  export_KnownStateProvider["KnownStateProvider"]
-  module_src_types_ts --> export_KnownStateProvider
   export_ManifestValue["ManifestValue"]
   module_src_types_ts --> export_ManifestValue
   export_MEDIA_ASSET_KINDS["MEDIA_ASSET_KINDS"]
@@ -940,8 +1105,6 @@ graph LR
   module_src_navigator_catalog_ts --> export_NavigatorVerificationKind
   export_NavigatorVerificationStatus["NavigatorVerificationStatus"]
   module_src_navigator_catalog_ts --> export_NavigatorVerificationStatus
-  export_NetworkingSpec["NetworkingSpec"]
-  module_src_types_ts --> export_NetworkingSpec
   export_normalizeSecretRef["normalizeSecretRef"]
   module_src_secrets_ts --> export_normalizeSecretRef
   export_normalizeSecretRef -.-> export_SecretStoreResult
@@ -958,8 +1121,12 @@ graph LR
   export_OperationScreenDataLoaderDefinition -.-> export_BindingInputValue
   export_OperationScreenDataLoaderDefinition -.-> export_BindingOperationRef
   export_parseAppManifest["parseAppManifest"]
-  module_src_appManifest_ts --> export_parseAppManifest
+  module_src_features_appManifest_domain_parseAppManifest_ts --> export_parseAppManifest
   export_parseAppManifest -.-> export_AppManifestParseResult
+  export_parseInfraManifest["parseInfraManifest"]
+  module_src_features_infra_domain_parseInfraManifest_ts --> export_parseInfraManifest
+  export_parseInfraManifest -.-> export_InfraManifest
+  export_parseInfraManifest -.-> export_InfraResult
   export_PasswordResetInput["PasswordResetInput"]
   module_src_auth_ts --> export_PasswordResetInput
   export_PasswordResetInput -.-> export_AuthIdentifier
@@ -1086,14 +1253,17 @@ graph LR
   export_SlotNavigatorNode -.-> export_RouteDefinition
   export_SplashScreenAssetSpec["SplashScreenAssetSpec"]
   module_src_types_ts --> export_SplashScreenAssetSpec
+  export_SplashScreenAssetSpec -.-> export_MediaAssetReference
   export_SplashScreenAssetSpec -.-> export_SplashScreenResizeMode
   export_SplashScreenModeSpec["SplashScreenModeSpec"]
   module_src_types_ts --> export_SplashScreenModeSpec
+  export_SplashScreenModeSpec -.-> export_MediaAssetReference
   export_SplashScreenModeSpec -.-> export_SplashScreenResizeMode
   export_SplashScreenResizeMode["SplashScreenResizeMode"]
   module_src_types_ts --> export_SplashScreenResizeMode
   export_SplashScreenSpec["SplashScreenSpec"]
   module_src_types_ts --> export_SplashScreenSpec
+  export_SplashScreenSpec -.-> export_MediaAssetReference
   export_SplashScreenSpec -.-> export_SplashScreenModeSpec
   export_SplashScreenSpec -.-> export_SplashScreenResizeMode
   export_SplitViewNavigatorNode["SplitViewNavigatorNode"]
@@ -1119,10 +1289,6 @@ graph LR
   export_StartOAuthAuthorizationInput["StartOAuthAuthorizationInput"]
   module_src_auth_ts --> export_StartOAuthAuthorizationInput
   export_StartOAuthAuthorizationInput -.-> export_AuthOAuthProviderId
-  export_STATE_PERSISTENCE_MODES["STATE_PERSISTENCE_MODES"]
-  module_src_types_ts --> export_STATE_PERSISTENCE_MODES
-  export_STATE_PROVIDERS["STATE_PROVIDERS"]
-  module_src_types_ts --> export_STATE_PROVIDERS
   export_StateAdapter["StateAdapter"]
   module_src_state_ts --> export_StateAdapter
   export_StateAdapter -.-> export_StateAdapterCapabilities
@@ -1139,28 +1305,19 @@ graph LR
   module_src_state_ts --> export_StateListener
   export_StatePath["StatePath"]
   module_src_state_ts --> export_StatePath
-  export_StatePersistenceMode["StatePersistenceMode"]
-  module_src_types_ts --> export_StatePersistenceMode
   export_StatePrimitive["StatePrimitive"]
   module_src_state_ts --> export_StatePrimitive
-  export_StateProvider["StateProvider"]
-  module_src_types_ts --> export_StateProvider
   export_StateResult["StateResult"]
   module_src_state_ts --> export_StateResult
   export_StateSnapshot["StateSnapshot"]
   module_src_state_ts --> export_StateSnapshot
   export_StateSnapshot -.-> export_StatePath
-  export_StateSpec["StateSpec"]
-  module_src_types_ts --> export_StateSpec
-  export_StateSpec -.-> export_StateProvider
   export_StateSubscription["StateSubscription"]
   module_src_state_ts --> export_StateSubscription
   export_StateSuccess["StateSuccess"]
   module_src_state_ts --> export_StateSuccess
   export_StateValue["StateValue"]
   module_src_state_ts --> export_StateValue
-  export_STORAGE_PROVIDERS["STORAGE_PROVIDERS"]
-  module_src_types_ts --> export_STORAGE_PROVIDERS
   export_StorageAdapter["StorageAdapter"]
   module_src_storage_ts --> export_StorageAdapter
   export_StorageAdapter -.-> export_ImageMetadata
@@ -1192,8 +1349,6 @@ graph LR
   module_src_storage_ts --> export_StorageObjectMetadata
   export_StorageOkResult["StorageOkResult"]
   module_src_storage_ts --> export_StorageOkResult
-  export_StorageProvider["StorageProvider"]
-  module_src_types_ts --> export_StorageProvider
   export_StoragePublicUrlInput["StoragePublicUrlInput"]
   module_src_storage_ts --> export_StoragePublicUrlInput
   export_StoragePublicUrlResult["StoragePublicUrlResult"]
@@ -1218,8 +1373,6 @@ graph LR
   export_StorageResolveResult -.-> export_StorageResolvedAsset
   export_StorageResult["StorageResult"]
   module_src_storage_ts --> export_StorageResult
-  export_StorageSpec["StorageSpec"]
-  module_src_types_ts --> export_StorageSpec
   export_StorageUploadInput["StorageUploadInput"]
   module_src_storage_ts --> export_StorageUploadInput
   export_StorageUploadResult["StorageUploadResult"]
@@ -1354,6 +1507,11 @@ graph LR
   export_UrlImageAssetSource["UrlImageAssetSource"]
   module_src_storage_ts --> export_UrlImageAssetSource
   export_UrlImageAssetSource -.-> export_ImageMetadata
+  export_validateInfraAdapterSelection["validateInfraAdapterSelection"]
+  module_src_features_infra_domain_validateInfraAdapterSelection_ts --> export_validateInfraAdapterSelection
+  export_validateInfraAdapterSelection -.-> export_InfraAdapterDescriptor
+  export_validateInfraAdapterSelection -.-> export_InfraEnvironmentSpec
+  export_validateInfraAdapterSelection -.-> export_InfraResult
   export_validateSecretPayload["validateSecretPayload"]
   module_src_secrets_ts --> export_validateSecretPayload
   export_validateSecretPayload -.-> export_SecretStoreResult

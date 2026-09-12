@@ -1,3 +1,9 @@
+/** Legend currently implements in-memory state only; unsupported persistence cannot be selected. */
+export interface AppStateSpec {
+  readonly provider: 'legend';
+  readonly persistence?: false;
+}
+
 export type StatePrimitive = string | number | boolean | null;
 
 export type StateValue =

@@ -1,0 +1,8 @@
+sequenceDiagram
+  participant participant_isInfraAuthSpec as isInfraAuthSpec
+  participant participant_isInfraShape as isInfraShape
+  participant participant_isRecord as isRecord
+  participant_isInfraAuthSpec->>participant_isInfraShape: isInfraShape()
+  participant_isInfraShape->>participant_isRecord: isRecord()
+  participant_isRecord-->>participant_isInfraShape: return
+  participant_isInfraShape-->>participant_isInfraAuthSpec: return

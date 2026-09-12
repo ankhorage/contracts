@@ -1,4 +1,5 @@
-import type { AppDeployEnvironmentId, AppDeployTargetId } from './deploy';
+import type { AppDeployTargetId } from './deploy';
+import type { AppEnvironmentId } from './environments';
 import type { SecretRef } from './secrets';
 import type { IconSpec } from './types';
 
@@ -90,7 +91,7 @@ export type AuthOAuthSetupRequirement =
 export interface AuthOAuthSetupPlan {
   readonly provider: AuthOAuthProviderId;
   readonly transport: AuthOAuthTransportId;
-  readonly environment: AppDeployEnvironmentId;
+  readonly environment: AppEnvironmentId;
   /** Enabled application targets considered while deriving this plan. */
   readonly targets: readonly AppDeployTargetId[];
   readonly requirements: readonly AuthOAuthSetupRequirement[];

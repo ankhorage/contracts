@@ -1,0 +1,14 @@
+sequenceDiagram
+  participant participant_hasServiceDependencies as hasServiceDependencies
+  participant participant_isEnvironmentShape as isEnvironmentShape
+  participant participant_isInfraEnvironmentSpec as isInfraEnvironmentSpec
+  participant participant_isInfraShape as isInfraShape
+  participant participant_isRecord as isRecord
+  participant_isInfraEnvironmentSpec->>participant_isEnvironmentShape: isEnvironmentShape()
+  participant_isEnvironmentShape->>participant_isInfraShape: isInfraShape()
+  participant_isInfraShape->>participant_isRecord: isRecord()
+  participant_isRecord-->>participant_isInfraShape: return
+  participant_isInfraShape-->>participant_isEnvironmentShape: return
+  participant_isEnvironmentShape-->>participant_isInfraEnvironmentSpec: return
+  participant_isInfraEnvironmentSpec->>participant_hasServiceDependencies: hasServiceDependencies()
+  participant_hasServiceDependencies-->>participant_isInfraEnvironmentSpec: return

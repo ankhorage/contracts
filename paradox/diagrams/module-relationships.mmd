@@ -6,7 +6,6 @@ graph LR
   module_src_appManifest_dataSources_ts["src/appManifest/dataSources.ts"]
   module_src_appManifest_deploy_ts["src/appManifest/deploy.ts"]
   module_src_appManifest_icon_ts["src/appManifest/icon.ts"]
-  module_src_appManifest_infra_ts["src/appManifest/infra.ts"]
   module_src_appManifest_media_ts["src/appManifest/media.ts"]
   module_src_appManifest_navigator_ts["src/appManifest/navigator.ts"]
   module_src_appManifest_navigatorOptions_ts["src/appManifest/navigatorOptions.ts"]
@@ -27,7 +26,27 @@ graph LR
   module_src_data_values_ts["src/data/values.ts"]
   module_src_db_ts["src/db.ts"]
   module_src_deploy_ts["src/deploy.ts"]
+  module_src_environments_ts["src/environments.ts"]
+  module_src_features_appManifest_domain_constants_ts["src/features/appManifest/domain/constants.ts"]
+  module_src_features_appManifest_domain_isAppManifest_ts["src/features/appManifest/domain/isAppManifest.ts"]
+  module_src_features_appManifest_domain_parseAppManifest_ts["src/features/appManifest/domain/parseAppManifest.ts"]
+  module_src_features_appState_domain_isAppStateSpec_ts["src/features/appState/domain/isAppStateSpec.ts"]
+  module_src_features_infra_domain_constants_ts["src/features/infra/domain/constants.ts"]
+  module_src_features_infra_domain_infraFields_ts["src/features/infra/domain/infraFields.ts"]
+  module_src_features_infra_domain_isInfraAdapterDescriptor_ts["src/features/infra/domain/isInfraAdapterDescriptor.ts"]
+  module_src_features_infra_domain_isInfraAuthSpec_ts["src/features/infra/domain/isInfraAuthSpec.ts"]
+  module_src_features_infra_domain_isInfraCredentialRef_ts["src/features/infra/domain/isInfraCredentialRef.ts"]
+  module_src_features_infra_domain_isInfraDeploymentSpec_ts["src/features/infra/domain/isInfraDeploymentSpec.ts"]
+  module_src_features_infra_domain_isInfraEnvironmentSpec_ts["src/features/infra/domain/isInfraEnvironmentSpec.ts"]
+  module_src_features_infra_domain_isInfraManifest_ts["src/features/infra/domain/isInfraManifest.ts"]
+  module_src_features_infra_domain_isInfraShape_ts["src/features/infra/domain/isInfraShape.ts"]
+  module_src_features_infra_domain_isInfraWorkloadHealth_ts["src/features/infra/domain/isInfraWorkloadHealth.ts"]
+  module_src_features_infra_domain_isInfraWorkloadSpec_ts["src/features/infra/domain/isInfraWorkloadSpec.ts"]
+  module_src_features_infra_domain_isInfraWorkloadValue_ts["src/features/infra/domain/isInfraWorkloadValue.ts"]
+  module_src_features_infra_domain_parseInfraManifest_ts["src/features/infra/domain/parseInfraManifest.ts"]
+  module_src_features_infra_domain_validateInfraAdapterSelection_ts["src/features/infra/domain/validateInfraAdapterSelection.ts"]
   module_src_index_ts["src/index.ts"]
+  module_src_infra_ts["src/infra.ts"]
   module_src_media_ts["src/media.ts"]
   module_src_navigator_ts["src/navigator.ts"]
   module_src_navigator_catalog_ts["src/navigator/catalog.ts"]
@@ -37,21 +56,19 @@ graph LR
   module_src_repository_ts["src/repository.ts"]
   module_src_requirements_ts["src/requirements.ts"]
   module_src_runtimeCallbacks_ts["src/runtimeCallbacks.ts"]
-  module_src_secretManifest_ts["src/secretManifest.ts"]
   module_src_secrets_ts["src/secrets.ts"]
   module_src_state_ts["src/state.ts"]
   module_src_storage_ts["src/storage.ts"]
   module_src_theme_ts["src/theme.ts"]
   module_src_types_ts["src/types.ts"]
+  module_src_types_appManifest_ts["src/types/appManifest.ts"]
+  module_src_types_infraAdapters_ts["src/types/infraAdapters.ts"]
+  module_src_types_infraLifecycle_ts["src/types/infraLifecycle.ts"]
+  module_src_types_infraManifest_ts["src/types/infraManifest.ts"]
+  module_src_types_infraSecrets_ts["src/types/infraSecrets.ts"]
+  module_src_types_infraValidation_ts["src/types/infraValidation.ts"]
+  module_src_types_infraWorkload_ts["src/types/infraWorkload.ts"]
   module_src_ui_ts["src/ui.ts"]
-  module_src_appManifest_ts --> module_src_appManifest_bindings_ts
-  module_src_appManifest_ts --> module_src_appManifest_dataSources_ts
-  module_src_appManifest_ts --> module_src_appManifest_deploy_ts
-  module_src_appManifest_ts --> module_src_appManifest_infra_ts
-  module_src_appManifest_ts --> module_src_appManifest_media_ts
-  module_src_appManifest_ts --> module_src_appManifest_screens_ts
-  module_src_appManifest_ts --> module_src_appManifest_shared_ts
-  module_src_appManifest_ts --> module_src_types_ts
   module_src_appManifest_apis_ts --> module_src_appManifest_data_ts
   module_src_appManifest_apis_ts --> module_src_appManifest_shared_ts
   module_src_appManifest_apis_ts --> module_src_data_index_ts
@@ -63,11 +80,6 @@ graph LR
   module_src_appManifest_deploy_ts --> module_src_deploy_ts
   module_src_appManifest_icon_ts --> module_src_appManifest_shared_ts
   module_src_appManifest_icon_ts --> module_src_media_ts
-  module_src_appManifest_infra_ts --> module_src_appManifest_apis_ts
-  module_src_appManifest_infra_ts --> module_src_appManifest_icon_ts
-  module_src_appManifest_infra_ts --> module_src_appManifest_shared_ts
-  module_src_appManifest_infra_ts --> module_src_auth_ts
-  module_src_appManifest_infra_ts --> module_src_types_ts
   module_src_appManifest_media_ts --> module_src_appManifest_shared_ts
   module_src_appManifest_media_ts --> module_src_media_ts
   module_src_appManifest_navigator_ts --> module_src_appManifest_icon_ts
@@ -78,8 +90,10 @@ graph LR
   module_src_appManifest_navigatorOptions_ts --> module_src_navigator_ts
   module_src_appManifest_screens_ts --> module_src_appManifest_bindings_ts
   module_src_appManifest_screens_ts --> module_src_appManifest_shared_ts
+  module_src_appManifest_screens_ts --> module_src_media_ts
   module_src_appManifest_screens_ts --> module_src_types_ts
   module_src_auth_ts --> module_src_deploy_ts
+  module_src_auth_ts --> module_src_environments_ts
   module_src_auth_ts --> module_src_secrets_ts
   module_src_auth_ts --> module_src_types_ts
   module_src_bindings_ts --> module_src_data_index_ts
@@ -106,6 +120,83 @@ graph LR
   module_src_data_sources_ts --> module_src_data_refs_ts
   module_src_data_sources_ts --> module_src_data_schemas_ts
   module_src_data_sources_ts --> module_src_data_values_ts
+  module_src_features_appManifest_domain_constants_ts --> module_src_types_ts
+  module_src_features_appManifest_domain_isAppManifest_ts --> module_src_appManifest_bindings_ts
+  module_src_features_appManifest_domain_isAppManifest_ts --> module_src_appManifest_dataSources_ts
+  module_src_features_appManifest_domain_isAppManifest_ts --> module_src_appManifest_deploy_ts
+  module_src_features_appManifest_domain_isAppManifest_ts --> module_src_appManifest_media_ts
+  module_src_features_appManifest_domain_isAppManifest_ts --> module_src_appManifest_screens_ts
+  module_src_features_appManifest_domain_isAppManifest_ts --> module_src_appManifest_shared_ts
+  module_src_features_appManifest_domain_isAppManifest_ts --> module_src_features_appManifest_domain_constants_ts
+  module_src_features_appManifest_domain_isAppManifest_ts --> module_src_features_appState_domain_isAppStateSpec_ts
+  module_src_features_appManifest_domain_isAppManifest_ts --> module_src_features_infra_domain_isInfraManifest_ts
+  module_src_features_appManifest_domain_isAppManifest_ts --> module_src_types_ts
+  module_src_features_appManifest_domain_parseAppManifest_ts --> module_src_features_appManifest_domain_isAppManifest_ts
+  module_src_features_appManifest_domain_parseAppManifest_ts --> module_src_types_appManifest_ts
+  module_src_features_appState_domain_isAppStateSpec_ts --> module_src_appManifest_shared_ts
+  module_src_features_appState_domain_isAppStateSpec_ts --> module_src_state_ts
+  module_src_features_infra_domain_infraFields_ts --> module_src_appManifest_shared_ts
+  module_src_features_infra_domain_isInfraAdapterDescriptor_ts --> module_src_appManifest_shared_ts
+  module_src_features_infra_domain_isInfraAdapterDescriptor_ts --> module_src_features_infra_domain_constants_ts
+  module_src_features_infra_domain_isInfraAdapterDescriptor_ts --> module_src_features_infra_domain_isInfraShape_ts
+  module_src_features_infra_domain_isInfraAdapterDescriptor_ts --> module_src_types_infraAdapters_ts
+  module_src_features_infra_domain_isInfraAuthSpec_ts --> module_src_appManifest_icon_ts
+  module_src_features_infra_domain_isInfraAuthSpec_ts --> module_src_appManifest_shared_ts
+  module_src_features_infra_domain_isInfraAuthSpec_ts --> module_src_auth_ts
+  module_src_features_infra_domain_isInfraAuthSpec_ts --> module_src_features_infra_domain_isInfraShape_ts
+  module_src_features_infra_domain_isInfraAuthSpec_ts --> module_src_types_ts
+  module_src_features_infra_domain_isInfraAuthSpec_ts --> module_src_types_infraManifest_ts
+  module_src_features_infra_domain_isInfraAuthSpec_ts --> module_src_types_infraValidation_ts
+  module_src_features_infra_domain_isInfraCredentialRef_ts --> module_src_features_infra_domain_infraFields_ts
+  module_src_features_infra_domain_isInfraCredentialRef_ts --> module_src_features_infra_domain_isInfraShape_ts
+  module_src_features_infra_domain_isInfraDeploymentSpec_ts --> module_src_appManifest_shared_ts
+  module_src_features_infra_domain_isInfraDeploymentSpec_ts --> module_src_features_infra_domain_constants_ts
+  module_src_features_infra_domain_isInfraDeploymentSpec_ts --> module_src_features_infra_domain_infraFields_ts
+  module_src_features_infra_domain_isInfraDeploymentSpec_ts --> module_src_features_infra_domain_isInfraCredentialRef_ts
+  module_src_features_infra_domain_isInfraDeploymentSpec_ts --> module_src_features_infra_domain_isInfraShape_ts
+  module_src_features_infra_domain_isInfraDeploymentSpec_ts --> module_src_types_infraManifest_ts
+  module_src_features_infra_domain_isInfraDeploymentSpec_ts --> module_src_types_infraValidation_ts
+  module_src_features_infra_domain_isInfraEnvironmentSpec_ts --> module_src_appManifest_shared_ts
+  module_src_features_infra_domain_isInfraEnvironmentSpec_ts --> module_src_features_infra_domain_constants_ts
+  module_src_features_infra_domain_isInfraEnvironmentSpec_ts --> module_src_features_infra_domain_infraFields_ts
+  module_src_features_infra_domain_isInfraEnvironmentSpec_ts --> module_src_features_infra_domain_isInfraAuthSpec_ts
+  module_src_features_infra_domain_isInfraEnvironmentSpec_ts --> module_src_features_infra_domain_isInfraCredentialRef_ts
+  module_src_features_infra_domain_isInfraEnvironmentSpec_ts --> module_src_features_infra_domain_isInfraDeploymentSpec_ts
+  module_src_features_infra_domain_isInfraEnvironmentSpec_ts --> module_src_features_infra_domain_isInfraShape_ts
+  module_src_features_infra_domain_isInfraEnvironmentSpec_ts --> module_src_features_infra_domain_isInfraWorkloadSpec_ts
+  module_src_features_infra_domain_isInfraEnvironmentSpec_ts --> module_src_types_infraManifest_ts
+  module_src_features_infra_domain_isInfraEnvironmentSpec_ts --> module_src_types_infraValidation_ts
+  module_src_features_infra_domain_isInfraManifest_ts --> module_src_appManifest_apis_ts
+  module_src_features_infra_domain_isInfraManifest_ts --> module_src_appManifest_shared_ts
+  module_src_features_infra_domain_isInfraManifest_ts --> module_src_environments_ts
+  module_src_features_infra_domain_isInfraManifest_ts --> module_src_features_infra_domain_infraFields_ts
+  module_src_features_infra_domain_isInfraManifest_ts --> module_src_features_infra_domain_isInfraEnvironmentSpec_ts
+  module_src_features_infra_domain_isInfraManifest_ts --> module_src_features_infra_domain_isInfraShape_ts
+  module_src_features_infra_domain_isInfraManifest_ts --> module_src_types_infraManifest_ts
+  module_src_features_infra_domain_isInfraManifest_ts --> module_src_types_infraValidation_ts
+  module_src_features_infra_domain_isInfraShape_ts --> module_src_appManifest_shared_ts
+  module_src_features_infra_domain_isInfraWorkloadHealth_ts --> module_src_appManifest_shared_ts
+  module_src_features_infra_domain_isInfraWorkloadHealth_ts --> module_src_features_infra_domain_infraFields_ts
+  module_src_features_infra_domain_isInfraWorkloadHealth_ts --> module_src_features_infra_domain_isInfraShape_ts
+  module_src_features_infra_domain_isInfraWorkloadSpec_ts --> module_src_appManifest_shared_ts
+  module_src_features_infra_domain_isInfraWorkloadSpec_ts --> module_src_features_infra_domain_infraFields_ts
+  module_src_features_infra_domain_isInfraWorkloadSpec_ts --> module_src_features_infra_domain_isInfraShape_ts
+  module_src_features_infra_domain_isInfraWorkloadSpec_ts --> module_src_features_infra_domain_isInfraWorkloadHealth_ts
+  module_src_features_infra_domain_isInfraWorkloadSpec_ts --> module_src_features_infra_domain_isInfraWorkloadValue_ts
+  module_src_features_infra_domain_isInfraWorkloadSpec_ts --> module_src_types_infraValidation_ts
+  module_src_features_infra_domain_isInfraWorkloadSpec_ts --> module_src_types_infraWorkload_ts
+  module_src_features_infra_domain_isInfraWorkloadValue_ts --> module_src_appManifest_shared_ts
+  module_src_features_infra_domain_isInfraWorkloadValue_ts --> module_src_environments_ts
+  module_src_features_infra_domain_isInfraWorkloadValue_ts --> module_src_features_infra_domain_infraFields_ts
+  module_src_features_infra_domain_isInfraWorkloadValue_ts --> module_src_features_infra_domain_isInfraShape_ts
+  module_src_features_infra_domain_parseInfraManifest_ts --> module_src_features_infra_domain_isInfraManifest_ts
+  module_src_features_infra_domain_parseInfraManifest_ts --> module_src_types_infraLifecycle_ts
+  module_src_features_infra_domain_parseInfraManifest_ts --> module_src_types_infraManifest_ts
+  module_src_features_infra_domain_validateInfraAdapterSelection_ts --> module_src_features_infra_domain_constants_ts
+  module_src_features_infra_domain_validateInfraAdapterSelection_ts --> module_src_features_infra_domain_isInfraAdapterDescriptor_ts
+  module_src_features_infra_domain_validateInfraAdapterSelection_ts --> module_src_types_infraAdapters_ts
+  module_src_features_infra_domain_validateInfraAdapterSelection_ts --> module_src_types_infraLifecycle_ts
+  module_src_features_infra_domain_validateInfraAdapterSelection_ts --> module_src_types_infraManifest_ts
   module_src_navigator_ts --> module_src_types_ts
   module_src_navigator_catalog_ts --> module_src_navigator_ts
   module_src_navigator_catalog_ts --> module_src_navigator_generation_ts
@@ -117,15 +208,35 @@ graph LR
   module_src_navigator_planning_ts --> module_src_navigator_extensions_ts
   module_src_navigator_planning_ts --> module_src_navigator_generation_ts
   module_src_runtimeCallbacks_ts --> module_src_types_ts
-  module_src_secretManifest_ts --> module_src_secrets_ts
   module_src_types_ts --> module_src_auth_ts
   module_src_types_ts --> module_src_bindings_ts
   module_src_types_ts --> module_src_data_index_ts
   module_src_types_ts --> module_src_deploy_ts
+  module_src_types_ts --> module_src_infra_ts
   module_src_types_ts --> module_src_media_ts
   module_src_types_ts --> module_src_navigator_ts
   module_src_types_ts --> module_src_repository_ts
   module_src_types_ts --> module_src_requirements_ts
+  module_src_types_ts --> module_src_state_ts
   module_src_types_ts --> module_src_theme_ts
+  module_src_types_appManifest_ts --> module_src_types_ts
+  module_src_types_infraAdapters_ts --> module_src_environments_ts
+  module_src_types_infraAdapters_ts --> module_src_features_infra_domain_constants_ts
+  module_src_types_infraAdapters_ts --> module_src_types_infraLifecycle_ts
+  module_src_types_infraAdapters_ts --> module_src_types_infraManifest_ts
+  module_src_types_infraAdapters_ts --> module_src_types_infraSecrets_ts
+  module_src_types_infraAdapters_ts --> module_src_types_infraWorkload_ts
+  module_src_types_infraLifecycle_ts --> module_src_environments_ts
+  module_src_types_infraLifecycle_ts --> module_src_types_infraManifest_ts
+  module_src_types_infraLifecycle_ts --> module_src_types_infraSecrets_ts
+  module_src_types_infraManifest_ts --> module_src_auth_ts
+  module_src_types_infraManifest_ts --> module_src_data_index_ts
+  module_src_types_infraManifest_ts --> module_src_environments_ts
+  module_src_types_infraManifest_ts --> module_src_features_infra_domain_constants_ts
+  module_src_types_infraManifest_ts --> module_src_types_ts
+  module_src_types_infraManifest_ts --> module_src_types_infraSecrets_ts
+  module_src_types_infraManifest_ts --> module_src_types_infraWorkload_ts
+  module_src_types_infraSecrets_ts --> module_src_environments_ts
+  module_src_types_infraWorkload_ts --> module_src_types_infraSecrets_ts
   module_src_ui_ts --> module_src_media_ts
   module_src_ui_ts --> module_src_types_ts

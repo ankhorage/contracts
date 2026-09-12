@@ -8,7 +8,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 84,
+      "line": 86,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -26,7 +26,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 33,
+      "line": 35,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -174,7 +174,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 44,
+      "line": 46,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -660,25 +660,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 139,
-      "column": 14
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "APP_DEPLOY_ENVIRONMENT_IDS",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "value",
-    "modulePath": "src/deploy.ts",
-    "sourceLocation": {
-      "filePath": "src/deploy.ts",
-      "line": 12,
+      "line": 141,
       "column": 14
     },
     "exportPaths": ["src/index.ts"],
@@ -706,6 +688,24 @@
     "structuredRows": []
   },
   {
+    "name": "APP_ENVIRONMENT_IDS",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "value",
+    "modulePath": "src/environments.ts",
+    "sourceLocation": {
+      "filePath": "src/environments.ts",
+      "line": 2,
+      "column": 14
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
     "name": "AppCategory",
     "description": null,
     "isReadme": false,
@@ -714,7 +714,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 164,
+      "line": 166,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -732,7 +732,7 @@
     "modulePath": "src/deploy.ts",
     "sourceLocation": {
       "filePath": "src/deploy.ts",
-      "line": 26,
+      "line": 15,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -771,24 +771,6 @@
     "structuredRows": []
   },
   {
-    "name": "AppDeployEnvironmentId",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "unknown",
-    "modulePath": "src/deploy.ts",
-    "sourceLocation": {
-      "filePath": "src/deploy.ts",
-      "line": 14,
-      "column": 1
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [],
-    "structuredRows": []
-  },
-  {
     "name": "AppDeployIosTargetConfig",
     "description": null,
     "isReadme": false,
@@ -797,7 +779,7 @@
     "modulePath": "src/deploy.ts",
     "sourceLocation": {
       "filePath": "src/deploy.ts",
-      "line": 34,
+      "line": 23,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -844,7 +826,7 @@
     "modulePath": "src/deploy.ts",
     "sourceLocation": {
       "filePath": "src/deploy.ts",
-      "line": 48,
+      "line": 37,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -870,7 +852,7 @@
     "modulePath": "src/deploy.ts",
     "sourceLocation": {
       "filePath": "src/deploy.ts",
-      "line": 16,
+      "line": 5,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -921,7 +903,7 @@
     "modulePath": "src/deploy.ts",
     "sourceLocation": {
       "filePath": "src/deploy.ts",
-      "line": 42,
+      "line": 31,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -965,7 +947,7 @@
     "modulePath": "src/deploy.ts",
     "sourceLocation": {
       "filePath": "src/deploy.ts",
-      "line": 21,
+      "line": 10,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -990,6 +972,24 @@
     "structuredRows": []
   },
   {
+    "name": "AppEnvironmentId",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/environments.ts",
+    "sourceLocation": {
+      "filePath": "src/environments.ts",
+      "line": 4,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
     "name": "AppManifest",
     "description": null,
     "isReadme": false,
@@ -998,7 +998,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 365,
+      "line": 283,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1007,6 +1007,7 @@
       "AppDeployManifest",
       "AppNavigatorManifest",
       "AppSettings",
+      "AppStateSpec",
       "ComponentDataBinding",
       "DatabaseDataSourceConfig",
       "InfraManifest",
@@ -1110,6 +1111,13 @@
         "description": null
       },
       {
+        "name": "state",
+        "kind": "property",
+        "type": "AppStateSpec | undefined",
+        "required": false,
+        "description": null
+      },
+      {
         "name": "themes",
         "kind": "property",
         "type": "ThemeConfig[]",
@@ -1125,10 +1133,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "unknown",
-    "modulePath": "src/appManifest.ts",
+    "modulePath": "src/types/appManifest.ts",
     "sourceLocation": {
-      "filePath": "src/appManifest.ts",
-      "line": 16,
+      "filePath": "src/types/appManifest.ts",
+      "line": 3,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1164,7 +1172,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 358,
+      "line": 276,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1182,6 +1190,39 @@
     "structuredRows": []
   },
   {
+    "name": "AppStateSpec",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/state.ts",
+    "sourceLocation": {
+      "filePath": "src/state.ts",
+      "line": 2,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "persistence",
+        "kind": "property",
+        "type": "false | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "provider",
+        "kind": "property",
+        "type": "\"legend\"",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
     "name": "AUTH_IDENTIFIER_KINDS",
     "description": null,
     "isReadme": false,
@@ -1190,7 +1231,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 5,
+      "line": 6,
       "column": 14
     },
     "exportPaths": ["src/index.ts"],
@@ -1208,7 +1249,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 281,
+      "line": 282,
       "column": 14
     },
     "exportPaths": ["src/index.ts"],
@@ -1226,7 +1267,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 248,
+      "line": 249,
       "column": 14
     },
     "exportPaths": ["src/index.ts"],
@@ -1244,7 +1285,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 238,
+      "line": 239,
       "column": 14
     },
     "exportPaths": ["src/index.ts"],
@@ -1262,7 +1303,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 18,
+      "line": 19,
       "column": 14
     },
     "exportPaths": ["src/index.ts"],
@@ -1280,7 +1321,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 56,
+      "line": 57,
       "column": 14
     },
     "exportPaths": ["src/index.ts"],
@@ -1298,7 +1339,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 46,
+      "line": 47,
       "column": 14
     },
     "exportPaths": ["src/index.ts"],
@@ -1316,7 +1357,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 53,
+      "line": 54,
       "column": 14
     },
     "exportPaths": ["src/index.ts"],
@@ -1334,7 +1375,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 274,
+      "line": 275,
       "column": 14
     },
     "exportPaths": ["src/index.ts"],
@@ -1352,7 +1393,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 287,
+      "line": 288,
       "column": 14
     },
     "exportPaths": ["src/index.ts"],
@@ -1370,7 +1411,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 42,
+      "line": 43,
       "column": 14
     },
     "exportPaths": ["src/index.ts"],
@@ -1388,7 +1429,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 219,
+      "line": 190,
       "column": 14
     },
     "exportPaths": ["src/index.ts"],
@@ -1406,7 +1447,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 206,
+      "line": 177,
       "column": 14
     },
     "exportPaths": ["src/index.ts"],
@@ -1424,7 +1465,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 216,
+      "line": 187,
       "column": 14
     },
     "exportPaths": ["src/index.ts"],
@@ -1442,25 +1483,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 222,
-      "column": 14
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "AUTH_PROVIDERS",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "value",
-    "modulePath": "src/types.ts",
-    "sourceLocation": {
-      "filePath": "src/types.ts",
-      "line": 196,
+      "line": 193,
       "column": 14
     },
     "exportPaths": ["src/index.ts"],
@@ -1478,7 +1501,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 193,
+      "line": 168,
       "column": 14
     },
     "exportPaths": ["src/index.ts"],
@@ -1496,7 +1519,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 200,
+      "line": 171,
       "column": 14
     },
     "exportPaths": ["src/index.ts"],
@@ -1514,7 +1537,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 8,
+      "line": 9,
       "column": 14
     },
     "exportPaths": ["src/index.ts"],
@@ -1532,7 +1555,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 203,
+      "line": 174,
       "column": 14
     },
     "exportPaths": ["src/index.ts"],
@@ -1550,7 +1573,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 381,
+      "line": 382,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1643,7 +1666,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 373,
+      "line": 374,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1697,7 +1720,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 190,
+      "line": 191,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1737,7 +1760,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 110,
+      "line": 111,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1805,7 +1828,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 105,
+      "line": 106,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1838,7 +1861,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 6,
+      "line": 7,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1856,7 +1879,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 366,
+      "line": 367,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1902,7 +1925,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 306,
+      "line": 307,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1949,7 +1972,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 323,
+      "line": 324,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1967,7 +1990,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 285,
+      "line": 286,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1985,7 +2008,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 361,
+      "line": 362,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2011,7 +2034,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 342,
+      "line": 343,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2029,7 +2052,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 153,
+      "line": 154,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2069,7 +2092,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 267,
+      "line": 268,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2130,7 +2153,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 265,
+      "line": 266,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2148,7 +2171,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 246,
+      "line": 247,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2166,7 +2189,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 142,
+      "line": 143,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2234,7 +2257,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 40,
+      "line": 41,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2252,7 +2275,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 72,
+      "line": 73,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2313,7 +2336,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 57,
+      "line": 58,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2331,7 +2354,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 100,
+      "line": 101,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2364,7 +2387,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 50,
+      "line": 51,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2382,7 +2405,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 59,
+      "line": 60,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2457,7 +2480,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 54,
+      "line": 55,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2475,7 +2498,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 90,
+      "line": 91,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2529,7 +2552,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 82,
+      "line": 83,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2547,7 +2570,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 313,
+      "line": 314,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2565,7 +2588,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 278,
+      "line": 279,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2583,7 +2606,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 293,
+      "line": 294,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2623,7 +2646,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 291,
+      "line": 292,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2641,7 +2664,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 44,
+      "line": 45,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2659,7 +2682,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 220,
+      "line": 191,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2677,7 +2700,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 214,
+      "line": 185,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2695,7 +2718,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 217,
+      "line": 188,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2713,7 +2736,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 322,
+      "line": 268,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2767,25 +2790,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 223,
-      "column": 1
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "AuthProvider",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "unknown",
-    "modulePath": "src/types.ts",
-    "sourceLocation": {
-      "filePath": "src/types.ts",
-      "line": 198,
+      "line": 194,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2803,7 +2808,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 159,
+      "line": 160,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2864,7 +2869,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 196,
+      "line": 197,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2882,7 +2887,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 194,
+      "line": 169,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2900,7 +2905,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 182,
+      "line": 183,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2954,7 +2959,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 133,
+      "line": 134,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2980,7 +2985,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 201,
+      "line": 172,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2998,7 +3003,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 312,
+      "line": 258,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -3024,7 +3029,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 137,
+      "line": 138,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -3057,7 +3062,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 16,
+      "line": 17,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -3075,7 +3080,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 204,
+      "line": 175,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -3093,7 +3098,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 316,
+      "line": 262,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -3125,89 +3130,6 @@
     "structuredRows": []
   },
   {
-    "name": "AuthSpec",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "type",
-    "modulePath": "src/types.ts",
-    "sourceLocation": {
-      "filePath": "src/types.ts",
-      "line": 330,
-      "column": 1
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": [
-      "AuthFlowConfig",
-      "AuthOAuthConfig",
-      "AuthProfileSpec",
-      "AuthProvider",
-      "AuthSignInSpec",
-      "AuthSignUpSpec",
-      "AuthzSpec"
-    ],
-    "signatures": [],
-    "members": [
-      {
-        "name": "authorization",
-        "kind": "property",
-        "type": "AuthzSpec | undefined",
-        "required": false,
-        "description": null
-      },
-      {
-        "name": "flow",
-        "kind": "property",
-        "type": "AuthFlowConfig | undefined",
-        "required": false,
-        "description": null
-      },
-      {
-        "name": "oauth",
-        "kind": "property",
-        "type": "AuthOAuthConfig | undefined",
-        "required": false,
-        "description": null
-      },
-      {
-        "name": "profile",
-        "kind": "property",
-        "type": "AuthProfileSpec | undefined",
-        "required": false,
-        "description": null
-      },
-      {
-        "name": "provider",
-        "kind": "property",
-        "type": "AuthProvider",
-        "required": true,
-        "description": null
-      },
-      {
-        "name": "scope",
-        "kind": "property",
-        "type": "\"none\" | \"global\" | \"integrated\"",
-        "required": true,
-        "description": null
-      },
-      {
-        "name": "signIn",
-        "kind": "property",
-        "type": "AuthSignInSpec | undefined",
-        "required": false,
-        "description": null
-      },
-      {
-        "name": "signUp",
-        "kind": "property",
-        "type": "AuthSignUpSpec | undefined",
-        "required": false,
-        "description": null
-      }
-    ],
-    "structuredRows": []
-  },
-  {
     "name": "AuthUser",
     "description": null,
     "isReadme": false,
@@ -3216,7 +3138,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 172,
+      "line": 173,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -3270,111 +3192,6 @@
         "kind": "property",
         "type": "string | undefined",
         "required": false,
-        "description": null
-      }
-    ],
-    "structuredRows": []
-  },
-  {
-    "name": "AUTHZ_ENGINES",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "value",
-    "modulePath": "src/types.ts",
-    "sourceLocation": {
-      "filePath": "src/types.ts",
-      "line": 190,
-      "column": 14
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "AUTHZ_KINDS",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "value",
-    "modulePath": "src/types.ts",
-    "sourceLocation": {
-      "filePath": "src/types.ts",
-      "line": 187,
-      "column": 14
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "AuthzEngine",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "unknown",
-    "modulePath": "src/types.ts",
-    "sourceLocation": {
-      "filePath": "src/types.ts",
-      "line": 191,
-      "column": 1
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "AuthzKind",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "unknown",
-    "modulePath": "src/types.ts",
-    "sourceLocation": {
-      "filePath": "src/types.ts",
-      "line": 188,
-      "column": 1
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "AuthzSpec",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "type",
-    "modulePath": "src/types.ts",
-    "sourceLocation": {
-      "filePath": "src/types.ts",
-      "line": 307,
-      "column": 1
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [
-      {
-        "name": "engine",
-        "kind": "property",
-        "type": "\"native\" | \"cerbos\"",
-        "required": true,
-        "description": null
-      },
-      {
-        "name": "kind",
-        "kind": "property",
-        "type": "\"RBAC\" | \"ABAC\"",
-        "required": true,
         "description": null
       }
     ],
@@ -3719,7 +3536,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 121,
+      "line": 123,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -3737,7 +3554,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 128,
+      "line": 130,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -3755,7 +3572,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 123,
+      "line": 125,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -3788,7 +3605,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 337,
+      "line": 338,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -3886,7 +3703,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 103,
+      "line": 105,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -3926,7 +3743,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 133,
+      "line": 135,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -3944,7 +3761,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 101,
+      "line": 103,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -4031,7 +3848,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 51,
+      "line": 53,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -4382,42 +4199,6 @@
     "structuredRows": []
   },
   {
-    "name": "DATABASE_PROVIDERS",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "value",
-    "modulePath": "src/types.ts",
-    "sourceLocation": {
-      "filePath": "src/types.ts",
-      "line": 170,
-      "column": 14
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "DATABASE_TIERS",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "value",
-    "modulePath": "src/types.ts",
-    "sourceLocation": {
-      "filePath": "src/types.ts",
-      "line": 174,
-      "column": 14
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [],
-    "structuredRows": []
-  },
-  {
     "name": "DatabaseAdapterRef",
     "description": null,
     "isReadme": false,
@@ -4557,75 +4338,6 @@
         "description": null
       }
     ],
-    "structuredRows": []
-  },
-  {
-    "name": "DatabaseProvider",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "unknown",
-    "modulePath": "src/types.ts",
-    "sourceLocation": {
-      "filePath": "src/types.ts",
-      "line": 172,
-      "column": 1
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "DatabaseSpec",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "type",
-    "modulePath": "src/types.ts",
-    "sourceLocation": {
-      "filePath": "src/types.ts",
-      "line": 292,
-      "column": 1
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["DatabaseProvider"],
-    "signatures": [],
-    "members": [
-      {
-        "name": "provider",
-        "kind": "property",
-        "type": "DatabaseProvider",
-        "required": true,
-        "description": null
-      },
-      {
-        "name": "tier",
-        "kind": "property",
-        "type": "\"dev\" | \"prod\"",
-        "required": true,
-        "description": null
-      }
-    ],
-    "structuredRows": []
-  },
-  {
-    "name": "DatabaseTier",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "unknown",
-    "modulePath": "src/types.ts",
-    "sourceLocation": {
-      "filePath": "src/types.ts",
-      "line": 175,
-      "column": 1
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [],
     "structuredRows": []
   },
   {
@@ -6817,77 +6529,8 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 120,
+      "line": 121,
       "column": 14
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "DEPLOYMENT_TARGETS",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "value",
-    "modulePath": "src/types.ts",
-    "sourceLocation": {
-      "filePath": "src/types.ts",
-      "line": 166,
-      "column": 14
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "DeploymentSpec",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "type",
-    "modulePath": "src/types.ts",
-    "sourceLocation": {
-      "filePath": "src/types.ts",
-      "line": 287,
-      "column": 1
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["DeploymentTarget"],
-    "signatures": [],
-    "members": [
-      {
-        "name": "monitoring",
-        "kind": "property",
-        "type": "boolean",
-        "required": true,
-        "description": null
-      },
-      {
-        "name": "target",
-        "kind": "property",
-        "type": "DeploymentTarget",
-        "required": true,
-        "description": null
-      }
-    ],
-    "structuredRows": []
-  },
-  {
-    "name": "DeploymentTarget",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "unknown",
-    "modulePath": "src/types.ts",
-    "sourceLocation": {
-      "filePath": "src/types.ts",
-      "line": 168,
-      "column": 1
     },
     "exportPaths": ["src/index.ts"],
     "relatedSymbols": [],
@@ -7368,7 +7011,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 76,
+      "line": 78,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -7487,7 +7130,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 114,
+      "line": 116,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -7505,7 +7148,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 112,
+      "line": 114,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -7646,7 +7289,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 242,
+      "line": 213,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -7714,28 +7357,819 @@
     "structuredRows": []
   },
   {
+    "name": "INFRA_ADAPTER_CATALOG",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "value",
+    "modulePath": "src/features/infra/domain/constants.ts",
+    "sourceLocation": {
+      "filePath": "src/features/infra/domain/constants.ts",
+      "line": 9,
+      "column": 14
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "INFRA_RUNTIME_COMPATIBILITY",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "value",
+    "modulePath": "src/features/infra/domain/constants.ts",
+    "sourceLocation": {
+      "filePath": "src/features/infra/domain/constants.ts",
+      "line": 2,
+      "column": 14
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraAdapterDescriptor",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/types/infraAdapters.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraAdapters.ts",
+      "line": 25,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraAdapterId",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/types/infraManifest.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraManifest.ts",
+      "line": 12,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraAuthConfigMap",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/infraManifest.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraManifest.ts",
+      "line": 74,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [
+      "AuthFlowConfig",
+      "AuthOAuthConfig",
+      "AuthProfileSpec",
+      "AuthScope",
+      "AuthSignInSpec",
+      "AuthSignUpSpec"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "supabase",
+        "kind": "property",
+        "type": "{ readonly scope?: AuthScope; readonly flow?: AuthFlowConfig; readonly signIn?: AuthSignInSpec; readonly signUp?: AuthSignUpSpec; readonly oauth?: AuthOAuthConfig; readonly profile?: AuthProfileSpec; }",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraAuthSpec",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/types/infraManifest.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraManifest.ts",
+      "line": 99,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraAuthzConfigMap",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/infraManifest.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraManifest.ts",
+      "line": 84,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "cerbos",
+        "kind": "property",
+        "type": "{ readonly kind: \"RBAC\" | \"ABAC\"; }",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraAuthzSpec",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/types/infraManifest.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraManifest.ts",
+      "line": 102,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraCapability",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/types/infraManifest.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraManifest.ts",
+      "line": 13,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraComputeAdapter",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/infraAdapters.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraAdapters.ts",
+      "line": 70,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [
+      "InfraAdapterDescriptor",
+      "InfraComputeSelection",
+      "InfraComputeTarget",
+      "InfraDestroyRequest",
+      "InfraExecutionContext",
+      "InfraPlanAction",
+      "InfraReconcileResult",
+      "InfraResourceStatus",
+      "InfraResult"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "descriptor",
+        "kind": "property",
+        "type": "InfraAdapterDescriptor<P>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "destroyAsync",
+        "kind": "method",
+        "type": "(context: InfraExecutionContext, request: InfraDestroyRequest) => Promise<InfraResult<InfraReconcileResult>>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "ensureAsync",
+        "kind": "method",
+        "type": "(context: InfraExecutionContext, selection: InfraComputeSelection<P>) => Promise<InfraResult<InfraReconcileResult & { readonly targets: readonly InfraComputeTarget[]; }>>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "planAsync",
+        "kind": "method",
+        "type": "(context: InfraExecutionContext, selection: InfraComputeSelection<P>) => Promise<InfraResult<readonly InfraPlanAction[]>>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "statusAsync",
+        "kind": "method",
+        "type": "(context: InfraExecutionContext) => Promise<InfraResult<readonly InfraResourceStatus[]>>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "validateAsync",
+        "kind": "method",
+        "type": "(context: InfraExecutionContext, selection: InfraComputeSelection<P>) => Promise<InfraResult<null>>",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraComputeConfigMap",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/infraManifest.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraManifest.ts",
+      "line": 24,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["InfraControlPlaneCredentialRef"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "hetzner",
+        "kind": "property",
+        "type": "{ readonly location: string; readonly serverType?: string; readonly image?: string; readonly credentials?: InfraControlPlaneCredentialRef; }",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "local",
+        "kind": "property",
+        "type": "{ readonly workingDirectory?: string; }",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraComputeProviderId",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/types/infraManifest.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraManifest.ts",
+      "line": 20,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraComputeSelection",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/types/infraManifest.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraManifest.ts",
+      "line": 48,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraComputeTarget",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/types/infraAdapters.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraAdapters.ts",
+      "line": 31,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraControlPlaneCredentialRef",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/infraSecrets.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraSecrets.ts",
+      "line": 4,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "name",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "source",
+        "kind": "property",
+        "type": "\"control-plane\"",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraDatabaseConfigMap",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/infraManifest.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraManifest.ts",
+      "line": 63,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "supabase",
+        "kind": "property",
+        "type": "{ readonly tier?: \"dev\" | \"prod\"; }",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraDatabaseSpec",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/types/infraManifest.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraManifest.ts",
+      "line": 91,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraDeploymentSpec",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/types/infraManifest.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraManifest.ts",
+      "line": 56,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraDestroyRequest",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/infraLifecycle.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraLifecycle.ts",
+      "line": 97,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["AppEnvironmentId", "InfraResourceIdentity"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "confirmation",
+        "kind": "property",
+        "type": "{ readonly projectId: string; readonly environment: AppEnvironmentId; }",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "environment",
+        "kind": "property",
+        "type": "\"local\" | \"preview\" | \"production\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "persistence",
+        "kind": "property",
+        "type": "{ readonly policy: \"retain\"; } | { readonly policy: \"delete\"; readonly confirmedResources: readonly InfraResourceIdentity[]; }",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "projectId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraDiagnostic",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/infraLifecycle.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraLifecycle.ts",
+      "line": 21,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["InfraResourceIdentity"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "code",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "message",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "owner",
+        "kind": "property",
+        "type": "InfraResourceIdentity | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "path",
+        "kind": "property",
+        "type": "readonly (string | number)[] | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "severity",
+        "kind": "property",
+        "type": "\"error\" | \"info\" | \"warning\"",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraEnvironmentSpec",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/infraManifest.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraManifest.ts",
+      "line": 114,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [
+      "AuthFlowConfig",
+      "AuthOAuthConfig",
+      "AuthProfileSpec",
+      "AuthScope",
+      "AuthSignInSpec",
+      "AuthSignUpSpec",
+      "InfraDeploymentSpec",
+      "InfraNetworkingSpec",
+      "InfraObjectStorageSpec",
+      "InfraWorkloadSpec"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "auth",
+        "kind": "property",
+        "type": "({ readonly provider: \"supabase\"; } & { readonly scope?: AuthScope; readonly flow?: AuthFlowConfig; readonly signIn?: AuthSignInSpec; readonly signUp?: AuthSignUpSpec; readonly oauth?: AuthOAuthConfig; readonly profile?: AuthProfileSpec; }) | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "authz",
+        "kind": "property",
+        "type": "({ readonly provider: \"cerbos\"; } & { readonly kind: \"RBAC\" | \"ABAC\"; }) | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "database",
+        "kind": "property",
+        "type": "({ readonly provider: \"supabase\"; } & { readonly tier?: \"dev\" | \"prod\"; }) | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "deployment",
+        "kind": "property",
+        "type": "InfraDeploymentSpec",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "networking",
+        "kind": "property",
+        "type": "InfraNetworkingSpec | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "objectStorage",
+        "kind": "property",
+        "type": "InfraObjectStorageSpec | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "secretStore",
+        "kind": "property",
+        "type": "({ readonly provider: \"supabase-vault\"; } & { readonly schema?: string; }) | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "workloads",
+        "kind": "property",
+        "type": "readonly InfraWorkloadSpec[] | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraExecutionContext",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/infraAdapters.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraAdapters.ts",
+      "line": 49,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [
+      "InfraControlPlaneCredentialRef",
+      "InfraEnvironmentSpec",
+      "InfraLedger",
+      "InfraResult",
+      "InfraSecretReference"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "credentials",
+        "kind": "property",
+        "type": "{ resolveAsync(reference: InfraControlPlaneCredentialRef): Promise<InfraResult<Readonly<Record<string, string>>>>; }",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "desired",
+        "kind": "property",
+        "type": "InfraEnvironmentSpec",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "environment",
+        "kind": "property",
+        "type": "\"local\" | \"preview\" | \"production\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "previous",
+        "kind": "property",
+        "type": "InfraLedger | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "projectId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "secrets",
+        "kind": "property",
+        "type": "{ resolveAsync(reference: InfraSecretReference): Promise<InfraResult<string>>; }",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "signal",
+        "kind": "property",
+        "type": "AbortSignal | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraGeneratedArtifact",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/infraLifecycle.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraLifecycle.ts",
+      "line": 80,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["InfraResourceIdentity"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "content",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "executable",
+        "kind": "property",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "owner",
+        "kind": "property",
+        "type": "InfraResourceIdentity",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "path",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraLedger",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/infraLifecycle.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraLifecycle.ts",
+      "line": 88,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["InfraOwnedResource", "InfraResourceIdentity"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "artifacts",
+        "kind": "property",
+        "type": "readonly { readonly owner: InfraResourceIdentity; readonly path: string; }[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "environment",
+        "kind": "property",
+        "type": "\"local\" | \"preview\" | \"production\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "projectId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "resources",
+        "kind": "property",
+        "type": "readonly InfraOwnedResource[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "schemaVersion",
+        "kind": "property",
+        "type": "1",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
     "name": "InfraManifest",
     "description": null,
     "isReadme": false,
     "examples": [],
     "kind": "type",
-    "modulePath": "src/types.ts",
+    "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
-      "filePath": "src/types.ts",
-      "line": 346,
+      "filePath": "src/types/infraManifest.ts",
+      "line": 125,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
-    "relatedSymbols": [
-      "ApiDefinitionList",
-      "AuthSpec",
-      "DatabaseSpec",
-      "DeploymentSpec",
-      "InfraSecretStoreSpec",
-      "NetworkingSpec",
-      "StateSpec",
-      "StorageSpec"
-    ],
+    "relatedSymbols": ["ApiDefinitionList", "InfraEnvironmentSpec"],
     "signatures": [],
     "members": [
       {
@@ -7746,66 +8180,711 @@
         "description": null
       },
       {
-        "name": "auth",
+        "name": "environments",
         "kind": "property",
-        "type": "AuthSpec | undefined",
-        "required": false,
-        "description": null
-      },
-      {
-        "name": "database",
-        "kind": "property",
-        "type": "DatabaseSpec | undefined",
-        "required": false,
-        "description": null
-      },
-      {
-        "name": "deployment",
-        "kind": "property",
-        "type": "DeploymentSpec | undefined",
-        "required": false,
+        "type": "Readonly<Record<\"local\", InfraEnvironmentSpec> & Partial<Record<\"preview\" | \"production\", InfraEnvironmentSpec>>>",
+        "required": true,
         "description": null
       },
       {
         "name": "modules",
         "kind": "property",
-        "type": "string[]",
+        "type": "readonly string[]",
         "required": true,
         "description": null
       },
       {
         "name": "modulesConfig",
         "kind": "property",
-        "type": "Record<string, unknown> | undefined",
+        "type": "Readonly<Record<string, unknown>> | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraNetworkingSpec",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/infraManifest.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraManifest.ts",
+      "line": 109,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "domain",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraObjectStorageConfigMap",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/infraManifest.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraManifest.ts",
+      "line": 66,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["InfraControlPlaneCredentialRef"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "r2",
+        "kind": "property",
+        "type": "{ readonly buckets?: readonly string[]; readonly accountId?: string; readonly credentials?: InfraControlPlaneCredentialRef; }",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "supabase",
+        "kind": "property",
+        "type": "{ readonly buckets?: readonly string[]; }",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraObjectStorageSpec",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/types/infraManifest.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraManifest.ts",
+      "line": 94,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraOutput",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/types/infraLifecycle.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraLifecycle.ts",
+      "line": 65,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraOwnedResource",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/infraLifecycle.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraLifecycle.ts",
+      "line": 13,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["InfraResourceIdentity"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "dependsOn",
+        "kind": "property",
+        "type": "readonly InfraResourceIdentity[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "externalId",
+        "kind": "property",
+        "type": "string | undefined",
         "required": false,
         "description": null
       },
       {
-        "name": "networking",
+        "name": "identity",
         "kind": "property",
-        "type": "NetworkingSpec | undefined",
+        "type": "InfraResourceIdentity",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "persistent",
+        "kind": "property",
+        "type": "boolean",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "retention",
+        "kind": "property",
+        "type": "\"retain\" | \"delete-on-destroy\"",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraPlan",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/infraLifecycle.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraLifecycle.ts",
+      "line": 42,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["InfraPlanAction"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "actions",
+        "kind": "property",
+        "type": "readonly InfraPlanAction[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "environment",
+        "kind": "property",
+        "type": "\"local\" | \"preview\" | \"production\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "projectId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraPlanAction",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/infraLifecycle.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraLifecycle.ts",
+      "line": 34,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["InfraResourceIdentity"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "dependsOn",
+        "kind": "property",
+        "type": "readonly InfraResourceIdentity[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "detail",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "impact",
+        "kind": "property",
+        "type": "\"none\" | \"interrupts-service\" | \"deletes-data\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "operation",
+        "kind": "property",
+        "type": "\"create\" | \"delete\" | \"update\" | \"retain\" | \"noop\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "owner",
+        "kind": "property",
+        "type": "InfraResourceIdentity",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraProviderFor",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/types/infraManifest.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraManifest.ts",
+      "line": 15,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraReconcileResult",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/infraAdapters.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraAdapters.ts",
+      "line": 65,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["InfraOutput", "InfraOwnedResource"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "outputs",
+        "kind": "property",
+        "type": "readonly InfraOutput[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "resources",
+        "kind": "property",
+        "type": "readonly InfraOwnedResource[]",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraResourceIdentity",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/infraLifecycle.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraLifecycle.ts",
+      "line": 6,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "adapter",
+        "kind": "property",
+        "type": "\"local\" | \"hetzner\" | \"minikube\" | \"k3s\" | \"docker-compose\" | \"supabase\" | \"cerbos\" | \"r2\" | \"supabase-vault\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "environment",
+        "kind": "property",
+        "type": "\"local\" | \"preview\" | \"production\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "projectId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "resourceId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraResourceStatus",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/infraLifecycle.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraLifecycle.ts",
+      "line": 49,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["InfraDiagnostic", "InfraResourceIdentity"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "detail",
+        "kind": "property",
+        "type": "string | undefined",
         "required": false,
         "description": null
       },
       {
-        "name": "secretStore",
+        "name": "diagnostics",
         "kind": "property",
-        "type": "InfraSecretStoreSpec | undefined",
+        "type": "readonly InfraDiagnostic[] | undefined",
         "required": false,
+        "description": null
+      },
+      {
+        "name": "owner",
+        "kind": "property",
+        "type": "InfraResourceIdentity",
+        "required": true,
         "description": null
       },
       {
         "name": "state",
         "kind": "property",
-        "type": "StateSpec | undefined",
+        "type": "\"unknown\" | \"absent\" | \"pending\" | \"ready\" | \"degraded\" | \"stopped\" | \"retained\" | \"failed\"",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraResult",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/types/infraLifecycle.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraLifecycle.ts",
+      "line": 30,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraRuntimeAdapter",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/infraAdapters.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraAdapters.ts",
+      "line": 102,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [
+      "InfraAdapterDescriptor",
+      "InfraDestroyRequest",
+      "InfraExecutionContext",
+      "InfraGeneratedArtifact",
+      "InfraPlanAction",
+      "InfraReconcileResult",
+      "InfraResourceStatus",
+      "InfraResult",
+      "InfraRuntimeDesiredState"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "descriptor",
+        "kind": "property",
+        "type": "InfraAdapterDescriptor<P>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "destroyAsync",
+        "kind": "method",
+        "type": "(context: InfraExecutionContext, request: InfraDestroyRequest) => Promise<InfraResult<InfraReconcileResult>>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "ensureAsync",
+        "kind": "method",
+        "type": "(context: InfraExecutionContext, desired: InfraRuntimeDesiredState<P>) => Promise<InfraResult<InfraReconcileResult>>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "generateAsync",
+        "kind": "method",
+        "type": "((context: InfraExecutionContext, desired: InfraRuntimeDesiredState<P>) => Promise<InfraResult<readonly InfraGeneratedArtifact[]>>) | undefined",
         "required": false,
         "description": null
       },
       {
-        "name": "storage",
+        "name": "planAsync",
+        "kind": "method",
+        "type": "(context: InfraExecutionContext, desired: InfraRuntimeDesiredState<P>) => Promise<InfraResult<readonly InfraPlanAction[]>>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "statusAsync",
+        "kind": "method",
+        "type": "(context: InfraExecutionContext) => Promise<InfraResult<readonly InfraResourceStatus[]>>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "suspendAsync",
+        "kind": "method",
+        "type": "(context: InfraExecutionContext) => Promise<InfraResult<InfraReconcileResult>>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "validateAsync",
+        "kind": "method",
+        "type": "(context: InfraExecutionContext, desired: InfraRuntimeDesiredState<P>) => Promise<InfraResult<null>>",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraRuntimeConfigMap",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/infraManifest.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraManifest.ts",
+      "line": 34,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "docker-compose",
         "kind": "property",
-        "type": "StorageSpec | undefined",
-        "required": false,
+        "type": "{ readonly projectName?: string; }",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "k3s",
+        "kind": "property",
+        "type": "{ readonly version?: string; readonly topology?: { readonly servers: number; readonly agents: number; }; }",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "minikube",
+        "kind": "property",
+        "type": "{ readonly profile?: string; readonly driver?: \"docker\" | \"podman\"; readonly cpus?: number; readonly memoryMiB?: number; }",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraRuntimeDesiredState",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/infraAdapters.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraAdapters.ts",
+      "line": 94,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["InfraComputeTarget", "InfraRuntimeSelection", "InfraWorkloadSpec"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "selection",
+        "kind": "property",
+        "type": "InfraRuntimeSelection<P>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "targets",
+        "kind": "property",
+        "type": "readonly InfraComputeTarget[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "workloads",
+        "kind": "property",
+        "type": "readonly InfraWorkloadSpec[]",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraRuntimeProviderId",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/types/infraManifest.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraManifest.ts",
+      "line": 21,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraRuntimeSelection",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/types/infraManifest.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraManifest.ts",
+      "line": 51,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraSecretReference",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/infraSecrets.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraSecrets.ts",
+      "line": 10,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "environment",
+        "kind": "property",
+        "type": "\"local\" | \"preview\" | \"production\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "key",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "projectId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "ref",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "source",
+        "kind": "property",
+        "type": "\"secret-store\"",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraSecretStoreConfigMap",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/infraManifest.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraManifest.ts",
+      "line": 87,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "supabase-vault",
+        "kind": "property",
+        "type": "{ readonly schema?: string; }",
+        "required": true,
         "description": null
       }
     ],
@@ -7816,21 +8895,485 @@
     "description": null,
     "isReadme": false,
     "examples": [],
-    "kind": "type",
-    "modulePath": "src/secretManifest.ts",
+    "kind": "unknown",
+    "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
-      "filePath": "src/secretManifest.ts",
+      "filePath": "src/types/infraManifest.ts",
+      "line": 105,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraServiceAdapter",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/infraAdapters.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraAdapters.ts",
+      "line": 130,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [
+      "InfraAdapterDescriptor",
+      "InfraDestroyRequest",
+      "InfraExecutionContext",
+      "InfraOutput",
+      "InfraPlanAction",
+      "InfraReconcileResult",
+      "InfraResourceStatus",
+      "InfraResult",
+      "InfraWorkloadSpec"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "descriptor",
+        "kind": "property",
+        "type": "InfraAdapterDescriptor<\"supabase\" | \"cerbos\" | \"r2\" | \"supabase-vault\">",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "desiredWorkloadsAsync",
+        "kind": "method",
+        "type": "(context: InfraExecutionContext) => Promise<InfraResult<readonly InfraWorkloadSpec[]>>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "destroyAsync",
+        "kind": "method",
+        "type": "(context: InfraExecutionContext, request: InfraDestroyRequest) => Promise<InfraResult<InfraReconcileResult>>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "planAsync",
+        "kind": "method",
+        "type": "(context: InfraExecutionContext) => Promise<InfraResult<readonly InfraPlanAction[]>>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "reconcileAsync",
+        "kind": "method",
+        "type": "(context: InfraExecutionContext, runtimeOutputs: readonly InfraOutput[]) => Promise<InfraResult<InfraReconcileResult>>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "statusAsync",
+        "kind": "method",
+        "type": "(context: InfraExecutionContext) => Promise<InfraResult<readonly InfraResourceStatus[]>>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "suspendAsync",
+        "kind": "method",
+        "type": "((context: InfraExecutionContext) => Promise<InfraResult<InfraReconcileResult>>) | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "validateAsync",
+        "kind": "method",
+        "type": "(context: InfraExecutionContext) => Promise<InfraResult<null>>",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraStatus",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/infraLifecycle.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraLifecycle.ts",
+      "line": 57,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["InfraResourceStatus"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "environment",
+        "kind": "property",
+        "type": "\"local\" | \"preview\" | \"production\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "projectId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "resources",
+        "kind": "property",
+        "type": "readonly InfraResourceStatus[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "state",
+        "kind": "property",
+        "type": "\"unknown\" | \"absent\" | \"pending\" | \"ready\" | \"degraded\" | \"stopped\" | \"retained\" | \"failed\"",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraWorkloadArtifact",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/infraWorkload.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraWorkload.ts",
       "line": 3,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["SecretStoreProvider"],
+    "relatedSymbols": [],
     "signatures": [],
     "members": [
       {
-        "name": "provider",
+        "name": "image",
         "kind": "property",
-        "type": "SecretStoreProvider",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "kind",
+        "kind": "property",
+        "type": "\"image\"",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraWorkloadFileSpec",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/infraWorkload.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraWorkload.ts",
+      "line": 44,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["InfraWorkloadValue"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "content",
+        "kind": "property",
+        "type": "InfraWorkloadValue",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "path",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraWorkloadHealthSpec",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/types/infraWorkload.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraWorkload.ts",
+      "line": 20,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraWorkloadPort",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/infraWorkload.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraWorkload.ts",
+      "line": 14,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "name",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "port",
+        "kind": "property",
+        "type": "number",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "protocol",
+        "kind": "property",
+        "type": "\"tcp\" | \"udp\" | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraWorkloadResourceSpec",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/infraWorkload.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraWorkload.ts",
+      "line": 30,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "cpuMillis",
+        "kind": "property",
+        "type": "number | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "memoryMiB",
+        "kind": "property",
+        "type": "number | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraWorkloadSpec",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/infraWorkload.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraWorkload.ts",
+      "line": 49,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [
+      "InfraWorkloadArtifact",
+      "InfraWorkloadFileSpec",
+      "InfraWorkloadHealthSpec",
+      "InfraWorkloadPort",
+      "InfraWorkloadResourceSpec",
+      "InfraWorkloadValue",
+      "InfraWorkloadVolumeSpec"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "args",
+        "kind": "property",
+        "type": "readonly string[] | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "artifact",
+        "kind": "property",
+        "type": "InfraWorkloadArtifact",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "command",
+        "kind": "property",
+        "type": "readonly string[] | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "dependsOn",
+        "kind": "property",
+        "type": "readonly string[] | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "environment",
+        "kind": "property",
+        "type": "Readonly<Record<string, InfraWorkloadValue>> | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "exposure",
+        "kind": "property",
+        "type": "\"public\" | \"internal\" | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "files",
+        "kind": "property",
+        "type": "readonly InfraWorkloadFileSpec[] | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "health",
+        "kind": "property",
+        "type": "InfraWorkloadHealthSpec | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "persistence",
+        "kind": "property",
+        "type": "readonly InfraWorkloadVolumeSpec[] | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "ports",
+        "kind": "property",
+        "type": "readonly InfraWorkloadPort[] | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "replicas",
+        "kind": "property",
+        "type": "number | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "resources",
+        "kind": "property",
+        "type": "InfraWorkloadResourceSpec | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraWorkloadValue",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/types/infraWorkload.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraWorkload.ts",
+      "line": 9,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraWorkloadVolumeSpec",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/infraWorkload.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraWorkload.ts",
+      "line": 35,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "mountPath",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "retention",
+        "kind": "property",
+        "type": "\"retain\" | \"delete-on-destroy\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "sizeGiB",
+        "kind": "property",
+        "type": "number",
         "required": true,
         "description": null
       }
@@ -7964,10 +9507,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "function",
-    "modulePath": "src/appManifest.ts",
+    "modulePath": "src/features/appManifest/domain/isAppManifest.ts",
     "sourceLocation": {
-      "filePath": "src/appManifest.ts",
-      "line": 51,
+      "filePath": "src/features/appManifest/domain/isAppManifest.ts",
+      "line": 19,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -8000,6 +9543,198 @@
     "sourceLocation": {
       "filePath": "src/appManifest/navigator.ts",
       "line": 14,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [
+      {
+        "label": "(value: unknown) => boolean",
+        "parameters": [
+          {
+            "name": "value",
+            "type": "unknown",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "boolean",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "isInfraAdapterDescriptor",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/features/infra/domain/isInfraAdapterDescriptor.ts",
+    "sourceLocation": {
+      "filePath": "src/features/infra/domain/isInfraAdapterDescriptor.ts",
+      "line": 7,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [
+      {
+        "label": "(value: unknown) => boolean",
+        "parameters": [
+          {
+            "name": "value",
+            "type": "unknown",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "boolean",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "isInfraAuthSpec",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/features/infra/domain/isInfraAuthSpec.ts",
+    "sourceLocation": {
+      "filePath": "src/features/infra/domain/isInfraAuthSpec.ts",
+      "line": 22,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [
+      {
+        "label": "(value: unknown) => boolean",
+        "parameters": [
+          {
+            "name": "value",
+            "type": "unknown",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "boolean",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "isInfraDeploymentSpec",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/features/infra/domain/isInfraDeploymentSpec.ts",
+    "sourceLocation": {
+      "filePath": "src/features/infra/domain/isInfraDeploymentSpec.ts",
+      "line": 14,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [
+      {
+        "label": "(value: unknown) => boolean",
+        "parameters": [
+          {
+            "name": "value",
+            "type": "unknown",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "boolean",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "isInfraEnvironmentSpec",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/features/infra/domain/isInfraEnvironmentSpec.ts",
+    "sourceLocation": {
+      "filePath": "src/features/infra/domain/isInfraEnvironmentSpec.ts",
+      "line": 13,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [
+      {
+        "label": "(value: unknown) => boolean",
+        "parameters": [
+          {
+            "name": "value",
+            "type": "unknown",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "boolean",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "isInfraManifest",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/features/infra/domain/isInfraManifest.ts",
+    "sourceLocation": {
+      "filePath": "src/features/infra/domain/isInfraManifest.ts",
+      "line": 11,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [
+      {
+        "label": "(value: unknown) => boolean",
+        "parameters": [
+          {
+            "name": "value",
+            "type": "unknown",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "boolean",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "isInfraWorkloadSpec",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/features/infra/domain/isInfraWorkloadSpec.ts",
+    "sourceLocation": {
+      "filePath": "src/features/infra/domain/isInfraWorkloadSpec.ts",
+      "line": 10,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -8186,7 +9921,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 39,
+      "line": 40,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -8204,7 +9939,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 43,
+      "line": 44,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -8222,25 +9957,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 213,
-      "column": 1
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "KnownAuthProvider",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "unknown",
-    "modulePath": "src/types.ts",
-    "sourceLocation": {
-      "filePath": "src/types.ts",
-      "line": 197,
+      "line": 184,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -8258,7 +9975,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 15,
+      "line": 16,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -8276,43 +9993,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 136,
-      "column": 1
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "KnownDatabaseProvider",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "unknown",
-    "modulePath": "src/types.ts",
-    "sourceLocation": {
-      "filePath": "src/types.ts",
-      "line": 171,
-      "column": 1
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "KnownDeploymentTarget",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "unknown",
-    "modulePath": "src/types.ts",
-    "sourceLocation": {
-      "filePath": "src/types.ts",
-      "line": 167,
+      "line": 138,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -8340,24 +10021,6 @@
     "structuredRows": []
   },
   {
-    "name": "KnownStateProvider",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "unknown",
-    "modulePath": "src/types.ts",
-    "sourceLocation": {
-      "filePath": "src/types.ts",
-      "line": 181,
-      "column": 1
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [],
-    "structuredRows": []
-  },
-  {
     "name": "ManifestValue",
     "description": null,
     "isReadme": false,
@@ -8366,7 +10029,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 93,
+      "line": 95,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -8817,7 +10480,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 230,
+      "line": 201,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -8947,7 +10610,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 36,
+      "line": 38,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -10293,39 +11956,6 @@
     "structuredRows": []
   },
   {
-    "name": "NetworkingSpec",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "type",
-    "modulePath": "src/types.ts",
-    "sourceLocation": {
-      "filePath": "src/types.ts",
-      "line": 341,
-      "column": 1
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [
-      {
-        "name": "cdn",
-        "kind": "property",
-        "type": "boolean",
-        "required": true,
-        "description": null
-      },
-      {
-        "name": "domain",
-        "kind": "property",
-        "type": "string | undefined",
-        "required": false,
-        "description": null
-      }
-    ],
-    "structuredRows": []
-  },
-  {
     "name": "normalizeSecretRef",
     "description": null,
     "isReadme": false,
@@ -10500,10 +12130,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "function",
-    "modulePath": "src/appManifest.ts",
+    "modulePath": "src/features/appManifest/domain/parseAppManifest.ts",
     "sourceLocation": {
-      "filePath": "src/appManifest.ts",
-      "line": 44,
+      "filePath": "src/features/appManifest/domain/parseAppManifest.ts",
+      "line": 11,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -10527,6 +12157,38 @@
     "structuredRows": []
   },
   {
+    "name": "parseInfraManifest",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/features/infra/domain/parseInfraManifest.ts",
+    "sourceLocation": {
+      "filePath": "src/features/infra/domain/parseInfraManifest.ts",
+      "line": 6,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["InfraManifest", "InfraResult"],
+    "signatures": [
+      {
+        "label": "(value: unknown) => InfraResult<InfraManifest>",
+        "parameters": [
+          {
+            "name": "value",
+            "type": "unknown",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "InfraResult<InfraManifest>",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
     "name": "PasswordResetInput",
     "description": null,
     "isReadme": false,
@@ -10535,7 +12197,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 226,
+      "line": 227,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -10688,7 +12350,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 129,
+      "line": 130,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -11159,7 +12821,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 261,
+      "line": 232,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -11227,7 +12889,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 68,
+      "line": 70,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -11849,7 +13511,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 61,
+      "line": 63,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -11882,7 +13544,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 206,
+      "line": 207,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -11936,7 +13598,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 222,
+      "line": 223,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -11962,7 +13624,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 214,
+      "line": 215,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -12056,17 +13718,17 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 273,
+      "line": 244,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["SplashScreenResizeMode"],
+    "relatedSymbols": ["MediaAssetReference", "SplashScreenResizeMode"],
     "signatures": [],
     "members": [
       {
         "name": "image",
         "kind": "property",
-        "type": "string | undefined",
+        "type": "MediaAssetReference | undefined",
         "required": false,
         "description": null
       },
@@ -12096,11 +13758,11 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 279,
+      "line": 250,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["SplashScreenResizeMode"],
+    "relatedSymbols": ["MediaAssetReference", "SplashScreenResizeMode"],
     "signatures": [],
     "members": [
       {
@@ -12113,7 +13775,7 @@
       {
         "name": "image",
         "kind": "property",
-        "type": "string | undefined",
+        "type": "MediaAssetReference | undefined",
         "required": false,
         "description": null
       },
@@ -12143,7 +13805,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 271,
+      "line": 242,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -12161,11 +13823,11 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 283,
+      "line": 254,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["SplashScreenModeSpec", "SplashScreenResizeMode"],
+    "relatedSymbols": ["MediaAssetReference", "SplashScreenModeSpec", "SplashScreenResizeMode"],
     "signatures": [],
     "members": [
       {
@@ -12185,7 +13847,7 @@
       {
         "name": "image",
         "kind": "property",
-        "type": "string | undefined",
+        "type": "MediaAssetReference | undefined",
         "required": false,
         "description": null
       },
@@ -12449,7 +14111,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 299,
+      "line": 300,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -12488,42 +14150,6 @@
     "structuredRows": []
   },
   {
-    "name": "STATE_PERSISTENCE_MODES",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "value",
-    "modulePath": "src/types.ts",
-    "sourceLocation": {
-      "filePath": "src/types.ts",
-      "line": 184,
-      "column": 14
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "STATE_PROVIDERS",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "value",
-    "modulePath": "src/types.ts",
-    "sourceLocation": {
-      "filePath": "src/types.ts",
-      "line": 180,
-      "column": 14
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [],
-    "structuredRows": []
-  },
-  {
     "name": "StateAdapter",
     "description": null,
     "isReadme": false,
@@ -12532,7 +14158,7 @@
     "modulePath": "src/state.ts",
     "sourceLocation": {
       "filePath": "src/state.ts",
-      "line": 53,
+      "line": 59,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -12593,7 +14219,7 @@
     "modulePath": "src/state.ts",
     "sourceLocation": {
       "filePath": "src/state.ts",
-      "line": 12,
+      "line": 18,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -12633,7 +14259,7 @@
     "modulePath": "src/state.ts",
     "sourceLocation": {
       "filePath": "src/state.ts",
-      "line": 18,
+      "line": 24,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -12673,7 +14299,7 @@
     "modulePath": "src/state.ts",
     "sourceLocation": {
       "filePath": "src/state.ts",
-      "line": 45,
+      "line": 51,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -12691,25 +14317,7 @@
     "modulePath": "src/state.ts",
     "sourceLocation": {
       "filePath": "src/state.ts",
-      "line": 10,
-      "column": 1
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "StatePersistenceMode",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "unknown",
-    "modulePath": "src/types.ts",
-    "sourceLocation": {
-      "filePath": "src/types.ts",
-      "line": 185,
+      "line": 16,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -12727,25 +14335,7 @@
     "modulePath": "src/state.ts",
     "sourceLocation": {
       "filePath": "src/state.ts",
-      "line": 1,
-      "column": 1
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "StateProvider",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "unknown",
-    "modulePath": "src/types.ts",
-    "sourceLocation": {
-      "filePath": "src/types.ts",
-      "line": 182,
+      "line": 7,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -12763,7 +14353,7 @@
     "modulePath": "src/state.ts",
     "sourceLocation": {
       "filePath": "src/state.ts",
-      "line": 33,
+      "line": 39,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -12781,7 +14371,7 @@
     "modulePath": "src/state.ts",
     "sourceLocation": {
       "filePath": "src/state.ts",
-      "line": 40,
+      "line": 46,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -12806,39 +14396,6 @@
     "structuredRows": []
   },
   {
-    "name": "StateSpec",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "type",
-    "modulePath": "src/types.ts",
-    "sourceLocation": {
-      "filePath": "src/types.ts",
-      "line": 302,
-      "column": 1
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["StateProvider"],
-    "signatures": [],
-    "members": [
-      {
-        "name": "persistence",
-        "kind": "property",
-        "type": "\"local\" | \"database\" | \"none\" | \"secure\" | undefined",
-        "required": false,
-        "description": null
-      },
-      {
-        "name": "provider",
-        "kind": "property",
-        "type": "StateProvider",
-        "required": true,
-        "description": null
-      }
-    ],
-    "structuredRows": []
-  },
-  {
     "name": "StateSubscription",
     "description": null,
     "isReadme": false,
@@ -12847,7 +14404,7 @@
     "modulePath": "src/state.ts",
     "sourceLocation": {
       "filePath": "src/state.ts",
-      "line": 49,
+      "line": 55,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -12873,7 +14430,7 @@
     "modulePath": "src/state.ts",
     "sourceLocation": {
       "filePath": "src/state.ts",
-      "line": 24,
+      "line": 30,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -12891,26 +14448,8 @@
     "modulePath": "src/state.ts",
     "sourceLocation": {
       "filePath": "src/state.ts",
-      "line": 3,
+      "line": 9,
       "column": 1
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "STORAGE_PROVIDERS",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "value",
-    "modulePath": "src/types.ts",
-    "sourceLocation": {
-      "filePath": "src/types.ts",
-      "line": 177,
-      "column": 14
     },
     "exportPaths": ["src/index.ts"],
     "relatedSymbols": [],
@@ -13357,24 +14896,6 @@
     "structuredRows": []
   },
   {
-    "name": "StorageProvider",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "unknown",
-    "modulePath": "src/types.ts",
-    "sourceLocation": {
-      "filePath": "src/types.ts",
-      "line": 178,
-      "column": 1
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [],
-    "structuredRows": []
-  },
-  {
     "name": "StoragePublicUrlInput",
     "description": null,
     "isReadme": false,
@@ -13684,39 +15205,6 @@
     "structuredRows": []
   },
   {
-    "name": "StorageSpec",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "type",
-    "modulePath": "src/types.ts",
-    "sourceLocation": {
-      "filePath": "src/types.ts",
-      "line": 297,
-      "column": 1
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [
-      {
-        "name": "buckets",
-        "kind": "property",
-        "type": "string[]",
-        "required": true,
-        "description": null
-      },
-      {
-        "name": "provider",
-        "kind": "property",
-        "type": "\"auto\" | \"s3\" | \"r2\"",
-        "required": true,
-        "description": null
-      }
-    ],
-    "structuredRows": []
-  },
-  {
     "name": "StorageUploadInput",
     "description": null,
     "isReadme": false,
@@ -13819,7 +15307,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 236,
+      "line": 207,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -14015,7 +15503,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 22,
+      "line": 24,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -14123,7 +15611,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 17,
+      "line": 19,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -14341,7 +15829,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 56,
+      "line": 58,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -15290,7 +16778,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 251,
+      "line": 222,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -15358,7 +16846,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 244,
+      "line": 215,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -15465,6 +16953,44 @@
     "structuredRows": []
   },
   {
+    "name": "validateInfraAdapterSelection",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/features/infra/domain/validateInfraAdapterSelection.ts",
+    "sourceLocation": {
+      "filePath": "src/features/infra/domain/validateInfraAdapterSelection.ts",
+      "line": 8,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["InfraAdapterDescriptor", "InfraEnvironmentSpec", "InfraResult"],
+    "signatures": [
+      {
+        "label": "(environment: InfraEnvironmentSpec, installed: readonly unknown[]) => InfraResult<readonly InfraAdapterDescriptor[]>",
+        "parameters": [
+          {
+            "name": "environment",
+            "type": "InfraEnvironmentSpec",
+            "required": true,
+            "description": null
+          },
+          {
+            "name": "installed",
+            "type": "readonly unknown[]",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "InfraResult<readonly InfraAdapterDescriptor[]>",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
     "name": "validateSecretPayload",
     "description": null,
     "isReadme": false,
@@ -15505,7 +17031,7 @@
     "modulePath": "src/auth.ts",
     "sourceLocation": {
       "filePath": "src/auth.ts",
-      "line": 231,
+      "line": 232,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],

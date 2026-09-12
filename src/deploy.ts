@@ -2,17 +2,6 @@ export const APP_DEPLOY_TARGET_IDS = ['web', 'android', 'ios'] as const;
 
 export type AppDeployTargetId = (typeof APP_DEPLOY_TARGET_IDS)[number];
 
-/**
- * Logical application environments shared across platform-specific planning.
- *
- * `local` maps to local Web, iOS development, and Android debug execution.
- * Environment-specific endpoints, signing material, and credentials are owned
- * by their dedicated deployment/infra configuration rather than this identity contract.
- */
-export const APP_DEPLOY_ENVIRONMENT_IDS = ['local', 'preview', 'production'] as const;
-
-export type AppDeployEnvironmentId = (typeof APP_DEPLOY_ENVIRONMENT_IDS)[number];
-
 export interface AppDeployProviderSelection {
   readonly build?: string;
   readonly publish?: string;
