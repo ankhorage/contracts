@@ -205,8 +205,6 @@ describe('contracts', () => {
       dark: {
         backgroundColor: '#000000',
         image: { mediaId: 'splash-logo-dark' },
-        imageWidth: 160,
-        resizeMode: 'contain',
       },
     };
 

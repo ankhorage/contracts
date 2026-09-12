@@ -270,17 +270,14 @@ export interface ScreenSpec {
 
 export type SplashScreenResizeMode = 'contain' | 'cover' | 'native';
 
-export interface SplashScreenAssetSpec {
+export interface SplashScreenModeSpec {
   readonly image?: MediaAssetReference;
-  readonly imageWidth?: number;
-  readonly resizeMode?: SplashScreenResizeMode;
-}
-
-export interface SplashScreenModeSpec extends SplashScreenAssetSpec {
   readonly backgroundColor?: string;
 }
 
 export interface SplashScreenSpec extends SplashScreenModeSpec {
+  readonly imageWidth?: number;
+  readonly resizeMode?: SplashScreenResizeMode;
   readonly dark?: SplashScreenModeSpec;
 }
 
