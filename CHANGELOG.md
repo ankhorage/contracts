@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 13.0.1
+
+### Patch Changes
+
+- 92c401e: Use package metadata as the default Paradox documentation title and description.
+
 ## 13.0.0
 
 ### Major Changes
