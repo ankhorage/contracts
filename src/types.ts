@@ -1,17 +1,19 @@
 import type { ColorHarmony } from '@ankhorage/color-theory';
 
-import type { AuthFlowConfig, AuthIdentifierKind, AuthOAuthConfig, AuthSignUpField } from './auth';
+import type { AuthIdentifierKind, AuthSignUpField } from './auth';
 import type {
   BindingValueSource,
   ComponentDataBindingRegistry,
   ScreenDataLoaderDefinition,
 } from './bindings';
-import type { ApiDefinitionList, DataSourceRegistry } from './data';
+import type { DataSourceRegistry } from './data';
 import type { AppDeployManifest } from './deploy';
+import type { InfraManifest } from './infra';
 import type { MediaAssetReference, MediaManifest } from './media';
 import type { AppNavigatorManifest } from './navigator';
 import type { RepositoryManifest } from './repository';
 import type { ScreenRequirements } from './requirements';
+import type { AppStateSpec } from './state';
 import type { ThemeGlobalTokenOverrides, ThemeRecipeOverrides } from './theme';
 
 export interface ThemeModeConfig {
@@ -163,39 +165,8 @@ export const APP_CATEGORIES = [
 ] as const;
 export type AppCategory = (typeof APP_CATEGORIES)[number];
 
-export const DEPLOYMENT_TARGETS = ['minikube'] as const;
-export type KnownDeploymentTarget = (typeof DEPLOYMENT_TARGETS)[number];
-export type DeploymentTarget = KnownDeploymentTarget | (string & {});
-
-export const DATABASE_PROVIDERS = ['supabase'] as const;
-export type KnownDatabaseProvider = (typeof DATABASE_PROVIDERS)[number];
-export type DatabaseProvider = KnownDatabaseProvider | (string & {});
-
-export const DATABASE_TIERS = ['dev', 'prod'] as const;
-export type DatabaseTier = (typeof DATABASE_TIERS)[number];
-
-export const STORAGE_PROVIDERS = ['auto', 's3', 'r2'] as const;
-export type StorageProvider = (typeof STORAGE_PROVIDERS)[number];
-
-export const STATE_PROVIDERS = ['legend'] as const;
-export type KnownStateProvider = (typeof STATE_PROVIDERS)[number];
-export type StateProvider = KnownStateProvider | (string & {});
-
-export const STATE_PERSISTENCE_MODES = ['none', 'local', 'secure', 'database'] as const;
-export type StatePersistenceMode = (typeof STATE_PERSISTENCE_MODES)[number];
-
-export const AUTHZ_KINDS = ['RBAC', 'ABAC'] as const;
-export type AuthzKind = (typeof AUTHZ_KINDS)[number];
-
-export const AUTHZ_ENGINES = ['cerbos', 'native'] as const;
-export type AuthzEngine = (typeof AUTHZ_ENGINES)[number];
-
 export const AUTH_SCOPES = ['global', 'none', 'integrated'] as const;
 export type AuthScope = (typeof AUTH_SCOPES)[number];
-
-export const AUTH_PROVIDERS = ['supabase'] as const;
-export type KnownAuthProvider = (typeof AUTH_PROVIDERS)[number];
-export type AuthProvider = KnownAuthProvider | (string & {});
 
 export const AUTH_SIGN_IN_IDENTIFIERS = ['email', 'username', 'phone'] as const;
 export type AuthSignInIdentifier = AuthIdentifierKind;
@@ -284,31 +255,6 @@ export interface SplashScreenSpec extends SplashScreenModeSpec {
   readonly dark?: SplashScreenModeSpec;
 }
 
-export interface DeploymentSpec {
-  target: DeploymentTarget;
-  monitoring: boolean;
-}
-
-export interface DatabaseSpec {
-  provider: DatabaseProvider;
-  tier: DatabaseTier;
-}
-
-export interface StorageSpec {
-  provider: StorageProvider;
-  buckets: string[];
-}
-
-export interface StateSpec {
-  readonly provider: StateProvider;
-  readonly persistence?: StatePersistenceMode;
-}
-
-export interface AuthzSpec {
-  kind: AuthzKind;
-  engine: AuthzEngine;
-}
-
 export interface AuthSignInSpec {
   identifiers: AuthSignInIdentifier[];
 }
@@ -325,34 +271,6 @@ export interface AuthProfileSpec {
   primaryKey?: AuthProfilePrimaryKeyStrategy;
   createStrategy?: AuthProfileCreateStrategy;
   updateStrategy?: AuthProfileUpdateStrategy;
-}
-
-export interface AuthSpec {
-  scope: AuthScope;
-  provider: AuthProvider;
-  authorization?: AuthzSpec;
-  flow?: AuthFlowConfig;
-  signIn?: AuthSignInSpec;
-  signUp?: AuthSignUpSpec;
-  oauth?: AuthOAuthConfig;
-  profile?: AuthProfileSpec;
-}
-
-export interface NetworkingSpec {
-  domain?: string;
-  cdn: boolean;
-}
-
-export interface InfraManifest {
-  deployment?: DeploymentSpec;
-  auth?: AuthSpec;
-  database?: DatabaseSpec;
-  storage?: StorageSpec;
-  state?: StateSpec;
-  networking?: NetworkingSpec;
-  apis?: ApiDefinitionList;
-  modules: string[];
-  modulesConfig?: Record<string, unknown>;
 }
 
 export interface AppSettings {
@@ -378,8 +296,10 @@ export interface AppManifest {
   splashScreen?: SplashScreenSpec;
   /** Studio-managed authoring media. Runtime/user uploads are intentionally separate. */
   media?: MediaManifest;
-  /** App distribution desired state. Infrastructure deployment remains under `infra.deployment`. */
+  /** App distribution desired state, separate from environment-specific infrastructure. */
   deploy?: AppDeployManifest;
+  /** Application runtime state is not provisioned by Infra. */
+  state?: AppStateSpec;
   infra: InfraManifest;
   navigator: AppNavigatorManifest;
   screens: Record<string, ScreenSpec>;

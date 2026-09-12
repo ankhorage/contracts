@@ -1,0 +1,6 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": { "noEmit": true },
+  "include": ["src/infra*.test.ts"],
+  "exclude": ["dist", "node_modules"]
+}

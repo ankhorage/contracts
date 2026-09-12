@@ -1,0 +1,10 @@
+sequenceDiagram
+  participant participant_isInfraDeploymentSpec as isInfraDeploymentSpec
+  participant participant_isInfraShape as isInfraShape
+  participant participant_isRecord as isRecord
+  participant_isInfraDeploymentSpec->>participant_isInfraShape: isInfraShape()
+  participant_isInfraShape->>participant_isRecord: isRecord()
+  participant_isRecord-->>participant_isInfraShape: return
+  participant_isInfraShape-->>participant_isInfraDeploymentSpec: return
+  participant_isInfraDeploymentSpec->>participant_isRecord: isRecord()
+  participant_isRecord-->>participant_isInfraDeploymentSpec: return

@@ -24,6 +24,14 @@
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
     },
+    "./infra": {
+      "types": "./dist/infra.d.ts",
+      "default": "./dist/infra.js"
+    },
+    "./environments": {
+      "types": "./dist/environments.d.ts",
+      "default": "./dist/environments.js"
+    },
     "./auth": {
       "types": "./dist/auth.d.ts",
       "default": "./dist/auth.js"
@@ -123,7 +131,7 @@
     "format": "ankhorage-prettier --write .",
     "format:check": "ankhorage-prettier --check .",
     "test": "bun test src",
-    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.infra-tests.json",
     "version-packages": "ankhorage-changeset version",
     "knip:check": "ankhorage-knip"
   },

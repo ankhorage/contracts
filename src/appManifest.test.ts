@@ -37,12 +37,16 @@ function createManifest(): Record<string, unknown> {
         },
       },
     },
+    state: { provider: 'legend', persistence: false },
     infra: {
-      deployment: { target: 'minikube', monitoring: true },
-      database: { provider: 'supabase', tier: 'dev' },
-      storage: { provider: 'auto', buckets: ['media'] },
-      state: { provider: 'legend', persistence: 'local' },
-      networking: { domain: 'example.test', cdn: false },
+      environments: {
+        local: {
+          deployment: { compute: { provider: 'local' }, runtime: { provider: 'minikube' } },
+          database: { provider: 'supabase', tier: 'dev' },
+          objectStorage: { provider: 'supabase', buckets: ['media'] },
+          networking: { domain: 'example.test' },
+        },
+      },
       apis: [
         {
           id: 'nutrition',

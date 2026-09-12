@@ -1,0 +1,10 @@
+sequenceDiagram
+  participant participant_isInfraAdapterDescriptor as isInfraAdapterDescriptor
+  participant participant_isInfraShape as isInfraShape
+  participant participant_isRecord as isRecord
+  participant_isInfraAdapterDescriptor->>participant_isRecord: isRecord()
+  participant_isRecord-->>participant_isInfraAdapterDescriptor: return
+  participant_isInfraAdapterDescriptor->>participant_isInfraShape: isInfraShape()
+  participant_isInfraShape->>participant_isRecord: isRecord()
+  participant_isRecord-->>participant_isInfraShape: return
+  participant_isInfraShape-->>participant_isInfraAdapterDescriptor: return

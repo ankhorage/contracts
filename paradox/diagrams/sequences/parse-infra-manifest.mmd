@@ -1,0 +1,11 @@
+sequenceDiagram
+  participant participant_isInfraManifest as isInfraManifest
+  participant participant_isInfraShape as isInfraShape
+  participant participant_isRecord as isRecord
+  participant participant_parseInfraManifest as parseInfraManifest
+  participant_parseInfraManifest->>participant_isInfraManifest: isInfraManifest()
+  participant_isInfraManifest->>participant_isInfraShape: isInfraShape()
+  participant_isInfraShape->>participant_isRecord: isRecord()
+  participant_isRecord-->>participant_isInfraShape: return
+  participant_isInfraShape-->>participant_isInfraManifest: return
+  participant_isInfraManifest-->>participant_parseInfraManifest: return

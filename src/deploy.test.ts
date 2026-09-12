@@ -4,8 +4,9 @@ import { join } from 'node:path';
 import { describe, expect, it } from 'bun:test';
 
 import { isAppManifest } from './appManifest';
-import { APP_DEPLOY_ENVIRONMENT_IDS, APP_DEPLOY_TARGET_IDS, isAppDeployManifest } from './deploy';
-import { DEPLOYMENT_TARGETS } from './types';
+import { APP_DEPLOY_TARGET_IDS, isAppDeployManifest } from './deploy';
+import { APP_ENVIRONMENT_IDS } from './environments';
+import { INFRA_RUNTIME_COMPATIBILITY } from './infra';
 
 function createManifest(deploy?: unknown): Record<string, unknown> {
   return {
@@ -26,7 +27,14 @@ function createManifest(deploy?: unknown): Record<string, unknown> {
     ],
     activeThemeId: 'default',
     ...(deploy === undefined ? {} : { deploy }),
-    infra: { deployment: { target: 'minikube', monitoring: true }, modules: [] },
+    infra: {
+      environments: {
+        local: {
+          deployment: { compute: { provider: 'local' }, runtime: { provider: 'minikube' } },
+        },
+      },
+      modules: [],
+    },
     navigator: { type: 'stack', routes: [] },
     screens: {},
     settings: { localization: { defaultLocale: 'en', locales: ['en'] } },
@@ -36,11 +44,11 @@ function createManifest(deploy?: unknown): Record<string, unknown> {
 describe('app deployment contracts', () => {
   it('keeps app distribution targets distinct from Infra deployment targets', () => {
     expect(APP_DEPLOY_TARGET_IDS).toEqual(['web', 'android', 'ios']);
-    expect(DEPLOYMENT_TARGETS).toEqual(['minikube']);
+    expect(Object.keys(INFRA_RUNTIME_COMPATIBILITY)).toEqual(['minikube', 'k3s', 'docker-compose']);
   });
 
   it('defines one logical environment vocabulary across platform-specific execution', () => {
-    expect(APP_DEPLOY_ENVIRONMENT_IDS).toEqual(['local', 'preview', 'production']);
+    expect(APP_ENVIRONMENT_IDS).toEqual(['local', 'preview', 'production']);
   });
 
   it('accepts canonical web, Android, and iOS desired state with stable native schemes', () => {
