@@ -1,6 +1,3 @@
-import { isStringArray } from '@ankhorage/utility/array';
-import { isRecord, isRecordOf } from '@ankhorage/utility/object';
-
 import { AUTH_OAUTH_PROVIDER_IDS } from '../auth';
 import {
   AUTH_PROFILE_CREATE_STRATEGIES,
@@ -17,6 +14,13 @@ import {
 } from '../types';
 import { isApiDefinitionList } from './apis';
 import { isIconSpec } from './icon';
+import {
+  isOptionalBoolean,
+  isOptionalString,
+  isRecord,
+  isStringArray,
+  isStringRecord,
+} from './shared';
 
 const AUTH_OAUTH_PROVIDER_SET = new Set<string>(AUTH_OAUTH_PROVIDER_IDS);
 const AUTH_PROFILE_CREATE_STRATEGY_SET = new Set<string>(AUTH_PROFILE_CREATE_STRATEGIES);
@@ -83,11 +87,7 @@ function isStateSpec(value: unknown): boolean {
 }
 
 function isNetworkingSpec(value: unknown): boolean {
-  return (
-    isRecord(value) &&
-    (value.domain === undefined || typeof value.domain === 'string') &&
-    typeof value.cdn === 'boolean'
-  );
+  return isRecord(value) && isOptionalString(value.domain) && typeof value.cdn === 'boolean';
 }
 
 function isAuthSpec(value: unknown): boolean {
@@ -119,12 +119,12 @@ function isAuthFlow(value: unknown): boolean {
   return (
     isRecord(value) &&
     typeof value.signInRoute === 'string' &&
-    (value.signUpRoute === undefined || typeof value.signUpRoute === 'string') &&
-    (value.signOutRoute === undefined || typeof value.signOutRoute === 'string') &&
-    (value.forgotPasswordRoute === undefined || typeof value.forgotPasswordRoute === 'string') &&
-    (value.otpRoute === undefined || typeof value.otpRoute === 'string') &&
+    isOptionalString(value.signUpRoute) &&
+    isOptionalString(value.signOutRoute) &&
+    isOptionalString(value.forgotPasswordRoute) &&
+    isOptionalString(value.otpRoute) &&
     typeof value.postSignInRoute === 'string' &&
-    (value.unauthorizedRoute === undefined || typeof value.unauthorizedRoute === 'string')
+    isOptionalString(value.unauthorizedRoute)
   );
 }
 
@@ -163,11 +163,10 @@ function isAuthOAuthProviderConfig(value: unknown): boolean {
     isRecord(value) &&
     typeof value.id === 'string' &&
     (AUTH_OAUTH_PROVIDER_SET.has(value.id) || value.id.length > 0) &&
-    (value.label === undefined || typeof value.label === 'string') &&
-    (value.enabled === undefined || typeof value.enabled === 'boolean') &&
+    isOptionalString(value.label) &&
+    isOptionalBoolean(value.enabled) &&
     (value.scopes === undefined || isStringArray(value.scopes)) &&
-    (value.queryParams === undefined ||
-      isRecordOf(value.queryParams, (entry): entry is string => typeof entry === 'string')) &&
+    (value.queryParams === undefined || isStringRecord(value.queryParams)) &&
     (value.icon === undefined || isIconSpec(value.icon)) &&
     (value.credentialsRef === undefined || typeof value.credentialsRef === 'string')
   );
@@ -177,7 +176,7 @@ function isAuthProfileSpec(value: unknown): boolean {
   return (
     isRecord(value) &&
     isStringArray(value.fields) &&
-    (value.table === undefined || typeof value.table === 'string') &&
+    isOptionalString(value.table) &&
     (value.primaryKey === undefined ||
       (typeof value.primaryKey === 'string' &&
         AUTH_PROFILE_PRIMARY_KEY_STRATEGY_SET.has(value.primaryKey))) &&

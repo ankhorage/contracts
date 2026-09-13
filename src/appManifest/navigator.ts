@@ -1,15 +1,14 @@
-import { isStringArray } from '@ankhorage/utility/array';
-import { hasOnlyKeys, isRecord } from '@ankhorage/utility/object';
-
 import { type AppNavigatorManifest, NAVIGATOR_PRESETS, NAVIGATOR_TYPES } from '../navigator';
 import { isIconSpec } from './icon';
 import {
+  hasOnlyKeys,
   isDrawerNavigatorOptions,
   isNavigatorScreenReference,
   isStackImplementationConfig,
   isStackScreenOptions,
   isTabsImplementationConfig,
 } from './navigatorOptions';
+import { isOptionalBoolean, isOptionalString, isRecord, isStringArray } from './shared';
 
 /*** Validate the complete serialized `AppManifest.navigator` slice. */
 export function isAppNavigatorManifest(value: unknown): value is AppNavigatorManifest {
@@ -30,7 +29,7 @@ function isNavigatorNode(value: unknown): boolean {
     !isRecord(value) ||
     typeof value.type !== 'string' ||
     !hasNavigatorType(value.type) ||
-    !(value.initialRouteName === undefined || typeof value.initialRouteName === 'string') ||
+    !isOptionalString(value.initialRouteName) ||
     !Array.isArray(value.routes) ||
     !value.routes.every(isRouteDefinition)
   ) {
@@ -73,22 +72,14 @@ function isRouteDefinition(value: unknown): boolean {
   return (
     isRecord(value) &&
     typeof value.name === 'string' &&
-    hasValidRouteMetadata(value) &&
+    isOptionalString(value.path) &&
+    isOptionalString(value.label) &&
+    (value.icon === undefined || isIconSpec(value.icon)) &&
+    isOptionalBoolean(value.showInPrimaryNavigation) &&
+    (value.guards === undefined || isStringArray(value.guards)) &&
+    isOptionalString(value.screenId) &&
     (value.stackOptions === undefined || isStackScreenOptions(value.stackOptions)) &&
     (value.navigator === undefined || isNavigatorNode(value.navigator))
-  );
-}
-
-/*** Validate optional portable metadata attached to one route. */
-function hasValidRouteMetadata(value: Record<string, unknown>): boolean {
-  return (
-    (value.path === undefined || typeof value.path === 'string') &&
-    (value.label === undefined || typeof value.label === 'string') &&
-    (value.icon === undefined || isIconSpec(value.icon)) &&
-    (value.showInPrimaryNavigation === undefined ||
-      typeof value.showInPrimaryNavigation === 'boolean') &&
-    (value.guards === undefined || isStringArray(value.guards)) &&
-    (value.screenId === undefined || typeof value.screenId === 'string')
   );
 }
 

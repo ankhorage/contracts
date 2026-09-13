@@ -1,6 +1,3 @@
-import { hasOnlyKeys, isRecord } from '@ankhorage/utility/object';
-import { isNonEmptyString } from '@ankhorage/utility/string';
-
 import {
   MEDIA_ASSET_KINDS,
   type MediaAsset,
@@ -8,6 +5,7 @@ import {
   type MediaAssetSource,
   type MediaManifest,
 } from '../media';
+import { isOptionalString, isRecord } from './shared';
 
 const MEDIA_ASSET_KIND_SET = new Set<string>(MEDIA_ASSET_KINDS);
 
@@ -28,7 +26,7 @@ function isMediaAsset(value: unknown): value is MediaAsset {
     typeof value.kind === 'string' &&
     MEDIA_ASSET_KIND_SET.has(value.kind) &&
     isMediaAssetSource(value.source) &&
-    (value.contentType === undefined || typeof value.contentType === 'string') &&
+    isOptionalString(value.contentType) &&
     (value.metadata === undefined || isMediaAssetMetadata(value.metadata))
   );
 }
@@ -39,7 +37,7 @@ function isMediaAssetSource(value: unknown): value is MediaAssetSource {
   if (value.kind === 'storage') {
     return (
       hasOnlyKeys(value, ['kind', 'storageId', 'bucket', 'path']) &&
-      (value.storageId === undefined || typeof value.storageId === 'string') &&
+      isOptionalString(value.storageId) &&
       isNonEmptyString(value.bucket) &&
       isNonEmptyString(value.path)
     );
@@ -65,41 +63,12 @@ function isMediaAssetMetadata(value: unknown): value is MediaAssetMetadata {
       'height',
       'durationMs',
     ]) &&
-    hasValidMediaTextMetadata(value) &&
-    hasValidMediaDimensions(value) &&
-    hasValidMediaFileMeasurements(value)
-  );
-}
-
-/*** Validate optional text metadata owned by a media asset. */
-function hasValidMediaTextMetadata(value: Record<string, unknown>): boolean {
-  return (
-    (value.originalFileName === undefined || typeof value.originalFileName === 'string') &&
-    (value.createdAt === undefined || typeof value.createdAt === 'string')
-  );
-}
-
-/*** Validate optional pixel dimensions owned by image media. */
-function hasValidMediaDimensions(value: Record<string, unknown>): boolean {
-  return (
-    (value.width === undefined ||
-      (typeof value.width === 'number' && Number.isFinite(value.width) && value.width > 0)) &&
-    (value.height === undefined ||
-      (typeof value.height === 'number' && Number.isFinite(value.height) && value.height > 0))
-  );
-}
-
-/*** Validate optional media byte size and duration measurements. */
-function hasValidMediaFileMeasurements(value: Record<string, unknown>): boolean {
-  return (
-    (value.sizeBytes === undefined ||
-      (typeof value.sizeBytes === 'number' &&
-        Number.isFinite(value.sizeBytes) &&
-        value.sizeBytes >= 0)) &&
-    (value.durationMs === undefined ||
-      (typeof value.durationMs === 'number' &&
-        Number.isFinite(value.durationMs) &&
-        value.durationMs >= 0))
+    isOptionalString(value.originalFileName) &&
+    isOptionalString(value.createdAt) &&
+    isOptionalFiniteNonNegativeNumber(value.sizeBytes) &&
+    isOptionalFinitePositiveNumber(value.width) &&
+    isOptionalFinitePositiveNumber(value.height) &&
+    isOptionalFiniteNonNegativeNumber(value.durationMs)
   );
 }
 
@@ -112,4 +81,21 @@ function isBundledPath(value: unknown): boolean {
   const path = value.trim();
   if (path.startsWith('/') || /^[a-z][a-z0-9+.-]*:/iu.test(path)) return false;
   return !path.split('/').includes('..');
+}
+
+function isNonEmptyString(value: unknown): value is string {
+  return typeof value === 'string' && value.trim().length > 0;
+}
+
+function isOptionalFiniteNonNegativeNumber(value: unknown): boolean {
+  return value === undefined || (typeof value === 'number' && Number.isFinite(value) && value >= 0);
+}
+
+function isOptionalFinitePositiveNumber(value: unknown): boolean {
+  return value === undefined || (typeof value === 'number' && Number.isFinite(value) && value > 0);
+}
+
+function hasOnlyKeys(value: Record<string, unknown>, allowedKeys: readonly string[]): boolean {
+  const allowed = new Set(allowedKeys);
+  return Object.keys(value).every((key) => allowed.has(key));
 }

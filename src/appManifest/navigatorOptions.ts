@@ -1,6 +1,3 @@
-import { hasOnlyKeys, isRecord } from '@ankhorage/utility/object';
-import { isOneOf } from '@ankhorage/utility/value';
-
 import {
   DRAWER_POSITIONS,
   DRAWER_TYPES,
@@ -11,6 +8,7 @@ import {
   NATIVE_TABS_MINIMIZE_BEHAVIORS,
   STACK_PRESENTATIONS,
 } from '../navigator';
+import { isOptionalBoolean, isOptionalString, isRecord } from './shared';
 
 /*** Validate stable native, JavaScript, or alpha Experimental Stack desired state. */
 export function isStackImplementationConfig(value: Record<string, unknown>): boolean {
@@ -54,7 +52,8 @@ export function isStackScreenOptions(value: unknown): boolean {
     ]) ||
     !isStackHeaderOptionsShape(value) ||
     (value.presentation !== undefined &&
-      (typeof value.presentation !== 'string' || !isOneOf(value.presentation, STACK_PRESENTATIONS)))
+      (typeof value.presentation !== 'string' ||
+        !contains(STACK_PRESENTATIONS, value.presentation)))
   ) {
     return false;
   }
@@ -64,7 +63,7 @@ export function isStackScreenOptions(value: unknown): boolean {
   }
   return (
     (value.sheetAllowedDetents === undefined || isSheetAllowedDetents(value.sheetAllowedDetents)) &&
-    (value.sheetGrabberVisible === undefined || typeof value.sheetGrabberVisible === 'boolean')
+    isOptionalBoolean(value.sheetGrabberVisible)
   );
 }
 
@@ -75,11 +74,11 @@ export function isDrawerNavigatorOptions(value: unknown): boolean {
     hasOnlyKeys(value, ['drawerPosition', 'drawerType', 'swipeEnabled', 'headerShown']) &&
     (value.drawerPosition === undefined ||
       (typeof value.drawerPosition === 'string' &&
-        isOneOf(value.drawerPosition, DRAWER_POSITIONS))) &&
+        contains(DRAWER_POSITIONS, value.drawerPosition))) &&
     (value.drawerType === undefined ||
-      (typeof value.drawerType === 'string' && isOneOf(value.drawerType, DRAWER_TYPES))) &&
-    (value.swipeEnabled === undefined || typeof value.swipeEnabled === 'boolean') &&
-    (value.headerShown === undefined || typeof value.headerShown === 'boolean')
+      (typeof value.drawerType === 'string' && contains(DRAWER_TYPES, value.drawerType))) &&
+    isOptionalBoolean(value.swipeEnabled) &&
+    isOptionalBoolean(value.headerShown)
   );
 }
 
@@ -102,6 +101,15 @@ export function isNavigatorScreenReference(value: unknown): boolean {
   return isRecord(value) && hasOnlyKeys(value, ['screenId']) && typeof value.screenId === 'string';
 }
 
+/*** Check that a finite configuration object contains no unsupported keys. */
+export function hasOnlyKeys(
+  value: Record<string, unknown>,
+  allowedKeys: readonly string[],
+): boolean {
+  const allowed = new Set(allowedKeys);
+  return Object.keys(value).every((key) => allowed.has(key));
+}
+
 /*** Validate JavaScript Stack options without accepting native-only presentations. */
 function isJavaScriptStackScreenOptions(value: unknown): boolean {
   return (
@@ -116,7 +124,7 @@ function isJavaScriptStackScreenOptions(value: unknown): boolean {
     isStackHeaderOptionsShape(value) &&
     (value.presentation === undefined ||
       (typeof value.presentation === 'string' &&
-        isOneOf(value.presentation, JAVASCRIPT_STACK_PRESENTATIONS)))
+        contains(JAVASCRIPT_STACK_PRESENTATIONS, value.presentation)))
   );
 }
 
@@ -132,10 +140,10 @@ function isStackHeaderOptions(value: unknown): boolean {
 /*** Validate shared stack header field values after branch-specific key filtering. */
 function isStackHeaderOptionsShape(value: Record<string, unknown>): boolean {
   return (
-    (value.title === undefined || typeof value.title === 'string') &&
-    (value.headerShown === undefined || typeof value.headerShown === 'boolean') &&
-    (value.headerTransparent === undefined || typeof value.headerTransparent === 'boolean') &&
-    (value.headerBackVisible === undefined || typeof value.headerBackVisible === 'boolean')
+    isOptionalString(value.title) &&
+    isOptionalBoolean(value.headerShown) &&
+    isOptionalBoolean(value.headerTransparent) &&
+    isOptionalBoolean(value.headerBackVisible)
   );
 }
 
@@ -197,7 +205,7 @@ function isJavaScriptTabsConfig(value: Record<string, unknown>): boolean {
     ]) &&
     (value.presentation === undefined ||
       (typeof value.presentation === 'string' &&
-        isOneOf(value.presentation, JAVASCRIPT_TABS_PRESENTATIONS)))
+        contains(JAVASCRIPT_TABS_PRESENTATIONS, value.presentation)))
   );
 }
 
@@ -216,7 +224,7 @@ function isNativeTabsFields(value: Record<string, unknown>): boolean {
   return (
     (value.minimizeBehavior === undefined ||
       (typeof value.minimizeBehavior === 'string' &&
-        isOneOf(value.minimizeBehavior, NATIVE_TABS_MINIMIZE_BEHAVIORS))) &&
+        contains(NATIVE_TABS_MINIMIZE_BEHAVIORS, value.minimizeBehavior))) &&
     (value.bottomAccessory === undefined || isNavigatorScreenReference(value.bottomAccessory))
   );
 }
@@ -234,19 +242,15 @@ function isHeadlessTabsWebConfig(value: unknown): boolean {
 function isHeadlessTabsPresentationConfig(value: Record<string, unknown>): boolean {
   if (
     typeof value.presentation !== 'string' ||
-    !isOneOf(value.presentation, HEADLESS_TABS_PRESENTATIONS)
+    !contains(HEADLESS_TABS_PRESENTATIONS, value.presentation)
   ) {
     return false;
   }
   if (value.responsive !== undefined && !isResponsiveTabsPresentation(value.responsive)) {
     return false;
   }
-  if (!(
-    value.customPresentationId === undefined || typeof value.customPresentationId === 'string'
-  )) {
-    return false;
-  }
-  if (isOneOf(value.presentation, FIXED_HEADLESS_TABS_PRESENTATIONS)) {
+  if (!isOptionalString(value.customPresentationId)) return false;
+  if (contains(FIXED_HEADLESS_TABS_PRESENTATIONS, value.presentation)) {
     return value.responsive === undefined && value.customPresentationId === undefined;
   }
   if (value.presentation === 'responsive') {
@@ -265,13 +269,18 @@ function isResponsiveTabsPresentation(value: unknown): boolean {
     isRecord(value) &&
     hasOnlyKeys(value, ['compact', 'medium', 'expanded']) &&
     typeof value.compact === 'string' &&
-    isOneOf(value.compact, FIXED_HEADLESS_TABS_PRESENTATIONS) &&
+    contains(FIXED_HEADLESS_TABS_PRESENTATIONS, value.compact) &&
     (value.medium === undefined ||
       (typeof value.medium === 'string' &&
-        isOneOf(value.medium, FIXED_HEADLESS_TABS_PRESENTATIONS))) &&
+        contains(FIXED_HEADLESS_TABS_PRESENTATIONS, value.medium))) &&
     typeof value.expanded === 'string' &&
-    isOneOf(value.expanded, FIXED_HEADLESS_TABS_PRESENTATIONS)
+    contains(FIXED_HEADLESS_TABS_PRESENTATIONS, value.expanded)
   );
+}
+
+/*** Check a string against a public finite contract without eager cyclic initialization. */
+function contains(values: readonly string[], value: string): boolean {
+  return values.includes(value);
 }
 
 /*** Check that mutually exclusive branch fields are absent. */

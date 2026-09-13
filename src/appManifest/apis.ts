@@ -1,9 +1,6 @@
-import { hasOnlyKeys, isRecord } from '@ankhorage/utility/object';
-import { isNonEmptyString } from '@ankhorage/utility/string';
-
 import type { ApiDefinition, ApiDefinitionList } from '../data';
 import { isCredentialRef, isDataEndpointRegistry, isDataSchemaRegistry } from './data';
-import { isManifestValue } from './isManifestValue';
+import { isManifestValue, isOptionalString, isRecord } from './shared';
 
 const API_BASE_KEYS = [
   'id',
@@ -16,11 +13,11 @@ const API_BASE_KEYS = [
   'schemas',
   'metadata',
 ] as const;
-const EXTERNAL_REST_KEYS = [...API_BASE_KEYS, 'baseUrl', 'openApi'] as const;
-const EXTERNAL_GRAPHQL_KEYS = [...API_BASE_KEYS, 'endpointUrl', 'introspection'] as const;
-const INTERNAL_REST_KEYS = [...API_BASE_KEYS, 'basePath'] as const;
-const OPEN_API_KEYS = ['url', 'documentId', 'version'] as const;
-const INTROSPECTION_KEYS = ['enabled', 'schemaVersion'] as const;
+const EXTERNAL_REST_KEYS = new Set([...API_BASE_KEYS, 'baseUrl', 'openApi']);
+const EXTERNAL_GRAPHQL_KEYS = new Set([...API_BASE_KEYS, 'endpointUrl', 'introspection']);
+const INTERNAL_REST_KEYS = new Set([...API_BASE_KEYS, 'basePath']);
+const OPEN_API_KEYS = new Set(['url', 'documentId', 'version']);
+const INTROSPECTION_KEYS = new Set(['enabled', 'schemaVersion']);
 
 export function isApiDefinitionList(value: unknown): value is ApiDefinitionList {
   if (!Array.isArray(value) || !value.every(isApiDefinition)) return false;
@@ -44,18 +41,11 @@ function isApiBaseDefinition(value: unknown): value is Record<string, unknown> {
     isNonEmptyString(value.id) &&
     (value.origin === 'external' || value.origin === 'internal') &&
     (value.protocol === 'graphql' || value.protocol === 'rest') &&
-    hasValidApiMetadata(value) &&
+    isOptionalString(value.name) &&
+    isOptionalString(value.description) &&
     (value.credential === undefined || isCredentialRef(value.credential)) &&
     isDataEndpointRegistry(value.endpoints) &&
-    (value.schemas === undefined || isDataSchemaRegistry(value.schemas))
-  );
-}
-
-/*** Validate optional descriptive metadata shared by API definitions. */
-function hasValidApiMetadata(value: Record<string, unknown>): boolean {
-  return (
-    (value.name === undefined || typeof value.name === 'string') &&
-    (value.description === undefined || typeof value.description === 'string') &&
+    (value.schemas === undefined || isDataSchemaRegistry(value.schemas)) &&
     (value.metadata === undefined || isManifestValue(value.metadata))
   );
 }
@@ -84,9 +74,9 @@ function isOpenApiDocumentRef(value: unknown): boolean {
   return (
     isRecord(value) &&
     hasOnlyKeys(value, OPEN_API_KEYS) &&
-    (value.url === undefined || typeof value.url === 'string') &&
-    (value.documentId === undefined || typeof value.documentId === 'string') &&
-    (value.version === undefined || typeof value.version === 'string')
+    isOptionalString(value.url) &&
+    isOptionalString(value.documentId) &&
+    isOptionalString(value.version)
   );
 }
 
@@ -95,6 +85,14 @@ function isGraphQlIntrospection(value: unknown): boolean {
     isRecord(value) &&
     hasOnlyKeys(value, INTROSPECTION_KEYS) &&
     typeof value.enabled === 'boolean' &&
-    (value.schemaVersion === undefined || typeof value.schemaVersion === 'string')
+    isOptionalString(value.schemaVersion)
   );
+}
+
+function isNonEmptyString(value: unknown): value is string {
+  return typeof value === 'string' && value.trim().length > 0;
+}
+
+function hasOnlyKeys(value: Record<string, unknown>, allowed: ReadonlySet<string>): boolean {
+  return Object.keys(value).every((key) => allowed.has(key));
 }
