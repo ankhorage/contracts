@@ -17282,7 +17282,7 @@
                 data-search="InfraRuntimeAdapter type src/types/infraAdapters.ts  InfraAdapterDescriptor InfraDestroyRequest InfraExecutionContext InfraGeneratedArtifact InfraPlanAction InfraReconcileResult InfraResourceStatus InfraResult InfraRuntimeDesiredState"
               >
                 <h4>InfraRuntimeAdapter</h4>
-                <p class="muted">type • <code>src/types/infraAdapters.ts:102:1</code></p>
+                <p class="muted">type • <code>src/types/infraAdapters.ts:104:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -17413,7 +17413,7 @@
               <article
                 class="item"
                 id="symbol-infraruntimedesiredstate"
-                data-search="InfraRuntimeDesiredState type src/types/infraAdapters.ts  InfraComputeTarget InfraRuntimeSelection InfraWorkloadSpec"
+                data-search="InfraRuntimeDesiredState type src/types/infraAdapters.ts  InfraComputeTarget InfraOutput InfraRuntimeSelection InfraWorkloadSpec"
               >
                 <h4>InfraRuntimeDesiredState</h4>
                 <p class="muted">type • <code>src/types/infraAdapters.ts:94:1</code></p>
@@ -17423,6 +17423,7 @@
                   <strong>Related symbols:</strong>
                   <ul class="chips">
                     <li class="chip">InfraComputeTarget</li>
+                    <li class="chip">InfraOutput</li>
                     <li class="chip">InfraRuntimeSelection</li>
                     <li class="chip">InfraWorkloadSpec</li>
                   </ul>
@@ -17439,6 +17440,13 @@
                     </tr>
                   </thead>
                   <tbody>
+                    <tr>
+                      <td><code>availableOutputs</code></td>
+                      <td>property</td>
+                      <td><code>readonly InfraOutput[]</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
                     <tr>
                       <td><code>selection</code></td>
                       <td>property</td>
@@ -17469,7 +17477,7 @@
                 data-search="InfraServiceAdapter type src/types/infraAdapters.ts  InfraAdapterDescriptor InfraDestroyRequest InfraExecutionContext InfraOutput InfraPlanAction InfraReconcileResult InfraResourceStatus InfraResult InfraWorkloadSpec"
               >
                 <h4>InfraServiceAdapter</h4>
-                <p class="muted">type • <code>src/types/infraAdapters.ts:130:1</code></p>
+                <p class="muted">type • <code>src/types/infraAdapters.ts:132:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -22319,6 +22327,7 @@ graph LR
                 export_InfraRuntimeDesiredState[&quot;InfraRuntimeDesiredState&quot;]
                 module_src_types_infraAdapters_ts --&gt; export_InfraRuntimeDesiredState
                 export_InfraRuntimeDesiredState -.-&gt; export_InfraComputeTarget
+                export_InfraRuntimeDesiredState -.-&gt; export_InfraOutput
                 export_InfraRuntimeDesiredState -.-&gt; export_InfraRuntimeSelection
                 export_InfraRuntimeDesiredState -.-&gt; export_InfraWorkloadSpec
                 export_InfraRuntimeProviderId[&quot;InfraRuntimeProviderId&quot;]
@@ -23772,6 +23781,7 @@ graph LR
   export_InfraRuntimeDesiredState[&quot;InfraRuntimeDesiredState&quot;]
   module_src_types_infraAdapters_ts --&gt; export_InfraRuntimeDesiredState
   export_InfraRuntimeDesiredState -.-&gt; export_InfraComputeTarget
+  export_InfraRuntimeDesiredState -.-&gt; export_InfraOutput
   export_InfraRuntimeDesiredState -.-&gt; export_InfraRuntimeSelection
   export_InfraRuntimeDesiredState -.-&gt; export_InfraWorkloadSpec
   export_InfraRuntimeProviderId[&quot;InfraRuntimeProviderId&quot;]
