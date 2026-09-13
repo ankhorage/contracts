@@ -1,5 +1,5 @@
 import { readdir, readFile } from 'node:fs/promises';
-import { basename, join } from 'node:path';
+import { basename, join, relative } from 'node:path';
 
 import { COLOR_HARMONIES } from '@ankhorage/color-theory';
 import { describe, expect, it } from 'bun:test';
@@ -349,6 +349,23 @@ describe('contracts', () => {
 
     expect(names.includes('colors')).toBe(false);
     expect(names.includes('color-theory.ts')).toBe(false);
+  });
+
+  it('keeps general helpers in the canonical Utility package', async () => {
+    const packageJson = JSON.parse(await readFile(join(process.cwd(), 'package.json'), 'utf8')) as {
+      dependencies?: Record<string, string>;
+    };
+    const utilityRange = packageJson.dependencies?.['@ankhorage/utility'];
+    const sourcePaths = (await collectTypeScriptFiles(join(process.cwd(), 'src'))).map((file) =>
+      relative(process.cwd(), file).split(/[\\/]/u),
+    );
+
+    expect(utilityRange).toMatch(/^\^\d+\.\d+\.\d+$/u);
+    expect(
+      sourcePaths.some((segments) =>
+        segments.some((segment) => segment === 'shared' || segment === 'shared.ts'),
+      ),
+    ).toBe(false);
   });
 
   it('removes obsolete contract symbols from src recursively', async () => {

@@ -1,4 +1,6 @@
-import { isManifestValue, isOptionalString, isRecord } from './shared';
+import { isRecord } from '@ankhorage/utility/object';
+
+import { isManifestValue } from './isManifestValue';
 
 export function isComponentDataBindingRegistry(value: unknown): boolean {
   return isRecord(value) && Object.values(value).every(isComponentDataBinding);
@@ -12,7 +14,8 @@ export function isBindingValueSource(value: unknown): boolean {
     (value.kind === 'literal'
       ? isManifestValue(value.value)
       : value.kind === 'operation'
-        ? isBindingOperationRef(value.operation) && isOptionalString(value.path)
+        ? isBindingOperationRef(value.operation) &&
+          (value.path === undefined || typeof value.path === 'string')
         : typeof value.path === 'string')
   );
 }
@@ -21,7 +24,7 @@ export function isScreenDataLoaderDefinition(value: unknown): boolean {
   return (
     isRecord(value) &&
     value.kind === 'operation' &&
-    isOptionalString(value.id) &&
+    (value.id === undefined || typeof value.id === 'string') &&
     isBindingOperationRef(value.operation) &&
     (value.input === undefined || isBindingInputMap(value.input))
   );
@@ -31,7 +34,7 @@ function isComponentDataBinding(value: unknown): boolean {
   return (
     isRecord(value) &&
     typeof value.componentId === 'string' &&
-    isOptionalString(value.componentType) &&
+    (value.componentType === undefined || typeof value.componentType === 'string') &&
     (value.props === undefined ||
       (isRecord(value.props) && Object.values(value.props).every(isPropBinding))) &&
     (value.events === undefined ||
@@ -85,7 +88,7 @@ function isBindingOperationRef(value: unknown): boolean {
     isRecord(value) &&
     typeof value.apiId === 'string' &&
     typeof value.operationId === 'string' &&
-    isOptionalString(value.endpointId)
+    (value.endpointId === undefined || typeof value.endpointId === 'string')
   );
 }
 
@@ -103,7 +106,7 @@ function isBindingLifecycleBehavior(value: unknown): boolean {
     typeof value.state === 'string' &&
     ['empty', 'error', 'loading'].includes(value.state) &&
     (value.fallback === undefined || isBindingFallback(value.fallback)) &&
-    isOptionalString(value.message)
+    (value.message === undefined || typeof value.message === 'string')
   );
 }
 

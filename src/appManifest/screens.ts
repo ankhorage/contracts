@@ -1,9 +1,9 @@
 import { COLOR_HARMONIES } from '@ankhorage/color-theory';
+import { isRecord } from '@ankhorage/utility/object';
 
 import { isMediaAssetReference } from '../media';
 import { APP_CATEGORIES } from '../types';
 import { isBindingValueSource, isScreenDataLoaderDefinition } from './bindings';
-import { isOptionalNumber, isOptionalString, isRecord } from './shared';
 
 export { isAppNavigatorManifest } from './navigator';
 
@@ -20,8 +20,8 @@ export function isManifestMetadata(value: unknown): boolean {
     typeof value.category === 'string' &&
     APP_CATEGORY_SET.has(value.category) &&
     typeof value.themeId === 'string' &&
-    isOptionalString(value.created) &&
-    isOptionalString(value.updated)
+    (value.created === undefined || typeof value.created === 'string') &&
+    (value.updated === undefined || typeof value.updated === 'string')
   );
 }
 
@@ -49,7 +49,7 @@ export function isSplashScreenSpec(value: unknown): boolean {
   return (
     isSplashScreenModeSpec(value) &&
     isRecord(value) &&
-    isOptionalNumber(value.imageWidth) &&
+    (value.imageWidth === undefined || typeof value.imageWidth === 'number') &&
     (value.resizeMode === undefined ||
       (typeof value.resizeMode === 'string' &&
         SPLASH_SCREEN_RESIZE_MODE_SET.has(value.resizeMode))) &&
@@ -71,7 +71,7 @@ function isUiNode(value: unknown): boolean {
     isRecord(value) &&
     typeof value.id === 'string' &&
     typeof value.type === 'string' &&
-    isOptionalString(value.alias) &&
+    (value.alias === undefined || typeof value.alias === 'string') &&
     (value.props === undefined || isRecord(value.props)) &&
     (value.style === undefined || isRecord(value.style)) &&
     (value.repeat === undefined || isUiNodeRepeatSpec(value.repeat)) &&
@@ -84,8 +84,8 @@ function isUiNodeRepeatSpec(value: unknown): boolean {
   return (
     isRecord(value) &&
     isBindingValueSource(value.source) &&
-    isOptionalString(value.itemAlias) &&
-    isOptionalString(value.keyPath) &&
+    (value.itemAlias === undefined || typeof value.itemAlias === 'string') &&
+    (value.keyPath === undefined || typeof value.keyPath === 'string') &&
     (value.empty === undefined || (Array.isArray(value.empty) && value.empty.every(isUiNode)))
   );
 }
@@ -95,8 +95,8 @@ function isScreenSpec(value: unknown): boolean {
     isRecord(value) &&
     typeof value.id === 'string' &&
     typeof value.name === 'string' &&
-    isOptionalString(value.title) &&
-    isOptionalString(value.description) &&
+    (value.title === undefined || typeof value.title === 'string') &&
+    (value.description === undefined || typeof value.description === 'string') &&
     (value.dataLoaders === undefined ||
       (Array.isArray(value.dataLoaders) &&
         value.dataLoaders.every(isScreenDataLoaderDefinition))) &&
@@ -109,7 +109,7 @@ function isSplashScreenModeSpec(value: unknown): boolean {
   return (
     isRecord(value) &&
     (value.image === undefined || isMediaAssetReference(value.image)) &&
-    isOptionalString(value.backgroundColor)
+    (value.backgroundColor === undefined || typeof value.backgroundColor === 'string')
   );
 }
 

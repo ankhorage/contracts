@@ -1,3 +1,6 @@
+import { hasOnlyKeys, isRecord } from '@ankhorage/utility/object';
+import { isNonEmptyString } from '@ankhorage/utility/string';
+
 import type {
   AppDeployAndroidTargetConfig,
   AppDeployIosTargetConfig,
@@ -6,14 +9,13 @@ import type {
   AppDeployTargets,
   AppDeployWebTargetConfig,
 } from '../deploy';
-import { isRecord } from './shared';
 
-const DEPLOY_KEYS = new Set(['targets']);
-const TARGET_KEYS = new Set(['web', 'android', 'ios']);
-const PROVIDER_KEYS = new Set(['build', 'publish']);
-const WEB_KEYS = new Set(['enabled', 'providers']);
-const ANDROID_KEYS = new Set(['enabled', 'package', 'scheme', 'providers']);
-const IOS_KEYS = new Set(['enabled', 'bundleIdentifier', 'scheme', 'providers']);
+const DEPLOY_KEYS = ['targets'] as const;
+const TARGET_KEYS = ['web', 'android', 'ios'] as const;
+const PROVIDER_KEYS = ['build', 'publish'] as const;
+const WEB_KEYS = ['enabled', 'providers'] as const;
+const ANDROID_KEYS = ['enabled', 'package', 'scheme', 'providers'] as const;
+const IOS_KEYS = ['enabled', 'bundleIdentifier', 'scheme', 'providers'] as const;
 const URI_SCHEME_PATTERN = /^[A-Za-z][A-Za-z0-9+.-]*$/u;
 
 export function isAppDeployManifest(value: unknown): value is AppDeployManifest {
@@ -76,12 +78,4 @@ function isProviderSelection(value: unknown): value is AppDeployProviderSelectio
     (value.build === undefined || isNonEmptyString(value.build)) &&
     (value.publish === undefined || isNonEmptyString(value.publish))
   );
-}
-
-function isNonEmptyString(value: unknown): value is string {
-  return typeof value === 'string' && value.trim().length > 0;
-}
-
-function hasOnlyKeys(value: Record<string, unknown>, allowed: ReadonlySet<string>): boolean {
-  return Object.keys(value).every((key) => allowed.has(key));
 }

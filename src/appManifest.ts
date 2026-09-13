@@ -1,3 +1,6 @@
+import { isStringArray } from '@ankhorage/utility/array';
+import { isRecord } from '@ankhorage/utility/object';
+
 import { isComponentDataBindingRegistry } from './appManifest/bindings';
 import { isDataSourceRegistry } from './appManifest/dataSources';
 import { isAppDeployManifest } from './appManifest/deploy';
@@ -10,7 +13,6 @@ import {
   isSplashScreenSpec,
   isThemeConfig,
 } from './appManifest/screens';
-import { isRecord, isStringArray } from './appManifest/shared';
 import type { AppManifest } from './types';
 
 export type AppManifestParseResult =
