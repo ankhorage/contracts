@@ -1,6 +1,6 @@
 {
   "name": "@ankhorage/contracts",
-  "version": "13.0.1",
+  "version": "14.0.0",
   "main": "./dist/index.js",
   "ankh": {
     "category": "contracts",
@@ -10,7 +10,8 @@
     ]
   },
   "dependencies": {
-    "@ankhorage/color-theory": "^0.3.0"
+    "@ankhorage/color-theory": "^0.3.0",
+    "expo-splash-screen": "~57.0.9"
   },
   "devDependencies": {
     "@ankhorage/devtools": "^1.12.0",

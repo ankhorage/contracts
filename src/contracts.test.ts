@@ -27,7 +27,6 @@ import {
   type InfraManifest,
   NAVIGATOR_TYPES,
   type RouteDefinition,
-  type SplashScreenSpec,
   type StoragePublicUrlResult,
   type StorageResult,
   type StorageUploadResult,
@@ -186,25 +185,6 @@ describe('contracts', () => {
     expect(theme.tokens?.spacing?.m).toBe(18);
     expect(theme.recipes?.components?.Card?.compact).toBe(true);
     expect(theme.recipes?.patterns?.Panel?.padding).toBe('xl');
-  });
-
-  it('accepts serializable splash screen branding on app manifests', () => {
-    const splashScreen: SplashScreenSpec = {
-      backgroundColor: '#ffffff',
-      image: { mediaId: 'splash-logo' },
-      imageWidth: 160,
-      resizeMode: 'contain',
-      dark: {
-        backgroundColor: '#000000',
-        image: { mediaId: 'splash-logo-dark' },
-        imageWidth: 160,
-        resizeMode: 'contain',
-      },
-    };
-
-    const manifest: Pick<AppManifest, 'splashScreen'> = { splashScreen };
-
-    expect(JSON.parse(JSON.stringify(manifest))).toEqual({ splashScreen });
   });
 
   it('accepts screens with operation data loaders and repeat empty-state nodes', () => {

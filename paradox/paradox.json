@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v13.0.1",
+      "value": "v14.0.0",
       "color": "cb3837"
     },
     {
@@ -72,7 +72,14 @@
       "path": "src/appManifest.ts",
       "isEntrypoint": false,
       "dependencies": [],
-      "exports": ["AppManifestParseResult", "isAppManifest", "parseAppManifest"]
+      "exports": [
+        "AppManifestParseResult",
+        "isAppManifest",
+        "parseAppManifest",
+        "SplashScreenModeSpec",
+        "SplashScreenResizeMode",
+        "SplashScreenSpec"
+      ]
     },
     {
       "path": "src/appManifest/apis.ts",
@@ -179,6 +186,12 @@
         "isStringArray",
         "isStringRecord"
       ]
+    },
+    {
+      "path": "src/appManifest/splashScreen.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/media.ts"],
+      "exports": ["SplashScreenModeSpec", "SplashScreenResizeMode", "SplashScreenSpec"]
     },
     {
       "path": "src/auth.ts",
@@ -1152,7 +1165,6 @@
         "SignOutInput",
         "SignUpInput",
         "SlotNavigatorNode",
-        "SplashScreenAssetSpec",
         "SplashScreenModeSpec",
         "SplashScreenResizeMode",
         "SplashScreenSpec",
@@ -1634,6 +1646,7 @@
       "path": "src/types.ts",
       "isEntrypoint": false,
       "dependencies": [
+        "src/appManifest/splashScreen.ts",
         "src/auth.ts",
         "src/bindings.ts",
         "src/data/index.ts",
@@ -1690,10 +1703,6 @@
         "ScreenSpec",
         "SearchAction",
         "SetLanguageAction",
-        "SplashScreenAssetSpec",
-        "SplashScreenModeSpec",
-        "SplashScreenResizeMode",
-        "SplashScreenSpec",
         "SvgIconSpec",
         "ThemeConfig",
         "ThemeModeConfig",
@@ -1860,7 +1869,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 86,
+        "line": 87,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1878,7 +1887,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 35,
+        "line": 36,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2026,7 +2035,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 46,
+        "line": 47,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2512,7 +2521,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 141,
+        "line": 142,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -2566,7 +2575,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 166,
+        "line": 167,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2850,7 +2859,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 283,
+        "line": 268,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3024,7 +3033,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 276,
+        "line": 261,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3281,7 +3290,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 190,
+        "line": 191,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -3299,7 +3308,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 177,
+        "line": 178,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -3317,7 +3326,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 187,
+        "line": 188,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -3335,7 +3344,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 193,
+        "line": 194,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -3353,7 +3362,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 168,
+        "line": 169,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -3371,7 +3380,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 171,
+        "line": 172,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -3407,7 +3416,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 174,
+        "line": 175,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -4538,7 +4547,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 191,
+        "line": 192,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4556,7 +4565,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 185,
+        "line": 186,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4574,7 +4583,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 188,
+        "line": 189,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4592,7 +4601,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 268,
+        "line": 253,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4646,7 +4655,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 194,
+        "line": 195,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4743,7 +4752,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 169,
+        "line": 170,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4841,7 +4850,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 172,
+        "line": 173,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4859,7 +4868,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 258,
+        "line": 243,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4936,7 +4945,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 175,
+        "line": 176,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4954,7 +4963,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 262,
+        "line": 247,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -5392,7 +5401,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 123,
+        "line": 124,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -5410,7 +5419,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 130,
+        "line": 131,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -5428,7 +5437,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 125,
+        "line": 126,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -5559,7 +5568,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 105,
+        "line": 106,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -5599,7 +5608,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 135,
+        "line": 136,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -5617,7 +5626,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 103,
+        "line": 104,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -5704,7 +5713,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 53,
+        "line": 54,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8867,7 +8876,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 78,
+        "line": 79,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -8986,7 +8995,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 116,
+        "line": 117,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9004,7 +9013,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 114,
+        "line": 115,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9145,7 +9154,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 213,
+        "line": 214,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11813,7 +11822,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 184,
+        "line": 185,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11849,7 +11858,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 138,
+        "line": 139,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11885,7 +11894,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 95,
+        "line": 96,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12336,7 +12345,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 201,
+        "line": 202,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12466,7 +12475,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 38,
+        "line": 39,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -14677,7 +14686,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 232,
+        "line": 233,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -14745,7 +14754,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 70,
+        "line": 71,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -15367,7 +15376,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 63,
+        "line": 64,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -15566,90 +15575,21 @@
       "structuredRows": []
     },
     {
-      "name": "SplashScreenAssetSpec",
-      "description": null,
-      "isReadme": false,
-      "examples": [],
-      "kind": "type",
-      "modulePath": "src/types.ts",
-      "sourceLocation": {
-        "filePath": "src/types.ts",
-        "line": 244,
-        "column": 1
-      },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["MediaAssetReference", "SplashScreenResizeMode"],
-      "signatures": [],
-      "members": [
-        {
-          "name": "image",
-          "kind": "property",
-          "type": "MediaAssetReference | undefined",
-          "required": false,
-          "description": null
-        },
-        {
-          "name": "imageWidth",
-          "kind": "property",
-          "type": "number | undefined",
-          "required": false,
-          "description": null
-        },
-        {
-          "name": "resizeMode",
-          "kind": "property",
-          "type": "SplashScreenResizeMode | undefined",
-          "required": false,
-          "description": null
-        }
-      ],
-      "structuredRows": []
-    },
-    {
       "name": "SplashScreenModeSpec",
       "description": null,
       "isReadme": false,
       "examples": [],
-      "kind": "type",
-      "modulePath": "src/types.ts",
+      "kind": "unknown",
+      "modulePath": "src/appManifest/splashScreen.ts",
       "sourceLocation": {
-        "filePath": "src/types.ts",
-        "line": 250,
+        "filePath": "src/appManifest/splashScreen.ts",
+        "line": 18,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["MediaAssetReference", "SplashScreenResizeMode"],
+      "relatedSymbols": [],
       "signatures": [],
-      "members": [
-        {
-          "name": "backgroundColor",
-          "kind": "property",
-          "type": "string | undefined",
-          "required": false,
-          "description": null
-        },
-        {
-          "name": "image",
-          "kind": "property",
-          "type": "MediaAssetReference | undefined",
-          "required": false,
-          "description": null
-        },
-        {
-          "name": "imageWidth",
-          "kind": "property",
-          "type": "number | undefined",
-          "required": false,
-          "description": null
-        },
-        {
-          "name": "resizeMode",
-          "kind": "property",
-          "type": "SplashScreenResizeMode | undefined",
-          "required": false,
-          "description": null
-        }
-      ],
+      "members": [],
       "structuredRows": []
     },
     {
@@ -15658,10 +15598,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "unknown",
-      "modulePath": "src/types.ts",
+      "modulePath": "src/appManifest/splashScreen.ts",
       "sourceLocation": {
-        "filePath": "src/types.ts",
-        "line": 242,
+        "filePath": "src/appManifest/splashScreen.ts",
+        "line": 16,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -15675,53 +15615,17 @@
       "description": null,
       "isReadme": false,
       "examples": [],
-      "kind": "type",
-      "modulePath": "src/types.ts",
+      "kind": "unknown",
+      "modulePath": "src/appManifest/splashScreen.ts",
       "sourceLocation": {
-        "filePath": "src/types.ts",
-        "line": 254,
+        "filePath": "src/appManifest/splashScreen.ts",
+        "line": 22,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["MediaAssetReference", "SplashScreenModeSpec", "SplashScreenResizeMode"],
+      "relatedSymbols": [],
       "signatures": [],
-      "members": [
-        {
-          "name": "backgroundColor",
-          "kind": "property",
-          "type": "string | undefined",
-          "required": false,
-          "description": null
-        },
-        {
-          "name": "dark",
-          "kind": "property",
-          "type": "SplashScreenModeSpec | undefined",
-          "required": false,
-          "description": null
-        },
-        {
-          "name": "image",
-          "kind": "property",
-          "type": "MediaAssetReference | undefined",
-          "required": false,
-          "description": null
-        },
-        {
-          "name": "imageWidth",
-          "kind": "property",
-          "type": "number | undefined",
-          "required": false,
-          "description": null
-        },
-        {
-          "name": "resizeMode",
-          "kind": "property",
-          "type": "SplashScreenResizeMode | undefined",
-          "required": false,
-          "description": null
-        }
-      ],
+      "members": [],
       "structuredRows": []
     },
     {
@@ -17163,7 +17067,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 207,
+        "line": 208,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -17359,7 +17263,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 24,
+        "line": 25,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -17467,7 +17371,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 19,
+        "line": 20,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -17685,7 +17589,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 58,
+        "line": 59,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -18634,7 +18538,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 222,
+        "line": 223,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -18702,7 +18606,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 215,
+        "line": 216,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -20519,6 +20423,11 @@
     "imports": [
       {
         "fromPath": "src/appManifest.ts",
+        "toPath": "src/appManifest/splashScreen.ts",
+        "sourcePath": "src/appManifest.ts"
+      },
+      {
+        "fromPath": "src/appManifest.ts",
         "toPath": "src/features/appManifest/domain/isAppManifest.ts",
         "sourcePath": "src/appManifest.ts"
       },
@@ -20769,6 +20678,11 @@
       },
       {
         "fromPath": "src/types.ts",
+        "toPath": "src/appManifest/splashScreen.ts",
+        "sourcePath": "src/types.ts"
+      },
+      {
+        "fromPath": "src/types.ts",
         "toPath": "src/auth.ts",
         "sourcePath": "src/types.ts"
       },
@@ -20951,6 +20865,11 @@
         "fromPath": "src/appManifest/screens.ts",
         "toPath": "src/appManifest/navigator.ts",
         "sourcePath": "src/appManifest/screens.ts"
+      },
+      {
+        "fromPath": "src/appManifest/splashScreen.ts",
+        "toPath": "src/media.ts",
+        "sourcePath": "src/appManifest/splashScreen.ts"
       },
       {
         "fromPath": "src/data/apis.ts",
@@ -26055,41 +25974,6 @@
       {
         "fromSymbol": "ScreenSpec",
         "toType": "UiNode",
-        "sourcePath": "src/types.ts"
-      },
-      {
-        "fromSymbol": "SplashScreenAssetSpec",
-        "toType": "MediaAssetReference",
-        "sourcePath": "src/types.ts"
-      },
-      {
-        "fromSymbol": "SplashScreenAssetSpec",
-        "toType": "SplashScreenResizeMode",
-        "sourcePath": "src/types.ts"
-      },
-      {
-        "fromSymbol": "SplashScreenModeSpec",
-        "toType": "MediaAssetReference",
-        "sourcePath": "src/types.ts"
-      },
-      {
-        "fromSymbol": "SplashScreenModeSpec",
-        "toType": "SplashScreenResizeMode",
-        "sourcePath": "src/types.ts"
-      },
-      {
-        "fromSymbol": "SplashScreenSpec",
-        "toType": "MediaAssetReference",
-        "sourcePath": "src/types.ts"
-      },
-      {
-        "fromSymbol": "SplashScreenSpec",
-        "toType": "SplashScreenModeSpec",
-        "sourcePath": "src/types.ts"
-      },
-      {
-        "fromSymbol": "SplashScreenSpec",
-        "toType": "SplashScreenResizeMode",
         "sourcePath": "src/types.ts"
       },
       {

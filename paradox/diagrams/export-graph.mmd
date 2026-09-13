@@ -11,6 +11,7 @@ graph LR
   module_src_appManifest_navigatorOptions_ts["src/appManifest/navigatorOptions.ts"]
   module_src_appManifest_screens_ts["src/appManifest/screens.ts"]
   module_src_appManifest_shared_ts["src/appManifest/shared.ts"]
+  module_src_appManifest_splashScreen_ts["src/appManifest/splashScreen.ts"]
   module_src_auth_ts["src/auth.ts"]
   module_src_bindings_ts["src/bindings.ts"]
   module_src_cli_index_ts["src/cli/index.ts"]
@@ -1251,21 +1252,12 @@ graph LR
   export_SlotNavigatorNode["SlotNavigatorNode"]
   module_src_navigator_ts --> export_SlotNavigatorNode
   export_SlotNavigatorNode -.-> export_RouteDefinition
-  export_SplashScreenAssetSpec["SplashScreenAssetSpec"]
-  module_src_types_ts --> export_SplashScreenAssetSpec
-  export_SplashScreenAssetSpec -.-> export_MediaAssetReference
-  export_SplashScreenAssetSpec -.-> export_SplashScreenResizeMode
   export_SplashScreenModeSpec["SplashScreenModeSpec"]
-  module_src_types_ts --> export_SplashScreenModeSpec
-  export_SplashScreenModeSpec -.-> export_MediaAssetReference
-  export_SplashScreenModeSpec -.-> export_SplashScreenResizeMode
+  module_src_appManifest_splashScreen_ts --> export_SplashScreenModeSpec
   export_SplashScreenResizeMode["SplashScreenResizeMode"]
-  module_src_types_ts --> export_SplashScreenResizeMode
+  module_src_appManifest_splashScreen_ts --> export_SplashScreenResizeMode
   export_SplashScreenSpec["SplashScreenSpec"]
-  module_src_types_ts --> export_SplashScreenSpec
-  export_SplashScreenSpec -.-> export_MediaAssetReference
-  export_SplashScreenSpec -.-> export_SplashScreenModeSpec
-  export_SplashScreenSpec -.-> export_SplashScreenResizeMode
+  module_src_appManifest_splashScreen_ts --> export_SplashScreenSpec
   export_SplitViewNavigatorNode["SplitViewNavigatorNode"]
   module_src_navigator_ts --> export_SplitViewNavigatorNode
   export_SplitViewNavigatorNode -.-> export_NavigatorScreenReference

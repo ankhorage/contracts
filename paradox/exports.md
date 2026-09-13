@@ -4,13 +4,13 @@
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:86:1`
+Source: `src/types.ts:87:1`
 
 ## ActionType
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:35:1`
+Source: `src/types.ts:36:1`
 
 ## AdapterId
 
@@ -58,7 +58,7 @@ Source: `src/navigator.ts:167:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:46:1`
+Source: `src/types.ts:47:1`
 
 ### Members
 
@@ -209,7 +209,7 @@ Source: `src/data/apis.ts:8:1`
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:141:14`
+Source: `src/types.ts:142:14`
 
 ## APP_DEPLOY_TARGET_IDS
 
@@ -227,7 +227,7 @@ Source: `src/environments.ts:2:14`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:166:1`
+Source: `src/types.ts:167:1`
 
 ## AppDeployAndroidTargetConfig
 
@@ -327,7 +327,7 @@ Source: `src/environments.ts:4:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:283:1`
+Source: `src/types.ts:268:1`
 
 ### Members
 
@@ -365,7 +365,7 @@ Source: `src/navigator.ts:264:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:276:1`
+Source: `src/types.ts:261:1`
 
 ### Members
 
@@ -456,37 +456,37 @@ Source: `src/auth.ts:43:14`
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:190:14`
+Source: `src/types.ts:191:14`
 
 ## AUTH_PROFILE_FIELDS
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:177:14`
+Source: `src/types.ts:178:14`
 
 ## AUTH_PROFILE_PRIMARY_KEY_STRATEGIES
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:187:14`
+Source: `src/types.ts:188:14`
 
 ## AUTH_PROFILE_UPDATE_STRATEGIES
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:193:14`
+Source: `src/types.ts:194:14`
 
 ## AUTH_SCOPES
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:168:14`
+Source: `src/types.ts:169:14`
 
 ## AUTH_SIGN_IN_IDENTIFIERS
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:171:14`
+Source: `src/types.ts:172:14`
 
 ## AUTH_SIGN_UP_FIELDS
 
@@ -498,7 +498,7 @@ Source: `src/auth.ts:9:14`
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:174:14`
+Source: `src/types.ts:175:14`
 
 ## AuthAdapter
 
@@ -844,25 +844,25 @@ Source: `src/auth.ts:45:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:191:1`
+Source: `src/types.ts:192:1`
 
 ## AuthProfileField
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:185:1`
+Source: `src/types.ts:186:1`
 
 ## AuthProfilePrimaryKeyStrategy
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:188:1`
+Source: `src/types.ts:189:1`
 
 ## AuthProfileSpec
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:268:1`
+Source: `src/types.ts:253:1`
 
 ### Members
 
@@ -878,7 +878,7 @@ Source: `src/types.ts:268:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:194:1`
+Source: `src/types.ts:195:1`
 
 ## AuthProviderConfig
 
@@ -907,7 +907,7 @@ Source: `src/auth.ts:197:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:169:1`
+Source: `src/types.ts:170:1`
 
 ## AuthSession
 
@@ -941,13 +941,13 @@ Source: `src/auth.ts:134:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:172:1`
+Source: `src/types.ts:173:1`
 
 ## AuthSignInSpec
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:258:1`
+Source: `src/types.ts:243:1`
 
 ### Members
 
@@ -978,13 +978,13 @@ Source: `src/auth.ts:17:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:175:1`
+Source: `src/types.ts:176:1`
 
 ## AuthSignUpSpec
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:262:1`
+Source: `src/types.ts:247:1`
 
 ### Members
 
@@ -1132,19 +1132,19 @@ Source: `src/bindings.ts:18:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:123:1`
+Source: `src/types.ts:124:1`
 
 ## CollectionItemPressEventDto
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:130:1`
+Source: `src/types.ts:131:1`
 
 ## CollectionItemPressPayload
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:125:1`
+Source: `src/types.ts:126:1`
 
 ### Members
 
@@ -1191,7 +1191,7 @@ Source: `src/bindings.ts:137:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:105:1`
+Source: `src/types.ts:106:1`
 
 ### Members
 
@@ -1205,13 +1205,13 @@ Source: `src/types.ts:105:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:135:1`
+Source: `src/types.ts:136:1`
 
 ## ComponentEventPayloadValue
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:103:1`
+Source: `src/types.ts:104:1`
 
 ## ComponentInstanceId
 
@@ -1242,7 +1242,7 @@ Source: `src/bindings.ts:4:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:53:1`
+Source: `src/types.ts:54:1`
 
 ### Members
 
@@ -2191,7 +2191,7 @@ Source: `src/data/apis.ts:28:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:78:1`
+Source: `src/types.ts:79:1`
 
 ### Members
 
@@ -2234,13 +2234,13 @@ Source: `src/secrets.ts:174:14`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:116:1`
+Source: `src/types.ts:117:1`
 
 ## FormSubmitValues
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:114:1`
+Source: `src/types.ts:115:1`
 
 ## GraphQlIntrospectionConfig
 
@@ -2289,7 +2289,7 @@ Source: `src/navigator.ts:148:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:213:1`
+Source: `src/types.ts:214:1`
 
 ## ImageAssetSource
 
@@ -3147,7 +3147,7 @@ Source: `src/auth.ts:44:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:184:1`
+Source: `src/types.ts:185:1`
 
 ## KnownAuthSignUpField
 
@@ -3159,7 +3159,7 @@ Source: `src/auth.ts:16:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:138:1`
+Source: `src/types.ts:139:1`
 
 ## KnownSecretStoreProvider
 
@@ -3171,7 +3171,7 @@ Source: `src/secrets.ts:2:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:95:1`
+Source: `src/types.ts:96:1`
 
 ## MEDIA_ASSET_KINDS
 
@@ -3317,7 +3317,7 @@ Source: `src/media.ts:13:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:201:1`
+Source: `src/types.ts:202:1`
 
 ### Members
 
@@ -3359,7 +3359,7 @@ Source: `src/navigator.ts:118:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:38:1`
+Source: `src/types.ts:39:1`
 
 ### Members
 
@@ -4084,7 +4084,7 @@ Source: `src/requirements.ts:35:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:232:1`
+Source: `src/types.ts:233:1`
 
 ### Members
 
@@ -4102,7 +4102,7 @@ Source: `src/types.ts:232:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:70:1`
+Source: `src/types.ts:71:1`
 
 ### Members
 
@@ -4308,7 +4308,7 @@ Source: `src/secrets.ts:46:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:63:1`
+Source: `src/types.ts:64:1`
 
 ### Members
 
@@ -4375,56 +4375,23 @@ Source: `src/navigator.ts:184:1`
 | routes           | property | `RouteDefinition[]`   | yes      |             |
 | type             | property | `"slot"`              | yes      |             |
 
-## SplashScreenAssetSpec
-
-Kind: `type`
-Module: `src/types.ts`
-Source: `src/types.ts:244:1`
-
-### Members
-
-| Name       | Kind     | Type                                  | Required | Description |
-| ---------- | -------- | ------------------------------------- | -------- | ----------- |
-| image      | property | `MediaAssetReference \| undefined`    | no       |             |
-| imageWidth | property | `number \| undefined`                 | no       |             |
-| resizeMode | property | `SplashScreenResizeMode \| undefined` | no       |             |
-
 ## SplashScreenModeSpec
 
-Kind: `type`
-Module: `src/types.ts`
-Source: `src/types.ts:250:1`
-
-### Members
-
-| Name            | Kind     | Type                                  | Required | Description |
-| --------------- | -------- | ------------------------------------- | -------- | ----------- |
-| backgroundColor | property | `string \| undefined`                 | no       |             |
-| image           | property | `MediaAssetReference \| undefined`    | no       |             |
-| imageWidth      | property | `number \| undefined`                 | no       |             |
-| resizeMode      | property | `SplashScreenResizeMode \| undefined` | no       |             |
+Kind: `unknown`
+Module: `src/appManifest/splashScreen.ts`
+Source: `src/appManifest/splashScreen.ts:18:1`
 
 ## SplashScreenResizeMode
 
 Kind: `unknown`
-Module: `src/types.ts`
-Source: `src/types.ts:242:1`
+Module: `src/appManifest/splashScreen.ts`
+Source: `src/appManifest/splashScreen.ts:16:1`
 
 ## SplashScreenSpec
 
-Kind: `type`
-Module: `src/types.ts`
-Source: `src/types.ts:254:1`
-
-### Members
-
-| Name            | Kind     | Type                                  | Required | Description |
-| --------------- | -------- | ------------------------------------- | -------- | ----------- |
-| backgroundColor | property | `string \| undefined`                 | no       |             |
-| dark            | property | `SplashScreenModeSpec \| undefined`   | no       |             |
-| image           | property | `MediaAssetReference \| undefined`    | no       |             |
-| imageWidth      | property | `number \| undefined`                 | no       |             |
-| resizeMode      | property | `SplashScreenResizeMode \| undefined` | no       |             |
+Kind: `unknown`
+Module: `src/appManifest/splashScreen.ts`
+Source: `src/appManifest/splashScreen.ts:22:1`
 
 ## SplitViewNavigatorNode
 
@@ -4894,7 +4861,7 @@ Source: `src/storage.ts:35:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:207:1`
+Source: `src/types.ts:208:1`
 
 ### Members
 
@@ -4948,7 +4915,7 @@ Source: `src/navigator/planning.ts:27:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:24:1`
+Source: `src/types.ts:25:1`
 
 ### Members
 
@@ -4980,7 +4947,7 @@ Source: `src/theme.ts:28:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:19:1`
+Source: `src/types.ts:20:1`
 
 ### Members
 
@@ -5058,7 +5025,7 @@ Source: `src/theme.ts:15:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:58:1`
+Source: `src/types.ts:59:1`
 
 ### Members
 
@@ -5365,7 +5332,7 @@ Source: `src/ui.ts:138:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:222:1`
+Source: `src/types.ts:223:1`
 
 ### Members
 
@@ -5383,7 +5350,7 @@ Source: `src/types.ts:222:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:215:1`
+Source: `src/types.ts:216:1`
 
 ### Members
 
