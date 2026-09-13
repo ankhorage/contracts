@@ -1,71 +1,76 @@
 graph TD
-  package__ankhorage_contracts["CONTRACTS"]
+  package__ankhorage_contracts["@ankhorage/contracts"]
   entrypoint_src_index_ts["src/index.ts"]
   package__ankhorage_contracts --> entrypoint_src_index_ts
   module_src_appManifest_ts["src/appManifest.ts"]
   package__ankhorage_contracts -.-> module_src_appManifest_ts
-  module_src_appManifest_ts --> module_src_appManifest_bindings_ts
-  module_src_appManifest_ts --> module_src_appManifest_dataSources_ts
-  module_src_appManifest_ts --> module_src_appManifest_deploy_ts
-  module_src_appManifest_ts --> module_src_appManifest_infra_ts
-  module_src_appManifest_ts --> module_src_appManifest_media_ts
-  module_src_appManifest_ts --> module_src_appManifest_screens_ts
-  module_src_appManifest_ts --> module_src_appManifest_shared_ts
-  module_src_appManifest_ts --> module_src_types_ts
   module_src_appManifest_apis_ts["src/appManifest/apis.ts"]
   package__ankhorage_contracts -.-> module_src_appManifest_apis_ts
   module_src_appManifest_apis_ts --> module_src_appManifest_data_ts
-  module_src_appManifest_apis_ts --> module_src_appManifest_shared_ts
+  module_src_appManifest_apis_ts --> module_src_appManifest_isManifestValue_ts
   module_src_appManifest_apis_ts --> module_src_data_index_ts
   module_src_appManifest_bindings_ts["src/appManifest/bindings.ts"]
   package__ankhorage_contracts -.-> module_src_appManifest_bindings_ts
-  module_src_appManifest_bindings_ts --> module_src_appManifest_shared_ts
+  module_src_appManifest_bindings_ts --> module_src_appManifest_isManifestValue_ts
+  module_src_appManifest_constants_ts["src/appManifest/constants.ts"]
+  package__ankhorage_contracts -.-> module_src_appManifest_constants_ts
+  module_src_appManifest_constants_ts --> module_src_types_ts
   module_src_appManifest_data_ts["src/appManifest/data.ts"]
   package__ankhorage_contracts -.-> module_src_appManifest_data_ts
-  module_src_appManifest_data_ts --> module_src_appManifest_shared_ts
+  module_src_appManifest_data_ts --> module_src_appManifest_isManifestValue_ts
   module_src_appManifest_dataSources_ts["src/appManifest/dataSources.ts"]
   package__ankhorage_contracts -.-> module_src_appManifest_dataSources_ts
   module_src_appManifest_dataSources_ts --> module_src_appManifest_data_ts
-  module_src_appManifest_dataSources_ts --> module_src_appManifest_shared_ts
+  module_src_appManifest_dataSources_ts --> module_src_appManifest_isManifestValue_ts
   module_src_appManifest_deploy_ts["src/appManifest/deploy.ts"]
   package__ankhorage_contracts -.-> module_src_appManifest_deploy_ts
-  module_src_appManifest_deploy_ts --> module_src_appManifest_shared_ts
   module_src_appManifest_deploy_ts --> module_src_deploy_ts
   module_src_appManifest_icon_ts["src/appManifest/icon.ts"]
   package__ankhorage_contracts -.-> module_src_appManifest_icon_ts
-  module_src_appManifest_icon_ts --> module_src_appManifest_shared_ts
   module_src_appManifest_icon_ts --> module_src_media_ts
-  module_src_appManifest_infra_ts["src/appManifest/infra.ts"]
-  package__ankhorage_contracts -.-> module_src_appManifest_infra_ts
-  module_src_appManifest_infra_ts --> module_src_appManifest_apis_ts
-  module_src_appManifest_infra_ts --> module_src_appManifest_icon_ts
-  module_src_appManifest_infra_ts --> module_src_appManifest_shared_ts
-  module_src_appManifest_infra_ts --> module_src_auth_ts
-  module_src_appManifest_infra_ts --> module_src_types_ts
+  module_src_appManifest_isAppManifest_ts["src/appManifest/isAppManifest.ts"]
+  package__ankhorage_contracts -.-> module_src_appManifest_isAppManifest_ts
+  module_src_appManifest_isAppManifest_ts --> module_src_appManifest_bindings_ts
+  module_src_appManifest_isAppManifest_ts --> module_src_appManifest_constants_ts
+  module_src_appManifest_isAppManifest_ts --> module_src_appManifest_dataSources_ts
+  module_src_appManifest_isAppManifest_ts --> module_src_appManifest_deploy_ts
+  module_src_appManifest_isAppManifest_ts --> module_src_appManifest_isAppStateSpec_ts
+  module_src_appManifest_isAppManifest_ts --> module_src_appManifest_media_ts
+  module_src_appManifest_isAppManifest_ts --> module_src_appManifest_screens_ts
+  module_src_appManifest_isAppManifest_ts --> module_src_infra_isInfraManifest_ts
+  module_src_appManifest_isAppManifest_ts --> module_src_types_ts
+  module_src_appManifest_isAppStateSpec_ts["src/appManifest/isAppStateSpec.ts"]
+  package__ankhorage_contracts -.-> module_src_appManifest_isAppStateSpec_ts
+  module_src_appManifest_isAppStateSpec_ts --> module_src_state_ts
+  module_src_appManifest_isManifestValue_ts["src/appManifest/isManifestValue.ts"]
+  package__ankhorage_contracts -.-> module_src_appManifest_isManifestValue_ts
   module_src_appManifest_media_ts["src/appManifest/media.ts"]
   package__ankhorage_contracts -.-> module_src_appManifest_media_ts
-  module_src_appManifest_media_ts --> module_src_appManifest_shared_ts
   module_src_appManifest_media_ts --> module_src_media_ts
   module_src_appManifest_navigator_ts["src/appManifest/navigator.ts"]
   package__ankhorage_contracts -.-> module_src_appManifest_navigator_ts
   module_src_appManifest_navigator_ts --> module_src_appManifest_icon_ts
   module_src_appManifest_navigator_ts --> module_src_appManifest_navigatorOptions_ts
-  module_src_appManifest_navigator_ts --> module_src_appManifest_shared_ts
   module_src_appManifest_navigator_ts --> module_src_navigator_ts
   module_src_appManifest_navigatorOptions_ts["src/appManifest/navigatorOptions.ts"]
   package__ankhorage_contracts -.-> module_src_appManifest_navigatorOptions_ts
-  module_src_appManifest_navigatorOptions_ts --> module_src_appManifest_shared_ts
   module_src_appManifest_navigatorOptions_ts --> module_src_navigator_ts
+  module_src_appManifest_parseAppManifest_ts["src/appManifest/parseAppManifest.ts"]
+  package__ankhorage_contracts -.-> module_src_appManifest_parseAppManifest_ts
+  module_src_appManifest_parseAppManifest_ts --> module_src_appManifest_isAppManifest_ts
+  module_src_appManifest_parseAppManifest_ts --> module_src_types_appManifest_ts
   module_src_appManifest_screens_ts["src/appManifest/screens.ts"]
   package__ankhorage_contracts -.-> module_src_appManifest_screens_ts
   module_src_appManifest_screens_ts --> module_src_appManifest_bindings_ts
-  module_src_appManifest_screens_ts --> module_src_appManifest_shared_ts
+  module_src_appManifest_screens_ts --> module_src_media_ts
   module_src_appManifest_screens_ts --> module_src_types_ts
-  module_src_appManifest_shared_ts["src/appManifest/shared.ts"]
-  package__ankhorage_contracts -.-> module_src_appManifest_shared_ts
+  module_src_appManifest_splashScreen_ts["src/appManifest/splashScreen.ts"]
+  package__ankhorage_contracts -.-> module_src_appManifest_splashScreen_ts
+  module_src_appManifest_splashScreen_ts --> module_src_media_ts
   module_src_auth_ts["src/auth.ts"]
   package__ankhorage_contracts -.-> module_src_auth_ts
   module_src_auth_ts --> module_src_deploy_ts
+  module_src_auth_ts --> module_src_environments_ts
   module_src_auth_ts --> module_src_secrets_ts
   module_src_auth_ts --> module_src_types_ts
   module_src_bindings_ts["src/bindings.ts"]
@@ -120,7 +125,89 @@ graph TD
   package__ankhorage_contracts -.-> module_src_db_ts
   module_src_deploy_ts["src/deploy.ts"]
   package__ankhorage_contracts -.-> module_src_deploy_ts
+  module_src_environments_ts["src/environments.ts"]
+  package__ankhorage_contracts -.-> module_src_environments_ts
   module_src_index_ts["src/index.ts"]
+  module_src_infra_ts["src/infra.ts"]
+  package__ankhorage_contracts -.-> module_src_infra_ts
+  module_src_infra_constants_ts["src/infra/constants.ts"]
+  package__ankhorage_contracts -.-> module_src_infra_constants_ts
+  module_src_infra_infraFields_ts["src/infra/infraFields.ts"]
+  package__ankhorage_contracts -.-> module_src_infra_infraFields_ts
+  module_src_infra_isInfraAdapterDescriptor_ts["src/infra/isInfraAdapterDescriptor.ts"]
+  package__ankhorage_contracts -.-> module_src_infra_isInfraAdapterDescriptor_ts
+  module_src_infra_isInfraAdapterDescriptor_ts --> module_src_infra_constants_ts
+  module_src_infra_isInfraAdapterDescriptor_ts --> module_src_infra_isInfraShape_ts
+  module_src_infra_isInfraAdapterDescriptor_ts --> module_src_types_infraAdapters_ts
+  module_src_infra_isInfraAuthSpec_ts["src/infra/isInfraAuthSpec.ts"]
+  package__ankhorage_contracts -.-> module_src_infra_isInfraAuthSpec_ts
+  module_src_infra_isInfraAuthSpec_ts --> module_src_appManifest_icon_ts
+  module_src_infra_isInfraAuthSpec_ts --> module_src_auth_ts
+  module_src_infra_isInfraAuthSpec_ts --> module_src_infra_isInfraShape_ts
+  module_src_infra_isInfraAuthSpec_ts --> module_src_types_ts
+  module_src_infra_isInfraAuthSpec_ts --> module_src_types_infraManifest_ts
+  module_src_infra_isInfraAuthSpec_ts --> module_src_types_infraValidation_ts
+  module_src_infra_isInfraCredentialRef_ts["src/infra/isInfraCredentialRef.ts"]
+  package__ankhorage_contracts -.-> module_src_infra_isInfraCredentialRef_ts
+  module_src_infra_isInfraCredentialRef_ts --> module_src_infra_isInfraShape_ts
+  module_src_infra_isInfraDeploymentSpec_ts["src/infra/isInfraDeploymentSpec.ts"]
+  package__ankhorage_contracts -.-> module_src_infra_isInfraDeploymentSpec_ts
+  module_src_infra_isInfraDeploymentSpec_ts --> module_src_infra_constants_ts
+  module_src_infra_isInfraDeploymentSpec_ts --> module_src_infra_infraFields_ts
+  module_src_infra_isInfraDeploymentSpec_ts --> module_src_infra_isInfraCredentialRef_ts
+  module_src_infra_isInfraDeploymentSpec_ts --> module_src_infra_isInfraShape_ts
+  module_src_infra_isInfraDeploymentSpec_ts --> module_src_types_infraManifest_ts
+  module_src_infra_isInfraDeploymentSpec_ts --> module_src_types_infraValidation_ts
+  module_src_infra_isInfraEnvironmentSpec_ts["src/infra/isInfraEnvironmentSpec.ts"]
+  package__ankhorage_contracts -.-> module_src_infra_isInfraEnvironmentSpec_ts
+  module_src_infra_isInfraEnvironmentSpec_ts --> module_src_infra_constants_ts
+  module_src_infra_isInfraEnvironmentSpec_ts --> module_src_infra_infraFields_ts
+  module_src_infra_isInfraEnvironmentSpec_ts --> module_src_infra_isInfraAuthSpec_ts
+  module_src_infra_isInfraEnvironmentSpec_ts --> module_src_infra_isInfraCredentialRef_ts
+  module_src_infra_isInfraEnvironmentSpec_ts --> module_src_infra_isInfraDeploymentSpec_ts
+  module_src_infra_isInfraEnvironmentSpec_ts --> module_src_infra_isInfraShape_ts
+  module_src_infra_isInfraEnvironmentSpec_ts --> module_src_infra_isInfraWorkloadSpec_ts
+  module_src_infra_isInfraEnvironmentSpec_ts --> module_src_types_infraManifest_ts
+  module_src_infra_isInfraEnvironmentSpec_ts --> module_src_types_infraValidation_ts
+  module_src_infra_isInfraManifest_ts["src/infra/isInfraManifest.ts"]
+  package__ankhorage_contracts -.-> module_src_infra_isInfraManifest_ts
+  module_src_infra_isInfraManifest_ts --> module_src_appManifest_apis_ts
+  module_src_infra_isInfraManifest_ts --> module_src_environments_ts
+  module_src_infra_isInfraManifest_ts --> module_src_infra_infraFields_ts
+  module_src_infra_isInfraManifest_ts --> module_src_infra_isInfraEnvironmentSpec_ts
+  module_src_infra_isInfraManifest_ts --> module_src_infra_isInfraShape_ts
+  module_src_infra_isInfraManifest_ts --> module_src_types_infraManifest_ts
+  module_src_infra_isInfraManifest_ts --> module_src_types_infraValidation_ts
+  module_src_infra_isInfraShape_ts["src/infra/isInfraShape.ts"]
+  package__ankhorage_contracts -.-> module_src_infra_isInfraShape_ts
+  module_src_infra_isInfraWorkloadHealth_ts["src/infra/isInfraWorkloadHealth.ts"]
+  package__ankhorage_contracts -.-> module_src_infra_isInfraWorkloadHealth_ts
+  module_src_infra_isInfraWorkloadHealth_ts --> module_src_infra_infraFields_ts
+  module_src_infra_isInfraWorkloadHealth_ts --> module_src_infra_isInfraShape_ts
+  module_src_infra_isInfraWorkloadSpec_ts["src/infra/isInfraWorkloadSpec.ts"]
+  package__ankhorage_contracts -.-> module_src_infra_isInfraWorkloadSpec_ts
+  module_src_infra_isInfraWorkloadSpec_ts --> module_src_infra_infraFields_ts
+  module_src_infra_isInfraWorkloadSpec_ts --> module_src_infra_isInfraShape_ts
+  module_src_infra_isInfraWorkloadSpec_ts --> module_src_infra_isInfraWorkloadHealth_ts
+  module_src_infra_isInfraWorkloadSpec_ts --> module_src_infra_isInfraWorkloadValue_ts
+  module_src_infra_isInfraWorkloadSpec_ts --> module_src_types_infraValidation_ts
+  module_src_infra_isInfraWorkloadSpec_ts --> module_src_types_infraWorkload_ts
+  module_src_infra_isInfraWorkloadValue_ts["src/infra/isInfraWorkloadValue.ts"]
+  package__ankhorage_contracts -.-> module_src_infra_isInfraWorkloadValue_ts
+  module_src_infra_isInfraWorkloadValue_ts --> module_src_environments_ts
+  module_src_infra_isInfraWorkloadValue_ts --> module_src_infra_isInfraShape_ts
+  module_src_infra_parseInfraManifest_ts["src/infra/parseInfraManifest.ts"]
+  package__ankhorage_contracts -.-> module_src_infra_parseInfraManifest_ts
+  module_src_infra_parseInfraManifest_ts --> module_src_infra_isInfraManifest_ts
+  module_src_infra_parseInfraManifest_ts --> module_src_types_infraLifecycle_ts
+  module_src_infra_parseInfraManifest_ts --> module_src_types_infraManifest_ts
+  module_src_infra_validateInfraAdapterSelection_ts["src/infra/validateInfraAdapterSelection.ts"]
+  package__ankhorage_contracts -.-> module_src_infra_validateInfraAdapterSelection_ts
+  module_src_infra_validateInfraAdapterSelection_ts --> module_src_infra_constants_ts
+  module_src_infra_validateInfraAdapterSelection_ts --> module_src_infra_isInfraAdapterDescriptor_ts
+  module_src_infra_validateInfraAdapterSelection_ts --> module_src_types_infraAdapters_ts
+  module_src_infra_validateInfraAdapterSelection_ts --> module_src_types_infraLifecycle_ts
+  module_src_infra_validateInfraAdapterSelection_ts --> module_src_types_infraManifest_ts
   module_src_media_ts["src/media.ts"]
   package__ankhorage_contracts -.-> module_src_media_ts
   module_src_navigator_ts["src/navigator.ts"]
@@ -150,9 +237,6 @@ graph TD
   module_src_runtimeCallbacks_ts["src/runtimeCallbacks.ts"]
   package__ankhorage_contracts -.-> module_src_runtimeCallbacks_ts
   module_src_runtimeCallbacks_ts --> module_src_types_ts
-  module_src_secretManifest_ts["src/secretManifest.ts"]
-  package__ankhorage_contracts -.-> module_src_secretManifest_ts
-  module_src_secretManifest_ts --> module_src_secrets_ts
   module_src_secrets_ts["src/secrets.ts"]
   package__ankhorage_contracts -.-> module_src_secrets_ts
   module_src_state_ts["src/state.ts"]
@@ -163,15 +247,51 @@ graph TD
   package__ankhorage_contracts -.-> module_src_theme_ts
   module_src_types_ts["src/types.ts"]
   package__ankhorage_contracts -.-> module_src_types_ts
+  module_src_types_ts --> module_src_appManifest_splashScreen_ts
   module_src_types_ts --> module_src_auth_ts
   module_src_types_ts --> module_src_bindings_ts
   module_src_types_ts --> module_src_data_index_ts
   module_src_types_ts --> module_src_deploy_ts
+  module_src_types_ts --> module_src_infra_ts
   module_src_types_ts --> module_src_media_ts
   module_src_types_ts --> module_src_navigator_ts
   module_src_types_ts --> module_src_repository_ts
   module_src_types_ts --> module_src_requirements_ts
+  module_src_types_ts --> module_src_state_ts
   module_src_types_ts --> module_src_theme_ts
+  module_src_types_appManifest_ts["src/types/appManifest.ts"]
+  package__ankhorage_contracts -.-> module_src_types_appManifest_ts
+  module_src_types_appManifest_ts --> module_src_types_ts
+  module_src_types_infraAdapters_ts["src/types/infraAdapters.ts"]
+  package__ankhorage_contracts -.-> module_src_types_infraAdapters_ts
+  module_src_types_infraAdapters_ts --> module_src_environments_ts
+  module_src_types_infraAdapters_ts --> module_src_infra_constants_ts
+  module_src_types_infraAdapters_ts --> module_src_types_infraLifecycle_ts
+  module_src_types_infraAdapters_ts --> module_src_types_infraManifest_ts
+  module_src_types_infraAdapters_ts --> module_src_types_infraSecrets_ts
+  module_src_types_infraAdapters_ts --> module_src_types_infraWorkload_ts
+  module_src_types_infraLifecycle_ts["src/types/infraLifecycle.ts"]
+  package__ankhorage_contracts -.-> module_src_types_infraLifecycle_ts
+  module_src_types_infraLifecycle_ts --> module_src_environments_ts
+  module_src_types_infraLifecycle_ts --> module_src_types_infraManifest_ts
+  module_src_types_infraLifecycle_ts --> module_src_types_infraSecrets_ts
+  module_src_types_infraManifest_ts["src/types/infraManifest.ts"]
+  package__ankhorage_contracts -.-> module_src_types_infraManifest_ts
+  module_src_types_infraManifest_ts --> module_src_auth_ts
+  module_src_types_infraManifest_ts --> module_src_data_index_ts
+  module_src_types_infraManifest_ts --> module_src_environments_ts
+  module_src_types_infraManifest_ts --> module_src_infra_constants_ts
+  module_src_types_infraManifest_ts --> module_src_types_ts
+  module_src_types_infraManifest_ts --> module_src_types_infraSecrets_ts
+  module_src_types_infraManifest_ts --> module_src_types_infraWorkload_ts
+  module_src_types_infraSecrets_ts["src/types/infraSecrets.ts"]
+  package__ankhorage_contracts -.-> module_src_types_infraSecrets_ts
+  module_src_types_infraSecrets_ts --> module_src_environments_ts
+  module_src_types_infraValidation_ts["src/types/infraValidation.ts"]
+  package__ankhorage_contracts -.-> module_src_types_infraValidation_ts
+  module_src_types_infraWorkload_ts["src/types/infraWorkload.ts"]
+  package__ankhorage_contracts -.-> module_src_types_infraWorkload_ts
+  module_src_types_infraWorkload_ts --> module_src_types_infraSecrets_ts
   module_src_ui_ts["src/ui.ts"]
   package__ankhorage_contracts -.-> module_src_ui_ts
   module_src_ui_ts --> module_src_media_ts

@@ -1,6 +1,9 @@
+import { hasOnlyKeys, isRecord } from '@ankhorage/utility/object';
+import { isNonEmptyString, isOptionalString } from '@ankhorage/utility/string';
+
 import type { ApiDefinition, ApiDefinitionList } from '../data';
 import { isCredentialRef, isDataEndpointRegistry, isDataSchemaRegistry } from './data';
-import { isManifestValue, isOptionalString, isRecord } from './shared';
+import { isManifestValue } from './isManifestValue';
 
 const API_BASE_KEYS = [
   'id',
@@ -13,18 +16,20 @@ const API_BASE_KEYS = [
   'schemas',
   'metadata',
 ] as const;
-const EXTERNAL_REST_KEYS = new Set([...API_BASE_KEYS, 'baseUrl', 'openApi']);
-const EXTERNAL_GRAPHQL_KEYS = new Set([...API_BASE_KEYS, 'endpointUrl', 'introspection']);
-const INTERNAL_REST_KEYS = new Set([...API_BASE_KEYS, 'basePath']);
-const OPEN_API_KEYS = new Set(['url', 'documentId', 'version']);
-const INTROSPECTION_KEYS = new Set(['enabled', 'schemaVersion']);
+const EXTERNAL_REST_KEYS = [...API_BASE_KEYS, 'baseUrl', 'openApi'] as const;
+const EXTERNAL_GRAPHQL_KEYS = [...API_BASE_KEYS, 'endpointUrl', 'introspection'] as const;
+const INTERNAL_REST_KEYS = [...API_BASE_KEYS, 'basePath'] as const;
+const OPEN_API_KEYS = ['url', 'documentId', 'version'] as const;
+const INTROSPECTION_KEYS = ['enabled', 'schemaVersion'] as const;
 
+/*** Validate API definitions and require unique API identities. */
 export function isApiDefinitionList(value: unknown): value is ApiDefinitionList {
   if (!Array.isArray(value) || !value.every(isApiDefinition)) return false;
   const ids = value.map((api) => api.id);
   return new Set(ids).size === ids.length;
 }
 
+/*** Validate one API definition against its origin and protocol branch. */
 function isApiDefinition(value: unknown): value is ApiDefinition {
   if (!isApiBaseDefinition(value)) return false;
   if (value.origin === 'external' && value.protocol === 'rest') return isExternalRestApi(value);
@@ -35,14 +40,14 @@ function isApiDefinition(value: unknown): value is ApiDefinition {
   return false;
 }
 
+/*** Validate common API identity, endpoint, schema and authored metadata fields. */
 function isApiBaseDefinition(value: unknown): value is Record<string, unknown> {
   return (
     isRecord(value) &&
     isNonEmptyString(value.id) &&
     (value.origin === 'external' || value.origin === 'internal') &&
     (value.protocol === 'graphql' || value.protocol === 'rest') &&
-    isOptionalString(value.name) &&
-    isOptionalString(value.description) &&
+    [value.name, value.description].every(isOptionalString) &&
     (value.credential === undefined || isCredentialRef(value.credential)) &&
     isDataEndpointRegistry(value.endpoints) &&
     (value.schemas === undefined || isDataSchemaRegistry(value.schemas)) &&
@@ -50,6 +55,7 @@ function isApiBaseDefinition(value: unknown): value is Record<string, unknown> {
   );
 }
 
+/*** Validate external REST endpoint and optional OpenAPI metadata. */
 function isExternalRestApi(value: Record<string, unknown>): boolean {
   return (
     hasOnlyKeys(value, EXTERNAL_REST_KEYS) &&
@@ -58,6 +64,7 @@ function isExternalRestApi(value: Record<string, unknown>): boolean {
   );
 }
 
+/*** Validate external GraphQL endpoint and optional introspection metadata. */
 function isExternalGraphQlApi(value: Record<string, unknown>): boolean {
   return (
     hasOnlyKeys(value, EXTERNAL_GRAPHQL_KEYS) &&
@@ -66,10 +73,12 @@ function isExternalGraphQlApi(value: Record<string, unknown>): boolean {
   );
 }
 
+/*** Validate the supported internal REST API configuration. */
 function isInternalRestApi(value: Record<string, unknown>): boolean {
   return hasOnlyKeys(value, INTERNAL_REST_KEYS) && isNonEmptyString(value.basePath);
 }
 
+/*** Validate optional OpenAPI document location and version fields. */
 function isOpenApiDocumentRef(value: unknown): boolean {
   return (
     isRecord(value) &&
@@ -80,6 +89,7 @@ function isOpenApiDocumentRef(value: unknown): boolean {
   );
 }
 
+/*** Validate explicit GraphQL introspection settings. */
 function isGraphQlIntrospection(value: unknown): boolean {
   return (
     isRecord(value) &&
@@ -87,12 +97,4 @@ function isGraphQlIntrospection(value: unknown): boolean {
     typeof value.enabled === 'boolean' &&
     isOptionalString(value.schemaVersion)
   );
-}
-
-function isNonEmptyString(value: unknown): value is string {
-  return typeof value === 'string' && value.trim().length > 0;
-}
-
-function hasOnlyKeys(value: Record<string, unknown>, allowed: ReadonlySet<string>): boolean {
-  return Object.keys(value).every((key) => allowed.has(key));
 }

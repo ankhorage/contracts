@@ -1,15 +1,13 @@
-import './secretManifest';
-
 import { describe, expect, test } from 'bun:test';
 
 import type { AuthOAuthProviderConfig } from './auth';
+import type { InfraManifest } from './infra';
 import {
   findForbiddenInlineSecretFields,
   normalizeSecretRef,
   normalizeSecretScope,
   validateSecretPayload,
 } from './secrets';
-import type { InfraManifest } from './types';
 
 describe('secret-store contracts', () => {
   test('normalizes logical secret references', () => {
@@ -70,19 +68,27 @@ describe('secret-store contracts', () => {
 
     const infra: InfraManifest = {
       modules: [],
-      secretStore: { provider: 'supabase-vault' },
-      auth: {
-        scope: 'global',
-        provider: 'supabase',
-        oauth: {
-          enabled: true,
-          callbackRoute: '/auth/callback',
-          providers: [provider],
+      environments: {
+        local: {
+          deployment: { compute: { provider: 'local' }, runtime: { provider: 'minikube' } },
+          database: { provider: 'supabase' },
+          secretStore: { provider: 'supabase-vault' },
+          auth: {
+            scope: 'global',
+            provider: 'supabase',
+            oauth: {
+              enabled: true,
+              callbackRoute: '/auth/callback',
+              providers: [provider],
+            },
+          },
         },
       },
     };
 
-    expect(infra.secretStore?.provider).toBe('supabase-vault');
-    expect(infra.auth?.oauth?.providers[0]?.credentialsRef).toBe('auth/oauth/google');
+    expect(infra.environments.local.secretStore?.provider).toBe('supabase-vault');
+    expect(infra.environments.local.auth?.oauth?.providers[0]?.credentialsRef).toBe(
+      'auth/oauth/google',
+    );
   });
 });

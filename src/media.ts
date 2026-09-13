@@ -1,10 +1,13 @@
+import { isRecord } from '@ankhorage/utility/object';
+import { isNonEmptyString } from '@ankhorage/utility/string';
+
 export const MEDIA_ASSET_KINDS = ['image', 'audio', 'video', 'font', 'file'] as const;
 
 export type MediaAssetKind = (typeof MEDIA_ASSET_KINDS)[number];
 
 export interface MediaStorageSource {
   readonly kind: 'storage';
-  /** Optional logical storage connection identifier for future multi-storage apps. */
+  /*** Optional logical storage connection identifier for future multi-storage apps. */
   readonly storageId?: string;
   readonly bucket: string;
   readonly path: string;
@@ -12,13 +15,13 @@ export interface MediaStorageSource {
 
 export interface MediaUrlSource {
   readonly kind: 'url';
-  /** Stable remote URL. Transient/local URL schemes are not canonical media sources. */
+  /*** Stable remote URL. Transient/local URL schemes are not canonical media sources. */
   readonly url: string;
 }
 
 export interface MediaBundledSource {
   readonly kind: 'bundled';
-  /** App-relative bundled asset path resolved by the generated/runtime host. */
+  /*** App-relative bundled asset path resolved by the generated/runtime host. */
   readonly path: string;
 }
 
@@ -33,7 +36,7 @@ export interface MediaAssetMetadata {
   readonly durationMs?: number;
 }
 
-/** Canonical Studio-managed authoring media entry. */
+/*** Canonical Studio-managed authoring media entry. */
 export interface MediaAsset {
   readonly id: string;
   readonly name: string;
@@ -45,24 +48,22 @@ export interface MediaAsset {
 
 export type MediaAssetRegistry = Readonly<Record<string, MediaAsset>>;
 
-/** App-authoring media pool. Runtime/user-generated uploads do not belong here. */
+/*** App-authoring media pool. Runtime/user-generated uploads do not belong here. */
 export interface MediaManifest {
   readonly assets: MediaAssetRegistry;
 }
 
-/** Stable component/property reference to one entry in `AppManifest.media.assets`. */
+/*** Stable component/property reference to one entry in `AppManifest.media.assets`. */
 export interface MediaAssetReference {
   readonly mediaId: string;
 }
 
+/*** Validate an authored media reference with exactly one enumerable key and a non-empty media ID. */
 export function isMediaAssetReference(value: unknown): value is MediaAssetReference {
   return (
-    typeof value === 'object' &&
-    value !== null &&
-    !Array.isArray(value) &&
+    isRecord(value) &&
     Object.keys(value).length === 1 &&
     'mediaId' in value &&
-    typeof value.mediaId === 'string' &&
-    value.mediaId.trim().length > 0
+    isNonEmptyString(value.mediaId)
   );
 }

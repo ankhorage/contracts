@@ -1,3 +1,6 @@
+import { hasOnlyKeys, isRecord } from '@ankhorage/utility/object';
+import { isNonEmptyString, isOptionalString } from '@ankhorage/utility/string';
+
 import {
   MEDIA_ASSET_KINDS,
   type MediaAsset,
@@ -5,10 +8,10 @@ import {
   type MediaAssetSource,
   type MediaManifest,
 } from '../media';
-import { isOptionalString, isRecord } from './shared';
 
 const MEDIA_ASSET_KIND_SET = new Set<string>(MEDIA_ASSET_KINDS);
 
+/*** Validate authored media assets and their registry identity. */
 export function isMediaManifest(value: unknown): value is MediaManifest {
   if (!isRecord(value) || !hasOnlyKeys(value, ['assets']) || !isRecord(value.assets)) return false;
 
@@ -17,6 +20,7 @@ export function isMediaManifest(value: unknown): value is MediaManifest {
   );
 }
 
+/*** Validate media identity, kind, source and optional metadata. */
 function isMediaAsset(value: unknown): value is MediaAsset {
   return (
     isRecord(value) &&
@@ -31,6 +35,7 @@ function isMediaAsset(value: unknown): value is MediaAsset {
   );
 }
 
+/*** Validate the selected bundled, URL or storage-backed media source. */
 function isMediaAssetSource(value: unknown): value is MediaAssetSource {
   if (!isRecord(value) || typeof value.kind !== 'string') return false;
 
@@ -52,6 +57,7 @@ function isMediaAssetSource(value: unknown): value is MediaAssetSource {
   );
 }
 
+/*** Validate optional descriptive and numeric media metadata. */
 function isMediaAssetMetadata(value: unknown): value is MediaAssetMetadata {
   return (
     isRecord(value) &&
@@ -72,10 +78,12 @@ function isMediaAssetMetadata(value: unknown): value is MediaAssetMetadata {
   );
 }
 
+/*** Validate an authored HTTP or HTTPS media URL. */
 function isStableRemoteUrl(value: unknown): boolean {
   return typeof value === 'string' && /^https?:\/\//iu.test(value.trim());
 }
 
+/*** Validate a portable bundled-media path. */
 function isBundledPath(value: unknown): boolean {
   if (!isNonEmptyString(value)) return false;
   const path = value.trim();
@@ -83,19 +91,12 @@ function isBundledPath(value: unknown): boolean {
   return !path.split('/').includes('..');
 }
 
-function isNonEmptyString(value: unknown): value is string {
-  return typeof value === 'string' && value.trim().length > 0;
-}
-
+/*** Accept an omitted media metric or a finite non-negative number. */
 function isOptionalFiniteNonNegativeNumber(value: unknown): boolean {
   return value === undefined || (typeof value === 'number' && Number.isFinite(value) && value >= 0);
 }
 
+/*** Accept an omitted media metric or a finite positive number. */
 function isOptionalFinitePositiveNumber(value: unknown): boolean {
   return value === undefined || (typeof value === 'number' && Number.isFinite(value) && value > 0);
-}
-
-function hasOnlyKeys(value: Record<string, unknown>, allowedKeys: readonly string[]): boolean {
-  const allowed = new Set(allowedKeys);
-  return Object.keys(value).every((key) => allowed.has(key));
 }

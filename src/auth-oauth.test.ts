@@ -11,7 +11,7 @@ import {
   type AuthAdapter,
   type AuthOAuthConfig,
   type AuthSession,
-  type AuthSpec,
+  type InfraAuthSpec,
 } from './index';
 
 const session: AuthSession = {
@@ -80,7 +80,7 @@ describe('OAuth auth contracts', () => {
       ],
     };
 
-    const auth: AuthSpec = {
+    const auth: InfraAuthSpec = {
       scope: 'global',
       provider: 'supabase',
       oauth,

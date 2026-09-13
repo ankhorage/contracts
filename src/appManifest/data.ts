@@ -1,10 +1,8 @@
-import {
-  isManifestValue,
-  isOptionalBoolean,
-  isOptionalString,
-  isRecord,
-  isStringArray,
-} from './shared';
+import { isStringArray } from '@ankhorage/utility/array';
+import { isRecord } from '@ankhorage/utility/object';
+import { isOptionalString } from '@ankhorage/utility/string';
+
+import { isManifestValue } from './isManifestValue';
 
 const DATA_SCHEMA_TYPES = new Set([
   'array',
@@ -18,14 +16,17 @@ const DATA_SCHEMA_TYPES = new Set([
 const OPERATION_INTENTS = new Set(['action', 'create', 'delete', 'read', 'update']);
 const PARAMETER_LOCATIONS = new Set(['body', 'cookie', 'header', 'path', 'query']);
 
+/*** Validate every endpoint in the data endpoint registry. */
 export function isDataEndpointRegistry(value: unknown): boolean {
   return isRecord(value) && Object.values(value).every(isDataEndpointConfig);
 }
 
+/*** Validate every schema in the data schema registry. */
 export function isDataSchemaRegistry(value: unknown): boolean {
   return isRecord(value) && Object.values(value).every(isDataSchema);
 }
 
+/*** Validate credential identity and optional descriptive metadata. */
 export function isCredentialRef(value: unknown): boolean {
   return (
     isRecord(value) &&
@@ -36,6 +37,7 @@ export function isCredentialRef(value: unknown): boolean {
   );
 }
 
+/*** Validate an adapter reference and its optional authored configuration. */
 export function isAdapterRef(value: unknown): boolean {
   return (
     isRecord(value) &&
@@ -47,6 +49,7 @@ export function isAdapterRef(value: unknown): boolean {
   );
 }
 
+/*** Validate endpoint identity, operations and optional connection metadata. */
 function isDataEndpointConfig(value: unknown): boolean {
   return (
     isRecord(value) &&
@@ -63,6 +66,7 @@ function isDataEndpointConfig(value: unknown): boolean {
   );
 }
 
+/*** Validate operation protocol, intent, request and response configuration. */
 function isDataOperationConfig(value: unknown): boolean {
   return (
     isRecord(value) &&
@@ -83,6 +87,7 @@ function isDataOperationConfig(value: unknown): boolean {
   );
 }
 
+/*** Validate request schema, parameters and optional content type. */
 function isDataOperationRequest(value: unknown): boolean {
   return (
     isRecord(value) &&
@@ -93,6 +98,7 @@ function isDataOperationRequest(value: unknown): boolean {
   );
 }
 
+/*** Validate parameter identity, location, schema and optional default value. */
 function isDataOperationParameter(value: unknown): boolean {
   return (
     isRecord(value) &&
@@ -100,12 +106,13 @@ function isDataOperationParameter(value: unknown): boolean {
     typeof value.name === 'string' &&
     typeof value.location === 'string' &&
     PARAMETER_LOCATIONS.has(value.location) &&
-    isOptionalBoolean(value.required) &&
+    (value.required === undefined || typeof value.required === 'boolean') &&
     isOptionalString(value.description) &&
     (value.default === undefined || isManifestValue(value.default))
   );
 }
 
+/*** Validate response status, schema and optional descriptive metadata. */
 function isDataOperationResponse(value: unknown): boolean {
   return (
     isRecord(value) &&
@@ -118,6 +125,7 @@ function isDataOperationResponse(value: unknown): boolean {
   );
 }
 
+/*** Validate inline schema and schema-reference fields. */
 function isDataSchemaSlot(value: Record<string, unknown>): boolean {
   return (
     (value.schema === undefined || isDataSchema(value.schema)) &&
@@ -125,6 +133,7 @@ function isDataSchemaSlot(value: Record<string, unknown>): boolean {
   );
 }
 
+/*** Validate supported schema types, constraints and compositions. */
 function isDataSchema(value: unknown): boolean {
   if (!isRecord(value) || !isDataSchemaType(value.type)) return false;
   if (!isOptionalSchemaScalars(value)) return false;
@@ -132,6 +141,7 @@ function isDataSchema(value: unknown): boolean {
   return isOptionalSchemaComposition(value);
 }
 
+/*** Validate a supported schema type or an array of supported types. */
 function isDataSchemaType(value: unknown): boolean {
   if (value === undefined) return true;
   if (typeof value === 'string') return DATA_SCHEMA_TYPES.has(value);
@@ -141,12 +151,13 @@ function isDataSchemaType(value: unknown): boolean {
   );
 }
 
+/*** Validate optional scalar schema constraints. */
 function isOptionalSchemaScalars(value: Record<string, unknown>): boolean {
   return (
     isOptionalString(value.title) &&
     isOptionalString(value.description) &&
     isOptionalString(value.format) &&
-    isOptionalBoolean(value.nullable) &&
+    (value.nullable === undefined || typeof value.nullable === 'boolean') &&
     (value.const === undefined || isManifestValue(value.const)) &&
     (value.default === undefined || isManifestValue(value.default)) &&
     (value.enum === undefined ||
@@ -155,6 +166,7 @@ function isOptionalSchemaScalars(value: Record<string, unknown>): boolean {
   );
 }
 
+/*** Validate optional schema properties, items and required fields. */
 function isOptionalSchemaCollections(value: Record<string, unknown>): boolean {
   return (
     (value.required === undefined || isStringArray(value.required)) &&
@@ -167,6 +179,7 @@ function isOptionalSchemaCollections(value: Record<string, unknown>): boolean {
   );
 }
 
+/*** Validate optional schema alternatives and intersections. */
 function isOptionalSchemaComposition(value: Record<string, unknown>): boolean {
   return ['allOf', 'anyOf', 'oneOf'].every((key) => {
     const entry = value[key];
@@ -174,6 +187,7 @@ function isOptionalSchemaComposition(value: Record<string, unknown>): boolean {
   });
 }
 
+/*** Validate a named schema reference. */
 function isDataSchemaRef(value: unknown): boolean {
   return isRecord(value) && typeof value.id === 'string';
 }

@@ -9,11 +9,10 @@ import {
   APP_CATEGORIES,
   type AppCategory,
   type AppManifest,
-  AUTH_PROVIDERS,
+  type AppStateSpec,
   AUTH_SIGN_IN_IDENTIFIERS,
   AUTH_SIGN_UP_POLICIES,
   type AuthFlowConfig,
-  type AuthSpec,
   type ButtonPressEventDto,
   type CollectionItemPressEventDto,
   type ComponentEventDto,
@@ -22,15 +21,12 @@ import {
   type DbAdminAdapter,
   type DbChangeEvent,
   type DbRealtimeAdapter,
-  DEPLOYMENT_TARGETS,
   type FormSubmitEventDto,
   type ImageAssetSource,
+  type InfraAuthSpec,
   type InfraManifest,
   NAVIGATOR_TYPES,
   type RouteDefinition,
-  STATE_PERSISTENCE_MODES,
-  STATE_PROVIDERS,
-  type StateSpec,
   type StoragePublicUrlResult,
   type StorageResult,
   type StorageUploadResult,
@@ -105,10 +101,6 @@ describe('contracts', () => {
       'utilities_tools',
       'weather',
     ]);
-    expect(DEPLOYMENT_TARGETS).toEqual(['minikube']);
-    expect(AUTH_PROVIDERS).toEqual(['supabase']);
-    expect(STATE_PROVIDERS).toEqual(['legend']);
-    expect(STATE_PERSISTENCE_MODES).toEqual(['none', 'local', 'secure', 'database']);
   });
 
   it('exports the app category union for template packages', () => {
@@ -255,14 +247,19 @@ describe('contracts', () => {
     expect(manifest.screens.products?.root.repeat?.empty?.[0]?.type).toBe('Notice');
   });
 
-  it('accepts provider-neutral state infra selection on app manifests', () => {
-    const state: StateSpec = {
+  it('selects in-memory application state independently from infrastructure', () => {
+    const state: AppStateSpec = {
       provider: 'legend',
-      persistence: 'none',
+      persistence: false,
     };
-    const manifest: Pick<AppManifest, 'infra'> = {
+    const manifest: Pick<AppManifest, 'infra' | 'state'> = {
+      state,
       infra: {
-        state,
+        environments: {
+          local: {
+            deployment: { compute: { provider: 'local' }, runtime: { provider: 'minikube' } },
+          },
+        },
         modules: [],
         modulesConfig: {
           localization: {
@@ -273,8 +270,9 @@ describe('contracts', () => {
     };
 
     expect(JSON.parse(JSON.stringify(manifest))).toEqual({
+      state,
       infra: {
-        state,
+        environments: manifest.infra.environments,
         modules: [],
         modulesConfig: {
           localization: {
@@ -292,6 +290,11 @@ describe('contracts', () => {
     const hasLegacyModules: HasLegacyModules = false;
     const hasLegacyModulesConfig: HasLegacyModulesConfig = false;
     const infra: InfraManifest = {
+      environments: {
+        local: {
+          deployment: { compute: { provider: 'local' }, runtime: { provider: 'minikube' } },
+        },
+      },
       modules: ['expo-localization'],
       modulesConfig: {
         'expo-localization': {
@@ -308,7 +311,7 @@ describe('contracts', () => {
 
     expect(hasLegacyModules).toBe(false);
     expect(hasLegacyModulesConfig).toBe(false);
-    expect(Object.keys(infra).sort()).toEqual(['modules', 'modulesConfig']);
+    expect(Object.keys(infra).sort()).toEqual(['environments', 'modules', 'modulesConfig']);
     expect(expoConfig.plugins).toEqual(['expo-router']);
   });
 
@@ -367,10 +370,9 @@ describe('contracts', () => {
       unauthorizedRoute: '/sign-in',
     };
 
-    const auth: AuthSpec = {
+    const auth: InfraAuthSpec = {
       scope: 'global',
       provider: 'supabase',
-      authorization: { kind: 'RBAC', engine: 'cerbos' },
       flow: authFlow,
       signIn: { identifiers: ['email'] },
       signUp: {

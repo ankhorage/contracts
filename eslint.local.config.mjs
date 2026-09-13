@@ -11,17 +11,14 @@ export default [
     tsconfigRootDir: import.meta.dirname,
   }),
   legacyRuleExceptions('complexity', [
-    'src/appManifest.ts',
     'src/appManifest/data.ts',
     'src/appManifest/dataSources.ts',
-    'src/appManifest/infra.ts',
     'src/bindings.test.ts',
   ]),
   legacyRuleExceptions('max-lines', [
     'src/auth.ts',
     'src/bindings.test.ts',
     'src/contracts.test.ts',
-    'src/types.ts',
     'src/ui.test.ts',
   ]),
   legacyRuleExceptions('max-lines-per-function', [

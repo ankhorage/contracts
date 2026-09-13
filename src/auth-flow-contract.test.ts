@@ -7,8 +7,8 @@ import {
   type AppSettings,
   type AuthFlowConfig,
   type AuthProviderConfig,
-  type AuthSpec,
   DEFAULT_AUTH_FLOW,
+  type InfraAuthSpec,
   resolveAuthFlow,
 } from './index';
 
@@ -52,13 +52,13 @@ describe('canonical authentication flow contract', () => {
   });
 
   it('allows authentication without an authorization model', () => {
-    const auth: AuthSpec = {
+    const auth: InfraAuthSpec = {
       scope: 'global',
       provider: 'supabase',
       flow: DEFAULT_AUTH_FLOW,
     };
 
-    expect(auth.authorization).toBeUndefined();
+    expect(Object.hasOwn(auth, 'authorization')).toBe(false);
   });
 
   it('removes auth flow from application settings at compile time', () => {
@@ -91,13 +91,9 @@ describe('canonical authentication flow contract', () => {
     expect(removedProperty.provider).toBe('supabase');
   });
 
-  it('makes authorization access require explicit narrowing', () => {
-    const assumesAuthorization = (auth: AuthSpec): string => {
-      // @ts-expect-error Authorization is optional and must be checked before use.
-      return auth.authorization.kind;
-    };
-
-    expect(typeof assumesAuthorization).toBe('function');
+  it('removes nested authorization from the authentication contract', () => {
+    const hasAuthorization: 'authorization' extends keyof InfraAuthSpec ? true : false = false;
+    expect(hasAuthorization).toBe(false);
   });
 
   it('prevents the removed settings auth-flow path from returning to source', async () => {

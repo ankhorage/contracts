@@ -4,7 +4,7 @@ import {
   AUTH_PROFILE_CREATE_STRATEGIES,
   AUTH_PROFILE_PRIMARY_KEY_STRATEGIES,
   AUTH_PROFILE_UPDATE_STRATEGIES,
-  type AuthSpec,
+  type InfraAuthSpec,
 } from './index';
 
 describe('profile contract', () => {
@@ -15,10 +15,9 @@ describe('profile contract', () => {
   });
 
   it('serializes profile settings on an auth spec', () => {
-    const auth: AuthSpec = {
+    const auth: InfraAuthSpec = {
       scope: 'global',
       provider: 'supabase',
-      authorization: { kind: 'RBAC', engine: 'native' },
       profile: {
         fields: ['email', 'displayName', 'avatarUrl'],
         table: 'profiles',

@@ -490,6 +490,11 @@ describe('component data-binding contracts', () => {
       ],
       activeThemeId: 'default',
       infra: {
+        environments: {
+          local: {
+            deployment: { compute: { provider: 'local' }, runtime: { provider: 'minikube' } },
+          },
+        },
         apis: [
           {
             id: 'cms',

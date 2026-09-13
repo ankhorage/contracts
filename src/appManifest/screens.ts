@@ -1,9 +1,10 @@
 import { COLOR_HARMONIES } from '@ankhorage/color-theory';
+import { isRecord } from '@ankhorage/utility/object';
+import { isOptionalString } from '@ankhorage/utility/string';
 
 import { isMediaAssetReference } from '../media';
 import { APP_CATEGORIES } from '../types';
 import { isBindingValueSource, isScreenDataLoaderDefinition } from './bindings';
-import { isOptionalNumber, isOptionalString, isRecord } from './shared';
 
 export { isAppNavigatorManifest } from './navigator';
 
@@ -11,6 +12,7 @@ const APP_CATEGORY_SET = new Set<string>(APP_CATEGORIES);
 const COLOR_HARMONY_SET = new Set<string>(COLOR_HARMONIES);
 const SPLASH_SCREEN_RESIZE_MODE_SET = new Set<string>(['contain', 'cover', 'native']);
 
+/*** Validate application identity and optional authored metadata. */
 export function isManifestMetadata(value: unknown): boolean {
   return (
     isRecord(value) &&
@@ -25,6 +27,7 @@ export function isManifestMetadata(value: unknown): boolean {
   );
 }
 
+/*** Validate theme identity and its required light and dark modes. */
 export function isThemeConfig(value: unknown): boolean {
   return (
     isRecord(value) &&
@@ -35,6 +38,7 @@ export function isThemeConfig(value: unknown): boolean {
   );
 }
 
+/*** Validate screens in the authored screen registry. */
 export function isScreenRegistry(value: unknown): boolean {
   return (
     isRecord(value) &&
@@ -45,6 +49,7 @@ export function isScreenRegistry(value: unknown): boolean {
   );
 }
 
+/*** Validate optional light and dark splash-screen configuration. */
 export function isSplashScreenSpec(value: unknown): boolean {
   return (
     isSplashScreenModeSpec(value) &&
@@ -53,6 +58,7 @@ export function isSplashScreenSpec(value: unknown): boolean {
   );
 }
 
+/*** Validate the primary color and supported color harmony of a theme mode. */
 function isThemeModeConfig(value: unknown): boolean {
   return (
     isRecord(value) &&
@@ -62,6 +68,7 @@ function isThemeModeConfig(value: unknown): boolean {
   );
 }
 
+/*** Validate an authored component node and its nested children. */
 function isUiNode(value: unknown): boolean {
   return (
     isRecord(value) &&
@@ -76,6 +83,7 @@ function isUiNode(value: unknown): boolean {
   );
 }
 
+/*** Validate repeat source and item binding configuration. */
 function isUiNodeRepeatSpec(value: unknown): boolean {
   return (
     isRecord(value) &&
@@ -86,6 +94,7 @@ function isUiNodeRepeatSpec(value: unknown): boolean {
   );
 }
 
+/*** Validate screen identity, root component and optional requirements. */
 function isScreenSpec(value: unknown): boolean {
   return (
     isRecord(value) &&
@@ -101,11 +110,12 @@ function isScreenSpec(value: unknown): boolean {
   );
 }
 
+/*** Validate one splash-screen appearance configuration. */
 function isSplashScreenModeSpec(value: unknown): boolean {
   return (
     isRecord(value) &&
     (value.image === undefined || isMediaAssetReference(value.image)) &&
-    isOptionalNumber(value.imageWidth) &&
+    (value.imageWidth === undefined || typeof value.imageWidth === 'number') &&
     (value.resizeMode === undefined ||
       (typeof value.resizeMode === 'string' &&
         SPLASH_SCREEN_RESIZE_MODE_SET.has(value.resizeMode))) &&
@@ -113,6 +123,7 @@ function isSplashScreenModeSpec(value: unknown): boolean {
   );
 }
 
+/*** Validate screen capability and permission requirements. */
 function isScreenRequirements(value: unknown): boolean {
   return (
     isRecord(value) &&
@@ -121,6 +132,7 @@ function isScreenRequirements(value: unknown): boolean {
   );
 }
 
+/*** Validate the entries of a capability or permission requirement list. */
 function isRequirementArray(value: unknown, key: 'capability' | 'permission'): boolean {
   return (
     Array.isArray(value) &&

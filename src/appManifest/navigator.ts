@@ -1,14 +1,16 @@
+import { isStringArray } from '@ankhorage/utility/array';
+import { hasOnlyKeys, isRecord } from '@ankhorage/utility/object';
+import { isOptionalString } from '@ankhorage/utility/string';
+
 import { type AppNavigatorManifest, NAVIGATOR_PRESETS, NAVIGATOR_TYPES } from '../navigator';
 import { isIconSpec } from './icon';
 import {
-  hasOnlyKeys,
   isDrawerNavigatorOptions,
   isNavigatorScreenReference,
   isStackImplementationConfig,
   isStackScreenOptions,
   isTabsImplementationConfig,
 } from './navigatorOptions';
-import { isOptionalBoolean, isOptionalString, isRecord, isStringArray } from './shared';
 
 /*** Validate the complete serialized `AppManifest.navigator` slice. */
 export function isAppNavigatorManifest(value: unknown): value is AppNavigatorManifest {
@@ -72,12 +74,11 @@ function isRouteDefinition(value: unknown): boolean {
   return (
     isRecord(value) &&
     typeof value.name === 'string' &&
-    isOptionalString(value.path) &&
-    isOptionalString(value.label) &&
+    [value.path, value.label, value.screenId].every(isOptionalString) &&
     (value.icon === undefined || isIconSpec(value.icon)) &&
-    isOptionalBoolean(value.showInPrimaryNavigation) &&
+    (value.showInPrimaryNavigation === undefined ||
+      typeof value.showInPrimaryNavigation === 'boolean') &&
     (value.guards === undefined || isStringArray(value.guards)) &&
-    isOptionalString(value.screenId) &&
     (value.stackOptions === undefined || isStackScreenOptions(value.stackOptions)) &&
     (value.navigator === undefined || isNavigatorNode(value.navigator))
   );
