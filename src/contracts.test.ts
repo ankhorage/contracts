@@ -210,7 +210,22 @@ describe('contracts', () => {
 
     const manifest: Pick<AppManifest, 'splashScreen'> = { splashScreen };
 
+    const splashWithDarkImageWidth: SplashScreenSpec = {
+      dark: {
+        // @ts-expect-error Dark-mode overrides do not own root image sizing.
+        imageWidth: 160,
+      },
+    };
+    const splashWithDarkResizeMode: SplashScreenSpec = {
+      dark: {
+        // @ts-expect-error Dark-mode overrides do not own the root resize mode.
+        resizeMode: 'contain',
+      },
+    };
+
     expect(JSON.parse(JSON.stringify(manifest))).toEqual({ splashScreen });
+    expect(splashWithDarkImageWidth.dark).toEqual({ imageWidth: 160 });
+    expect(splashWithDarkResizeMode.dark).toEqual({ resizeMode: 'contain' });
   });
 
   it('accepts screens with operation data loaders and repeat empty-state nodes', () => {

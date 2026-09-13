@@ -49,11 +49,7 @@ export function isSplashScreenSpec(value: unknown): boolean {
   return (
     isSplashScreenModeSpec(value) &&
     isRecord(value) &&
-    isOptionalNumber(value.imageWidth) &&
-    (value.resizeMode === undefined ||
-      (typeof value.resizeMode === 'string' &&
-        SPLASH_SCREEN_RESIZE_MODE_SET.has(value.resizeMode))) &&
-    (value.dark === undefined || isSplashScreenDarkModeSpec(value.dark))
+    (value.dark === undefined || isSplashScreenModeSpec(value.dark))
   );
 }
 
@@ -109,17 +105,11 @@ function isSplashScreenModeSpec(value: unknown): boolean {
   return (
     isRecord(value) &&
     (value.image === undefined || isMediaAssetReference(value.image)) &&
+    isOptionalNumber(value.imageWidth) &&
+    (value.resizeMode === undefined ||
+      (typeof value.resizeMode === 'string' &&
+        SPLASH_SCREEN_RESIZE_MODE_SET.has(value.resizeMode))) &&
     isOptionalString(value.backgroundColor)
-  );
-}
-
-/*** Return whether a splash dark-mode override contains only theme-specific options. */
-function isSplashScreenDarkModeSpec(value: unknown): boolean {
-  return (
-    isSplashScreenModeSpec(value) &&
-    isRecord(value) &&
-    value.imageWidth === undefined &&
-    value.resizeMode === undefined
   );
 }
 

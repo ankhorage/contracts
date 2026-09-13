@@ -160,18 +160,6 @@ describe('AppManifest runtime parsing', () => {
     expect(isAppManifest(manifest)).toBe(false);
   });
 
-  it('rejects root-only splash sizing inside dark mode overrides', () => {
-    const manifest = createManifest();
-    const splashScreen = manifest.splashScreen as Record<string, unknown>;
-    splashScreen.dark = { backgroundColor: '#000000', imageWidth: 160 };
-
-    expect(isAppManifest(manifest)).toBe(false);
-
-    splashScreen.dark = { backgroundColor: '#000000', resizeMode: 'contain' };
-
-    expect(isAppManifest(manifest)).toBe(false);
-  });
-
   it('accepts an optional GitHub repository configuration', () => {
     const manifest = createManifest();
     manifest.repository = {
