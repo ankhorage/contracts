@@ -170,6 +170,38 @@ describe('sibling service configuration', () => {
   });
 });
 
+describe('Cerbos policy configuration', () => {
+  it('accepts portable policy files', () => {
+    expect(
+      isInfraEnvironmentSpec({
+        ...local,
+        authz: {
+          provider: 'cerbos',
+          kind: 'ABAC',
+          policies: [{ path: 'app.yaml', content: 'apiVersion: api.cerbos.dev/v1' }],
+        },
+      }),
+    ).toBe(true);
+  });
+
+  it.each([
+    { policies: [{ path: '../app.yaml', content: 'x' }] },
+    {
+      policies: [
+        { path: 'app.yaml', content: 'x' },
+        { path: 'app.yaml', content: 'y' },
+      ],
+    },
+  ])('rejects unsafe or duplicate policy files: %j', ({ policies }) => {
+    expect(
+      isInfraEnvironmentSpec({
+        ...local,
+        authz: { provider: 'cerbos', kind: 'ABAC', policies },
+      }),
+    ).toBe(false);
+  });
+});
+
 describe('authentication configuration', () => {
   it('preserves auth flow, profile and OAuth credential references', () => {
     expect(

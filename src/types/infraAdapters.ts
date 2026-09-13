@@ -116,10 +116,17 @@ export interface InfraRuntimeAdapter<P extends InfraRuntimeProviderId = InfraRun
     context: InfraExecutionContext,
     desired: InfraRuntimeDesiredState<P>,
   ): Promise<InfraResult<InfraReconcileResult>>;
-  statusAsync(context: InfraExecutionContext): Promise<InfraResult<readonly InfraResourceStatus[]>>;
-  suspendAsync(context: InfraExecutionContext): Promise<InfraResult<InfraReconcileResult>>;
+  statusAsync(
+    context: InfraExecutionContext,
+    desired: InfraRuntimeDesiredState<P>,
+  ): Promise<InfraResult<readonly InfraResourceStatus[]>>;
+  suspendAsync(
+    context: InfraExecutionContext,
+    desired: InfraRuntimeDesiredState<P>,
+  ): Promise<InfraResult<InfraReconcileResult>>;
   destroyAsync(
     context: InfraExecutionContext,
+    desired: InfraRuntimeDesiredState<P>,
     request: InfraDestroyRequest,
   ): Promise<InfraResult<InfraReconcileResult>>;
   generateAsync?(

@@ -2351,7 +2351,7 @@ Source: `src/types/infraManifest.ts:76:1`
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:101:1`
+Source: `src/types/infraManifest.ts:108:1`
 
 ## InfraAuthzConfigMap
 
@@ -2361,15 +2361,28 @@ Source: `src/types/infraManifest.ts:86:1`
 
 ### Members
 
-| Name   | Kind     | Type                                   | Required | Description |
-| ------ | -------- | -------------------------------------- | -------- | ----------- |
-| cerbos | property | `{ readonly kind: "RBAC" \| "ABAC"; }` | yes      |             |
+| Name   | Kind     | Type                                                                                        | Required | Description |
+| ------ | -------- | ------------------------------------------------------------------------------------------- | -------- | ----------- |
+| cerbos | property | `{ readonly kind: "RBAC" \| "ABAC"; readonly policies?: readonly InfraAuthzPolicyFile[]; }` | yes      |             |
+
+## InfraAuthzPolicyFile
+
+Kind: `type`
+Module: `src/types/infraManifest.ts`
+Source: `src/types/infraManifest.ts:92:1`
+
+### Members
+
+| Name    | Kind     | Type     | Required | Description |
+| ------- | -------- | -------- | -------- | ----------- |
+| content | property | `string` | yes      |             |
+| path    | property | `string` | yes      |             |
 
 ## InfraAuthzSpec
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:104:1`
+Source: `src/types/infraManifest.ts:111:1`
 
 ## InfraCapability
 
@@ -2454,7 +2467,7 @@ Source: `src/types/infraManifest.ts:65:1`
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:93:1`
+Source: `src/types/infraManifest.ts:100:1`
 
 ## InfraDeploymentSpec
 
@@ -2497,14 +2510,14 @@ Source: `src/types/infraLifecycle.ts:21:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:116:1`
+Source: `src/types/infraManifest.ts:123:1`
 
 ### Members
 
 | Name          | Kind     | Type                                                                                                                                                                                                                                                            | Required | Description |
 | ------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
 | auth          | property | `({ readonly provider: "supabase"; } & { readonly scope?: AuthScope; readonly flow?: AuthFlowConfig; readonly signIn?: AuthSignInSpec; readonly signUp?: AuthSignUpSpec; readonly oauth?: AuthOAuthConfig; readonly profile?: AuthProfileSpec; }) \| undefined` | no       |             |
-| authz         | property | `({ readonly provider: "cerbos"; } & { readonly kind: "RBAC" \| "ABAC"; }) \| undefined`                                                                                                                                                                        | no       |             |
+| authz         | property | `({ readonly provider: "cerbos"; } & { readonly kind: "RBAC" \| "ABAC"; readonly policies?: readonly InfraAuthzPolicyFile[]; }) \| undefined`                                                                                                                   | no       |             |
 | database      | property | `({ readonly provider: "supabase"; } & { readonly tier?: "dev" \| "prod"; }) \| undefined`                                                                                                                                                                      | no       |             |
 | deployment    | property | `InfraDeploymentSpec`                                                                                                                                                                                                                                           | yes      |             |
 | networking    | property | `InfraNetworkingSpec \| undefined`                                                                                                                                                                                                                              | no       |             |
@@ -2565,7 +2578,7 @@ Source: `src/types/infraLifecycle.ts:88:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:127:1`
+Source: `src/types/infraManifest.ts:134:1`
 
 ### Members
 
@@ -2580,7 +2593,7 @@ Source: `src/types/infraManifest.ts:127:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:111:1`
+Source: `src/types/infraManifest.ts:118:1`
 
 ### Members
 
@@ -2605,7 +2618,7 @@ Source: `src/types/infraManifest.ts:68:1`
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:96:1`
+Source: `src/types/infraManifest.ts:103:1`
 
 ## InfraOutput
 
@@ -2722,16 +2735,16 @@ Source: `src/types/infraAdapters.ts:104:1`
 
 ### Members
 
-| Name          | Kind     | Type                                                                                                                                               | Required | Description |
-| ------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| descriptor    | property | `InfraAdapterDescriptor<P>`                                                                                                                        | yes      |             |
-| destroyAsync  | method   | `(context: InfraExecutionContext, request: InfraDestroyRequest) => Promise<InfraResult<InfraReconcileResult>>`                                     | yes      |             |
-| ensureAsync   | method   | `(context: InfraExecutionContext, desired: InfraRuntimeDesiredState<P>) => Promise<InfraResult<InfraReconcileResult>>`                             | yes      |             |
-| generateAsync | method   | `((context: InfraExecutionContext, desired: InfraRuntimeDesiredState<P>) => Promise<InfraResult<readonly InfraGeneratedArtifact[]>>) \| undefined` | no       |             |
-| planAsync     | method   | `(context: InfraExecutionContext, desired: InfraRuntimeDesiredState<P>) => Promise<InfraResult<readonly InfraPlanAction[]>>`                       | yes      |             |
-| statusAsync   | method   | `(context: InfraExecutionContext) => Promise<InfraResult<readonly InfraResourceStatus[]>>`                                                         | yes      |             |
-| suspendAsync  | method   | `(context: InfraExecutionContext) => Promise<InfraResult<InfraReconcileResult>>`                                                                   | yes      |             |
-| validateAsync | method   | `(context: InfraExecutionContext, desired: InfraRuntimeDesiredState<P>) => Promise<InfraResult<null>>`                                             | yes      |             |
+| Name          | Kind     | Type                                                                                                                                                 | Required | Description |
+| ------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
+| descriptor    | property | `InfraAdapterDescriptor<P>`                                                                                                                          | yes      |             |
+| destroyAsync  | method   | `(context: InfraExecutionContext, desired: InfraRuntimeDesiredState<P>, request: InfraDestroyRequest) => Promise<InfraResult<InfraReconcileResult>>` | yes      |             |
+| ensureAsync   | method   | `(context: InfraExecutionContext, desired: InfraRuntimeDesiredState<P>) => Promise<InfraResult<InfraReconcileResult>>`                               | yes      |             |
+| generateAsync | method   | `((context: InfraExecutionContext, desired: InfraRuntimeDesiredState<P>) => Promise<InfraResult<readonly InfraGeneratedArtifact[]>>) \| undefined`   | no       |             |
+| planAsync     | method   | `(context: InfraExecutionContext, desired: InfraRuntimeDesiredState<P>) => Promise<InfraResult<readonly InfraPlanAction[]>>`                         | yes      |             |
+| statusAsync   | method   | `(context: InfraExecutionContext, desired: InfraRuntimeDesiredState<P>) => Promise<InfraResult<readonly InfraResourceStatus[]>>`                     | yes      |             |
+| suspendAsync  | method   | `(context: InfraExecutionContext, desired: InfraRuntimeDesiredState<P>) => Promise<InfraResult<InfraReconcileResult>>`                               | yes      |             |
+| validateAsync | method   | `(context: InfraExecutionContext, desired: InfraRuntimeDesiredState<P>) => Promise<InfraResult<null>>`                                               | yes      |             |
 
 ## InfraRuntimeConfigMap
 
@@ -2794,7 +2807,7 @@ Source: `src/types/infraSecrets.ts:10:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:89:1`
+Source: `src/types/infraManifest.ts:96:1`
 
 ### Members
 
@@ -2806,13 +2819,13 @@ Source: `src/types/infraManifest.ts:89:1`
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:107:1`
+Source: `src/types/infraManifest.ts:114:1`
 
 ## InfraServiceAdapter
 
 Kind: `type`
 Module: `src/types/infraAdapters.ts`
-Source: `src/types/infraAdapters.ts:132:1`
+Source: `src/types/infraAdapters.ts:139:1`
 
 ### Members
 
@@ -2859,7 +2872,7 @@ Source: `src/types/infraWorkload.ts:3:1`
 
 Kind: `type`
 Module: `src/types/infraWorkload.ts`
-Source: `src/types/infraWorkload.ts:44:1`
+Source: `src/types/infraWorkload.ts:49:1`
 
 ### Members
 
@@ -2872,13 +2885,13 @@ Source: `src/types/infraWorkload.ts:44:1`
 
 Kind: `unknown`
 Module: `src/types/infraWorkload.ts`
-Source: `src/types/infraWorkload.ts:20:1`
+Source: `src/types/infraWorkload.ts:25:1`
 
 ## InfraWorkloadPort
 
 Kind: `type`
 Module: `src/types/infraWorkload.ts`
-Source: `src/types/infraWorkload.ts:14:1`
+Source: `src/types/infraWorkload.ts:19:1`
 
 ### Members
 
@@ -2892,7 +2905,7 @@ Source: `src/types/infraWorkload.ts:14:1`
 
 Kind: `type`
 Module: `src/types/infraWorkload.ts`
-Source: `src/types/infraWorkload.ts:30:1`
+Source: `src/types/infraWorkload.ts:35:1`
 
 ### Members
 
@@ -2905,7 +2918,7 @@ Source: `src/types/infraWorkload.ts:30:1`
 
 Kind: `type`
 Module: `src/types/infraWorkload.ts`
-Source: `src/types/infraWorkload.ts:49:1`
+Source: `src/types/infraWorkload.ts:54:1`
 
 ### Members
 
@@ -2935,7 +2948,7 @@ Source: `src/types/infraWorkload.ts:9:1`
 
 Kind: `type`
 Module: `src/types/infraWorkload.ts`
-Source: `src/types/infraWorkload.ts:35:1`
+Source: `src/types/infraWorkload.ts:40:1`
 
 ### Members
 
@@ -3055,7 +3068,7 @@ Validate provider-specific config and the exact same compatibility map used by T
 
 Kind: `function`
 Module: `src/infra/isInfraEnvironmentSpec.ts`
-Source: `src/infra/isInfraEnvironmentSpec.ts:14:1`
+Source: `src/infra/isInfraEnvironmentSpec.ts:15:1`
 
 Validate sibling capabilities and their required relationships within one environment.
 

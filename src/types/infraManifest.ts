@@ -84,7 +84,14 @@ export interface InfraAuthConfigMap {
   };
 }
 export interface InfraAuthzConfigMap {
-  readonly cerbos: { readonly kind: 'RBAC' | 'ABAC' };
+  readonly cerbos: {
+    readonly kind: 'RBAC' | 'ABAC';
+    readonly policies?: readonly InfraAuthzPolicyFile[];
+  };
+}
+export interface InfraAuthzPolicyFile {
+  readonly path: string;
+  readonly content: string;
 }
 export interface InfraSecretStoreConfigMap {
   readonly 'supabase-vault': { readonly schema?: string };

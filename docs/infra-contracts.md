@@ -51,7 +51,11 @@ const infra = {
       },
       database: { provider: 'supabase' },
       auth: { provider: 'supabase' },
-      authz: { provider: 'cerbos', kind: 'ABAC' },
+      authz: {
+        provider: 'cerbos',
+        kind: 'ABAC',
+        policies: [{ path: 'resource.yaml', content: 'apiVersion: api.cerbos.dev/v1' }],
+      },
       objectStorage: { provider: 'r2', buckets: ['media'] },
       secretStore: { provider: 'supabase-vault' },
       networking: { domain: 'api.example.ch' },
@@ -124,11 +128,14 @@ values, config/policy files, health checks, resource budgets, persistent volumes
 and dependency IDs. It has no Kubernetes resource types or registry build/push requirements.
 Minikube, k3s and Compose accept the same workload shape. Runtime drivers map it to their technology.
 
-Workload values distinguish literals, resource output references and privileged secret references.
-The producer must use references for secrets. Config files allow Cerbos policies and service config
-to be contributed without Kubernetes YAML. The orchestrator validates missing/cyclic dependencies
-after composing application and provider workloads; a manifest can reference provider-contributed
-workload IDs that are not available during structural parsing.
+Workload values distinguish literals, resource output references, managed secret references and
+keyed control-plane credential references. The producer must use references for secrets. A bootstrap
+credential value names one field in a trusted execution-only credential bundle, so a provider can
+start the service that will later own managed secrets without creating a circular dependency.
+Config files allow Cerbos policies and service config to be contributed without Kubernetes YAML.
+Cerbos policy paths are relative, traversal-free and unique. The orchestrator validates
+missing/cyclic dependencies after composing application and provider workloads; a manifest can
+reference provider-contributed workload IDs that are not available during structural parsing.
 
 The compute, runtime and service ports expose operations relevant to each capability:
 
@@ -143,10 +150,17 @@ readiness. Repeated ensure/reconcile must converge. Providers without suspension
 resources on `down`; `down` is not a zero-cost promise. These are implementation obligations of
 later phases, not behavior implemented by Contracts. Public CLI commands remain owned by Infra.
 
+Every target-dependent runtime lifecycle operation receives `InfraRuntimeDesiredState`, including
+status, suspension and destroy. Runtime adapters must be stateless across invocations: a fresh CLI
+process can recover local or authenticated SSH access from the selected targets without relying on
+an earlier validate, plan or ensure call. The desired state is routing and inspection input; destroy
+authorization still comes exclusively from the separate `InfraDestroyRequest`.
+
 ## Secrets, ownership and destructive actions
 
 `InfraControlPlaneCredentialRef` is resolved by trusted execution configuration and cannot name a
-managed secret store. Infrastructure bootstrap therefore cannot depend on the store it is creating.
+managed secret store. It may be used directly by an adapter or as a keyed workload value during
+service bootstrap. Infrastructure bootstrap therefore cannot depend on the store it is creating.
 `InfraSecretReference` identifies a scoped runtime secret by project, environment, reference and key.
 Resolved values are execution-only; runtime materialization does not change their source of truth.
 

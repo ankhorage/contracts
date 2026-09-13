@@ -1,4 +1,5 @@
 import { isRecord } from '@ankhorage/utility/object';
+import { isNonEmptyString } from '@ankhorage/utility/string';
 
 import type { InfraEnvironmentSpec, InfraObjectStorageSpec } from '../types/infraManifest';
 import type { InfraShape } from '../types/infraValidation';
@@ -32,6 +33,7 @@ function isEnvironmentShape(value: unknown): value is InfraEnvironmentSpec {
       isInfraShape(authz, {
         provider: (provider) => provider === 'cerbos',
         kind: (kind) => kind === 'ABAC' || kind === 'RBAC',
+        policies: (policies) => policies === undefined || isPolicyFiles(policies),
       }),
     secretStore: (store) =>
       store === undefined ||
@@ -43,6 +45,22 @@ function isEnvironmentShape(value: unknown): value is InfraEnvironmentSpec {
       networking === undefined || isInfraShape(networking, { domain: infraFields.optionalText }),
     workloads: (workloads) => workloads === undefined || isWorkloads(workloads),
   } satisfies InfraShape<InfraEnvironmentSpec>);
+}
+
+/*** Validate portable, unique Cerbos policy files without host paths or traversal. */
+function isPolicyFiles(value: unknown): boolean {
+  return (
+    Array.isArray(value) &&
+    value.every((policy) =>
+      isInfraShape(policy, {
+        path: (path) =>
+          isNonEmptyString(path) && !path.startsWith('/') && !path.split('/').includes('..'),
+        content: isNonEmptyString,
+      }),
+    ) &&
+    new Set(value.map((policy) => (isRecord(policy) ? policy.path : undefined))).size ===
+      value.length
+  );
 }
 
 /*** Object storage can vary independently from database/auth; there is no implicit auto provider. */
