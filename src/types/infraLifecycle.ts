@@ -1,6 +1,7 @@
 import type { AppEnvironmentId } from '../environments';
 import type { InfraAdapterId } from './infraManifest';
 import type { InfraSecretReference } from './infraSecrets';
+import type { InfraComputeTarget } from './infraTargets';
 
 /** Identity must be verified before mutation; unowned resources must never be pruned. */
 export interface InfraResourceIdentity {
@@ -89,7 +90,11 @@ export interface InfraLedger {
   readonly schemaVersion: 1;
   readonly projectId: string;
   readonly environment: AppEnvironmentId;
+  /** Last successfully reconciled portable targets required by stateless runtime operations. */
+  readonly targets: readonly InfraComputeTarget[];
   readonly resources: readonly InfraOwnedResource[];
+  /** Last successfully reconciled public values and privileged references; never resolved secrets. */
+  readonly outputs: readonly InfraOutput[];
   readonly artifacts: readonly { readonly owner: InfraResourceIdentity; readonly path: string }[];
 }
 

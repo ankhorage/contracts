@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v16.1.0",
+      "value": "v17.0.0",
       "color": "cb3837"
     },
     {
@@ -864,6 +864,7 @@
         "InfraWorkloadHealthSpec",
         "InfraWorkloadPort",
         "InfraWorkloadResourceSpec",
+        "InfraWorkloadScalarValue",
         "InfraWorkloadSpec",
         "InfraWorkloadValue",
         "InfraWorkloadVolumeSpec",
@@ -1146,6 +1147,7 @@
         "InfraWorkloadHealthSpec",
         "InfraWorkloadPort",
         "InfraWorkloadResourceSpec",
+        "InfraWorkloadScalarValue",
         "InfraWorkloadSpec",
         "InfraWorkloadValue",
         "InfraWorkloadVolumeSpec",
@@ -1274,7 +1276,8 @@
       "dependencies": [
         "src/environments.ts",
         "src/infra/isInfraCredentialRef.ts",
-        "src/infra/isInfraShape.ts"
+        "src/infra/isInfraShape.ts",
+        "src/types/infraWorkload.ts"
       ],
       "exports": ["isInfraWorkloadValue"]
     },
@@ -1699,12 +1702,12 @@
         "src/types/infraLifecycle.ts",
         "src/types/infraManifest.ts",
         "src/types/infraSecrets.ts",
+        "src/types/infraTargets.ts",
         "src/types/infraWorkload.ts"
       ],
       "exports": [
         "InfraAdapterDescriptor",
         "InfraComputeAdapter",
-        "InfraComputeTarget",
         "InfraExecutionContext",
         "InfraReconcileResult",
         "InfraRuntimeAdapter",
@@ -1718,7 +1721,8 @@
       "dependencies": [
         "src/environments.ts",
         "src/types/infraManifest.ts",
-        "src/types/infraSecrets.ts"
+        "src/types/infraSecrets.ts",
+        "src/types/infraTargets.ts"
       ],
       "exports": [
         "InfraDestroyRequest",
@@ -1781,6 +1785,12 @@
       "exports": ["InfraControlPlaneCredentialRef", "InfraSecretReference"]
     },
     {
+      "path": "src/types/infraTargets.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/types/infraSecrets.ts"],
+      "exports": ["InfraComputeTarget"]
+    },
+    {
       "path": "src/types/infraValidation.ts",
       "isEntrypoint": false,
       "dependencies": [],
@@ -1796,6 +1806,7 @@
         "InfraWorkloadHealthSpec",
         "InfraWorkloadPort",
         "InfraWorkloadResourceSpec",
+        "InfraWorkloadScalarValue",
         "InfraWorkloadSpec",
         "InfraWorkloadValue",
         "InfraWorkloadVolumeSpec"
@@ -9240,7 +9251,7 @@
       "modulePath": "src/types/infraAdapters.ts",
       "sourceLocation": {
         "filePath": "src/types/infraAdapters.ts",
-        "line": 25,
+        "line": 26,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9422,7 +9433,7 @@
       "modulePath": "src/types/infraAdapters.ts",
       "sourceLocation": {
         "filePath": "src/types/infraAdapters.ts",
-        "line": 70,
+        "line": 54,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9559,10 +9570,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "unknown",
-      "modulePath": "src/types/infraAdapters.ts",
+      "modulePath": "src/types/infraTargets.ts",
       "sourceLocation": {
-        "filePath": "src/types/infraAdapters.ts",
-        "line": 31,
+        "filePath": "src/types/infraTargets.ts",
+        "line": 4,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9675,7 +9686,7 @@
       "modulePath": "src/types/infraLifecycle.ts",
       "sourceLocation": {
         "filePath": "src/types/infraLifecycle.ts",
-        "line": 97,
+        "line": 102,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9722,7 +9733,7 @@
       "modulePath": "src/types/infraLifecycle.ts",
       "sourceLocation": {
         "filePath": "src/types/infraLifecycle.ts",
-        "line": 21,
+        "line": 22,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9776,7 +9787,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 123,
+        "line": 125,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9863,7 +9874,7 @@
       "modulePath": "src/types/infraAdapters.ts",
       "sourceLocation": {
         "filePath": "src/types/infraAdapters.ts",
-        "line": 49,
+        "line": 33,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9937,7 +9948,7 @@
       "modulePath": "src/types/infraLifecycle.ts",
       "sourceLocation": {
         "filePath": "src/types/infraLifecycle.ts",
-        "line": 80,
+        "line": 81,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9984,11 +9995,16 @@
       "modulePath": "src/types/infraLifecycle.ts",
       "sourceLocation": {
         "filePath": "src/types/infraLifecycle.ts",
-        "line": 88,
+        "line": 89,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["InfraOwnedResource", "InfraResourceIdentity"],
+      "relatedSymbols": [
+        "InfraComputeTarget",
+        "InfraOutput",
+        "InfraOwnedResource",
+        "InfraResourceIdentity"
+      ],
       "signatures": [],
       "members": [
         {
@@ -10002,6 +10018,13 @@
           "name": "environment",
           "kind": "property",
           "type": "\"local\" | \"preview\" | \"production\"",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "outputs",
+          "kind": "property",
+          "type": "readonly InfraOutput[]",
           "required": true,
           "description": null
         },
@@ -10025,6 +10048,13 @@
           "type": "1",
           "required": true,
           "description": null
+        },
+        {
+          "name": "targets",
+          "kind": "property",
+          "type": "readonly InfraComputeTarget[]",
+          "required": true,
+          "description": null
         }
       ],
       "structuredRows": []
@@ -10038,7 +10068,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 134,
+        "line": 136,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10094,6 +10124,13 @@
       "members": [
         {
           "name": "domain",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "publicBaseUrl",
           "kind": "property",
           "type": "string | undefined",
           "required": false,
@@ -10162,7 +10199,7 @@
       "modulePath": "src/types/infraLifecycle.ts",
       "sourceLocation": {
         "filePath": "src/types/infraLifecycle.ts",
-        "line": 65,
+        "line": 66,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10180,7 +10217,7 @@
       "modulePath": "src/types/infraLifecycle.ts",
       "sourceLocation": {
         "filePath": "src/types/infraLifecycle.ts",
-        "line": 13,
+        "line": 14,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10234,7 +10271,7 @@
       "modulePath": "src/types/infraLifecycle.ts",
       "sourceLocation": {
         "filePath": "src/types/infraLifecycle.ts",
-        "line": 42,
+        "line": 43,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10274,7 +10311,7 @@
       "modulePath": "src/types/infraLifecycle.ts",
       "sourceLocation": {
         "filePath": "src/types/infraLifecycle.ts",
-        "line": 34,
+        "line": 35,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10346,7 +10383,7 @@
       "modulePath": "src/types/infraAdapters.ts",
       "sourceLocation": {
         "filePath": "src/types/infraAdapters.ts",
-        "line": 65,
+        "line": 49,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10379,7 +10416,7 @@
       "modulePath": "src/types/infraLifecycle.ts",
       "sourceLocation": {
         "filePath": "src/types/infraLifecycle.ts",
-        "line": 6,
+        "line": 7,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10426,7 +10463,7 @@
       "modulePath": "src/types/infraLifecycle.ts",
       "sourceLocation": {
         "filePath": "src/types/infraLifecycle.ts",
-        "line": 49,
+        "line": 50,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10473,7 +10510,7 @@
       "modulePath": "src/types/infraLifecycle.ts",
       "sourceLocation": {
         "filePath": "src/types/infraLifecycle.ts",
-        "line": 30,
+        "line": 31,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10491,7 +10528,7 @@
       "modulePath": "src/types/infraAdapters.ts",
       "sourceLocation": {
         "filePath": "src/types/infraAdapters.ts",
-        "line": 104,
+        "line": 88,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10616,7 +10653,7 @@
       "modulePath": "src/types/infraAdapters.ts",
       "sourceLocation": {
         "filePath": "src/types/infraAdapters.ts",
-        "line": 94,
+        "line": 78,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10802,7 +10839,7 @@
       "modulePath": "src/types/infraAdapters.ts",
       "sourceLocation": {
         "filePath": "src/types/infraAdapters.ts",
-        "line": 139,
+        "line": 123,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10887,7 +10924,7 @@
       "modulePath": "src/types/infraLifecycle.ts",
       "sourceLocation": {
         "filePath": "src/types/infraLifecycle.ts",
-        "line": 57,
+        "line": 58,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10967,7 +11004,7 @@
       "modulePath": "src/types/infraWorkload.ts",
       "sourceLocation": {
         "filePath": "src/types/infraWorkload.ts",
-        "line": 49,
+        "line": 57,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11000,7 +11037,7 @@
       "modulePath": "src/types/infraWorkload.ts",
       "sourceLocation": {
         "filePath": "src/types/infraWorkload.ts",
-        "line": 25,
+        "line": 33,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11018,7 +11055,7 @@
       "modulePath": "src/types/infraWorkload.ts",
       "sourceLocation": {
         "filePath": "src/types/infraWorkload.ts",
-        "line": 19,
+        "line": 27,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11058,7 +11095,7 @@
       "modulePath": "src/types/infraWorkload.ts",
       "sourceLocation": {
         "filePath": "src/types/infraWorkload.ts",
-        "line": 35,
+        "line": 43,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11083,6 +11120,24 @@
       "structuredRows": []
     },
     {
+      "name": "InfraWorkloadScalarValue",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/types/infraWorkload.ts",
+      "sourceLocation": {
+        "filePath": "src/types/infraWorkload.ts",
+        "line": 9,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
       "name": "InfraWorkloadSpec",
       "description": null,
       "isReadme": false,
@@ -11091,7 +11146,7 @@
       "modulePath": "src/types/infraWorkload.ts",
       "sourceLocation": {
         "filePath": "src/types/infraWorkload.ts",
-        "line": 54,
+        "line": 62,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11209,7 +11264,7 @@
       "modulePath": "src/types/infraWorkload.ts",
       "sourceLocation": {
         "filePath": "src/types/infraWorkload.ts",
-        "line": 9,
+        "line": 19,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11227,7 +11282,7 @@
       "modulePath": "src/types/infraWorkload.ts",
       "sourceLocation": {
         "filePath": "src/types/infraWorkload.ts",
-        "line": 40,
+        "line": 48,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -19969,11 +20024,20 @@
       }
     },
     {
+      "name": "isPublicHttpOrigin",
+      "description": "Public workload configuration uses one canonical absolute HTTP(S) origin without path state.",
+      "sourceLocation": {
+        "filePath": "src/infra/isInfraEnvironmentSpec.ts",
+        "line": 56,
+        "column": 1
+      }
+    },
+    {
       "name": "isPolicyFiles",
       "description": "Validate portable, unique Cerbos policy files without host paths or traversal.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraEnvironmentSpec.ts",
-        "line": 51,
+        "line": 67,
         "column": 1
       }
     },
@@ -19982,7 +20046,7 @@
       "description": "Object storage can vary independently from database/auth; there is no implicit auto provider.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraEnvironmentSpec.ts",
-        "line": 67,
+        "line": 83,
         "column": 1
       }
     },
@@ -19991,7 +20055,7 @@
       "description": "Duplicate desired workload identities cannot be reconciled safely.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraEnvironmentSpec.ts",
-        "line": 83,
+        "line": 99,
         "column": 1
       }
     },
@@ -20000,7 +20064,7 @@
       "description": "Check catalog dependencies against selected sibling capabilities and runtime capabilities.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraEnvironmentSpec.ts",
-        "line": 92,
+        "line": 108,
         "column": 1
       }
     },
@@ -20099,7 +20163,16 @@
       "description": "Workload values explicitly distinguish public literals, output dependencies and secret references.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraWorkloadValue.ts",
-        "line": 9,
+        "line": 10,
+        "column": 1
+      }
+    },
+    {
+      "name": "isInfraWorkloadScalarValue",
+      "description": "Validate one non-composite workload value segment.",
+      "sourceLocation": {
+        "filePath": "src/infra/isInfraWorkloadValue.ts",
+        "line": 24,
         "column": 1
       }
     },
@@ -20108,7 +20181,7 @@
       "description": "Managed secret references contain identity only, never privileged payloads.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraWorkloadValue.ts",
-        "line": 40,
+        "line": 55,
         "column": 1
       }
     },
@@ -20537,6 +20610,11 @@
       {
         "fromPath": "src/infra.ts",
         "toPath": "src/types/infraSecrets.ts",
+        "sourcePath": "src/infra.ts"
+      },
+      {
+        "fromPath": "src/infra.ts",
+        "toPath": "src/types/infraTargets.ts",
         "sourcePath": "src/infra.ts"
       },
       {
@@ -21176,6 +21254,11 @@
       },
       {
         "fromPath": "src/infra/isInfraWorkloadValue.ts",
+        "toPath": "src/types/infraWorkload.ts",
+        "sourcePath": "src/infra/isInfraWorkloadValue.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraWorkloadValue.ts",
         "toPath": "src/infra/isInfraCredentialRef.ts",
         "sourcePath": "src/infra/isInfraWorkloadValue.ts"
       },
@@ -21301,6 +21384,11 @@
       },
       {
         "fromPath": "src/types/infraAdapters.ts",
+        "toPath": "src/types/infraTargets.ts",
+        "sourcePath": "src/types/infraAdapters.ts"
+      },
+      {
+        "fromPath": "src/types/infraAdapters.ts",
         "toPath": "src/types/infraWorkload.ts",
         "sourcePath": "src/types/infraAdapters.ts"
       },
@@ -21317,6 +21405,11 @@
       {
         "fromPath": "src/types/infraLifecycle.ts",
         "toPath": "src/types/infraSecrets.ts",
+        "sourcePath": "src/types/infraLifecycle.ts"
+      },
+      {
+        "fromPath": "src/types/infraLifecycle.ts",
+        "toPath": "src/types/infraTargets.ts",
         "sourcePath": "src/types/infraLifecycle.ts"
       },
       {
@@ -21358,6 +21451,11 @@
         "fromPath": "src/types/infraSecrets.ts",
         "toPath": "src/environments.ts",
         "sourcePath": "src/types/infraSecrets.ts"
+      },
+      {
+        "fromPath": "src/types/infraTargets.ts",
+        "toPath": "src/types/infraSecrets.ts",
+        "sourcePath": "src/types/infraTargets.ts"
       },
       {
         "fromPath": "src/types/infraWorkload.ts",
@@ -23407,9 +23505,21 @@
         "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
       },
       {
+        "fromSymbol": "publicBaseUrl",
+        "toSymbol": "isPublicHttpOrigin",
+        "callExpression": "isPublicHttpOrigin",
+        "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
+      },
+      {
         "fromSymbol": "workloads",
         "toSymbol": "isWorkloads",
         "callExpression": "isWorkloads",
+        "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
+      },
+      {
+        "fromSymbol": "isPublicHttpOrigin",
+        "toSymbol": "isNonEmptyString",
+        "callExpression": "isNonEmptyString",
         "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
       },
       {
@@ -23600,12 +23710,24 @@
       },
       {
         "fromSymbol": "isInfraWorkloadValue",
+        "toSymbol": "isInfraWorkloadScalarValue",
+        "callExpression": "isInfraWorkloadScalarValue",
+        "sourcePath": "src/infra/isInfraWorkloadValue.ts"
+      },
+      {
+        "fromSymbol": "isInfraWorkloadValue",
+        "toSymbol": "isInfraShape",
+        "callExpression": "isInfraShape",
+        "sourcePath": "src/infra/isInfraWorkloadValue.ts"
+      },
+      {
+        "fromSymbol": "isInfraWorkloadScalarValue",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
         "sourcePath": "src/infra/isInfraWorkloadValue.ts"
       },
       {
-        "fromSymbol": "isInfraWorkloadValue",
+        "fromSymbol": "isInfraWorkloadScalarValue",
         "toSymbol": "isInfraShape",
         "callExpression": "isInfraShape",
         "sourcePath": "src/infra/isInfraWorkloadValue.ts"
@@ -24752,6 +24874,16 @@
       {
         "fromSymbol": "InfraGeneratedArtifact",
         "toType": "InfraResourceIdentity",
+        "sourcePath": "src/types/infraLifecycle.ts"
+      },
+      {
+        "fromSymbol": "InfraLedger",
+        "toType": "InfraComputeTarget",
+        "sourcePath": "src/types/infraLifecycle.ts"
+      },
+      {
+        "fromSymbol": "InfraLedger",
+        "toType": "InfraOutput",
         "sourcePath": "src/types/infraLifecycle.ts"
       },
       {

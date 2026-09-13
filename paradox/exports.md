@@ -2327,7 +2327,7 @@ Source: `src/infra/constants.ts:2:14`
 
 Kind: `unknown`
 Module: `src/types/infraAdapters.ts`
-Source: `src/types/infraAdapters.ts:25:1`
+Source: `src/types/infraAdapters.ts:26:1`
 
 ## InfraAdapterId
 
@@ -2394,7 +2394,7 @@ Source: `src/types/infraManifest.ts:10:1`
 
 Kind: `type`
 Module: `src/types/infraAdapters.ts`
-Source: `src/types/infraAdapters.ts:70:1`
+Source: `src/types/infraAdapters.ts:54:1`
 
 ### Members
 
@@ -2435,8 +2435,8 @@ Source: `src/types/infraManifest.ts:50:1`
 ## InfraComputeTarget
 
 Kind: `unknown`
-Module: `src/types/infraAdapters.ts`
-Source: `src/types/infraAdapters.ts:31:1`
+Module: `src/types/infraTargets.ts`
+Source: `src/types/infraTargets.ts:4:1`
 
 ## InfraControlPlaneCredentialRef
 
@@ -2479,7 +2479,7 @@ Source: `src/types/infraManifest.ts:58:1`
 
 Kind: `type`
 Module: `src/types/infraLifecycle.ts`
-Source: `src/types/infraLifecycle.ts:97:1`
+Source: `src/types/infraLifecycle.ts:102:1`
 
 ### Members
 
@@ -2494,7 +2494,7 @@ Source: `src/types/infraLifecycle.ts:97:1`
 
 Kind: `type`
 Module: `src/types/infraLifecycle.ts`
-Source: `src/types/infraLifecycle.ts:21:1`
+Source: `src/types/infraLifecycle.ts:22:1`
 
 ### Members
 
@@ -2510,7 +2510,7 @@ Source: `src/types/infraLifecycle.ts:21:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:123:1`
+Source: `src/types/infraManifest.ts:125:1`
 
 ### Members
 
@@ -2529,7 +2529,7 @@ Source: `src/types/infraManifest.ts:123:1`
 
 Kind: `type`
 Module: `src/types/infraAdapters.ts`
-Source: `src/types/infraAdapters.ts:49:1`
+Source: `src/types/infraAdapters.ts:33:1`
 
 ### Members
 
@@ -2547,7 +2547,7 @@ Source: `src/types/infraAdapters.ts:49:1`
 
 Kind: `type`
 Module: `src/types/infraLifecycle.ts`
-Source: `src/types/infraLifecycle.ts:80:1`
+Source: `src/types/infraLifecycle.ts:81:1`
 
 ### Members
 
@@ -2562,7 +2562,7 @@ Source: `src/types/infraLifecycle.ts:80:1`
 
 Kind: `type`
 Module: `src/types/infraLifecycle.ts`
-Source: `src/types/infraLifecycle.ts:88:1`
+Source: `src/types/infraLifecycle.ts:89:1`
 
 ### Members
 
@@ -2570,15 +2570,17 @@ Source: `src/types/infraLifecycle.ts:88:1`
 | ------------- | -------- | ------------------------------------------------------------------------------ | -------- | ----------- |
 | artifacts     | property | `readonly { readonly owner: InfraResourceIdentity; readonly path: string; }[]` | yes      |             |
 | environment   | property | `"local" \| "preview" \| "production"`                                         | yes      |             |
+| outputs       | property | `readonly InfraOutput[]`                                                       | yes      |             |
 | projectId     | property | `string`                                                                       | yes      |             |
 | resources     | property | `readonly InfraOwnedResource[]`                                                | yes      |             |
 | schemaVersion | property | `1`                                                                            | yes      |             |
+| targets       | property | `readonly InfraComputeTarget[]`                                                | yes      |             |
 
 ## InfraManifest
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:134:1`
+Source: `src/types/infraManifest.ts:136:1`
 
 ### Members
 
@@ -2597,9 +2599,10 @@ Source: `src/types/infraManifest.ts:118:1`
 
 ### Members
 
-| Name   | Kind     | Type                  | Required | Description |
-| ------ | -------- | --------------------- | -------- | ----------- |
-| domain | property | `string \| undefined` | no       |             |
+| Name          | Kind     | Type                  | Required | Description |
+| ------------- | -------- | --------------------- | -------- | ----------- |
+| domain        | property | `string \| undefined` | no       |             |
+| publicBaseUrl | property | `string \| undefined` | no       |             |
 
 ## InfraObjectStorageConfigMap
 
@@ -2624,13 +2627,13 @@ Source: `src/types/infraManifest.ts:103:1`
 
 Kind: `unknown`
 Module: `src/types/infraLifecycle.ts`
-Source: `src/types/infraLifecycle.ts:65:1`
+Source: `src/types/infraLifecycle.ts:66:1`
 
 ## InfraOwnedResource
 
 Kind: `type`
 Module: `src/types/infraLifecycle.ts`
-Source: `src/types/infraLifecycle.ts:13:1`
+Source: `src/types/infraLifecycle.ts:14:1`
 
 ### Members
 
@@ -2646,7 +2649,7 @@ Source: `src/types/infraLifecycle.ts:13:1`
 
 Kind: `type`
 Module: `src/types/infraLifecycle.ts`
-Source: `src/types/infraLifecycle.ts:42:1`
+Source: `src/types/infraLifecycle.ts:43:1`
 
 ### Members
 
@@ -2660,7 +2663,7 @@ Source: `src/types/infraLifecycle.ts:42:1`
 
 Kind: `type`
 Module: `src/types/infraLifecycle.ts`
-Source: `src/types/infraLifecycle.ts:34:1`
+Source: `src/types/infraLifecycle.ts:35:1`
 
 ### Members
 
@@ -2682,7 +2685,7 @@ Source: `src/types/infraManifest.ts:12:1`
 
 Kind: `type`
 Module: `src/types/infraAdapters.ts`
-Source: `src/types/infraAdapters.ts:65:1`
+Source: `src/types/infraAdapters.ts:49:1`
 
 ### Members
 
@@ -2695,7 +2698,7 @@ Source: `src/types/infraAdapters.ts:65:1`
 
 Kind: `type`
 Module: `src/types/infraLifecycle.ts`
-Source: `src/types/infraLifecycle.ts:6:1`
+Source: `src/types/infraLifecycle.ts:7:1`
 
 ### Members
 
@@ -2710,7 +2713,7 @@ Source: `src/types/infraLifecycle.ts:6:1`
 
 Kind: `type`
 Module: `src/types/infraLifecycle.ts`
-Source: `src/types/infraLifecycle.ts:49:1`
+Source: `src/types/infraLifecycle.ts:50:1`
 
 ### Members
 
@@ -2725,13 +2728,13 @@ Source: `src/types/infraLifecycle.ts:49:1`
 
 Kind: `unknown`
 Module: `src/types/infraLifecycle.ts`
-Source: `src/types/infraLifecycle.ts:30:1`
+Source: `src/types/infraLifecycle.ts:31:1`
 
 ## InfraRuntimeAdapter
 
 Kind: `type`
 Module: `src/types/infraAdapters.ts`
-Source: `src/types/infraAdapters.ts:104:1`
+Source: `src/types/infraAdapters.ts:88:1`
 
 ### Members
 
@@ -2764,7 +2767,7 @@ Source: `src/types/infraManifest.ts:36:1`
 
 Kind: `type`
 Module: `src/types/infraAdapters.ts`
-Source: `src/types/infraAdapters.ts:94:1`
+Source: `src/types/infraAdapters.ts:78:1`
 
 ### Members
 
@@ -2825,7 +2828,7 @@ Source: `src/types/infraManifest.ts:114:1`
 
 Kind: `type`
 Module: `src/types/infraAdapters.ts`
-Source: `src/types/infraAdapters.ts:139:1`
+Source: `src/types/infraAdapters.ts:123:1`
 
 ### Members
 
@@ -2844,7 +2847,7 @@ Source: `src/types/infraAdapters.ts:139:1`
 
 Kind: `type`
 Module: `src/types/infraLifecycle.ts`
-Source: `src/types/infraLifecycle.ts:57:1`
+Source: `src/types/infraLifecycle.ts:58:1`
 
 ### Members
 
@@ -2872,7 +2875,7 @@ Source: `src/types/infraWorkload.ts:3:1`
 
 Kind: `type`
 Module: `src/types/infraWorkload.ts`
-Source: `src/types/infraWorkload.ts:49:1`
+Source: `src/types/infraWorkload.ts:57:1`
 
 ### Members
 
@@ -2885,13 +2888,13 @@ Source: `src/types/infraWorkload.ts:49:1`
 
 Kind: `unknown`
 Module: `src/types/infraWorkload.ts`
-Source: `src/types/infraWorkload.ts:25:1`
+Source: `src/types/infraWorkload.ts:33:1`
 
 ## InfraWorkloadPort
 
 Kind: `type`
 Module: `src/types/infraWorkload.ts`
-Source: `src/types/infraWorkload.ts:19:1`
+Source: `src/types/infraWorkload.ts:27:1`
 
 ### Members
 
@@ -2905,7 +2908,7 @@ Source: `src/types/infraWorkload.ts:19:1`
 
 Kind: `type`
 Module: `src/types/infraWorkload.ts`
-Source: `src/types/infraWorkload.ts:35:1`
+Source: `src/types/infraWorkload.ts:43:1`
 
 ### Members
 
@@ -2914,11 +2917,17 @@ Source: `src/types/infraWorkload.ts:35:1`
 | cpuMillis | property | `number \| undefined` | no       |             |
 | memoryMiB | property | `number \| undefined` | no       |             |
 
+## InfraWorkloadScalarValue
+
+Kind: `unknown`
+Module: `src/types/infraWorkload.ts`
+Source: `src/types/infraWorkload.ts:9:1`
+
 ## InfraWorkloadSpec
 
 Kind: `type`
 Module: `src/types/infraWorkload.ts`
-Source: `src/types/infraWorkload.ts:54:1`
+Source: `src/types/infraWorkload.ts:62:1`
 
 ### Members
 
@@ -2942,13 +2951,13 @@ Source: `src/types/infraWorkload.ts:54:1`
 
 Kind: `unknown`
 Module: `src/types/infraWorkload.ts`
-Source: `src/types/infraWorkload.ts:9:1`
+Source: `src/types/infraWorkload.ts:19:1`
 
 ## InfraWorkloadVolumeSpec
 
 Kind: `type`
 Module: `src/types/infraWorkload.ts`
-Source: `src/types/infraWorkload.ts:40:1`
+Source: `src/types/infraWorkload.ts:48:1`
 
 ### Members
 

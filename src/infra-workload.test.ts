@@ -2,6 +2,7 @@ import { describe, expect, it } from 'bun:test';
 
 import { isAppManifest } from './appManifest';
 import {
+  type InfraLedger,
   type InfraWorkloadSpec,
   isInfraDeploymentSpec,
   isInfraEnvironmentSpec,
@@ -31,6 +32,18 @@ const workload = {
       key: 'POSTGRES_PASSWORD',
     },
     DB_HOST: { kind: 'output', resourceId: 'database', output: 'host' },
+    DB_URL: {
+      kind: 'template',
+      segments: [
+        { kind: 'literal', value: 'postgresql://postgres:' },
+        {
+          kind: 'credential',
+          reference: { source: 'control-plane', name: 'SUPABASE_BOOTSTRAP' },
+          key: 'POSTGRES_PASSWORD',
+        },
+        { kind: 'literal', value: '@database:5432/postgres' },
+      ],
+    },
   },
   files: [{ path: '/etc/backend/config.json', content: { kind: 'literal', value: '{}' } }],
   health: { kind: 'http', port: 8080, path: '/health', intervalSeconds: 5 },
@@ -95,10 +108,27 @@ const invalidWorkloads = [
       },
     },
   },
+  { environment: { DATABASE_URL: { kind: 'template', segments: [] } } },
+  {
+    environment: {
+      DATABASE_URL: {
+        kind: 'template',
+        segments: [{ kind: 'template', segments: [{ kind: 'literal', value: 'nested' }] }],
+      },
+    },
+  },
+  {
+    environment: {
+      DATABASE_URL: {
+        kind: 'template',
+        segments: [{ kind: 'credential', reference: { source: 'control-plane', name: 'DB' } }],
+      },
+    },
+  },
 ];
 
 describe('runtime-neutral workload boundary', () => {
-  it('accepts prebuilt images, dependency outputs, config files and secret references on every runtime', () => {
+  it('accepts prebuilt images, composed values, outputs, files and secrets on every runtime', () => {
     expect(isInfraWorkloadSpec(JSON.parse(JSON.stringify(workload)))).toBe(true);
     for (const provider of ['minikube', 'k3s', 'docker-compose']) {
       expect(
@@ -183,6 +213,47 @@ describe('control-plane credential separation', () => {
         runtime: { provider: 'k3s' },
       }),
     ).toBe(false);
+  });
+});
+
+describe('stateless lifecycle ledger', () => {
+  it('serializes portable targets and safe outputs without resolved credentials', () => {
+    const ledger = {
+      schemaVersion: 1,
+      projectId: 'example',
+      environment: 'production',
+      targets: [
+        {
+          kind: 'ssh-host',
+          id: 'server-0',
+          os: 'linux',
+          architecture: 'amd64',
+          host: '203.0.113.10',
+          port: 22,
+          user: 'root',
+          credential: { source: 'control-plane', name: 'HETZNER_SSH' },
+          hostKeyFingerprint: 'SHA256:verified',
+        },
+      ],
+      resources: [],
+      outputs: [
+        {
+          owner: {
+            projectId: 'example',
+            environment: 'production',
+            adapter: 'hetzner',
+            resourceId: 'server-0',
+          },
+          name: 'publicIpv4',
+          visibility: 'public',
+          value: '203.0.113.10',
+        },
+      ],
+      artifacts: [],
+    } as const satisfies InfraLedger;
+
+    expect(JSON.parse(JSON.stringify(ledger))).toEqual(ledger);
+    expect(JSON.stringify(ledger)).not.toContain('privateKey');
   });
 });
 
