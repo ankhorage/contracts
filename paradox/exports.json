@@ -7437,7 +7437,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 71,
+      "line": 76,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -7470,7 +7470,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 96,
+      "line": 101,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -7488,7 +7488,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 81,
+      "line": 86,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -7514,7 +7514,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 99,
+      "line": 104,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -7631,7 +7631,7 @@
       {
         "name": "hetzner",
         "kind": "property",
-        "type": "{ readonly location: string; readonly serverType?: string; readonly image?: string; readonly credentials?: InfraControlPlaneCredentialRef; }",
+        "type": "{ readonly location: string; readonly serverType?: string; readonly image?: string; readonly credentials?: InfraControlPlaneCredentialRef; readonly ssh?: { readonly user?: string; readonly port?: number; readonly credentials?: InfraControlPlaneCredentialRef; }; }",
         "required": true,
         "description": null
       },
@@ -7672,7 +7672,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 45,
+      "line": 50,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -7741,7 +7741,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 60,
+      "line": 65,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -7767,7 +7767,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 88,
+      "line": 93,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -7785,7 +7785,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 53,
+      "line": 58,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -7904,7 +7904,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 111,
+      "line": 116,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -8165,7 +8165,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 122,
+      "line": 127,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -8212,7 +8212,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 106,
+      "line": 111,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -8238,7 +8238,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 63,
+      "line": 68,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -8271,7 +8271,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 91,
+      "line": 96,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -8703,7 +8703,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 31,
+      "line": 36,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -8813,7 +8813,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 48,
+      "line": 53,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -8885,7 +8885,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 84,
+      "line": 89,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -8911,7 +8911,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 102,
+      "line": 107,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
