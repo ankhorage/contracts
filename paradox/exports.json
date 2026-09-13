@@ -7583,14 +7583,14 @@
     "modulePath": "src/types/infraAdapters.ts",
     "sourceLocation": {
       "filePath": "src/types/infraAdapters.ts",
-      "line": 54,
+      "line": 59,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
     "relatedSymbols": [
       "InfraAdapterDescriptor",
       "InfraComputeSelection",
-      "InfraComputeTarget",
+      "InfraComputeSnapshot",
       "InfraDestroyRequest",
       "InfraExecutionContext",
       "InfraPlanAction",
@@ -7617,7 +7617,14 @@
       {
         "name": "ensureAsync",
         "kind": "method",
-        "type": "(context: InfraExecutionContext, selection: InfraComputeSelection<P>) => Promise<InfraResult<InfraReconcileResult & { readonly targets: readonly InfraComputeTarget[]; }>>",
+        "type": "(context: InfraExecutionContext, selection: InfraComputeSelection<P>) => Promise<InfraResult<InfraComputeSnapshot>>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "inspectAsync",
+        "kind": "method",
+        "type": "(context: InfraExecutionContext, selection: InfraComputeSelection<P>) => Promise<InfraResult<InfraComputeSnapshot>>",
         "required": true,
         "description": null
       },
@@ -7712,6 +7719,46 @@
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraComputeSnapshot",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/infraAdapters.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraAdapters.ts",
+      "line": 55,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["InfraComputeTarget", "InfraOutput", "InfraOwnedResource"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "outputs",
+        "kind": "property",
+        "type": "readonly InfraOutput[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "resources",
+        "kind": "property",
+        "type": "readonly InfraOwnedResource[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "targets",
+        "kind": "property",
+        "type": "readonly InfraComputeTarget[]",
+        "required": true,
+        "description": null
+      }
+    ],
     "structuredRows": []
   },
   {
@@ -8678,7 +8725,7 @@
     "modulePath": "src/types/infraAdapters.ts",
     "sourceLocation": {
       "filePath": "src/types/infraAdapters.ts",
-      "line": 88,
+      "line": 96,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -8803,7 +8850,7 @@
     "modulePath": "src/types/infraAdapters.ts",
     "sourceLocation": {
       "filePath": "src/types/infraAdapters.ts",
-      "line": 78,
+      "line": 86,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -8989,7 +9036,7 @@
     "modulePath": "src/types/infraAdapters.ts",
     "sourceLocation": {
       "filePath": "src/types/infraAdapters.ts",
-      "line": 123,
+      "line": 131,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
