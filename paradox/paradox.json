@@ -98,6 +98,12 @@
       ]
     },
     {
+      "path": "src/appManifest/constants.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/types.ts"],
+      "exports": ["APP_MANIFEST_KEY_POLICY"]
+    },
+    {
       "path": "src/appManifest/data.ts",
       "isEntrypoint": false,
       "dependencies": ["src/appManifest/shared.ts"],
@@ -125,6 +131,29 @@
       "isEntrypoint": false,
       "dependencies": ["src/appManifest/shared.ts", "src/media.ts"],
       "exports": ["isIconSpec"]
+    },
+    {
+      "path": "src/appManifest/isAppManifest.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/appManifest/bindings.ts",
+        "src/appManifest/constants.ts",
+        "src/appManifest/dataSources.ts",
+        "src/appManifest/deploy.ts",
+        "src/appManifest/isAppStateSpec.ts",
+        "src/appManifest/media.ts",
+        "src/appManifest/screens.ts",
+        "src/appManifest/shared.ts",
+        "src/infra/isInfraManifest.ts",
+        "src/types.ts"
+      ],
+      "exports": ["isAppManifest"]
+    },
+    {
+      "path": "src/appManifest/isAppStateSpec.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/appManifest/shared.ts", "src/state.ts"],
+      "exports": ["isAppStateSpec"]
     },
     {
       "path": "src/appManifest/media.ts",
@@ -155,6 +184,12 @@
         "isStackScreenOptions",
         "isTabsImplementationConfig"
       ]
+    },
+    {
+      "path": "src/appManifest/parseAppManifest.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/appManifest/isAppManifest.ts", "src/types/appManifest.ts"],
+      "exports": ["parseAppManifest"]
     },
     {
       "path": "src/appManifest/screens.ts",
@@ -550,199 +585,6 @@
       "isEntrypoint": false,
       "dependencies": [],
       "exports": ["APP_ENVIRONMENT_IDS", "AppEnvironmentId"]
-    },
-    {
-      "path": "src/features/appManifest/domain/constants.ts",
-      "isEntrypoint": false,
-      "dependencies": ["src/types.ts"],
-      "exports": ["APP_MANIFEST_KEY_POLICY"]
-    },
-    {
-      "path": "src/features/appManifest/domain/isAppManifest.ts",
-      "isEntrypoint": false,
-      "dependencies": [
-        "src/appManifest/bindings.ts",
-        "src/appManifest/dataSources.ts",
-        "src/appManifest/deploy.ts",
-        "src/appManifest/media.ts",
-        "src/appManifest/screens.ts",
-        "src/appManifest/shared.ts",
-        "src/features/appManifest/domain/constants.ts",
-        "src/features/appState/domain/isAppStateSpec.ts",
-        "src/features/infra/domain/isInfraManifest.ts",
-        "src/types.ts"
-      ],
-      "exports": ["isAppManifest"]
-    },
-    {
-      "path": "src/features/appManifest/domain/parseAppManifest.ts",
-      "isEntrypoint": false,
-      "dependencies": [
-        "src/features/appManifest/domain/isAppManifest.ts",
-        "src/types/appManifest.ts"
-      ],
-      "exports": ["parseAppManifest"]
-    },
-    {
-      "path": "src/features/appState/domain/isAppStateSpec.ts",
-      "isEntrypoint": false,
-      "dependencies": ["src/appManifest/shared.ts", "src/state.ts"],
-      "exports": ["isAppStateSpec"]
-    },
-    {
-      "path": "src/features/infra/domain/constants.ts",
-      "isEntrypoint": false,
-      "dependencies": [],
-      "exports": ["INFRA_ADAPTER_CATALOG", "INFRA_RUNTIME_COMPATIBILITY"]
-    },
-    {
-      "path": "src/features/infra/domain/infraFields.ts",
-      "isEntrypoint": false,
-      "dependencies": ["src/appManifest/shared.ts"],
-      "exports": ["infraFields"]
-    },
-    {
-      "path": "src/features/infra/domain/isInfraAdapterDescriptor.ts",
-      "isEntrypoint": false,
-      "dependencies": [
-        "src/appManifest/shared.ts",
-        "src/features/infra/domain/constants.ts",
-        "src/features/infra/domain/isInfraShape.ts",
-        "src/types/infraAdapters.ts"
-      ],
-      "exports": ["isInfraAdapterDescriptor"]
-    },
-    {
-      "path": "src/features/infra/domain/isInfraAuthSpec.ts",
-      "isEntrypoint": false,
-      "dependencies": [
-        "src/appManifest/icon.ts",
-        "src/appManifest/shared.ts",
-        "src/auth.ts",
-        "src/features/infra/domain/isInfraShape.ts",
-        "src/types.ts",
-        "src/types/infraManifest.ts",
-        "src/types/infraValidation.ts"
-      ],
-      "exports": ["isInfraAuthSpec"]
-    },
-    {
-      "path": "src/features/infra/domain/isInfraCredentialRef.ts",
-      "isEntrypoint": false,
-      "dependencies": [
-        "src/features/infra/domain/infraFields.ts",
-        "src/features/infra/domain/isInfraShape.ts"
-      ],
-      "exports": ["isInfraCredentialRef"]
-    },
-    {
-      "path": "src/features/infra/domain/isInfraDeploymentSpec.ts",
-      "isEntrypoint": false,
-      "dependencies": [
-        "src/appManifest/shared.ts",
-        "src/features/infra/domain/constants.ts",
-        "src/features/infra/domain/infraFields.ts",
-        "src/features/infra/domain/isInfraCredentialRef.ts",
-        "src/features/infra/domain/isInfraShape.ts",
-        "src/types/infraManifest.ts",
-        "src/types/infraValidation.ts"
-      ],
-      "exports": ["isInfraDeploymentSpec"]
-    },
-    {
-      "path": "src/features/infra/domain/isInfraEnvironmentSpec.ts",
-      "isEntrypoint": false,
-      "dependencies": [
-        "src/appManifest/shared.ts",
-        "src/features/infra/domain/constants.ts",
-        "src/features/infra/domain/infraFields.ts",
-        "src/features/infra/domain/isInfraAuthSpec.ts",
-        "src/features/infra/domain/isInfraCredentialRef.ts",
-        "src/features/infra/domain/isInfraDeploymentSpec.ts",
-        "src/features/infra/domain/isInfraShape.ts",
-        "src/features/infra/domain/isInfraWorkloadSpec.ts",
-        "src/types/infraManifest.ts",
-        "src/types/infraValidation.ts"
-      ],
-      "exports": ["isInfraEnvironmentSpec"]
-    },
-    {
-      "path": "src/features/infra/domain/isInfraManifest.ts",
-      "isEntrypoint": false,
-      "dependencies": [
-        "src/appManifest/apis.ts",
-        "src/appManifest/shared.ts",
-        "src/environments.ts",
-        "src/features/infra/domain/infraFields.ts",
-        "src/features/infra/domain/isInfraEnvironmentSpec.ts",
-        "src/features/infra/domain/isInfraShape.ts",
-        "src/types/infraManifest.ts",
-        "src/types/infraValidation.ts"
-      ],
-      "exports": ["isInfraManifest"]
-    },
-    {
-      "path": "src/features/infra/domain/isInfraShape.ts",
-      "isEntrypoint": false,
-      "dependencies": ["src/appManifest/shared.ts"],
-      "exports": ["isInfraShape"]
-    },
-    {
-      "path": "src/features/infra/domain/isInfraWorkloadHealth.ts",
-      "isEntrypoint": false,
-      "dependencies": [
-        "src/appManifest/shared.ts",
-        "src/features/infra/domain/infraFields.ts",
-        "src/features/infra/domain/isInfraShape.ts"
-      ],
-      "exports": ["isInfraWorkloadHealth"]
-    },
-    {
-      "path": "src/features/infra/domain/isInfraWorkloadSpec.ts",
-      "isEntrypoint": false,
-      "dependencies": [
-        "src/appManifest/shared.ts",
-        "src/features/infra/domain/infraFields.ts",
-        "src/features/infra/domain/isInfraShape.ts",
-        "src/features/infra/domain/isInfraWorkloadHealth.ts",
-        "src/features/infra/domain/isInfraWorkloadValue.ts",
-        "src/types/infraValidation.ts",
-        "src/types/infraWorkload.ts"
-      ],
-      "exports": ["isInfraWorkloadSpec"]
-    },
-    {
-      "path": "src/features/infra/domain/isInfraWorkloadValue.ts",
-      "isEntrypoint": false,
-      "dependencies": [
-        "src/appManifest/shared.ts",
-        "src/environments.ts",
-        "src/features/infra/domain/infraFields.ts",
-        "src/features/infra/domain/isInfraShape.ts"
-      ],
-      "exports": ["isInfraWorkloadValue"]
-    },
-    {
-      "path": "src/features/infra/domain/parseInfraManifest.ts",
-      "isEntrypoint": false,
-      "dependencies": [
-        "src/features/infra/domain/isInfraManifest.ts",
-        "src/types/infraLifecycle.ts",
-        "src/types/infraManifest.ts"
-      ],
-      "exports": ["parseInfraManifest"]
-    },
-    {
-      "path": "src/features/infra/domain/validateInfraAdapterSelection.ts",
-      "isEntrypoint": false,
-      "dependencies": [
-        "src/features/infra/domain/constants.ts",
-        "src/features/infra/domain/isInfraAdapterDescriptor.ts",
-        "src/types/infraAdapters.ts",
-        "src/types/infraLifecycle.ts",
-        "src/types/infraManifest.ts"
-      ],
-      "exports": ["validateInfraAdapterSelection"]
     },
     {
       "path": "src/index.ts",
@@ -1328,6 +1170,158 @@
       ]
     },
     {
+      "path": "src/infra/constants.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": ["INFRA_ADAPTER_CATALOG", "INFRA_RUNTIME_COMPATIBILITY"]
+    },
+    {
+      "path": "src/infra/infraFields.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/appManifest/shared.ts"],
+      "exports": ["infraFields"]
+    },
+    {
+      "path": "src/infra/isInfraAdapterDescriptor.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/appManifest/shared.ts",
+        "src/infra/constants.ts",
+        "src/infra/isInfraShape.ts",
+        "src/types/infraAdapters.ts"
+      ],
+      "exports": ["isInfraAdapterDescriptor"]
+    },
+    {
+      "path": "src/infra/isInfraAuthSpec.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/appManifest/icon.ts",
+        "src/appManifest/shared.ts",
+        "src/auth.ts",
+        "src/infra/isInfraShape.ts",
+        "src/types.ts",
+        "src/types/infraManifest.ts",
+        "src/types/infraValidation.ts"
+      ],
+      "exports": ["isInfraAuthSpec"]
+    },
+    {
+      "path": "src/infra/isInfraCredentialRef.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/infra/infraFields.ts", "src/infra/isInfraShape.ts"],
+      "exports": ["isInfraCredentialRef"]
+    },
+    {
+      "path": "src/infra/isInfraDeploymentSpec.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/appManifest/shared.ts",
+        "src/infra/constants.ts",
+        "src/infra/infraFields.ts",
+        "src/infra/isInfraCredentialRef.ts",
+        "src/infra/isInfraShape.ts",
+        "src/types/infraManifest.ts",
+        "src/types/infraValidation.ts"
+      ],
+      "exports": ["isInfraDeploymentSpec"]
+    },
+    {
+      "path": "src/infra/isInfraEnvironmentSpec.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/appManifest/shared.ts",
+        "src/infra/constants.ts",
+        "src/infra/infraFields.ts",
+        "src/infra/isInfraAuthSpec.ts",
+        "src/infra/isInfraCredentialRef.ts",
+        "src/infra/isInfraDeploymentSpec.ts",
+        "src/infra/isInfraShape.ts",
+        "src/infra/isInfraWorkloadSpec.ts",
+        "src/types/infraManifest.ts",
+        "src/types/infraValidation.ts"
+      ],
+      "exports": ["isInfraEnvironmentSpec"]
+    },
+    {
+      "path": "src/infra/isInfraManifest.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/appManifest/apis.ts",
+        "src/appManifest/shared.ts",
+        "src/environments.ts",
+        "src/infra/infraFields.ts",
+        "src/infra/isInfraEnvironmentSpec.ts",
+        "src/infra/isInfraShape.ts",
+        "src/types/infraManifest.ts",
+        "src/types/infraValidation.ts"
+      ],
+      "exports": ["isInfraManifest"]
+    },
+    {
+      "path": "src/infra/isInfraShape.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/appManifest/shared.ts"],
+      "exports": ["isInfraShape"]
+    },
+    {
+      "path": "src/infra/isInfraWorkloadHealth.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/appManifest/shared.ts",
+        "src/infra/infraFields.ts",
+        "src/infra/isInfraShape.ts"
+      ],
+      "exports": ["isInfraWorkloadHealth"]
+    },
+    {
+      "path": "src/infra/isInfraWorkloadSpec.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/appManifest/shared.ts",
+        "src/infra/infraFields.ts",
+        "src/infra/isInfraShape.ts",
+        "src/infra/isInfraWorkloadHealth.ts",
+        "src/infra/isInfraWorkloadValue.ts",
+        "src/types/infraValidation.ts",
+        "src/types/infraWorkload.ts"
+      ],
+      "exports": ["isInfraWorkloadSpec"]
+    },
+    {
+      "path": "src/infra/isInfraWorkloadValue.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/appManifest/shared.ts",
+        "src/environments.ts",
+        "src/infra/infraFields.ts",
+        "src/infra/isInfraShape.ts"
+      ],
+      "exports": ["isInfraWorkloadValue"]
+    },
+    {
+      "path": "src/infra/parseInfraManifest.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/infra/isInfraManifest.ts",
+        "src/types/infraLifecycle.ts",
+        "src/types/infraManifest.ts"
+      ],
+      "exports": ["parseInfraManifest"]
+    },
+    {
+      "path": "src/infra/validateInfraAdapterSelection.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/infra/constants.ts",
+        "src/infra/isInfraAdapterDescriptor.ts",
+        "src/types/infraAdapters.ts",
+        "src/types/infraLifecycle.ts",
+        "src/types/infraManifest.ts"
+      ],
+      "exports": ["validateInfraAdapterSelection"]
+    },
+    {
       "path": "src/media.ts",
       "isEntrypoint": false,
       "dependencies": [],
@@ -1722,7 +1716,7 @@
       "isEntrypoint": false,
       "dependencies": [
         "src/environments.ts",
-        "src/features/infra/domain/constants.ts",
+        "src/infra/constants.ts",
         "src/types/infraLifecycle.ts",
         "src/types/infraManifest.ts",
         "src/types/infraSecrets.ts",
@@ -1769,7 +1763,7 @@
         "src/auth.ts",
         "src/data/index.ts",
         "src/environments.ts",
-        "src/features/infra/domain/constants.ts",
+        "src/infra/constants.ts",
         "src/types.ts",
         "src/types/infraSecrets.ts",
         "src/types/infraWorkload.ts"
@@ -9227,9 +9221,9 @@
       "isReadme": false,
       "examples": [],
       "kind": "value",
-      "modulePath": "src/features/infra/domain/constants.ts",
+      "modulePath": "src/infra/constants.ts",
       "sourceLocation": {
-        "filePath": "src/features/infra/domain/constants.ts",
+        "filePath": "src/infra/constants.ts",
         "line": 9,
         "column": 14
       },
@@ -9245,9 +9239,9 @@
       "isReadme": false,
       "examples": [],
       "kind": "value",
-      "modulePath": "src/features/infra/domain/constants.ts",
+      "modulePath": "src/infra/constants.ts",
       "sourceLocation": {
-        "filePath": "src/features/infra/domain/constants.ts",
+        "filePath": "src/infra/constants.ts",
         "line": 2,
         "column": 14
       },
@@ -9284,7 +9278,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 12,
+        "line": 9,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9302,7 +9296,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 74,
+        "line": 71,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9335,7 +9329,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 99,
+        "line": 96,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9353,7 +9347,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 84,
+        "line": 81,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9379,7 +9373,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 102,
+        "line": 99,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9397,7 +9391,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 13,
+        "line": 10,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9486,7 +9480,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 24,
+        "line": 21,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9519,7 +9513,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 20,
+        "line": 17,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9537,7 +9531,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 48,
+        "line": 45,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9606,7 +9600,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 63,
+        "line": 60,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9632,7 +9626,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 91,
+        "line": 88,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9650,7 +9644,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 56,
+        "line": 53,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -9769,7 +9763,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 114,
+        "line": 111,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10030,7 +10024,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 125,
+        "line": 122,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10077,7 +10071,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 109,
+        "line": 106,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10103,7 +10097,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 66,
+        "line": 63,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10136,7 +10130,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 94,
+        "line": 91,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10320,7 +10314,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 15,
+        "line": 12,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10568,7 +10562,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 34,
+        "line": 31,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10648,7 +10642,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 21,
+        "line": 18,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10666,7 +10660,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 51,
+        "line": 48,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10738,7 +10732,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 87,
+        "line": 84,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10764,7 +10758,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 105,
+        "line": 102,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11372,9 +11366,9 @@
       "isReadme": false,
       "examples": [],
       "kind": "function",
-      "modulePath": "src/features/appManifest/domain/isAppManifest.ts",
+      "modulePath": "src/appManifest/isAppManifest.ts",
       "sourceLocation": {
-        "filePath": "src/features/appManifest/domain/isAppManifest.ts",
+        "filePath": "src/appManifest/isAppManifest.ts",
         "line": 19,
         "column": 1
       },
@@ -11436,9 +11430,9 @@
       "isReadme": false,
       "examples": [],
       "kind": "function",
-      "modulePath": "src/features/infra/domain/isInfraAdapterDescriptor.ts",
+      "modulePath": "src/infra/isInfraAdapterDescriptor.ts",
       "sourceLocation": {
-        "filePath": "src/features/infra/domain/isInfraAdapterDescriptor.ts",
+        "filePath": "src/infra/isInfraAdapterDescriptor.ts",
         "line": 7,
         "column": 1
       },
@@ -11468,9 +11462,9 @@
       "isReadme": false,
       "examples": [],
       "kind": "function",
-      "modulePath": "src/features/infra/domain/isInfraAuthSpec.ts",
+      "modulePath": "src/infra/isInfraAuthSpec.ts",
       "sourceLocation": {
-        "filePath": "src/features/infra/domain/isInfraAuthSpec.ts",
+        "filePath": "src/infra/isInfraAuthSpec.ts",
         "line": 22,
         "column": 1
       },
@@ -11500,9 +11494,9 @@
       "isReadme": false,
       "examples": [],
       "kind": "function",
-      "modulePath": "src/features/infra/domain/isInfraDeploymentSpec.ts",
+      "modulePath": "src/infra/isInfraDeploymentSpec.ts",
       "sourceLocation": {
-        "filePath": "src/features/infra/domain/isInfraDeploymentSpec.ts",
+        "filePath": "src/infra/isInfraDeploymentSpec.ts",
         "line": 14,
         "column": 1
       },
@@ -11532,9 +11526,9 @@
       "isReadme": false,
       "examples": [],
       "kind": "function",
-      "modulePath": "src/features/infra/domain/isInfraEnvironmentSpec.ts",
+      "modulePath": "src/infra/isInfraEnvironmentSpec.ts",
       "sourceLocation": {
-        "filePath": "src/features/infra/domain/isInfraEnvironmentSpec.ts",
+        "filePath": "src/infra/isInfraEnvironmentSpec.ts",
         "line": 13,
         "column": 1
       },
@@ -11564,9 +11558,9 @@
       "isReadme": false,
       "examples": [],
       "kind": "function",
-      "modulePath": "src/features/infra/domain/isInfraManifest.ts",
+      "modulePath": "src/infra/isInfraManifest.ts",
       "sourceLocation": {
-        "filePath": "src/features/infra/domain/isInfraManifest.ts",
+        "filePath": "src/infra/isInfraManifest.ts",
         "line": 11,
         "column": 1
       },
@@ -11596,9 +11590,9 @@
       "isReadme": false,
       "examples": [],
       "kind": "function",
-      "modulePath": "src/features/infra/domain/isInfraWorkloadSpec.ts",
+      "modulePath": "src/infra/isInfraWorkloadSpec.ts",
       "sourceLocation": {
-        "filePath": "src/features/infra/domain/isInfraWorkloadSpec.ts",
+        "filePath": "src/infra/isInfraWorkloadSpec.ts",
         "line": 10,
         "column": 1
       },
@@ -13995,9 +13989,9 @@
       "isReadme": false,
       "examples": [],
       "kind": "function",
-      "modulePath": "src/features/appManifest/domain/parseAppManifest.ts",
+      "modulePath": "src/appManifest/parseAppManifest.ts",
       "sourceLocation": {
-        "filePath": "src/features/appManifest/domain/parseAppManifest.ts",
+        "filePath": "src/appManifest/parseAppManifest.ts",
         "line": 11,
         "column": 1
       },
@@ -14027,9 +14021,9 @@
       "isReadme": false,
       "examples": [],
       "kind": "function",
-      "modulePath": "src/features/infra/domain/parseInfraManifest.ts",
+      "modulePath": "src/infra/parseInfraManifest.ts",
       "sourceLocation": {
-        "filePath": "src/features/infra/domain/parseInfraManifest.ts",
+        "filePath": "src/infra/parseInfraManifest.ts",
         "line": 6,
         "column": 1
       },
@@ -18718,9 +18712,9 @@
       "isReadme": false,
       "examples": [],
       "kind": "function",
-      "modulePath": "src/features/infra/domain/validateInfraAdapterSelection.ts",
+      "modulePath": "src/infra/validateInfraAdapterSelection.ts",
       "sourceLocation": {
-        "filePath": "src/features/infra/domain/validateInfraAdapterSelection.ts",
+        "filePath": "src/infra/validateInfraAdapterSelection.ts",
         "line": 8,
         "column": 1
       },
@@ -19319,6 +19313,78 @@
       }
     },
     {
+      "name": "isAppManifest",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/isAppManifest.ts",
+        "line": 19,
+        "column": 1
+      }
+    },
+    {
+      "name": "hasRequiredManifestKeys",
+      "description": "Validate the canonical application manifest field policy.",
+      "sourceLocation": {
+        "filePath": "src/appManifest/isAppManifest.ts",
+        "line": 35,
+        "column": 1
+      }
+    },
+    {
+      "name": "isActiveThemeMode",
+      "description": "Validate the canonical application manifest field policy.",
+      "sourceLocation": {
+        "filePath": "src/appManifest/isAppManifest.ts",
+        "line": 42,
+        "column": 1
+      }
+    },
+    {
+      "name": "isRepositoryManifest",
+      "description": "Validate the canonical application manifest field policy.",
+      "sourceLocation": {
+        "filePath": "src/appManifest/isAppManifest.ts",
+        "line": 47,
+        "column": 1
+      }
+    },
+    {
+      "name": "isAppSettings",
+      "description": "Validate the canonical application manifest field policy.",
+      "sourceLocation": {
+        "filePath": "src/appManifest/isAppManifest.ts",
+        "line": 62,
+        "column": 1
+      }
+    },
+    {
+      "name": "isPresentation",
+      "description": "Validate authored appearance as one cohesive manifest concern.",
+      "sourceLocation": {
+        "filePath": "src/appManifest/isAppManifest.ts",
+        "line": 73,
+        "column": 1
+      }
+    },
+    {
+      "name": "isOptionalCapabilities",
+      "description": "Validate independently optional application capability selections.",
+      "sourceLocation": {
+        "filePath": "src/appManifest/isAppManifest.ts",
+        "line": 85,
+        "column": 1
+      }
+    },
+    {
+      "name": "isAppStateSpec",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/isAppStateSpec.ts",
+        "line": 5,
+        "column": 1
+      }
+    },
+    {
       "name": "isMediaManifest",
       "description": null,
       "sourceLocation": {
@@ -19697,6 +19763,15 @@
       }
     },
     {
+      "name": "parseAppManifest",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/appManifest/parseAppManifest.ts",
+        "line": 11,
+        "column": 1
+      }
+    },
+    {
       "name": "isManifestMetadata",
       "description": null,
       "sourceLocation": {
@@ -19868,91 +19943,10 @@
       }
     },
     {
-      "name": "isAppManifest",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/features/appManifest/domain/isAppManifest.ts",
-        "line": 19,
-        "column": 1
-      }
-    },
-    {
-      "name": "hasRequiredManifestKeys",
-      "description": "Validate the canonical application manifest field policy.",
-      "sourceLocation": {
-        "filePath": "src/features/appManifest/domain/isAppManifest.ts",
-        "line": 35,
-        "column": 1
-      }
-    },
-    {
-      "name": "isActiveThemeMode",
-      "description": "Validate the canonical application manifest field policy.",
-      "sourceLocation": {
-        "filePath": "src/features/appManifest/domain/isAppManifest.ts",
-        "line": 42,
-        "column": 1
-      }
-    },
-    {
-      "name": "isRepositoryManifest",
-      "description": "Validate the canonical application manifest field policy.",
-      "sourceLocation": {
-        "filePath": "src/features/appManifest/domain/isAppManifest.ts",
-        "line": 47,
-        "column": 1
-      }
-    },
-    {
-      "name": "isAppSettings",
-      "description": "Validate the canonical application manifest field policy.",
-      "sourceLocation": {
-        "filePath": "src/features/appManifest/domain/isAppManifest.ts",
-        "line": 62,
-        "column": 1
-      }
-    },
-    {
-      "name": "isPresentation",
-      "description": "Validate authored appearance as one cohesive manifest concern.",
-      "sourceLocation": {
-        "filePath": "src/features/appManifest/domain/isAppManifest.ts",
-        "line": 73,
-        "column": 1
-      }
-    },
-    {
-      "name": "isOptionalCapabilities",
-      "description": "Validate independently optional application capability selections.",
-      "sourceLocation": {
-        "filePath": "src/features/appManifest/domain/isAppManifest.ts",
-        "line": 85,
-        "column": 1
-      }
-    },
-    {
-      "name": "parseAppManifest",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/features/appManifest/domain/parseAppManifest.ts",
-        "line": 11,
-        "column": 1
-      }
-    },
-    {
-      "name": "isAppStateSpec",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/features/appState/domain/isAppStateSpec.ts",
-        "line": 5,
-        "column": 1
-      }
-    },
-    {
       "name": "isInfraAdapterDescriptor",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/features/infra/domain/isInfraAdapterDescriptor.ts",
+        "filePath": "src/infra/isInfraAdapterDescriptor.ts",
         "line": 7,
         "column": 1
       }
@@ -19961,7 +19955,7 @@
       "name": "matchesCatalogList",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/features/infra/domain/isInfraAdapterDescriptor.ts",
+        "filePath": "src/infra/isInfraAdapterDescriptor.ts",
         "line": 30,
         "column": 1
       }
@@ -19970,7 +19964,7 @@
       "name": "isInfraAuthSpec",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/features/infra/domain/isInfraAuthSpec.ts",
+        "filePath": "src/infra/isInfraAuthSpec.ts",
         "line": 22,
         "column": 1
       }
@@ -19979,7 +19973,7 @@
       "name": "isAuthFlow",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/features/infra/domain/isInfraAuthSpec.ts",
+        "filePath": "src/infra/isInfraAuthSpec.ts",
         "line": 41,
         "column": 1
       }
@@ -19988,7 +19982,7 @@
       "name": "isAuthSignUp",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/features/infra/domain/isInfraAuthSpec.ts",
+        "filePath": "src/infra/isInfraAuthSpec.ts",
         "line": 54,
         "column": 1
       }
@@ -19997,7 +19991,7 @@
       "name": "isAuthOAuth",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/features/infra/domain/isInfraAuthSpec.ts",
+        "filePath": "src/infra/isInfraAuthSpec.ts",
         "line": 64,
         "column": 1
       }
@@ -20006,7 +20000,7 @@
       "name": "isAuthOAuthProvider",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/features/infra/domain/isInfraAuthSpec.ts",
+        "filePath": "src/infra/isInfraAuthSpec.ts",
         "line": 73,
         "column": 1
       }
@@ -20015,7 +20009,7 @@
       "name": "isAuthProfile",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/features/infra/domain/isInfraAuthSpec.ts",
+        "filePath": "src/infra/isInfraAuthSpec.ts",
         "line": 88,
         "column": 1
       }
@@ -20024,7 +20018,7 @@
       "name": "isInfraCredentialRef",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/features/infra/domain/isInfraCredentialRef.ts",
+        "filePath": "src/infra/isInfraCredentialRef.ts",
         "line": 5,
         "column": 1
       }
@@ -20033,7 +20027,7 @@
       "name": "isInfraDeploymentSpec",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/features/infra/domain/isInfraDeploymentSpec.ts",
+        "filePath": "src/infra/isInfraDeploymentSpec.ts",
         "line": 14,
         "column": 1
       }
@@ -20042,7 +20036,7 @@
       "name": "isCompute",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/features/infra/domain/isInfraDeploymentSpec.ts",
+        "filePath": "src/infra/isInfraDeploymentSpec.ts",
         "line": 26,
         "column": 1
       }
@@ -20051,7 +20045,7 @@
       "name": "isRuntime",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/features/infra/domain/isInfraDeploymentSpec.ts",
+        "filePath": "src/infra/isInfraDeploymentSpec.ts",
         "line": 43,
         "column": 1
       }
@@ -20060,7 +20054,7 @@
       "name": "isInfraEnvironmentSpec",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/features/infra/domain/isInfraEnvironmentSpec.ts",
+        "filePath": "src/infra/isInfraEnvironmentSpec.ts",
         "line": 13,
         "column": 1
       }
@@ -20069,7 +20063,7 @@
       "name": "isEnvironmentShape",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/features/infra/domain/isInfraEnvironmentSpec.ts",
+        "filePath": "src/infra/isInfraEnvironmentSpec.ts",
         "line": 18,
         "column": 1
       }
@@ -20078,7 +20072,7 @@
       "name": "isObjectStorage",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/features/infra/domain/isInfraEnvironmentSpec.ts",
+        "filePath": "src/infra/isInfraEnvironmentSpec.ts",
         "line": 48,
         "column": 1
       }
@@ -20087,7 +20081,7 @@
       "name": "isWorkloads",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/features/infra/domain/isInfraEnvironmentSpec.ts",
+        "filePath": "src/infra/isInfraEnvironmentSpec.ts",
         "line": 64,
         "column": 1
       }
@@ -20096,7 +20090,7 @@
       "name": "hasServiceDependencies",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/features/infra/domain/isInfraEnvironmentSpec.ts",
+        "filePath": "src/infra/isInfraEnvironmentSpec.ts",
         "line": 73,
         "column": 1
       }
@@ -20105,7 +20099,7 @@
       "name": "isInfraManifest",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/features/infra/domain/isInfraManifest.ts",
+        "filePath": "src/infra/isInfraManifest.ts",
         "line": 11,
         "column": 1
       }
@@ -20114,7 +20108,7 @@
       "name": "isEnvironments",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/features/infra/domain/isInfraManifest.ts",
+        "filePath": "src/infra/isInfraManifest.ts",
         "line": 21,
         "column": 1
       }
@@ -20123,7 +20117,7 @@
       "name": "isInfraShape",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/features/infra/domain/isInfraShape.ts",
+        "filePath": "src/infra/isInfraShape.ts",
         "line": 4,
         "column": 1
       }
@@ -20132,7 +20126,7 @@
       "name": "isInfraWorkloadHealth",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/features/infra/domain/isInfraWorkloadHealth.ts",
+        "filePath": "src/infra/isInfraWorkloadHealth.ts",
         "line": 6,
         "column": 1
       }
@@ -20141,7 +20135,7 @@
       "name": "isInfraWorkloadSpec",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/features/infra/domain/isInfraWorkloadSpec.ts",
+        "filePath": "src/infra/isInfraWorkloadSpec.ts",
         "line": 10,
         "column": 1
       }
@@ -20150,7 +20144,7 @@
       "name": "isPort",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/features/infra/domain/isInfraWorkloadSpec.ts",
+        "filePath": "src/infra/isInfraWorkloadSpec.ts",
         "line": 48,
         "column": 1
       }
@@ -20159,7 +20153,7 @@
       "name": "isFile",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/features/infra/domain/isInfraWorkloadSpec.ts",
+        "filePath": "src/infra/isInfraWorkloadSpec.ts",
         "line": 57,
         "column": 1
       }
@@ -20168,7 +20162,7 @@
       "name": "isVolume",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/features/infra/domain/isInfraWorkloadSpec.ts",
+        "filePath": "src/infra/isInfraWorkloadSpec.ts",
         "line": 62,
         "column": 1
       }
@@ -20177,7 +20171,7 @@
       "name": "isAbsoluteWorkloadPath",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/features/infra/domain/isInfraWorkloadSpec.ts",
+        "filePath": "src/infra/isInfraWorkloadSpec.ts",
         "line": 72,
         "column": 1
       }
@@ -20186,7 +20180,7 @@
       "name": "hasUniqueField",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/features/infra/domain/isInfraWorkloadSpec.ts",
+        "filePath": "src/infra/isInfraWorkloadSpec.ts",
         "line": 82,
         "column": 1
       }
@@ -20195,7 +20189,7 @@
       "name": "isInfraWorkloadValue",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/features/infra/domain/isInfraWorkloadValue.ts",
+        "filePath": "src/infra/isInfraWorkloadValue.ts",
         "line": 7,
         "column": 1
       }
@@ -20204,7 +20198,7 @@
       "name": "isSecretReference",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/features/infra/domain/isInfraWorkloadValue.ts",
+        "filePath": "src/infra/isInfraWorkloadValue.ts",
         "line": 32,
         "column": 1
       }
@@ -20213,7 +20207,7 @@
       "name": "parseInfraManifest",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/features/infra/domain/parseInfraManifest.ts",
+        "filePath": "src/infra/parseInfraManifest.ts",
         "line": 6,
         "column": 1
       }
@@ -20222,7 +20216,7 @@
       "name": "validateInfraAdapterSelection",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/features/infra/domain/validateInfraAdapterSelection.ts",
+        "filePath": "src/infra/validateInfraAdapterSelection.ts",
         "line": 8,
         "column": 1
       }
@@ -20293,7 +20287,7 @@
     {
       "kind": "export",
       "name": "isAppManifest",
-      "sourcePath": "src/features/appManifest/domain/isAppManifest.ts",
+      "sourcePath": "src/appManifest/isAppManifest.ts",
       "symbolName": "isAppManifest",
       "description": null,
       "isReadme": false
@@ -20309,7 +20303,7 @@
     {
       "kind": "export",
       "name": "isInfraAdapterDescriptor",
-      "sourcePath": "src/features/infra/domain/isInfraAdapterDescriptor.ts",
+      "sourcePath": "src/infra/isInfraAdapterDescriptor.ts",
       "symbolName": "isInfraAdapterDescriptor",
       "description": null,
       "isReadme": false
@@ -20317,7 +20311,7 @@
     {
       "kind": "export",
       "name": "isInfraAuthSpec",
-      "sourcePath": "src/features/infra/domain/isInfraAuthSpec.ts",
+      "sourcePath": "src/infra/isInfraAuthSpec.ts",
       "symbolName": "isInfraAuthSpec",
       "description": null,
       "isReadme": false
@@ -20325,7 +20319,7 @@
     {
       "kind": "export",
       "name": "isInfraDeploymentSpec",
-      "sourcePath": "src/features/infra/domain/isInfraDeploymentSpec.ts",
+      "sourcePath": "src/infra/isInfraDeploymentSpec.ts",
       "symbolName": "isInfraDeploymentSpec",
       "description": null,
       "isReadme": false
@@ -20333,7 +20327,7 @@
     {
       "kind": "export",
       "name": "isInfraEnvironmentSpec",
-      "sourcePath": "src/features/infra/domain/isInfraEnvironmentSpec.ts",
+      "sourcePath": "src/infra/isInfraEnvironmentSpec.ts",
       "symbolName": "isInfraEnvironmentSpec",
       "description": null,
       "isReadme": false
@@ -20341,7 +20335,7 @@
     {
       "kind": "export",
       "name": "isInfraManifest",
-      "sourcePath": "src/features/infra/domain/isInfraManifest.ts",
+      "sourcePath": "src/infra/isInfraManifest.ts",
       "symbolName": "isInfraManifest",
       "description": null,
       "isReadme": false
@@ -20349,7 +20343,7 @@
     {
       "kind": "export",
       "name": "isInfraWorkloadSpec",
-      "sourcePath": "src/features/infra/domain/isInfraWorkloadSpec.ts",
+      "sourcePath": "src/infra/isInfraWorkloadSpec.ts",
       "symbolName": "isInfraWorkloadSpec",
       "description": null,
       "isReadme": false
@@ -20381,7 +20375,7 @@
     {
       "kind": "export",
       "name": "parseAppManifest",
-      "sourcePath": "src/features/appManifest/domain/parseAppManifest.ts",
+      "sourcePath": "src/appManifest/parseAppManifest.ts",
       "symbolName": "parseAppManifest",
       "description": null,
       "isReadme": false
@@ -20389,7 +20383,7 @@
     {
       "kind": "export",
       "name": "parseInfraManifest",
-      "sourcePath": "src/features/infra/domain/parseInfraManifest.ts",
+      "sourcePath": "src/infra/parseInfraManifest.ts",
       "symbolName": "parseInfraManifest",
       "description": null,
       "isReadme": false
@@ -20405,7 +20399,7 @@
     {
       "kind": "export",
       "name": "validateInfraAdapterSelection",
-      "sourcePath": "src/features/infra/domain/validateInfraAdapterSelection.ts",
+      "sourcePath": "src/infra/validateInfraAdapterSelection.ts",
       "symbolName": "validateInfraAdapterSelection",
       "description": null,
       "isReadme": false
@@ -20423,17 +20417,17 @@
     "imports": [
       {
         "fromPath": "src/appManifest.ts",
+        "toPath": "src/appManifest/isAppManifest.ts",
+        "sourcePath": "src/appManifest.ts"
+      },
+      {
+        "fromPath": "src/appManifest.ts",
+        "toPath": "src/appManifest/parseAppManifest.ts",
+        "sourcePath": "src/appManifest.ts"
+      },
+      {
+        "fromPath": "src/appManifest.ts",
         "toPath": "src/appManifest/splashScreen.ts",
-        "sourcePath": "src/appManifest.ts"
-      },
-      {
-        "fromPath": "src/appManifest.ts",
-        "toPath": "src/features/appManifest/domain/isAppManifest.ts",
-        "sourcePath": "src/appManifest.ts"
-      },
-      {
-        "fromPath": "src/appManifest.ts",
-        "toPath": "src/features/appManifest/domain/parseAppManifest.ts",
         "sourcePath": "src/appManifest.ts"
       },
       {
@@ -20573,47 +20567,47 @@
       },
       {
         "fromPath": "src/infra.ts",
-        "toPath": "src/features/infra/domain/constants.ts",
+        "toPath": "src/infra/constants.ts",
         "sourcePath": "src/infra.ts"
       },
       {
         "fromPath": "src/infra.ts",
-        "toPath": "src/features/infra/domain/isInfraAdapterDescriptor.ts",
+        "toPath": "src/infra/isInfraAdapterDescriptor.ts",
         "sourcePath": "src/infra.ts"
       },
       {
         "fromPath": "src/infra.ts",
-        "toPath": "src/features/infra/domain/isInfraAuthSpec.ts",
+        "toPath": "src/infra/isInfraAuthSpec.ts",
         "sourcePath": "src/infra.ts"
       },
       {
         "fromPath": "src/infra.ts",
-        "toPath": "src/features/infra/domain/isInfraDeploymentSpec.ts",
+        "toPath": "src/infra/isInfraDeploymentSpec.ts",
         "sourcePath": "src/infra.ts"
       },
       {
         "fromPath": "src/infra.ts",
-        "toPath": "src/features/infra/domain/isInfraEnvironmentSpec.ts",
+        "toPath": "src/infra/isInfraEnvironmentSpec.ts",
         "sourcePath": "src/infra.ts"
       },
       {
         "fromPath": "src/infra.ts",
-        "toPath": "src/features/infra/domain/isInfraManifest.ts",
+        "toPath": "src/infra/isInfraManifest.ts",
         "sourcePath": "src/infra.ts"
       },
       {
         "fromPath": "src/infra.ts",
-        "toPath": "src/features/infra/domain/isInfraWorkloadSpec.ts",
+        "toPath": "src/infra/isInfraWorkloadSpec.ts",
         "sourcePath": "src/infra.ts"
       },
       {
         "fromPath": "src/infra.ts",
-        "toPath": "src/features/infra/domain/parseInfraManifest.ts",
+        "toPath": "src/infra/parseInfraManifest.ts",
         "sourcePath": "src/infra.ts"
       },
       {
         "fromPath": "src/infra.ts",
-        "toPath": "src/features/infra/domain/validateInfraAdapterSelection.ts",
+        "toPath": "src/infra/validateInfraAdapterSelection.ts",
         "sourcePath": "src/infra.ts"
       },
       {
@@ -20767,6 +20761,11 @@
         "sourcePath": "src/appManifest/bindings.ts"
       },
       {
+        "fromPath": "src/appManifest/constants.ts",
+        "toPath": "src/types.ts",
+        "sourcePath": "src/appManifest/constants.ts"
+      },
+      {
         "fromPath": "src/appManifest/data.ts",
         "toPath": "src/appManifest/shared.ts",
         "sourcePath": "src/appManifest/data.ts"
@@ -20800,6 +20799,66 @@
         "fromPath": "src/appManifest/icon.ts",
         "toPath": "src/appManifest/shared.ts",
         "sourcePath": "src/appManifest/icon.ts"
+      },
+      {
+        "fromPath": "src/appManifest/isAppManifest.ts",
+        "toPath": "src/infra/isInfraManifest.ts",
+        "sourcePath": "src/appManifest/isAppManifest.ts"
+      },
+      {
+        "fromPath": "src/appManifest/isAppManifest.ts",
+        "toPath": "src/types.ts",
+        "sourcePath": "src/appManifest/isAppManifest.ts"
+      },
+      {
+        "fromPath": "src/appManifest/isAppManifest.ts",
+        "toPath": "src/appManifest/bindings.ts",
+        "sourcePath": "src/appManifest/isAppManifest.ts"
+      },
+      {
+        "fromPath": "src/appManifest/isAppManifest.ts",
+        "toPath": "src/appManifest/constants.ts",
+        "sourcePath": "src/appManifest/isAppManifest.ts"
+      },
+      {
+        "fromPath": "src/appManifest/isAppManifest.ts",
+        "toPath": "src/appManifest/dataSources.ts",
+        "sourcePath": "src/appManifest/isAppManifest.ts"
+      },
+      {
+        "fromPath": "src/appManifest/isAppManifest.ts",
+        "toPath": "src/appManifest/deploy.ts",
+        "sourcePath": "src/appManifest/isAppManifest.ts"
+      },
+      {
+        "fromPath": "src/appManifest/isAppManifest.ts",
+        "toPath": "src/appManifest/isAppStateSpec.ts",
+        "sourcePath": "src/appManifest/isAppManifest.ts"
+      },
+      {
+        "fromPath": "src/appManifest/isAppManifest.ts",
+        "toPath": "src/appManifest/media.ts",
+        "sourcePath": "src/appManifest/isAppManifest.ts"
+      },
+      {
+        "fromPath": "src/appManifest/isAppManifest.ts",
+        "toPath": "src/appManifest/screens.ts",
+        "sourcePath": "src/appManifest/isAppManifest.ts"
+      },
+      {
+        "fromPath": "src/appManifest/isAppManifest.ts",
+        "toPath": "src/appManifest/shared.ts",
+        "sourcePath": "src/appManifest/isAppManifest.ts"
+      },
+      {
+        "fromPath": "src/appManifest/isAppStateSpec.ts",
+        "toPath": "src/state.ts",
+        "sourcePath": "src/appManifest/isAppStateSpec.ts"
+      },
+      {
+        "fromPath": "src/appManifest/isAppStateSpec.ts",
+        "toPath": "src/appManifest/shared.ts",
+        "sourcePath": "src/appManifest/isAppStateSpec.ts"
       },
       {
         "fromPath": "src/appManifest/media.ts",
@@ -20840,6 +20899,16 @@
         "fromPath": "src/appManifest/navigatorOptions.ts",
         "toPath": "src/appManifest/shared.ts",
         "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
+        "fromPath": "src/appManifest/parseAppManifest.ts",
+        "toPath": "src/types/appManifest.ts",
+        "sourcePath": "src/appManifest/parseAppManifest.ts"
+      },
+      {
+        "fromPath": "src/appManifest/parseAppManifest.ts",
+        "toPath": "src/appManifest/isAppManifest.ts",
+        "sourcePath": "src/appManifest/parseAppManifest.ts"
       },
       {
         "fromPath": "src/appManifest/screens.ts",
@@ -21032,6 +21101,316 @@
         "sourcePath": "src/data/sources.ts"
       },
       {
+        "fromPath": "src/infra/infraFields.ts",
+        "toPath": "src/appManifest/shared.ts",
+        "sourcePath": "src/infra/infraFields.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraAdapterDescriptor.ts",
+        "toPath": "src/appManifest/shared.ts",
+        "sourcePath": "src/infra/isInfraAdapterDescriptor.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraAdapterDescriptor.ts",
+        "toPath": "src/types/infraAdapters.ts",
+        "sourcePath": "src/infra/isInfraAdapterDescriptor.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraAdapterDescriptor.ts",
+        "toPath": "src/infra/constants.ts",
+        "sourcePath": "src/infra/isInfraAdapterDescriptor.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraAdapterDescriptor.ts",
+        "toPath": "src/infra/isInfraShape.ts",
+        "sourcePath": "src/infra/isInfraAdapterDescriptor.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraAuthSpec.ts",
+        "toPath": "src/appManifest/icon.ts",
+        "sourcePath": "src/infra/isInfraAuthSpec.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraAuthSpec.ts",
+        "toPath": "src/appManifest/shared.ts",
+        "sourcePath": "src/infra/isInfraAuthSpec.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraAuthSpec.ts",
+        "toPath": "src/auth.ts",
+        "sourcePath": "src/infra/isInfraAuthSpec.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraAuthSpec.ts",
+        "toPath": "src/types.ts",
+        "sourcePath": "src/infra/isInfraAuthSpec.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraAuthSpec.ts",
+        "toPath": "src/types/infraManifest.ts",
+        "sourcePath": "src/infra/isInfraAuthSpec.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraAuthSpec.ts",
+        "toPath": "src/types/infraValidation.ts",
+        "sourcePath": "src/infra/isInfraAuthSpec.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraAuthSpec.ts",
+        "toPath": "src/infra/isInfraShape.ts",
+        "sourcePath": "src/infra/isInfraAuthSpec.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraCredentialRef.ts",
+        "toPath": "src/infra/infraFields.ts",
+        "sourcePath": "src/infra/isInfraCredentialRef.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraCredentialRef.ts",
+        "toPath": "src/infra/isInfraShape.ts",
+        "sourcePath": "src/infra/isInfraCredentialRef.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraDeploymentSpec.ts",
+        "toPath": "src/appManifest/shared.ts",
+        "sourcePath": "src/infra/isInfraDeploymentSpec.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraDeploymentSpec.ts",
+        "toPath": "src/types/infraManifest.ts",
+        "sourcePath": "src/infra/isInfraDeploymentSpec.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraDeploymentSpec.ts",
+        "toPath": "src/types/infraValidation.ts",
+        "sourcePath": "src/infra/isInfraDeploymentSpec.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraDeploymentSpec.ts",
+        "toPath": "src/infra/constants.ts",
+        "sourcePath": "src/infra/isInfraDeploymentSpec.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraDeploymentSpec.ts",
+        "toPath": "src/infra/infraFields.ts",
+        "sourcePath": "src/infra/isInfraDeploymentSpec.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraDeploymentSpec.ts",
+        "toPath": "src/infra/isInfraCredentialRef.ts",
+        "sourcePath": "src/infra/isInfraDeploymentSpec.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraDeploymentSpec.ts",
+        "toPath": "src/infra/isInfraShape.ts",
+        "sourcePath": "src/infra/isInfraDeploymentSpec.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraEnvironmentSpec.ts",
+        "toPath": "src/appManifest/shared.ts",
+        "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraEnvironmentSpec.ts",
+        "toPath": "src/types/infraManifest.ts",
+        "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraEnvironmentSpec.ts",
+        "toPath": "src/types/infraValidation.ts",
+        "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraEnvironmentSpec.ts",
+        "toPath": "src/infra/constants.ts",
+        "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraEnvironmentSpec.ts",
+        "toPath": "src/infra/infraFields.ts",
+        "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraEnvironmentSpec.ts",
+        "toPath": "src/infra/isInfraAuthSpec.ts",
+        "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraEnvironmentSpec.ts",
+        "toPath": "src/infra/isInfraCredentialRef.ts",
+        "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraEnvironmentSpec.ts",
+        "toPath": "src/infra/isInfraDeploymentSpec.ts",
+        "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraEnvironmentSpec.ts",
+        "toPath": "src/infra/isInfraShape.ts",
+        "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraEnvironmentSpec.ts",
+        "toPath": "src/infra/isInfraWorkloadSpec.ts",
+        "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraManifest.ts",
+        "toPath": "src/appManifest/apis.ts",
+        "sourcePath": "src/infra/isInfraManifest.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraManifest.ts",
+        "toPath": "src/appManifest/shared.ts",
+        "sourcePath": "src/infra/isInfraManifest.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraManifest.ts",
+        "toPath": "src/environments.ts",
+        "sourcePath": "src/infra/isInfraManifest.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraManifest.ts",
+        "toPath": "src/types/infraManifest.ts",
+        "sourcePath": "src/infra/isInfraManifest.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraManifest.ts",
+        "toPath": "src/types/infraValidation.ts",
+        "sourcePath": "src/infra/isInfraManifest.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraManifest.ts",
+        "toPath": "src/infra/infraFields.ts",
+        "sourcePath": "src/infra/isInfraManifest.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraManifest.ts",
+        "toPath": "src/infra/isInfraEnvironmentSpec.ts",
+        "sourcePath": "src/infra/isInfraManifest.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraManifest.ts",
+        "toPath": "src/infra/isInfraShape.ts",
+        "sourcePath": "src/infra/isInfraManifest.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraShape.ts",
+        "toPath": "src/appManifest/shared.ts",
+        "sourcePath": "src/infra/isInfraShape.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraWorkloadHealth.ts",
+        "toPath": "src/appManifest/shared.ts",
+        "sourcePath": "src/infra/isInfraWorkloadHealth.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraWorkloadHealth.ts",
+        "toPath": "src/infra/infraFields.ts",
+        "sourcePath": "src/infra/isInfraWorkloadHealth.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraWorkloadHealth.ts",
+        "toPath": "src/infra/isInfraShape.ts",
+        "sourcePath": "src/infra/isInfraWorkloadHealth.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraWorkloadSpec.ts",
+        "toPath": "src/appManifest/shared.ts",
+        "sourcePath": "src/infra/isInfraWorkloadSpec.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraWorkloadSpec.ts",
+        "toPath": "src/types/infraValidation.ts",
+        "sourcePath": "src/infra/isInfraWorkloadSpec.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraWorkloadSpec.ts",
+        "toPath": "src/types/infraWorkload.ts",
+        "sourcePath": "src/infra/isInfraWorkloadSpec.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraWorkloadSpec.ts",
+        "toPath": "src/infra/infraFields.ts",
+        "sourcePath": "src/infra/isInfraWorkloadSpec.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraWorkloadSpec.ts",
+        "toPath": "src/infra/isInfraShape.ts",
+        "sourcePath": "src/infra/isInfraWorkloadSpec.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraWorkloadSpec.ts",
+        "toPath": "src/infra/isInfraWorkloadHealth.ts",
+        "sourcePath": "src/infra/isInfraWorkloadSpec.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraWorkloadSpec.ts",
+        "toPath": "src/infra/isInfraWorkloadValue.ts",
+        "sourcePath": "src/infra/isInfraWorkloadSpec.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraWorkloadValue.ts",
+        "toPath": "src/appManifest/shared.ts",
+        "sourcePath": "src/infra/isInfraWorkloadValue.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraWorkloadValue.ts",
+        "toPath": "src/environments.ts",
+        "sourcePath": "src/infra/isInfraWorkloadValue.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraWorkloadValue.ts",
+        "toPath": "src/infra/infraFields.ts",
+        "sourcePath": "src/infra/isInfraWorkloadValue.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraWorkloadValue.ts",
+        "toPath": "src/infra/isInfraShape.ts",
+        "sourcePath": "src/infra/isInfraWorkloadValue.ts"
+      },
+      {
+        "fromPath": "src/infra/parseInfraManifest.ts",
+        "toPath": "src/types/infraLifecycle.ts",
+        "sourcePath": "src/infra/parseInfraManifest.ts"
+      },
+      {
+        "fromPath": "src/infra/parseInfraManifest.ts",
+        "toPath": "src/types/infraManifest.ts",
+        "sourcePath": "src/infra/parseInfraManifest.ts"
+      },
+      {
+        "fromPath": "src/infra/parseInfraManifest.ts",
+        "toPath": "src/infra/isInfraManifest.ts",
+        "sourcePath": "src/infra/parseInfraManifest.ts"
+      },
+      {
+        "fromPath": "src/infra/validateInfraAdapterSelection.ts",
+        "toPath": "src/types/infraAdapters.ts",
+        "sourcePath": "src/infra/validateInfraAdapterSelection.ts"
+      },
+      {
+        "fromPath": "src/infra/validateInfraAdapterSelection.ts",
+        "toPath": "src/types/infraLifecycle.ts",
+        "sourcePath": "src/infra/validateInfraAdapterSelection.ts"
+      },
+      {
+        "fromPath": "src/infra/validateInfraAdapterSelection.ts",
+        "toPath": "src/types/infraManifest.ts",
+        "sourcePath": "src/infra/validateInfraAdapterSelection.ts"
+      },
+      {
+        "fromPath": "src/infra/validateInfraAdapterSelection.ts",
+        "toPath": "src/infra/constants.ts",
+        "sourcePath": "src/infra/validateInfraAdapterSelection.ts"
+      },
+      {
+        "fromPath": "src/infra/validateInfraAdapterSelection.ts",
+        "toPath": "src/infra/isInfraAdapterDescriptor.ts",
+        "sourcePath": "src/infra/validateInfraAdapterSelection.ts"
+      },
+      {
         "fromPath": "src/navigator/catalog.ts",
         "toPath": "src/navigator.ts",
         "sourcePath": "src/navigator/catalog.ts"
@@ -21088,7 +21467,7 @@
       },
       {
         "fromPath": "src/types/infraAdapters.ts",
-        "toPath": "src/features/infra/domain/constants.ts",
+        "toPath": "src/infra/constants.ts",
         "sourcePath": "src/types/infraAdapters.ts"
       },
       {
@@ -21143,7 +21522,7 @@
       },
       {
         "fromPath": "src/types/infraManifest.ts",
-        "toPath": "src/features/infra/domain/constants.ts",
+        "toPath": "src/infra/constants.ts",
         "sourcePath": "src/types/infraManifest.ts"
       },
       {
@@ -21170,391 +21549,6 @@
         "fromPath": "src/types/infraWorkload.ts",
         "toPath": "src/types/infraSecrets.ts",
         "sourcePath": "src/types/infraWorkload.ts"
-      },
-      {
-        "fromPath": "src/features/appManifest/domain/constants.ts",
-        "toPath": "src/types.ts",
-        "sourcePath": "src/features/appManifest/domain/constants.ts"
-      },
-      {
-        "fromPath": "src/features/appManifest/domain/isAppManifest.ts",
-        "toPath": "src/appManifest/bindings.ts",
-        "sourcePath": "src/features/appManifest/domain/isAppManifest.ts"
-      },
-      {
-        "fromPath": "src/features/appManifest/domain/isAppManifest.ts",
-        "toPath": "src/appManifest/dataSources.ts",
-        "sourcePath": "src/features/appManifest/domain/isAppManifest.ts"
-      },
-      {
-        "fromPath": "src/features/appManifest/domain/isAppManifest.ts",
-        "toPath": "src/appManifest/deploy.ts",
-        "sourcePath": "src/features/appManifest/domain/isAppManifest.ts"
-      },
-      {
-        "fromPath": "src/features/appManifest/domain/isAppManifest.ts",
-        "toPath": "src/appManifest/media.ts",
-        "sourcePath": "src/features/appManifest/domain/isAppManifest.ts"
-      },
-      {
-        "fromPath": "src/features/appManifest/domain/isAppManifest.ts",
-        "toPath": "src/appManifest/screens.ts",
-        "sourcePath": "src/features/appManifest/domain/isAppManifest.ts"
-      },
-      {
-        "fromPath": "src/features/appManifest/domain/isAppManifest.ts",
-        "toPath": "src/appManifest/shared.ts",
-        "sourcePath": "src/features/appManifest/domain/isAppManifest.ts"
-      },
-      {
-        "fromPath": "src/features/appManifest/domain/isAppManifest.ts",
-        "toPath": "src/features/appState/domain/isAppStateSpec.ts",
-        "sourcePath": "src/features/appManifest/domain/isAppManifest.ts"
-      },
-      {
-        "fromPath": "src/features/appManifest/domain/isAppManifest.ts",
-        "toPath": "src/features/infra/domain/isInfraManifest.ts",
-        "sourcePath": "src/features/appManifest/domain/isAppManifest.ts"
-      },
-      {
-        "fromPath": "src/features/appManifest/domain/isAppManifest.ts",
-        "toPath": "src/types.ts",
-        "sourcePath": "src/features/appManifest/domain/isAppManifest.ts"
-      },
-      {
-        "fromPath": "src/features/appManifest/domain/isAppManifest.ts",
-        "toPath": "src/features/appManifest/domain/constants.ts",
-        "sourcePath": "src/features/appManifest/domain/isAppManifest.ts"
-      },
-      {
-        "fromPath": "src/features/appManifest/domain/parseAppManifest.ts",
-        "toPath": "src/types/appManifest.ts",
-        "sourcePath": "src/features/appManifest/domain/parseAppManifest.ts"
-      },
-      {
-        "fromPath": "src/features/appManifest/domain/parseAppManifest.ts",
-        "toPath": "src/features/appManifest/domain/isAppManifest.ts",
-        "sourcePath": "src/features/appManifest/domain/parseAppManifest.ts"
-      },
-      {
-        "fromPath": "src/features/appState/domain/isAppStateSpec.ts",
-        "toPath": "src/appManifest/shared.ts",
-        "sourcePath": "src/features/appState/domain/isAppStateSpec.ts"
-      },
-      {
-        "fromPath": "src/features/appState/domain/isAppStateSpec.ts",
-        "toPath": "src/state.ts",
-        "sourcePath": "src/features/appState/domain/isAppStateSpec.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/infraFields.ts",
-        "toPath": "src/appManifest/shared.ts",
-        "sourcePath": "src/features/infra/domain/infraFields.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraAdapterDescriptor.ts",
-        "toPath": "src/appManifest/shared.ts",
-        "sourcePath": "src/features/infra/domain/isInfraAdapterDescriptor.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraAdapterDescriptor.ts",
-        "toPath": "src/types/infraAdapters.ts",
-        "sourcePath": "src/features/infra/domain/isInfraAdapterDescriptor.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraAdapterDescriptor.ts",
-        "toPath": "src/features/infra/domain/constants.ts",
-        "sourcePath": "src/features/infra/domain/isInfraAdapterDescriptor.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraAdapterDescriptor.ts",
-        "toPath": "src/features/infra/domain/isInfraShape.ts",
-        "sourcePath": "src/features/infra/domain/isInfraAdapterDescriptor.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraAuthSpec.ts",
-        "toPath": "src/appManifest/icon.ts",
-        "sourcePath": "src/features/infra/domain/isInfraAuthSpec.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraAuthSpec.ts",
-        "toPath": "src/appManifest/shared.ts",
-        "sourcePath": "src/features/infra/domain/isInfraAuthSpec.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraAuthSpec.ts",
-        "toPath": "src/auth.ts",
-        "sourcePath": "src/features/infra/domain/isInfraAuthSpec.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraAuthSpec.ts",
-        "toPath": "src/types.ts",
-        "sourcePath": "src/features/infra/domain/isInfraAuthSpec.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraAuthSpec.ts",
-        "toPath": "src/types/infraManifest.ts",
-        "sourcePath": "src/features/infra/domain/isInfraAuthSpec.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraAuthSpec.ts",
-        "toPath": "src/types/infraValidation.ts",
-        "sourcePath": "src/features/infra/domain/isInfraAuthSpec.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraAuthSpec.ts",
-        "toPath": "src/features/infra/domain/isInfraShape.ts",
-        "sourcePath": "src/features/infra/domain/isInfraAuthSpec.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraCredentialRef.ts",
-        "toPath": "src/features/infra/domain/infraFields.ts",
-        "sourcePath": "src/features/infra/domain/isInfraCredentialRef.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraCredentialRef.ts",
-        "toPath": "src/features/infra/domain/isInfraShape.ts",
-        "sourcePath": "src/features/infra/domain/isInfraCredentialRef.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraDeploymentSpec.ts",
-        "toPath": "src/appManifest/shared.ts",
-        "sourcePath": "src/features/infra/domain/isInfraDeploymentSpec.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraDeploymentSpec.ts",
-        "toPath": "src/types/infraManifest.ts",
-        "sourcePath": "src/features/infra/domain/isInfraDeploymentSpec.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraDeploymentSpec.ts",
-        "toPath": "src/types/infraValidation.ts",
-        "sourcePath": "src/features/infra/domain/isInfraDeploymentSpec.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraDeploymentSpec.ts",
-        "toPath": "src/features/infra/domain/constants.ts",
-        "sourcePath": "src/features/infra/domain/isInfraDeploymentSpec.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraDeploymentSpec.ts",
-        "toPath": "src/features/infra/domain/infraFields.ts",
-        "sourcePath": "src/features/infra/domain/isInfraDeploymentSpec.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraDeploymentSpec.ts",
-        "toPath": "src/features/infra/domain/isInfraCredentialRef.ts",
-        "sourcePath": "src/features/infra/domain/isInfraDeploymentSpec.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraDeploymentSpec.ts",
-        "toPath": "src/features/infra/domain/isInfraShape.ts",
-        "sourcePath": "src/features/infra/domain/isInfraDeploymentSpec.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraEnvironmentSpec.ts",
-        "toPath": "src/appManifest/shared.ts",
-        "sourcePath": "src/features/infra/domain/isInfraEnvironmentSpec.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraEnvironmentSpec.ts",
-        "toPath": "src/types/infraManifest.ts",
-        "sourcePath": "src/features/infra/domain/isInfraEnvironmentSpec.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraEnvironmentSpec.ts",
-        "toPath": "src/types/infraValidation.ts",
-        "sourcePath": "src/features/infra/domain/isInfraEnvironmentSpec.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraEnvironmentSpec.ts",
-        "toPath": "src/features/infra/domain/constants.ts",
-        "sourcePath": "src/features/infra/domain/isInfraEnvironmentSpec.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraEnvironmentSpec.ts",
-        "toPath": "src/features/infra/domain/infraFields.ts",
-        "sourcePath": "src/features/infra/domain/isInfraEnvironmentSpec.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraEnvironmentSpec.ts",
-        "toPath": "src/features/infra/domain/isInfraAuthSpec.ts",
-        "sourcePath": "src/features/infra/domain/isInfraEnvironmentSpec.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraEnvironmentSpec.ts",
-        "toPath": "src/features/infra/domain/isInfraCredentialRef.ts",
-        "sourcePath": "src/features/infra/domain/isInfraEnvironmentSpec.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraEnvironmentSpec.ts",
-        "toPath": "src/features/infra/domain/isInfraDeploymentSpec.ts",
-        "sourcePath": "src/features/infra/domain/isInfraEnvironmentSpec.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraEnvironmentSpec.ts",
-        "toPath": "src/features/infra/domain/isInfraShape.ts",
-        "sourcePath": "src/features/infra/domain/isInfraEnvironmentSpec.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraEnvironmentSpec.ts",
-        "toPath": "src/features/infra/domain/isInfraWorkloadSpec.ts",
-        "sourcePath": "src/features/infra/domain/isInfraEnvironmentSpec.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraManifest.ts",
-        "toPath": "src/appManifest/apis.ts",
-        "sourcePath": "src/features/infra/domain/isInfraManifest.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraManifest.ts",
-        "toPath": "src/appManifest/shared.ts",
-        "sourcePath": "src/features/infra/domain/isInfraManifest.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraManifest.ts",
-        "toPath": "src/environments.ts",
-        "sourcePath": "src/features/infra/domain/isInfraManifest.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraManifest.ts",
-        "toPath": "src/types/infraManifest.ts",
-        "sourcePath": "src/features/infra/domain/isInfraManifest.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraManifest.ts",
-        "toPath": "src/types/infraValidation.ts",
-        "sourcePath": "src/features/infra/domain/isInfraManifest.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraManifest.ts",
-        "toPath": "src/features/infra/domain/infraFields.ts",
-        "sourcePath": "src/features/infra/domain/isInfraManifest.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraManifest.ts",
-        "toPath": "src/features/infra/domain/isInfraEnvironmentSpec.ts",
-        "sourcePath": "src/features/infra/domain/isInfraManifest.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraManifest.ts",
-        "toPath": "src/features/infra/domain/isInfraShape.ts",
-        "sourcePath": "src/features/infra/domain/isInfraManifest.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraShape.ts",
-        "toPath": "src/appManifest/shared.ts",
-        "sourcePath": "src/features/infra/domain/isInfraShape.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraWorkloadHealth.ts",
-        "toPath": "src/appManifest/shared.ts",
-        "sourcePath": "src/features/infra/domain/isInfraWorkloadHealth.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraWorkloadHealth.ts",
-        "toPath": "src/features/infra/domain/infraFields.ts",
-        "sourcePath": "src/features/infra/domain/isInfraWorkloadHealth.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraWorkloadHealth.ts",
-        "toPath": "src/features/infra/domain/isInfraShape.ts",
-        "sourcePath": "src/features/infra/domain/isInfraWorkloadHealth.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraWorkloadSpec.ts",
-        "toPath": "src/appManifest/shared.ts",
-        "sourcePath": "src/features/infra/domain/isInfraWorkloadSpec.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraWorkloadSpec.ts",
-        "toPath": "src/types/infraValidation.ts",
-        "sourcePath": "src/features/infra/domain/isInfraWorkloadSpec.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraWorkloadSpec.ts",
-        "toPath": "src/types/infraWorkload.ts",
-        "sourcePath": "src/features/infra/domain/isInfraWorkloadSpec.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraWorkloadSpec.ts",
-        "toPath": "src/features/infra/domain/infraFields.ts",
-        "sourcePath": "src/features/infra/domain/isInfraWorkloadSpec.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraWorkloadSpec.ts",
-        "toPath": "src/features/infra/domain/isInfraShape.ts",
-        "sourcePath": "src/features/infra/domain/isInfraWorkloadSpec.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraWorkloadSpec.ts",
-        "toPath": "src/features/infra/domain/isInfraWorkloadHealth.ts",
-        "sourcePath": "src/features/infra/domain/isInfraWorkloadSpec.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraWorkloadSpec.ts",
-        "toPath": "src/features/infra/domain/isInfraWorkloadValue.ts",
-        "sourcePath": "src/features/infra/domain/isInfraWorkloadSpec.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraWorkloadValue.ts",
-        "toPath": "src/appManifest/shared.ts",
-        "sourcePath": "src/features/infra/domain/isInfraWorkloadValue.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraWorkloadValue.ts",
-        "toPath": "src/environments.ts",
-        "sourcePath": "src/features/infra/domain/isInfraWorkloadValue.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraWorkloadValue.ts",
-        "toPath": "src/features/infra/domain/infraFields.ts",
-        "sourcePath": "src/features/infra/domain/isInfraWorkloadValue.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/isInfraWorkloadValue.ts",
-        "toPath": "src/features/infra/domain/isInfraShape.ts",
-        "sourcePath": "src/features/infra/domain/isInfraWorkloadValue.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/parseInfraManifest.ts",
-        "toPath": "src/types/infraLifecycle.ts",
-        "sourcePath": "src/features/infra/domain/parseInfraManifest.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/parseInfraManifest.ts",
-        "toPath": "src/types/infraManifest.ts",
-        "sourcePath": "src/features/infra/domain/parseInfraManifest.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/parseInfraManifest.ts",
-        "toPath": "src/features/infra/domain/isInfraManifest.ts",
-        "sourcePath": "src/features/infra/domain/parseInfraManifest.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/validateInfraAdapterSelection.ts",
-        "toPath": "src/types/infraAdapters.ts",
-        "sourcePath": "src/features/infra/domain/validateInfraAdapterSelection.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/validateInfraAdapterSelection.ts",
-        "toPath": "src/types/infraLifecycle.ts",
-        "sourcePath": "src/features/infra/domain/validateInfraAdapterSelection.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/validateInfraAdapterSelection.ts",
-        "toPath": "src/types/infraManifest.ts",
-        "sourcePath": "src/features/infra/domain/validateInfraAdapterSelection.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/validateInfraAdapterSelection.ts",
-        "toPath": "src/features/infra/domain/constants.ts",
-        "sourcePath": "src/features/infra/domain/validateInfraAdapterSelection.ts"
-      },
-      {
-        "fromPath": "src/features/infra/domain/validateInfraAdapterSelection.ts",
-        "toPath": "src/features/infra/domain/isInfraAdapterDescriptor.ts",
-        "sourcePath": "src/features/infra/domain/validateInfraAdapterSelection.ts"
       }
     ],
     "calls": [
@@ -22429,6 +22423,132 @@
         "sourcePath": "src/appManifest/icon.ts"
       },
       {
+        "fromSymbol": "isAppManifest",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/isAppManifest.ts"
+      },
+      {
+        "fromSymbol": "isAppManifest",
+        "toSymbol": "hasRequiredManifestKeys",
+        "callExpression": "hasRequiredManifestKeys",
+        "sourcePath": "src/appManifest/isAppManifest.ts"
+      },
+      {
+        "fromSymbol": "isAppManifest",
+        "toSymbol": "isManifestMetadata",
+        "callExpression": "isManifestMetadata",
+        "sourcePath": "src/appManifest/isAppManifest.ts"
+      },
+      {
+        "fromSymbol": "isAppManifest",
+        "toSymbol": "isPresentation",
+        "callExpression": "isPresentation",
+        "sourcePath": "src/appManifest/isAppManifest.ts"
+      },
+      {
+        "fromSymbol": "isAppManifest",
+        "toSymbol": "isOptionalCapabilities",
+        "callExpression": "isOptionalCapabilities",
+        "sourcePath": "src/appManifest/isAppManifest.ts"
+      },
+      {
+        "fromSymbol": "isAppManifest",
+        "toSymbol": "isInfraManifest",
+        "callExpression": "isInfraManifest",
+        "sourcePath": "src/appManifest/isAppManifest.ts"
+      },
+      {
+        "fromSymbol": "isAppManifest",
+        "toSymbol": "isAppNavigatorManifest",
+        "callExpression": "isAppNavigatorManifest",
+        "sourcePath": "src/appManifest/isAppManifest.ts"
+      },
+      {
+        "fromSymbol": "isAppManifest",
+        "toSymbol": "isScreenRegistry",
+        "callExpression": "isScreenRegistry",
+        "sourcePath": "src/appManifest/isAppManifest.ts"
+      },
+      {
+        "fromSymbol": "isAppManifest",
+        "toSymbol": "isAppSettings",
+        "callExpression": "isAppSettings",
+        "sourcePath": "src/appManifest/isAppManifest.ts"
+      },
+      {
+        "fromSymbol": "isRepositoryManifest",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/isAppManifest.ts"
+      },
+      {
+        "fromSymbol": "isAppSettings",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/isAppManifest.ts"
+      },
+      {
+        "fromSymbol": "isAppSettings",
+        "toSymbol": "isStringArray",
+        "callExpression": "isStringArray",
+        "sourcePath": "src/appManifest/isAppManifest.ts"
+      },
+      {
+        "fromSymbol": "isPresentation",
+        "toSymbol": "isActiveThemeMode",
+        "callExpression": "isActiveThemeMode",
+        "sourcePath": "src/appManifest/isAppManifest.ts"
+      },
+      {
+        "fromSymbol": "isPresentation",
+        "toSymbol": "isSplashScreenSpec",
+        "callExpression": "isSplashScreenSpec",
+        "sourcePath": "src/appManifest/isAppManifest.ts"
+      },
+      {
+        "fromSymbol": "isPresentation",
+        "toSymbol": "isMediaManifest",
+        "callExpression": "isMediaManifest",
+        "sourcePath": "src/appManifest/isAppManifest.ts"
+      },
+      {
+        "fromSymbol": "isOptionalCapabilities",
+        "toSymbol": "isAppDeployManifest",
+        "callExpression": "isAppDeployManifest",
+        "sourcePath": "src/appManifest/isAppManifest.ts"
+      },
+      {
+        "fromSymbol": "isOptionalCapabilities",
+        "toSymbol": "isAppStateSpec",
+        "callExpression": "isAppStateSpec",
+        "sourcePath": "src/appManifest/isAppManifest.ts"
+      },
+      {
+        "fromSymbol": "isOptionalCapabilities",
+        "toSymbol": "isDataSourceRegistry",
+        "callExpression": "isDataSourceRegistry",
+        "sourcePath": "src/appManifest/isAppManifest.ts"
+      },
+      {
+        "fromSymbol": "isOptionalCapabilities",
+        "toSymbol": "isComponentDataBindingRegistry",
+        "callExpression": "isComponentDataBindingRegistry",
+        "sourcePath": "src/appManifest/isAppManifest.ts"
+      },
+      {
+        "fromSymbol": "isOptionalCapabilities",
+        "toSymbol": "isRepositoryManifest",
+        "callExpression": "isRepositoryManifest",
+        "sourcePath": "src/appManifest/isAppManifest.ts"
+      },
+      {
+        "fromSymbol": "isAppStateSpec",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/isAppStateSpec.ts"
+      },
+      {
         "fromSymbol": "isMediaManifest",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
@@ -23089,6 +23209,12 @@
         "sourcePath": "src/appManifest/navigatorOptions.ts"
       },
       {
+        "fromSymbol": "parseAppManifest",
+        "toSymbol": "isAppManifest",
+        "callExpression": "isAppManifest",
+        "sourcePath": "src/appManifest/parseAppManifest.ts"
+      },
+      {
         "fromSymbol": "isManifestMetadata",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
@@ -23257,569 +23383,437 @@
         "sourcePath": "src/appManifest/shared.ts"
       },
       {
-        "fromSymbol": "isAppManifest",
-        "toSymbol": "isRecord",
-        "callExpression": "isRecord",
-        "sourcePath": "src/features/appManifest/domain/isAppManifest.ts"
-      },
-      {
-        "fromSymbol": "isAppManifest",
-        "toSymbol": "hasRequiredManifestKeys",
-        "callExpression": "hasRequiredManifestKeys",
-        "sourcePath": "src/features/appManifest/domain/isAppManifest.ts"
-      },
-      {
-        "fromSymbol": "isAppManifest",
-        "toSymbol": "isManifestMetadata",
-        "callExpression": "isManifestMetadata",
-        "sourcePath": "src/features/appManifest/domain/isAppManifest.ts"
-      },
-      {
-        "fromSymbol": "isAppManifest",
-        "toSymbol": "isPresentation",
-        "callExpression": "isPresentation",
-        "sourcePath": "src/features/appManifest/domain/isAppManifest.ts"
-      },
-      {
-        "fromSymbol": "isAppManifest",
-        "toSymbol": "isOptionalCapabilities",
-        "callExpression": "isOptionalCapabilities",
-        "sourcePath": "src/features/appManifest/domain/isAppManifest.ts"
-      },
-      {
-        "fromSymbol": "isAppManifest",
-        "toSymbol": "isInfraManifest",
-        "callExpression": "isInfraManifest",
-        "sourcePath": "src/features/appManifest/domain/isAppManifest.ts"
-      },
-      {
-        "fromSymbol": "isAppManifest",
-        "toSymbol": "isAppNavigatorManifest",
-        "callExpression": "isAppNavigatorManifest",
-        "sourcePath": "src/features/appManifest/domain/isAppManifest.ts"
-      },
-      {
-        "fromSymbol": "isAppManifest",
-        "toSymbol": "isScreenRegistry",
-        "callExpression": "isScreenRegistry",
-        "sourcePath": "src/features/appManifest/domain/isAppManifest.ts"
-      },
-      {
-        "fromSymbol": "isAppManifest",
-        "toSymbol": "isAppSettings",
-        "callExpression": "isAppSettings",
-        "sourcePath": "src/features/appManifest/domain/isAppManifest.ts"
-      },
-      {
-        "fromSymbol": "isRepositoryManifest",
-        "toSymbol": "isRecord",
-        "callExpression": "isRecord",
-        "sourcePath": "src/features/appManifest/domain/isAppManifest.ts"
-      },
-      {
-        "fromSymbol": "isAppSettings",
-        "toSymbol": "isRecord",
-        "callExpression": "isRecord",
-        "sourcePath": "src/features/appManifest/domain/isAppManifest.ts"
-      },
-      {
-        "fromSymbol": "isAppSettings",
-        "toSymbol": "isStringArray",
-        "callExpression": "isStringArray",
-        "sourcePath": "src/features/appManifest/domain/isAppManifest.ts"
-      },
-      {
-        "fromSymbol": "isPresentation",
-        "toSymbol": "isActiveThemeMode",
-        "callExpression": "isActiveThemeMode",
-        "sourcePath": "src/features/appManifest/domain/isAppManifest.ts"
-      },
-      {
-        "fromSymbol": "isPresentation",
-        "toSymbol": "isSplashScreenSpec",
-        "callExpression": "isSplashScreenSpec",
-        "sourcePath": "src/features/appManifest/domain/isAppManifest.ts"
-      },
-      {
-        "fromSymbol": "isPresentation",
-        "toSymbol": "isMediaManifest",
-        "callExpression": "isMediaManifest",
-        "sourcePath": "src/features/appManifest/domain/isAppManifest.ts"
-      },
-      {
-        "fromSymbol": "isOptionalCapabilities",
-        "toSymbol": "isAppDeployManifest",
-        "callExpression": "isAppDeployManifest",
-        "sourcePath": "src/features/appManifest/domain/isAppManifest.ts"
-      },
-      {
-        "fromSymbol": "isOptionalCapabilities",
-        "toSymbol": "isAppStateSpec",
-        "callExpression": "isAppStateSpec",
-        "sourcePath": "src/features/appManifest/domain/isAppManifest.ts"
-      },
-      {
-        "fromSymbol": "isOptionalCapabilities",
-        "toSymbol": "isDataSourceRegistry",
-        "callExpression": "isDataSourceRegistry",
-        "sourcePath": "src/features/appManifest/domain/isAppManifest.ts"
-      },
-      {
-        "fromSymbol": "isOptionalCapabilities",
-        "toSymbol": "isComponentDataBindingRegistry",
-        "callExpression": "isComponentDataBindingRegistry",
-        "sourcePath": "src/features/appManifest/domain/isAppManifest.ts"
-      },
-      {
-        "fromSymbol": "isOptionalCapabilities",
-        "toSymbol": "isRepositoryManifest",
-        "callExpression": "isRepositoryManifest",
-        "sourcePath": "src/features/appManifest/domain/isAppManifest.ts"
-      },
-      {
-        "fromSymbol": "parseAppManifest",
-        "toSymbol": "isAppManifest",
-        "callExpression": "isAppManifest",
-        "sourcePath": "src/features/appManifest/domain/parseAppManifest.ts"
-      },
-      {
-        "fromSymbol": "isAppStateSpec",
-        "toSymbol": "isRecord",
-        "callExpression": "isRecord",
-        "sourcePath": "src/features/appState/domain/isAppStateSpec.ts"
-      },
-      {
         "fromSymbol": "strings",
         "toSymbol": "isStringArray",
         "callExpression": "isStringArray",
-        "sourcePath": "src/features/infra/domain/infraFields.ts"
+        "sourcePath": "src/infra/infraFields.ts"
       },
       {
         "fromSymbol": "optionalStrings",
         "toSymbol": "isStringArray",
         "callExpression": "isStringArray",
-        "sourcePath": "src/features/infra/domain/infraFields.ts"
+        "sourcePath": "src/infra/infraFields.ts"
       },
       {
         "fromSymbol": "isInfraAdapterDescriptor",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
-        "sourcePath": "src/features/infra/domain/isInfraAdapterDescriptor.ts"
+        "sourcePath": "src/infra/isInfraAdapterDescriptor.ts"
       },
       {
         "fromSymbol": "isInfraAdapterDescriptor",
         "toSymbol": "isInfraShape",
         "callExpression": "isInfraShape",
-        "sourcePath": "src/features/infra/domain/isInfraAdapterDescriptor.ts"
+        "sourcePath": "src/infra/isInfraAdapterDescriptor.ts"
       },
       {
         "fromSymbol": "capabilities",
         "toSymbol": "matchesCatalogList",
         "callExpression": "matchesCatalogList",
-        "sourcePath": "src/features/infra/domain/isInfraAdapterDescriptor.ts"
+        "sourcePath": "src/infra/isInfraAdapterDescriptor.ts"
       },
       {
         "fromSymbol": "targets",
         "toSymbol": "matchesCatalogList",
         "callExpression": "matchesCatalogList",
-        "sourcePath": "src/features/infra/domain/isInfraAdapterDescriptor.ts"
+        "sourcePath": "src/infra/isInfraAdapterDescriptor.ts"
       },
       {
         "fromSymbol": "dependencies",
         "toSymbol": "matchesCatalogList",
         "callExpression": "matchesCatalogList",
-        "sourcePath": "src/features/infra/domain/isInfraAdapterDescriptor.ts"
+        "sourcePath": "src/infra/isInfraAdapterDescriptor.ts"
       },
       {
         "fromSymbol": "isInfraAuthSpec",
         "toSymbol": "isInfraShape",
         "callExpression": "isInfraShape",
-        "sourcePath": "src/features/infra/domain/isInfraAuthSpec.ts"
+        "sourcePath": "src/infra/isInfraAuthSpec.ts"
       },
       {
         "fromSymbol": "flow",
         "toSymbol": "isAuthFlow",
         "callExpression": "isAuthFlow",
-        "sourcePath": "src/features/infra/domain/isInfraAuthSpec.ts"
+        "sourcePath": "src/infra/isInfraAuthSpec.ts"
       },
       {
         "fromSymbol": "signIn",
         "toSymbol": "isInfraShape",
         "callExpression": "isInfraShape",
-        "sourcePath": "src/features/infra/domain/isInfraAuthSpec.ts"
+        "sourcePath": "src/infra/isInfraAuthSpec.ts"
       },
       {
         "fromSymbol": "signUp",
         "toSymbol": "isAuthSignUp",
         "callExpression": "isAuthSignUp",
-        "sourcePath": "src/features/infra/domain/isInfraAuthSpec.ts"
+        "sourcePath": "src/infra/isInfraAuthSpec.ts"
       },
       {
         "fromSymbol": "oauth",
         "toSymbol": "isAuthOAuth",
         "callExpression": "isAuthOAuth",
-        "sourcePath": "src/features/infra/domain/isInfraAuthSpec.ts"
+        "sourcePath": "src/infra/isInfraAuthSpec.ts"
       },
       {
         "fromSymbol": "profile",
         "toSymbol": "isAuthProfile",
         "callExpression": "isAuthProfile",
-        "sourcePath": "src/features/infra/domain/isInfraAuthSpec.ts"
+        "sourcePath": "src/infra/isInfraAuthSpec.ts"
       },
       {
         "fromSymbol": "isAuthFlow",
         "toSymbol": "isInfraShape",
         "callExpression": "isInfraShape",
-        "sourcePath": "src/features/infra/domain/isInfraAuthSpec.ts"
+        "sourcePath": "src/infra/isInfraAuthSpec.ts"
       },
       {
         "fromSymbol": "isAuthSignUp",
         "toSymbol": "isInfraShape",
         "callExpression": "isInfraShape",
-        "sourcePath": "src/features/infra/domain/isInfraAuthSpec.ts"
+        "sourcePath": "src/infra/isInfraAuthSpec.ts"
       },
       {
         "fromSymbol": "optionalFields",
         "toSymbol": "isStringArray",
         "callExpression": "isStringArray",
-        "sourcePath": "src/features/infra/domain/isInfraAuthSpec.ts"
+        "sourcePath": "src/infra/isInfraAuthSpec.ts"
       },
       {
         "fromSymbol": "isAuthOAuth",
         "toSymbol": "isInfraShape",
         "callExpression": "isInfraShape",
-        "sourcePath": "src/features/infra/domain/isInfraAuthSpec.ts"
+        "sourcePath": "src/infra/isInfraAuthSpec.ts"
       },
       {
         "fromSymbol": "isAuthOAuthProvider",
         "toSymbol": "isInfraShape",
         "callExpression": "isInfraShape",
-        "sourcePath": "src/features/infra/domain/isInfraAuthSpec.ts"
+        "sourcePath": "src/infra/isInfraAuthSpec.ts"
       },
       {
         "fromSymbol": "scopes",
         "toSymbol": "isStringArray",
         "callExpression": "isStringArray",
-        "sourcePath": "src/features/infra/domain/isInfraAuthSpec.ts"
+        "sourcePath": "src/infra/isInfraAuthSpec.ts"
       },
       {
         "fromSymbol": "queryParams",
         "toSymbol": "isStringRecord",
         "callExpression": "isStringRecord",
-        "sourcePath": "src/features/infra/domain/isInfraAuthSpec.ts"
+        "sourcePath": "src/infra/isInfraAuthSpec.ts"
       },
       {
         "fromSymbol": "icon",
         "toSymbol": "isIconSpec",
         "callExpression": "isIconSpec",
-        "sourcePath": "src/features/infra/domain/isInfraAuthSpec.ts"
+        "sourcePath": "src/infra/isInfraAuthSpec.ts"
       },
       {
         "fromSymbol": "isAuthProfile",
         "toSymbol": "isInfraShape",
         "callExpression": "isInfraShape",
-        "sourcePath": "src/features/infra/domain/isInfraAuthSpec.ts"
+        "sourcePath": "src/infra/isInfraAuthSpec.ts"
       },
       {
         "fromSymbol": "isInfraCredentialRef",
         "toSymbol": "isInfraShape",
         "callExpression": "isInfraShape",
-        "sourcePath": "src/features/infra/domain/isInfraCredentialRef.ts"
+        "sourcePath": "src/infra/isInfraCredentialRef.ts"
       },
       {
         "fromSymbol": "isInfraDeploymentSpec",
         "toSymbol": "isInfraShape",
         "callExpression": "isInfraShape",
-        "sourcePath": "src/features/infra/domain/isInfraDeploymentSpec.ts"
+        "sourcePath": "src/infra/isInfraDeploymentSpec.ts"
       },
       {
         "fromSymbol": "isInfraDeploymentSpec",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
-        "sourcePath": "src/features/infra/domain/isInfraDeploymentSpec.ts"
+        "sourcePath": "src/infra/isInfraDeploymentSpec.ts"
       },
       {
         "fromSymbol": "isCompute",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
-        "sourcePath": "src/features/infra/domain/isInfraDeploymentSpec.ts"
+        "sourcePath": "src/infra/isInfraDeploymentSpec.ts"
       },
       {
         "fromSymbol": "isCompute",
         "toSymbol": "isInfraShape",
         "callExpression": "isInfraShape",
-        "sourcePath": "src/features/infra/domain/isInfraDeploymentSpec.ts"
+        "sourcePath": "src/infra/isInfraDeploymentSpec.ts"
       },
       {
         "fromSymbol": "credentials",
         "toSymbol": "isInfraCredentialRef",
         "callExpression": "isInfraCredentialRef",
-        "sourcePath": "src/features/infra/domain/isInfraDeploymentSpec.ts"
+        "sourcePath": "src/infra/isInfraDeploymentSpec.ts"
       },
       {
         "fromSymbol": "isRuntime",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
-        "sourcePath": "src/features/infra/domain/isInfraDeploymentSpec.ts"
+        "sourcePath": "src/infra/isInfraDeploymentSpec.ts"
       },
       {
         "fromSymbol": "isRuntime",
         "toSymbol": "isInfraShape",
         "callExpression": "isInfraShape",
-        "sourcePath": "src/features/infra/domain/isInfraDeploymentSpec.ts"
+        "sourcePath": "src/infra/isInfraDeploymentSpec.ts"
       },
       {
         "fromSymbol": "topology",
         "toSymbol": "isInfraShape",
         "callExpression": "isInfraShape",
-        "sourcePath": "src/features/infra/domain/isInfraDeploymentSpec.ts"
+        "sourcePath": "src/infra/isInfraDeploymentSpec.ts"
       },
       {
         "fromSymbol": "isInfraEnvironmentSpec",
         "toSymbol": "isEnvironmentShape",
         "callExpression": "isEnvironmentShape",
-        "sourcePath": "src/features/infra/domain/isInfraEnvironmentSpec.ts"
+        "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
       },
       {
         "fromSymbol": "isInfraEnvironmentSpec",
         "toSymbol": "hasServiceDependencies",
         "callExpression": "hasServiceDependencies",
-        "sourcePath": "src/features/infra/domain/isInfraEnvironmentSpec.ts"
+        "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
       },
       {
         "fromSymbol": "isEnvironmentShape",
         "toSymbol": "isInfraShape",
         "callExpression": "isInfraShape",
-        "sourcePath": "src/features/infra/domain/isInfraEnvironmentSpec.ts"
+        "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
       },
       {
         "fromSymbol": "database",
         "toSymbol": "isInfraShape",
         "callExpression": "isInfraShape",
-        "sourcePath": "src/features/infra/domain/isInfraEnvironmentSpec.ts"
+        "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
       },
       {
         "fromSymbol": "objectStorage",
         "toSymbol": "isObjectStorage",
         "callExpression": "isObjectStorage",
-        "sourcePath": "src/features/infra/domain/isInfraEnvironmentSpec.ts"
+        "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
       },
       {
         "fromSymbol": "auth",
         "toSymbol": "isInfraAuthSpec",
         "callExpression": "isInfraAuthSpec",
-        "sourcePath": "src/features/infra/domain/isInfraEnvironmentSpec.ts"
+        "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
       },
       {
         "fromSymbol": "authz",
         "toSymbol": "isInfraShape",
         "callExpression": "isInfraShape",
-        "sourcePath": "src/features/infra/domain/isInfraEnvironmentSpec.ts"
+        "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
       },
       {
         "fromSymbol": "secretStore",
         "toSymbol": "isInfraShape",
         "callExpression": "isInfraShape",
-        "sourcePath": "src/features/infra/domain/isInfraEnvironmentSpec.ts"
+        "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
       },
       {
         "fromSymbol": "networking",
         "toSymbol": "isInfraShape",
         "callExpression": "isInfraShape",
-        "sourcePath": "src/features/infra/domain/isInfraEnvironmentSpec.ts"
+        "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
       },
       {
         "fromSymbol": "workloads",
         "toSymbol": "isWorkloads",
         "callExpression": "isWorkloads",
-        "sourcePath": "src/features/infra/domain/isInfraEnvironmentSpec.ts"
+        "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
       },
       {
         "fromSymbol": "isObjectStorage",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
-        "sourcePath": "src/features/infra/domain/isInfraEnvironmentSpec.ts"
+        "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
       },
       {
         "fromSymbol": "isObjectStorage",
         "toSymbol": "isInfraShape",
         "callExpression": "isInfraShape",
-        "sourcePath": "src/features/infra/domain/isInfraEnvironmentSpec.ts"
+        "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
       },
       {
         "fromSymbol": "credentials",
         "toSymbol": "isInfraCredentialRef",
         "callExpression": "isInfraCredentialRef",
-        "sourcePath": "src/features/infra/domain/isInfraEnvironmentSpec.ts"
+        "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
       },
       {
         "fromSymbol": "isInfraManifest",
         "toSymbol": "isInfraShape",
         "callExpression": "isInfraShape",
-        "sourcePath": "src/features/infra/domain/isInfraManifest.ts"
+        "sourcePath": "src/infra/isInfraManifest.ts"
       },
       {
         "fromSymbol": "apis",
         "toSymbol": "isApiDefinitionList",
         "callExpression": "isApiDefinitionList",
-        "sourcePath": "src/features/infra/domain/isInfraManifest.ts"
+        "sourcePath": "src/infra/isInfraManifest.ts"
       },
       {
         "fromSymbol": "modulesConfig",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
-        "sourcePath": "src/features/infra/domain/isInfraManifest.ts"
+        "sourcePath": "src/infra/isInfraManifest.ts"
       },
       {
         "fromSymbol": "isEnvironments",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
-        "sourcePath": "src/features/infra/domain/isInfraManifest.ts"
+        "sourcePath": "src/infra/isInfraManifest.ts"
       },
       {
         "fromSymbol": "isEnvironments",
         "toSymbol": "isInfraEnvironmentSpec",
         "callExpression": "isInfraEnvironmentSpec",
-        "sourcePath": "src/features/infra/domain/isInfraManifest.ts"
+        "sourcePath": "src/infra/isInfraManifest.ts"
       },
       {
-        "fromSymbol": "src/features/infra/domain/isInfraManifest.ts",
+        "fromSymbol": "src/infra/isInfraManifest.ts",
         "toSymbol": "isInfraEnvironmentSpec",
         "callExpression": "isInfraEnvironmentSpec",
-        "sourcePath": "src/features/infra/domain/isInfraManifest.ts"
+        "sourcePath": "src/infra/isInfraManifest.ts"
       },
       {
         "fromSymbol": "isInfraShape",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
-        "sourcePath": "src/features/infra/domain/isInfraShape.ts"
+        "sourcePath": "src/infra/isInfraShape.ts"
       },
       {
-        "fromSymbol": "src/features/infra/domain/isInfraShape.ts",
+        "fromSymbol": "src/infra/isInfraShape.ts",
         "toSymbol": "validate",
         "callExpression": "validate",
-        "sourcePath": "src/features/infra/domain/isInfraShape.ts"
+        "sourcePath": "src/infra/isInfraShape.ts"
       },
       {
         "fromSymbol": "isInfraWorkloadHealth",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
-        "sourcePath": "src/features/infra/domain/isInfraWorkloadHealth.ts"
+        "sourcePath": "src/infra/isInfraWorkloadHealth.ts"
       },
       {
         "fromSymbol": "isInfraWorkloadHealth",
         "toSymbol": "isInfraShape",
         "callExpression": "isInfraShape",
-        "sourcePath": "src/features/infra/domain/isInfraWorkloadHealth.ts"
+        "sourcePath": "src/infra/isInfraWorkloadHealth.ts"
       },
       {
         "fromSymbol": "command",
         "toSymbol": "strings",
         "callExpression": "infraFields.strings",
-        "sourcePath": "src/features/infra/domain/isInfraWorkloadHealth.ts"
+        "sourcePath": "src/infra/isInfraWorkloadHealth.ts"
       },
       {
         "fromSymbol": "isInfraWorkloadSpec",
         "toSymbol": "isInfraShape",
         "callExpression": "isInfraShape",
-        "sourcePath": "src/features/infra/domain/isInfraWorkloadSpec.ts"
+        "sourcePath": "src/infra/isInfraWorkloadSpec.ts"
       },
       {
         "fromSymbol": "artifact",
         "toSymbol": "isInfraShape",
         "callExpression": "isInfraShape",
-        "sourcePath": "src/features/infra/domain/isInfraWorkloadSpec.ts"
+        "sourcePath": "src/infra/isInfraWorkloadSpec.ts"
       },
       {
         "fromSymbol": "ports",
         "toSymbol": "hasUniqueField",
         "callExpression": "hasUniqueField",
-        "sourcePath": "src/features/infra/domain/isInfraWorkloadSpec.ts"
+        "sourcePath": "src/infra/isInfraWorkloadSpec.ts"
       },
       {
         "fromSymbol": "environment",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
-        "sourcePath": "src/features/infra/domain/isInfraWorkloadSpec.ts"
+        "sourcePath": "src/infra/isInfraWorkloadSpec.ts"
       },
       {
         "fromSymbol": "files",
         "toSymbol": "hasUniqueField",
         "callExpression": "hasUniqueField",
-        "sourcePath": "src/features/infra/domain/isInfraWorkloadSpec.ts"
+        "sourcePath": "src/infra/isInfraWorkloadSpec.ts"
       },
       {
         "fromSymbol": "health",
         "toSymbol": "isInfraWorkloadHealth",
         "callExpression": "isInfraWorkloadHealth",
-        "sourcePath": "src/features/infra/domain/isInfraWorkloadSpec.ts"
+        "sourcePath": "src/infra/isInfraWorkloadSpec.ts"
       },
       {
         "fromSymbol": "resources",
         "toSymbol": "isInfraShape",
         "callExpression": "isInfraShape",
-        "sourcePath": "src/features/infra/domain/isInfraWorkloadSpec.ts"
+        "sourcePath": "src/infra/isInfraWorkloadSpec.ts"
       },
       {
         "fromSymbol": "persistence",
         "toSymbol": "hasUniqueField",
         "callExpression": "hasUniqueField",
-        "sourcePath": "src/features/infra/domain/isInfraWorkloadSpec.ts"
+        "sourcePath": "src/infra/isInfraWorkloadSpec.ts"
       },
       {
         "fromSymbol": "isPort",
         "toSymbol": "isInfraShape",
         "callExpression": "isInfraShape",
-        "sourcePath": "src/features/infra/domain/isInfraWorkloadSpec.ts"
+        "sourcePath": "src/infra/isInfraWorkloadSpec.ts"
       },
       {
         "fromSymbol": "isFile",
         "toSymbol": "isInfraShape",
         "callExpression": "isInfraShape",
-        "sourcePath": "src/features/infra/domain/isInfraWorkloadSpec.ts"
+        "sourcePath": "src/infra/isInfraWorkloadSpec.ts"
       },
       {
         "fromSymbol": "isVolume",
         "toSymbol": "isInfraShape",
         "callExpression": "isInfraShape",
-        "sourcePath": "src/features/infra/domain/isInfraWorkloadSpec.ts"
+        "sourcePath": "src/infra/isInfraWorkloadSpec.ts"
       },
       {
-        "fromSymbol": "src/features/infra/domain/isInfraWorkloadSpec.ts",
+        "fromSymbol": "src/infra/isInfraWorkloadSpec.ts",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
-        "sourcePath": "src/features/infra/domain/isInfraWorkloadSpec.ts"
+        "sourcePath": "src/infra/isInfraWorkloadSpec.ts"
       },
       {
         "fromSymbol": "isInfraWorkloadValue",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
-        "sourcePath": "src/features/infra/domain/isInfraWorkloadValue.ts"
+        "sourcePath": "src/infra/isInfraWorkloadValue.ts"
       },
       {
         "fromSymbol": "isInfraWorkloadValue",
         "toSymbol": "isInfraShape",
         "callExpression": "isInfraShape",
-        "sourcePath": "src/features/infra/domain/isInfraWorkloadValue.ts"
+        "sourcePath": "src/infra/isInfraWorkloadValue.ts"
       },
       {
         "fromSymbol": "isSecretReference",
         "toSymbol": "isInfraShape",
         "callExpression": "isInfraShape",
-        "sourcePath": "src/features/infra/domain/isInfraWorkloadValue.ts"
+        "sourcePath": "src/infra/isInfraWorkloadValue.ts"
       },
       {
         "fromSymbol": "parseInfraManifest",
         "toSymbol": "isInfraManifest",
         "callExpression": "isInfraManifest",
-        "sourcePath": "src/features/infra/domain/parseInfraManifest.ts"
+        "sourcePath": "src/infra/parseInfraManifest.ts"
       }
     ],
     "typeReferences": [
       {
         "fromSymbol": "parseAppManifest",
         "toType": "AppManifestParseResult",
-        "sourcePath": "src/features/appManifest/domain/parseAppManifest.ts"
+        "sourcePath": "src/appManifest/parseAppManifest.ts"
       },
       {
         "fromSymbol": "resolveAuthFlow",
@@ -24669,27 +24663,27 @@
       {
         "fromSymbol": "parseInfraManifest",
         "toType": "InfraManifest",
-        "sourcePath": "src/features/infra/domain/parseInfraManifest.ts"
+        "sourcePath": "src/infra/parseInfraManifest.ts"
       },
       {
         "fromSymbol": "parseInfraManifest",
         "toType": "InfraResult",
-        "sourcePath": "src/features/infra/domain/parseInfraManifest.ts"
+        "sourcePath": "src/infra/parseInfraManifest.ts"
       },
       {
         "fromSymbol": "validateInfraAdapterSelection",
         "toType": "InfraAdapterDescriptor",
-        "sourcePath": "src/features/infra/domain/validateInfraAdapterSelection.ts"
+        "sourcePath": "src/infra/validateInfraAdapterSelection.ts"
       },
       {
         "fromSymbol": "validateInfraAdapterSelection",
         "toType": "InfraEnvironmentSpec",
-        "sourcePath": "src/features/infra/domain/validateInfraAdapterSelection.ts"
+        "sourcePath": "src/infra/validateInfraAdapterSelection.ts"
       },
       {
         "fromSymbol": "validateInfraAdapterSelection",
         "toType": "InfraResult",
-        "sourcePath": "src/features/infra/domain/validateInfraAdapterSelection.ts"
+        "sourcePath": "src/infra/validateInfraAdapterSelection.ts"
       },
       {
         "fromSymbol": "InfraExecutionContext",

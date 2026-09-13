@@ -1,5 +1,5 @@
-import { isRecord } from '../../../appManifest/shared';
-import { APP_ENVIRONMENT_IDS } from '../../../environments';
+import { isRecord } from '../appManifest/shared';
+import { APP_ENVIRONMENT_IDS } from '../environments';
 import { infraFields } from './infraFields';
 import { isInfraShape } from './isInfraShape';
 

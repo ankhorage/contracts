@@ -1,4 +1,4 @@
-import { isRecord } from '../../../appManifest/shared';
+import { isRecord } from '../appManifest/shared';
 
 /** Validate an exact Infra object shape, rejecting unknown and superseded configuration keys. */
 export function isInfraShape(

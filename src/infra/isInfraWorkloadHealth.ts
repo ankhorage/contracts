@@ -1,4 +1,4 @@
-import { isRecord } from '../../../appManifest/shared';
+import { isRecord } from '../appManifest/shared';
 import { infraFields } from './infraFields';
 import { isInfraShape } from './isInfraShape';
 

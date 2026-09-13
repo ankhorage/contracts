@@ -1,6 +1,6 @@
-import { isRecord } from '../../../appManifest/shared';
-import type { InfraShape } from '../../../types/infraValidation';
-import type { InfraWorkloadSpec } from '../../../types/infraWorkload';
+import { isRecord } from '../appManifest/shared';
+import type { InfraShape } from '../types/infraValidation';
+import type { InfraWorkloadSpec } from '../types/infraWorkload';
 import { infraFields } from './infraFields';
 import { isInfraShape } from './isInfraShape';
 import { isInfraWorkloadHealth } from './isInfraWorkloadHealth';

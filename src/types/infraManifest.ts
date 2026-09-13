@@ -1,10 +1,7 @@
 import type { AuthFlowConfig, AuthOAuthConfig } from '../auth';
 import type { ApiDefinitionList } from '../data';
 import type { AppEnvironmentId } from '../environments';
-import type {
-  INFRA_ADAPTER_CATALOG,
-  INFRA_RUNTIME_COMPATIBILITY,
-} from '../features/infra/domain/constants';
+import type { INFRA_ADAPTER_CATALOG, INFRA_RUNTIME_COMPATIBILITY } from '../infra/constants';
 import type { AuthProfileSpec, AuthScope, AuthSignInSpec, AuthSignUpSpec } from '../types';
 import type { InfraControlPlaneCredentialRef } from './infraSecrets';
 import type { InfraWorkloadSpec } from './infraWorkload';

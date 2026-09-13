@@ -1,11 +1,11 @@
-import { isIconSpec } from '../../../appManifest/icon';
+import { isIconSpec } from '../appManifest/icon';
 import {
   isOptionalBoolean,
   isOptionalString,
   isStringArray,
   isStringRecord,
-} from '../../../appManifest/shared';
-import { AUTH_OAUTH_PROVIDER_IDS } from '../../../auth';
+} from '../appManifest/shared';
+import { AUTH_OAUTH_PROVIDER_IDS } from '../auth';
 import {
   AUTH_PROFILE_CREATE_STRATEGIES,
   AUTH_PROFILE_PRIMARY_KEY_STRATEGIES,
@@ -13,9 +13,9 @@ import {
   AUTH_SCOPES,
   AUTH_SIGN_IN_IDENTIFIERS,
   AUTH_SIGN_UP_POLICIES,
-} from '../../../types';
-import type { InfraAuthSpec } from '../../../types/infraManifest';
-import type { InfraShape } from '../../../types/infraValidation';
+} from '../types';
+import type { InfraAuthSpec } from '../types/infraManifest';
+import type { InfraShape } from '../types/infraValidation';
 import { isInfraShape } from './isInfraShape';
 
 /** Preserve application auth configuration while rejecting nested authorization and unknown providers. */

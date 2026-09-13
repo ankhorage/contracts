@@ -1,19 +1,19 @@
-import { isComponentDataBindingRegistry } from '../../../appManifest/bindings';
-import { isDataSourceRegistry } from '../../../appManifest/dataSources';
-import { isAppDeployManifest } from '../../../appManifest/deploy';
-import { isMediaManifest } from '../../../appManifest/media';
+import { isInfraManifest } from '../infra/isInfraManifest';
+import type { AppManifest } from '../types';
+import { isComponentDataBindingRegistry } from './bindings';
+import { APP_MANIFEST_KEY_POLICY } from './constants';
+import { isDataSourceRegistry } from './dataSources';
+import { isAppDeployManifest } from './deploy';
+import { isAppStateSpec } from './isAppStateSpec';
+import { isMediaManifest } from './media';
 import {
   isAppNavigatorManifest,
   isManifestMetadata,
   isScreenRegistry,
   isSplashScreenSpec,
   isThemeConfig,
-} from '../../../appManifest/screens';
-import { isRecord, isStringArray } from '../../../appManifest/shared';
-import { isAppStateSpec } from '../../../features/appState/domain/isAppStateSpec';
-import { isInfraManifest } from '../../../features/infra/domain/isInfraManifest';
-import type { AppManifest } from '../../../types';
-import { APP_MANIFEST_KEY_POLICY } from './constants';
+} from './screens';
+import { isRecord, isStringArray } from './shared';
 
 /** Return whether an unknown value satisfies the canonical AppManifest shape. */
 export function isAppManifest(value: unknown): value is AppManifest {

@@ -8,6 +8,15 @@ This is the Contracts release gate for [Infra roadmap Phase 1](https://github.co
 It defines and validates the shared model; it does not provision infrastructure. Adapter
 implementations and orchestration follow in later roadmap phases.
 
+## Source organization
+
+Infrastructure validators and catalog constants live directly under `src/infra/`. AppManifest
+parsers and application-state validation live under `src/appManifest/`; related type declarations
+remain grouped in `src/types/`. Contracts does not use `src/features/` or hexagonal implementation
+layers. The public entrypoints, structural validation and adapter interface declarations are
+preserved. Making the entire package types-only is a separate architecture decision and is not
+part of this PR.
+
 ## Environments and selection
 
 ```ts

@@ -1,5 +1,5 @@
-import type { InfraResult } from '../../../types/infraLifecycle';
-import type { InfraManifest } from '../../../types/infraManifest';
+import type { InfraResult } from '../types/infraLifecycle';
+import type { InfraManifest } from '../types/infraManifest';
 import { isInfraManifest } from './isInfraManifest';
 
 /** Parse unknown infrastructure input; package availability and credentials are separate validation stages. */

@@ -1,6 +1,6 @@
-import { isRecord } from '../../../appManifest/shared';
-import type { InfraEnvironmentSpec, InfraObjectStorageSpec } from '../../../types/infraManifest';
-import type { InfraShape } from '../../../types/infraValidation';
+import { isRecord } from '../appManifest/shared';
+import type { InfraEnvironmentSpec, InfraObjectStorageSpec } from '../types/infraManifest';
+import type { InfraShape } from '../types/infraValidation';
 import { INFRA_ADAPTER_CATALOG } from './constants';
 import { infraFields } from './infraFields';
 import { isInfraAuthSpec } from './isInfraAuthSpec';

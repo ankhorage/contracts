@@ -1,10 +1,10 @@
-import { isRecord } from '../../../appManifest/shared';
+import { isRecord } from '../appManifest/shared';
 import type {
   InfraComputeSelection,
   InfraDeploymentSpec,
   InfraRuntimeSelection,
-} from '../../../types/infraManifest';
-import type { InfraShape } from '../../../types/infraValidation';
+} from '../types/infraManifest';
+import type { InfraShape } from '../types/infraValidation';
 import { INFRA_RUNTIME_COMPATIBILITY } from './constants';
 import { infraFields } from './infraFields';
 import { isInfraCredentialRef } from './isInfraCredentialRef';

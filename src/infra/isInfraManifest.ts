@@ -1,8 +1,8 @@
-import { isApiDefinitionList } from '../../../appManifest/apis';
-import { isRecord } from '../../../appManifest/shared';
-import { APP_ENVIRONMENT_IDS } from '../../../environments';
-import type { InfraManifest } from '../../../types/infraManifest';
-import type { InfraShape } from '../../../types/infraValidation';
+import { isApiDefinitionList } from '../appManifest/apis';
+import { isRecord } from '../appManifest/shared';
+import { APP_ENVIRONMENT_IDS } from '../environments';
+import type { InfraManifest } from '../types/infraManifest';
+import type { InfraShape } from '../types/infraValidation';
 import { infraFields } from './infraFields';
 import { isInfraEnvironmentSpec } from './isInfraEnvironmentSpec';
 import { isInfraShape } from './isInfraShape';

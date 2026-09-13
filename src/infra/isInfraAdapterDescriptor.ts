@@ -1,5 +1,5 @@
-import { isRecord } from '../../../appManifest/shared';
-import type { InfraAdapterDescriptor } from '../../../types/infraAdapters';
+import { isRecord } from '../appManifest/shared';
+import type { InfraAdapterDescriptor } from '../types/infraAdapters';
 import { INFRA_ADAPTER_CATALOG } from './constants';
 import { isInfraShape } from './isInfraShape';
 

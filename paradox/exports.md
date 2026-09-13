@@ -2314,14 +2314,14 @@ Source: `src/storage.ts:102:1`
 ## INFRA_ADAPTER_CATALOG
 
 Kind: `value`
-Module: `src/features/infra/domain/constants.ts`
-Source: `src/features/infra/domain/constants.ts:9:14`
+Module: `src/infra/constants.ts`
+Source: `src/infra/constants.ts:9:14`
 
 ## INFRA_RUNTIME_COMPATIBILITY
 
 Kind: `value`
-Module: `src/features/infra/domain/constants.ts`
-Source: `src/features/infra/domain/constants.ts:2:14`
+Module: `src/infra/constants.ts`
+Source: `src/infra/constants.ts:2:14`
 
 ## InfraAdapterDescriptor
 
@@ -2333,13 +2333,13 @@ Source: `src/types/infraAdapters.ts:25:1`
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:12:1`
+Source: `src/types/infraManifest.ts:9:1`
 
 ## InfraAuthConfigMap
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:74:1`
+Source: `src/types/infraManifest.ts:71:1`
 
 ### Members
 
@@ -2351,13 +2351,13 @@ Source: `src/types/infraManifest.ts:74:1`
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:99:1`
+Source: `src/types/infraManifest.ts:96:1`
 
 ## InfraAuthzConfigMap
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:84:1`
+Source: `src/types/infraManifest.ts:81:1`
 
 ### Members
 
@@ -2369,13 +2369,13 @@ Source: `src/types/infraManifest.ts:84:1`
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:102:1`
+Source: `src/types/infraManifest.ts:99:1`
 
 ## InfraCapability
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:13:1`
+Source: `src/types/infraManifest.ts:10:1`
 
 ## InfraComputeAdapter
 
@@ -2398,7 +2398,7 @@ Source: `src/types/infraAdapters.ts:70:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:24:1`
+Source: `src/types/infraManifest.ts:21:1`
 
 ### Members
 
@@ -2411,13 +2411,13 @@ Source: `src/types/infraManifest.ts:24:1`
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:20:1`
+Source: `src/types/infraManifest.ts:17:1`
 
 ## InfraComputeSelection
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:48:1`
+Source: `src/types/infraManifest.ts:45:1`
 
 ## InfraComputeTarget
 
@@ -2442,7 +2442,7 @@ Source: `src/types/infraSecrets.ts:4:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:63:1`
+Source: `src/types/infraManifest.ts:60:1`
 
 ### Members
 
@@ -2454,13 +2454,13 @@ Source: `src/types/infraManifest.ts:63:1`
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:91:1`
+Source: `src/types/infraManifest.ts:88:1`
 
 ## InfraDeploymentSpec
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:56:1`
+Source: `src/types/infraManifest.ts:53:1`
 
 ## InfraDestroyRequest
 
@@ -2497,7 +2497,7 @@ Source: `src/types/infraLifecycle.ts:21:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:114:1`
+Source: `src/types/infraManifest.ts:111:1`
 
 ### Members
 
@@ -2565,7 +2565,7 @@ Source: `src/types/infraLifecycle.ts:88:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:125:1`
+Source: `src/types/infraManifest.ts:122:1`
 
 ### Members
 
@@ -2580,7 +2580,7 @@ Source: `src/types/infraManifest.ts:125:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:109:1`
+Source: `src/types/infraManifest.ts:106:1`
 
 ### Members
 
@@ -2592,7 +2592,7 @@ Source: `src/types/infraManifest.ts:109:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:66:1`
+Source: `src/types/infraManifest.ts:63:1`
 
 ### Members
 
@@ -2605,7 +2605,7 @@ Source: `src/types/infraManifest.ts:66:1`
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:94:1`
+Source: `src/types/infraManifest.ts:91:1`
 
 ## InfraOutput
 
@@ -2663,7 +2663,7 @@ Source: `src/types/infraLifecycle.ts:34:1`
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:15:1`
+Source: `src/types/infraManifest.ts:12:1`
 
 ## InfraReconcileResult
 
@@ -2737,7 +2737,7 @@ Source: `src/types/infraAdapters.ts:102:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:34:1`
+Source: `src/types/infraManifest.ts:31:1`
 
 ### Members
 
@@ -2765,13 +2765,13 @@ Source: `src/types/infraAdapters.ts:94:1`
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:21:1`
+Source: `src/types/infraManifest.ts:18:1`
 
 ## InfraRuntimeSelection
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:51:1`
+Source: `src/types/infraManifest.ts:48:1`
 
 ## InfraSecretReference
 
@@ -2793,7 +2793,7 @@ Source: `src/types/infraSecrets.ts:10:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:87:1`
+Source: `src/types/infraManifest.ts:84:1`
 
 ### Members
 
@@ -2805,7 +2805,7 @@ Source: `src/types/infraManifest.ts:87:1`
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:105:1`
+Source: `src/types/infraManifest.ts:102:1`
 
 ## InfraServiceAdapter
 
@@ -2981,8 +2981,8 @@ Source: `src/appManifest/deploy.ts:19:1`
 ## isAppManifest
 
 Kind: `function`
-Module: `src/features/appManifest/domain/isAppManifest.ts`
-Source: `src/features/appManifest/domain/isAppManifest.ts:19:1`
+Module: `src/appManifest/isAppManifest.ts`
+Source: `src/appManifest/isAppManifest.ts:19:1`
 
 ### Signatures
 
@@ -3007,8 +3007,8 @@ Validate the complete serialized `AppManifest.navigator` slice.
 ## isInfraAdapterDescriptor
 
 Kind: `function`
-Module: `src/features/infra/domain/isInfraAdapterDescriptor.ts`
-Source: `src/features/infra/domain/isInfraAdapterDescriptor.ts:7:1`
+Module: `src/infra/isInfraAdapterDescriptor.ts`
+Source: `src/infra/isInfraAdapterDescriptor.ts:7:1`
 
 ### Signatures
 
@@ -3019,8 +3019,8 @@ Source: `src/features/infra/domain/isInfraAdapterDescriptor.ts:7:1`
 ## isInfraAuthSpec
 
 Kind: `function`
-Module: `src/features/infra/domain/isInfraAuthSpec.ts`
-Source: `src/features/infra/domain/isInfraAuthSpec.ts:22:1`
+Module: `src/infra/isInfraAuthSpec.ts`
+Source: `src/infra/isInfraAuthSpec.ts:22:1`
 
 ### Signatures
 
@@ -3031,8 +3031,8 @@ Source: `src/features/infra/domain/isInfraAuthSpec.ts:22:1`
 ## isInfraDeploymentSpec
 
 Kind: `function`
-Module: `src/features/infra/domain/isInfraDeploymentSpec.ts`
-Source: `src/features/infra/domain/isInfraDeploymentSpec.ts:14:1`
+Module: `src/infra/isInfraDeploymentSpec.ts`
+Source: `src/infra/isInfraDeploymentSpec.ts:14:1`
 
 ### Signatures
 
@@ -3043,8 +3043,8 @@ Source: `src/features/infra/domain/isInfraDeploymentSpec.ts:14:1`
 ## isInfraEnvironmentSpec
 
 Kind: `function`
-Module: `src/features/infra/domain/isInfraEnvironmentSpec.ts`
-Source: `src/features/infra/domain/isInfraEnvironmentSpec.ts:13:1`
+Module: `src/infra/isInfraEnvironmentSpec.ts`
+Source: `src/infra/isInfraEnvironmentSpec.ts:13:1`
 
 ### Signatures
 
@@ -3055,8 +3055,8 @@ Source: `src/features/infra/domain/isInfraEnvironmentSpec.ts:13:1`
 ## isInfraManifest
 
 Kind: `function`
-Module: `src/features/infra/domain/isInfraManifest.ts`
-Source: `src/features/infra/domain/isInfraManifest.ts:11:1`
+Module: `src/infra/isInfraManifest.ts`
+Source: `src/infra/isInfraManifest.ts:11:1`
 
 ### Signatures
 
@@ -3067,8 +3067,8 @@ Source: `src/features/infra/domain/isInfraManifest.ts:11:1`
 ## isInfraWorkloadSpec
 
 Kind: `function`
-Module: `src/features/infra/domain/isInfraWorkloadSpec.ts`
-Source: `src/features/infra/domain/isInfraWorkloadSpec.ts:10:1`
+Module: `src/infra/isInfraWorkloadSpec.ts`
+Source: `src/infra/isInfraWorkloadSpec.ts:10:1`
 
 ### Signatures
 
@@ -3848,8 +3848,8 @@ Source: `src/bindings.ts:97:1`
 ## parseAppManifest
 
 Kind: `function`
-Module: `src/features/appManifest/domain/parseAppManifest.ts`
-Source: `src/features/appManifest/domain/parseAppManifest.ts:11:1`
+Module: `src/appManifest/parseAppManifest.ts`
+Source: `src/appManifest/parseAppManifest.ts:11:1`
 
 ### Signatures
 
@@ -3860,8 +3860,8 @@ Source: `src/features/appManifest/domain/parseAppManifest.ts:11:1`
 ## parseInfraManifest
 
 Kind: `function`
-Module: `src/features/infra/domain/parseInfraManifest.ts`
-Source: `src/features/infra/domain/parseInfraManifest.ts:6:1`
+Module: `src/infra/parseInfraManifest.ts`
+Source: `src/infra/parseInfraManifest.ts:6:1`
 
 ### Signatures
 
@@ -5382,8 +5382,8 @@ Source: `src/storage.ts:121:1`
 ## validateInfraAdapterSelection
 
 Kind: `function`
-Module: `src/features/infra/domain/validateInfraAdapterSelection.ts`
-Source: `src/features/infra/domain/validateInfraAdapterSelection.ts:8:1`
+Module: `src/infra/validateInfraAdapterSelection.ts`
+Source: `src/infra/validateInfraAdapterSelection.ts:8:1`
 
 ### Signatures
 

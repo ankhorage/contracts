@@ -1,4 +1,4 @@
-import type { AppManifestParseResult } from '../../../types/appManifest';
+import type { AppManifestParseResult } from '../types/appManifest';
 import { isAppManifest } from './isAppManifest';
 
 /**

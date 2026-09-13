@@ -7362,9 +7362,9 @@
     "isReadme": false,
     "examples": [],
     "kind": "value",
-    "modulePath": "src/features/infra/domain/constants.ts",
+    "modulePath": "src/infra/constants.ts",
     "sourceLocation": {
-      "filePath": "src/features/infra/domain/constants.ts",
+      "filePath": "src/infra/constants.ts",
       "line": 9,
       "column": 14
     },
@@ -7380,9 +7380,9 @@
     "isReadme": false,
     "examples": [],
     "kind": "value",
-    "modulePath": "src/features/infra/domain/constants.ts",
+    "modulePath": "src/infra/constants.ts",
     "sourceLocation": {
-      "filePath": "src/features/infra/domain/constants.ts",
+      "filePath": "src/infra/constants.ts",
       "line": 2,
       "column": 14
     },
@@ -7419,7 +7419,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 12,
+      "line": 9,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -7437,7 +7437,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 74,
+      "line": 71,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -7470,7 +7470,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 99,
+      "line": 96,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -7488,7 +7488,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 84,
+      "line": 81,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -7514,7 +7514,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 102,
+      "line": 99,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -7532,7 +7532,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 13,
+      "line": 10,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -7621,7 +7621,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 24,
+      "line": 21,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -7654,7 +7654,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 20,
+      "line": 17,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -7672,7 +7672,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 48,
+      "line": 45,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -7741,7 +7741,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 63,
+      "line": 60,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -7767,7 +7767,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 91,
+      "line": 88,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -7785,7 +7785,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 56,
+      "line": 53,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -7904,7 +7904,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 114,
+      "line": 111,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -8165,7 +8165,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 125,
+      "line": 122,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -8212,7 +8212,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 109,
+      "line": 106,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -8238,7 +8238,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 66,
+      "line": 63,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -8271,7 +8271,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 94,
+      "line": 91,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -8455,7 +8455,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 15,
+      "line": 12,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -8703,7 +8703,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 34,
+      "line": 31,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -8783,7 +8783,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 21,
+      "line": 18,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -8801,7 +8801,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 51,
+      "line": 48,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -8873,7 +8873,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 87,
+      "line": 84,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -8899,7 +8899,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 105,
+      "line": 102,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -9507,9 +9507,9 @@
     "isReadme": false,
     "examples": [],
     "kind": "function",
-    "modulePath": "src/features/appManifest/domain/isAppManifest.ts",
+    "modulePath": "src/appManifest/isAppManifest.ts",
     "sourceLocation": {
-      "filePath": "src/features/appManifest/domain/isAppManifest.ts",
+      "filePath": "src/appManifest/isAppManifest.ts",
       "line": 19,
       "column": 1
     },
@@ -9571,9 +9571,9 @@
     "isReadme": false,
     "examples": [],
     "kind": "function",
-    "modulePath": "src/features/infra/domain/isInfraAdapterDescriptor.ts",
+    "modulePath": "src/infra/isInfraAdapterDescriptor.ts",
     "sourceLocation": {
-      "filePath": "src/features/infra/domain/isInfraAdapterDescriptor.ts",
+      "filePath": "src/infra/isInfraAdapterDescriptor.ts",
       "line": 7,
       "column": 1
     },
@@ -9603,9 +9603,9 @@
     "isReadme": false,
     "examples": [],
     "kind": "function",
-    "modulePath": "src/features/infra/domain/isInfraAuthSpec.ts",
+    "modulePath": "src/infra/isInfraAuthSpec.ts",
     "sourceLocation": {
-      "filePath": "src/features/infra/domain/isInfraAuthSpec.ts",
+      "filePath": "src/infra/isInfraAuthSpec.ts",
       "line": 22,
       "column": 1
     },
@@ -9635,9 +9635,9 @@
     "isReadme": false,
     "examples": [],
     "kind": "function",
-    "modulePath": "src/features/infra/domain/isInfraDeploymentSpec.ts",
+    "modulePath": "src/infra/isInfraDeploymentSpec.ts",
     "sourceLocation": {
-      "filePath": "src/features/infra/domain/isInfraDeploymentSpec.ts",
+      "filePath": "src/infra/isInfraDeploymentSpec.ts",
       "line": 14,
       "column": 1
     },
@@ -9667,9 +9667,9 @@
     "isReadme": false,
     "examples": [],
     "kind": "function",
-    "modulePath": "src/features/infra/domain/isInfraEnvironmentSpec.ts",
+    "modulePath": "src/infra/isInfraEnvironmentSpec.ts",
     "sourceLocation": {
-      "filePath": "src/features/infra/domain/isInfraEnvironmentSpec.ts",
+      "filePath": "src/infra/isInfraEnvironmentSpec.ts",
       "line": 13,
       "column": 1
     },
@@ -9699,9 +9699,9 @@
     "isReadme": false,
     "examples": [],
     "kind": "function",
-    "modulePath": "src/features/infra/domain/isInfraManifest.ts",
+    "modulePath": "src/infra/isInfraManifest.ts",
     "sourceLocation": {
-      "filePath": "src/features/infra/domain/isInfraManifest.ts",
+      "filePath": "src/infra/isInfraManifest.ts",
       "line": 11,
       "column": 1
     },
@@ -9731,9 +9731,9 @@
     "isReadme": false,
     "examples": [],
     "kind": "function",
-    "modulePath": "src/features/infra/domain/isInfraWorkloadSpec.ts",
+    "modulePath": "src/infra/isInfraWorkloadSpec.ts",
     "sourceLocation": {
-      "filePath": "src/features/infra/domain/isInfraWorkloadSpec.ts",
+      "filePath": "src/infra/isInfraWorkloadSpec.ts",
       "line": 10,
       "column": 1
     },
@@ -12130,9 +12130,9 @@
     "isReadme": false,
     "examples": [],
     "kind": "function",
-    "modulePath": "src/features/appManifest/domain/parseAppManifest.ts",
+    "modulePath": "src/appManifest/parseAppManifest.ts",
     "sourceLocation": {
-      "filePath": "src/features/appManifest/domain/parseAppManifest.ts",
+      "filePath": "src/appManifest/parseAppManifest.ts",
       "line": 11,
       "column": 1
     },
@@ -12162,9 +12162,9 @@
     "isReadme": false,
     "examples": [],
     "kind": "function",
-    "modulePath": "src/features/infra/domain/parseInfraManifest.ts",
+    "modulePath": "src/infra/parseInfraManifest.ts",
     "sourceLocation": {
-      "filePath": "src/features/infra/domain/parseInfraManifest.ts",
+      "filePath": "src/infra/parseInfraManifest.ts",
       "line": 6,
       "column": 1
     },
@@ -16853,9 +16853,9 @@
     "isReadme": false,
     "examples": [],
     "kind": "function",
-    "modulePath": "src/features/infra/domain/validateInfraAdapterSelection.ts",
+    "modulePath": "src/infra/validateInfraAdapterSelection.ts",
     "sourceLocation": {
-      "filePath": "src/features/infra/domain/validateInfraAdapterSelection.ts",
+      "filePath": "src/infra/validateInfraAdapterSelection.ts",
       "line": 8,
       "column": 1
     },

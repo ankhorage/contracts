@@ -1,6 +1,6 @@
-import type { InfraAdapterDescriptor } from '../../../types/infraAdapters';
-import type { InfraDiagnostic, InfraResult } from '../../../types/infraLifecycle';
-import type { InfraEnvironmentSpec } from '../../../types/infraManifest';
+import type { InfraAdapterDescriptor } from '../types/infraAdapters';
+import type { InfraDiagnostic, InfraResult } from '../types/infraLifecycle';
+import type { InfraEnvironmentSpec } from '../types/infraManifest';
 import { INFRA_ADAPTER_CATALOG } from './constants';
 import { isInfraAdapterDescriptor } from './isInfraAdapterDescriptor';
 

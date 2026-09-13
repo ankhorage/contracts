@@ -1,4 +1,4 @@
-import type { AppManifest } from '../../../types';
+import type { AppManifest } from '../types';
 
 export const APP_MANIFEST_KEY_POLICY = {
   metadata: 'required',

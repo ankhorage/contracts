@@ -1,4 +1,4 @@
-import { isStringArray } from '../../../appManifest/shared';
+import { isStringArray } from '../appManifest/shared';
 
 /** Primitive field rules for portable Infra configuration, shared by its exact-shape validators. */
 export const infraFields = {

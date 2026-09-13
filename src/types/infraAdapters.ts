@@ -1,5 +1,5 @@
 import type { AppEnvironmentId } from '../environments';
-import type { INFRA_ADAPTER_CATALOG } from '../features/infra/domain/constants';
+import type { INFRA_ADAPTER_CATALOG } from '../infra/constants';
 import type {
   InfraDestroyRequest,
   InfraGeneratedArtifact,

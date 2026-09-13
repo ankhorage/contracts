@@ -1,5 +1,5 @@
-import { isRecord } from '../../../appManifest/shared';
-import type { AppStateSpec } from '../../../state';
+import type { AppStateSpec } from '../state';
+import { isRecord } from './shared';
 
 /** Application state cannot claim persistence unsupported by the selected Legend adapter. */
 export function isAppStateSpec(value: unknown): value is AppStateSpec {
