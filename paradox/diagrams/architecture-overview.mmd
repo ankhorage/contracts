@@ -271,12 +271,14 @@ graph TD
   module_src_types_infraAdapters_ts --> module_src_types_infraLifecycle_ts
   module_src_types_infraAdapters_ts --> module_src_types_infraManifest_ts
   module_src_types_infraAdapters_ts --> module_src_types_infraSecrets_ts
+  module_src_types_infraAdapters_ts --> module_src_types_infraTargets_ts
   module_src_types_infraAdapters_ts --> module_src_types_infraWorkload_ts
   module_src_types_infraLifecycle_ts["src/types/infraLifecycle.ts"]
   package__ankhorage_contracts -.-> module_src_types_infraLifecycle_ts
   module_src_types_infraLifecycle_ts --> module_src_environments_ts
   module_src_types_infraLifecycle_ts --> module_src_types_infraManifest_ts
   module_src_types_infraLifecycle_ts --> module_src_types_infraSecrets_ts
+  module_src_types_infraLifecycle_ts --> module_src_types_infraTargets_ts
   module_src_types_infraManifest_ts["src/types/infraManifest.ts"]
   package__ankhorage_contracts -.-> module_src_types_infraManifest_ts
   module_src_types_infraManifest_ts --> module_src_auth_ts
@@ -289,6 +291,9 @@ graph TD
   module_src_types_infraSecrets_ts["src/types/infraSecrets.ts"]
   package__ankhorage_contracts -.-> module_src_types_infraSecrets_ts
   module_src_types_infraSecrets_ts --> module_src_environments_ts
+  module_src_types_infraTargets_ts["src/types/infraTargets.ts"]
+  package__ankhorage_contracts -.-> module_src_types_infraTargets_ts
+  module_src_types_infraTargets_ts --> module_src_types_infraSecrets_ts
   module_src_types_infraValidation_ts["src/types/infraValidation.ts"]
   package__ankhorage_contracts -.-> module_src_types_infraValidation_ts
   module_src_types_infraWorkload_ts["src/types/infraWorkload.ts"]

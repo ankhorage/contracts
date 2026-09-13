@@ -2,6 +2,7 @@ import { describe, expect, it } from 'bun:test';
 
 import { isAppManifest } from './appManifest';
 import {
+  type InfraLedger,
   type InfraWorkloadSpec,
   isInfraDeploymentSpec,
   isInfraEnvironmentSpec,
@@ -212,6 +213,47 @@ describe('control-plane credential separation', () => {
         runtime: { provider: 'k3s' },
       }),
     ).toBe(false);
+  });
+});
+
+describe('stateless lifecycle ledger', () => {
+  it('serializes portable targets and safe outputs without resolved credentials', () => {
+    const ledger = {
+      schemaVersion: 1,
+      projectId: 'example',
+      environment: 'production',
+      targets: [
+        {
+          kind: 'ssh-host',
+          id: 'server-0',
+          os: 'linux',
+          architecture: 'amd64',
+          host: '203.0.113.10',
+          port: 22,
+          user: 'root',
+          credential: { source: 'control-plane', name: 'HETZNER_SSH' },
+          hostKeyFingerprint: 'SHA256:verified',
+        },
+      ],
+      resources: [],
+      outputs: [
+        {
+          owner: {
+            projectId: 'example',
+            environment: 'production',
+            adapter: 'hetzner',
+            resourceId: 'server-0',
+          },
+          name: 'publicIpv4',
+          visibility: 'public',
+          value: '203.0.113.10',
+        },
+      ],
+      artifacts: [],
+    } as const satisfies InfraLedger;
+
+    expect(JSON.parse(JSON.stringify(ledger))).toEqual(ledger);
+    expect(JSON.stringify(ledger)).not.toContain('privateKey');
   });
 });
 

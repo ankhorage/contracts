@@ -19,6 +19,7 @@ import type {
   InfraRuntimeSelection,
 } from './infraManifest';
 import type { InfraControlPlaneCredentialRef, InfraSecretReference } from './infraSecrets';
+import type { InfraComputeTarget } from './infraTargets';
 import type { InfraWorkloadSpec } from './infraWorkload';
 
 /** Package exports must match this exact catalog entry; optional operations are advertised explicitly. */
@@ -27,23 +28,6 @@ export type InfraAdapterDescriptor<P extends InfraAdapterId = InfraAdapterId> = 
     readonly operations?: readonly ('suspend' | 'resume' | 'generate' | 'diagnostics')[];
   };
 }[P];
-
-export type InfraComputeTarget = {
-  readonly id: string;
-  readonly os: 'linux' | 'darwin' | 'windows';
-  readonly architecture: 'amd64' | 'arm64';
-} & (
-  | { readonly kind: 'local-host' }
-  | {
-      readonly kind: 'ssh-host';
-      readonly host: string;
-      readonly port: number;
-      readonly user: string;
-      readonly credential: InfraControlPlaneCredentialRef;
-      /** Expected host key supplied by the compute owner; runtimes must verify host authenticity. */
-      readonly hostKeyFingerprint: string;
-    }
-);
 
 /** Trusted execution-only ports. Implementations must not serialize resolved credential values. */
 export interface InfraExecutionContext {

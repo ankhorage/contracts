@@ -7401,7 +7401,7 @@
     "modulePath": "src/types/infraAdapters.ts",
     "sourceLocation": {
       "filePath": "src/types/infraAdapters.ts",
-      "line": 25,
+      "line": 26,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -7583,7 +7583,7 @@
     "modulePath": "src/types/infraAdapters.ts",
     "sourceLocation": {
       "filePath": "src/types/infraAdapters.ts",
-      "line": 70,
+      "line": 54,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -7720,10 +7720,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "unknown",
-    "modulePath": "src/types/infraAdapters.ts",
+    "modulePath": "src/types/infraTargets.ts",
     "sourceLocation": {
-      "filePath": "src/types/infraAdapters.ts",
-      "line": 31,
+      "filePath": "src/types/infraTargets.ts",
+      "line": 4,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -7836,7 +7836,7 @@
     "modulePath": "src/types/infraLifecycle.ts",
     "sourceLocation": {
       "filePath": "src/types/infraLifecycle.ts",
-      "line": 97,
+      "line": 102,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -7883,7 +7883,7 @@
     "modulePath": "src/types/infraLifecycle.ts",
     "sourceLocation": {
       "filePath": "src/types/infraLifecycle.ts",
-      "line": 21,
+      "line": 22,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -8024,7 +8024,7 @@
     "modulePath": "src/types/infraAdapters.ts",
     "sourceLocation": {
       "filePath": "src/types/infraAdapters.ts",
-      "line": 49,
+      "line": 33,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -8098,7 +8098,7 @@
     "modulePath": "src/types/infraLifecycle.ts",
     "sourceLocation": {
       "filePath": "src/types/infraLifecycle.ts",
-      "line": 80,
+      "line": 81,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -8145,11 +8145,16 @@
     "modulePath": "src/types/infraLifecycle.ts",
     "sourceLocation": {
       "filePath": "src/types/infraLifecycle.ts",
-      "line": 88,
+      "line": 89,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["InfraOwnedResource", "InfraResourceIdentity"],
+    "relatedSymbols": [
+      "InfraComputeTarget",
+      "InfraOutput",
+      "InfraOwnedResource",
+      "InfraResourceIdentity"
+    ],
     "signatures": [],
     "members": [
       {
@@ -8163,6 +8168,13 @@
         "name": "environment",
         "kind": "property",
         "type": "\"local\" | \"preview\" | \"production\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "outputs",
+        "kind": "property",
+        "type": "readonly InfraOutput[]",
         "required": true,
         "description": null
       },
@@ -8184,6 +8196,13 @@
         "name": "schemaVersion",
         "kind": "property",
         "type": "1",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "targets",
+        "kind": "property",
+        "type": "readonly InfraComputeTarget[]",
         "required": true,
         "description": null
       }
@@ -8330,7 +8349,7 @@
     "modulePath": "src/types/infraLifecycle.ts",
     "sourceLocation": {
       "filePath": "src/types/infraLifecycle.ts",
-      "line": 65,
+      "line": 66,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -8348,7 +8367,7 @@
     "modulePath": "src/types/infraLifecycle.ts",
     "sourceLocation": {
       "filePath": "src/types/infraLifecycle.ts",
-      "line": 13,
+      "line": 14,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -8402,7 +8421,7 @@
     "modulePath": "src/types/infraLifecycle.ts",
     "sourceLocation": {
       "filePath": "src/types/infraLifecycle.ts",
-      "line": 42,
+      "line": 43,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -8442,7 +8461,7 @@
     "modulePath": "src/types/infraLifecycle.ts",
     "sourceLocation": {
       "filePath": "src/types/infraLifecycle.ts",
-      "line": 34,
+      "line": 35,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -8514,7 +8533,7 @@
     "modulePath": "src/types/infraAdapters.ts",
     "sourceLocation": {
       "filePath": "src/types/infraAdapters.ts",
-      "line": 65,
+      "line": 49,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -8547,7 +8566,7 @@
     "modulePath": "src/types/infraLifecycle.ts",
     "sourceLocation": {
       "filePath": "src/types/infraLifecycle.ts",
-      "line": 6,
+      "line": 7,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -8594,7 +8613,7 @@
     "modulePath": "src/types/infraLifecycle.ts",
     "sourceLocation": {
       "filePath": "src/types/infraLifecycle.ts",
-      "line": 49,
+      "line": 50,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -8641,7 +8660,7 @@
     "modulePath": "src/types/infraLifecycle.ts",
     "sourceLocation": {
       "filePath": "src/types/infraLifecycle.ts",
-      "line": 30,
+      "line": 31,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -8659,7 +8678,7 @@
     "modulePath": "src/types/infraAdapters.ts",
     "sourceLocation": {
       "filePath": "src/types/infraAdapters.ts",
-      "line": 104,
+      "line": 88,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -8784,7 +8803,7 @@
     "modulePath": "src/types/infraAdapters.ts",
     "sourceLocation": {
       "filePath": "src/types/infraAdapters.ts",
-      "line": 94,
+      "line": 78,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -8970,7 +8989,7 @@
     "modulePath": "src/types/infraAdapters.ts",
     "sourceLocation": {
       "filePath": "src/types/infraAdapters.ts",
-      "line": 139,
+      "line": 123,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -9055,7 +9074,7 @@
     "modulePath": "src/types/infraLifecycle.ts",
     "sourceLocation": {
       "filePath": "src/types/infraLifecycle.ts",
-      "line": 57,
+      "line": 58,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],

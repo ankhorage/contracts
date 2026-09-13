@@ -12,4 +12,5 @@ export type * from './types/infraAdapters';
 export type * from './types/infraLifecycle';
 export type * from './types/infraManifest';
 export type * from './types/infraSecrets';
+export type * from './types/infraTargets';
 export type * from './types/infraWorkload';

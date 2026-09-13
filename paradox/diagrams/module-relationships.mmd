@@ -67,6 +67,7 @@ graph LR
   module_src_types_infraLifecycle_ts["src/types/infraLifecycle.ts"]
   module_src_types_infraManifest_ts["src/types/infraManifest.ts"]
   module_src_types_infraSecrets_ts["src/types/infraSecrets.ts"]
+  module_src_types_infraTargets_ts["src/types/infraTargets.ts"]
   module_src_types_infraValidation_ts["src/types/infraValidation.ts"]
   module_src_types_infraWorkload_ts["src/types/infraWorkload.ts"]
   module_src_ui_ts["src/ui.ts"]
@@ -210,10 +211,12 @@ graph LR
   module_src_types_infraAdapters_ts --> module_src_types_infraLifecycle_ts
   module_src_types_infraAdapters_ts --> module_src_types_infraManifest_ts
   module_src_types_infraAdapters_ts --> module_src_types_infraSecrets_ts
+  module_src_types_infraAdapters_ts --> module_src_types_infraTargets_ts
   module_src_types_infraAdapters_ts --> module_src_types_infraWorkload_ts
   module_src_types_infraLifecycle_ts --> module_src_environments_ts
   module_src_types_infraLifecycle_ts --> module_src_types_infraManifest_ts
   module_src_types_infraLifecycle_ts --> module_src_types_infraSecrets_ts
+  module_src_types_infraLifecycle_ts --> module_src_types_infraTargets_ts
   module_src_types_infraManifest_ts --> module_src_auth_ts
   module_src_types_infraManifest_ts --> module_src_data_index_ts
   module_src_types_infraManifest_ts --> module_src_environments_ts
@@ -222,6 +225,7 @@ graph LR
   module_src_types_infraManifest_ts --> module_src_types_infraSecrets_ts
   module_src_types_infraManifest_ts --> module_src_types_infraWorkload_ts
   module_src_types_infraSecrets_ts --> module_src_environments_ts
+  module_src_types_infraTargets_ts --> module_src_types_infraSecrets_ts
   module_src_types_infraWorkload_ts --> module_src_types_infraSecrets_ts
   module_src_ui_ts --> module_src_media_ts
   module_src_ui_ts --> module_src_types_ts

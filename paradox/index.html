@@ -435,7 +435,7 @@
             <div class="summary">
               <div><strong>508</strong><span class="muted">public exports</span></div>
               <div><strong>0</strong><span class="muted">components</span></div>
-              <div><strong>71</strong><span class="muted">modules</span></div>
+              <div><strong>72</strong><span class="muted">modules</span></div>
               <div><strong>1</strong><span class="muted">entrypoints</span></div>
             </div>
             <h3>Entrypoints</h3>
@@ -1731,7 +1731,7 @@
             </article>
             <article
               class="item"
-              data-search="src/types/infraAdapters.ts src/environments.ts src/infra/constants.ts src/types/infraLifecycle.ts src/types/infraManifest.ts src/types/infraSecrets.ts src/types/infraWorkload.ts InfraAdapterDescriptor InfraComputeAdapter InfraComputeTarget InfraExecutionContext InfraReconcileResult InfraRuntimeAdapter InfraRuntimeDesiredState InfraServiceAdapter"
+              data-search="src/types/infraAdapters.ts src/environments.ts src/infra/constants.ts src/types/infraLifecycle.ts src/types/infraManifest.ts src/types/infraSecrets.ts src/types/infraTargets.ts src/types/infraWorkload.ts InfraAdapterDescriptor InfraComputeAdapter InfraExecutionContext InfraReconcileResult InfraRuntimeAdapter InfraRuntimeDesiredState InfraServiceAdapter"
             >
               <h3>src/types/infraAdapters.ts</h3>
               <p class="muted">Referenced module</p>
@@ -1739,25 +1739,25 @@
                 <strong>Dependencies:</strong> <code>src/environments.ts</code>,
                 <code>src/infra/constants.ts</code>, <code>src/types/infraLifecycle.ts</code>,
                 <code>src/types/infraManifest.ts</code>, <code>src/types/infraSecrets.ts</code>,
-                <code>src/types/infraWorkload.ts</code>
+                <code>src/types/infraTargets.ts</code>, <code>src/types/infraWorkload.ts</code>
               </p>
               <p>
                 <strong>Exports:</strong> <code>InfraAdapterDescriptor</code>,
-                <code>InfraComputeAdapter</code>, <code>InfraComputeTarget</code>,
-                <code>InfraExecutionContext</code>, <code>InfraReconcileResult</code>,
-                <code>InfraRuntimeAdapter</code>, <code>InfraRuntimeDesiredState</code>,
-                <code>InfraServiceAdapter</code>
+                <code>InfraComputeAdapter</code>, <code>InfraExecutionContext</code>,
+                <code>InfraReconcileResult</code>, <code>InfraRuntimeAdapter</code>,
+                <code>InfraRuntimeDesiredState</code>, <code>InfraServiceAdapter</code>
               </p>
             </article>
             <article
               class="item"
-              data-search="src/types/infraLifecycle.ts src/environments.ts src/types/infraManifest.ts src/types/infraSecrets.ts InfraDestroyRequest InfraDiagnostic InfraGeneratedArtifact InfraLedger InfraOutput InfraOwnedResource InfraPlan InfraPlanAction InfraResourceIdentity InfraResourceStatus InfraResult InfraStatus"
+              data-search="src/types/infraLifecycle.ts src/environments.ts src/types/infraManifest.ts src/types/infraSecrets.ts src/types/infraTargets.ts InfraDestroyRequest InfraDiagnostic InfraGeneratedArtifact InfraLedger InfraOutput InfraOwnedResource InfraPlan InfraPlanAction InfraResourceIdentity InfraResourceStatus InfraResult InfraStatus"
             >
               <h3>src/types/infraLifecycle.ts</h3>
               <p class="muted">Referenced module</p>
               <p>
                 <strong>Dependencies:</strong> <code>src/environments.ts</code>,
-                <code>src/types/infraManifest.ts</code>, <code>src/types/infraSecrets.ts</code>
+                <code>src/types/infraManifest.ts</code>, <code>src/types/infraSecrets.ts</code>,
+                <code>src/types/infraTargets.ts</code>
               </p>
               <p>
                 <strong>Exports:</strong> <code>InfraDestroyRequest</code>,
@@ -1807,6 +1807,15 @@
                 <strong>Exports:</strong> <code>InfraControlPlaneCredentialRef</code>,
                 <code>InfraSecretReference</code>
               </p>
+            </article>
+            <article
+              class="item"
+              data-search="src/types/infraTargets.ts src/types/infraSecrets.ts InfraComputeTarget"
+            >
+              <h3>src/types/infraTargets.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p><strong>Dependencies:</strong> <code>src/types/infraSecrets.ts</code></p>
+              <p><strong>Exports:</strong> <code>InfraComputeTarget</code></p>
             </article>
             <article class="item" data-search="src/types/infraValidation.ts InfraShape">
               <h3>src/types/infraValidation.ts</h3>
@@ -17013,7 +17022,7 @@
                 data-search="InfraAdapterDescriptor unknown src/types/infraAdapters.ts "
               >
                 <h4>InfraAdapterDescriptor</h4>
-                <p class="muted">unknown • <code>src/types/infraAdapters.ts:25:1</code></p>
+                <p class="muted">unknown • <code>src/types/infraAdapters.ts:26:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -17024,7 +17033,7 @@
                 data-search="InfraComputeAdapter type src/types/infraAdapters.ts  InfraAdapterDescriptor InfraComputeSelection InfraComputeTarget InfraDestroyRequest InfraExecutionContext InfraPlanAction InfraReconcileResult InfraResourceStatus InfraResult"
               >
                 <h4>InfraComputeAdapter</h4>
-                <p class="muted">type • <code>src/types/infraAdapters.ts:70:1</code></p>
+                <p class="muted">type • <code>src/types/infraAdapters.ts:54:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -17129,22 +17138,11 @@
               </article>
               <article
                 class="item"
-                id="symbol-infracomputetarget"
-                data-search="InfraComputeTarget unknown src/types/infraAdapters.ts "
-              >
-                <h4>InfraComputeTarget</h4>
-                <p class="muted">unknown • <code>src/types/infraAdapters.ts:31:1</code></p>
-
-                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
-                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
-              </article>
-              <article
-                class="item"
                 id="symbol-infraexecutioncontext"
                 data-search="InfraExecutionContext type src/types/infraAdapters.ts  InfraControlPlaneCredentialRef InfraEnvironmentSpec InfraLedger InfraResult InfraSecretReference"
               >
                 <h4>InfraExecutionContext</h4>
-                <p class="muted">type • <code>src/types/infraAdapters.ts:49:1</code></p>
+                <p class="muted">type • <code>src/types/infraAdapters.ts:33:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -17242,7 +17240,7 @@
                 data-search="InfraReconcileResult type src/types/infraAdapters.ts  InfraOutput InfraOwnedResource"
               >
                 <h4>InfraReconcileResult</h4>
-                <p class="muted">type • <code>src/types/infraAdapters.ts:65:1</code></p>
+                <p class="muted">type • <code>src/types/infraAdapters.ts:49:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -17287,7 +17285,7 @@
                 data-search="InfraRuntimeAdapter type src/types/infraAdapters.ts  InfraAdapterDescriptor InfraDestroyRequest InfraExecutionContext InfraGeneratedArtifact InfraPlanAction InfraReconcileResult InfraResourceStatus InfraResult InfraRuntimeDesiredState"
               >
                 <h4>InfraRuntimeAdapter</h4>
-                <p class="muted">type • <code>src/types/infraAdapters.ts:104:1</code></p>
+                <p class="muted">type • <code>src/types/infraAdapters.ts:88:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -17424,7 +17422,7 @@
                 data-search="InfraRuntimeDesiredState type src/types/infraAdapters.ts  InfraComputeTarget InfraOutput InfraRuntimeSelection InfraWorkloadSpec"
               >
                 <h4>InfraRuntimeDesiredState</h4>
-                <p class="muted">type • <code>src/types/infraAdapters.ts:94:1</code></p>
+                <p class="muted">type • <code>src/types/infraAdapters.ts:78:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -17485,7 +17483,7 @@
                 data-search="InfraServiceAdapter type src/types/infraAdapters.ts  InfraAdapterDescriptor InfraDestroyRequest InfraExecutionContext InfraOutput InfraPlanAction InfraReconcileResult InfraResourceStatus InfraResult InfraWorkloadSpec"
               >
                 <h4>InfraServiceAdapter</h4>
-                <p class="muted">type • <code>src/types/infraAdapters.ts:139:1</code></p>
+                <p class="muted">type • <code>src/types/infraAdapters.ts:123:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -17622,7 +17620,7 @@
                 data-search="InfraDestroyRequest type src/types/infraLifecycle.ts  AppEnvironmentId InfraResourceIdentity"
               >
                 <h4>InfraDestroyRequest</h4>
-                <p class="muted">type • <code>src/types/infraLifecycle.ts:97:1</code></p>
+                <p class="muted">type • <code>src/types/infraLifecycle.ts:102:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -17696,7 +17694,7 @@
                 data-search="InfraDiagnostic type src/types/infraLifecycle.ts  InfraResourceIdentity"
               >
                 <h4>InfraDiagnostic</h4>
-                <p class="muted">type • <code>src/types/infraLifecycle.ts:21:1</code></p>
+                <p class="muted">type • <code>src/types/infraLifecycle.ts:22:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -17763,7 +17761,7 @@
                 data-search="InfraGeneratedArtifact type src/types/infraLifecycle.ts  InfraResourceIdentity"
               >
                 <h4>InfraGeneratedArtifact</h4>
-                <p class="muted">type • <code>src/types/infraLifecycle.ts:80:1</code></p>
+                <p class="muted">type • <code>src/types/infraLifecycle.ts:81:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -17818,15 +17816,17 @@
               <article
                 class="item"
                 id="symbol-infraledger"
-                data-search="InfraLedger type src/types/infraLifecycle.ts  InfraOwnedResource InfraResourceIdentity"
+                data-search="InfraLedger type src/types/infraLifecycle.ts  InfraComputeTarget InfraOutput InfraOwnedResource InfraResourceIdentity"
               >
                 <h4>InfraLedger</h4>
-                <p class="muted">type • <code>src/types/infraLifecycle.ts:88:1</code></p>
+                <p class="muted">type • <code>src/types/infraLifecycle.ts:89:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
                   <strong>Related symbols:</strong>
                   <ul class="chips">
+                    <li class="chip">InfraComputeTarget</li>
+                    <li class="chip">InfraOutput</li>
                     <li class="chip">InfraOwnedResource</li>
                     <li class="chip">InfraResourceIdentity</li>
                   </ul>
@@ -17867,6 +17867,13 @@
                       <td></td>
                     </tr>
                     <tr>
+                      <td><code>outputs</code></td>
+                      <td>property</td>
+                      <td><code>readonly InfraOutput[]</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
                       <td><code>projectId</code></td>
                       <td>property</td>
                       <td><code>string</code></td>
@@ -17887,6 +17894,13 @@
                       <td>yes</td>
                       <td></td>
                     </tr>
+                    <tr>
+                      <td><code>targets</code></td>
+                      <td>property</td>
+                      <td><code>readonly InfraComputeTarget[]</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
                   </tbody>
                 </table>
               </article>
@@ -17896,7 +17910,7 @@
                 data-search="InfraOutput unknown src/types/infraLifecycle.ts "
               >
                 <h4>InfraOutput</h4>
-                <p class="muted">unknown • <code>src/types/infraLifecycle.ts:65:1</code></p>
+                <p class="muted">unknown • <code>src/types/infraLifecycle.ts:66:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -17907,7 +17921,7 @@
                 data-search="InfraOwnedResource type src/types/infraLifecycle.ts  InfraResourceIdentity"
               >
                 <h4>InfraOwnedResource</h4>
-                <p class="muted">type • <code>src/types/infraLifecycle.ts:13:1</code></p>
+                <p class="muted">type • <code>src/types/infraLifecycle.ts:14:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -17972,7 +17986,7 @@
                 data-search="InfraPlan type src/types/infraLifecycle.ts  InfraPlanAction"
               >
                 <h4>InfraPlan</h4>
-                <p class="muted">type • <code>src/types/infraLifecycle.ts:42:1</code></p>
+                <p class="muted">type • <code>src/types/infraLifecycle.ts:43:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -18027,7 +18041,7 @@
                 data-search="InfraPlanAction type src/types/infraLifecycle.ts  InfraResourceIdentity"
               >
                 <h4>InfraPlanAction</h4>
-                <p class="muted">type • <code>src/types/infraLifecycle.ts:34:1</code></p>
+                <p class="muted">type • <code>src/types/infraLifecycle.ts:35:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -18102,7 +18116,7 @@
                 data-search="InfraResourceIdentity type src/types/infraLifecycle.ts "
               >
                 <h4>InfraResourceIdentity</h4>
-                <p class="muted">type • <code>src/types/infraLifecycle.ts:6:1</code></p>
+                <p class="muted">type • <code>src/types/infraLifecycle.ts:7:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -18165,7 +18179,7 @@
                 data-search="InfraResourceStatus type src/types/infraLifecycle.ts  InfraDiagnostic InfraResourceIdentity"
               >
                 <h4>InfraResourceStatus</h4>
-                <p class="muted">type • <code>src/types/infraLifecycle.ts:49:1</code></p>
+                <p class="muted">type • <code>src/types/infraLifecycle.ts:50:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -18230,7 +18244,7 @@
                 data-search="InfraResult unknown src/types/infraLifecycle.ts "
               >
                 <h4>InfraResult</h4>
-                <p class="muted">unknown • <code>src/types/infraLifecycle.ts:30:1</code></p>
+                <p class="muted">unknown • <code>src/types/infraLifecycle.ts:31:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -18241,7 +18255,7 @@
                 data-search="InfraStatus type src/types/infraLifecycle.ts  InfraResourceStatus"
               >
                 <h4>InfraStatus</h4>
-                <p class="muted">type • <code>src/types/infraLifecycle.ts:57:1</code></p>
+                <p class="muted">type • <code>src/types/infraLifecycle.ts:58:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -19129,6 +19143,20 @@
                     </tr>
                   </tbody>
                 </table>
+              </article>
+            </section>
+            <section>
+              <h3>src/types/infraTargets.ts</h3>
+              <article
+                class="item"
+                id="symbol-infracomputetarget"
+                data-search="InfraComputeTarget unknown src/types/infraTargets.ts "
+              >
+                <h4>InfraComputeTarget</h4>
+                <p class="muted">unknown • <code>src/types/infraTargets.ts:4:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
               </article>
             </section>
             <section>
@@ -20882,12 +20910,14 @@
                 module_src_types_infraAdapters_ts --&gt; module_src_types_infraLifecycle_ts
                 module_src_types_infraAdapters_ts --&gt; module_src_types_infraManifest_ts
                 module_src_types_infraAdapters_ts --&gt; module_src_types_infraSecrets_ts
+                module_src_types_infraAdapters_ts --&gt; module_src_types_infraTargets_ts
                 module_src_types_infraAdapters_ts --&gt; module_src_types_infraWorkload_ts
                 module_src_types_infraLifecycle_ts[&quot;src/types/infraLifecycle.ts&quot;]
                 package__ankhorage_contracts -.-&gt; module_src_types_infraLifecycle_ts
                 module_src_types_infraLifecycle_ts --&gt; module_src_environments_ts
                 module_src_types_infraLifecycle_ts --&gt; module_src_types_infraManifest_ts
                 module_src_types_infraLifecycle_ts --&gt; module_src_types_infraSecrets_ts
+                module_src_types_infraLifecycle_ts --&gt; module_src_types_infraTargets_ts
                 module_src_types_infraManifest_ts[&quot;src/types/infraManifest.ts&quot;]
                 package__ankhorage_contracts -.-&gt; module_src_types_infraManifest_ts
                 module_src_types_infraManifest_ts --&gt; module_src_auth_ts
@@ -20900,6 +20930,9 @@
                 module_src_types_infraSecrets_ts[&quot;src/types/infraSecrets.ts&quot;]
                 package__ankhorage_contracts -.-&gt; module_src_types_infraSecrets_ts
                 module_src_types_infraSecrets_ts --&gt; module_src_environments_ts
+                module_src_types_infraTargets_ts[&quot;src/types/infraTargets.ts&quot;]
+                package__ankhorage_contracts -.-&gt; module_src_types_infraTargets_ts
+                module_src_types_infraTargets_ts --&gt; module_src_types_infraSecrets_ts
                 module_src_types_infraValidation_ts[&quot;src/types/infraValidation.ts&quot;]
                 package__ankhorage_contracts -.-&gt; module_src_types_infraValidation_ts
                 module_src_types_infraWorkload_ts[&quot;src/types/infraWorkload.ts&quot;]
@@ -21185,12 +21218,14 @@ graph TD
   module_src_types_infraAdapters_ts --&gt; module_src_types_infraLifecycle_ts
   module_src_types_infraAdapters_ts --&gt; module_src_types_infraManifest_ts
   module_src_types_infraAdapters_ts --&gt; module_src_types_infraSecrets_ts
+  module_src_types_infraAdapters_ts --&gt; module_src_types_infraTargets_ts
   module_src_types_infraAdapters_ts --&gt; module_src_types_infraWorkload_ts
   module_src_types_infraLifecycle_ts[&quot;src/types/infraLifecycle.ts&quot;]
   package__ankhorage_contracts -.-&gt; module_src_types_infraLifecycle_ts
   module_src_types_infraLifecycle_ts --&gt; module_src_environments_ts
   module_src_types_infraLifecycle_ts --&gt; module_src_types_infraManifest_ts
   module_src_types_infraLifecycle_ts --&gt; module_src_types_infraSecrets_ts
+  module_src_types_infraLifecycle_ts --&gt; module_src_types_infraTargets_ts
   module_src_types_infraManifest_ts[&quot;src/types/infraManifest.ts&quot;]
   package__ankhorage_contracts -.-&gt; module_src_types_infraManifest_ts
   module_src_types_infraManifest_ts --&gt; module_src_auth_ts
@@ -21203,6 +21238,9 @@ graph TD
   module_src_types_infraSecrets_ts[&quot;src/types/infraSecrets.ts&quot;]
   package__ankhorage_contracts -.-&gt; module_src_types_infraSecrets_ts
   module_src_types_infraSecrets_ts --&gt; module_src_environments_ts
+  module_src_types_infraTargets_ts[&quot;src/types/infraTargets.ts&quot;]
+  package__ankhorage_contracts -.-&gt; module_src_types_infraTargets_ts
+  module_src_types_infraTargets_ts --&gt; module_src_types_infraSecrets_ts
   module_src_types_infraValidation_ts[&quot;src/types/infraValidation.ts&quot;]
   package__ankhorage_contracts -.-&gt; module_src_types_infraValidation_ts
   module_src_types_infraWorkload_ts[&quot;src/types/infraWorkload.ts&quot;]
@@ -21290,6 +21328,7 @@ graph TD
                 module_src_types_infraLifecycle_ts[&quot;src/types/infraLifecycle.ts&quot;]
                 module_src_types_infraManifest_ts[&quot;src/types/infraManifest.ts&quot;]
                 module_src_types_infraSecrets_ts[&quot;src/types/infraSecrets.ts&quot;]
+                module_src_types_infraTargets_ts[&quot;src/types/infraTargets.ts&quot;]
                 module_src_types_infraValidation_ts[&quot;src/types/infraValidation.ts&quot;]
                 module_src_types_infraWorkload_ts[&quot;src/types/infraWorkload.ts&quot;]
                 module_src_ui_ts[&quot;src/ui.ts&quot;] module_src_appManifest_apis_ts --&gt;
@@ -21429,10 +21468,12 @@ graph TD
                 module_src_types_infraLifecycle_ts module_src_types_infraAdapters_ts --&gt;
                 module_src_types_infraManifest_ts module_src_types_infraAdapters_ts --&gt;
                 module_src_types_infraSecrets_ts module_src_types_infraAdapters_ts --&gt;
+                module_src_types_infraTargets_ts module_src_types_infraAdapters_ts --&gt;
                 module_src_types_infraWorkload_ts module_src_types_infraLifecycle_ts --&gt;
                 module_src_environments_ts module_src_types_infraLifecycle_ts --&gt;
                 module_src_types_infraManifest_ts module_src_types_infraLifecycle_ts --&gt;
-                module_src_types_infraSecrets_ts module_src_types_infraManifest_ts --&gt;
+                module_src_types_infraSecrets_ts module_src_types_infraLifecycle_ts --&gt;
+                module_src_types_infraTargets_ts module_src_types_infraManifest_ts --&gt;
                 module_src_auth_ts module_src_types_infraManifest_ts --&gt; module_src_data_index_ts
                 module_src_types_infraManifest_ts --&gt; module_src_environments_ts
                 module_src_types_infraManifest_ts --&gt; module_src_infra_constants_ts
@@ -21440,6 +21481,7 @@ graph TD
                 module_src_types_infraManifest_ts --&gt; module_src_types_infraSecrets_ts
                 module_src_types_infraManifest_ts --&gt; module_src_types_infraWorkload_ts
                 module_src_types_infraSecrets_ts --&gt; module_src_environments_ts
+                module_src_types_infraTargets_ts --&gt; module_src_types_infraSecrets_ts
                 module_src_types_infraWorkload_ts --&gt; module_src_types_infraSecrets_ts
                 module_src_ui_ts --&gt; module_src_media_ts module_src_ui_ts --&gt;
                 module_src_types_ts
@@ -21516,6 +21558,7 @@ graph LR
   module_src_types_infraLifecycle_ts[&quot;src/types/infraLifecycle.ts&quot;]
   module_src_types_infraManifest_ts[&quot;src/types/infraManifest.ts&quot;]
   module_src_types_infraSecrets_ts[&quot;src/types/infraSecrets.ts&quot;]
+  module_src_types_infraTargets_ts[&quot;src/types/infraTargets.ts&quot;]
   module_src_types_infraValidation_ts[&quot;src/types/infraValidation.ts&quot;]
   module_src_types_infraWorkload_ts[&quot;src/types/infraWorkload.ts&quot;]
   module_src_ui_ts[&quot;src/ui.ts&quot;]
@@ -21659,10 +21702,12 @@ graph LR
   module_src_types_infraAdapters_ts --&gt; module_src_types_infraLifecycle_ts
   module_src_types_infraAdapters_ts --&gt; module_src_types_infraManifest_ts
   module_src_types_infraAdapters_ts --&gt; module_src_types_infraSecrets_ts
+  module_src_types_infraAdapters_ts --&gt; module_src_types_infraTargets_ts
   module_src_types_infraAdapters_ts --&gt; module_src_types_infraWorkload_ts
   module_src_types_infraLifecycle_ts --&gt; module_src_environments_ts
   module_src_types_infraLifecycle_ts --&gt; module_src_types_infraManifest_ts
   module_src_types_infraLifecycle_ts --&gt; module_src_types_infraSecrets_ts
+  module_src_types_infraLifecycle_ts --&gt; module_src_types_infraTargets_ts
   module_src_types_infraManifest_ts --&gt; module_src_auth_ts
   module_src_types_infraManifest_ts --&gt; module_src_data_index_ts
   module_src_types_infraManifest_ts --&gt; module_src_environments_ts
@@ -21671,6 +21716,7 @@ graph LR
   module_src_types_infraManifest_ts --&gt; module_src_types_infraSecrets_ts
   module_src_types_infraManifest_ts --&gt; module_src_types_infraWorkload_ts
   module_src_types_infraSecrets_ts --&gt; module_src_environments_ts
+  module_src_types_infraTargets_ts --&gt; module_src_types_infraSecrets_ts
   module_src_types_infraWorkload_ts --&gt; module_src_types_infraSecrets_ts
   module_src_ui_ts --&gt; module_src_media_ts
   module_src_ui_ts --&gt; module_src_types_ts
@@ -21749,6 +21795,7 @@ graph LR
                 module_src_types_infraLifecycle_ts[&quot;src/types/infraLifecycle.ts&quot;]
                 module_src_types_infraManifest_ts[&quot;src/types/infraManifest.ts&quot;]
                 module_src_types_infraSecrets_ts[&quot;src/types/infraSecrets.ts&quot;]
+                module_src_types_infraTargets_ts[&quot;src/types/infraTargets.ts&quot;]
                 module_src_types_infraValidation_ts[&quot;src/types/infraValidation.ts&quot;]
                 module_src_types_infraWorkload_ts[&quot;src/types/infraWorkload.ts&quot;]
                 module_src_ui_ts[&quot;src/ui.ts&quot;] export_Action[&quot;Action&quot;]
@@ -22331,7 +22378,7 @@ graph LR
                 export_InfraComputeSelection[&quot;InfraComputeSelection&quot;]
                 module_src_types_infraManifest_ts --&gt; export_InfraComputeSelection
                 export_InfraComputeTarget[&quot;InfraComputeTarget&quot;]
-                module_src_types_infraAdapters_ts --&gt; export_InfraComputeTarget
+                module_src_types_infraTargets_ts --&gt; export_InfraComputeTarget
                 export_InfraControlPlaneCredentialRef[&quot;InfraControlPlaneCredentialRef&quot;]
                 module_src_types_infraSecrets_ts --&gt; export_InfraControlPlaneCredentialRef
                 export_InfraDatabaseConfigMap[&quot;InfraDatabaseConfigMap&quot;]
@@ -22371,8 +22418,9 @@ graph LR
                 module_src_types_infraLifecycle_ts --&gt; export_InfraGeneratedArtifact
                 export_InfraGeneratedArtifact -.-&gt; export_InfraResourceIdentity
                 export_InfraLedger[&quot;InfraLedger&quot;] module_src_types_infraLifecycle_ts
-                --&gt; export_InfraLedger export_InfraLedger -.-&gt; export_InfraOwnedResource
-                export_InfraLedger -.-&gt; export_InfraResourceIdentity
+                --&gt; export_InfraLedger export_InfraLedger -.-&gt; export_InfraComputeTarget
+                export_InfraLedger -.-&gt; export_InfraOutput export_InfraLedger -.-&gt;
+                export_InfraOwnedResource export_InfraLedger -.-&gt; export_InfraResourceIdentity
                 export_InfraManifest[&quot;InfraManifest&quot;] module_src_types_infraManifest_ts
                 --&gt; export_InfraManifest export_InfraManifest -.-&gt; export_ApiDefinitionList
                 export_InfraManifest -.-&gt; export_InfraEnvironmentSpec
@@ -23106,6 +23154,7 @@ graph LR
   module_src_types_infraLifecycle_ts[&quot;src/types/infraLifecycle.ts&quot;]
   module_src_types_infraManifest_ts[&quot;src/types/infraManifest.ts&quot;]
   module_src_types_infraSecrets_ts[&quot;src/types/infraSecrets.ts&quot;]
+  module_src_types_infraTargets_ts[&quot;src/types/infraTargets.ts&quot;]
   module_src_types_infraValidation_ts[&quot;src/types/infraValidation.ts&quot;]
   module_src_types_infraWorkload_ts[&quot;src/types/infraWorkload.ts&quot;]
   module_src_ui_ts[&quot;src/ui.ts&quot;]
@@ -23785,7 +23834,7 @@ graph LR
   export_InfraComputeSelection[&quot;InfraComputeSelection&quot;]
   module_src_types_infraManifest_ts --&gt; export_InfraComputeSelection
   export_InfraComputeTarget[&quot;InfraComputeTarget&quot;]
-  module_src_types_infraAdapters_ts --&gt; export_InfraComputeTarget
+  module_src_types_infraTargets_ts --&gt; export_InfraComputeTarget
   export_InfraControlPlaneCredentialRef[&quot;InfraControlPlaneCredentialRef&quot;]
   module_src_types_infraSecrets_ts --&gt; export_InfraControlPlaneCredentialRef
   export_InfraDatabaseConfigMap[&quot;InfraDatabaseConfigMap&quot;]
@@ -23826,6 +23875,8 @@ graph LR
   export_InfraGeneratedArtifact -.-&gt; export_InfraResourceIdentity
   export_InfraLedger[&quot;InfraLedger&quot;]
   module_src_types_infraLifecycle_ts --&gt; export_InfraLedger
+  export_InfraLedger -.-&gt; export_InfraComputeTarget
+  export_InfraLedger -.-&gt; export_InfraOutput
   export_InfraLedger -.-&gt; export_InfraOwnedResource
   export_InfraLedger -.-&gt; export_InfraResourceIdentity
   export_InfraManifest[&quot;InfraManifest&quot;]

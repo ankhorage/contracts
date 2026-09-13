@@ -67,6 +67,7 @@ graph LR
   module_src_types_infraLifecycle_ts["src/types/infraLifecycle.ts"]
   module_src_types_infraManifest_ts["src/types/infraManifest.ts"]
   module_src_types_infraSecrets_ts["src/types/infraSecrets.ts"]
+  module_src_types_infraTargets_ts["src/types/infraTargets.ts"]
   module_src_types_infraValidation_ts["src/types/infraValidation.ts"]
   module_src_types_infraWorkload_ts["src/types/infraWorkload.ts"]
   module_src_ui_ts["src/ui.ts"]
@@ -746,7 +747,7 @@ graph LR
   export_InfraComputeSelection["InfraComputeSelection"]
   module_src_types_infraManifest_ts --> export_InfraComputeSelection
   export_InfraComputeTarget["InfraComputeTarget"]
-  module_src_types_infraAdapters_ts --> export_InfraComputeTarget
+  module_src_types_infraTargets_ts --> export_InfraComputeTarget
   export_InfraControlPlaneCredentialRef["InfraControlPlaneCredentialRef"]
   module_src_types_infraSecrets_ts --> export_InfraControlPlaneCredentialRef
   export_InfraDatabaseConfigMap["InfraDatabaseConfigMap"]
@@ -787,6 +788,8 @@ graph LR
   export_InfraGeneratedArtifact -.-> export_InfraResourceIdentity
   export_InfraLedger["InfraLedger"]
   module_src_types_infraLifecycle_ts --> export_InfraLedger
+  export_InfraLedger -.-> export_InfraComputeTarget
+  export_InfraLedger -.-> export_InfraOutput
   export_InfraLedger -.-> export_InfraOwnedResource
   export_InfraLedger -.-> export_InfraResourceIdentity
   export_InfraManifest["InfraManifest"]
