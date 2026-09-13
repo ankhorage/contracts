@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 16.1.0
+
+### Minor Changes
+
+- 89990ec: Add separate Hetzner SSH bootstrap configuration without conflating it with cloud API credentials.
+
 ## 16.0.0
 
 ### Major Changes
