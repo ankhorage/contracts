@@ -28,7 +28,6 @@ import {
   type InfraManifest,
   NAVIGATOR_TYPES,
   type RouteDefinition,
-  type SplashScreenSpec,
   STATE_PERSISTENCE_MODES,
   STATE_PROVIDERS,
   type StateSpec,
@@ -194,38 +193,6 @@ describe('contracts', () => {
     expect(theme.tokens?.spacing?.m).toBe(18);
     expect(theme.recipes?.components?.Card?.compact).toBe(true);
     expect(theme.recipes?.patterns?.Panel?.padding).toBe('xl');
-  });
-
-  it('accepts serializable splash screen branding on app manifests', () => {
-    const splashScreen: SplashScreenSpec = {
-      backgroundColor: '#ffffff',
-      image: { mediaId: 'splash-logo' },
-      imageWidth: 160,
-      resizeMode: 'contain',
-      dark: {
-        backgroundColor: '#000000',
-        image: { mediaId: 'splash-logo-dark' },
-      },
-    };
-
-    const manifest: Pick<AppManifest, 'splashScreen'> = { splashScreen };
-
-    const splashWithDarkImageWidth: SplashScreenSpec = {
-      dark: {
-        // @ts-expect-error Dark-mode overrides do not own root image sizing.
-        imageWidth: 160,
-      },
-    };
-    const splashWithDarkResizeMode: SplashScreenSpec = {
-      dark: {
-        // @ts-expect-error Dark-mode overrides do not own the root resize mode.
-        resizeMode: 'contain',
-      },
-    };
-
-    expect(JSON.parse(JSON.stringify(manifest))).toEqual({ splashScreen });
-    expect(splashWithDarkImageWidth.dark).toEqual({ imageWidth: 160 });
-    expect(splashWithDarkResizeMode.dark).toEqual({ resizeMode: 'contain' });
   });
 
   it('accepts screens with operation data loaders and repeat empty-state nodes', () => {

@@ -2,4 +2,4 @@
 '@ankhorage/contracts': major
 ---
 
-Restrict splash-screen dark-mode overrides to image and background color while keeping image sizing and resize mode on the root splash configuration.
+Derive portable AppManifest splash-screen options from the official Expo splash-screen plugin contract while replacing file paths with media references.
