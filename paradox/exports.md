@@ -2735,16 +2735,16 @@ Source: `src/types/infraAdapters.ts:104:1`
 
 ### Members
 
-| Name          | Kind     | Type                                                                                                                                               | Required | Description |
-| ------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| descriptor    | property | `InfraAdapterDescriptor<P>`                                                                                                                        | yes      |             |
-| destroyAsync  | method   | `(context: InfraExecutionContext, request: InfraDestroyRequest) => Promise<InfraResult<InfraReconcileResult>>`                                     | yes      |             |
-| ensureAsync   | method   | `(context: InfraExecutionContext, desired: InfraRuntimeDesiredState<P>) => Promise<InfraResult<InfraReconcileResult>>`                             | yes      |             |
-| generateAsync | method   | `((context: InfraExecutionContext, desired: InfraRuntimeDesiredState<P>) => Promise<InfraResult<readonly InfraGeneratedArtifact[]>>) \| undefined` | no       |             |
-| planAsync     | method   | `(context: InfraExecutionContext, desired: InfraRuntimeDesiredState<P>) => Promise<InfraResult<readonly InfraPlanAction[]>>`                       | yes      |             |
-| statusAsync   | method   | `(context: InfraExecutionContext) => Promise<InfraResult<readonly InfraResourceStatus[]>>`                                                         | yes      |             |
-| suspendAsync  | method   | `(context: InfraExecutionContext) => Promise<InfraResult<InfraReconcileResult>>`                                                                   | yes      |             |
-| validateAsync | method   | `(context: InfraExecutionContext, desired: InfraRuntimeDesiredState<P>) => Promise<InfraResult<null>>`                                             | yes      |             |
+| Name          | Kind     | Type                                                                                                                                                 | Required | Description |
+| ------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
+| descriptor    | property | `InfraAdapterDescriptor<P>`                                                                                                                          | yes      |             |
+| destroyAsync  | method   | `(context: InfraExecutionContext, desired: InfraRuntimeDesiredState<P>, request: InfraDestroyRequest) => Promise<InfraResult<InfraReconcileResult>>` | yes      |             |
+| ensureAsync   | method   | `(context: InfraExecutionContext, desired: InfraRuntimeDesiredState<P>) => Promise<InfraResult<InfraReconcileResult>>`                               | yes      |             |
+| generateAsync | method   | `((context: InfraExecutionContext, desired: InfraRuntimeDesiredState<P>) => Promise<InfraResult<readonly InfraGeneratedArtifact[]>>) \| undefined`   | no       |             |
+| planAsync     | method   | `(context: InfraExecutionContext, desired: InfraRuntimeDesiredState<P>) => Promise<InfraResult<readonly InfraPlanAction[]>>`                         | yes      |             |
+| statusAsync   | method   | `(context: InfraExecutionContext, desired: InfraRuntimeDesiredState<P>) => Promise<InfraResult<readonly InfraResourceStatus[]>>`                     | yes      |             |
+| suspendAsync  | method   | `(context: InfraExecutionContext, desired: InfraRuntimeDesiredState<P>) => Promise<InfraResult<InfraReconcileResult>>`                               | yes      |             |
+| validateAsync | method   | `(context: InfraExecutionContext, desired: InfraRuntimeDesiredState<P>) => Promise<InfraResult<null>>`                                               | yes      |             |
 
 ## InfraRuntimeConfigMap
 
@@ -2825,7 +2825,7 @@ Source: `src/types/infraManifest.ts:114:1`
 
 Kind: `type`
 Module: `src/types/infraAdapters.ts`
-Source: `src/types/infraAdapters.ts:132:1`
+Source: `src/types/infraAdapters.ts:139:1`
 
 ### Members
 

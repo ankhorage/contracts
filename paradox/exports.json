@@ -8679,7 +8679,7 @@
       {
         "name": "destroyAsync",
         "kind": "method",
-        "type": "(context: InfraExecutionContext, request: InfraDestroyRequest) => Promise<InfraResult<InfraReconcileResult>>",
+        "type": "(context: InfraExecutionContext, desired: InfraRuntimeDesiredState<P>, request: InfraDestroyRequest) => Promise<InfraResult<InfraReconcileResult>>",
         "required": true,
         "description": null
       },
@@ -8707,14 +8707,14 @@
       {
         "name": "statusAsync",
         "kind": "method",
-        "type": "(context: InfraExecutionContext) => Promise<InfraResult<readonly InfraResourceStatus[]>>",
+        "type": "(context: InfraExecutionContext, desired: InfraRuntimeDesiredState<P>) => Promise<InfraResult<readonly InfraResourceStatus[]>>",
         "required": true,
         "description": null
       },
       {
         "name": "suspendAsync",
         "kind": "method",
-        "type": "(context: InfraExecutionContext) => Promise<InfraResult<InfraReconcileResult>>",
+        "type": "(context: InfraExecutionContext, desired: InfraRuntimeDesiredState<P>) => Promise<InfraResult<InfraReconcileResult>>",
         "required": true,
         "description": null
       },
@@ -8963,7 +8963,7 @@
     "modulePath": "src/types/infraAdapters.ts",
     "sourceLocation": {
       "filePath": "src/types/infraAdapters.ts",
-      "line": 132,
+      "line": 139,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],

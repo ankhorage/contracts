@@ -17326,7 +17326,8 @@
                       <td>method</td>
                       <td>
                         <code
-                          >(context: InfraExecutionContext, request: InfraDestroyRequest) =&gt;
+                          >(context: InfraExecutionContext, desired:
+                          InfraRuntimeDesiredState&lt;P&gt;, request: InfraDestroyRequest) =&gt;
                           Promise&lt;InfraResult&lt;InfraReconcileResult&gt;&gt;</code
                         >
                       </td>
@@ -17378,8 +17379,9 @@
                       <td>method</td>
                       <td>
                         <code
-                          >(context: InfraExecutionContext) =&gt; Promise&lt;InfraResult&lt;readonly
-                          InfraResourceStatus[]&gt;&gt;</code
+                          >(context: InfraExecutionContext, desired:
+                          InfraRuntimeDesiredState&lt;P&gt;) =&gt;
+                          Promise&lt;InfraResult&lt;readonly InfraResourceStatus[]&gt;&gt;</code
                         >
                       </td>
                       <td>yes</td>
@@ -17390,7 +17392,8 @@
                       <td>method</td>
                       <td>
                         <code
-                          >(context: InfraExecutionContext) =&gt;
+                          >(context: InfraExecutionContext, desired:
+                          InfraRuntimeDesiredState&lt;P&gt;) =&gt;
                           Promise&lt;InfraResult&lt;InfraReconcileResult&gt;&gt;</code
                         >
                       </td>
@@ -17480,7 +17483,7 @@
                 data-search="InfraServiceAdapter type src/types/infraAdapters.ts  InfraAdapterDescriptor InfraDestroyRequest InfraExecutionContext InfraOutput InfraPlanAction InfraReconcileResult InfraResourceStatus InfraResult InfraWorkloadSpec"
               >
                 <h4>InfraServiceAdapter</h4>
-                <p class="muted">type • <code>src/types/infraAdapters.ts:132:1</code></p>
+                <p class="muted">type • <code>src/types/infraAdapters.ts:139:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>

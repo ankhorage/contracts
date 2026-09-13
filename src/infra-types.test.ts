@@ -11,6 +11,7 @@ import type {
   InfraManifest,
   InfraObjectStorageSpec,
   InfraOutput,
+  InfraRuntimeAdapter,
   InfraRuntimeDesiredState,
   InfraRuntimeProviderId,
 } from './infra';
@@ -90,4 +91,20 @@ it('requires resolved outputs at the runtime desired-state boundary', () => {
   ] = [false, true];
 
   expect(outputBoundary).toEqual([false, true]);
+});
+
+it('requires runtime desired state for every target-dependent lifecycle operation', () => {
+  type Adapter = InfraRuntimeAdapter<'docker-compose'>;
+  type Desired = InfraRuntimeDesiredState<'docker-compose'>;
+
+  const lifecycleBoundary: readonly [
+    Assignable<Parameters<Adapter['statusAsync']>, [context: unknown, desired: Desired]>,
+    Assignable<Parameters<Adapter['suspendAsync']>, [context: unknown, desired: Desired]>,
+    Assignable<
+      Parameters<Adapter['destroyAsync']>,
+      [context: unknown, desired: Desired, request: InfraDestroyRequest]
+    >,
+  ] = [true, true, true];
+
+  expect(lifecycleBoundary).toEqual([true, true, true]);
 });

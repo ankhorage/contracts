@@ -150,6 +150,12 @@ readiness. Repeated ensure/reconcile must converge. Providers without suspension
 resources on `down`; `down` is not a zero-cost promise. These are implementation obligations of
 later phases, not behavior implemented by Contracts. Public CLI commands remain owned by Infra.
 
+Every target-dependent runtime lifecycle operation receives `InfraRuntimeDesiredState`, including
+status, suspension and destroy. Runtime adapters must be stateless across invocations: a fresh CLI
+process can recover local or authenticated SSH access from the selected targets without relying on
+an earlier validate, plan or ensure call. The desired state is routing and inspection input; destroy
+authorization still comes exclusively from the separate `InfraDestroyRequest`.
+
 ## Secrets, ownership and destructive actions
 
 `InfraControlPlaneCredentialRef` is resolved by trusted execution configuration and cannot name a
