@@ -2339,7 +2339,7 @@ Source: `src/types/infraManifest.ts:9:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:71:1`
+Source: `src/types/infraManifest.ts:76:1`
 
 ### Members
 
@@ -2351,13 +2351,13 @@ Source: `src/types/infraManifest.ts:71:1`
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:96:1`
+Source: `src/types/infraManifest.ts:101:1`
 
 ## InfraAuthzConfigMap
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:81:1`
+Source: `src/types/infraManifest.ts:86:1`
 
 ### Members
 
@@ -2369,7 +2369,7 @@ Source: `src/types/infraManifest.ts:81:1`
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:99:1`
+Source: `src/types/infraManifest.ts:104:1`
 
 ## InfraCapability
 
@@ -2402,10 +2402,10 @@ Source: `src/types/infraManifest.ts:21:1`
 
 ### Members
 
-| Name    | Kind     | Type                                                                                                                                           | Required | Description |
-| ------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| hetzner | property | `{ readonly location: string; readonly serverType?: string; readonly image?: string; readonly credentials?: InfraControlPlaneCredentialRef; }` | yes      |             |
-| local   | property | `{ readonly workingDirectory?: string; }`                                                                                                      | yes      |             |
+| Name    | Kind     | Type                                                                                                                                                                                                                                                                      | Required | Description |
+| ------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
+| hetzner | property | `{ readonly location: string; readonly serverType?: string; readonly image?: string; readonly credentials?: InfraControlPlaneCredentialRef; readonly ssh?: { readonly user?: string; readonly port?: number; readonly credentials?: InfraControlPlaneCredentialRef; }; }` | yes      |             |
+| local   | property | `{ readonly workingDirectory?: string; }`                                                                                                                                                                                                                                 | yes      |             |
 
 ## InfraComputeProviderId
 
@@ -2417,7 +2417,7 @@ Source: `src/types/infraManifest.ts:17:1`
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:45:1`
+Source: `src/types/infraManifest.ts:50:1`
 
 ## InfraComputeTarget
 
@@ -2442,7 +2442,7 @@ Source: `src/types/infraSecrets.ts:4:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:60:1`
+Source: `src/types/infraManifest.ts:65:1`
 
 ### Members
 
@@ -2454,13 +2454,13 @@ Source: `src/types/infraManifest.ts:60:1`
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:88:1`
+Source: `src/types/infraManifest.ts:93:1`
 
 ## InfraDeploymentSpec
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:53:1`
+Source: `src/types/infraManifest.ts:58:1`
 
 ## InfraDestroyRequest
 
@@ -2497,7 +2497,7 @@ Source: `src/types/infraLifecycle.ts:21:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:111:1`
+Source: `src/types/infraManifest.ts:116:1`
 
 ### Members
 
@@ -2565,7 +2565,7 @@ Source: `src/types/infraLifecycle.ts:88:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:122:1`
+Source: `src/types/infraManifest.ts:127:1`
 
 ### Members
 
@@ -2580,7 +2580,7 @@ Source: `src/types/infraManifest.ts:122:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:106:1`
+Source: `src/types/infraManifest.ts:111:1`
 
 ### Members
 
@@ -2592,7 +2592,7 @@ Source: `src/types/infraManifest.ts:106:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:63:1`
+Source: `src/types/infraManifest.ts:68:1`
 
 ### Members
 
@@ -2605,7 +2605,7 @@ Source: `src/types/infraManifest.ts:63:1`
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:91:1`
+Source: `src/types/infraManifest.ts:96:1`
 
 ## InfraOutput
 
@@ -2737,7 +2737,7 @@ Source: `src/types/infraAdapters.ts:104:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:31:1`
+Source: `src/types/infraManifest.ts:36:1`
 
 ### Members
 
@@ -2772,7 +2772,7 @@ Source: `src/types/infraManifest.ts:18:1`
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:48:1`
+Source: `src/types/infraManifest.ts:53:1`
 
 ## InfraSecretReference
 
@@ -2794,7 +2794,7 @@ Source: `src/types/infraSecrets.ts:10:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:84:1`
+Source: `src/types/infraManifest.ts:89:1`
 
 ### Members
 
@@ -2806,7 +2806,7 @@ Source: `src/types/infraManifest.ts:84:1`
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:102:1`
+Source: `src/types/infraManifest.ts:107:1`
 
 ## InfraServiceAdapter
 

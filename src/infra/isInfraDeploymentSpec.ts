@@ -38,6 +38,14 @@ function isCompute(value: unknown): boolean {
     serverType: infraFields.optionalText,
     image: infraFields.optionalText,
     credentials: (credentials) => credentials === undefined || isInfraCredentialRef(credentials),
+    ssh: (ssh) =>
+      ssh === undefined ||
+      isInfraShape(ssh, {
+        user: infraFields.optionalText,
+        port: infraFields.optionalPositiveInteger,
+        credentials: (credentials) =>
+          credentials === undefined || isInfraCredentialRef(credentials),
+      }),
   } satisfies InfraShape<InfraComputeSelection<'hetzner'>>);
 }
 

@@ -134,6 +134,34 @@ describe('control-plane credential separation', () => {
       );
     }
   });
+
+  it('keeps Hetzner API and SSH bootstrap credentials separate', () => {
+    expect(
+      isInfraDeploymentSpec({
+        compute: {
+          provider: 'hetzner',
+          location: 'nbg1',
+          credentials: { source: 'control-plane', name: 'HCLOUD' },
+          ssh: {
+            user: 'root',
+            port: 22,
+            credentials: { source: 'control-plane', name: 'HETZNER_SSH' },
+          },
+        },
+        runtime: { provider: 'k3s' },
+      }),
+    ).toBe(true);
+    expect(
+      isInfraDeploymentSpec({
+        compute: {
+          provider: 'hetzner',
+          location: 'nbg1',
+          ssh: { credentials: { source: 'secret-store', name: 'HETZNER_SSH' } },
+        },
+        runtime: { provider: 'k3s' },
+      }),
+    ).toBe(false);
+  });
 });
 
 describe('application state boundary', () => {

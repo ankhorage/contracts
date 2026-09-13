@@ -25,6 +25,11 @@ export interface InfraComputeConfigMap {
     readonly serverType?: string;
     readonly image?: string;
     readonly credentials?: InfraControlPlaneCredentialRef;
+    readonly ssh?: {
+      readonly user?: string;
+      readonly port?: number;
+      readonly credentials?: InfraControlPlaneCredentialRef;
+    };
   };
 }
 
