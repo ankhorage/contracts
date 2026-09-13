@@ -11,6 +11,7 @@ import type {
   InfraManifest,
   InfraObjectStorageSpec,
   InfraOutput,
+  InfraRuntimeDesiredState,
   InfraRuntimeProviderId,
 } from './infra';
 import type { AppStateSpec } from './state';
@@ -75,4 +76,18 @@ it('rejects open or fictional service providers in typed selections', () => {
     Assignable<{ provider: 's3' }, InfraObjectStorageSpec>,
   ] = [false, false, false, false];
   expect(providers).toEqual([false, false, false, false]);
+});
+
+it('requires resolved outputs at the runtime desired-state boundary', () => {
+  interface RuntimeInput {
+    readonly selection: { readonly provider: 'minikube' };
+    readonly targets: readonly [];
+    readonly workloads: readonly [];
+  }
+  const outputBoundary: readonly [
+    Assignable<RuntimeInput, InfraRuntimeDesiredState<'minikube'>>,
+    Assignable<RuntimeInput & { readonly availableOutputs: readonly [] }, InfraRuntimeDesiredState>,
+  ] = [false, true];
+
+  expect(outputBoundary).toEqual([false, true]);
 });

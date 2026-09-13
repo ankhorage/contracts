@@ -97,6 +97,8 @@ export interface InfraRuntimeDesiredState<
   readonly selection: InfraRuntimeSelection<P>;
   readonly targets: readonly InfraComputeTarget[];
   readonly workloads: readonly InfraWorkloadSpec[];
+  /** Previously resolved outputs available to portable workload value references. */
+  readonly availableOutputs: readonly InfraOutput[];
 }
 
 export interface InfraRuntimeAdapter<P extends InfraRuntimeProviderId = InfraRuntimeProviderId> {

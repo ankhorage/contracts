@@ -8618,7 +8618,7 @@
     "modulePath": "src/types/infraAdapters.ts",
     "sourceLocation": {
       "filePath": "src/types/infraAdapters.ts",
-      "line": 102,
+      "line": 104,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -8747,9 +8747,21 @@
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["InfraComputeTarget", "InfraRuntimeSelection", "InfraWorkloadSpec"],
+    "relatedSymbols": [
+      "InfraComputeTarget",
+      "InfraOutput",
+      "InfraRuntimeSelection",
+      "InfraWorkloadSpec"
+    ],
     "signatures": [],
     "members": [
+      {
+        "name": "availableOutputs",
+        "kind": "property",
+        "type": "readonly InfraOutput[]",
+        "required": true,
+        "description": null
+      },
       {
         "name": "selection",
         "kind": "property",
@@ -8917,7 +8929,7 @@
     "modulePath": "src/types/infraAdapters.ts",
     "sourceLocation": {
       "filePath": "src/types/infraAdapters.ts",
-      "line": 130,
+      "line": 132,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],

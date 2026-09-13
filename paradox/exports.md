@@ -2718,7 +2718,7 @@ Source: `src/types/infraLifecycle.ts:30:1`
 
 Kind: `type`
 Module: `src/types/infraAdapters.ts`
-Source: `src/types/infraAdapters.ts:102:1`
+Source: `src/types/infraAdapters.ts:104:1`
 
 ### Members
 
@@ -2755,11 +2755,12 @@ Source: `src/types/infraAdapters.ts:94:1`
 
 ### Members
 
-| Name      | Kind     | Type                            | Required | Description |
-| --------- | -------- | ------------------------------- | -------- | ----------- |
-| selection | property | `InfraRuntimeSelection<P>`      | yes      |             |
-| targets   | property | `readonly InfraComputeTarget[]` | yes      |             |
-| workloads | property | `readonly InfraWorkloadSpec[]`  | yes      |             |
+| Name             | Kind     | Type                            | Required | Description |
+| ---------------- | -------- | ------------------------------- | -------- | ----------- |
+| availableOutputs | property | `readonly InfraOutput[]`        | yes      |             |
+| selection        | property | `InfraRuntimeSelection<P>`      | yes      |             |
+| targets          | property | `readonly InfraComputeTarget[]` | yes      |             |
+| workloads        | property | `readonly InfraWorkloadSpec[]`  | yes      |             |
 
 ## InfraRuntimeProviderId
 
@@ -2811,7 +2812,7 @@ Source: `src/types/infraManifest.ts:102:1`
 
 Kind: `type`
 Module: `src/types/infraAdapters.ts`
-Source: `src/types/infraAdapters.ts:130:1`
+Source: `src/types/infraAdapters.ts:132:1`
 
 ### Members
 
