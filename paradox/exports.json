@@ -7470,7 +7470,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 101,
+      "line": 108,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -7492,13 +7492,46 @@
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
-    "relatedSymbols": [],
+    "relatedSymbols": ["InfraAuthzPolicyFile"],
     "signatures": [],
     "members": [
       {
         "name": "cerbos",
         "kind": "property",
-        "type": "{ readonly kind: \"RBAC\" | \"ABAC\"; }",
+        "type": "{ readonly kind: \"RBAC\" | \"ABAC\"; readonly policies?: readonly InfraAuthzPolicyFile[]; }",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraAuthzPolicyFile",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/infraManifest.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraManifest.ts",
+      "line": 92,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "content",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "path",
+        "kind": "property",
+        "type": "string",
         "required": true,
         "description": null
       }
@@ -7514,7 +7547,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 104,
+      "line": 111,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -7767,7 +7800,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 93,
+      "line": 100,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -7904,7 +7937,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 116,
+      "line": 123,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -7915,6 +7948,7 @@
       "AuthScope",
       "AuthSignInSpec",
       "AuthSignUpSpec",
+      "InfraAuthzPolicyFile",
       "InfraDeploymentSpec",
       "InfraNetworkingSpec",
       "InfraObjectStorageSpec",
@@ -7932,7 +7966,7 @@
       {
         "name": "authz",
         "kind": "property",
-        "type": "({ readonly provider: \"cerbos\"; } & { readonly kind: \"RBAC\" | \"ABAC\"; }) | undefined",
+        "type": "({ readonly provider: \"cerbos\"; } & { readonly kind: \"RBAC\" | \"ABAC\"; readonly policies?: readonly InfraAuthzPolicyFile[]; }) | undefined",
         "required": false,
         "description": null
       },
@@ -8165,7 +8199,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 127,
+      "line": 134,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -8212,7 +8246,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 111,
+      "line": 118,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -8271,7 +8305,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 96,
+      "line": 103,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -8885,7 +8919,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 89,
+      "line": 96,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -8911,7 +8945,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 107,
+      "line": 114,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -9094,7 +9128,7 @@
     "modulePath": "src/types/infraWorkload.ts",
     "sourceLocation": {
       "filePath": "src/types/infraWorkload.ts",
-      "line": 44,
+      "line": 49,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -9127,7 +9161,7 @@
     "modulePath": "src/types/infraWorkload.ts",
     "sourceLocation": {
       "filePath": "src/types/infraWorkload.ts",
-      "line": 20,
+      "line": 25,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -9145,7 +9179,7 @@
     "modulePath": "src/types/infraWorkload.ts",
     "sourceLocation": {
       "filePath": "src/types/infraWorkload.ts",
-      "line": 14,
+      "line": 19,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -9185,7 +9219,7 @@
     "modulePath": "src/types/infraWorkload.ts",
     "sourceLocation": {
       "filePath": "src/types/infraWorkload.ts",
-      "line": 30,
+      "line": 35,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -9218,7 +9252,7 @@
     "modulePath": "src/types/infraWorkload.ts",
     "sourceLocation": {
       "filePath": "src/types/infraWorkload.ts",
-      "line": 49,
+      "line": 54,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -9354,7 +9388,7 @@
     "modulePath": "src/types/infraWorkload.ts",
     "sourceLocation": {
       "filePath": "src/types/infraWorkload.ts",
-      "line": 35,
+      "line": 40,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -9682,7 +9716,7 @@
     "modulePath": "src/infra/isInfraEnvironmentSpec.ts",
     "sourceLocation": {
       "filePath": "src/infra/isInfraEnvironmentSpec.ts",
-      "line": 14,
+      "line": 15,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],

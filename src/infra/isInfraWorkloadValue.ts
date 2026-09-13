@@ -2,6 +2,7 @@ import { isRecord } from '@ankhorage/utility/object';
 import { isNonEmptyString } from '@ankhorage/utility/string';
 
 import { APP_ENVIRONMENT_IDS } from '../environments';
+import { isInfraCredentialRef } from './isInfraCredentialRef';
 import { isInfraShape } from './isInfraShape';
 
 /*** Workload values explicitly distinguish public literals, output dependencies and secret references. */
@@ -23,6 +24,12 @@ export function isInfraWorkloadValue(value: unknown): boolean {
       return isInfraShape(value, {
         kind: (kind) => kind === 'secret',
         reference: isSecretReference,
+      });
+    case 'credential':
+      return isInfraShape(value, {
+        kind: (kind) => kind === 'credential',
+        reference: isInfraCredentialRef,
+        key: isNonEmptyString,
       });
     default:
       return false;

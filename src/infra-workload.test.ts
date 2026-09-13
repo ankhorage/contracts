@@ -25,6 +25,11 @@ const workload = {
   environment: {
     NODE_ENV: { kind: 'literal', value: 'production' },
     DB_PASSWORD: { kind: 'secret', reference },
+    BOOTSTRAP_PASSWORD: {
+      kind: 'credential',
+      reference: { source: 'control-plane', name: 'SUPABASE_BOOTSTRAP' },
+      key: 'POSTGRES_PASSWORD',
+    },
     DB_HOST: { kind: 'output', resourceId: 'database', output: 'host' },
   },
   files: [{ path: '/etc/backend/config.json', content: { kind: 'literal', value: '{}' } }],
@@ -71,6 +76,23 @@ const invalidWorkloads = [
   {
     environment: {
       TOKEN: { kind: 'secret', reference: { source: 'control-plane', name: 'HCLOUD_TOKEN' } },
+    },
+  },
+  {
+    environment: {
+      TOKEN: {
+        kind: 'credential',
+        reference: { source: 'control-plane', name: 'SUPABASE_BOOTSTRAP' },
+      },
+    },
+  },
+  {
+    environment: {
+      TOKEN: {
+        kind: 'credential',
+        reference: { source: 'secret-store', name: 'SUPABASE_BOOTSTRAP' },
+        key: 'TOKEN',
+      },
     },
   },
 ];

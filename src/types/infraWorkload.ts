@@ -1,4 +1,4 @@
-import type { InfraSecretReference } from './infraSecrets';
+import type { InfraControlPlaneCredentialRef, InfraSecretReference } from './infraSecrets';
 
 export interface InfraWorkloadArtifact {
   readonly kind: 'image';
@@ -9,6 +9,11 @@ export interface InfraWorkloadArtifact {
 export type InfraWorkloadValue =
   | { readonly kind: 'literal'; readonly value: string }
   | { readonly kind: 'secret'; readonly reference: InfraSecretReference }
+  | {
+      readonly kind: 'credential';
+      readonly reference: InfraControlPlaneCredentialRef;
+      readonly key: string;
+    }
   | { readonly kind: 'output'; readonly resourceId: string; readonly output: string };
 
 export interface InfraWorkloadPort {

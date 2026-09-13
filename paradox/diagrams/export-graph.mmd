@@ -720,6 +720,9 @@ graph LR
   module_src_types_infraManifest_ts --> export_InfraAuthSpec
   export_InfraAuthzConfigMap["InfraAuthzConfigMap"]
   module_src_types_infraManifest_ts --> export_InfraAuthzConfigMap
+  export_InfraAuthzConfigMap -.-> export_InfraAuthzPolicyFile
+  export_InfraAuthzPolicyFile["InfraAuthzPolicyFile"]
+  module_src_types_infraManifest_ts --> export_InfraAuthzPolicyFile
   export_InfraAuthzSpec["InfraAuthzSpec"]
   module_src_types_infraManifest_ts --> export_InfraAuthzSpec
   export_InfraCapability["InfraCapability"]
@@ -767,6 +770,7 @@ graph LR
   export_InfraEnvironmentSpec -.-> export_AuthScope
   export_InfraEnvironmentSpec -.-> export_AuthSignInSpec
   export_InfraEnvironmentSpec -.-> export_AuthSignUpSpec
+  export_InfraEnvironmentSpec -.-> export_InfraAuthzPolicyFile
   export_InfraEnvironmentSpec -.-> export_InfraDeploymentSpec
   export_InfraEnvironmentSpec -.-> export_InfraNetworkingSpec
   export_InfraEnvironmentSpec -.-> export_InfraObjectStorageSpec
