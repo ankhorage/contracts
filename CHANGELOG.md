@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 17.0.0
+
+### Major Changes
+
+- ba68b95: Allow runtime-neutral workloads to reference keyed control-plane bootstrap credentials, let Cerbos selections carry explicit portable policy files, and require desired runtime targets for status, suspend and destroy so adapters remain stateless across CLI invocations.
+
 ## 16.1.0
 
 ### Minor Changes
