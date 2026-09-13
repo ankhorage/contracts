@@ -1,9 +1,10 @@
-import { isRecord } from '../appManifest/shared';
+import { isRecord } from '@ankhorage/utility/object';
+
 import type { InfraAdapterDescriptor } from '../types/infraAdapters';
 import { INFRA_ADAPTER_CATALOG } from './constants';
 import { isInfraShape } from './isInfraShape';
 
-/** Installed adapters must match the canonical identity, capabilities, targets and config version exactly. */
+/*** Installed adapters must match the canonical identity, capabilities, targets and config version exactly. */
 export function isInfraAdapterDescriptor(value: unknown): value is InfraAdapterDescriptor {
   if (!isRecord(value)) return false;
   const entry = Object.values(INFRA_ADAPTER_CATALOG).find((candidate) => candidate.id === value.id);
@@ -26,7 +27,7 @@ export function isInfraAdapterDescriptor(value: unknown): value is InfraAdapterD
   });
 }
 
-/** Canonical descriptor lists are ordered so JSON discovery and conformance are deterministic. */
+/*** Canonical descriptor lists are ordered so JSON discovery and conformance are deterministic. */
 function matchesCatalogList(value: unknown, expected: readonly string[]): boolean {
   return (
     Array.isArray(value) &&

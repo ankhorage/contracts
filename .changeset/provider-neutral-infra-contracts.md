@@ -22,3 +22,8 @@ separate from infrastructure providers.
 Release Contracts before migrating direct consumers. Templates and Studio must then adopt the
 published API and correct their Legend persistence manifests; this release alone does not complete
 Phase 1 of ankhorage/infra#145 or implement provider lifecycle behavior.
+
+Use the published Utility object, array and string helpers directly for structural validation.
+Remove local duplicates and the internal AppManifest shared helper module without changing the
+public parser behavior.
+Require Utility `^0.7.0`, which removes the reverse Contracts dependency and avoids a package cycle.

@@ -1,8 +1,9 @@
-import { isRecord } from '../appManifest/shared';
+import { isRecord } from '@ankhorage/utility/object';
+
 import { infraFields } from './infraFields';
 import { isInfraShape } from './isInfraShape';
 
-/** Validate runtime-neutral readiness probes and bounded numeric parameters. */
+/*** Validate runtime-neutral readiness probes and bounded numeric parameters. */
 export function isInfraWorkloadHealth(value: unknown): boolean {
   if (!isRecord(value)) return false;
   const timing = {

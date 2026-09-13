@@ -1,10 +1,7 @@
+import { isStringArray } from '@ankhorage/utility/array';
+import { isRecordOf } from '@ankhorage/utility/object';
+
 import { isIconSpec } from '../appManifest/icon';
-import {
-  isOptionalBoolean,
-  isOptionalString,
-  isStringArray,
-  isStringRecord,
-} from '../appManifest/shared';
 import { AUTH_OAUTH_PROVIDER_IDS } from '../auth';
 import {
   AUTH_PROFILE_CREATE_STRATEGIES,
@@ -18,7 +15,7 @@ import type { InfraAuthSpec } from '../types/infraManifest';
 import type { InfraShape } from '../types/infraValidation';
 import { isInfraShape } from './isInfraShape';
 
-/** Preserve application auth configuration while rejecting nested authorization and unknown providers. */
+/*** Preserve application auth configuration while rejecting nested authorization and unknown providers. */
 export function isInfraAuthSpec(value: unknown): value is InfraAuthSpec {
   return isInfraShape(value, {
     provider: (provider) => provider === 'supabase',
@@ -37,20 +34,20 @@ export function isInfraAuthSpec(value: unknown): value is InfraAuthSpec {
   } satisfies InfraShape<InfraAuthSpec>);
 }
 
-/** Auth routing intent stays separate from provider-runtime callbacks and Navigator topology. */
+/*** Auth routing intent stays separate from provider-runtime callbacks and Navigator topology. */
 function isAuthFlow(value: unknown): boolean {
   return isInfraShape(value, {
     signInRoute: (route) => typeof route === 'string',
     postSignInRoute: (route) => typeof route === 'string',
-    signUpRoute: isOptionalString,
-    signOutRoute: isOptionalString,
-    forgotPasswordRoute: isOptionalString,
-    otpRoute: isOptionalString,
-    unauthorizedRoute: isOptionalString,
+    signUpRoute: (value) => value === undefined || typeof value === 'string',
+    signOutRoute: (value) => value === undefined || typeof value === 'string',
+    forgotPasswordRoute: (value) => value === undefined || typeof value === 'string',
+    otpRoute: (value) => value === undefined || typeof value === 'string',
+    unauthorizedRoute: (value) => value === undefined || typeof value === 'string',
   });
 }
 
-/** Validate sign-up field intent using the existing application auth contract. */
+/*** Validate sign-up field intent using the existing application auth contract. */
 function isAuthSignUp(value: unknown): boolean {
   return isInfraShape(value, {
     requiredFields: isStringArray,
@@ -60,7 +57,7 @@ function isAuthSignUp(value: unknown): boolean {
   });
 }
 
-/** OAuth references contain no credential payload. Custom OAuth identities remain application-owned. */
+/*** OAuth references contain no credential payload. Custom OAuth identities remain application-owned. */
 function isAuthOAuth(value: unknown): boolean {
   return isInfraShape(value, {
     enabled: (enabled) => typeof enabled === 'boolean',
@@ -69,26 +66,27 @@ function isAuthOAuth(value: unknown): boolean {
   });
 }
 
-/** Validate OAuth display/config metadata, preserving explicitly extensible OAuth provider IDs. */
+/*** Validate OAuth display/config metadata, preserving explicitly extensible OAuth provider IDs. */
 function isAuthOAuthProvider(value: unknown): boolean {
   return isInfraShape(value, {
     id: (id) =>
       typeof id === 'string' &&
       (AUTH_OAUTH_PROVIDER_IDS.some((item) => item === id) || id.length > 0),
-    label: isOptionalString,
-    enabled: isOptionalBoolean,
+    label: (value) => value === undefined || typeof value === 'string',
+    enabled: (value) => value === undefined || typeof value === 'boolean',
     scopes: (scopes) => scopes === undefined || isStringArray(scopes),
-    queryParams: (params) => params === undefined || isStringRecord(params),
+    queryParams: (params) =>
+      params === undefined || isRecordOf(params, (entry) => typeof entry === 'string'),
     icon: (icon) => icon === undefined || isIconSpec(icon),
-    credentialsRef: isOptionalString,
+    credentialsRef: (value) => value === undefined || typeof value === 'string',
   });
 }
 
-/** Validate profile provisioning choices without inventing a new application profile model. */
+/*** Validate profile provisioning choices without inventing a new application profile model. */
 function isAuthProfile(value: unknown): boolean {
   return isInfraShape(value, {
     fields: isStringArray,
-    table: isOptionalString,
+    table: (value) => value === undefined || typeof value === 'string',
     primaryKey: (key) =>
       key === undefined || AUTH_PROFILE_PRIMARY_KEY_STRATEGIES.some((item) => item === key),
     createStrategy: (strategy) =>

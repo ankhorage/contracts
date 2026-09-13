@@ -1,4 +1,5 @@
 sequenceDiagram
+  participant participant_hasOnlyKeys as hasOnlyKeys
   participant participant_hasServiceDependencies as hasServiceDependencies
   participant participant_isEnvironmentShape as isEnvironmentShape
   participant participant_isInfraEnvironmentSpec as isInfraEnvironmentSpec
@@ -8,6 +9,8 @@ sequenceDiagram
   participant_isEnvironmentShape->>participant_isInfraShape: isInfraShape()
   participant_isInfraShape->>participant_isRecord: isRecord()
   participant_isRecord-->>participant_isInfraShape: return
+  participant_isInfraShape->>participant_hasOnlyKeys: hasOnlyKeys()
+  participant_hasOnlyKeys-->>participant_isInfraShape: return
   participant_isInfraShape-->>participant_isEnvironmentShape: return
   participant_isEnvironmentShape-->>participant_isInfraEnvironmentSpec: return
   participant_isInfraEnvironmentSpec->>participant_hasServiceDependencies: hasServiceDependencies()

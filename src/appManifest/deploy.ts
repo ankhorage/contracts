@@ -1,3 +1,6 @@
+import { hasOnlyKeys, isRecord } from '@ankhorage/utility/object';
+import { isNonEmptyString } from '@ankhorage/utility/string';
+
 import type {
   AppDeployAndroidTargetConfig,
   AppDeployIosTargetConfig,
@@ -6,20 +9,21 @@ import type {
   AppDeployTargets,
   AppDeployWebTargetConfig,
 } from '../deploy';
-import { isRecord } from './shared';
 
-const DEPLOY_KEYS = new Set(['targets']);
-const TARGET_KEYS = new Set(['web', 'android', 'ios']);
-const PROVIDER_KEYS = new Set(['build', 'publish']);
-const WEB_KEYS = new Set(['enabled', 'providers']);
-const ANDROID_KEYS = new Set(['enabled', 'package', 'scheme', 'providers']);
-const IOS_KEYS = new Set(['enabled', 'bundleIdentifier', 'scheme', 'providers']);
+const DEPLOY_KEYS = ['targets'] as const;
+const TARGET_KEYS = ['web', 'android', 'ios'] as const;
+const PROVIDER_KEYS = ['build', 'publish'] as const;
+const WEB_KEYS = ['enabled', 'providers'] as const;
+const ANDROID_KEYS = ['enabled', 'package', 'scheme', 'providers'] as const;
+const IOS_KEYS = ['enabled', 'bundleIdentifier', 'scheme', 'providers'] as const;
 const URI_SCHEME_PATTERN = /^[A-Za-z][A-Za-z0-9+.-]*$/u;
 
+/*** Validate authored application deployment configuration. */
 export function isAppDeployManifest(value: unknown): value is AppDeployManifest {
   return isRecord(value) && hasOnlyKeys(value, DEPLOY_KEYS) && isAppDeployTargets(value.targets);
 }
 
+/*** Validate the optional web, Android and iOS deployment targets. */
 function isAppDeployTargets(value: unknown): value is AppDeployTargets {
   return (
     isRecord(value) &&
@@ -30,6 +34,7 @@ function isAppDeployTargets(value: unknown): value is AppDeployTargets {
   );
 }
 
+/*** Validate web deployment identity and provider selection. */
 function isWebTarget(value: unknown): value is AppDeployWebTargetConfig {
   return (
     isRecord(value) &&
@@ -39,6 +44,7 @@ function isWebTarget(value: unknown): value is AppDeployWebTargetConfig {
   );
 }
 
+/*** Validate Android deployment identity, scheme and provider selection. */
 function isAndroidTarget(value: unknown): value is AppDeployAndroidTargetConfig {
   return (
     isRecord(value) &&
@@ -50,6 +56,7 @@ function isAndroidTarget(value: unknown): value is AppDeployAndroidTargetConfig 
   );
 }
 
+/*** Validate iOS deployment identity, scheme and provider selection. */
 function isIosTarget(value: unknown): value is AppDeployIosTargetConfig {
   return (
     isRecord(value) &&
@@ -61,14 +68,17 @@ function isIosTarget(value: unknown): value is AppDeployIosTargetConfig {
   );
 }
 
+/*** Accept an omitted scheme or a non-empty authored scheme. */
 function isOptionalScheme(value: unknown): value is string | undefined {
   return value === undefined || (typeof value === 'string' && URI_SCHEME_PATTERN.test(value));
 }
 
+/*** Accept omitted deployment providers or a valid provider selection. */
 function isOptionalProviders(value: unknown): value is AppDeployProviderSelection | undefined {
   return value === undefined || isProviderSelection(value);
 }
 
+/*** Validate deployment provider identities and supported selection keys. */
 function isProviderSelection(value: unknown): value is AppDeployProviderSelection {
   return (
     isRecord(value) &&
@@ -76,12 +86,4 @@ function isProviderSelection(value: unknown): value is AppDeployProviderSelectio
     (value.build === undefined || isNonEmptyString(value.build)) &&
     (value.publish === undefined || isNonEmptyString(value.publish))
   );
-}
-
-function isNonEmptyString(value: unknown): value is string {
-  return typeof value === 'string' && value.trim().length > 0;
-}
-
-function hasOnlyKeys(value: Record<string, unknown>, allowed: ReadonlySet<string>): boolean {
-  return Object.keys(value).every((key) => allowed.has(key));
 }

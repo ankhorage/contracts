@@ -1,9 +1,10 @@
-import { isRecord } from '../appManifest/shared';
+import { isRecord } from '@ankhorage/utility/object';
+import { isNonEmptyString } from '@ankhorage/utility/string';
+
 import { APP_ENVIRONMENT_IDS } from '../environments';
-import { infraFields } from './infraFields';
 import { isInfraShape } from './isInfraShape';
 
-/** Workload values explicitly distinguish public literals, output dependencies and secret references. */
+/*** Workload values explicitly distinguish public literals, output dependencies and secret references. */
 export function isInfraWorkloadValue(value: unknown): boolean {
   if (!isRecord(value)) return false;
   switch (value.kind) {
@@ -15,8 +16,8 @@ export function isInfraWorkloadValue(value: unknown): boolean {
     case 'output':
       return isInfraShape(value, {
         kind: (kind) => kind === 'output',
-        resourceId: infraFields.text,
-        output: infraFields.text,
+        resourceId: isNonEmptyString,
+        output: isNonEmptyString,
       });
     case 'secret':
       return isInfraShape(value, {
@@ -28,13 +29,13 @@ export function isInfraWorkloadValue(value: unknown): boolean {
   }
 }
 
-/** Managed secret references contain identity only, never privileged payloads. */
+/*** Managed secret references contain identity only, never privileged payloads. */
 function isSecretReference(value: unknown): boolean {
   return isInfraShape(value, {
     source: (source) => source === 'secret-store',
-    projectId: infraFields.text,
+    projectId: isNonEmptyString,
     environment: (environment) => APP_ENVIRONMENT_IDS.some((id) => id === environment),
-    ref: infraFields.text,
-    key: infraFields.text,
+    ref: isNonEmptyString,
+    key: isNonEmptyString,
   });
 }

@@ -1,4 +1,7 @@
-import { isRecord } from '../appManifest/shared';
+import { isStringArray } from '@ankhorage/utility/array';
+import { isRecord } from '@ankhorage/utility/object';
+import { isNonEmptyString } from '@ankhorage/utility/string';
+
 import type { InfraShape } from '../types/infraValidation';
 import type { InfraWorkloadSpec } from '../types/infraWorkload';
 import { infraFields } from './infraFields';
@@ -6,15 +9,14 @@ import { isInfraShape } from './isInfraShape';
 import { isInfraWorkloadHealth } from './isInfraWorkloadHealth';
 import { isInfraWorkloadValue } from './isInfraWorkloadValue';
 
-/** Validate the portable desired workload; runtime-specific fields and plaintext secret objects fail. */
+/*** Validate the portable desired workload; runtime-specific fields and plaintext secret objects fail. */
 export function isInfraWorkloadSpec(value: unknown): value is InfraWorkloadSpec {
   return isInfraShape(value, {
-    id: infraFields.text,
+    id: isNonEmptyString,
     artifact: (artifact) =>
-      isInfraShape(artifact, { kind: (kind) => kind === 'image', image: infraFields.text }),
+      isInfraShape(artifact, { kind: (kind) => kind === 'image', image: isNonEmptyString }),
     command: infraFields.optionalStrings,
-    args: (args) =>
-      args === undefined || (Array.isArray(args) && args.every((arg) => typeof arg === 'string')),
+    args: (args) => args === undefined || isStringArray(args),
     ports: (ports) =>
       ports === undefined ||
       (Array.isArray(ports) && ports.every(isPort) && hasUniqueField(ports, 'name')),
@@ -44,31 +46,31 @@ export function isInfraWorkloadSpec(value: unknown): value is InfraWorkloadSpec 
   } satisfies InfraShape<InfraWorkloadSpec>);
 }
 
-/** Named transport ports stay independent from runtime resource types. */
+/*** Named transport ports stay independent from runtime resource types. */
 function isPort(value: unknown): boolean {
   return isInfraShape(value, {
-    name: infraFields.text,
+    name: isNonEmptyString,
     port: infraFields.port,
     protocol: (protocol) => protocol === undefined || protocol === 'tcp' || protocol === 'udp',
   });
 }
 
-/** Portable files model policy/config materialization without host filesystem access. */
+/*** Portable files model policy/config materialization without host filesystem access. */
 function isFile(value: unknown): boolean {
   return isInfraShape(value, { path: isAbsoluteWorkloadPath, content: isInfraWorkloadValue });
 }
 
-/** Persistence has explicit ownership-local identity and a retention policy. */
+/*** Persistence has explicit ownership-local identity and a retention policy. */
 function isVolume(value: unknown): boolean {
   return isInfraShape(value, {
-    id: infraFields.text,
+    id: isNonEmptyString,
     mountPath: isAbsoluteWorkloadPath,
     sizeGiB: infraFields.positiveInteger,
     retention: (retention) => retention === 'retain' || retention === 'delete-on-destroy',
   });
 }
 
-/** Workload paths are absolute container paths, never relative host traversal. */
+/*** Workload paths are absolute container paths, never relative host traversal. */
 function isAbsoluteWorkloadPath(value: unknown): boolean {
   return (
     typeof value === 'string' &&
@@ -78,7 +80,7 @@ function isAbsoluteWorkloadPath(value: unknown): boolean {
   );
 }
 
-/** Duplicate workload-local identities would make runtime projection ambiguous. */
+/*** Duplicate workload-local identities would make runtime projection ambiguous. */
 function hasUniqueField(values: readonly unknown[], field: string): boolean {
   const ids = values.map((value) => (isRecord(value) ? Reflect.get(value, field) : undefined));
   return new Set(ids).size === ids.length;

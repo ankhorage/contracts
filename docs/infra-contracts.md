@@ -17,6 +17,13 @@ layers. The public entrypoints, structural validation and adapter interface decl
 preserved. Making the entire package types-only is a separate architecture decision and is not
 part of this PR.
 
+Generic record, string-array, non-empty-string and allowed-key checks import the published
+`@ankhorage/utility/object`, `/array` and `/string` APIs directly. Optional primitive fields are
+checked at their owning validation sites. The recursive authored-value policy remains in
+`src/appManifest/isManifestValue.ts`; there is no `shared` helper module or forwarding barrel.
+Contracts requires Utility `^0.7.0`, whose package has no Contracts dependency. This preserves
+the one-way package dependency from Contracts to Utility.
+
 ## Environments and selection
 
 ```ts

@@ -21,4 +21,5 @@ Serializable app, action, theme, auth, and secret-store contracts for Ankhorage.
 - [isInfraEnvironmentSpec sequence](././paradox/diagrams/sequences/is-infra-environment-spec.mmd)
 - [isInfraManifest sequence](././paradox/diagrams/sequences/is-infra-manifest.mmd)
 - [isInfraWorkloadSpec sequence](././paradox/diagrams/sequences/is-infra-workload-spec.mmd)
+- [isMediaAssetReference sequence](././paradox/diagrams/sequences/is-media-asset-reference.mmd)
 - [parseInfraManifest sequence](././paradox/diagrams/sequences/parse-infra-manifest.mmd)

@@ -1,4 +1,6 @@
-import { isRecord } from '../appManifest/shared';
+import { isRecord } from '@ankhorage/utility/object';
+import { isNonEmptyString } from '@ankhorage/utility/string';
+
 import type {
   InfraComputeSelection,
   InfraDeploymentSpec,
@@ -10,7 +12,7 @@ import { infraFields } from './infraFields';
 import { isInfraCredentialRef } from './isInfraCredentialRef';
 import { isInfraShape } from './isInfraShape';
 
-/** Validate provider-specific config and the exact same compatibility map used by TypeScript. */
+/*** Validate provider-specific config and the exact same compatibility map used by TypeScript. */
 export function isInfraDeploymentSpec(value: unknown): value is InfraDeploymentSpec {
   if (!isInfraShape(value, { compute: isCompute, runtime: isRuntime }) || !isRecord(value))
     return false;
@@ -22,7 +24,7 @@ export function isInfraDeploymentSpec(value: unknown): value is InfraDeploymentS
   );
 }
 
-/** Compute configuration is closed per provider; control-plane refs cannot be managed secrets. */
+/*** Compute configuration is closed per provider; control-plane refs cannot be managed secrets. */
 function isCompute(value: unknown): boolean {
   if (!isRecord(value)) return false;
   if (value.provider === 'local')
@@ -32,14 +34,14 @@ function isCompute(value: unknown): boolean {
     } satisfies InfraShape<InfraComputeSelection<'local'>>);
   return isInfraShape(value, {
     provider: (provider) => provider === 'hetzner',
-    location: infraFields.text,
+    location: isNonEmptyString,
     serverType: infraFields.optionalText,
     image: infraFields.optionalText,
     credentials: (credentials) => credentials === undefined || isInfraCredentialRef(credentials),
   } satisfies InfraShape<InfraComputeSelection<'hetzner'>>);
 }
 
-/** Runtime topology expresses host roles and never couples k3s to a compute vendor. */
+/*** Runtime topology expresses host roles and never couples k3s to a compute vendor. */
 function isRuntime(value: unknown): boolean {
   if (!isRecord(value)) return false;
   switch (value.provider) {

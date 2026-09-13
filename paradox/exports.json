@@ -9471,14 +9471,14 @@
   },
   {
     "name": "isAppDeployManifest",
-    "description": null,
+    "description": "Validate authored application deployment configuration.",
     "isReadme": false,
     "examples": [],
     "kind": "function",
     "modulePath": "src/appManifest/deploy.ts",
     "sourceLocation": {
       "filePath": "src/appManifest/deploy.ts",
-      "line": 19,
+      "line": 22,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -9503,14 +9503,14 @@
   },
   {
     "name": "isAppManifest",
-    "description": null,
+    "description": "Return whether an unknown value satisfies the canonical AppManifest shape.",
     "isReadme": false,
     "examples": [],
     "kind": "function",
     "modulePath": "src/appManifest/isAppManifest.ts",
     "sourceLocation": {
       "filePath": "src/appManifest/isAppManifest.ts",
-      "line": 19,
+      "line": 21,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -9542,7 +9542,7 @@
     "modulePath": "src/appManifest/navigator.ts",
     "sourceLocation": {
       "filePath": "src/appManifest/navigator.ts",
-      "line": 14,
+      "line": 15,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -9567,14 +9567,14 @@
   },
   {
     "name": "isInfraAdapterDescriptor",
-    "description": null,
+    "description": "Installed adapters must match the canonical identity, capabilities, targets and config version exactly.",
     "isReadme": false,
     "examples": [],
     "kind": "function",
     "modulePath": "src/infra/isInfraAdapterDescriptor.ts",
     "sourceLocation": {
       "filePath": "src/infra/isInfraAdapterDescriptor.ts",
-      "line": 7,
+      "line": 8,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -9599,14 +9599,14 @@
   },
   {
     "name": "isInfraAuthSpec",
-    "description": null,
+    "description": "Preserve application auth configuration while rejecting nested authorization and unknown providers.",
     "isReadme": false,
     "examples": [],
     "kind": "function",
     "modulePath": "src/infra/isInfraAuthSpec.ts",
     "sourceLocation": {
       "filePath": "src/infra/isInfraAuthSpec.ts",
-      "line": 22,
+      "line": 19,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -9631,14 +9631,14 @@
   },
   {
     "name": "isInfraDeploymentSpec",
-    "description": null,
+    "description": "Validate provider-specific config and the exact same compatibility map used by TypeScript.",
     "isReadme": false,
     "examples": [],
     "kind": "function",
     "modulePath": "src/infra/isInfraDeploymentSpec.ts",
     "sourceLocation": {
       "filePath": "src/infra/isInfraDeploymentSpec.ts",
-      "line": 14,
+      "line": 16,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -9663,14 +9663,14 @@
   },
   {
     "name": "isInfraEnvironmentSpec",
-    "description": null,
+    "description": "Validate sibling capabilities and their required relationships within one environment.",
     "isReadme": false,
     "examples": [],
     "kind": "function",
     "modulePath": "src/infra/isInfraEnvironmentSpec.ts",
     "sourceLocation": {
       "filePath": "src/infra/isInfraEnvironmentSpec.ts",
-      "line": 13,
+      "line": 14,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -9695,14 +9695,14 @@
   },
   {
     "name": "isInfraManifest",
-    "description": null,
+    "description": "Validate standalone infrastructure without AppManifest, Deploy or provider package side effects.",
     "isReadme": false,
     "examples": [],
     "kind": "function",
     "modulePath": "src/infra/isInfraManifest.ts",
     "sourceLocation": {
       "filePath": "src/infra/isInfraManifest.ts",
-      "line": 11,
+      "line": 12,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -9727,14 +9727,14 @@
   },
   {
     "name": "isInfraWorkloadSpec",
-    "description": null,
+    "description": "Validate the portable desired workload; runtime-specific fields and plaintext secret objects fail.",
     "isReadme": false,
     "examples": [],
     "kind": "function",
     "modulePath": "src/infra/isInfraWorkloadSpec.ts",
     "sourceLocation": {
       "filePath": "src/infra/isInfraWorkloadSpec.ts",
-      "line": 10,
+      "line": 13,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -9759,14 +9759,14 @@
   },
   {
     "name": "isMediaAssetReference",
-    "description": null,
+    "description": "Validate an authored media reference with exactly one enumerable key and a non-empty media ID.",
     "isReadme": false,
     "examples": [],
     "kind": "function",
     "modulePath": "src/media.ts",
     "sourceLocation": {
       "filePath": "src/media.ts",
-      "line": 58,
+      "line": 62,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -10047,7 +10047,7 @@
     "modulePath": "src/media.ts",
     "sourceLocation": {
       "filePath": "src/media.ts",
-      "line": 1,
+      "line": 4,
       "column": 14
     },
     "exportPaths": ["src/index.ts"],
@@ -10058,14 +10058,14 @@
   },
   {
     "name": "MediaAsset",
-    "description": null,
+    "description": "Canonical Studio-managed authoring media entry.",
     "isReadme": false,
     "examples": [],
     "kind": "type",
     "modulePath": "src/media.ts",
     "sourceLocation": {
       "filePath": "src/media.ts",
-      "line": 37,
+      "line": 40,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -10126,7 +10126,7 @@
     "modulePath": "src/media.ts",
     "sourceLocation": {
       "filePath": "src/media.ts",
-      "line": 3,
+      "line": 6,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -10144,7 +10144,7 @@
     "modulePath": "src/media.ts",
     "sourceLocation": {
       "filePath": "src/media.ts",
-      "line": 27,
+      "line": 30,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -10198,14 +10198,14 @@
   },
   {
     "name": "MediaAssetReference",
-    "description": null,
+    "description": "Stable component/property reference to one entry in `AppManifest.media.assets`.",
     "isReadme": false,
     "examples": [],
     "kind": "type",
     "modulePath": "src/media.ts",
     "sourceLocation": {
       "filePath": "src/media.ts",
-      "line": 54,
+      "line": 57,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -10231,7 +10231,7 @@
     "modulePath": "src/media.ts",
     "sourceLocation": {
       "filePath": "src/media.ts",
-      "line": 46,
+      "line": 49,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -10249,7 +10249,7 @@
     "modulePath": "src/media.ts",
     "sourceLocation": {
       "filePath": "src/media.ts",
-      "line": 25,
+      "line": 28,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -10267,7 +10267,7 @@
     "modulePath": "src/media.ts",
     "sourceLocation": {
       "filePath": "src/media.ts",
-      "line": 19,
+      "line": 22,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -10286,21 +10286,21 @@
         "kind": "property",
         "type": "string",
         "required": true,
-        "description": null
+        "description": "App-relative bundled asset path resolved by the generated/runtime host."
       }
     ],
     "structuredRows": []
   },
   {
     "name": "MediaManifest",
-    "description": null,
+    "description": "App-authoring media pool. Runtime/user-generated uploads do not belong here.",
     "isReadme": false,
     "examples": [],
     "kind": "type",
     "modulePath": "src/media.ts",
     "sourceLocation": {
       "filePath": "src/media.ts",
-      "line": 49,
+      "line": 52,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -10400,7 +10400,7 @@
     "modulePath": "src/media.ts",
     "sourceLocation": {
       "filePath": "src/media.ts",
-      "line": 5,
+      "line": 8,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -10433,7 +10433,7 @@
         "kind": "property",
         "type": "string | undefined",
         "required": false,
-        "description": null
+        "description": "Optional logical storage connection identifier for future multi-storage apps."
       }
     ],
     "structuredRows": []
@@ -10447,7 +10447,7 @@
     "modulePath": "src/media.ts",
     "sourceLocation": {
       "filePath": "src/media.ts",
-      "line": 13,
+      "line": 16,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -10466,7 +10466,7 @@
         "kind": "property",
         "type": "string",
         "required": true,
-        "description": null
+        "description": "Stable remote URL. Transient/local URL schemes are not canonical media sources."
       }
     ],
     "structuredRows": []

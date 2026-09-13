@@ -1,14 +1,12 @@
-import { isStringArray } from '../appManifest/shared';
+import { isStringArray } from '@ankhorage/utility/array';
+import { isNonEmptyString } from '@ankhorage/utility/string';
 
-/** Primitive field rules for portable Infra configuration, shared by its exact-shape validators. */
+/*** Primitive field rules for portable Infra configuration, shared by its exact-shape validators. */
 export const infraFields = {
-  text: (value: unknown): boolean => typeof value === 'string' && value.trim().length > 0,
-  optionalText: (value: unknown): boolean =>
-    value === undefined || (typeof value === 'string' && value.trim().length > 0),
-  strings: (value: unknown): boolean =>
-    isStringArray(value) && value.every((item) => item.trim().length > 0),
+  optionalText: (value: unknown): boolean => value === undefined || isNonEmptyString(value),
+  strings: (value: unknown): boolean => isStringArray(value) && value.every(isNonEmptyString),
   optionalStrings: (value: unknown): boolean =>
-    value === undefined || (isStringArray(value) && value.every((item) => item.trim().length > 0)),
+    value === undefined || (isStringArray(value) && value.every(isNonEmptyString)),
   positiveInteger: (value: unknown): boolean =>
     typeof value === 'number' && Number.isSafeInteger(value) && value > 0,
   nonnegativeInteger: (value: unknown): boolean =>

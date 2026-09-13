@@ -1,3 +1,5 @@
+import { hasOnlyKeys, isRecord } from '@ankhorage/utility/object';
+
 import {
   DRAWER_POSITIONS,
   DRAWER_TYPES,
@@ -8,7 +10,6 @@ import {
   NATIVE_TABS_MINIMIZE_BEHAVIORS,
   STACK_PRESENTATIONS,
 } from '../navigator';
-import { isOptionalBoolean, isOptionalString, isRecord } from './shared';
 
 /*** Validate stable native, JavaScript, or alpha Experimental Stack desired state. */
 export function isStackImplementationConfig(value: Record<string, unknown>): boolean {
@@ -63,7 +64,7 @@ export function isStackScreenOptions(value: unknown): boolean {
   }
   return (
     (value.sheetAllowedDetents === undefined || isSheetAllowedDetents(value.sheetAllowedDetents)) &&
-    isOptionalBoolean(value.sheetGrabberVisible)
+    (value.sheetGrabberVisible === undefined || typeof value.sheetGrabberVisible === 'boolean')
   );
 }
 
@@ -77,8 +78,8 @@ export function isDrawerNavigatorOptions(value: unknown): boolean {
         contains(DRAWER_POSITIONS, value.drawerPosition))) &&
     (value.drawerType === undefined ||
       (typeof value.drawerType === 'string' && contains(DRAWER_TYPES, value.drawerType))) &&
-    isOptionalBoolean(value.swipeEnabled) &&
-    isOptionalBoolean(value.headerShown)
+    (value.swipeEnabled === undefined || typeof value.swipeEnabled === 'boolean') &&
+    (value.headerShown === undefined || typeof value.headerShown === 'boolean')
   );
 }
 
@@ -99,15 +100,6 @@ export function isTabsImplementationConfig(value: Record<string, unknown>): bool
 /*** Validate a reference into the app-owned screen registry. */
 export function isNavigatorScreenReference(value: unknown): boolean {
   return isRecord(value) && hasOnlyKeys(value, ['screenId']) && typeof value.screenId === 'string';
-}
-
-/*** Check that a finite configuration object contains no unsupported keys. */
-export function hasOnlyKeys(
-  value: Record<string, unknown>,
-  allowedKeys: readonly string[],
-): boolean {
-  const allowed = new Set(allowedKeys);
-  return Object.keys(value).every((key) => allowed.has(key));
 }
 
 /*** Validate JavaScript Stack options without accepting native-only presentations. */
@@ -140,10 +132,10 @@ function isStackHeaderOptions(value: unknown): boolean {
 /*** Validate shared stack header field values after branch-specific key filtering. */
 function isStackHeaderOptionsShape(value: Record<string, unknown>): boolean {
   return (
-    isOptionalString(value.title) &&
-    isOptionalBoolean(value.headerShown) &&
-    isOptionalBoolean(value.headerTransparent) &&
-    isOptionalBoolean(value.headerBackVisible)
+    (value.title === undefined || typeof value.title === 'string') &&
+    (value.headerShown === undefined || typeof value.headerShown === 'boolean') &&
+    (value.headerTransparent === undefined || typeof value.headerTransparent === 'boolean') &&
+    (value.headerBackVisible === undefined || typeof value.headerBackVisible === 'boolean')
   );
 }
 
@@ -249,7 +241,8 @@ function isHeadlessTabsPresentationConfig(value: Record<string, unknown>): boole
   if (value.responsive !== undefined && !isResponsiveTabsPresentation(value.responsive)) {
     return false;
   }
-  if (!isOptionalString(value.customPresentationId)) return false;
+  if (!(value.customPresentationId === undefined || typeof value.customPresentationId === 'string'))
+    return false;
   if (contains(FIXED_HEADLESS_TABS_PRESENTATIONS, value.presentation)) {
     return value.responsive === undefined && value.customPresentationId === undefined;
   }

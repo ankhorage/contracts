@@ -1,3 +1,6 @@
+import { isStringArray } from '@ankhorage/utility/array';
+import { isRecord } from '@ankhorage/utility/object';
+
 import { isInfraManifest } from '../infra/isInfraManifest';
 import type { AppManifest } from '../types';
 import { isComponentDataBindingRegistry } from './bindings';
@@ -13,9 +16,8 @@ import {
   isSplashScreenSpec,
   isThemeConfig,
 } from './screens';
-import { isRecord, isStringArray } from './shared';
 
-/** Return whether an unknown value satisfies the canonical AppManifest shape. */
+/*** Return whether an unknown value satisfies the canonical AppManifest shape. */
 export function isAppManifest(value: unknown): value is AppManifest {
   return (
     isRecord(value) &&

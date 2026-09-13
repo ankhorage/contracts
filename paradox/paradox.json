@@ -84,13 +84,17 @@
     {
       "path": "src/appManifest/apis.ts",
       "isEntrypoint": false,
-      "dependencies": ["src/appManifest/data.ts", "src/appManifest/shared.ts", "src/data/index.ts"],
+      "dependencies": [
+        "src/appManifest/data.ts",
+        "src/appManifest/isManifestValue.ts",
+        "src/data/index.ts"
+      ],
       "exports": ["isApiDefinitionList"]
     },
     {
       "path": "src/appManifest/bindings.ts",
       "isEntrypoint": false,
-      "dependencies": ["src/appManifest/shared.ts"],
+      "dependencies": ["src/appManifest/isManifestValue.ts"],
       "exports": [
         "isBindingValueSource",
         "isComponentDataBindingRegistry",
@@ -106,7 +110,7 @@
     {
       "path": "src/appManifest/data.ts",
       "isEntrypoint": false,
-      "dependencies": ["src/appManifest/shared.ts"],
+      "dependencies": ["src/appManifest/isManifestValue.ts"],
       "exports": [
         "isAdapterRef",
         "isCredentialRef",
@@ -117,19 +121,19 @@
     {
       "path": "src/appManifest/dataSources.ts",
       "isEntrypoint": false,
-      "dependencies": ["src/appManifest/data.ts", "src/appManifest/shared.ts"],
+      "dependencies": ["src/appManifest/data.ts", "src/appManifest/isManifestValue.ts"],
       "exports": ["isDataSourceRegistry"]
     },
     {
       "path": "src/appManifest/deploy.ts",
       "isEntrypoint": false,
-      "dependencies": ["src/appManifest/shared.ts", "src/deploy.ts"],
+      "dependencies": ["src/deploy.ts"],
       "exports": ["isAppDeployManifest"]
     },
     {
       "path": "src/appManifest/icon.ts",
       "isEntrypoint": false,
-      "dependencies": ["src/appManifest/shared.ts", "src/media.ts"],
+      "dependencies": ["src/media.ts"],
       "exports": ["isIconSpec"]
     },
     {
@@ -143,7 +147,6 @@
         "src/appManifest/isAppStateSpec.ts",
         "src/appManifest/media.ts",
         "src/appManifest/screens.ts",
-        "src/appManifest/shared.ts",
         "src/infra/isInfraManifest.ts",
         "src/types.ts"
       ],
@@ -152,13 +155,19 @@
     {
       "path": "src/appManifest/isAppStateSpec.ts",
       "isEntrypoint": false,
-      "dependencies": ["src/appManifest/shared.ts", "src/state.ts"],
+      "dependencies": ["src/state.ts"],
       "exports": ["isAppStateSpec"]
+    },
+    {
+      "path": "src/appManifest/isManifestValue.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": ["isManifestValue"]
     },
     {
       "path": "src/appManifest/media.ts",
       "isEntrypoint": false,
-      "dependencies": ["src/appManifest/shared.ts", "src/media.ts"],
+      "dependencies": ["src/media.ts"],
       "exports": ["isMediaManifest"]
     },
     {
@@ -167,7 +176,6 @@
       "dependencies": [
         "src/appManifest/icon.ts",
         "src/appManifest/navigatorOptions.ts",
-        "src/appManifest/shared.ts",
         "src/navigator.ts"
       ],
       "exports": ["isAppNavigatorManifest"]
@@ -175,9 +183,8 @@
     {
       "path": "src/appManifest/navigatorOptions.ts",
       "isEntrypoint": false,
-      "dependencies": ["src/appManifest/shared.ts", "src/navigator.ts"],
+      "dependencies": ["src/navigator.ts"],
       "exports": [
-        "hasOnlyKeys",
         "isDrawerNavigatorOptions",
         "isNavigatorScreenReference",
         "isStackImplementationConfig",
@@ -194,32 +201,13 @@
     {
       "path": "src/appManifest/screens.ts",
       "isEntrypoint": false,
-      "dependencies": [
-        "src/appManifest/bindings.ts",
-        "src/appManifest/shared.ts",
-        "src/media.ts",
-        "src/types.ts"
-      ],
+      "dependencies": ["src/appManifest/bindings.ts", "src/media.ts", "src/types.ts"],
       "exports": [
         "isAppNavigatorManifest",
         "isManifestMetadata",
         "isScreenRegistry",
         "isSplashScreenSpec",
         "isThemeConfig"
-      ]
-    },
-    {
-      "path": "src/appManifest/shared.ts",
-      "isEntrypoint": false,
-      "dependencies": [],
-      "exports": [
-        "isManifestValue",
-        "isOptionalBoolean",
-        "isOptionalNumber",
-        "isOptionalString",
-        "isRecord",
-        "isStringArray",
-        "isStringRecord"
       ]
     },
     {
@@ -1178,14 +1166,13 @@
     {
       "path": "src/infra/infraFields.ts",
       "isEntrypoint": false,
-      "dependencies": ["src/appManifest/shared.ts"],
+      "dependencies": [],
       "exports": ["infraFields"]
     },
     {
       "path": "src/infra/isInfraAdapterDescriptor.ts",
       "isEntrypoint": false,
       "dependencies": [
-        "src/appManifest/shared.ts",
         "src/infra/constants.ts",
         "src/infra/isInfraShape.ts",
         "src/types/infraAdapters.ts"
@@ -1197,7 +1184,6 @@
       "isEntrypoint": false,
       "dependencies": [
         "src/appManifest/icon.ts",
-        "src/appManifest/shared.ts",
         "src/auth.ts",
         "src/infra/isInfraShape.ts",
         "src/types.ts",
@@ -1209,14 +1195,13 @@
     {
       "path": "src/infra/isInfraCredentialRef.ts",
       "isEntrypoint": false,
-      "dependencies": ["src/infra/infraFields.ts", "src/infra/isInfraShape.ts"],
+      "dependencies": ["src/infra/isInfraShape.ts"],
       "exports": ["isInfraCredentialRef"]
     },
     {
       "path": "src/infra/isInfraDeploymentSpec.ts",
       "isEntrypoint": false,
       "dependencies": [
-        "src/appManifest/shared.ts",
         "src/infra/constants.ts",
         "src/infra/infraFields.ts",
         "src/infra/isInfraCredentialRef.ts",
@@ -1230,7 +1215,6 @@
       "path": "src/infra/isInfraEnvironmentSpec.ts",
       "isEntrypoint": false,
       "dependencies": [
-        "src/appManifest/shared.ts",
         "src/infra/constants.ts",
         "src/infra/infraFields.ts",
         "src/infra/isInfraAuthSpec.ts",
@@ -1248,7 +1232,6 @@
       "isEntrypoint": false,
       "dependencies": [
         "src/appManifest/apis.ts",
-        "src/appManifest/shared.ts",
         "src/environments.ts",
         "src/infra/infraFields.ts",
         "src/infra/isInfraEnvironmentSpec.ts",
@@ -1261,24 +1244,19 @@
     {
       "path": "src/infra/isInfraShape.ts",
       "isEntrypoint": false,
-      "dependencies": ["src/appManifest/shared.ts"],
+      "dependencies": [],
       "exports": ["isInfraShape"]
     },
     {
       "path": "src/infra/isInfraWorkloadHealth.ts",
       "isEntrypoint": false,
-      "dependencies": [
-        "src/appManifest/shared.ts",
-        "src/infra/infraFields.ts",
-        "src/infra/isInfraShape.ts"
-      ],
+      "dependencies": ["src/infra/infraFields.ts", "src/infra/isInfraShape.ts"],
       "exports": ["isInfraWorkloadHealth"]
     },
     {
       "path": "src/infra/isInfraWorkloadSpec.ts",
       "isEntrypoint": false,
       "dependencies": [
-        "src/appManifest/shared.ts",
         "src/infra/infraFields.ts",
         "src/infra/isInfraShape.ts",
         "src/infra/isInfraWorkloadHealth.ts",
@@ -1291,12 +1269,7 @@
     {
       "path": "src/infra/isInfraWorkloadValue.ts",
       "isEntrypoint": false,
-      "dependencies": [
-        "src/appManifest/shared.ts",
-        "src/environments.ts",
-        "src/infra/infraFields.ts",
-        "src/infra/isInfraShape.ts"
-      ],
+      "dependencies": ["src/environments.ts", "src/infra/isInfraShape.ts"],
       "exports": ["isInfraWorkloadValue"]
     },
     {
@@ -11330,14 +11303,14 @@
     },
     {
       "name": "isAppDeployManifest",
-      "description": null,
+      "description": "Validate authored application deployment configuration.",
       "isReadme": false,
       "examples": [],
       "kind": "function",
       "modulePath": "src/appManifest/deploy.ts",
       "sourceLocation": {
         "filePath": "src/appManifest/deploy.ts",
-        "line": 19,
+        "line": 22,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11362,14 +11335,14 @@
     },
     {
       "name": "isAppManifest",
-      "description": null,
+      "description": "Return whether an unknown value satisfies the canonical AppManifest shape.",
       "isReadme": false,
       "examples": [],
       "kind": "function",
       "modulePath": "src/appManifest/isAppManifest.ts",
       "sourceLocation": {
         "filePath": "src/appManifest/isAppManifest.ts",
-        "line": 19,
+        "line": 21,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11401,7 +11374,7 @@
       "modulePath": "src/appManifest/navigator.ts",
       "sourceLocation": {
         "filePath": "src/appManifest/navigator.ts",
-        "line": 14,
+        "line": 15,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11426,14 +11399,14 @@
     },
     {
       "name": "isInfraAdapterDescriptor",
-      "description": null,
+      "description": "Installed adapters must match the canonical identity, capabilities, targets and config version exactly.",
       "isReadme": false,
       "examples": [],
       "kind": "function",
       "modulePath": "src/infra/isInfraAdapterDescriptor.ts",
       "sourceLocation": {
         "filePath": "src/infra/isInfraAdapterDescriptor.ts",
-        "line": 7,
+        "line": 8,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11458,14 +11431,14 @@
     },
     {
       "name": "isInfraAuthSpec",
-      "description": null,
+      "description": "Preserve application auth configuration while rejecting nested authorization and unknown providers.",
       "isReadme": false,
       "examples": [],
       "kind": "function",
       "modulePath": "src/infra/isInfraAuthSpec.ts",
       "sourceLocation": {
         "filePath": "src/infra/isInfraAuthSpec.ts",
-        "line": 22,
+        "line": 19,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11490,14 +11463,14 @@
     },
     {
       "name": "isInfraDeploymentSpec",
-      "description": null,
+      "description": "Validate provider-specific config and the exact same compatibility map used by TypeScript.",
       "isReadme": false,
       "examples": [],
       "kind": "function",
       "modulePath": "src/infra/isInfraDeploymentSpec.ts",
       "sourceLocation": {
         "filePath": "src/infra/isInfraDeploymentSpec.ts",
-        "line": 14,
+        "line": 16,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11522,14 +11495,14 @@
     },
     {
       "name": "isInfraEnvironmentSpec",
-      "description": null,
+      "description": "Validate sibling capabilities and their required relationships within one environment.",
       "isReadme": false,
       "examples": [],
       "kind": "function",
       "modulePath": "src/infra/isInfraEnvironmentSpec.ts",
       "sourceLocation": {
         "filePath": "src/infra/isInfraEnvironmentSpec.ts",
-        "line": 13,
+        "line": 14,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11554,14 +11527,14 @@
     },
     {
       "name": "isInfraManifest",
-      "description": null,
+      "description": "Validate standalone infrastructure without AppManifest, Deploy or provider package side effects.",
       "isReadme": false,
       "examples": [],
       "kind": "function",
       "modulePath": "src/infra/isInfraManifest.ts",
       "sourceLocation": {
         "filePath": "src/infra/isInfraManifest.ts",
-        "line": 11,
+        "line": 12,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11586,14 +11559,14 @@
     },
     {
       "name": "isInfraWorkloadSpec",
-      "description": null,
+      "description": "Validate the portable desired workload; runtime-specific fields and plaintext secret objects fail.",
       "isReadme": false,
       "examples": [],
       "kind": "function",
       "modulePath": "src/infra/isInfraWorkloadSpec.ts",
       "sourceLocation": {
         "filePath": "src/infra/isInfraWorkloadSpec.ts",
-        "line": 10,
+        "line": 13,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11618,14 +11591,14 @@
     },
     {
       "name": "isMediaAssetReference",
-      "description": null,
+      "description": "Validate an authored media reference with exactly one enumerable key and a non-empty media ID.",
       "isReadme": false,
       "examples": [],
       "kind": "function",
       "modulePath": "src/media.ts",
       "sourceLocation": {
         "filePath": "src/media.ts",
-        "line": 58,
+        "line": 62,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11906,7 +11879,7 @@
       "modulePath": "src/media.ts",
       "sourceLocation": {
         "filePath": "src/media.ts",
-        "line": 1,
+        "line": 4,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -11917,14 +11890,14 @@
     },
     {
       "name": "MediaAsset",
-      "description": null,
+      "description": "Canonical Studio-managed authoring media entry.",
       "isReadme": false,
       "examples": [],
       "kind": "type",
       "modulePath": "src/media.ts",
       "sourceLocation": {
         "filePath": "src/media.ts",
-        "line": 37,
+        "line": 40,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11985,7 +11958,7 @@
       "modulePath": "src/media.ts",
       "sourceLocation": {
         "filePath": "src/media.ts",
-        "line": 3,
+        "line": 6,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12003,7 +11976,7 @@
       "modulePath": "src/media.ts",
       "sourceLocation": {
         "filePath": "src/media.ts",
-        "line": 27,
+        "line": 30,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12057,14 +12030,14 @@
     },
     {
       "name": "MediaAssetReference",
-      "description": null,
+      "description": "Stable component/property reference to one entry in `AppManifest.media.assets`.",
       "isReadme": false,
       "examples": [],
       "kind": "type",
       "modulePath": "src/media.ts",
       "sourceLocation": {
         "filePath": "src/media.ts",
-        "line": 54,
+        "line": 57,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12090,7 +12063,7 @@
       "modulePath": "src/media.ts",
       "sourceLocation": {
         "filePath": "src/media.ts",
-        "line": 46,
+        "line": 49,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12108,7 +12081,7 @@
       "modulePath": "src/media.ts",
       "sourceLocation": {
         "filePath": "src/media.ts",
-        "line": 25,
+        "line": 28,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12126,7 +12099,7 @@
       "modulePath": "src/media.ts",
       "sourceLocation": {
         "filePath": "src/media.ts",
-        "line": 19,
+        "line": 22,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12145,21 +12118,21 @@
           "kind": "property",
           "type": "string",
           "required": true,
-          "description": null
+          "description": "App-relative bundled asset path resolved by the generated/runtime host."
         }
       ],
       "structuredRows": []
     },
     {
       "name": "MediaManifest",
-      "description": null,
+      "description": "App-authoring media pool. Runtime/user-generated uploads do not belong here.",
       "isReadme": false,
       "examples": [],
       "kind": "type",
       "modulePath": "src/media.ts",
       "sourceLocation": {
         "filePath": "src/media.ts",
-        "line": 49,
+        "line": 52,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12259,7 +12232,7 @@
       "modulePath": "src/media.ts",
       "sourceLocation": {
         "filePath": "src/media.ts",
-        "line": 5,
+        "line": 8,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12292,7 +12265,7 @@
           "kind": "property",
           "type": "string | undefined",
           "required": false,
-          "description": null
+          "description": "Optional logical storage connection identifier for future multi-storage apps."
         }
       ],
       "structuredRows": []
@@ -12306,7 +12279,7 @@
       "modulePath": "src/media.ts",
       "sourceLocation": {
         "filePath": "src/media.ts",
-        "line": 13,
+        "line": 16,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12325,7 +12298,7 @@
           "kind": "property",
           "type": "string",
           "required": true,
-          "description": null
+          "description": "Stable remote URL. Transient/local URL schemes are not canonical media sources."
         }
       ],
       "structuredRows": []
@@ -18828,43 +18801,34 @@
   "sourceFunctions": [
     {
       "name": "isApiDefinitionList",
-      "description": null,
+      "description": "Validate API definitions and require unique API identities.",
       "sourceLocation": {
         "filePath": "src/appManifest/apis.ts",
-        "line": 22,
+        "line": 26,
         "column": 1
       }
     },
     {
       "name": "isApiDefinition",
-      "description": null,
+      "description": "Validate one API definition against its origin and protocol branch.",
       "sourceLocation": {
         "filePath": "src/appManifest/apis.ts",
-        "line": 28,
+        "line": 33,
         "column": 1
       }
     },
     {
       "name": "isApiBaseDefinition",
-      "description": null,
+      "description": "Validate common API identity, endpoint, schema and authored metadata fields.",
       "sourceLocation": {
         "filePath": "src/appManifest/apis.ts",
-        "line": 38,
+        "line": 44,
         "column": 1
       }
     },
     {
       "name": "isExternalRestApi",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/appManifest/apis.ts",
-        "line": 53,
-        "column": 1
-      }
-    },
-    {
-      "name": "isExternalGraphQlApi",
-      "description": null,
+      "description": "Validate external REST endpoint and optional OpenAPI metadata.",
       "sourceLocation": {
         "filePath": "src/appManifest/apis.ts",
         "line": 61,
@@ -18872,107 +18836,89 @@
       }
     },
     {
-      "name": "isInternalRestApi",
-      "description": null,
+      "name": "isExternalGraphQlApi",
+      "description": "Validate external GraphQL endpoint and optional introspection metadata.",
       "sourceLocation": {
         "filePath": "src/appManifest/apis.ts",
-        "line": 69,
+        "line": 70,
+        "column": 1
+      }
+    },
+    {
+      "name": "isInternalRestApi",
+      "description": "Validate the supported internal REST API configuration.",
+      "sourceLocation": {
+        "filePath": "src/appManifest/apis.ts",
+        "line": 79,
         "column": 1
       }
     },
     {
       "name": "isOpenApiDocumentRef",
-      "description": null,
+      "description": "Validate optional OpenAPI document location and version fields.",
       "sourceLocation": {
         "filePath": "src/appManifest/apis.ts",
-        "line": 73,
+        "line": 84,
         "column": 1
       }
     },
     {
       "name": "isGraphQlIntrospection",
-      "description": null,
+      "description": "Validate explicit GraphQL introspection settings.",
       "sourceLocation": {
         "filePath": "src/appManifest/apis.ts",
-        "line": 83,
-        "column": 1
-      }
-    },
-    {
-      "name": "isNonEmptyString",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/appManifest/apis.ts",
-        "line": 92,
-        "column": 1
-      }
-    },
-    {
-      "name": "hasOnlyKeys",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/appManifest/apis.ts",
-        "line": 96,
+        "line": 95,
         "column": 1
       }
     },
     {
       "name": "isComponentDataBindingRegistry",
-      "description": null,
+      "description": "Validate every component binding in the authored registry.",
       "sourceLocation": {
         "filePath": "src/appManifest/bindings.ts",
-        "line": 3,
+        "line": 6,
         "column": 1
       }
     },
     {
       "name": "isBindingValueSource",
-      "description": null,
+      "description": "Validate literal, operation and path-based binding sources.",
       "sourceLocation": {
         "filePath": "src/appManifest/bindings.ts",
-        "line": 7,
+        "line": 11,
         "column": 1
       }
     },
     {
       "name": "isScreenDataLoaderDefinition",
-      "description": null,
+      "description": "Validate a screen operation loader and its optional input mapping.",
       "sourceLocation": {
         "filePath": "src/appManifest/bindings.ts",
-        "line": 20,
+        "line": 26,
         "column": 1
       }
     },
     {
       "name": "isComponentDataBinding",
-      "description": null,
+      "description": "Validate component identity and its property and event bindings.",
       "sourceLocation": {
         "filePath": "src/appManifest/bindings.ts",
-        "line": 30,
+        "line": 37,
         "column": 1
       }
     },
     {
       "name": "isPropBinding",
-      "description": null,
+      "description": "Validate a property binding with optional transforms and fallback behavior.",
       "sourceLocation": {
         "filePath": "src/appManifest/bindings.ts",
-        "line": 45,
+        "line": 53,
         "column": 1
       }
     },
     {
       "name": "isEventBinding",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/appManifest/bindings.ts",
-        "line": 57,
-        "column": 1
-      }
-    },
-    {
-      "name": "isEventBindingTarget",
-      "description": null,
+      "description": "Validate an event binding and its declared target.",
       "sourceLocation": {
         "filePath": "src/appManifest/bindings.ts",
         "line": 66,
@@ -18980,89 +18926,98 @@
       }
     },
     {
-      "name": "isBindingCondition",
-      "description": null,
+      "name": "isEventBindingTarget",
+      "description": "Validate the selected operation or action event target.",
       "sourceLocation": {
         "filePath": "src/appManifest/bindings.ts",
-        "line": 74,
+        "line": 76,
+        "column": 1
+      }
+    },
+    {
+      "name": "isBindingCondition",
+      "description": "Validate a binding condition and its source value.",
+      "sourceLocation": {
+        "filePath": "src/appManifest/bindings.ts",
+        "line": 85,
         "column": 1
       }
     },
     {
       "name": "isBindingOperationRef",
-      "description": null,
+      "description": "Validate API and operation identities with an optional endpoint reference.",
       "sourceLocation": {
         "filePath": "src/appManifest/bindings.ts",
-        "line": 83,
+        "line": 95,
         "column": 1
       }
     },
     {
       "name": "isBindingFallback",
-      "description": null,
+      "description": "Validate authored binding fallback values.",
       "sourceLocation": {
         "filePath": "src/appManifest/bindings.ts",
-        "line": 92,
+        "line": 105,
         "column": 1
       }
     },
     {
       "name": "isBindingLifecycleBehavior",
-      "description": null,
+      "description": "Validate loading, empty and error binding behavior.",
       "sourceLocation": {
         "filePath": "src/appManifest/bindings.ts",
-        "line": 100,
+        "line": 114,
         "column": 1
       }
     },
     {
       "name": "isOptionalBindingTransforms",
-      "description": null,
+      "description": "Validate optional ordered binding transformations.",
       "sourceLocation": {
         "filePath": "src/appManifest/bindings.ts",
-        "line": 110,
+        "line": 125,
         "column": 1
       }
     },
     {
       "name": "isBindingInputMap",
-      "description": null,
+      "description": "Validate every value in an operation input mapping.",
       "sourceLocation": {
         "filePath": "src/appManifest/bindings.ts",
-        "line": 118,
+        "line": 134,
         "column": 1
       }
     },
     {
       "name": "isBindingInputValue",
-      "description": null,
+      "description": "Validate recursive array, object, literal and source operation inputs.",
       "sourceLocation": {
         "filePath": "src/appManifest/bindings.ts",
-        "line": 122,
+        "line": 139,
         "column": 1
       }
     },
     {
       "name": "isDataEndpointRegistry",
-      "description": null,
+      "description": "Validate every endpoint in the data endpoint registry.",
       "sourceLocation": {
         "filePath": "src/appManifest/data.ts",
-        "line": 21,
+        "line": 19,
         "column": 1
       }
     },
     {
       "name": "isDataSchemaRegistry",
-      "description": null,
+      "description": "Validate every schema in the data schema registry.",
       "sourceLocation": {
         "filePath": "src/appManifest/data.ts",
-        "line": 25,
+        "line": 24,
         "column": 1
       }
     },
     {
       "name": "isCredentialRef",
-      "description": null,
+      "description": "Validate credential identity and optional descriptive metadata.",
       "sourceLocation": {
         "filePath": "src/appManifest/data.ts",
         "line": 29,
@@ -19071,70 +19026,61 @@
     },
     {
       "name": "isAdapterRef",
-      "description": null,
+      "description": "Validate an adapter reference and its optional authored configuration.",
       "sourceLocation": {
         "filePath": "src/appManifest/data.ts",
-        "line": 39,
+        "line": 40,
         "column": 1
       }
     },
     {
       "name": "isDataEndpointConfig",
-      "description": null,
+      "description": "Validate endpoint identity, operations and optional connection metadata.",
       "sourceLocation": {
         "filePath": "src/appManifest/data.ts",
-        "line": 50,
+        "line": 52,
         "column": 1
       }
     },
     {
       "name": "isDataOperationConfig",
-      "description": null,
+      "description": "Validate operation protocol, intent, request and response configuration.",
       "sourceLocation": {
         "filePath": "src/appManifest/data.ts",
-        "line": 66,
+        "line": 69,
         "column": 1
       }
     },
     {
       "name": "isDataOperationRequest",
-      "description": null,
+      "description": "Validate request schema, parameters and optional content type.",
       "sourceLocation": {
         "filePath": "src/appManifest/data.ts",
-        "line": 86,
+        "line": 90,
         "column": 1
       }
     },
     {
       "name": "isDataOperationParameter",
-      "description": null,
+      "description": "Validate parameter identity, location, schema and optional default value.",
       "sourceLocation": {
         "filePath": "src/appManifest/data.ts",
-        "line": 96,
+        "line": 101,
         "column": 1
       }
     },
     {
       "name": "isDataOperationResponse",
-      "description": null,
+      "description": "Validate response status, schema and optional descriptive metadata.",
       "sourceLocation": {
         "filePath": "src/appManifest/data.ts",
-        "line": 109,
+        "line": 115,
         "column": 1
       }
     },
     {
       "name": "isDataSchemaSlot",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/appManifest/data.ts",
-        "line": 121,
-        "column": 1
-      }
-    },
-    {
-      "name": "isDataSchema",
-      "description": null,
+      "description": "Validate inline schema and schema-reference fields.",
       "sourceLocation": {
         "filePath": "src/appManifest/data.ts",
         "line": 128,
@@ -19142,17 +19088,17 @@
       }
     },
     {
-      "name": "isDataSchemaType",
-      "description": null,
+      "name": "isDataSchema",
+      "description": "Validate supported schema types, constraints and compositions.",
       "sourceLocation": {
         "filePath": "src/appManifest/data.ts",
-        "line": 135,
+        "line": 136,
         "column": 1
       }
     },
     {
-      "name": "isOptionalSchemaScalars",
-      "description": null,
+      "name": "isDataSchemaType",
+      "description": "Validate a supported schema type or an array of supported types.",
       "sourceLocation": {
         "filePath": "src/appManifest/data.ts",
         "line": 144,
@@ -19160,125 +19106,107 @@
       }
     },
     {
-      "name": "isOptionalSchemaCollections",
-      "description": null,
+      "name": "isOptionalSchemaScalars",
+      "description": "Validate optional scalar schema constraints.",
       "sourceLocation": {
         "filePath": "src/appManifest/data.ts",
-        "line": 158,
+        "line": 154,
+        "column": 1
+      }
+    },
+    {
+      "name": "isOptionalSchemaCollections",
+      "description": "Validate optional schema properties, items and required fields.",
+      "sourceLocation": {
+        "filePath": "src/appManifest/data.ts",
+        "line": 169,
         "column": 1
       }
     },
     {
       "name": "isOptionalSchemaComposition",
-      "description": null,
+      "description": "Validate optional schema alternatives and intersections.",
       "sourceLocation": {
         "filePath": "src/appManifest/data.ts",
-        "line": 170,
+        "line": 182,
         "column": 1
       }
     },
     {
       "name": "isDataSchemaRef",
-      "description": null,
+      "description": "Validate a named schema reference.",
       "sourceLocation": {
         "filePath": "src/appManifest/data.ts",
-        "line": 177,
+        "line": 190,
         "column": 1
       }
     },
     {
       "name": "isDataSourceRegistry",
-      "description": null,
+      "description": "Validate the supported data-source entries in the registry.",
       "sourceLocation": {
         "filePath": "src/appManifest/dataSources.ts",
-        "line": 21,
+        "line": 24,
         "column": 1
       }
     },
     {
       "name": "isDatabaseDataSource",
-      "description": null,
+      "description": "Validate database adapter identity and supported configuration fields.",
       "sourceLocation": {
         "filePath": "src/appManifest/dataSources.ts",
-        "line": 28,
-        "column": 1
-      }
-    },
-    {
-      "name": "hasOnlyKeys",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/appManifest/dataSources.ts",
-        "line": 46,
+        "line": 32,
         "column": 1
       }
     },
     {
       "name": "isAppDeployManifest",
-      "description": null,
+      "description": "Validate authored application deployment configuration.",
       "sourceLocation": {
         "filePath": "src/appManifest/deploy.ts",
-        "line": 19,
+        "line": 22,
         "column": 1
       }
     },
     {
       "name": "isAppDeployTargets",
-      "description": null,
+      "description": "Validate the optional web, Android and iOS deployment targets.",
       "sourceLocation": {
         "filePath": "src/appManifest/deploy.ts",
-        "line": 23,
+        "line": 27,
         "column": 1
       }
     },
     {
       "name": "isWebTarget",
-      "description": null,
+      "description": "Validate web deployment identity and provider selection.",
       "sourceLocation": {
         "filePath": "src/appManifest/deploy.ts",
-        "line": 33,
+        "line": 38,
         "column": 1
       }
     },
     {
       "name": "isAndroidTarget",
-      "description": null,
+      "description": "Validate Android deployment identity, scheme and provider selection.",
       "sourceLocation": {
         "filePath": "src/appManifest/deploy.ts",
-        "line": 42,
+        "line": 48,
         "column": 1
       }
     },
     {
       "name": "isIosTarget",
-      "description": null,
+      "description": "Validate iOS deployment identity, scheme and provider selection.",
       "sourceLocation": {
         "filePath": "src/appManifest/deploy.ts",
-        "line": 53,
+        "line": 60,
         "column": 1
       }
     },
     {
       "name": "isOptionalScheme",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/appManifest/deploy.ts",
-        "line": 64,
-        "column": 1
-      }
-    },
-    {
-      "name": "isOptionalProviders",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/appManifest/deploy.ts",
-        "line": 68,
-        "column": 1
-      }
-    },
-    {
-      "name": "isProviderSelection",
-      "description": null,
+      "description": "Accept an omitted scheme or a non-empty authored scheme.",
       "sourceLocation": {
         "filePath": "src/appManifest/deploy.ts",
         "line": 72,
@@ -19286,20 +19214,20 @@
       }
     },
     {
-      "name": "isNonEmptyString",
-      "description": null,
+      "name": "isOptionalProviders",
+      "description": "Accept omitted deployment providers or a valid provider selection.",
       "sourceLocation": {
         "filePath": "src/appManifest/deploy.ts",
-        "line": 81,
+        "line": 77,
         "column": 1
       }
     },
     {
-      "name": "hasOnlyKeys",
-      "description": null,
+      "name": "isProviderSelection",
+      "description": "Validate deployment provider identities and supported selection keys.",
       "sourceLocation": {
         "filePath": "src/appManifest/deploy.ts",
-        "line": 85,
+        "line": 82,
         "column": 1
       }
     },
@@ -19308,16 +19236,16 @@
       "description": "Validate a serializable icon as either a named font glyph or an SVG media reference.",
       "sourceLocation": {
         "filePath": "src/appManifest/icon.ts",
-        "line": 5,
+        "line": 6,
         "column": 1
       }
     },
     {
       "name": "isAppManifest",
-      "description": null,
+      "description": "Return whether an unknown value satisfies the canonical AppManifest shape.",
       "sourceLocation": {
         "filePath": "src/appManifest/isAppManifest.ts",
-        "line": 19,
+        "line": 21,
         "column": 1
       }
     },
@@ -19326,7 +19254,7 @@
       "description": "Validate the canonical application manifest field policy.",
       "sourceLocation": {
         "filePath": "src/appManifest/isAppManifest.ts",
-        "line": 35,
+        "line": 37,
         "column": 1
       }
     },
@@ -19335,7 +19263,7 @@
       "description": "Validate the canonical application manifest field policy.",
       "sourceLocation": {
         "filePath": "src/appManifest/isAppManifest.ts",
-        "line": 42,
+        "line": 44,
         "column": 1
       }
     },
@@ -19344,7 +19272,7 @@
       "description": "Validate the canonical application manifest field policy.",
       "sourceLocation": {
         "filePath": "src/appManifest/isAppManifest.ts",
-        "line": 47,
+        "line": 49,
         "column": 1
       }
     },
@@ -19353,7 +19281,7 @@
       "description": "Validate the canonical application manifest field policy.",
       "sourceLocation": {
         "filePath": "src/appManifest/isAppManifest.ts",
-        "line": 62,
+        "line": 64,
         "column": 1
       }
     },
@@ -19362,7 +19290,7 @@
       "description": "Validate authored appearance as one cohesive manifest concern.",
       "sourceLocation": {
         "filePath": "src/appManifest/isAppManifest.ts",
-        "line": 73,
+        "line": 75,
         "column": 1
       }
     },
@@ -19371,106 +19299,97 @@
       "description": "Validate independently optional application capability selections.",
       "sourceLocation": {
         "filePath": "src/appManifest/isAppManifest.ts",
-        "line": 85,
+        "line": 87,
         "column": 1
       }
     },
     {
       "name": "isAppStateSpec",
-      "description": null,
+      "description": "Application state cannot claim persistence unsupported by the selected Legend adapter.",
       "sourceLocation": {
         "filePath": "src/appManifest/isAppStateSpec.ts",
-        "line": 5,
+        "line": 6,
+        "column": 1
+      }
+    },
+    {
+      "name": "isManifestValue",
+      "description": "Validate the existing recursive ManifestValue domain used by authored bindings and API metadata.",
+      "sourceLocation": {
+        "filePath": "src/appManifest/isManifestValue.ts",
+        "line": 4,
         "column": 1
       }
     },
     {
       "name": "isMediaManifest",
-      "description": null,
+      "description": "Validate authored media assets and their registry identity.",
       "sourceLocation": {
         "filePath": "src/appManifest/media.ts",
-        "line": 12,
+        "line": 15,
         "column": 1
       }
     },
     {
       "name": "isMediaAsset",
-      "description": null,
+      "description": "Validate media identity, kind, source and optional metadata.",
       "sourceLocation": {
         "filePath": "src/appManifest/media.ts",
-        "line": 20,
+        "line": 24,
         "column": 1
       }
     },
     {
       "name": "isMediaAssetSource",
-      "description": null,
+      "description": "Validate the selected bundled, URL or storage-backed media source.",
       "sourceLocation": {
         "filePath": "src/appManifest/media.ts",
-        "line": 34,
+        "line": 39,
         "column": 1
       }
     },
     {
       "name": "isMediaAssetMetadata",
-      "description": null,
+      "description": "Validate optional descriptive and numeric media metadata.",
       "sourceLocation": {
         "filePath": "src/appManifest/media.ts",
-        "line": 55,
+        "line": 61,
         "column": 1
       }
     },
     {
       "name": "isStableRemoteUrl",
-      "description": null,
+      "description": "Validate an authored HTTP or HTTPS media URL.",
       "sourceLocation": {
         "filePath": "src/appManifest/media.ts",
-        "line": 75,
+        "line": 82,
         "column": 1
       }
     },
     {
       "name": "isBundledPath",
-      "description": null,
+      "description": "Validate a portable bundled-media path.",
       "sourceLocation": {
         "filePath": "src/appManifest/media.ts",
-        "line": 79,
-        "column": 1
-      }
-    },
-    {
-      "name": "isNonEmptyString",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/appManifest/media.ts",
-        "line": 86,
+        "line": 87,
         "column": 1
       }
     },
     {
       "name": "isOptionalFiniteNonNegativeNumber",
-      "description": null,
+      "description": "Accept an omitted media metric or a finite non-negative number.",
       "sourceLocation": {
         "filePath": "src/appManifest/media.ts",
-        "line": 90,
+        "line": 95,
         "column": 1
       }
     },
     {
       "name": "isOptionalFinitePositiveNumber",
-      "description": null,
+      "description": "Accept an omitted media metric or a finite positive number.",
       "sourceLocation": {
         "filePath": "src/appManifest/media.ts",
-        "line": 94,
-        "column": 1
-      }
-    },
-    {
-      "name": "hasOnlyKeys",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/appManifest/media.ts",
-        "line": 98,
+        "line": 100,
         "column": 1
       }
     },
@@ -19479,7 +19398,7 @@
       "description": "Validate the complete serialized `AppManifest.navigator` slice.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigator.ts",
-        "line": 14,
+        "line": 15,
         "column": 1
       }
     },
@@ -19488,7 +19407,7 @@
       "description": "Validate one nested navigator node independently from app-level authoring metadata.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigator.ts",
-        "line": 27,
+        "line": 28,
         "column": 1
       }
     },
@@ -19497,7 +19416,7 @@
       "description": "Check a serialized preset against the public contract without eager cyclic initialization.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigator.ts",
-        "line": 61,
+        "line": 62,
         "column": 1
       }
     },
@@ -19506,7 +19425,7 @@
       "description": "Check a serialized topology against the public contract without eager cyclic initialization.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigator.ts",
-        "line": 66,
+        "line": 67,
         "column": 1
       }
     },
@@ -19515,7 +19434,7 @@
       "description": "Validate one route and preserve its portable metadata and nested navigator.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigator.ts",
-        "line": 71,
+        "line": 72,
         "column": 1
       }
     },
@@ -19524,7 +19443,7 @@
       "description": "Validate Split View screen references without duplicating the routed secondary tree.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigator.ts",
-        "line": 87,
+        "line": 89,
         "column": 1
       }
     },
@@ -19533,7 +19452,7 @@
       "description": "Validate a registered custom navigator with JSON-safe configuration only.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigator.ts",
-        "line": 105,
+        "line": 107,
         "column": 1
       }
     },
@@ -19542,7 +19461,7 @@
       "description": "Validate an acyclic, finite JSON object used by a custom navigator adapter.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigator.ts",
-        "line": 115,
+        "line": 117,
         "column": 1
       }
     },
@@ -19551,7 +19470,7 @@
       "description": "Recursively validate the portable manifest value domain and reject cycles.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigator.ts",
-        "line": 120,
+        "line": 122,
         "column": 1
       }
     },
@@ -19560,7 +19479,7 @@
       "description": "Validate package-owned navigator defaults without requiring a navigator node type.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigator.ts",
-        "line": 145,
+        "line": 147,
         "column": 1
       }
     },
@@ -19569,7 +19488,7 @@
       "description": "Validate per-platform navigator implementation overrides.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigator.ts",
-        "line": 157,
+        "line": 159,
         "column": 1
       }
     },
@@ -19578,7 +19497,7 @@
       "description": "Validate one platform-specific navigator override slice.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigator.ts",
-        "line": 168,
+        "line": 170,
         "column": 1
       }
     },
@@ -19587,7 +19506,7 @@
       "description": "Validate stable native, JavaScript, or alpha Experimental Stack desired state.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 14,
+        "line": 15,
         "column": 1
       }
     },
@@ -19596,7 +19515,7 @@
       "description": "Validate the serializable native-stack screen option subset.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 41,
+        "line": 42,
         "column": 1
       }
     },
@@ -19605,7 +19524,7 @@
       "description": "Validate the finite serializable Drawer option subset.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 71,
+        "line": 72,
         "column": 1
       }
     },
@@ -19614,7 +19533,7 @@
       "description": "Validate tabs implementation desired state, with omitted implementation meaning adaptive.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 86,
+        "line": 87,
         "column": 1
       }
     },
@@ -19623,16 +19542,7 @@
       "description": "Validate a reference into the app-owned screen registry.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 100,
-        "column": 1
-      }
-    },
-    {
-      "name": "hasOnlyKeys",
-      "description": "Check that a finite configuration object contains no unsupported keys.",
-      "sourceLocation": {
-        "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 105,
+        "line": 101,
         "column": 1
       }
     },
@@ -19641,7 +19551,7 @@
       "description": "Validate JavaScript Stack options without accepting native-only presentations.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 114,
+        "line": 106,
         "column": 1
       }
     },
@@ -19650,7 +19560,7 @@
       "description": "Validate the portable header subset supported by Experimental Stack.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 132,
+        "line": 124,
         "column": 1
       }
     },
@@ -19659,7 +19569,7 @@
       "description": "Validate shared stack header field values after branch-specific key filtering.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 141,
+        "line": 133,
         "column": 1
       }
     },
@@ -19668,7 +19578,7 @@
       "description": "Validate sorted, finite native sheet detents or the fit-to-content sentinel.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 151,
+        "line": 143,
         "column": 1
       }
     },
@@ -19677,7 +19587,7 @@
       "description": "Validate an adaptive tabs branch and reject implementation-specific conflicts.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 165,
+        "line": 157,
         "column": 1
       }
     },
@@ -19686,7 +19596,7 @@
       "description": "Validate the top-level native tabs implementation.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 181,
+        "line": 173,
         "column": 1
       }
     },
@@ -19695,7 +19605,7 @@
       "description": "Validate the top-level JavaScript tabs implementation.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 195,
+        "line": 187,
         "column": 1
       }
     },
@@ -19704,7 +19614,7 @@
       "description": "Validate the native branch used by adaptive tabs.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 213,
+        "line": 205,
         "column": 1
       }
     },
@@ -19713,7 +19623,7 @@
       "description": "Validate fields supported by the native tabs branch.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 223,
+        "line": 215,
         "column": 1
       }
     },
@@ -19722,7 +19632,7 @@
       "description": "Validate the implementation-free headless-tabs Web branch inside adaptive tabs.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 233,
+        "line": 225,
         "column": 1
       }
     },
@@ -19731,7 +19641,7 @@
       "description": "Validate headless-tab presentation and its conditional serializable configuration.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 242,
+        "line": 234,
         "column": 1
       }
     },
@@ -19740,7 +19650,7 @@
       "description": "Validate semantic compact/medium/expanded headless-tab presentation mapping.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 267,
+        "line": 260,
         "column": 1
       }
     },
@@ -19749,7 +19659,7 @@
       "description": "Check a string against a public finite contract without eager cyclic initialization.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 282,
+        "line": 275,
         "column": 1
       }
     },
@@ -19758,7 +19668,7 @@
       "description": "Check that mutually exclusive branch fields are absent.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 287,
+        "line": 280,
         "column": 1
       }
     },
@@ -19773,163 +19683,100 @@
     },
     {
       "name": "isManifestMetadata",
-      "description": null,
+      "description": "Validate application identity and optional authored metadata.",
       "sourceLocation": {
         "filePath": "src/appManifest/screens.ts",
-        "line": 14,
+        "line": 15,
         "column": 1
       }
     },
     {
       "name": "isThemeConfig",
-      "description": null,
+      "description": "Validate theme identity and its required light and dark modes.",
       "sourceLocation": {
         "filePath": "src/appManifest/screens.ts",
-        "line": 28,
+        "line": 30,
         "column": 1
       }
     },
     {
       "name": "isScreenRegistry",
-      "description": null,
+      "description": "Validate screens in the authored screen registry.",
       "sourceLocation": {
         "filePath": "src/appManifest/screens.ts",
-        "line": 38,
+        "line": 41,
         "column": 1
       }
     },
     {
       "name": "isSplashScreenSpec",
-      "description": null,
+      "description": "Validate optional light and dark splash-screen configuration.",
       "sourceLocation": {
         "filePath": "src/appManifest/screens.ts",
-        "line": 48,
+        "line": 52,
         "column": 1
       }
     },
     {
       "name": "isThemeModeConfig",
-      "description": null,
+      "description": "Validate the primary color and supported color harmony of a theme mode.",
       "sourceLocation": {
         "filePath": "src/appManifest/screens.ts",
-        "line": 56,
+        "line": 61,
         "column": 1
       }
     },
     {
       "name": "isUiNode",
-      "description": null,
+      "description": "Validate an authored component node and its nested children.",
       "sourceLocation": {
         "filePath": "src/appManifest/screens.ts",
-        "line": 65,
+        "line": 71,
         "column": 1
       }
     },
     {
       "name": "isUiNodeRepeatSpec",
-      "description": null,
+      "description": "Validate repeat source and item binding configuration.",
       "sourceLocation": {
         "filePath": "src/appManifest/screens.ts",
-        "line": 79,
+        "line": 86,
         "column": 1
       }
     },
     {
       "name": "isScreenSpec",
-      "description": null,
+      "description": "Validate screen identity, root component and optional requirements.",
       "sourceLocation": {
         "filePath": "src/appManifest/screens.ts",
-        "line": 89,
+        "line": 97,
         "column": 1
       }
     },
     {
       "name": "isSplashScreenModeSpec",
-      "description": null,
+      "description": "Validate one splash-screen appearance configuration.",
       "sourceLocation": {
         "filePath": "src/appManifest/screens.ts",
-        "line": 104,
+        "line": 113,
         "column": 1
       }
     },
     {
       "name": "isScreenRequirements",
-      "description": null,
+      "description": "Validate screen capability and permission requirements.",
       "sourceLocation": {
         "filePath": "src/appManifest/screens.ts",
-        "line": 116,
+        "line": 126,
         "column": 1
       }
     },
     {
       "name": "isRequirementArray",
-      "description": null,
+      "description": "Validate the entries of a capability or permission requirement list.",
       "sourceLocation": {
         "filePath": "src/appManifest/screens.ts",
-        "line": 124,
-        "column": 1
-      }
-    },
-    {
-      "name": "isRecord",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/appManifest/shared.ts",
-        "line": 1,
-        "column": 1
-      }
-    },
-    {
-      "name": "isOptionalString",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/appManifest/shared.ts",
-        "line": 5,
-        "column": 1
-      }
-    },
-    {
-      "name": "isOptionalNumber",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/appManifest/shared.ts",
-        "line": 9,
-        "column": 1
-      }
-    },
-    {
-      "name": "isOptionalBoolean",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/appManifest/shared.ts",
-        "line": 13,
-        "column": 1
-      }
-    },
-    {
-      "name": "isStringArray",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/appManifest/shared.ts",
-        "line": 17,
-        "column": 1
-      }
-    },
-    {
-      "name": "isStringRecord",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/appManifest/shared.ts",
-        "line": 21,
-        "column": 1
-      }
-    },
-    {
-      "name": "isManifestValue",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/appManifest/shared.ts",
-        "line": 25,
+        "line": 135,
         "column": 1
       }
     },
@@ -19944,178 +19791,178 @@
     },
     {
       "name": "isInfraAdapterDescriptor",
-      "description": null,
+      "description": "Installed adapters must match the canonical identity, capabilities, targets and config version exactly.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraAdapterDescriptor.ts",
-        "line": 7,
+        "line": 8,
         "column": 1
       }
     },
     {
       "name": "matchesCatalogList",
-      "description": null,
+      "description": "Canonical descriptor lists are ordered so JSON discovery and conformance are deterministic.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraAdapterDescriptor.ts",
-        "line": 30,
+        "line": 31,
         "column": 1
       }
     },
     {
       "name": "isInfraAuthSpec",
-      "description": null,
+      "description": "Preserve application auth configuration while rejecting nested authorization and unknown providers.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraAuthSpec.ts",
-        "line": 22,
+        "line": 19,
         "column": 1
       }
     },
     {
       "name": "isAuthFlow",
-      "description": null,
+      "description": "Auth routing intent stays separate from provider-runtime callbacks and Navigator topology.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraAuthSpec.ts",
-        "line": 41,
+        "line": 38,
         "column": 1
       }
     },
     {
       "name": "isAuthSignUp",
-      "description": null,
+      "description": "Validate sign-up field intent using the existing application auth contract.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraAuthSpec.ts",
-        "line": 54,
+        "line": 51,
         "column": 1
       }
     },
     {
       "name": "isAuthOAuth",
-      "description": null,
+      "description": "OAuth references contain no credential payload. Custom OAuth identities remain application-owned.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraAuthSpec.ts",
-        "line": 64,
+        "line": 61,
         "column": 1
       }
     },
     {
       "name": "isAuthOAuthProvider",
-      "description": null,
+      "description": "Validate OAuth display/config metadata, preserving explicitly extensible OAuth provider IDs.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraAuthSpec.ts",
-        "line": 73,
+        "line": 70,
         "column": 1
       }
     },
     {
       "name": "isAuthProfile",
-      "description": null,
+      "description": "Validate profile provisioning choices without inventing a new application profile model.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraAuthSpec.ts",
-        "line": 88,
+        "line": 86,
         "column": 1
       }
     },
     {
       "name": "isInfraCredentialRef",
-      "description": null,
+      "description": "Bootstrap credential references are explicitly separate from managed runtime secrets.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraCredentialRef.ts",
-        "line": 5,
+        "line": 6,
         "column": 1
       }
     },
     {
       "name": "isInfraDeploymentSpec",
-      "description": null,
+      "description": "Validate provider-specific config and the exact same compatibility map used by TypeScript.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraDeploymentSpec.ts",
-        "line": 14,
+        "line": 16,
         "column": 1
       }
     },
     {
       "name": "isCompute",
-      "description": null,
+      "description": "Compute configuration is closed per provider; control-plane refs cannot be managed secrets.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraDeploymentSpec.ts",
-        "line": 26,
+        "line": 28,
         "column": 1
       }
     },
     {
       "name": "isRuntime",
-      "description": null,
+      "description": "Runtime topology expresses host roles and never couples k3s to a compute vendor.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraDeploymentSpec.ts",
-        "line": 43,
+        "line": 45,
         "column": 1
       }
     },
     {
       "name": "isInfraEnvironmentSpec",
-      "description": null,
+      "description": "Validate sibling capabilities and their required relationships within one environment.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraEnvironmentSpec.ts",
-        "line": 13,
+        "line": 14,
         "column": 1
       }
     },
     {
       "name": "isEnvironmentShape",
-      "description": null,
+      "description": "Check all environment field shapes before inspecting canonical dependency metadata.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraEnvironmentSpec.ts",
-        "line": 18,
+        "line": 19,
         "column": 1
       }
     },
     {
       "name": "isObjectStorage",
-      "description": null,
+      "description": "Object storage can vary independently from database/auth; there is no implicit auto provider.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraEnvironmentSpec.ts",
-        "line": 48,
+        "line": 49,
         "column": 1
       }
     },
     {
       "name": "isWorkloads",
-      "description": null,
+      "description": "Duplicate desired workload identities cannot be reconciled safely.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraEnvironmentSpec.ts",
-        "line": 64,
+        "line": 65,
         "column": 1
       }
     },
     {
       "name": "hasServiceDependencies",
-      "description": null,
+      "description": "Check catalog dependencies against selected sibling capabilities and runtime capabilities.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraEnvironmentSpec.ts",
-        "line": 73,
+        "line": 74,
         "column": 1
       }
     },
     {
       "name": "isInfraManifest",
-      "description": null,
+      "description": "Validate standalone infrastructure without AppManifest, Deploy or provider package side effects.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraManifest.ts",
-        "line": 11,
+        "line": 12,
         "column": 1
       }
     },
     {
       "name": "isEnvironments",
-      "description": null,
+      "description": "Local is required; preview and production are optional but never inferred from arbitrary keys.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraManifest.ts",
-        "line": 21,
+        "line": 22,
         "column": 1
       }
     },
     {
       "name": "isInfraShape",
-      "description": null,
+      "description": "Validate an exact Infra object shape, rejecting unknown and superseded configuration keys.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraShape.ts",
         "line": 4,
@@ -20124,82 +19971,82 @@
     },
     {
       "name": "isInfraWorkloadHealth",
-      "description": null,
+      "description": "Validate runtime-neutral readiness probes and bounded numeric parameters.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraWorkloadHealth.ts",
-        "line": 6,
-        "column": 1
-      }
-    },
-    {
-      "name": "isInfraWorkloadSpec",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/infra/isInfraWorkloadSpec.ts",
-        "line": 10,
-        "column": 1
-      }
-    },
-    {
-      "name": "isPort",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/infra/isInfraWorkloadSpec.ts",
-        "line": 48,
-        "column": 1
-      }
-    },
-    {
-      "name": "isFile",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/infra/isInfraWorkloadSpec.ts",
-        "line": 57,
-        "column": 1
-      }
-    },
-    {
-      "name": "isVolume",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/infra/isInfraWorkloadSpec.ts",
-        "line": 62,
-        "column": 1
-      }
-    },
-    {
-      "name": "isAbsoluteWorkloadPath",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/infra/isInfraWorkloadSpec.ts",
-        "line": 72,
-        "column": 1
-      }
-    },
-    {
-      "name": "hasUniqueField",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/infra/isInfraWorkloadSpec.ts",
-        "line": 82,
-        "column": 1
-      }
-    },
-    {
-      "name": "isInfraWorkloadValue",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/infra/isInfraWorkloadValue.ts",
         "line": 7,
         "column": 1
       }
     },
     {
-      "name": "isSecretReference",
-      "description": null,
+      "name": "isInfraWorkloadSpec",
+      "description": "Validate the portable desired workload; runtime-specific fields and plaintext secret objects fail.",
+      "sourceLocation": {
+        "filePath": "src/infra/isInfraWorkloadSpec.ts",
+        "line": 13,
+        "column": 1
+      }
+    },
+    {
+      "name": "isPort",
+      "description": "Named transport ports stay independent from runtime resource types.",
+      "sourceLocation": {
+        "filePath": "src/infra/isInfraWorkloadSpec.ts",
+        "line": 50,
+        "column": 1
+      }
+    },
+    {
+      "name": "isFile",
+      "description": "Portable files model policy/config materialization without host filesystem access.",
+      "sourceLocation": {
+        "filePath": "src/infra/isInfraWorkloadSpec.ts",
+        "line": 59,
+        "column": 1
+      }
+    },
+    {
+      "name": "isVolume",
+      "description": "Persistence has explicit ownership-local identity and a retention policy.",
+      "sourceLocation": {
+        "filePath": "src/infra/isInfraWorkloadSpec.ts",
+        "line": 64,
+        "column": 1
+      }
+    },
+    {
+      "name": "isAbsoluteWorkloadPath",
+      "description": "Workload paths are absolute container paths, never relative host traversal.",
+      "sourceLocation": {
+        "filePath": "src/infra/isInfraWorkloadSpec.ts",
+        "line": 74,
+        "column": 1
+      }
+    },
+    {
+      "name": "hasUniqueField",
+      "description": "Duplicate workload-local identities would make runtime projection ambiguous.",
+      "sourceLocation": {
+        "filePath": "src/infra/isInfraWorkloadSpec.ts",
+        "line": 84,
+        "column": 1
+      }
+    },
+    {
+      "name": "isInfraWorkloadValue",
+      "description": "Workload values explicitly distinguish public literals, output dependencies and secret references.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraWorkloadValue.ts",
-        "line": 32,
+        "line": 8,
+        "column": 1
+      }
+    },
+    {
+      "name": "isSecretReference",
+      "description": "Managed secret references contain identity only, never privileged payloads.",
+      "sourceLocation": {
+        "filePath": "src/infra/isInfraWorkloadValue.ts",
+        "line": 33,
         "column": 1
       }
     },
@@ -20223,10 +20070,10 @@
     },
     {
       "name": "isMediaAssetReference",
-      "description": null,
+      "description": "Validate an authored media reference with exactly one enumerable key and a non-empty media ID.",
       "sourceLocation": {
         "filePath": "src/media.ts",
-        "line": 58,
+        "line": 62,
         "column": 1
       }
     },
@@ -20281,7 +20128,7 @@
       "name": "isAppDeployManifest",
       "sourcePath": "src/appManifest/deploy.ts",
       "symbolName": "isAppDeployManifest",
-      "description": null,
+      "description": "Validate authored application deployment configuration.",
       "isReadme": false
     },
     {
@@ -20289,7 +20136,7 @@
       "name": "isAppManifest",
       "sourcePath": "src/appManifest/isAppManifest.ts",
       "symbolName": "isAppManifest",
-      "description": null,
+      "description": "Return whether an unknown value satisfies the canonical AppManifest shape.",
       "isReadme": false
     },
     {
@@ -20305,7 +20152,7 @@
       "name": "isInfraAdapterDescriptor",
       "sourcePath": "src/infra/isInfraAdapterDescriptor.ts",
       "symbolName": "isInfraAdapterDescriptor",
-      "description": null,
+      "description": "Installed adapters must match the canonical identity, capabilities, targets and config version exactly.",
       "isReadme": false
     },
     {
@@ -20313,7 +20160,7 @@
       "name": "isInfraAuthSpec",
       "sourcePath": "src/infra/isInfraAuthSpec.ts",
       "symbolName": "isInfraAuthSpec",
-      "description": null,
+      "description": "Preserve application auth configuration while rejecting nested authorization and unknown providers.",
       "isReadme": false
     },
     {
@@ -20321,7 +20168,7 @@
       "name": "isInfraDeploymentSpec",
       "sourcePath": "src/infra/isInfraDeploymentSpec.ts",
       "symbolName": "isInfraDeploymentSpec",
-      "description": null,
+      "description": "Validate provider-specific config and the exact same compatibility map used by TypeScript.",
       "isReadme": false
     },
     {
@@ -20329,7 +20176,7 @@
       "name": "isInfraEnvironmentSpec",
       "sourcePath": "src/infra/isInfraEnvironmentSpec.ts",
       "symbolName": "isInfraEnvironmentSpec",
-      "description": null,
+      "description": "Validate sibling capabilities and their required relationships within one environment.",
       "isReadme": false
     },
     {
@@ -20337,7 +20184,7 @@
       "name": "isInfraManifest",
       "sourcePath": "src/infra/isInfraManifest.ts",
       "symbolName": "isInfraManifest",
-      "description": null,
+      "description": "Validate standalone infrastructure without AppManifest, Deploy or provider package side effects.",
       "isReadme": false
     },
     {
@@ -20345,7 +20192,7 @@
       "name": "isInfraWorkloadSpec",
       "sourcePath": "src/infra/isInfraWorkloadSpec.ts",
       "symbolName": "isInfraWorkloadSpec",
-      "description": null,
+      "description": "Validate the portable desired workload; runtime-specific fields and plaintext secret objects fail.",
       "isReadme": false
     },
     {
@@ -20353,7 +20200,7 @@
       "name": "isMediaAssetReference",
       "sourcePath": "src/media.ts",
       "symbolName": "isMediaAssetReference",
-      "description": null,
+      "description": "Validate an authored media reference with exactly one enumerable key and a non-empty media ID.",
       "isReadme": false
     },
     {
@@ -20752,12 +20599,12 @@
       },
       {
         "fromPath": "src/appManifest/apis.ts",
-        "toPath": "src/appManifest/shared.ts",
+        "toPath": "src/appManifest/isManifestValue.ts",
         "sourcePath": "src/appManifest/apis.ts"
       },
       {
         "fromPath": "src/appManifest/bindings.ts",
-        "toPath": "src/appManifest/shared.ts",
+        "toPath": "src/appManifest/isManifestValue.ts",
         "sourcePath": "src/appManifest/bindings.ts"
       },
       {
@@ -20767,7 +20614,7 @@
       },
       {
         "fromPath": "src/appManifest/data.ts",
-        "toPath": "src/appManifest/shared.ts",
+        "toPath": "src/appManifest/isManifestValue.ts",
         "sourcePath": "src/appManifest/data.ts"
       },
       {
@@ -20777,7 +20624,7 @@
       },
       {
         "fromPath": "src/appManifest/dataSources.ts",
-        "toPath": "src/appManifest/shared.ts",
+        "toPath": "src/appManifest/isManifestValue.ts",
         "sourcePath": "src/appManifest/dataSources.ts"
       },
       {
@@ -20786,18 +20633,8 @@
         "sourcePath": "src/appManifest/deploy.ts"
       },
       {
-        "fromPath": "src/appManifest/deploy.ts",
-        "toPath": "src/appManifest/shared.ts",
-        "sourcePath": "src/appManifest/deploy.ts"
-      },
-      {
         "fromPath": "src/appManifest/icon.ts",
         "toPath": "src/media.ts",
-        "sourcePath": "src/appManifest/icon.ts"
-      },
-      {
-        "fromPath": "src/appManifest/icon.ts",
-        "toPath": "src/appManifest/shared.ts",
         "sourcePath": "src/appManifest/icon.ts"
       },
       {
@@ -20846,28 +20683,13 @@
         "sourcePath": "src/appManifest/isAppManifest.ts"
       },
       {
-        "fromPath": "src/appManifest/isAppManifest.ts",
-        "toPath": "src/appManifest/shared.ts",
-        "sourcePath": "src/appManifest/isAppManifest.ts"
-      },
-      {
         "fromPath": "src/appManifest/isAppStateSpec.ts",
         "toPath": "src/state.ts",
         "sourcePath": "src/appManifest/isAppStateSpec.ts"
       },
       {
-        "fromPath": "src/appManifest/isAppStateSpec.ts",
-        "toPath": "src/appManifest/shared.ts",
-        "sourcePath": "src/appManifest/isAppStateSpec.ts"
-      },
-      {
         "fromPath": "src/appManifest/media.ts",
         "toPath": "src/media.ts",
-        "sourcePath": "src/appManifest/media.ts"
-      },
-      {
-        "fromPath": "src/appManifest/media.ts",
-        "toPath": "src/appManifest/shared.ts",
         "sourcePath": "src/appManifest/media.ts"
       },
       {
@@ -20886,18 +20708,8 @@
         "sourcePath": "src/appManifest/navigator.ts"
       },
       {
-        "fromPath": "src/appManifest/navigator.ts",
-        "toPath": "src/appManifest/shared.ts",
-        "sourcePath": "src/appManifest/navigator.ts"
-      },
-      {
         "fromPath": "src/appManifest/navigatorOptions.ts",
         "toPath": "src/navigator.ts",
-        "sourcePath": "src/appManifest/navigatorOptions.ts"
-      },
-      {
-        "fromPath": "src/appManifest/navigatorOptions.ts",
-        "toPath": "src/appManifest/shared.ts",
         "sourcePath": "src/appManifest/navigatorOptions.ts"
       },
       {
@@ -20923,11 +20735,6 @@
       {
         "fromPath": "src/appManifest/screens.ts",
         "toPath": "src/appManifest/bindings.ts",
-        "sourcePath": "src/appManifest/screens.ts"
-      },
-      {
-        "fromPath": "src/appManifest/screens.ts",
-        "toPath": "src/appManifest/shared.ts",
         "sourcePath": "src/appManifest/screens.ts"
       },
       {
@@ -21101,16 +20908,6 @@
         "sourcePath": "src/data/sources.ts"
       },
       {
-        "fromPath": "src/infra/infraFields.ts",
-        "toPath": "src/appManifest/shared.ts",
-        "sourcePath": "src/infra/infraFields.ts"
-      },
-      {
-        "fromPath": "src/infra/isInfraAdapterDescriptor.ts",
-        "toPath": "src/appManifest/shared.ts",
-        "sourcePath": "src/infra/isInfraAdapterDescriptor.ts"
-      },
-      {
         "fromPath": "src/infra/isInfraAdapterDescriptor.ts",
         "toPath": "src/types/infraAdapters.ts",
         "sourcePath": "src/infra/isInfraAdapterDescriptor.ts"
@@ -21128,11 +20925,6 @@
       {
         "fromPath": "src/infra/isInfraAuthSpec.ts",
         "toPath": "src/appManifest/icon.ts",
-        "sourcePath": "src/infra/isInfraAuthSpec.ts"
-      },
-      {
-        "fromPath": "src/infra/isInfraAuthSpec.ts",
-        "toPath": "src/appManifest/shared.ts",
         "sourcePath": "src/infra/isInfraAuthSpec.ts"
       },
       {
@@ -21162,18 +20954,8 @@
       },
       {
         "fromPath": "src/infra/isInfraCredentialRef.ts",
-        "toPath": "src/infra/infraFields.ts",
-        "sourcePath": "src/infra/isInfraCredentialRef.ts"
-      },
-      {
-        "fromPath": "src/infra/isInfraCredentialRef.ts",
         "toPath": "src/infra/isInfraShape.ts",
         "sourcePath": "src/infra/isInfraCredentialRef.ts"
-      },
-      {
-        "fromPath": "src/infra/isInfraDeploymentSpec.ts",
-        "toPath": "src/appManifest/shared.ts",
-        "sourcePath": "src/infra/isInfraDeploymentSpec.ts"
       },
       {
         "fromPath": "src/infra/isInfraDeploymentSpec.ts",
@@ -21204,11 +20986,6 @@
         "fromPath": "src/infra/isInfraDeploymentSpec.ts",
         "toPath": "src/infra/isInfraShape.ts",
         "sourcePath": "src/infra/isInfraDeploymentSpec.ts"
-      },
-      {
-        "fromPath": "src/infra/isInfraEnvironmentSpec.ts",
-        "toPath": "src/appManifest/shared.ts",
-        "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
       },
       {
         "fromPath": "src/infra/isInfraEnvironmentSpec.ts",
@@ -21262,11 +21039,6 @@
       },
       {
         "fromPath": "src/infra/isInfraManifest.ts",
-        "toPath": "src/appManifest/shared.ts",
-        "sourcePath": "src/infra/isInfraManifest.ts"
-      },
-      {
-        "fromPath": "src/infra/isInfraManifest.ts",
         "toPath": "src/environments.ts",
         "sourcePath": "src/infra/isInfraManifest.ts"
       },
@@ -21296,16 +21068,6 @@
         "sourcePath": "src/infra/isInfraManifest.ts"
       },
       {
-        "fromPath": "src/infra/isInfraShape.ts",
-        "toPath": "src/appManifest/shared.ts",
-        "sourcePath": "src/infra/isInfraShape.ts"
-      },
-      {
-        "fromPath": "src/infra/isInfraWorkloadHealth.ts",
-        "toPath": "src/appManifest/shared.ts",
-        "sourcePath": "src/infra/isInfraWorkloadHealth.ts"
-      },
-      {
         "fromPath": "src/infra/isInfraWorkloadHealth.ts",
         "toPath": "src/infra/infraFields.ts",
         "sourcePath": "src/infra/isInfraWorkloadHealth.ts"
@@ -21314,11 +21076,6 @@
         "fromPath": "src/infra/isInfraWorkloadHealth.ts",
         "toPath": "src/infra/isInfraShape.ts",
         "sourcePath": "src/infra/isInfraWorkloadHealth.ts"
-      },
-      {
-        "fromPath": "src/infra/isInfraWorkloadSpec.ts",
-        "toPath": "src/appManifest/shared.ts",
-        "sourcePath": "src/infra/isInfraWorkloadSpec.ts"
       },
       {
         "fromPath": "src/infra/isInfraWorkloadSpec.ts",
@@ -21352,17 +21109,7 @@
       },
       {
         "fromPath": "src/infra/isInfraWorkloadValue.ts",
-        "toPath": "src/appManifest/shared.ts",
-        "sourcePath": "src/infra/isInfraWorkloadValue.ts"
-      },
-      {
-        "fromPath": "src/infra/isInfraWorkloadValue.ts",
         "toPath": "src/environments.ts",
-        "sourcePath": "src/infra/isInfraWorkloadValue.ts"
-      },
-      {
-        "fromPath": "src/infra/isInfraWorkloadValue.ts",
-        "toPath": "src/infra/infraFields.ts",
         "sourcePath": "src/infra/isInfraWorkloadValue.ts"
       },
       {
@@ -21553,6 +21300,18 @@
     ],
     "calls": [
       {
+        "fromSymbol": "isMediaAssetReference",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/media.ts"
+      },
+      {
+        "fromSymbol": "isMediaAssetReference",
+        "toSymbol": "isNonEmptyString",
+        "callExpression": "isNonEmptyString",
+        "sourcePath": "src/media.ts"
+      },
+      {
         "fromSymbol": "isApiDefinition",
         "toSymbol": "isApiBaseDefinition",
         "callExpression": "isApiBaseDefinition",
@@ -21586,12 +21345,6 @@
         "fromSymbol": "isApiBaseDefinition",
         "toSymbol": "isNonEmptyString",
         "callExpression": "isNonEmptyString",
-        "sourcePath": "src/appManifest/apis.ts"
-      },
-      {
-        "fromSymbol": "isApiBaseDefinition",
-        "toSymbol": "isOptionalString",
-        "callExpression": "isOptionalString",
         "sourcePath": "src/appManifest/apis.ts"
       },
       {
@@ -21679,12 +21432,6 @@
         "sourcePath": "src/appManifest/apis.ts"
       },
       {
-        "fromSymbol": "isOpenApiDocumentRef",
-        "toSymbol": "isOptionalString",
-        "callExpression": "isOptionalString",
-        "sourcePath": "src/appManifest/apis.ts"
-      },
-      {
         "fromSymbol": "isGraphQlIntrospection",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
@@ -21694,12 +21441,6 @@
         "fromSymbol": "isGraphQlIntrospection",
         "toSymbol": "hasOnlyKeys",
         "callExpression": "hasOnlyKeys",
-        "sourcePath": "src/appManifest/apis.ts"
-      },
-      {
-        "fromSymbol": "isGraphQlIntrospection",
-        "toSymbol": "isOptionalString",
-        "callExpression": "isOptionalString",
         "sourcePath": "src/appManifest/apis.ts"
       },
       {
@@ -21727,21 +21468,9 @@
         "sourcePath": "src/appManifest/bindings.ts"
       },
       {
-        "fromSymbol": "isBindingValueSource",
-        "toSymbol": "isOptionalString",
-        "callExpression": "isOptionalString",
-        "sourcePath": "src/appManifest/bindings.ts"
-      },
-      {
         "fromSymbol": "isScreenDataLoaderDefinition",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
-        "sourcePath": "src/appManifest/bindings.ts"
-      },
-      {
-        "fromSymbol": "isScreenDataLoaderDefinition",
-        "toSymbol": "isOptionalString",
-        "callExpression": "isOptionalString",
         "sourcePath": "src/appManifest/bindings.ts"
       },
       {
@@ -21760,12 +21489,6 @@
         "fromSymbol": "isComponentDataBinding",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
-        "sourcePath": "src/appManifest/bindings.ts"
-      },
-      {
-        "fromSymbol": "isComponentDataBinding",
-        "toSymbol": "isOptionalString",
-        "callExpression": "isOptionalString",
         "sourcePath": "src/appManifest/bindings.ts"
       },
       {
@@ -21859,12 +21582,6 @@
         "sourcePath": "src/appManifest/bindings.ts"
       },
       {
-        "fromSymbol": "isBindingOperationRef",
-        "toSymbol": "isOptionalString",
-        "callExpression": "isOptionalString",
-        "sourcePath": "src/appManifest/bindings.ts"
-      },
-      {
         "fromSymbol": "isBindingFallback",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
@@ -21892,12 +21609,6 @@
         "fromSymbol": "isBindingLifecycleBehavior",
         "toSymbol": "isBindingFallback",
         "callExpression": "isBindingFallback",
-        "sourcePath": "src/appManifest/bindings.ts"
-      },
-      {
-        "fromSymbol": "isBindingLifecycleBehavior",
-        "toSymbol": "isOptionalString",
-        "callExpression": "isOptionalString",
         "sourcePath": "src/appManifest/bindings.ts"
       },
       {
@@ -21955,21 +21666,9 @@
         "sourcePath": "src/appManifest/data.ts"
       },
       {
-        "fromSymbol": "isCredentialRef",
-        "toSymbol": "isOptionalString",
-        "callExpression": "isOptionalString",
-        "sourcePath": "src/appManifest/data.ts"
-      },
-      {
         "fromSymbol": "isAdapterRef",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
-        "sourcePath": "src/appManifest/data.ts"
-      },
-      {
-        "fromSymbol": "isAdapterRef",
-        "toSymbol": "isOptionalString",
-        "callExpression": "isOptionalString",
         "sourcePath": "src/appManifest/data.ts"
       },
       {
@@ -21982,12 +21681,6 @@
         "fromSymbol": "isDataEndpointConfig",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
-        "sourcePath": "src/appManifest/data.ts"
-      },
-      {
-        "fromSymbol": "isDataEndpointConfig",
-        "toSymbol": "isOptionalString",
-        "callExpression": "isOptionalString",
         "sourcePath": "src/appManifest/data.ts"
       },
       {
@@ -22006,12 +21699,6 @@
         "fromSymbol": "isDataOperationConfig",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
-        "sourcePath": "src/appManifest/data.ts"
-      },
-      {
-        "fromSymbol": "isDataOperationConfig",
-        "toSymbol": "isOptionalString",
-        "callExpression": "isOptionalString",
         "sourcePath": "src/appManifest/data.ts"
       },
       {
@@ -22051,12 +21738,6 @@
         "sourcePath": "src/appManifest/data.ts"
       },
       {
-        "fromSymbol": "isDataOperationRequest",
-        "toSymbol": "isOptionalString",
-        "callExpression": "isOptionalString",
-        "sourcePath": "src/appManifest/data.ts"
-      },
-      {
         "fromSymbol": "isDataOperationParameter",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
@@ -22066,18 +21747,6 @@
         "fromSymbol": "isDataOperationParameter",
         "toSymbol": "isDataSchemaSlot",
         "callExpression": "isDataSchemaSlot",
-        "sourcePath": "src/appManifest/data.ts"
-      },
-      {
-        "fromSymbol": "isDataOperationParameter",
-        "toSymbol": "isOptionalBoolean",
-        "callExpression": "isOptionalBoolean",
-        "sourcePath": "src/appManifest/data.ts"
-      },
-      {
-        "fromSymbol": "isDataOperationParameter",
-        "toSymbol": "isOptionalString",
-        "callExpression": "isOptionalString",
         "sourcePath": "src/appManifest/data.ts"
       },
       {
@@ -22096,12 +21765,6 @@
         "fromSymbol": "isDataOperationResponse",
         "toSymbol": "isDataSchemaSlot",
         "callExpression": "isDataSchemaSlot",
-        "sourcePath": "src/appManifest/data.ts"
-      },
-      {
-        "fromSymbol": "isDataOperationResponse",
-        "toSymbol": "isOptionalString",
-        "callExpression": "isOptionalString",
         "sourcePath": "src/appManifest/data.ts"
       },
       {
@@ -22144,18 +21807,6 @@
         "fromSymbol": "isDataSchema",
         "toSymbol": "isOptionalSchemaComposition",
         "callExpression": "isOptionalSchemaComposition",
-        "sourcePath": "src/appManifest/data.ts"
-      },
-      {
-        "fromSymbol": "isOptionalSchemaScalars",
-        "toSymbol": "isOptionalString",
-        "callExpression": "isOptionalString",
-        "sourcePath": "src/appManifest/data.ts"
-      },
-      {
-        "fromSymbol": "isOptionalSchemaScalars",
-        "toSymbol": "isOptionalBoolean",
-        "callExpression": "isOptionalBoolean",
         "sourcePath": "src/appManifest/data.ts"
       },
       {
@@ -22216,12 +21867,6 @@
         "fromSymbol": "isDatabaseDataSource",
         "toSymbol": "hasOnlyKeys",
         "callExpression": "hasOnlyKeys",
-        "sourcePath": "src/appManifest/dataSources.ts"
-      },
-      {
-        "fromSymbol": "isDatabaseDataSource",
-        "toSymbol": "isOptionalString",
-        "callExpression": "isOptionalString",
         "sourcePath": "src/appManifest/dataSources.ts"
       },
       {
@@ -22412,12 +22057,6 @@
       },
       {
         "fromSymbol": "isIconSpec",
-        "toSymbol": "isOptionalString",
-        "callExpression": "isOptionalString",
-        "sourcePath": "src/appManifest/icon.ts"
-      },
-      {
-        "fromSymbol": "isIconSpec",
         "toSymbol": "isMediaAssetReference",
         "callExpression": "isMediaAssetReference",
         "sourcePath": "src/appManifest/icon.ts"
@@ -22549,6 +22188,12 @@
         "sourcePath": "src/appManifest/isAppStateSpec.ts"
       },
       {
+        "fromSymbol": "isManifestValue",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/isManifestValue.ts"
+      },
+      {
         "fromSymbol": "isMediaManifest",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
@@ -22592,12 +22237,6 @@
       },
       {
         "fromSymbol": "isMediaAsset",
-        "toSymbol": "isOptionalString",
-        "callExpression": "isOptionalString",
-        "sourcePath": "src/appManifest/media.ts"
-      },
-      {
-        "fromSymbol": "isMediaAsset",
         "toSymbol": "isMediaAssetMetadata",
         "callExpression": "isMediaAssetMetadata",
         "sourcePath": "src/appManifest/media.ts"
@@ -22612,12 +22251,6 @@
         "fromSymbol": "isMediaAssetSource",
         "toSymbol": "hasOnlyKeys",
         "callExpression": "hasOnlyKeys",
-        "sourcePath": "src/appManifest/media.ts"
-      },
-      {
-        "fromSymbol": "isMediaAssetSource",
-        "toSymbol": "isOptionalString",
-        "callExpression": "isOptionalString",
         "sourcePath": "src/appManifest/media.ts"
       },
       {
@@ -22648,12 +22281,6 @@
         "fromSymbol": "isMediaAssetMetadata",
         "toSymbol": "hasOnlyKeys",
         "callExpression": "hasOnlyKeys",
-        "sourcePath": "src/appManifest/media.ts"
-      },
-      {
-        "fromSymbol": "isMediaAssetMetadata",
-        "toSymbol": "isOptionalString",
-        "callExpression": "isOptionalString",
         "sourcePath": "src/appManifest/media.ts"
       },
       {
@@ -22718,12 +22345,6 @@
       },
       {
         "fromSymbol": "isNavigatorNode",
-        "toSymbol": "isOptionalString",
-        "callExpression": "isOptionalString",
-        "sourcePath": "src/appManifest/navigator.ts"
-      },
-      {
-        "fromSymbol": "isNavigatorNode",
         "toSymbol": "isStackImplementationConfig",
         "callExpression": "isStackImplementationConfig",
         "sourcePath": "src/appManifest/navigator.ts"
@@ -22760,20 +22381,8 @@
       },
       {
         "fromSymbol": "isRouteDefinition",
-        "toSymbol": "isOptionalString",
-        "callExpression": "isOptionalString",
-        "sourcePath": "src/appManifest/navigator.ts"
-      },
-      {
-        "fromSymbol": "isRouteDefinition",
         "toSymbol": "isIconSpec",
         "callExpression": "isIconSpec",
-        "sourcePath": "src/appManifest/navigator.ts"
-      },
-      {
-        "fromSymbol": "isRouteDefinition",
-        "toSymbol": "isOptionalBoolean",
-        "callExpression": "isOptionalBoolean",
         "sourcePath": "src/appManifest/navigator.ts"
       },
       {
@@ -22957,12 +22566,6 @@
         "sourcePath": "src/appManifest/navigatorOptions.ts"
       },
       {
-        "fromSymbol": "isStackScreenOptions",
-        "toSymbol": "isOptionalBoolean",
-        "callExpression": "isOptionalBoolean",
-        "sourcePath": "src/appManifest/navigatorOptions.ts"
-      },
-      {
         "fromSymbol": "isDrawerNavigatorOptions",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
@@ -22978,12 +22581,6 @@
         "fromSymbol": "isDrawerNavigatorOptions",
         "toSymbol": "contains",
         "callExpression": "contains",
-        "sourcePath": "src/appManifest/navigatorOptions.ts"
-      },
-      {
-        "fromSymbol": "isDrawerNavigatorOptions",
-        "toSymbol": "isOptionalBoolean",
-        "callExpression": "isOptionalBoolean",
         "sourcePath": "src/appManifest/navigatorOptions.ts"
       },
       {
@@ -23068,18 +22665,6 @@
         "fromSymbol": "isStackHeaderOptions",
         "toSymbol": "isStackHeaderOptionsShape",
         "callExpression": "isStackHeaderOptionsShape",
-        "sourcePath": "src/appManifest/navigatorOptions.ts"
-      },
-      {
-        "fromSymbol": "isStackHeaderOptionsShape",
-        "toSymbol": "isOptionalString",
-        "callExpression": "isOptionalString",
-        "sourcePath": "src/appManifest/navigatorOptions.ts"
-      },
-      {
-        "fromSymbol": "isStackHeaderOptionsShape",
-        "toSymbol": "isOptionalBoolean",
-        "callExpression": "isOptionalBoolean",
         "sourcePath": "src/appManifest/navigatorOptions.ts"
       },
       {
@@ -23185,12 +22770,6 @@
         "sourcePath": "src/appManifest/navigatorOptions.ts"
       },
       {
-        "fromSymbol": "isHeadlessTabsPresentationConfig",
-        "toSymbol": "isOptionalString",
-        "callExpression": "isOptionalString",
-        "sourcePath": "src/appManifest/navigatorOptions.ts"
-      },
-      {
         "fromSymbol": "isResponsiveTabsPresentation",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
@@ -23218,12 +22797,6 @@
         "fromSymbol": "isManifestMetadata",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
-        "sourcePath": "src/appManifest/screens.ts"
-      },
-      {
-        "fromSymbol": "isManifestMetadata",
-        "toSymbol": "isOptionalString",
-        "callExpression": "isOptionalString",
         "sourcePath": "src/appManifest/screens.ts"
       },
       {
@@ -23282,12 +22855,6 @@
       },
       {
         "fromSymbol": "isUiNode",
-        "toSymbol": "isOptionalString",
-        "callExpression": "isOptionalString",
-        "sourcePath": "src/appManifest/screens.ts"
-      },
-      {
-        "fromSymbol": "isUiNode",
         "toSymbol": "isUiNodeRepeatSpec",
         "callExpression": "isUiNodeRepeatSpec",
         "sourcePath": "src/appManifest/screens.ts"
@@ -23305,21 +22872,9 @@
         "sourcePath": "src/appManifest/screens.ts"
       },
       {
-        "fromSymbol": "isUiNodeRepeatSpec",
-        "toSymbol": "isOptionalString",
-        "callExpression": "isOptionalString",
-        "sourcePath": "src/appManifest/screens.ts"
-      },
-      {
         "fromSymbol": "isScreenSpec",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
-        "sourcePath": "src/appManifest/screens.ts"
-      },
-      {
-        "fromSymbol": "isScreenSpec",
-        "toSymbol": "isOptionalString",
-        "callExpression": "isOptionalString",
         "sourcePath": "src/appManifest/screens.ts"
       },
       {
@@ -23347,18 +22902,6 @@
         "sourcePath": "src/appManifest/screens.ts"
       },
       {
-        "fromSymbol": "isSplashScreenModeSpec",
-        "toSymbol": "isOptionalNumber",
-        "callExpression": "isOptionalNumber",
-        "sourcePath": "src/appManifest/screens.ts"
-      },
-      {
-        "fromSymbol": "isSplashScreenModeSpec",
-        "toSymbol": "isOptionalString",
-        "callExpression": "isOptionalString",
-        "sourcePath": "src/appManifest/screens.ts"
-      },
-      {
         "fromSymbol": "isScreenRequirements",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
@@ -23371,16 +22914,10 @@
         "sourcePath": "src/appManifest/screens.ts"
       },
       {
-        "fromSymbol": "isStringRecord",
-        "toSymbol": "isRecord",
-        "callExpression": "isRecord",
-        "sourcePath": "src/appManifest/shared.ts"
-      },
-      {
-        "fromSymbol": "isManifestValue",
-        "toSymbol": "isRecord",
-        "callExpression": "isRecord",
-        "sourcePath": "src/appManifest/shared.ts"
+        "fromSymbol": "optionalText",
+        "toSymbol": "isNonEmptyString",
+        "callExpression": "isNonEmptyString",
+        "sourcePath": "src/infra/infraFields.ts"
       },
       {
         "fromSymbol": "strings",
@@ -23498,8 +23035,8 @@
       },
       {
         "fromSymbol": "queryParams",
-        "toSymbol": "isStringRecord",
-        "callExpression": "isStringRecord",
+        "toSymbol": "isRecordOf",
+        "callExpression": "isRecordOf",
         "sourcePath": "src/infra/isInfraAuthSpec.ts"
       },
       {
@@ -23689,6 +23226,12 @@
         "sourcePath": "src/infra/isInfraShape.ts"
       },
       {
+        "fromSymbol": "isInfraShape",
+        "toSymbol": "hasOnlyKeys",
+        "callExpression": "hasOnlyKeys",
+        "sourcePath": "src/infra/isInfraShape.ts"
+      },
+      {
         "fromSymbol": "src/infra/isInfraShape.ts",
         "toSymbol": "validate",
         "callExpression": "validate",
@@ -23722,6 +23265,12 @@
         "fromSymbol": "artifact",
         "toSymbol": "isInfraShape",
         "callExpression": "isInfraShape",
+        "sourcePath": "src/infra/isInfraWorkloadSpec.ts"
+      },
+      {
+        "fromSymbol": "args",
+        "toSymbol": "isStringArray",
+        "callExpression": "isStringArray",
         "sourcePath": "src/infra/isInfraWorkloadSpec.ts"
       },
       {

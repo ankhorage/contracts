@@ -1,4 +1,5 @@
 sequenceDiagram
+  participant participant_hasOnlyKeys as hasOnlyKeys
   participant participant_isInfraAdapterDescriptor as isInfraAdapterDescriptor
   participant participant_isInfraShape as isInfraShape
   participant participant_isRecord as isRecord
@@ -7,4 +8,6 @@ sequenceDiagram
   participant_isInfraAdapterDescriptor->>participant_isInfraShape: isInfraShape()
   participant_isInfraShape->>participant_isRecord: isRecord()
   participant_isRecord-->>participant_isInfraShape: return
+  participant_isInfraShape->>participant_hasOnlyKeys: hasOnlyKeys()
+  participant_hasOnlyKeys-->>participant_isInfraShape: return
   participant_isInfraShape-->>participant_isInfraAdapterDescriptor: return

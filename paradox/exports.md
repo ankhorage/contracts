@@ -2970,7 +2970,9 @@ Source: `src/data/apis.ts:54:1`
 
 Kind: `function`
 Module: `src/appManifest/deploy.ts`
-Source: `src/appManifest/deploy.ts:19:1`
+Source: `src/appManifest/deploy.ts:22:1`
+
+Validate authored application deployment configuration.
 
 ### Signatures
 
@@ -2982,7 +2984,9 @@ Source: `src/appManifest/deploy.ts:19:1`
 
 Kind: `function`
 Module: `src/appManifest/isAppManifest.ts`
-Source: `src/appManifest/isAppManifest.ts:19:1`
+Source: `src/appManifest/isAppManifest.ts:21:1`
+
+Return whether an unknown value satisfies the canonical AppManifest shape.
 
 ### Signatures
 
@@ -2994,7 +2998,7 @@ Source: `src/appManifest/isAppManifest.ts:19:1`
 
 Kind: `function`
 Module: `src/appManifest/navigator.ts`
-Source: `src/appManifest/navigator.ts:14:1`
+Source: `src/appManifest/navigator.ts:15:1`
 
 Validate the complete serialized `AppManifest.navigator` slice.
 
@@ -3008,7 +3012,9 @@ Validate the complete serialized `AppManifest.navigator` slice.
 
 Kind: `function`
 Module: `src/infra/isInfraAdapterDescriptor.ts`
-Source: `src/infra/isInfraAdapterDescriptor.ts:7:1`
+Source: `src/infra/isInfraAdapterDescriptor.ts:8:1`
+
+Installed adapters must match the canonical identity, capabilities, targets and config version exactly.
 
 ### Signatures
 
@@ -3020,7 +3026,9 @@ Source: `src/infra/isInfraAdapterDescriptor.ts:7:1`
 
 Kind: `function`
 Module: `src/infra/isInfraAuthSpec.ts`
-Source: `src/infra/isInfraAuthSpec.ts:22:1`
+Source: `src/infra/isInfraAuthSpec.ts:19:1`
+
+Preserve application auth configuration while rejecting nested authorization and unknown providers.
 
 ### Signatures
 
@@ -3032,7 +3040,9 @@ Source: `src/infra/isInfraAuthSpec.ts:22:1`
 
 Kind: `function`
 Module: `src/infra/isInfraDeploymentSpec.ts`
-Source: `src/infra/isInfraDeploymentSpec.ts:14:1`
+Source: `src/infra/isInfraDeploymentSpec.ts:16:1`
+
+Validate provider-specific config and the exact same compatibility map used by TypeScript.
 
 ### Signatures
 
@@ -3044,7 +3054,9 @@ Source: `src/infra/isInfraDeploymentSpec.ts:14:1`
 
 Kind: `function`
 Module: `src/infra/isInfraEnvironmentSpec.ts`
-Source: `src/infra/isInfraEnvironmentSpec.ts:13:1`
+Source: `src/infra/isInfraEnvironmentSpec.ts:14:1`
+
+Validate sibling capabilities and their required relationships within one environment.
 
 ### Signatures
 
@@ -3056,7 +3068,9 @@ Source: `src/infra/isInfraEnvironmentSpec.ts:13:1`
 
 Kind: `function`
 Module: `src/infra/isInfraManifest.ts`
-Source: `src/infra/isInfraManifest.ts:11:1`
+Source: `src/infra/isInfraManifest.ts:12:1`
+
+Validate standalone infrastructure without AppManifest, Deploy or provider package side effects.
 
 ### Signatures
 
@@ -3068,7 +3082,9 @@ Source: `src/infra/isInfraManifest.ts:11:1`
 
 Kind: `function`
 Module: `src/infra/isInfraWorkloadSpec.ts`
-Source: `src/infra/isInfraWorkloadSpec.ts:10:1`
+Source: `src/infra/isInfraWorkloadSpec.ts:13:1`
+
+Validate the portable desired workload; runtime-specific fields and plaintext secret objects fail.
 
 ### Signatures
 
@@ -3080,7 +3096,9 @@ Source: `src/infra/isInfraWorkloadSpec.ts:10:1`
 
 Kind: `function`
 Module: `src/media.ts`
-Source: `src/media.ts:58:1`
+Source: `src/media.ts:62:1`
+
+Validate an authored media reference with exactly one enumerable key and a non-empty media ID.
 
 ### Signatures
 
@@ -3177,13 +3195,15 @@ Source: `src/types.ts:96:1`
 
 Kind: `value`
 Module: `src/media.ts`
-Source: `src/media.ts:1:14`
+Source: `src/media.ts:4:14`
 
 ## MediaAsset
 
 Kind: `type`
 Module: `src/media.ts`
-Source: `src/media.ts:37:1`
+Source: `src/media.ts:40:1`
+
+Canonical Studio-managed authoring media entry.
 
 ### Members
 
@@ -3200,13 +3220,13 @@ Source: `src/media.ts:37:1`
 
 Kind: `unknown`
 Module: `src/media.ts`
-Source: `src/media.ts:3:1`
+Source: `src/media.ts:6:1`
 
 ## MediaAssetMetadata
 
 Kind: `type`
 Module: `src/media.ts`
-Source: `src/media.ts:27:1`
+Source: `src/media.ts:30:1`
 
 ### Members
 
@@ -3223,7 +3243,9 @@ Source: `src/media.ts:27:1`
 
 Kind: `type`
 Module: `src/media.ts`
-Source: `src/media.ts:54:1`
+Source: `src/media.ts:57:1`
+
+Stable component/property reference to one entry in `AppManifest.media.assets`.
 
 ### Members
 
@@ -3235,32 +3257,34 @@ Source: `src/media.ts:54:1`
 
 Kind: `unknown`
 Module: `src/media.ts`
-Source: `src/media.ts:46:1`
+Source: `src/media.ts:49:1`
 
 ## MediaAssetSource
 
 Kind: `unknown`
 Module: `src/media.ts`
-Source: `src/media.ts:25:1`
+Source: `src/media.ts:28:1`
 
 ## MediaBundledSource
 
 Kind: `type`
 Module: `src/media.ts`
-Source: `src/media.ts:19:1`
+Source: `src/media.ts:22:1`
 
 ### Members
 
-| Name | Kind     | Type        | Required | Description |
-| ---- | -------- | ----------- | -------- | ----------- |
-| kind | property | `"bundled"` | yes      |             |
-| path | property | `string`    | yes      |             |
+| Name | Kind     | Type        | Required | Description                                                             |
+| ---- | -------- | ----------- | -------- | ----------------------------------------------------------------------- |
+| kind | property | `"bundled"` | yes      |                                                                         |
+| path | property | `string`    | yes      | App-relative bundled asset path resolved by the generated/runtime host. |
 
 ## MediaManifest
 
 Kind: `type`
 Module: `src/media.ts`
-Source: `src/media.ts:49:1`
+Source: `src/media.ts:52:1`
+
+App-authoring media pool. Runtime/user-generated uploads do not belong here.
 
 ### Members
 
@@ -3289,29 +3313,29 @@ Source: `src/storage.ts:155:1`
 
 Kind: `type`
 Module: `src/media.ts`
-Source: `src/media.ts:5:1`
+Source: `src/media.ts:8:1`
 
 ### Members
 
-| Name      | Kind     | Type                  | Required | Description |
-| --------- | -------- | --------------------- | -------- | ----------- |
-| bucket    | property | `string`              | yes      |             |
-| kind      | property | `"storage"`           | yes      |             |
-| path      | property | `string`              | yes      |             |
-| storageId | property | `string \| undefined` | no       |             |
+| Name      | Kind     | Type                  | Required | Description                                                                   |
+| --------- | -------- | --------------------- | -------- | ----------------------------------------------------------------------------- |
+| bucket    | property | `string`              | yes      |                                                                               |
+| kind      | property | `"storage"`           | yes      |                                                                               |
+| path      | property | `string`              | yes      |                                                                               |
+| storageId | property | `string \| undefined` | no       | Optional logical storage connection identifier for future multi-storage apps. |
 
 ## MediaUrlSource
 
 Kind: `type`
 Module: `src/media.ts`
-Source: `src/media.ts:13:1`
+Source: `src/media.ts:16:1`
 
 ### Members
 
-| Name | Kind     | Type     | Required | Description |
-| ---- | -------- | -------- | -------- | ----------- |
-| kind | property | `"url"`  | yes      |             |
-| url  | property | `string` | yes      |             |
+| Name | Kind     | Type     | Required | Description                                                                     |
+| ---- | -------- | -------- | -------- | ------------------------------------------------------------------------------- |
+| kind | property | `"url"`  | yes      |                                                                                 |
+| url  | property | `string` | yes      | Stable remote URL. Transient/local URL schemes are not canonical media sources. |
 
 ## NamedIconSpec
 

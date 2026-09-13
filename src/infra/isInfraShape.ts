@@ -1,6 +1,6 @@
-import { isRecord } from '../appManifest/shared';
+import { hasOnlyKeys, isRecord } from '@ankhorage/utility/object';
 
-/** Validate an exact Infra object shape, rejecting unknown and superseded configuration keys. */
+/*** Validate an exact Infra object shape, rejecting unknown and superseded configuration keys. */
 export function isInfraShape(
   value: unknown,
   fields: Readonly<Record<string, (field: unknown) => boolean>>,
@@ -8,7 +8,7 @@ export function isInfraShape(
   if (!isRecord(value)) return false;
   const entries = Object.entries(fields);
   return (
-    Object.keys(value).every((key) => Object.hasOwn(fields, key)) &&
+    hasOnlyKeys(value, Object.keys(fields)) &&
     entries.every(([key, validate]) =>
       validate(Object.hasOwn(value, key) ? Reflect.get(value, key) : undefined),
     )

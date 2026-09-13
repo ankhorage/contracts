@@ -1,4 +1,5 @@
-import { isRecord } from '../appManifest/shared';
+import { isRecord } from '@ankhorage/utility/object';
+
 import type { InfraEnvironmentSpec, InfraObjectStorageSpec } from '../types/infraManifest';
 import type { InfraShape } from '../types/infraValidation';
 import { INFRA_ADAPTER_CATALOG } from './constants';
@@ -9,12 +10,12 @@ import { isInfraDeploymentSpec } from './isInfraDeploymentSpec';
 import { isInfraShape } from './isInfraShape';
 import { isInfraWorkloadSpec } from './isInfraWorkloadSpec';
 
-/** Validate sibling capabilities and their required relationships within one environment. */
+/*** Validate sibling capabilities and their required relationships within one environment. */
 export function isInfraEnvironmentSpec(value: unknown): value is InfraEnvironmentSpec {
   return isEnvironmentShape(value) && hasServiceDependencies(value);
 }
 
-/** Check all environment field shapes before inspecting canonical dependency metadata. */
+/*** Check all environment field shapes before inspecting canonical dependency metadata. */
 function isEnvironmentShape(value: unknown): value is InfraEnvironmentSpec {
   return isInfraShape(value, {
     deployment: isInfraDeploymentSpec,
@@ -44,7 +45,7 @@ function isEnvironmentShape(value: unknown): value is InfraEnvironmentSpec {
   } satisfies InfraShape<InfraEnvironmentSpec>);
 }
 
-/** Object storage can vary independently from database/auth; there is no implicit auto provider. */
+/*** Object storage can vary independently from database/auth; there is no implicit auto provider. */
 function isObjectStorage(value: unknown): boolean {
   if (!isRecord(value)) return false;
   const common = {
@@ -60,7 +61,7 @@ function isObjectStorage(value: unknown): boolean {
   } satisfies InfraShape<Extract<InfraObjectStorageSpec, { readonly provider: 'r2' }>>);
 }
 
-/** Duplicate desired workload identities cannot be reconciled safely. */
+/*** Duplicate desired workload identities cannot be reconciled safely. */
 function isWorkloads(value: unknown): boolean {
   return (
     Array.isArray(value) &&
@@ -69,7 +70,7 @@ function isWorkloads(value: unknown): boolean {
   );
 }
 
-/** Check catalog dependencies against selected sibling capabilities and runtime capabilities. */
+/*** Check catalog dependencies against selected sibling capabilities and runtime capabilities. */
 function hasServiceDependencies(value: InfraEnvironmentSpec): boolean {
   const selections = [
     value.database,

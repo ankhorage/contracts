@@ -1,0 +1,8 @@
+sequenceDiagram
+  participant participant_isMediaAssetReference as isMediaAssetReference
+  participant participant_isNonEmptyString as isNonEmptyString
+  participant participant_isRecord as isRecord
+  participant_isMediaAssetReference->>participant_isRecord: isRecord()
+  participant_isRecord-->>participant_isMediaAssetReference: return
+  participant_isMediaAssetReference->>participant_isNonEmptyString: isNonEmptyString()
+  participant_isNonEmptyString-->>participant_isMediaAssetReference: return

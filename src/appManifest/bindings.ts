@@ -1,9 +1,13 @@
-import { isManifestValue, isOptionalString, isRecord } from './shared';
+import { isRecord } from '@ankhorage/utility/object';
 
+import { isManifestValue } from './isManifestValue';
+
+/*** Validate every component binding in the authored registry. */
 export function isComponentDataBindingRegistry(value: unknown): boolean {
   return isRecord(value) && Object.values(value).every(isComponentDataBinding);
 }
 
+/*** Validate literal, operation and path-based binding sources. */
 export function isBindingValueSource(value: unknown): boolean {
   return (
     isRecord(value) &&
@@ -12,26 +16,29 @@ export function isBindingValueSource(value: unknown): boolean {
     (value.kind === 'literal'
       ? isManifestValue(value.value)
       : value.kind === 'operation'
-        ? isBindingOperationRef(value.operation) && isOptionalString(value.path)
+        ? isBindingOperationRef(value.operation) &&
+          (value.path === undefined || typeof value.path === 'string')
         : typeof value.path === 'string')
   );
 }
 
+/*** Validate a screen operation loader and its optional input mapping. */
 export function isScreenDataLoaderDefinition(value: unknown): boolean {
   return (
     isRecord(value) &&
     value.kind === 'operation' &&
-    isOptionalString(value.id) &&
+    (value.id === undefined || typeof value.id === 'string') &&
     isBindingOperationRef(value.operation) &&
     (value.input === undefined || isBindingInputMap(value.input))
   );
 }
 
+/*** Validate component identity and its property and event bindings. */
 function isComponentDataBinding(value: unknown): boolean {
   return (
     isRecord(value) &&
     typeof value.componentId === 'string' &&
-    isOptionalString(value.componentType) &&
+    (value.componentType === undefined || typeof value.componentType === 'string') &&
     (value.props === undefined ||
       (isRecord(value.props) && Object.values(value.props).every(isPropBinding))) &&
     (value.events === undefined ||
@@ -42,6 +49,7 @@ function isComponentDataBinding(value: unknown): boolean {
   );
 }
 
+/*** Validate a property binding with optional transforms and fallback behavior. */
 function isPropBinding(value: unknown): boolean {
   return (
     isRecord(value) &&
@@ -54,6 +62,7 @@ function isPropBinding(value: unknown): boolean {
   );
 }
 
+/*** Validate an event binding and its declared target. */
 function isEventBinding(value: unknown): boolean {
   return (
     isRecord(value) &&
@@ -63,6 +72,7 @@ function isEventBinding(value: unknown): boolean {
   );
 }
 
+/*** Validate the selected operation or action event target. */
 function isEventBindingTarget(value: unknown): boolean {
   return (
     isRecord(value) &&
@@ -71,6 +81,7 @@ function isEventBindingTarget(value: unknown): boolean {
   );
 }
 
+/*** Validate a binding condition and its source value. */
 function isBindingCondition(value: unknown): boolean {
   return (
     isRecord(value) &&
@@ -80,15 +91,17 @@ function isBindingCondition(value: unknown): boolean {
   );
 }
 
+/*** Validate API and operation identities with an optional endpoint reference. */
 function isBindingOperationRef(value: unknown): boolean {
   return (
     isRecord(value) &&
     typeof value.apiId === 'string' &&
     typeof value.operationId === 'string' &&
-    isOptionalString(value.endpointId)
+    (value.endpointId === undefined || typeof value.endpointId === 'string')
   );
 }
 
+/*** Validate authored binding fallback values. */
 function isBindingFallback(value: unknown): boolean {
   return (
     isRecord(value) &&
@@ -97,16 +110,18 @@ function isBindingFallback(value: unknown): boolean {
   );
 }
 
+/*** Validate loading, empty and error binding behavior. */
 function isBindingLifecycleBehavior(value: unknown): boolean {
   return (
     isRecord(value) &&
     typeof value.state === 'string' &&
     ['empty', 'error', 'loading'].includes(value.state) &&
     (value.fallback === undefined || isBindingFallback(value.fallback)) &&
-    isOptionalString(value.message)
+    (value.message === undefined || typeof value.message === 'string')
   );
 }
 
+/*** Validate optional ordered binding transformations. */
 function isOptionalBindingTransforms(value: unknown): boolean {
   return (
     value === undefined ||
@@ -115,10 +130,12 @@ function isOptionalBindingTransforms(value: unknown): boolean {
   );
 }
 
+/*** Validate every value in an operation input mapping. */
 function isBindingInputMap(value: unknown): boolean {
   return isRecord(value) && Object.values(value).every(isBindingInputValue);
 }
 
+/*** Validate recursive array, object, literal and source operation inputs. */
 function isBindingInputValue(value: unknown): boolean {
   return (
     isRecord(value) &&
