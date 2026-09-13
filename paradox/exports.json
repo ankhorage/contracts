@@ -9542,7 +9542,7 @@
     "modulePath": "src/appManifest/navigator.ts",
     "sourceLocation": {
       "filePath": "src/appManifest/navigator.ts",
-      "line": 15,
+      "line": 16,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -9606,7 +9606,7 @@
     "modulePath": "src/infra/isInfraAuthSpec.ts",
     "sourceLocation": {
       "filePath": "src/infra/isInfraAuthSpec.ts",
-      "line": 19,
+      "line": 20,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],

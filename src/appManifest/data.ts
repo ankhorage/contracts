@@ -1,5 +1,6 @@
 import { isStringArray } from '@ankhorage/utility/array';
 import { isRecord } from '@ankhorage/utility/object';
+import { isOptionalString } from '@ankhorage/utility/string';
 
 import { isManifestValue } from './isManifestValue';
 
@@ -31,8 +32,8 @@ export function isCredentialRef(value: unknown): boolean {
     isRecord(value) &&
     typeof value.id === 'string' &&
     typeof value.kind === 'string' &&
-    (value.label === undefined || typeof value.label === 'string') &&
-    (value.scope === undefined || typeof value.scope === 'string')
+    isOptionalString(value.label) &&
+    isOptionalString(value.scope)
   );
 }
 
@@ -42,8 +43,8 @@ export function isAdapterRef(value: unknown): boolean {
     isRecord(value) &&
     typeof value.id === 'string' &&
     typeof value.kind === 'string' &&
-    (value.packageName === undefined || typeof value.packageName === 'string') &&
-    (value.exportName === undefined || typeof value.exportName === 'string') &&
+    isOptionalString(value.packageName) &&
+    isOptionalString(value.exportName) &&
     (value.config === undefined || isManifestValue(value.config))
   );
 }
@@ -54,10 +55,10 @@ function isDataEndpointConfig(value: unknown): boolean {
     isRecord(value) &&
     typeof value.id === 'string' &&
     typeof value.kind === 'string' &&
-    (value.name === undefined || typeof value.name === 'string') &&
-    (value.description === undefined || typeof value.description === 'string') &&
-    (value.baseUrl === undefined || typeof value.baseUrl === 'string') &&
-    (value.path === undefined || typeof value.path === 'string') &&
+    isOptionalString(value.name) &&
+    isOptionalString(value.description) &&
+    isOptionalString(value.baseUrl) &&
+    isOptionalString(value.path) &&
     (value.credential === undefined || isCredentialRef(value.credential)) &&
     isRecord(value.operations) &&
     Object.values(value.operations).every(isDataOperationConfig) &&
@@ -70,14 +71,14 @@ function isDataOperationConfig(value: unknown): boolean {
   return (
     isRecord(value) &&
     typeof value.id === 'string' &&
-    (value.endpointId === undefined || typeof value.endpointId === 'string') &&
-    (value.name === undefined || typeof value.name === 'string') &&
-    (value.description === undefined || typeof value.description === 'string') &&
+    isOptionalString(value.endpointId) &&
+    isOptionalString(value.name) &&
+    isOptionalString(value.description) &&
     typeof value.protocol === 'string' &&
     typeof value.intent === 'string' &&
     OPERATION_INTENTS.has(value.intent) &&
-    (value.method === undefined || typeof value.method === 'string') &&
-    (value.path === undefined || typeof value.path === 'string') &&
+    isOptionalString(value.method) &&
+    isOptionalString(value.path) &&
     (value.request === undefined || isDataOperationRequest(value.request)) &&
     (value.response === undefined || isDataOperationResponse(value.response)) &&
     (value.pagination === undefined || isRecord(value.pagination)) &&
@@ -91,7 +92,7 @@ function isDataOperationRequest(value: unknown): boolean {
   return (
     isRecord(value) &&
     isDataSchemaSlot(value) &&
-    (value.contentType === undefined || typeof value.contentType === 'string') &&
+    isOptionalString(value.contentType) &&
     (value.parameters === undefined ||
       (Array.isArray(value.parameters) && value.parameters.every(isDataOperationParameter)))
   );
@@ -106,7 +107,7 @@ function isDataOperationParameter(value: unknown): boolean {
     typeof value.location === 'string' &&
     PARAMETER_LOCATIONS.has(value.location) &&
     (value.required === undefined || typeof value.required === 'boolean') &&
-    (value.description === undefined || typeof value.description === 'string') &&
+    isOptionalString(value.description) &&
     (value.default === undefined || isManifestValue(value.default))
   );
 }
@@ -119,8 +120,8 @@ function isDataOperationResponse(value: unknown): boolean {
     (value.status === undefined ||
       typeof value.status === 'string' ||
       typeof value.status === 'number') &&
-    (value.contentType === undefined || typeof value.contentType === 'string') &&
-    (value.description === undefined || typeof value.description === 'string')
+    isOptionalString(value.contentType) &&
+    isOptionalString(value.description)
   );
 }
 
@@ -153,9 +154,9 @@ function isDataSchemaType(value: unknown): boolean {
 /*** Validate optional scalar schema constraints. */
 function isOptionalSchemaScalars(value: Record<string, unknown>): boolean {
   return (
-    (value.title === undefined || typeof value.title === 'string') &&
-    (value.description === undefined || typeof value.description === 'string') &&
-    (value.format === undefined || typeof value.format === 'string') &&
+    isOptionalString(value.title) &&
+    isOptionalString(value.description) &&
+    isOptionalString(value.format) &&
     (value.nullable === undefined || typeof value.nullable === 'boolean') &&
     (value.const === undefined || isManifestValue(value.const)) &&
     (value.default === undefined || isManifestValue(value.default)) &&

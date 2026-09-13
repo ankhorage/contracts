@@ -1,5 +1,6 @@
 import { isStringArray } from '@ankhorage/utility/array';
 import { isRecordOf } from '@ankhorage/utility/object';
+import { isOptionalString } from '@ankhorage/utility/string';
 
 import { isIconSpec } from '../appManifest/icon';
 import { AUTH_OAUTH_PROVIDER_IDS } from '../auth';
@@ -39,11 +40,11 @@ function isAuthFlow(value: unknown): boolean {
   return isInfraShape(value, {
     signInRoute: (route) => typeof route === 'string',
     postSignInRoute: (route) => typeof route === 'string',
-    signUpRoute: (value) => value === undefined || typeof value === 'string',
-    signOutRoute: (value) => value === undefined || typeof value === 'string',
-    forgotPasswordRoute: (value) => value === undefined || typeof value === 'string',
-    otpRoute: (value) => value === undefined || typeof value === 'string',
-    unauthorizedRoute: (value) => value === undefined || typeof value === 'string',
+    signUpRoute: isOptionalString,
+    signOutRoute: isOptionalString,
+    forgotPasswordRoute: isOptionalString,
+    otpRoute: isOptionalString,
+    unauthorizedRoute: isOptionalString,
   });
 }
 
@@ -72,13 +73,13 @@ function isAuthOAuthProvider(value: unknown): boolean {
     id: (id) =>
       typeof id === 'string' &&
       (AUTH_OAUTH_PROVIDER_IDS.some((item) => item === id) || id.length > 0),
-    label: (value) => value === undefined || typeof value === 'string',
+    label: isOptionalString,
     enabled: (value) => value === undefined || typeof value === 'boolean',
     scopes: (scopes) => scopes === undefined || isStringArray(scopes),
     queryParams: (params) =>
       params === undefined || isRecordOf(params, (entry) => typeof entry === 'string'),
     icon: (icon) => icon === undefined || isIconSpec(icon),
-    credentialsRef: (value) => value === undefined || typeof value === 'string',
+    credentialsRef: isOptionalString,
   });
 }
 
@@ -86,7 +87,7 @@ function isAuthOAuthProvider(value: unknown): boolean {
 function isAuthProfile(value: unknown): boolean {
   return isInfraShape(value, {
     fields: isStringArray,
-    table: (value) => value === undefined || typeof value === 'string',
+    table: isOptionalString,
     primaryKey: (key) =>
       key === undefined || AUTH_PROFILE_PRIMARY_KEY_STRATEGIES.some((item) => item === key),
     createStrategy: (strategy) =>

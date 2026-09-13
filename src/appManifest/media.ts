@@ -1,5 +1,5 @@
 import { hasOnlyKeys, isRecord } from '@ankhorage/utility/object';
-import { isNonEmptyString } from '@ankhorage/utility/string';
+import { isNonEmptyString, isOptionalString } from '@ankhorage/utility/string';
 
 import {
   MEDIA_ASSET_KINDS,
@@ -30,7 +30,7 @@ function isMediaAsset(value: unknown): value is MediaAsset {
     typeof value.kind === 'string' &&
     MEDIA_ASSET_KIND_SET.has(value.kind) &&
     isMediaAssetSource(value.source) &&
-    (value.contentType === undefined || typeof value.contentType === 'string') &&
+    isOptionalString(value.contentType) &&
     (value.metadata === undefined || isMediaAssetMetadata(value.metadata))
   );
 }
@@ -42,7 +42,7 @@ function isMediaAssetSource(value: unknown): value is MediaAssetSource {
   if (value.kind === 'storage') {
     return (
       hasOnlyKeys(value, ['kind', 'storageId', 'bucket', 'path']) &&
-      (value.storageId === undefined || typeof value.storageId === 'string') &&
+      isOptionalString(value.storageId) &&
       isNonEmptyString(value.bucket) &&
       isNonEmptyString(value.path)
     );
@@ -69,8 +69,8 @@ function isMediaAssetMetadata(value: unknown): value is MediaAssetMetadata {
       'height',
       'durationMs',
     ]) &&
-    (value.originalFileName === undefined || typeof value.originalFileName === 'string') &&
-    (value.createdAt === undefined || typeof value.createdAt === 'string') &&
+    isOptionalString(value.originalFileName) &&
+    isOptionalString(value.createdAt) &&
     isOptionalFiniteNonNegativeNumber(value.sizeBytes) &&
     isOptionalFinitePositiveNumber(value.width) &&
     isOptionalFinitePositiveNumber(value.height) &&

@@ -2998,7 +2998,7 @@ Return whether an unknown value satisfies the canonical AppManifest shape.
 
 Kind: `function`
 Module: `src/appManifest/navigator.ts`
-Source: `src/appManifest/navigator.ts:15:1`
+Source: `src/appManifest/navigator.ts:16:1`
 
 Validate the complete serialized `AppManifest.navigator` slice.
 
@@ -3026,7 +3026,7 @@ Installed adapters must match the canonical identity, capabilities, targets and 
 
 Kind: `function`
 Module: `src/infra/isInfraAuthSpec.ts`
-Source: `src/infra/isInfraAuthSpec.ts:19:1`
+Source: `src/infra/isInfraAuthSpec.ts:20:1`
 
 Preserve application auth configuration while rejecting nested authorization and unknown providers.
 

@@ -1,5 +1,6 @@
 import { isStringArray } from '@ankhorage/utility/array';
 import { hasOnlyKeys, isRecord } from '@ankhorage/utility/object';
+import { isOptionalString } from '@ankhorage/utility/string';
 
 import { type AppNavigatorManifest, NAVIGATOR_PRESETS, NAVIGATOR_TYPES } from '../navigator';
 import { isIconSpec } from './icon';
@@ -30,7 +31,7 @@ function isNavigatorNode(value: unknown): boolean {
     !isRecord(value) ||
     typeof value.type !== 'string' ||
     !hasNavigatorType(value.type) ||
-    !(value.initialRouteName === undefined || typeof value.initialRouteName === 'string') ||
+    !isOptionalString(value.initialRouteName) ||
     !Array.isArray(value.routes) ||
     !value.routes.every(isRouteDefinition)
   ) {
@@ -73,9 +74,7 @@ function isRouteDefinition(value: unknown): boolean {
   return (
     isRecord(value) &&
     typeof value.name === 'string' &&
-    [value.path, value.label, value.screenId].every(
-      (entry) => entry === undefined || typeof entry === 'string',
-    ) &&
+    [value.path, value.label, value.screenId].every(isOptionalString) &&
     (value.icon === undefined || isIconSpec(value.icon)) &&
     (value.showInPrimaryNavigation === undefined ||
       typeof value.showInPrimaryNavigation === 'boolean') &&

@@ -11374,7 +11374,7 @@
       "modulePath": "src/appManifest/navigator.ts",
       "sourceLocation": {
         "filePath": "src/appManifest/navigator.ts",
-        "line": 15,
+        "line": 16,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11438,7 +11438,7 @@
       "modulePath": "src/infra/isInfraAuthSpec.ts",
       "sourceLocation": {
         "filePath": "src/infra/isInfraAuthSpec.ts",
-        "line": 19,
+        "line": 20,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -18831,7 +18831,7 @@
       "description": "Validate external REST endpoint and optional OpenAPI metadata.",
       "sourceLocation": {
         "filePath": "src/appManifest/apis.ts",
-        "line": 61,
+        "line": 59,
         "column": 1
       }
     },
@@ -18840,7 +18840,7 @@
       "description": "Validate external GraphQL endpoint and optional introspection metadata.",
       "sourceLocation": {
         "filePath": "src/appManifest/apis.ts",
-        "line": 70,
+        "line": 68,
         "column": 1
       }
     },
@@ -18849,7 +18849,7 @@
       "description": "Validate the supported internal REST API configuration.",
       "sourceLocation": {
         "filePath": "src/appManifest/apis.ts",
-        "line": 79,
+        "line": 77,
         "column": 1
       }
     },
@@ -18858,7 +18858,7 @@
       "description": "Validate optional OpenAPI document location and version fields.",
       "sourceLocation": {
         "filePath": "src/appManifest/apis.ts",
-        "line": 84,
+        "line": 82,
         "column": 1
       }
     },
@@ -18867,7 +18867,7 @@
       "description": "Validate explicit GraphQL introspection settings.",
       "sourceLocation": {
         "filePath": "src/appManifest/apis.ts",
-        "line": 95,
+        "line": 93,
         "column": 1
       }
     },
@@ -18876,7 +18876,7 @@
       "description": "Validate every component binding in the authored registry.",
       "sourceLocation": {
         "filePath": "src/appManifest/bindings.ts",
-        "line": 6,
+        "line": 7,
         "column": 1
       }
     },
@@ -18885,7 +18885,7 @@
       "description": "Validate literal, operation and path-based binding sources.",
       "sourceLocation": {
         "filePath": "src/appManifest/bindings.ts",
-        "line": 11,
+        "line": 12,
         "column": 1
       }
     },
@@ -19002,7 +19002,7 @@
       "description": "Validate every endpoint in the data endpoint registry.",
       "sourceLocation": {
         "filePath": "src/appManifest/data.ts",
-        "line": 19,
+        "line": 20,
         "column": 1
       }
     },
@@ -19011,7 +19011,7 @@
       "description": "Validate every schema in the data schema registry.",
       "sourceLocation": {
         "filePath": "src/appManifest/data.ts",
-        "line": 24,
+        "line": 25,
         "column": 1
       }
     },
@@ -19020,7 +19020,7 @@
       "description": "Validate credential identity and optional descriptive metadata.",
       "sourceLocation": {
         "filePath": "src/appManifest/data.ts",
-        "line": 29,
+        "line": 30,
         "column": 1
       }
     },
@@ -19029,7 +19029,7 @@
       "description": "Validate an adapter reference and its optional authored configuration.",
       "sourceLocation": {
         "filePath": "src/appManifest/data.ts",
-        "line": 40,
+        "line": 41,
         "column": 1
       }
     },
@@ -19038,7 +19038,7 @@
       "description": "Validate endpoint identity, operations and optional connection metadata.",
       "sourceLocation": {
         "filePath": "src/appManifest/data.ts",
-        "line": 52,
+        "line": 53,
         "column": 1
       }
     },
@@ -19047,7 +19047,7 @@
       "description": "Validate operation protocol, intent, request and response configuration.",
       "sourceLocation": {
         "filePath": "src/appManifest/data.ts",
-        "line": 69,
+        "line": 70,
         "column": 1
       }
     },
@@ -19056,7 +19056,7 @@
       "description": "Validate request schema, parameters and optional content type.",
       "sourceLocation": {
         "filePath": "src/appManifest/data.ts",
-        "line": 90,
+        "line": 91,
         "column": 1
       }
     },
@@ -19065,7 +19065,7 @@
       "description": "Validate parameter identity, location, schema and optional default value.",
       "sourceLocation": {
         "filePath": "src/appManifest/data.ts",
-        "line": 101,
+        "line": 102,
         "column": 1
       }
     },
@@ -19074,7 +19074,7 @@
       "description": "Validate response status, schema and optional descriptive metadata.",
       "sourceLocation": {
         "filePath": "src/appManifest/data.ts",
-        "line": 115,
+        "line": 116,
         "column": 1
       }
     },
@@ -19083,7 +19083,7 @@
       "description": "Validate inline schema and schema-reference fields.",
       "sourceLocation": {
         "filePath": "src/appManifest/data.ts",
-        "line": 128,
+        "line": 129,
         "column": 1
       }
     },
@@ -19092,7 +19092,7 @@
       "description": "Validate supported schema types, constraints and compositions.",
       "sourceLocation": {
         "filePath": "src/appManifest/data.ts",
-        "line": 136,
+        "line": 137,
         "column": 1
       }
     },
@@ -19101,7 +19101,7 @@
       "description": "Validate a supported schema type or an array of supported types.",
       "sourceLocation": {
         "filePath": "src/appManifest/data.ts",
-        "line": 144,
+        "line": 145,
         "column": 1
       }
     },
@@ -19110,7 +19110,7 @@
       "description": "Validate optional scalar schema constraints.",
       "sourceLocation": {
         "filePath": "src/appManifest/data.ts",
-        "line": 154,
+        "line": 155,
         "column": 1
       }
     },
@@ -19119,7 +19119,7 @@
       "description": "Validate optional schema properties, items and required fields.",
       "sourceLocation": {
         "filePath": "src/appManifest/data.ts",
-        "line": 169,
+        "line": 170,
         "column": 1
       }
     },
@@ -19128,7 +19128,7 @@
       "description": "Validate optional schema alternatives and intersections.",
       "sourceLocation": {
         "filePath": "src/appManifest/data.ts",
-        "line": 182,
+        "line": 183,
         "column": 1
       }
     },
@@ -19137,7 +19137,7 @@
       "description": "Validate a named schema reference.",
       "sourceLocation": {
         "filePath": "src/appManifest/data.ts",
-        "line": 190,
+        "line": 191,
         "column": 1
       }
     },
@@ -19146,7 +19146,7 @@
       "description": "Validate the supported data-source entries in the registry.",
       "sourceLocation": {
         "filePath": "src/appManifest/dataSources.ts",
-        "line": 24,
+        "line": 25,
         "column": 1
       }
     },
@@ -19155,7 +19155,7 @@
       "description": "Validate database adapter identity and supported configuration fields.",
       "sourceLocation": {
         "filePath": "src/appManifest/dataSources.ts",
-        "line": 32,
+        "line": 33,
         "column": 1
       }
     },
@@ -19236,7 +19236,7 @@
       "description": "Validate a serializable icon as either a named font glyph or an SVG media reference.",
       "sourceLocation": {
         "filePath": "src/appManifest/icon.ts",
-        "line": 6,
+        "line": 7,
         "column": 1
       }
     },
@@ -19398,7 +19398,7 @@
       "description": "Validate the complete serialized `AppManifest.navigator` slice.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigator.ts",
-        "line": 15,
+        "line": 16,
         "column": 1
       }
     },
@@ -19407,7 +19407,7 @@
       "description": "Validate one nested navigator node independently from app-level authoring metadata.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigator.ts",
-        "line": 28,
+        "line": 29,
         "column": 1
       }
     },
@@ -19416,7 +19416,7 @@
       "description": "Check a serialized preset against the public contract without eager cyclic initialization.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigator.ts",
-        "line": 62,
+        "line": 63,
         "column": 1
       }
     },
@@ -19425,7 +19425,7 @@
       "description": "Check a serialized topology against the public contract without eager cyclic initialization.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigator.ts",
-        "line": 67,
+        "line": 68,
         "column": 1
       }
     },
@@ -19434,7 +19434,7 @@
       "description": "Validate one route and preserve its portable metadata and nested navigator.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigator.ts",
-        "line": 72,
+        "line": 73,
         "column": 1
       }
     },
@@ -19443,7 +19443,7 @@
       "description": "Validate Split View screen references without duplicating the routed secondary tree.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigator.ts",
-        "line": 89,
+        "line": 88,
         "column": 1
       }
     },
@@ -19452,7 +19452,7 @@
       "description": "Validate a registered custom navigator with JSON-safe configuration only.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigator.ts",
-        "line": 107,
+        "line": 106,
         "column": 1
       }
     },
@@ -19461,7 +19461,7 @@
       "description": "Validate an acyclic, finite JSON object used by a custom navigator adapter.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigator.ts",
-        "line": 117,
+        "line": 116,
         "column": 1
       }
     },
@@ -19470,7 +19470,7 @@
       "description": "Recursively validate the portable manifest value domain and reject cycles.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigator.ts",
-        "line": 122,
+        "line": 121,
         "column": 1
       }
     },
@@ -19479,7 +19479,7 @@
       "description": "Validate package-owned navigator defaults without requiring a navigator node type.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigator.ts",
-        "line": 147,
+        "line": 146,
         "column": 1
       }
     },
@@ -19488,7 +19488,7 @@
       "description": "Validate per-platform navigator implementation overrides.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigator.ts",
-        "line": 159,
+        "line": 158,
         "column": 1
       }
     },
@@ -19497,7 +19497,7 @@
       "description": "Validate one platform-specific navigator override slice.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigator.ts",
-        "line": 170,
+        "line": 169,
         "column": 1
       }
     },
@@ -19506,7 +19506,7 @@
       "description": "Validate stable native, JavaScript, or alpha Experimental Stack desired state.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 15,
+        "line": 16,
         "column": 1
       }
     },
@@ -19515,7 +19515,7 @@
       "description": "Validate the serializable native-stack screen option subset.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 42,
+        "line": 43,
         "column": 1
       }
     },
@@ -19524,7 +19524,7 @@
       "description": "Validate the finite serializable Drawer option subset.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 72,
+        "line": 73,
         "column": 1
       }
     },
@@ -19533,7 +19533,7 @@
       "description": "Validate tabs implementation desired state, with omitted implementation meaning adaptive.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 87,
+        "line": 88,
         "column": 1
       }
     },
@@ -19542,7 +19542,7 @@
       "description": "Validate a reference into the app-owned screen registry.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 101,
+        "line": 102,
         "column": 1
       }
     },
@@ -19551,7 +19551,7 @@
       "description": "Validate JavaScript Stack options without accepting native-only presentations.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 106,
+        "line": 107,
         "column": 1
       }
     },
@@ -19560,7 +19560,7 @@
       "description": "Validate the portable header subset supported by Experimental Stack.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 124,
+        "line": 125,
         "column": 1
       }
     },
@@ -19569,7 +19569,7 @@
       "description": "Validate shared stack header field values after branch-specific key filtering.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 133,
+        "line": 134,
         "column": 1
       }
     },
@@ -19578,7 +19578,7 @@
       "description": "Validate sorted, finite native sheet detents or the fit-to-content sentinel.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 143,
+        "line": 144,
         "column": 1
       }
     },
@@ -19587,7 +19587,7 @@
       "description": "Validate an adaptive tabs branch and reject implementation-specific conflicts.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 157,
+        "line": 158,
         "column": 1
       }
     },
@@ -19596,7 +19596,7 @@
       "description": "Validate the top-level native tabs implementation.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 173,
+        "line": 174,
         "column": 1
       }
     },
@@ -19605,7 +19605,7 @@
       "description": "Validate the top-level JavaScript tabs implementation.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 187,
+        "line": 188,
         "column": 1
       }
     },
@@ -19614,7 +19614,7 @@
       "description": "Validate the native branch used by adaptive tabs.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 205,
+        "line": 206,
         "column": 1
       }
     },
@@ -19623,7 +19623,7 @@
       "description": "Validate fields supported by the native tabs branch.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 215,
+        "line": 216,
         "column": 1
       }
     },
@@ -19632,7 +19632,7 @@
       "description": "Validate the implementation-free headless-tabs Web branch inside adaptive tabs.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 225,
+        "line": 226,
         "column": 1
       }
     },
@@ -19641,7 +19641,7 @@
       "description": "Validate headless-tab presentation and its conditional serializable configuration.",
       "sourceLocation": {
         "filePath": "src/appManifest/navigatorOptions.ts",
-        "line": 234,
+        "line": 235,
         "column": 1
       }
     },
@@ -19686,7 +19686,7 @@
       "description": "Validate application identity and optional authored metadata.",
       "sourceLocation": {
         "filePath": "src/appManifest/screens.ts",
-        "line": 15,
+        "line": 16,
         "column": 1
       }
     },
@@ -19695,7 +19695,7 @@
       "description": "Validate theme identity and its required light and dark modes.",
       "sourceLocation": {
         "filePath": "src/appManifest/screens.ts",
-        "line": 30,
+        "line": 31,
         "column": 1
       }
     },
@@ -19704,7 +19704,7 @@
       "description": "Validate screens in the authored screen registry.",
       "sourceLocation": {
         "filePath": "src/appManifest/screens.ts",
-        "line": 41,
+        "line": 42,
         "column": 1
       }
     },
@@ -19713,7 +19713,7 @@
       "description": "Validate optional light and dark splash-screen configuration.",
       "sourceLocation": {
         "filePath": "src/appManifest/screens.ts",
-        "line": 52,
+        "line": 53,
         "column": 1
       }
     },
@@ -19722,7 +19722,7 @@
       "description": "Validate the primary color and supported color harmony of a theme mode.",
       "sourceLocation": {
         "filePath": "src/appManifest/screens.ts",
-        "line": 61,
+        "line": 62,
         "column": 1
       }
     },
@@ -19731,7 +19731,7 @@
       "description": "Validate an authored component node and its nested children.",
       "sourceLocation": {
         "filePath": "src/appManifest/screens.ts",
-        "line": 71,
+        "line": 72,
         "column": 1
       }
     },
@@ -19740,7 +19740,7 @@
       "description": "Validate repeat source and item binding configuration.",
       "sourceLocation": {
         "filePath": "src/appManifest/screens.ts",
-        "line": 86,
+        "line": 87,
         "column": 1
       }
     },
@@ -19749,7 +19749,7 @@
       "description": "Validate screen identity, root component and optional requirements.",
       "sourceLocation": {
         "filePath": "src/appManifest/screens.ts",
-        "line": 97,
+        "line": 98,
         "column": 1
       }
     },
@@ -19758,7 +19758,7 @@
       "description": "Validate one splash-screen appearance configuration.",
       "sourceLocation": {
         "filePath": "src/appManifest/screens.ts",
-        "line": 113,
+        "line": 114,
         "column": 1
       }
     },
@@ -19767,7 +19767,7 @@
       "description": "Validate screen capability and permission requirements.",
       "sourceLocation": {
         "filePath": "src/appManifest/screens.ts",
-        "line": 126,
+        "line": 127,
         "column": 1
       }
     },
@@ -19776,7 +19776,7 @@
       "description": "Validate the entries of a capability or permission requirement list.",
       "sourceLocation": {
         "filePath": "src/appManifest/screens.ts",
-        "line": 135,
+        "line": 136,
         "column": 1
       }
     },
@@ -19812,7 +19812,7 @@
       "description": "Preserve application auth configuration while rejecting nested authorization and unknown providers.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraAuthSpec.ts",
-        "line": 19,
+        "line": 20,
         "column": 1
       }
     },
@@ -19821,7 +19821,7 @@
       "description": "Auth routing intent stays separate from provider-runtime callbacks and Navigator topology.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraAuthSpec.ts",
-        "line": 38,
+        "line": 39,
         "column": 1
       }
     },
@@ -19830,7 +19830,7 @@
       "description": "Validate sign-up field intent using the existing application auth contract.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraAuthSpec.ts",
-        "line": 51,
+        "line": 52,
         "column": 1
       }
     },
@@ -19839,7 +19839,7 @@
       "description": "OAuth references contain no credential payload. Custom OAuth identities remain application-owned.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraAuthSpec.ts",
-        "line": 61,
+        "line": 62,
         "column": 1
       }
     },
@@ -19848,7 +19848,7 @@
       "description": "Validate OAuth display/config metadata, preserving explicitly extensible OAuth provider IDs.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraAuthSpec.ts",
-        "line": 70,
+        "line": 71,
         "column": 1
       }
     },
@@ -19857,7 +19857,7 @@
       "description": "Validate profile provisioning choices without inventing a new application profile model.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraAuthSpec.ts",
-        "line": 86,
+        "line": 87,
         "column": 1
       }
     },
@@ -21432,6 +21432,12 @@
         "sourcePath": "src/appManifest/apis.ts"
       },
       {
+        "fromSymbol": "isOpenApiDocumentRef",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/apis.ts"
+      },
+      {
         "fromSymbol": "isGraphQlIntrospection",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
@@ -21441,6 +21447,12 @@
         "fromSymbol": "isGraphQlIntrospection",
         "toSymbol": "hasOnlyKeys",
         "callExpression": "hasOnlyKeys",
+        "sourcePath": "src/appManifest/apis.ts"
+      },
+      {
+        "fromSymbol": "isGraphQlIntrospection",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
         "sourcePath": "src/appManifest/apis.ts"
       },
       {
@@ -21468,9 +21480,21 @@
         "sourcePath": "src/appManifest/bindings.ts"
       },
       {
+        "fromSymbol": "isBindingValueSource",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
         "fromSymbol": "isScreenDataLoaderDefinition",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isScreenDataLoaderDefinition",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
         "sourcePath": "src/appManifest/bindings.ts"
       },
       {
@@ -21489,6 +21513,12 @@
         "fromSymbol": "isComponentDataBinding",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isComponentDataBinding",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
         "sourcePath": "src/appManifest/bindings.ts"
       },
       {
@@ -21582,6 +21612,12 @@
         "sourcePath": "src/appManifest/bindings.ts"
       },
       {
+        "fromSymbol": "isBindingOperationRef",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
         "fromSymbol": "isBindingFallback",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
@@ -21609,6 +21645,12 @@
         "fromSymbol": "isBindingLifecycleBehavior",
         "toSymbol": "isBindingFallback",
         "callExpression": "isBindingFallback",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isBindingLifecycleBehavior",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
         "sourcePath": "src/appManifest/bindings.ts"
       },
       {
@@ -21666,9 +21708,21 @@
         "sourcePath": "src/appManifest/data.ts"
       },
       {
+        "fromSymbol": "isCredentialRef",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
         "fromSymbol": "isAdapterRef",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "isAdapterRef",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
         "sourcePath": "src/appManifest/data.ts"
       },
       {
@@ -21681,6 +21735,12 @@
         "fromSymbol": "isDataEndpointConfig",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "isDataEndpointConfig",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
         "sourcePath": "src/appManifest/data.ts"
       },
       {
@@ -21699,6 +21759,12 @@
         "fromSymbol": "isDataOperationConfig",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "isDataOperationConfig",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
         "sourcePath": "src/appManifest/data.ts"
       },
       {
@@ -21738,6 +21804,12 @@
         "sourcePath": "src/appManifest/data.ts"
       },
       {
+        "fromSymbol": "isDataOperationRequest",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
         "fromSymbol": "isDataOperationParameter",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
@@ -21747,6 +21819,12 @@
         "fromSymbol": "isDataOperationParameter",
         "toSymbol": "isDataSchemaSlot",
         "callExpression": "isDataSchemaSlot",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "isDataOperationParameter",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
         "sourcePath": "src/appManifest/data.ts"
       },
       {
@@ -21765,6 +21843,12 @@
         "fromSymbol": "isDataOperationResponse",
         "toSymbol": "isDataSchemaSlot",
         "callExpression": "isDataSchemaSlot",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "isDataOperationResponse",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
         "sourcePath": "src/appManifest/data.ts"
       },
       {
@@ -21807,6 +21891,12 @@
         "fromSymbol": "isDataSchema",
         "toSymbol": "isOptionalSchemaComposition",
         "callExpression": "isOptionalSchemaComposition",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "isOptionalSchemaScalars",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
         "sourcePath": "src/appManifest/data.ts"
       },
       {
@@ -21867,6 +21957,12 @@
         "fromSymbol": "isDatabaseDataSource",
         "toSymbol": "hasOnlyKeys",
         "callExpression": "hasOnlyKeys",
+        "sourcePath": "src/appManifest/dataSources.ts"
+      },
+      {
+        "fromSymbol": "isDatabaseDataSource",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
         "sourcePath": "src/appManifest/dataSources.ts"
       },
       {
@@ -22057,6 +22153,12 @@
       },
       {
         "fromSymbol": "isIconSpec",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/icon.ts"
+      },
+      {
+        "fromSymbol": "isIconSpec",
         "toSymbol": "isMediaAssetReference",
         "callExpression": "isMediaAssetReference",
         "sourcePath": "src/appManifest/icon.ts"
@@ -22237,6 +22339,12 @@
       },
       {
         "fromSymbol": "isMediaAsset",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/media.ts"
+      },
+      {
+        "fromSymbol": "isMediaAsset",
         "toSymbol": "isMediaAssetMetadata",
         "callExpression": "isMediaAssetMetadata",
         "sourcePath": "src/appManifest/media.ts"
@@ -22251,6 +22359,12 @@
         "fromSymbol": "isMediaAssetSource",
         "toSymbol": "hasOnlyKeys",
         "callExpression": "hasOnlyKeys",
+        "sourcePath": "src/appManifest/media.ts"
+      },
+      {
+        "fromSymbol": "isMediaAssetSource",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
         "sourcePath": "src/appManifest/media.ts"
       },
       {
@@ -22281,6 +22395,12 @@
         "fromSymbol": "isMediaAssetMetadata",
         "toSymbol": "hasOnlyKeys",
         "callExpression": "hasOnlyKeys",
+        "sourcePath": "src/appManifest/media.ts"
+      },
+      {
+        "fromSymbol": "isMediaAssetMetadata",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
         "sourcePath": "src/appManifest/media.ts"
       },
       {
@@ -22341,6 +22461,12 @@
         "fromSymbol": "isNavigatorNode",
         "toSymbol": "hasNavigatorType",
         "callExpression": "hasNavigatorType",
+        "sourcePath": "src/appManifest/navigator.ts"
+      },
+      {
+        "fromSymbol": "isNavigatorNode",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
         "sourcePath": "src/appManifest/navigator.ts"
       },
       {
@@ -22668,6 +22794,12 @@
         "sourcePath": "src/appManifest/navigatorOptions.ts"
       },
       {
+        "fromSymbol": "isStackHeaderOptionsShape",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
         "fromSymbol": "isAdaptiveTabsConfig",
         "toSymbol": "hasNoDefinedKeys",
         "callExpression": "hasNoDefinedKeys",
@@ -22770,6 +22902,12 @@
         "sourcePath": "src/appManifest/navigatorOptions.ts"
       },
       {
+        "fromSymbol": "isHeadlessTabsPresentationConfig",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/navigatorOptions.ts"
+      },
+      {
         "fromSymbol": "isResponsiveTabsPresentation",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
@@ -22797,6 +22935,12 @@
         "fromSymbol": "isManifestMetadata",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/screens.ts"
+      },
+      {
+        "fromSymbol": "isManifestMetadata",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
         "sourcePath": "src/appManifest/screens.ts"
       },
       {
@@ -22855,6 +22999,12 @@
       },
       {
         "fromSymbol": "isUiNode",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/screens.ts"
+      },
+      {
+        "fromSymbol": "isUiNode",
         "toSymbol": "isUiNodeRepeatSpec",
         "callExpression": "isUiNodeRepeatSpec",
         "sourcePath": "src/appManifest/screens.ts"
@@ -22872,9 +23022,21 @@
         "sourcePath": "src/appManifest/screens.ts"
       },
       {
+        "fromSymbol": "isUiNodeRepeatSpec",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
+        "sourcePath": "src/appManifest/screens.ts"
+      },
+      {
         "fromSymbol": "isScreenSpec",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/screens.ts"
+      },
+      {
+        "fromSymbol": "isScreenSpec",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
         "sourcePath": "src/appManifest/screens.ts"
       },
       {
@@ -22899,6 +23061,12 @@
         "fromSymbol": "isSplashScreenModeSpec",
         "toSymbol": "isMediaAssetReference",
         "callExpression": "isMediaAssetReference",
+        "sourcePath": "src/appManifest/screens.ts"
+      },
+      {
+        "fromSymbol": "isSplashScreenModeSpec",
+        "toSymbol": "isOptionalString",
+        "callExpression": "isOptionalString",
         "sourcePath": "src/appManifest/screens.ts"
       },
       {

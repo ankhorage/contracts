@@ -1,4 +1,5 @@
 import { isRecord } from '@ankhorage/utility/object';
+import { isOptionalString } from '@ankhorage/utility/string';
 
 import { isManifestValue } from './isManifestValue';
 
@@ -16,8 +17,7 @@ export function isBindingValueSource(value: unknown): boolean {
     (value.kind === 'literal'
       ? isManifestValue(value.value)
       : value.kind === 'operation'
-        ? isBindingOperationRef(value.operation) &&
-          (value.path === undefined || typeof value.path === 'string')
+        ? isBindingOperationRef(value.operation) && isOptionalString(value.path)
         : typeof value.path === 'string')
   );
 }
@@ -27,7 +27,7 @@ export function isScreenDataLoaderDefinition(value: unknown): boolean {
   return (
     isRecord(value) &&
     value.kind === 'operation' &&
-    (value.id === undefined || typeof value.id === 'string') &&
+    isOptionalString(value.id) &&
     isBindingOperationRef(value.operation) &&
     (value.input === undefined || isBindingInputMap(value.input))
   );
@@ -38,7 +38,7 @@ function isComponentDataBinding(value: unknown): boolean {
   return (
     isRecord(value) &&
     typeof value.componentId === 'string' &&
-    (value.componentType === undefined || typeof value.componentType === 'string') &&
+    isOptionalString(value.componentType) &&
     (value.props === undefined ||
       (isRecord(value.props) && Object.values(value.props).every(isPropBinding))) &&
     (value.events === undefined ||
@@ -97,7 +97,7 @@ function isBindingOperationRef(value: unknown): boolean {
     isRecord(value) &&
     typeof value.apiId === 'string' &&
     typeof value.operationId === 'string' &&
-    (value.endpointId === undefined || typeof value.endpointId === 'string')
+    isOptionalString(value.endpointId)
   );
 }
 
@@ -117,7 +117,7 @@ function isBindingLifecycleBehavior(value: unknown): boolean {
     typeof value.state === 'string' &&
     ['empty', 'error', 'loading'].includes(value.state) &&
     (value.fallback === undefined || isBindingFallback(value.fallback)) &&
-    (value.message === undefined || typeof value.message === 'string')
+    isOptionalString(value.message)
   );
 }
 

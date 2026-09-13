@@ -1,4 +1,5 @@
 import { hasOnlyKeys, isRecord } from '@ankhorage/utility/object';
+import { isOptionalString } from '@ankhorage/utility/string';
 
 import {
   DRAWER_POSITIONS,
@@ -132,7 +133,7 @@ function isStackHeaderOptions(value: unknown): boolean {
 /*** Validate shared stack header field values after branch-specific key filtering. */
 function isStackHeaderOptionsShape(value: Record<string, unknown>): boolean {
   return (
-    (value.title === undefined || typeof value.title === 'string') &&
+    isOptionalString(value.title) &&
     (value.headerShown === undefined || typeof value.headerShown === 'boolean') &&
     (value.headerTransparent === undefined || typeof value.headerTransparent === 'boolean') &&
     (value.headerBackVisible === undefined || typeof value.headerBackVisible === 'boolean')
@@ -241,8 +242,7 @@ function isHeadlessTabsPresentationConfig(value: Record<string, unknown>): boole
   if (value.responsive !== undefined && !isResponsiveTabsPresentation(value.responsive)) {
     return false;
   }
-  if (!(value.customPresentationId === undefined || typeof value.customPresentationId === 'string'))
-    return false;
+  if (!isOptionalString(value.customPresentationId)) return false;
   if (contains(FIXED_HEADLESS_TABS_PRESENTATIONS, value.presentation)) {
     return value.responsive === undefined && value.customPresentationId === undefined;
   }

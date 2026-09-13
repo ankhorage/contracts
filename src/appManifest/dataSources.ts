@@ -1,4 +1,5 @@
 import { hasOnlyKeys, isRecord } from '@ankhorage/utility/object';
+import { isOptionalString } from '@ankhorage/utility/string';
 
 import {
   isAdapterRef,
@@ -35,8 +36,8 @@ function isDatabaseDataSource(value: unknown): value is Record<string, unknown> 
     hasOnlyKeys(value, DATABASE_SOURCE_KEYS) &&
     typeof value.id === 'string' &&
     value.kind === 'database' &&
-    (value.name === undefined || typeof value.name === 'string') &&
-    (value.description === undefined || typeof value.description === 'string') &&
+    isOptionalString(value.name) &&
+    isOptionalString(value.description) &&
     (value.credential === undefined || isCredentialRef(value.credential)) &&
     isRecord(value.adapter) &&
     value.adapter.kind === 'database' &&

@@ -1,4 +1,5 @@
 import { isRecord } from '@ankhorage/utility/object';
+import { isOptionalString } from '@ankhorage/utility/string';
 
 import { isMediaAssetReference } from '../media';
 
@@ -10,7 +11,7 @@ export function isIconSpec(value: unknown): boolean {
     (value.size === undefined ||
       typeof value.size === 'string' ||
       typeof value.size === 'number') &&
-    (value.color === undefined || typeof value.color === 'string');
+    isOptionalString(value.color);
   if (!hasValidPresentation) return false;
 
   if ('source' in value) {
@@ -22,8 +23,6 @@ export function isIconSpec(value: unknown): boolean {
   }
 
   return (
-    typeof value.name === 'string' &&
-    (value.provider === undefined || typeof value.provider === 'string') &&
-    value.source === undefined
+    typeof value.name === 'string' && isOptionalString(value.provider) && value.source === undefined
   );
 }

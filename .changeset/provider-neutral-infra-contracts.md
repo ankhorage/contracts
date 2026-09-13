@@ -26,4 +26,5 @@ Phase 1 of ankhorage/infra#145 or implement provider lifecycle behavior.
 Use the published Utility object, array and string helpers directly for structural validation.
 Remove local duplicates and the internal AppManifest shared helper module without changing the
 public parser behavior.
-Require Utility `^0.7.0`, which removes the reverse Contracts dependency and avoids a package cycle.
+Require Utility `^0.8.0`, which has no reverse Contracts dependency and exports `isOptionalString`.
+Reuse this guard for optional string fields instead of duplicating its predicate inline.

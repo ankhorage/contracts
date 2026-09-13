@@ -1,5 +1,5 @@
 import { hasOnlyKeys, isRecord } from '@ankhorage/utility/object';
-import { isNonEmptyString } from '@ankhorage/utility/string';
+import { isNonEmptyString, isOptionalString } from '@ankhorage/utility/string';
 
 import type { ApiDefinition, ApiDefinitionList } from '../data';
 import { isCredentialRef, isDataEndpointRegistry, isDataSchemaRegistry } from './data';
@@ -47,9 +47,7 @@ function isApiBaseDefinition(value: unknown): value is Record<string, unknown> {
     isNonEmptyString(value.id) &&
     (value.origin === 'external' || value.origin === 'internal') &&
     (value.protocol === 'graphql' || value.protocol === 'rest') &&
-    [value.name, value.description].every(
-      (entry) => entry === undefined || typeof entry === 'string',
-    ) &&
+    [value.name, value.description].every(isOptionalString) &&
     (value.credential === undefined || isCredentialRef(value.credential)) &&
     isDataEndpointRegistry(value.endpoints) &&
     (value.schemas === undefined || isDataSchemaRegistry(value.schemas)) &&
@@ -85,9 +83,9 @@ function isOpenApiDocumentRef(value: unknown): boolean {
   return (
     isRecord(value) &&
     hasOnlyKeys(value, OPEN_API_KEYS) &&
-    (value.url === undefined || typeof value.url === 'string') &&
-    (value.documentId === undefined || typeof value.documentId === 'string') &&
-    (value.version === undefined || typeof value.version === 'string')
+    isOptionalString(value.url) &&
+    isOptionalString(value.documentId) &&
+    isOptionalString(value.version)
   );
 }
 
@@ -97,6 +95,6 @@ function isGraphQlIntrospection(value: unknown): boolean {
     isRecord(value) &&
     hasOnlyKeys(value, INTROSPECTION_KEYS) &&
     typeof value.enabled === 'boolean' &&
-    (value.schemaVersion === undefined || typeof value.schemaVersion === 'string')
+    isOptionalString(value.schemaVersion)
   );
 }
