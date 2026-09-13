@@ -5,12 +5,15 @@ import type {
   InfraAdapterDescriptor,
   InfraAuthSpec,
   InfraAuthzSpec,
+  InfraComputeAdapter,
+  InfraComputeSnapshot,
   InfraControlPlaneCredentialRef,
   InfraDeploymentSpec,
   InfraDestroyRequest,
   InfraManifest,
   InfraObjectStorageSpec,
   InfraOutput,
+  InfraResult,
   InfraRuntimeAdapter,
   InfraRuntimeDesiredState,
   InfraRuntimeProviderId,
@@ -107,4 +110,15 @@ it('requires runtime desired state for every target-dependent lifecycle operatio
   ] = [true, true, true];
 
   expect(lifecycleBoundary).toEqual([true, true, true]);
+});
+
+it('requires read-only compute discovery separately from mutating ensure', () => {
+  type Adapter = InfraComputeAdapter<'local'>;
+
+  const computeBoundary: readonly [
+    Assignable<Awaited<ReturnType<Adapter['inspectAsync']>>, InfraResult<InfraComputeSnapshot>>,
+    Assignable<Awaited<ReturnType<Adapter['ensureAsync']>>, InfraResult<InfraComputeSnapshot>>,
+  ] = [true, true];
+
+  expect(computeBoundary).toEqual([true, true]);
 });

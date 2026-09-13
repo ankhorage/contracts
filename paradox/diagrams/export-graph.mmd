@@ -732,7 +732,7 @@ graph LR
   module_src_types_infraAdapters_ts --> export_InfraComputeAdapter
   export_InfraComputeAdapter -.-> export_InfraAdapterDescriptor
   export_InfraComputeAdapter -.-> export_InfraComputeSelection
-  export_InfraComputeAdapter -.-> export_InfraComputeTarget
+  export_InfraComputeAdapter -.-> export_InfraComputeSnapshot
   export_InfraComputeAdapter -.-> export_InfraDestroyRequest
   export_InfraComputeAdapter -.-> export_InfraExecutionContext
   export_InfraComputeAdapter -.-> export_InfraPlanAction
@@ -746,6 +746,11 @@ graph LR
   module_src_types_infraManifest_ts --> export_InfraComputeProviderId
   export_InfraComputeSelection["InfraComputeSelection"]
   module_src_types_infraManifest_ts --> export_InfraComputeSelection
+  export_InfraComputeSnapshot["InfraComputeSnapshot"]
+  module_src_types_infraAdapters_ts --> export_InfraComputeSnapshot
+  export_InfraComputeSnapshot -.-> export_InfraComputeTarget
+  export_InfraComputeSnapshot -.-> export_InfraOutput
+  export_InfraComputeSnapshot -.-> export_InfraOwnedResource
   export_InfraComputeTarget["InfraComputeTarget"]
   module_src_types_infraTargets_ts --> export_InfraComputeTarget
   export_InfraControlPlaneCredentialRef["InfraControlPlaneCredentialRef"]

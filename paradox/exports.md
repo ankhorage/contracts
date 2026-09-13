@@ -2394,18 +2394,19 @@ Source: `src/types/infraManifest.ts:10:1`
 
 Kind: `type`
 Module: `src/types/infraAdapters.ts`
-Source: `src/types/infraAdapters.ts:54:1`
+Source: `src/types/infraAdapters.ts:59:1`
 
 ### Members
 
-| Name          | Kind     | Type                                                                                                                                                                         | Required | Description |
-| ------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| descriptor    | property | `InfraAdapterDescriptor<P>`                                                                                                                                                  | yes      |             |
-| destroyAsync  | method   | `(context: InfraExecutionContext, request: InfraDestroyRequest) => Promise<InfraResult<InfraReconcileResult>>`                                                               | yes      |             |
-| ensureAsync   | method   | `(context: InfraExecutionContext, selection: InfraComputeSelection<P>) => Promise<InfraResult<InfraReconcileResult & { readonly targets: readonly InfraComputeTarget[]; }>>` | yes      |             |
-| planAsync     | method   | `(context: InfraExecutionContext, selection: InfraComputeSelection<P>) => Promise<InfraResult<readonly InfraPlanAction[]>>`                                                  | yes      |             |
-| statusAsync   | method   | `(context: InfraExecutionContext) => Promise<InfraResult<readonly InfraResourceStatus[]>>`                                                                                   | yes      |             |
-| validateAsync | method   | `(context: InfraExecutionContext, selection: InfraComputeSelection<P>) => Promise<InfraResult<null>>`                                                                        | yes      |             |
+| Name          | Kind     | Type                                                                                                                        | Required | Description |
+| ------------- | -------- | --------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
+| descriptor    | property | `InfraAdapterDescriptor<P>`                                                                                                 | yes      |             |
+| destroyAsync  | method   | `(context: InfraExecutionContext, request: InfraDestroyRequest) => Promise<InfraResult<InfraReconcileResult>>`              | yes      |             |
+| ensureAsync   | method   | `(context: InfraExecutionContext, selection: InfraComputeSelection<P>) => Promise<InfraResult<InfraComputeSnapshot>>`       | yes      |             |
+| inspectAsync  | method   | `(context: InfraExecutionContext, selection: InfraComputeSelection<P>) => Promise<InfraResult<InfraComputeSnapshot>>`       | yes      |             |
+| planAsync     | method   | `(context: InfraExecutionContext, selection: InfraComputeSelection<P>) => Promise<InfraResult<readonly InfraPlanAction[]>>` | yes      |             |
+| statusAsync   | method   | `(context: InfraExecutionContext) => Promise<InfraResult<readonly InfraResourceStatus[]>>`                                  | yes      |             |
+| validateAsync | method   | `(context: InfraExecutionContext, selection: InfraComputeSelection<P>) => Promise<InfraResult<null>>`                       | yes      |             |
 
 ## InfraComputeConfigMap
 
@@ -2431,6 +2432,20 @@ Source: `src/types/infraManifest.ts:17:1`
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
 Source: `src/types/infraManifest.ts:50:1`
+
+## InfraComputeSnapshot
+
+Kind: `type`
+Module: `src/types/infraAdapters.ts`
+Source: `src/types/infraAdapters.ts:55:1`
+
+### Members
+
+| Name      | Kind     | Type                            | Required | Description |
+| --------- | -------- | ------------------------------- | -------- | ----------- |
+| outputs   | property | `readonly InfraOutput[]`        | yes      |             |
+| resources | property | `readonly InfraOwnedResource[]` | yes      |             |
+| targets   | property | `readonly InfraComputeTarget[]` | yes      |             |
 
 ## InfraComputeTarget
 
@@ -2734,7 +2749,7 @@ Source: `src/types/infraLifecycle.ts:31:1`
 
 Kind: `type`
 Module: `src/types/infraAdapters.ts`
-Source: `src/types/infraAdapters.ts:88:1`
+Source: `src/types/infraAdapters.ts:96:1`
 
 ### Members
 
@@ -2767,7 +2782,7 @@ Source: `src/types/infraManifest.ts:36:1`
 
 Kind: `type`
 Module: `src/types/infraAdapters.ts`
-Source: `src/types/infraAdapters.ts:78:1`
+Source: `src/types/infraAdapters.ts:86:1`
 
 ### Members
 
@@ -2828,7 +2843,7 @@ Source: `src/types/infraManifest.ts:114:1`
 
 Kind: `type`
 Module: `src/types/infraAdapters.ts`
-Source: `src/types/infraAdapters.ts:123:1`
+Source: `src/types/infraAdapters.ts:131:1`
 
 ### Members
 

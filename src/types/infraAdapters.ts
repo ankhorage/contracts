@@ -51,6 +51,11 @@ export interface InfraReconcileResult {
   readonly outputs: readonly InfraOutput[];
 }
 
+/** Current portable compute state resolved without creating, updating or deleting resources. */
+export interface InfraComputeSnapshot extends InfraReconcileResult {
+  readonly targets: readonly InfraComputeTarget[];
+}
+
 export interface InfraComputeAdapter<P extends InfraComputeProviderId = InfraComputeProviderId> {
   readonly descriptor: InfraAdapterDescriptor<P>;
   /** Read-only prerequisites, config and control-plane credential validation. */
@@ -58,6 +63,11 @@ export interface InfraComputeAdapter<P extends InfraComputeProviderId = InfraCom
     context: InfraExecutionContext,
     selection: InfraComputeSelection<P>,
   ): Promise<InfraResult<null>>;
+  /** Read-only discovery for planning and stateless runtime projection. Missing compute is empty. */
+  inspectAsync(
+    context: InfraExecutionContext,
+    selection: InfraComputeSelection<P>,
+  ): Promise<InfraResult<InfraComputeSnapshot>>;
   planAsync(
     context: InfraExecutionContext,
     selection: InfraComputeSelection<P>,
@@ -65,9 +75,7 @@ export interface InfraComputeAdapter<P extends InfraComputeProviderId = InfraCom
   ensureAsync(
     context: InfraExecutionContext,
     selection: InfraComputeSelection<P>,
-  ): Promise<
-    InfraResult<InfraReconcileResult & { readonly targets: readonly InfraComputeTarget[] }>
-  >;
+  ): Promise<InfraResult<InfraComputeSnapshot>>;
   statusAsync(context: InfraExecutionContext): Promise<InfraResult<readonly InfraResourceStatus[]>>;
   destroyAsync(
     context: InfraExecutionContext,
