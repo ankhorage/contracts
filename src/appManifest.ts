@@ -13,6 +13,12 @@ import {
 import { isRecord, isStringArray } from './appManifest/shared';
 import type { AppManifest } from './types';
 
+export type {
+  SplashScreenModeSpec,
+  SplashScreenResizeMode,
+  SplashScreenSpec,
+} from './appManifest/splashScreen';
+
 export type AppManifestParseResult =
   | { readonly ok: true; readonly manifest: AppManifest }
   | { readonly ok: false; readonly message: string };

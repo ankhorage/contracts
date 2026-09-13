@@ -1,5 +1,6 @@
 import type { ColorHarmony } from '@ankhorage/color-theory';
 
+import type { SplashScreenSpec } from './appManifest/splashScreen';
 import type { AuthFlowConfig, AuthIdentifierKind, AuthOAuthConfig, AuthSignUpField } from './auth';
 import type {
   BindingValueSource,
@@ -266,22 +267,6 @@ export interface ScreenSpec {
   root: UiNode;
   dataLoaders?: readonly ScreenDataLoaderDefinition[];
   requires?: ScreenRequirements;
-}
-
-export type SplashScreenResizeMode = 'contain' | 'cover' | 'native';
-
-export interface SplashScreenAssetSpec {
-  readonly image?: MediaAssetReference;
-  readonly imageWidth?: number;
-  readonly resizeMode?: SplashScreenResizeMode;
-}
-
-export interface SplashScreenModeSpec extends SplashScreenAssetSpec {
-  readonly backgroundColor?: string;
-}
-
-export interface SplashScreenSpec extends SplashScreenModeSpec {
-  readonly dark?: SplashScreenModeSpec;
 }
 
 export interface DeploymentSpec {
