@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 14.0.0
+
+### Major Changes
+
+- abe51bb: Derive portable AppManifest splash-screen options from the official Expo splash-screen plugin contract while replacing file paths with media references.
+
 ## 13.0.1
 
 ### Patch Changes
