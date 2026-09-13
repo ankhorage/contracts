@@ -2,11 +2,26 @@ import { isRecord } from '@ankhorage/utility/object';
 import { isNonEmptyString } from '@ankhorage/utility/string';
 
 import { APP_ENVIRONMENT_IDS } from '../environments';
+import type { InfraWorkloadScalarValue } from '../types/infraWorkload';
 import { isInfraCredentialRef } from './isInfraCredentialRef';
 import { isInfraShape } from './isInfraShape';
 
 /*** Workload values explicitly distinguish public literals, output dependencies and secret references. */
 export function isInfraWorkloadValue(value: unknown): boolean {
+  return (
+    isInfraWorkloadScalarValue(value) ||
+    isInfraShape(value, {
+      kind: (kind) => kind === 'template',
+      segments: (segments) =>
+        Array.isArray(segments) &&
+        segments.length > 0 &&
+        segments.every(isInfraWorkloadScalarValue),
+    })
+  );
+}
+
+/*** Validate one non-composite workload value segment. */
+function isInfraWorkloadScalarValue(value: unknown): value is InfraWorkloadScalarValue {
   if (!isRecord(value)) return false;
   switch (value.kind) {
     case 'literal':

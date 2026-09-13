@@ -118,6 +118,8 @@ export type InfraSecretStoreSpec = {
 export interface InfraNetworkingSpec {
   /** Public DNS name intent, not automatic DNS/CDN vendor provisioning. */
   readonly domain?: string;
+  /** Absolute HTTP(S) origin used by workloads that must know their external URL at startup. */
+  readonly publicBaseUrl?: string;
 }
 
 export interface InfraEnvironmentSpec {

@@ -6,7 +6,7 @@ export interface InfraWorkloadArtifact {
   readonly image: string;
 }
 
-export type InfraWorkloadValue =
+export type InfraWorkloadScalarValue =
   | { readonly kind: 'literal'; readonly value: string }
   | { readonly kind: 'secret'; readonly reference: InfraSecretReference }
   | {
@@ -15,6 +15,14 @@ export type InfraWorkloadValue =
       readonly key: string;
     }
   | { readonly kind: 'output'; readonly resourceId: string; readonly output: string };
+
+export type InfraWorkloadValue =
+  | InfraWorkloadScalarValue
+  | {
+      readonly kind: 'template';
+      /** Ordered scalar segments materialized into one value only at the runtime boundary. */
+      readonly segments: readonly InfraWorkloadScalarValue[];
+    };
 
 export interface InfraWorkloadPort {
   readonly name: string;

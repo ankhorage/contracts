@@ -31,6 +31,18 @@ const workload = {
       key: 'POSTGRES_PASSWORD',
     },
     DB_HOST: { kind: 'output', resourceId: 'database', output: 'host' },
+    DB_URL: {
+      kind: 'template',
+      segments: [
+        { kind: 'literal', value: 'postgresql://postgres:' },
+        {
+          kind: 'credential',
+          reference: { source: 'control-plane', name: 'SUPABASE_BOOTSTRAP' },
+          key: 'POSTGRES_PASSWORD',
+        },
+        { kind: 'literal', value: '@database:5432/postgres' },
+      ],
+    },
   },
   files: [{ path: '/etc/backend/config.json', content: { kind: 'literal', value: '{}' } }],
   health: { kind: 'http', port: 8080, path: '/health', intervalSeconds: 5 },
@@ -95,10 +107,27 @@ const invalidWorkloads = [
       },
     },
   },
+  { environment: { DATABASE_URL: { kind: 'template', segments: [] } } },
+  {
+    environment: {
+      DATABASE_URL: {
+        kind: 'template',
+        segments: [{ kind: 'template', segments: [{ kind: 'literal', value: 'nested' }] }],
+      },
+    },
+  },
+  {
+    environment: {
+      DATABASE_URL: {
+        kind: 'template',
+        segments: [{ kind: 'credential', reference: { source: 'control-plane', name: 'DB' } }],
+      },
+    },
+  },
 ];
 
 describe('runtime-neutral workload boundary', () => {
-  it('accepts prebuilt images, dependency outputs, config files and secret references on every runtime', () => {
+  it('accepts prebuilt images, composed values, outputs, files and secrets on every runtime', () => {
     expect(isInfraWorkloadSpec(JSON.parse(JSON.stringify(workload)))).toBe(true);
     for (const provider of ['minikube', 'k3s', 'docker-compose']) {
       expect(

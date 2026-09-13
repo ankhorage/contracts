@@ -2510,7 +2510,7 @@ Source: `src/types/infraLifecycle.ts:21:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:123:1`
+Source: `src/types/infraManifest.ts:125:1`
 
 ### Members
 
@@ -2578,7 +2578,7 @@ Source: `src/types/infraLifecycle.ts:88:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:134:1`
+Source: `src/types/infraManifest.ts:136:1`
 
 ### Members
 
@@ -2597,9 +2597,10 @@ Source: `src/types/infraManifest.ts:118:1`
 
 ### Members
 
-| Name   | Kind     | Type                  | Required | Description |
-| ------ | -------- | --------------------- | -------- | ----------- |
-| domain | property | `string \| undefined` | no       |             |
+| Name          | Kind     | Type                  | Required | Description |
+| ------------- | -------- | --------------------- | -------- | ----------- |
+| domain        | property | `string \| undefined` | no       |             |
+| publicBaseUrl | property | `string \| undefined` | no       |             |
 
 ## InfraObjectStorageConfigMap
 
@@ -2872,7 +2873,7 @@ Source: `src/types/infraWorkload.ts:3:1`
 
 Kind: `type`
 Module: `src/types/infraWorkload.ts`
-Source: `src/types/infraWorkload.ts:49:1`
+Source: `src/types/infraWorkload.ts:57:1`
 
 ### Members
 
@@ -2885,13 +2886,13 @@ Source: `src/types/infraWorkload.ts:49:1`
 
 Kind: `unknown`
 Module: `src/types/infraWorkload.ts`
-Source: `src/types/infraWorkload.ts:25:1`
+Source: `src/types/infraWorkload.ts:33:1`
 
 ## InfraWorkloadPort
 
 Kind: `type`
 Module: `src/types/infraWorkload.ts`
-Source: `src/types/infraWorkload.ts:19:1`
+Source: `src/types/infraWorkload.ts:27:1`
 
 ### Members
 
@@ -2905,7 +2906,7 @@ Source: `src/types/infraWorkload.ts:19:1`
 
 Kind: `type`
 Module: `src/types/infraWorkload.ts`
-Source: `src/types/infraWorkload.ts:35:1`
+Source: `src/types/infraWorkload.ts:43:1`
 
 ### Members
 
@@ -2914,11 +2915,17 @@ Source: `src/types/infraWorkload.ts:35:1`
 | cpuMillis | property | `number \| undefined` | no       |             |
 | memoryMiB | property | `number \| undefined` | no       |             |
 
+## InfraWorkloadScalarValue
+
+Kind: `unknown`
+Module: `src/types/infraWorkload.ts`
+Source: `src/types/infraWorkload.ts:9:1`
+
 ## InfraWorkloadSpec
 
 Kind: `type`
 Module: `src/types/infraWorkload.ts`
-Source: `src/types/infraWorkload.ts:54:1`
+Source: `src/types/infraWorkload.ts:62:1`
 
 ### Members
 
@@ -2942,13 +2949,13 @@ Source: `src/types/infraWorkload.ts:54:1`
 
 Kind: `unknown`
 Module: `src/types/infraWorkload.ts`
-Source: `src/types/infraWorkload.ts:9:1`
+Source: `src/types/infraWorkload.ts:19:1`
 
 ## InfraWorkloadVolumeSpec
 
 Kind: `type`
 Module: `src/types/infraWorkload.ts`
-Source: `src/types/infraWorkload.ts:40:1`
+Source: `src/types/infraWorkload.ts:48:1`
 
 ### Members
 

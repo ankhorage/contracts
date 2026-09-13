@@ -7937,7 +7937,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 123,
+      "line": 125,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -8199,7 +8199,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 134,
+      "line": 136,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -8255,6 +8255,13 @@
     "members": [
       {
         "name": "domain",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "publicBaseUrl",
         "kind": "property",
         "type": "string | undefined",
         "required": false,
@@ -9128,7 +9135,7 @@
     "modulePath": "src/types/infraWorkload.ts",
     "sourceLocation": {
       "filePath": "src/types/infraWorkload.ts",
-      "line": 49,
+      "line": 57,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -9161,7 +9168,7 @@
     "modulePath": "src/types/infraWorkload.ts",
     "sourceLocation": {
       "filePath": "src/types/infraWorkload.ts",
-      "line": 25,
+      "line": 33,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -9179,7 +9186,7 @@
     "modulePath": "src/types/infraWorkload.ts",
     "sourceLocation": {
       "filePath": "src/types/infraWorkload.ts",
-      "line": 19,
+      "line": 27,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -9219,7 +9226,7 @@
     "modulePath": "src/types/infraWorkload.ts",
     "sourceLocation": {
       "filePath": "src/types/infraWorkload.ts",
-      "line": 35,
+      "line": 43,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -9244,6 +9251,24 @@
     "structuredRows": []
   },
   {
+    "name": "InfraWorkloadScalarValue",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/types/infraWorkload.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraWorkload.ts",
+      "line": 9,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
     "name": "InfraWorkloadSpec",
     "description": null,
     "isReadme": false,
@@ -9252,7 +9277,7 @@
     "modulePath": "src/types/infraWorkload.ts",
     "sourceLocation": {
       "filePath": "src/types/infraWorkload.ts",
-      "line": 54,
+      "line": 62,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -9370,7 +9395,7 @@
     "modulePath": "src/types/infraWorkload.ts",
     "sourceLocation": {
       "filePath": "src/types/infraWorkload.ts",
-      "line": 9,
+      "line": 19,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -9388,7 +9413,7 @@
     "modulePath": "src/types/infraWorkload.ts",
     "sourceLocation": {
       "filePath": "src/types/infraWorkload.ts",
-      "line": 40,
+      "line": 48,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],

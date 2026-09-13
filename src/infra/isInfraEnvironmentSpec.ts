@@ -42,9 +42,25 @@ function isEnvironmentShape(value: unknown): value is InfraEnvironmentSpec {
         schema: infraFields.optionalText,
       }),
     networking: (networking) =>
-      networking === undefined || isInfraShape(networking, { domain: infraFields.optionalText }),
+      networking === undefined ||
+      isInfraShape(networking, {
+        domain: infraFields.optionalText,
+        publicBaseUrl: (publicBaseUrl) =>
+          publicBaseUrl === undefined || isPublicHttpOrigin(publicBaseUrl),
+      }),
     workloads: (workloads) => workloads === undefined || isWorkloads(workloads),
   } satisfies InfraShape<InfraEnvironmentSpec>);
+}
+
+/*** Public workload configuration uses one canonical absolute HTTP(S) origin without path state. */
+function isPublicHttpOrigin(value: unknown): boolean {
+  if (!isNonEmptyString(value)) return false;
+  try {
+    const url = new URL(value);
+    return (url.protocol === 'http:' || url.protocol === 'https:') && url.origin === value;
+  } catch {
+    return false;
+  }
 }
 
 /*** Validate portable, unique Cerbos policy files without host paths or traversal. */
