@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 16.0.0
+
+### Major Changes
+
+- 5f7c17d: Require runtime desired state to carry the already resolved outputs available to portable workload output references.
+
 ## 15.0.0
 
 ### Major Changes
