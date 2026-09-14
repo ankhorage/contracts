@@ -28,6 +28,8 @@ export interface InfraWorkloadPort {
   readonly name: string;
   readonly port: number;
   readonly protocol?: 'tcp' | 'udp';
+  /** Exact external listener port requested for a public single-replica workload. */
+  readonly publishedPort?: number;
 }
 
 export type InfraWorkloadHealthSpec = {

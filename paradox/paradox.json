@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v18.0.0",
+      "value": "v19.0.0",
       "color": "cb3837"
     },
     {
@@ -11054,7 +11054,7 @@
       "modulePath": "src/types/infraWorkload.ts",
       "sourceLocation": {
         "filePath": "src/types/infraWorkload.ts",
-        "line": 57,
+        "line": 59,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11087,7 +11087,7 @@
       "modulePath": "src/types/infraWorkload.ts",
       "sourceLocation": {
         "filePath": "src/types/infraWorkload.ts",
-        "line": 33,
+        "line": 35,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11132,6 +11132,13 @@
           "type": "\"tcp\" | \"udp\" | undefined",
           "required": false,
           "description": null
+        },
+        {
+          "name": "publishedPort",
+          "kind": "property",
+          "type": "number | undefined",
+          "required": false,
+          "description": null
         }
       ],
       "structuredRows": []
@@ -11145,7 +11152,7 @@
       "modulePath": "src/types/infraWorkload.ts",
       "sourceLocation": {
         "filePath": "src/types/infraWorkload.ts",
-        "line": 43,
+        "line": 45,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11196,7 +11203,7 @@
       "modulePath": "src/types/infraWorkload.ts",
       "sourceLocation": {
         "filePath": "src/types/infraWorkload.ts",
-        "line": 62,
+        "line": 64,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11332,7 +11339,7 @@
       "modulePath": "src/types/infraWorkload.ts",
       "sourceLocation": {
         "filePath": "src/types/infraWorkload.ts",
-        "line": 48,
+        "line": 50,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -20069,7 +20076,7 @@
       "description": "Check all environment field shapes before inspecting canonical dependency metadata.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraEnvironmentSpec.ts",
-        "line": 20,
+        "line": 22,
         "column": 1
       }
     },
@@ -20078,7 +20085,7 @@
       "description": "Public workload configuration uses one canonical absolute HTTP(S) origin without path state.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraEnvironmentSpec.ts",
-        "line": 56,
+        "line": 58,
         "column": 1
       }
     },
@@ -20087,7 +20094,7 @@
       "description": "Validate portable, unique Cerbos policy files without host paths or traversal.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraEnvironmentSpec.ts",
-        "line": 67,
+        "line": 69,
         "column": 1
       }
     },
@@ -20096,7 +20103,7 @@
       "description": "Object storage can vary independently from database/auth; there is no implicit auto provider.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraEnvironmentSpec.ts",
-        "line": 83,
+        "line": 85,
         "column": 1
       }
     },
@@ -20105,7 +20112,16 @@
       "description": "Duplicate desired workload identities cannot be reconciled safely.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraEnvironmentSpec.ts",
-        "line": 99,
+        "line": 101,
+        "column": 1
+      }
+    },
+    {
+      "name": "hasUniquePublishedPorts",
+      "description": "Prevent two workloads in one environment from claiming the same external listener.",
+      "sourceLocation": {
+        "filePath": "src/infra/isInfraEnvironmentSpec.ts",
+        "line": 110,
         "column": 1
       }
     },
@@ -20114,7 +20130,7 @@
       "description": "Check catalog dependencies against selected sibling capabilities and runtime capabilities.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraEnvironmentSpec.ts",
-        "line": 108,
+        "line": 120,
         "column": 1
       }
     },
@@ -20168,7 +20184,16 @@
       "description": "Named transport ports stay independent from runtime resource types.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraWorkloadSpec.ts",
-        "line": 50,
+        "line": 55,
+        "column": 1
+      }
+    },
+    {
+      "name": "hasValidPublishedPorts",
+      "description": "Require fixed external listeners to belong to one public workload replica.",
+      "sourceLocation": {
+        "filePath": "src/infra/isInfraWorkloadSpec.ts",
+        "line": 65,
         "column": 1
       }
     },
@@ -20177,7 +20202,7 @@
       "description": "Portable files model policy/config materialization without host filesystem access.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraWorkloadSpec.ts",
-        "line": 59,
+        "line": 82,
         "column": 1
       }
     },
@@ -20186,7 +20211,7 @@
       "description": "Persistence has explicit ownership-local identity and a retention policy.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraWorkloadSpec.ts",
-        "line": 64,
+        "line": 87,
         "column": 1
       }
     },
@@ -20195,7 +20220,7 @@
       "description": "Workload paths are absolute container paths, never relative host traversal.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraWorkloadSpec.ts",
-        "line": 74,
+        "line": 97,
         "column": 1
       }
     },
@@ -20204,7 +20229,7 @@
       "description": "Duplicate workload-local identities would make runtime projection ambiguous.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraWorkloadSpec.ts",
-        "line": 84,
+        "line": 107,
         "column": 1
       }
     },
@@ -23507,6 +23532,12 @@
         "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
       },
       {
+        "fromSymbol": "isInfraEnvironmentSpec",
+        "toSymbol": "hasUniquePublishedPorts",
+        "callExpression": "hasUniquePublishedPorts",
+        "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
+      },
+      {
         "fromSymbol": "isEnvironmentShape",
         "toSymbol": "isInfraShape",
         "callExpression": "isInfraShape",
@@ -23735,9 +23766,27 @@
         "sourcePath": "src/infra/isInfraWorkloadSpec.ts"
       },
       {
+        "fromSymbol": "isInfraWorkloadSpec",
+        "toSymbol": "hasValidPublishedPorts",
+        "callExpression": "hasValidPublishedPorts",
+        "sourcePath": "src/infra/isInfraWorkloadSpec.ts"
+      },
+      {
         "fromSymbol": "isPort",
         "toSymbol": "isInfraShape",
         "callExpression": "isInfraShape",
+        "sourcePath": "src/infra/isInfraWorkloadSpec.ts"
+      },
+      {
+        "fromSymbol": "hasValidPublishedPorts",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/infra/isInfraWorkloadSpec.ts"
+      },
+      {
+        "fromSymbol": "src/infra/isInfraWorkloadSpec.ts",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
         "sourcePath": "src/infra/isInfraWorkloadSpec.ts"
       },
       {
@@ -23750,12 +23799,6 @@
         "fromSymbol": "isVolume",
         "toSymbol": "isInfraShape",
         "callExpression": "isInfraShape",
-        "sourcePath": "src/infra/isInfraWorkloadSpec.ts"
-      },
-      {
-        "fromSymbol": "src/infra/isInfraWorkloadSpec.ts",
-        "toSymbol": "isRecord",
-        "callExpression": "isRecord",
         "sourcePath": "src/infra/isInfraWorkloadSpec.ts"
       },
       {

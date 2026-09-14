@@ -11,39 +11,44 @@ import { isInfraWorkloadValue } from './isInfraWorkloadValue';
 
 /*** Validate the portable desired workload; runtime-specific fields and plaintext secret objects fail. */
 export function isInfraWorkloadSpec(value: unknown): value is InfraWorkloadSpec {
-  return isInfraShape(value, {
-    id: isNonEmptyString,
-    artifact: (artifact) =>
-      isInfraShape(artifact, { kind: (kind) => kind === 'image', image: isNonEmptyString }),
-    command: infraFields.optionalStrings,
-    args: (args) => args === undefined || isStringArray(args),
-    ports: (ports) =>
-      ports === undefined ||
-      (Array.isArray(ports) && ports.every(isPort) && hasUniqueField(ports, 'name')),
-    environment: (environment) =>
-      environment === undefined ||
-      (isRecord(environment) && Object.values(environment).every(isInfraWorkloadValue)),
-    files: (files) =>
-      files === undefined ||
-      (Array.isArray(files) && files.every(isFile) && hasUniqueField(files, 'path')),
-    health: (health) => health === undefined || isInfraWorkloadHealth(health),
-    resources: (resources) =>
-      resources === undefined ||
-      isInfraShape(resources, {
-        cpuMillis: infraFields.optionalPositiveInteger,
-        memoryMiB: infraFields.optionalPositiveInteger,
-      }),
-    persistence: (volumes) =>
-      volumes === undefined ||
-      (Array.isArray(volumes) &&
-        volumes.every(isVolume) &&
-        hasUniqueField(volumes, 'id') &&
-        hasUniqueField(volumes, 'mountPath')),
-    exposure: (exposure) =>
-      exposure === undefined || exposure === 'internal' || exposure === 'public',
-    replicas: infraFields.optionalNonnegativeInteger,
-    dependsOn: infraFields.optionalStrings,
-  } satisfies InfraShape<InfraWorkloadSpec>);
+  if (
+    !isInfraShape(value, {
+      id: isNonEmptyString,
+      artifact: (artifact) =>
+        isInfraShape(artifact, { kind: (kind) => kind === 'image', image: isNonEmptyString }),
+      command: infraFields.optionalStrings,
+      args: (args) => args === undefined || isStringArray(args),
+      ports: (ports) =>
+        ports === undefined ||
+        (Array.isArray(ports) && ports.every(isPort) && hasUniqueField(ports, 'name')),
+      environment: (environment) =>
+        environment === undefined ||
+        (isRecord(environment) && Object.values(environment).every(isInfraWorkloadValue)),
+      files: (files) =>
+        files === undefined ||
+        (Array.isArray(files) && files.every(isFile) && hasUniqueField(files, 'path')),
+      health: (health) => health === undefined || isInfraWorkloadHealth(health),
+      resources: (resources) =>
+        resources === undefined ||
+        isInfraShape(resources, {
+          cpuMillis: infraFields.optionalPositiveInteger,
+          memoryMiB: infraFields.optionalPositiveInteger,
+        }),
+      persistence: (volumes) =>
+        volumes === undefined ||
+        (Array.isArray(volumes) &&
+          volumes.every(isVolume) &&
+          hasUniqueField(volumes, 'id') &&
+          hasUniqueField(volumes, 'mountPath')),
+      exposure: (exposure) =>
+        exposure === undefined || exposure === 'internal' || exposure === 'public',
+      replicas: infraFields.optionalNonnegativeInteger,
+      dependsOn: infraFields.optionalStrings,
+    } satisfies InfraShape<InfraWorkloadSpec>)
+  ) {
+    return false;
+  }
+  return hasValidPublishedPorts(value);
 }
 
 /*** Named transport ports stay independent from runtime resource types. */
@@ -52,7 +57,25 @@ function isPort(value: unknown): boolean {
     name: isNonEmptyString,
     port: infraFields.port,
     protocol: (protocol) => protocol === undefined || protocol === 'tcp' || protocol === 'udp',
+    publishedPort: infraFields.optionalPort,
   });
+}
+
+/*** Require fixed external listeners to belong to one public workload replica. */
+function hasValidPublishedPorts(workload: unknown): boolean {
+  if (!isRecord(workload)) return false;
+  const ports = Array.isArray(workload.ports) ? workload.ports : [];
+  const published = ports.flatMap((port) => {
+    if (!isRecord(port) || typeof port.publishedPort !== 'number') return [];
+    return [port.publishedPort];
+  });
+  return (
+    new Set(published).size === published.length &&
+    (published.length === 0 ||
+      (workload.exposure === 'public' &&
+        (workload.replicas === undefined ||
+          (typeof workload.replicas === 'number' && workload.replicas <= 1))))
+  );
 }
 
 /*** Portable files model policy/config materialization without host filesystem access. */

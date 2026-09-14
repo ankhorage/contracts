@@ -13,7 +13,9 @@ import { isInfraWorkloadSpec } from './isInfraWorkloadSpec';
 
 /*** Validate sibling capabilities and their required relationships within one environment. */
 export function isInfraEnvironmentSpec(value: unknown): value is InfraEnvironmentSpec {
-  return isEnvironmentShape(value) && hasServiceDependencies(value);
+  return (
+    isEnvironmentShape(value) && hasServiceDependencies(value) && hasUniquePublishedPorts(value)
+  );
 }
 
 /*** Check all environment field shapes before inspecting canonical dependency metadata. */
@@ -102,6 +104,16 @@ function isWorkloads(value: unknown): boolean {
     value.every(isInfraWorkloadSpec) &&
     new Set(value.map((workload) => workload.id)).size === value.length
   );
+}
+
+/*** Prevent two workloads in one environment from claiming the same external listener. */
+function hasUniquePublishedPorts(value: InfraEnvironmentSpec): boolean {
+  const ports = (value.workloads ?? []).flatMap((workload) =>
+    (workload.ports ?? []).flatMap(({ publishedPort }) =>
+      publishedPort === undefined ? [] : [publishedPort],
+    ),
+  );
+  return new Set(ports).size === ports.length;
 }
 
 /*** Check catalog dependencies against selected sibling capabilities and runtime capabilities. */

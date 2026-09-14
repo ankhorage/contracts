@@ -2890,7 +2890,7 @@ Source: `src/types/infraWorkload.ts:3:1`
 
 Kind: `type`
 Module: `src/types/infraWorkload.ts`
-Source: `src/types/infraWorkload.ts:57:1`
+Source: `src/types/infraWorkload.ts:59:1`
 
 ### Members
 
@@ -2903,7 +2903,7 @@ Source: `src/types/infraWorkload.ts:57:1`
 
 Kind: `unknown`
 Module: `src/types/infraWorkload.ts`
-Source: `src/types/infraWorkload.ts:33:1`
+Source: `src/types/infraWorkload.ts:35:1`
 
 ## InfraWorkloadPort
 
@@ -2913,17 +2913,18 @@ Source: `src/types/infraWorkload.ts:27:1`
 
 ### Members
 
-| Name     | Kind     | Type                          | Required | Description |
-| -------- | -------- | ----------------------------- | -------- | ----------- |
-| name     | property | `string`                      | yes      |             |
-| port     | property | `number`                      | yes      |             |
-| protocol | property | `"tcp" \| "udp" \| undefined` | no       |             |
+| Name          | Kind     | Type                          | Required | Description |
+| ------------- | -------- | ----------------------------- | -------- | ----------- |
+| name          | property | `string`                      | yes      |             |
+| port          | property | `number`                      | yes      |             |
+| protocol      | property | `"tcp" \| "udp" \| undefined` | no       |             |
+| publishedPort | property | `number \| undefined`         | no       |             |
 
 ## InfraWorkloadResourceSpec
 
 Kind: `type`
 Module: `src/types/infraWorkload.ts`
-Source: `src/types/infraWorkload.ts:43:1`
+Source: `src/types/infraWorkload.ts:45:1`
 
 ### Members
 
@@ -2942,7 +2943,7 @@ Source: `src/types/infraWorkload.ts:9:1`
 
 Kind: `type`
 Module: `src/types/infraWorkload.ts`
-Source: `src/types/infraWorkload.ts:62:1`
+Source: `src/types/infraWorkload.ts:64:1`
 
 ### Members
 
@@ -2972,7 +2973,7 @@ Source: `src/types/infraWorkload.ts:19:1`
 
 Kind: `type`
 Module: `src/types/infraWorkload.ts`
-Source: `src/types/infraWorkload.ts:48:1`
+Source: `src/types/infraWorkload.ts:50:1`
 
 ### Members
 
