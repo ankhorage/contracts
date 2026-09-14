@@ -348,7 +348,7 @@
                 data-target="src/infra/isInfraEnvironmentSpec.ts"
               >
                 src/infra/isInfraEnvironmentSpec.ts
-                <small>7 functions</small>
+                <small>8 functions</small>
               </button>
             </li>
             <li>
@@ -380,7 +380,7 @@
                 data-target="src/infra/isInfraWorkloadSpec.ts"
               >
                 src/infra/isInfraWorkloadSpec.ts
-                <small>6 functions</small>
+                <small>7 functions</small>
               </button>
             </li>
             <li>
@@ -19273,7 +19273,7 @@
                 data-search="InfraWorkloadFileSpec type src/types/infraWorkload.ts  InfraWorkloadValue"
               >
                 <h4>InfraWorkloadFileSpec</h4>
-                <p class="muted">type • <code>src/types/infraWorkload.ts:57:1</code></p>
+                <p class="muted">type • <code>src/types/infraWorkload.ts:59:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -19317,7 +19317,7 @@
                 data-search="InfraWorkloadHealthSpec unknown src/types/infraWorkload.ts "
               >
                 <h4>InfraWorkloadHealthSpec</h4>
-                <p class="muted">unknown • <code>src/types/infraWorkload.ts:33:1</code></p>
+                <p class="muted">unknown • <code>src/types/infraWorkload.ts:35:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -19365,6 +19365,13 @@
                       <td>no</td>
                       <td></td>
                     </tr>
+                    <tr>
+                      <td><code>publishedPort</code></td>
+                      <td>property</td>
+                      <td><code>number | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
                   </tbody>
                 </table>
               </article>
@@ -19374,7 +19381,7 @@
                 data-search="InfraWorkloadResourceSpec type src/types/infraWorkload.ts "
               >
                 <h4>InfraWorkloadResourceSpec</h4>
-                <p class="muted">type • <code>src/types/infraWorkload.ts:43:1</code></p>
+                <p class="muted">type • <code>src/types/infraWorkload.ts:45:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -19424,7 +19431,7 @@
                 data-search="InfraWorkloadSpec type src/types/infraWorkload.ts  InfraWorkloadArtifact InfraWorkloadFileSpec InfraWorkloadHealthSpec InfraWorkloadPort InfraWorkloadResourceSpec InfraWorkloadValue InfraWorkloadVolumeSpec"
               >
                 <h4>InfraWorkloadSpec</h4>
-                <p class="muted">type • <code>src/types/infraWorkload.ts:62:1</code></p>
+                <p class="muted">type • <code>src/types/infraWorkload.ts:64:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -19567,7 +19574,7 @@
                 data-search="InfraWorkloadVolumeSpec type src/types/infraWorkload.ts "
               >
                 <h4>InfraWorkloadVolumeSpec</h4>
-                <p class="muted">type • <code>src/types/infraWorkload.ts:48:1</code></p>
+                <p class="muted">type • <code>src/types/infraWorkload.ts:50:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -24806,6 +24813,7 @@ sequenceDiagram
               <div class="mermaid">
                 sequenceDiagram participant participant_hasOnlyKeys as hasOnlyKeys participant
                 participant_hasServiceDependencies as hasServiceDependencies participant
+                participant_hasUniquePublishedPorts as hasUniquePublishedPorts participant
                 participant_isEnvironmentShape as isEnvironmentShape participant
                 participant_isInfraEnvironmentSpec as isInfraEnvironmentSpec participant
                 participant_isInfraShape as isInfraShape participant participant_isRecord as
@@ -24822,6 +24830,10 @@ sequenceDiagram
                 hasServiceDependencies()
                 participant_hasServiceDependencies--&gt;&gt;participant_isInfraEnvironmentSpec:
                 return
+                participant_isInfraEnvironmentSpec-&gt;&gt;participant_hasUniquePublishedPorts:
+                hasUniquePublishedPorts()
+                participant_hasUniquePublishedPorts--&gt;&gt;participant_isInfraEnvironmentSpec:
+                return
               </div>
               <details>
                 <summary>View Mermaid source</summary>
@@ -24829,6 +24841,7 @@ sequenceDiagram
 sequenceDiagram
   participant participant_hasOnlyKeys as hasOnlyKeys
   participant participant_hasServiceDependencies as hasServiceDependencies
+  participant participant_hasUniquePublishedPorts as hasUniquePublishedPorts
   participant participant_isEnvironmentShape as isEnvironmentShape
   participant participant_isInfraEnvironmentSpec as isInfraEnvironmentSpec
   participant participant_isInfraShape as isInfraShape
@@ -24843,6 +24856,8 @@ sequenceDiagram
   participant_isEnvironmentShape--&gt;&gt;participant_isInfraEnvironmentSpec: return
   participant_isInfraEnvironmentSpec-&gt;&gt;participant_hasServiceDependencies: hasServiceDependencies()
   participant_hasServiceDependencies--&gt;&gt;participant_isInfraEnvironmentSpec: return
+  participant_isInfraEnvironmentSpec-&gt;&gt;participant_hasUniquePublishedPorts: hasUniquePublishedPorts()
+  participant_hasUniquePublishedPorts--&gt;&gt;participant_isInfraEnvironmentSpec: return
 </pre>
               </details>
             </article>
@@ -24888,6 +24903,7 @@ sequenceDiagram
               <p class="muted"><code>diagrams/sequences/is-infra-workload-spec.mmd</code></p>
               <div class="mermaid">
                 sequenceDiagram participant participant_hasOnlyKeys as hasOnlyKeys participant
+                participant_hasValidPublishedPorts as hasValidPublishedPorts participant
                 participant_isInfraShape as isInfraShape participant participant_isInfraWorkloadSpec
                 as isInfraWorkloadSpec participant participant_isRecord as isRecord
                 participant_isInfraWorkloadSpec-&gt;&gt;participant_isInfraShape: isInfraShape()
@@ -24896,12 +24912,18 @@ sequenceDiagram
                 participant_isInfraShape-&gt;&gt;participant_hasOnlyKeys: hasOnlyKeys()
                 participant_hasOnlyKeys--&gt;&gt;participant_isInfraShape: return
                 participant_isInfraShape--&gt;&gt;participant_isInfraWorkloadSpec: return
+                participant_isInfraWorkloadSpec-&gt;&gt;participant_hasValidPublishedPorts:
+                hasValidPublishedPorts()
+                participant_hasValidPublishedPorts-&gt;&gt;participant_isRecord: isRecord()
+                participant_isRecord--&gt;&gt;participant_hasValidPublishedPorts: return
+                participant_hasValidPublishedPorts--&gt;&gt;participant_isInfraWorkloadSpec: return
               </div>
               <details>
                 <summary>View Mermaid source</summary>
                 <pre>
 sequenceDiagram
   participant participant_hasOnlyKeys as hasOnlyKeys
+  participant participant_hasValidPublishedPorts as hasValidPublishedPorts
   participant participant_isInfraShape as isInfraShape
   participant participant_isInfraWorkloadSpec as isInfraWorkloadSpec
   participant participant_isRecord as isRecord
@@ -24911,6 +24933,10 @@ sequenceDiagram
   participant_isInfraShape-&gt;&gt;participant_hasOnlyKeys: hasOnlyKeys()
   participant_hasOnlyKeys--&gt;&gt;participant_isInfraShape: return
   participant_isInfraShape--&gt;&gt;participant_isInfraWorkloadSpec: return
+  participant_isInfraWorkloadSpec-&gt;&gt;participant_hasValidPublishedPorts: hasValidPublishedPorts()
+  participant_hasValidPublishedPorts-&gt;&gt;participant_isRecord: isRecord()
+  participant_isRecord--&gt;&gt;participant_hasValidPublishedPorts: return
+  participant_hasValidPublishedPorts--&gt;&gt;participant_isInfraWorkloadSpec: return
 </pre>
               </details>
             </article>
@@ -26227,7 +26253,7 @@ sequenceDiagram
               data-search="isEnvironmentShape src/infra/isInfraEnvironmentSpec.ts Check all environment field shapes before inspecting canonical dependency metadata."
             >
               <h3>isEnvironmentShape</h3>
-              <p class="muted"><code>src/infra/isInfraEnvironmentSpec.ts:20:1</code></p>
+              <p class="muted"><code>src/infra/isInfraEnvironmentSpec.ts:22:1</code></p>
               <p>
                 Check all environment field shapes before inspecting canonical dependency metadata.
               </p>
@@ -26237,7 +26263,7 @@ sequenceDiagram
               data-search="isPublicHttpOrigin src/infra/isInfraEnvironmentSpec.ts Public workload configuration uses one canonical absolute HTTP(S) origin without path state."
             >
               <h3>isPublicHttpOrigin</h3>
-              <p class="muted"><code>src/infra/isInfraEnvironmentSpec.ts:56:1</code></p>
+              <p class="muted"><code>src/infra/isInfraEnvironmentSpec.ts:58:1</code></p>
               <p>
                 Public workload configuration uses one canonical absolute HTTP(S) origin without
                 path state.
@@ -26248,7 +26274,7 @@ sequenceDiagram
               data-search="isPolicyFiles src/infra/isInfraEnvironmentSpec.ts Validate portable, unique Cerbos policy files without host paths or traversal."
             >
               <h3>isPolicyFiles</h3>
-              <p class="muted"><code>src/infra/isInfraEnvironmentSpec.ts:67:1</code></p>
+              <p class="muted"><code>src/infra/isInfraEnvironmentSpec.ts:69:1</code></p>
               <p>Validate portable, unique Cerbos policy files without host paths or traversal.</p>
             </article>
             <article
@@ -26256,7 +26282,7 @@ sequenceDiagram
               data-search="isObjectStorage src/infra/isInfraEnvironmentSpec.ts Object storage can vary independently from database/auth; there is no implicit auto provider."
             >
               <h3>isObjectStorage</h3>
-              <p class="muted"><code>src/infra/isInfraEnvironmentSpec.ts:83:1</code></p>
+              <p class="muted"><code>src/infra/isInfraEnvironmentSpec.ts:85:1</code></p>
               <p>
                 Object storage can vary independently from database/auth; there is no implicit auto
                 provider.
@@ -26267,15 +26293,25 @@ sequenceDiagram
               data-search="isWorkloads src/infra/isInfraEnvironmentSpec.ts Duplicate desired workload identities cannot be reconciled safely."
             >
               <h3>isWorkloads</h3>
-              <p class="muted"><code>src/infra/isInfraEnvironmentSpec.ts:99:1</code></p>
+              <p class="muted"><code>src/infra/isInfraEnvironmentSpec.ts:101:1</code></p>
               <p>Duplicate desired workload identities cannot be reconciled safely.</p>
+            </article>
+            <article
+              class="item"
+              data-search="hasUniquePublishedPorts src/infra/isInfraEnvironmentSpec.ts Prevent two workloads in one environment from claiming the same external listener."
+            >
+              <h3>hasUniquePublishedPorts</h3>
+              <p class="muted"><code>src/infra/isInfraEnvironmentSpec.ts:110:1</code></p>
+              <p>
+                Prevent two workloads in one environment from claiming the same external listener.
+              </p>
             </article>
             <article
               class="item"
               data-search="hasServiceDependencies src/infra/isInfraEnvironmentSpec.ts Check catalog dependencies against selected sibling capabilities and runtime capabilities."
             >
               <h3>hasServiceDependencies</h3>
-              <p class="muted"><code>src/infra/isInfraEnvironmentSpec.ts:108:1</code></p>
+              <p class="muted"><code>src/infra/isInfraEnvironmentSpec.ts:120:1</code></p>
               <p>
                 Check catalog dependencies against selected sibling capabilities and runtime
                 capabilities.
@@ -26378,15 +26414,23 @@ sequenceDiagram
               data-search="isPort src/infra/isInfraWorkloadSpec.ts Named transport ports stay independent from runtime resource types."
             >
               <h3>isPort</h3>
-              <p class="muted"><code>src/infra/isInfraWorkloadSpec.ts:50:1</code></p>
+              <p class="muted"><code>src/infra/isInfraWorkloadSpec.ts:55:1</code></p>
               <p>Named transport ports stay independent from runtime resource types.</p>
+            </article>
+            <article
+              class="item"
+              data-search="hasValidPublishedPorts src/infra/isInfraWorkloadSpec.ts Require fixed external listeners to belong to one public workload replica."
+            >
+              <h3>hasValidPublishedPorts</h3>
+              <p class="muted"><code>src/infra/isInfraWorkloadSpec.ts:65:1</code></p>
+              <p>Require fixed external listeners to belong to one public workload replica.</p>
             </article>
             <article
               class="item"
               data-search="isFile src/infra/isInfraWorkloadSpec.ts Portable files model policy/config materialization without host filesystem access."
             >
               <h3>isFile</h3>
-              <p class="muted"><code>src/infra/isInfraWorkloadSpec.ts:59:1</code></p>
+              <p class="muted"><code>src/infra/isInfraWorkloadSpec.ts:82:1</code></p>
               <p>
                 Portable files model policy/config materialization without host filesystem access.
               </p>
@@ -26396,7 +26440,7 @@ sequenceDiagram
               data-search="isVolume src/infra/isInfraWorkloadSpec.ts Persistence has explicit ownership-local identity and a retention policy."
             >
               <h3>isVolume</h3>
-              <p class="muted"><code>src/infra/isInfraWorkloadSpec.ts:64:1</code></p>
+              <p class="muted"><code>src/infra/isInfraWorkloadSpec.ts:87:1</code></p>
               <p>Persistence has explicit ownership-local identity and a retention policy.</p>
             </article>
             <article
@@ -26404,7 +26448,7 @@ sequenceDiagram
               data-search="isAbsoluteWorkloadPath src/infra/isInfraWorkloadSpec.ts Workload paths are absolute container paths, never relative host traversal."
             >
               <h3>isAbsoluteWorkloadPath</h3>
-              <p class="muted"><code>src/infra/isInfraWorkloadSpec.ts:74:1</code></p>
+              <p class="muted"><code>src/infra/isInfraWorkloadSpec.ts:97:1</code></p>
               <p>Workload paths are absolute container paths, never relative host traversal.</p>
             </article>
             <article
@@ -26412,7 +26456,7 @@ sequenceDiagram
               data-search="hasUniqueField src/infra/isInfraWorkloadSpec.ts Duplicate workload-local identities would make runtime projection ambiguous."
             >
               <h3>hasUniqueField</h3>
-              <p class="muted"><code>src/infra/isInfraWorkloadSpec.ts:84:1</code></p>
+              <p class="muted"><code>src/infra/isInfraWorkloadSpec.ts:107:1</code></p>
               <p>Duplicate workload-local identities would make runtime projection ambiguous.</p>
             </article>
           </section>

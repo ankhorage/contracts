@@ -22,7 +22,7 @@ const workload = {
   artifact: { kind: 'image', image: 'example/backend@sha256:abc' },
   command: ['server'],
   args: ['--verbose'],
-  ports: [{ name: 'http', port: 8080 }],
+  ports: [{ name: 'http', port: 8080, publishedPort: 18_080 }],
   environment: {
     NODE_ENV: { kind: 'literal', value: 'production' },
     DB_PASSWORD: { kind: 'secret', reference },

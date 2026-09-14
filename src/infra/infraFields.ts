@@ -17,4 +17,7 @@ export const infraFields = {
     value === undefined || (typeof value === 'number' && Number.isSafeInteger(value) && value >= 0),
   port: (value: unknown): boolean =>
     typeof value === 'number' && Number.isInteger(value) && value > 0 && value <= 65535,
+  optionalPort: (value: unknown): boolean =>
+    value === undefined ||
+    (typeof value === 'number' && Number.isInteger(value) && value > 0 && value <= 65535),
 };
