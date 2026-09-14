@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 19.1.0
+
+### Minor Changes
+
+- 95ed577: add fixed published ports for public workloads
+
 ## 19.0.0
 
 ### Major Changes
