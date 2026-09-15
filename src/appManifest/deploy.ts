@@ -8,7 +8,7 @@ import type {
   AppDeployProviderSelection,
   AppDeployTargets,
   AppDeployWebTargetConfig,
-} from '../deploy';
+} from '../deploy.js';
 
 const DEPLOY_KEYS = ['targets'] as const;
 const TARGET_KEYS = ['web', 'android', 'ios'] as const;

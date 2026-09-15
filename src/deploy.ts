@@ -38,4 +38,4 @@ export interface AppDeployManifest {
   readonly targets: AppDeployTargets;
 }
 
-export { isAppDeployManifest } from './appManifest/deploy';
+export { isAppDeployManifest } from './appManifest/deploy.js';

@@ -137,7 +137,7 @@
     "format": "ankhorage-prettier --write .",
     "format:check": "ankhorage-prettier --check .",
     "test": "bun test src",
-    "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.infra-tests.json",
+    "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.infra-tests.json && bun run build && tsc --noEmit -p tsconfig.deploy-provider-consumer.json",
     "version-packages": "ankhorage-changeset version",
     "knip:check": "ankhorage-knip"
   },

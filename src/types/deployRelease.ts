@@ -3,7 +3,7 @@ import type {
   DeploymentProviderResult,
   DeploymentSecretResolver,
   DeploymentStoreIdentity,
-} from './deployProvider';
+} from './deployProvider.js';
 
 export type ReleaseTarget = 'web' | 'android' | 'ios';
 export type ReleaseRolloutMode = 'immediate' | 'staged';

@@ -3,7 +3,7 @@ import type {
   DeploymentProviderResult,
   DeploymentSecretResolver,
   DeploymentStoreIdentity,
-} from './deployProvider';
+} from './deployProvider.js';
 
 export type StoreListingTarget = 'android' | 'ios';
 
