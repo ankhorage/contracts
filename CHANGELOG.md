@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 19.2.2
+
+### Patch Changes
+
+- cd59eb6: Make deploy-provider declarations resolvable by NodeNext consumers and validate the built package self-export.
+
 ## 19.2.1
 
 ### Patch Changes
