@@ -1,5 +1,6 @@
 ---
-"@ankhorage/contracts": minor
+'@ankhorage/contracts': minor
 ---
 
-Add provider-neutral S3 persistence targets for continuous database backups and external Supabase Storage backends.
+Add provider-neutral S3 persistence targets for continuous database backups and external Supabase
+Storage backends.
