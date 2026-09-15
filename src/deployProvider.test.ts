@@ -13,7 +13,25 @@ const fakeProvider: DeploymentProviderRegistration = {
     id: 'fake',
     packageName: '@ankhorage/deploy-provider-fake',
     displayName: 'Fake provider',
-    capabilities: [{ id: 'web-publish', targets: ['web'] }],
+    capabilities: [
+      { id: 'setup', targets: ['web'] },
+      { id: 'web-publish', targets: ['web'] },
+    ],
+  },
+  setup: {
+    provider: 'fake',
+    inspectSetup: (context) =>
+      Promise.resolve({
+        provider: 'fake',
+        authentication: { status: 'authenticated' },
+        capabilities: [
+          {
+            capability: 'publish',
+            status: context.projectRoot === '/project' ? 'available' : 'unavailable',
+          },
+        ],
+        provisioning: [],
+      }),
   },
   webPublisher: {
     publishAsync: (request) =>
@@ -44,6 +62,17 @@ describe('deployment provider contracts', () => {
       'monetization',
       'release',
     ]);
+  });
+
+  it('provides the project root to setup adapters', async () => {
+    const inspection = await fakeProvider.setup?.inspectSetup({
+      projectRoot: '/project',
+      target: 'web',
+      credentials: [],
+      resolveSecret: () => Promise.resolve(null),
+    });
+
+    expect(inspection?.capabilities).toEqual([{ capability: 'publish', status: 'available' }]);
   });
 
   it('supports an external provider registration without Deploy implementation types', async () => {
