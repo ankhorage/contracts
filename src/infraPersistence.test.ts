@@ -1,6 +1,5 @@
 import { describe, expect, it } from 'bun:test';
 
-import type { InfraEnvironmentSpec } from './infra';
 import { isInfraEnvironmentSpec } from './infra';
 
 const deployment = {
@@ -16,9 +15,7 @@ const target = {
   forcePathStyle: true,
 } as const;
 
-function environment(
-  overrides: Partial<InfraEnvironmentSpec> = {},
-): InfraEnvironmentSpec {
+function environment(overrides: Readonly<Record<string, unknown>> = {}): unknown {
   return { deployment, ...overrides };
 }
 
