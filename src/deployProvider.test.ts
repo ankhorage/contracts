@@ -49,7 +49,7 @@ const fakeProvider: DeploymentProviderRegistration = {
   },
 };
 
-describe('deployment provider contracts', () => {
+describe('deployment provider setup contracts', () => {
   it('defines the portable provider capability vocabulary', () => {
     expect(DEPLOYMENT_PROVIDER_CAPABILITY_IDS).toEqual([
       'setup',
@@ -74,7 +74,9 @@ describe('deployment provider contracts', () => {
 
     expect(inspection?.capabilities).toEqual([{ capability: 'publish', status: 'available' }]);
   });
+});
 
+describe('deployment provider public contracts', () => {
   it('supports an external provider registration without Deploy implementation types', async () => {
     const result = await fakeProvider.webPublisher?.publishAsync({
       projectRoot: '/project',
