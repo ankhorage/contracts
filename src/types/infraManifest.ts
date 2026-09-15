@@ -71,17 +71,17 @@ export interface InfraS3PersistenceTarget {
   readonly forcePathStyle?: boolean;
 }
 
-/** Continuous database protection intent; the selected database provider owns its concrete engine. */
-export interface InfraContinuousDatabaseBackupSpec {
-  readonly mode: 'continuous';
+/** Scheduled database protection intent; the selected database provider owns its concrete engine. */
+export interface InfraScheduledDatabaseBackupSpec {
+  readonly mode: 'scheduled';
   readonly target: InfraS3PersistenceTarget;
-  readonly baseBackupIntervalHours?: number;
+  readonly intervalHours?: number;
 }
 
 export interface InfraDatabaseConfigMap {
   readonly supabase: {
     readonly tier?: 'dev' | 'prod';
-    readonly backup?: InfraContinuousDatabaseBackupSpec;
+    readonly backup?: InfraScheduledDatabaseBackupSpec;
   };
 }
 export interface InfraObjectStorageConfigMap {

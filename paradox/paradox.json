@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v19.2.0",
+      "value": "v19.5.0",
       "color": "cb3837"
     },
     {
@@ -998,6 +998,7 @@
         "InfraLedger",
         "InfraManifest",
         "InfraNetworkingSpec",
+        "InfraNetworkingTlsSpec",
         "InfraObjectStorageConfigMap",
         "InfraObjectStorageSpec",
         "InfraOutput",
@@ -1014,6 +1015,8 @@
         "InfraRuntimeDesiredState",
         "InfraRuntimeProviderId",
         "InfraRuntimeSelection",
+        "InfraS3PersistenceTarget",
+        "InfraScheduledDatabaseBackupSpec",
         "InfraSecretReference",
         "InfraSecretStoreConfigMap",
         "InfraSecretStoreSpec",
@@ -1352,6 +1355,7 @@
         "InfraLedger",
         "InfraManifest",
         "InfraNetworkingSpec",
+        "InfraNetworkingTlsSpec",
         "InfraObjectStorageConfigMap",
         "InfraObjectStorageSpec",
         "InfraOutput",
@@ -1368,6 +1372,8 @@
         "InfraRuntimeDesiredState",
         "InfraRuntimeProviderId",
         "InfraRuntimeSelection",
+        "InfraS3PersistenceTarget",
+        "InfraScheduledDatabaseBackupSpec",
         "InfraSecretReference",
         "InfraSecretStoreConfigMap",
         "InfraSecretStoreSpec",
@@ -2144,12 +2150,15 @@
         "InfraEnvironmentSpec",
         "InfraManifest",
         "InfraNetworkingSpec",
+        "InfraNetworkingTlsSpec",
         "InfraObjectStorageConfigMap",
         "InfraObjectStorageSpec",
         "InfraProviderFor",
         "InfraRuntimeConfigMap",
         "InfraRuntimeProviderId",
         "InfraRuntimeSelection",
+        "InfraS3PersistenceTarget",
+        "InfraScheduledDatabaseBackupSpec",
         "InfraSecretStoreConfigMap",
         "InfraSecretStoreSpec"
       ]
@@ -11247,7 +11256,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 76,
+        "line": 98,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11280,7 +11289,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 108,
+        "line": 130,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11298,7 +11307,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 86,
+        "line": 108,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11324,7 +11333,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 92,
+        "line": 114,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11357,7 +11366,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 111,
+        "line": 133,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11631,17 +11640,17 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 65,
+        "line": 81,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
-      "relatedSymbols": [],
+      "relatedSymbols": ["InfraScheduledDatabaseBackupSpec"],
       "signatures": [],
       "members": [
         {
           "name": "supabase",
           "kind": "property",
-          "type": "{ readonly tier?: \"dev\" | \"prod\"; }",
+          "type": "{ readonly tier?: \"dev\" | \"prod\"; readonly backup?: InfraScheduledDatabaseBackupSpec; }",
           "required": true,
           "description": null
         }
@@ -11657,7 +11666,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 100,
+        "line": 122,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11794,7 +11803,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 125,
+        "line": 156,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11809,6 +11818,7 @@
         "InfraDeploymentSpec",
         "InfraNetworkingSpec",
         "InfraObjectStorageSpec",
+        "InfraScheduledDatabaseBackupSpec",
         "InfraWorkloadSpec"
       ],
       "signatures": [],
@@ -11830,7 +11840,7 @@
         {
           "name": "database",
           "kind": "property",
-          "type": "({ readonly provider: \"supabase\"; } & { readonly tier?: \"dev\" | \"prod\"; }) | undefined",
+          "type": "({ readonly provider: \"supabase\"; } & { readonly tier?: \"dev\" | \"prod\"; readonly backup?: InfraScheduledDatabaseBackupSpec; }) | undefined",
           "required": false,
           "description": null
         },
@@ -12075,7 +12085,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 136,
+        "line": 167,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12122,11 +12132,11 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 118,
+        "line": 147,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
-      "relatedSymbols": [],
+      "relatedSymbols": ["InfraNetworkingTlsSpec"],
       "signatures": [],
       "members": [
         {
@@ -12142,6 +12152,46 @@
           "type": "string | undefined",
           "required": false,
           "description": null
+        },
+        {
+          "name": "tls",
+          "kind": "property",
+          "type": "InfraNetworkingTlsSpec | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "InfraNetworkingTlsSpec",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/types/infraManifest.ts",
+      "sourceLocation": {
+        "filePath": "src/types/infraManifest.ts",
+        "line": 140,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "contactEmail",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "mode",
+          "kind": "property",
+          "type": "\"acme-http-01\"",
+          "required": true,
+          "description": null
         }
       ],
       "structuredRows": []
@@ -12155,11 +12205,11 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 68,
+        "line": 87,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["InfraControlPlaneCredentialRef"],
+      "relatedSymbols": ["InfraControlPlaneCredentialRef", "InfraS3PersistenceTarget"],
       "signatures": [],
       "members": [
         {
@@ -12172,7 +12222,7 @@
         {
           "name": "supabase",
           "kind": "property",
-          "type": "{ readonly buckets?: readonly string[]; }",
+          "type": "{ readonly buckets?: readonly string[]; readonly backend?: InfraS3PersistenceTarget; }",
           "required": true,
           "description": null
         }
@@ -12188,7 +12238,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 103,
+        "line": 125,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12740,6 +12790,100 @@
       "structuredRows": []
     },
     {
+      "name": "InfraS3PersistenceTarget",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/types/infraManifest.ts",
+      "sourceLocation": {
+        "filePath": "src/types/infraManifest.ts",
+        "line": 66,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["InfraControlPlaneCredentialRef"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "bucket",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "credentials",
+          "kind": "property",
+          "type": "InfraControlPlaneCredentialRef",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "endpoint",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "forcePathStyle",
+          "kind": "property",
+          "type": "boolean | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "region",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "InfraScheduledDatabaseBackupSpec",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/types/infraManifest.ts",
+      "sourceLocation": {
+        "filePath": "src/types/infraManifest.ts",
+        "line": 75,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["InfraS3PersistenceTarget"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "intervalHours",
+          "kind": "property",
+          "type": "number | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "mode",
+          "kind": "property",
+          "type": "\"scheduled\"",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "target",
+          "kind": "property",
+          "type": "InfraS3PersistenceTarget",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
       "name": "InfraSecretReference",
       "description": null,
       "isReadme": false,
@@ -12802,7 +12946,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 96,
+        "line": 118,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12828,7 +12972,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 114,
+        "line": 136,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -13011,7 +13155,7 @@
       "modulePath": "src/types/infraWorkload.ts",
       "sourceLocation": {
         "filePath": "src/types/infraWorkload.ts",
-        "line": 59,
+        "line": 61,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -13160,7 +13304,7 @@
       "modulePath": "src/types/infraWorkload.ts",
       "sourceLocation": {
         "filePath": "src/types/infraWorkload.ts",
-        "line": 64,
+        "line": 66,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -13322,6 +13466,13 @@
           "kind": "property",
           "type": "\"retain\" | \"delete-on-destroy\"",
           "required": true,
+          "description": null
+        },
+        {
+          "name": "seed",
+          "kind": "property",
+          "type": "\"image\" | undefined",
+          "required": false,
           "description": null
         },
         {
@@ -14178,7 +14329,7 @@
       "modulePath": "src/infra/isInfraEnvironmentSpec.ts",
       "sourceLocation": {
         "filePath": "src/infra/isInfraEnvironmentSpec.ts",
-        "line": 15,
+        "line": 20,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -25057,7 +25208,7 @@
       "description": "Validate sibling capabilities and their required relationships within one environment.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraEnvironmentSpec.ts",
-        "line": 15,
+        "line": 20,
         "column": 1
       }
     },
@@ -25066,7 +25217,7 @@
       "description": "Check all environment field shapes before inspecting canonical dependency metadata.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraEnvironmentSpec.ts",
-        "line": 22,
+        "line": 30,
         "column": 1
       }
     },
@@ -25075,7 +25226,16 @@
       "description": "Public workload configuration uses one canonical absolute HTTP(S) origin without path state.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraEnvironmentSpec.ts",
-        "line": 58,
+        "line": 73,
+        "column": 1
+      }
+    },
+    {
+      "name": "hasNetworkingRelationships",
+      "description": "Automatic TLS requires one matching HTTPS origin and public DNS hostname.",
+      "sourceLocation": {
+        "filePath": "src/infra/isInfraEnvironmentSpec.ts",
+        "line": 84,
         "column": 1
       }
     },
@@ -25084,7 +25244,25 @@
       "description": "Validate portable, unique Cerbos policy files without host paths or traversal.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraEnvironmentSpec.ts",
-        "line": 69,
+        "line": 93,
+        "column": 1
+      }
+    },
+    {
+      "name": "isScheduledDatabaseBackup",
+      "description": "Validate provider-neutral scheduled database backup intent.",
+      "sourceLocation": {
+        "filePath": "src/infra/isInfraEnvironmentSpec.ts",
+        "line": 109,
+        "column": 1
+      }
+    },
+    {
+      "name": "isS3PersistenceTarget",
+      "description": "Validate one portable S3-compatible persistence target without resolving credentials.",
+      "sourceLocation": {
+        "filePath": "src/infra/isInfraEnvironmentSpec.ts",
+        "line": 120,
         "column": 1
       }
     },
@@ -25093,7 +25271,7 @@
       "description": "Object storage can vary independently from database/auth; there is no implicit auto provider.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraEnvironmentSpec.ts",
-        "line": 85,
+        "line": 132,
         "column": 1
       }
     },
@@ -25102,7 +25280,7 @@
       "description": "Duplicate desired workload identities cannot be reconciled safely.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraEnvironmentSpec.ts",
-        "line": 101,
+        "line": 154,
         "column": 1
       }
     },
@@ -25111,7 +25289,7 @@
       "description": "Prevent two workloads in one environment from claiming the same external listener.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraEnvironmentSpec.ts",
-        "line": 110,
+        "line": 163,
         "column": 1
       }
     },
@@ -25120,7 +25298,7 @@
       "description": "Check catalog dependencies against selected sibling capabilities and runtime capabilities.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraEnvironmentSpec.ts",
-        "line": 120,
+        "line": 173,
         "column": 1
       }
     },
@@ -25198,7 +25376,7 @@
     },
     {
       "name": "isVolume",
-      "description": "Persistence has explicit ownership-local identity and a retention policy.",
+      "description": "Persistence has explicit ownership-local identity, optional initialization and retention policy.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraWorkloadSpec.ts",
         "line": 87,
@@ -25210,7 +25388,7 @@
       "description": "Workload paths are absolute container paths, never relative host traversal.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraWorkloadSpec.ts",
-        "line": 97,
+        "line": 98,
         "column": 1
       }
     },
@@ -25219,7 +25397,7 @@
       "description": "Duplicate workload-local identities would make runtime projection ambiguous.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraWorkloadSpec.ts",
-        "line": 107,
+        "line": 108,
         "column": 1
       }
     },
@@ -28583,6 +28761,12 @@
       },
       {
         "fromSymbol": "isInfraEnvironmentSpec",
+        "toSymbol": "hasNetworkingRelationships",
+        "callExpression": "hasNetworkingRelationships",
+        "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
+      },
+      {
+        "fromSymbol": "isInfraEnvironmentSpec",
         "toSymbol": "hasUniquePublishedPorts",
         "callExpression": "hasUniquePublishedPorts",
         "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
@@ -28597,6 +28781,12 @@
         "fromSymbol": "database",
         "toSymbol": "isInfraShape",
         "callExpression": "isInfraShape",
+        "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
+      },
+      {
+        "fromSymbol": "backup",
+        "toSymbol": "isScheduledDatabaseBackup",
+        "callExpression": "isScheduledDatabaseBackup",
         "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
       },
       {
@@ -28642,6 +28832,12 @@
         "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
       },
       {
+        "fromSymbol": "tls",
+        "toSymbol": "isInfraShape",
+        "callExpression": "isInfraShape",
+        "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
+      },
+      {
         "fromSymbol": "workloads",
         "toSymbol": "isWorkloads",
         "callExpression": "isWorkloads",
@@ -28672,6 +28868,18 @@
         "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
       },
       {
+        "fromSymbol": "isScheduledDatabaseBackup",
+        "toSymbol": "isInfraShape",
+        "callExpression": "isInfraShape",
+        "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
+      },
+      {
+        "fromSymbol": "isS3PersistenceTarget",
+        "toSymbol": "isInfraShape",
+        "callExpression": "isInfraShape",
+        "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
+      },
+      {
         "fromSymbol": "isObjectStorage",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
@@ -28681,6 +28889,12 @@
         "fromSymbol": "isObjectStorage",
         "toSymbol": "isInfraShape",
         "callExpression": "isInfraShape",
+        "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
+      },
+      {
+        "fromSymbol": "backend",
+        "toSymbol": "isS3PersistenceTarget",
+        "callExpression": "isS3PersistenceTarget",
         "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
       },
       {
@@ -30880,8 +31094,28 @@
         "sourcePath": "src/types/infraManifest.ts"
       },
       {
+        "fromSymbol": "InfraS3PersistenceTarget",
+        "toType": "InfraControlPlaneCredentialRef",
+        "sourcePath": "src/types/infraManifest.ts"
+      },
+      {
+        "fromSymbol": "InfraScheduledDatabaseBackupSpec",
+        "toType": "InfraS3PersistenceTarget",
+        "sourcePath": "src/types/infraManifest.ts"
+      },
+      {
+        "fromSymbol": "InfraDatabaseConfigMap",
+        "toType": "InfraScheduledDatabaseBackupSpec",
+        "sourcePath": "src/types/infraManifest.ts"
+      },
+      {
         "fromSymbol": "InfraObjectStorageConfigMap",
         "toType": "InfraControlPlaneCredentialRef",
+        "sourcePath": "src/types/infraManifest.ts"
+      },
+      {
+        "fromSymbol": "InfraObjectStorageConfigMap",
+        "toType": "InfraS3PersistenceTarget",
         "sourcePath": "src/types/infraManifest.ts"
       },
       {
@@ -30927,6 +31161,11 @@
       {
         "fromSymbol": "InfraAuthzConfigMap",
         "toType": "RBAC",
+        "sourcePath": "src/types/infraManifest.ts"
+      },
+      {
+        "fromSymbol": "InfraNetworkingSpec",
+        "toType": "InfraNetworkingTlsSpec",
         "sourcePath": "src/types/infraManifest.ts"
       },
       {
@@ -30982,6 +31221,11 @@
       {
         "fromSymbol": "InfraEnvironmentSpec",
         "toType": "InfraObjectStorageSpec",
+        "sourcePath": "src/types/infraManifest.ts"
+      },
+      {
+        "fromSymbol": "InfraEnvironmentSpec",
+        "toType": "InfraScheduledDatabaseBackupSpec",
         "sourcePath": "src/types/infraManifest.ts"
       },
       {

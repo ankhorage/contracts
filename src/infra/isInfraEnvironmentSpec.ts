@@ -2,10 +2,10 @@ import { isRecord } from '@ankhorage/utility/object';
 import { isNonEmptyString } from '@ankhorage/utility/string';
 
 import type {
-  InfraContinuousDatabaseBackupSpec,
   InfraEnvironmentSpec,
   InfraObjectStorageSpec,
   InfraS3PersistenceTarget,
+  InfraScheduledDatabaseBackupSpec,
 } from '../types/infraManifest';
 import type { InfraShape } from '../types/infraValidation';
 import { INFRA_ADAPTER_CATALOG } from './constants';
@@ -35,7 +35,7 @@ function isEnvironmentShape(value: unknown): value is InfraEnvironmentSpec {
       isInfraShape(database, {
         provider: (provider) => provider === 'supabase',
         tier: (tier) => tier === undefined || tier === 'dev' || tier === 'prod',
-        backup: (backup) => backup === undefined || isContinuousDatabaseBackup(backup),
+        backup: (backup) => backup === undefined || isScheduledDatabaseBackup(backup),
       }),
     objectStorage: (storage) => storage === undefined || isObjectStorage(storage),
     auth: (auth) => auth === undefined || isInfraAuthSpec(auth),
@@ -105,12 +105,12 @@ function isPolicyFiles(value: unknown): boolean {
   );
 }
 
-/*** Validate provider-neutral continuous database backup intent. */
-function isContinuousDatabaseBackup(value: unknown): value is InfraContinuousDatabaseBackupSpec {
+/*** Validate provider-neutral scheduled database backup intent. */
+function isScheduledDatabaseBackup(value: unknown): value is InfraScheduledDatabaseBackupSpec {
   return isInfraShape(value, {
-    mode: (mode) => mode === 'continuous',
+    mode: (mode) => mode === 'scheduled',
     target: isS3PersistenceTarget,
-    baseBackupIntervalHours: (interval) =>
+    intervalHours: (interval) =>
       interval === undefined ||
       (typeof interval === 'number' && Number.isInteger(interval) && interval > 0),
   });

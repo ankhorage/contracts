@@ -897,6 +897,7 @@ graph LR
   module_src_types_infraSecrets_ts --> export_InfraControlPlaneCredentialRef
   export_InfraDatabaseConfigMap["InfraDatabaseConfigMap"]
   module_src_types_infraManifest_ts --> export_InfraDatabaseConfigMap
+  export_InfraDatabaseConfigMap -.-> export_InfraScheduledDatabaseBackupSpec
   export_InfraDatabaseSpec["InfraDatabaseSpec"]
   module_src_types_infraManifest_ts --> export_InfraDatabaseSpec
   export_InfraDeploymentSpec["InfraDeploymentSpec"]
@@ -920,6 +921,7 @@ graph LR
   export_InfraEnvironmentSpec -.-> export_InfraDeploymentSpec
   export_InfraEnvironmentSpec -.-> export_InfraNetworkingSpec
   export_InfraEnvironmentSpec -.-> export_InfraObjectStorageSpec
+  export_InfraEnvironmentSpec -.-> export_InfraScheduledDatabaseBackupSpec
   export_InfraEnvironmentSpec -.-> export_InfraWorkloadSpec
   export_InfraExecutionContext["InfraExecutionContext"]
   module_src_types_infraAdapters_ts --> export_InfraExecutionContext
@@ -943,9 +945,13 @@ graph LR
   export_InfraManifest -.-> export_InfraEnvironmentSpec
   export_InfraNetworkingSpec["InfraNetworkingSpec"]
   module_src_types_infraManifest_ts --> export_InfraNetworkingSpec
+  export_InfraNetworkingSpec -.-> export_InfraNetworkingTlsSpec
+  export_InfraNetworkingTlsSpec["InfraNetworkingTlsSpec"]
+  module_src_types_infraManifest_ts --> export_InfraNetworkingTlsSpec
   export_InfraObjectStorageConfigMap["InfraObjectStorageConfigMap"]
   module_src_types_infraManifest_ts --> export_InfraObjectStorageConfigMap
   export_InfraObjectStorageConfigMap -.-> export_InfraControlPlaneCredentialRef
+  export_InfraObjectStorageConfigMap -.-> export_InfraS3PersistenceTarget
   export_InfraObjectStorageSpec["InfraObjectStorageSpec"]
   module_src_types_infraManifest_ts --> export_InfraObjectStorageSpec
   export_InfraOutput["InfraOutput"]
@@ -996,6 +1002,12 @@ graph LR
   module_src_types_infraManifest_ts --> export_InfraRuntimeProviderId
   export_InfraRuntimeSelection["InfraRuntimeSelection"]
   module_src_types_infraManifest_ts --> export_InfraRuntimeSelection
+  export_InfraS3PersistenceTarget["InfraS3PersistenceTarget"]
+  module_src_types_infraManifest_ts --> export_InfraS3PersistenceTarget
+  export_InfraS3PersistenceTarget -.-> export_InfraControlPlaneCredentialRef
+  export_InfraScheduledDatabaseBackupSpec["InfraScheduledDatabaseBackupSpec"]
+  module_src_types_infraManifest_ts --> export_InfraScheduledDatabaseBackupSpec
+  export_InfraScheduledDatabaseBackupSpec -.-> export_InfraS3PersistenceTarget
   export_InfraSecretReference["InfraSecretReference"]
   module_src_types_infraSecrets_ts --> export_InfraSecretReference
   export_InfraSecretStoreConfigMap["InfraSecretStoreConfigMap"]

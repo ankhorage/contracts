@@ -19,7 +19,7 @@ function environment(overrides: Readonly<Record<string, unknown>> = {}): unknown
   return { deployment, ...overrides };
 }
 
-it('accepts continuous database backups and an S3-backed Supabase storage service', () => {
+it('accepts scheduled database backups and an S3-backed Supabase storage service', () => {
   expect(
     isInfraEnvironmentSpec(
       environment({
@@ -27,9 +27,9 @@ it('accepts continuous database backups and an S3-backed Supabase storage servic
           provider: 'supabase',
           tier: 'prod',
           backup: {
-            mode: 'continuous',
+            mode: 'scheduled',
             target,
-            baseBackupIntervalHours: 24,
+            intervalHours: 24,
           },
         },
         objectStorage: {
@@ -47,16 +47,29 @@ it.each([
   { target: { ...target, region: '' } },
   { target: { ...target, bucket: '' } },
   { target: { ...target, credentials: { source: 'secret-store', name: 'S3' } } },
-  { target, baseBackupIntervalHours: 0 },
-  { target, baseBackupIntervalHours: 1.5 },
-  { target, baseBackupIntervalHours: Number.NaN },
-])('rejects malformed database backup intent: %j', (backup) => {
+  { target, intervalHours: 0 },
+  { target, intervalHours: 1.5 },
+  { target, intervalHours: Number.NaN },
+])('rejects malformed scheduled database backup intent: %j', (backup) => {
   expect(
     isInfraEnvironmentSpec(
       environment({
         database: {
           provider: 'supabase',
-          backup: { mode: 'continuous', ...backup },
+          backup: { mode: 'scheduled', ...backup },
+        },
+      }),
+    ),
+  ).toBe(false);
+});
+
+it('rejects the unsupported continuous database backup mode', () => {
+  expect(
+    isInfraEnvironmentSpec(
+      environment({
+        database: {
+          provider: 'supabase',
+          backup: { mode: 'continuous', target, baseBackupIntervalHours: 24 },
         },
       }),
     ),
