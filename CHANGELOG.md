@@ -1,5 +1,12 @@
 # @ankhorage/contracts
 
+## 20.0.0
+
+### Major Changes
+
+- 1034b76: Replace the unrealizable continuous database backup intent with provider-neutral scheduled S3
+  backups.
+
 ## 19.5.0
 
 ### Minor Changes
