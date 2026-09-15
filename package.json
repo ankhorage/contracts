@@ -58,6 +58,10 @@
       "types": "./dist/deploy.d.ts",
       "default": "./dist/deploy.js"
     },
+    "./deploy-provider": {
+      "types": "./dist/deployProvider.d.ts",
+      "default": "./dist/deployProvider.js"
+    },
     "./runtime": {
       "types": "./dist/runtimeCallbacks.d.ts",
       "default": "./dist/runtimeCallbacks.js"
