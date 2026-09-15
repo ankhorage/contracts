@@ -76,8 +76,7 @@ export interface DeploymentManualAction {
 }
 
 export type DeploymentRequiredAction =
-  | DeploymentAuthenticationRequiredAction
-  | DeploymentManualAction;
+  DeploymentAuthenticationRequiredAction | DeploymentManualAction;
 
 export type DeploymentProviderResult<T> =
   | { readonly status: 'completed'; readonly value: T }
