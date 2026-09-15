@@ -83,12 +83,13 @@ function isFile(value: unknown): boolean {
   return isInfraShape(value, { path: isAbsoluteWorkloadPath, content: isInfraWorkloadValue });
 }
 
-/*** Persistence has explicit ownership-local identity and a retention policy. */
+/*** Persistence has explicit ownership-local identity, optional initialization and retention policy. */
 function isVolume(value: unknown): boolean {
   return isInfraShape(value, {
     id: isNonEmptyString,
     mountPath: isAbsoluteWorkloadPath,
     sizeGiB: infraFields.positiveInteger,
+    seed: (seed) => seed === undefined || seed === 'image',
     retention: (retention) => retention === 'retain' || retention === 'delete-on-destroy',
   });
 }
