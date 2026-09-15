@@ -62,11 +62,33 @@ export type InfraDeploymentSpec = {
   };
 }[InfraRuntimeProviderId];
 
+/** Portable S3-compatible persistence target; privileged values stay behind one credential ref. */
+export interface InfraS3PersistenceTarget {
+  readonly endpoint: string;
+  readonly region: string;
+  readonly bucket: string;
+  readonly credentials: InfraControlPlaneCredentialRef;
+  readonly forcePathStyle?: boolean;
+}
+
+/** Continuous database protection intent; the selected database provider owns its concrete engine. */
+export interface InfraContinuousDatabaseBackupSpec {
+  readonly mode: 'continuous';
+  readonly target: InfraS3PersistenceTarget;
+  readonly baseBackupIntervalHours?: number;
+}
+
 export interface InfraDatabaseConfigMap {
-  readonly supabase: { readonly tier?: 'dev' | 'prod' };
+  readonly supabase: {
+    readonly tier?: 'dev' | 'prod';
+    readonly backup?: InfraContinuousDatabaseBackupSpec;
+  };
 }
 export interface InfraObjectStorageConfigMap {
-  readonly supabase: { readonly buckets?: readonly string[] };
+  readonly supabase: {
+    readonly buckets?: readonly string[];
+    readonly backend?: InfraS3PersistenceTarget;
+  };
   readonly r2: {
     readonly buckets?: readonly string[];
     readonly accountId?: string;
