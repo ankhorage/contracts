@@ -14,7 +14,10 @@ import { isInfraWorkloadSpec } from './isInfraWorkloadSpec';
 /*** Validate sibling capabilities and their required relationships within one environment. */
 export function isInfraEnvironmentSpec(value: unknown): value is InfraEnvironmentSpec {
   return (
-    isEnvironmentShape(value) && hasServiceDependencies(value) && hasUniquePublishedPorts(value)
+    isEnvironmentShape(value) &&
+    hasServiceDependencies(value) &&
+    hasNetworkingRelationships(value) &&
+    hasUniquePublishedPorts(value)
   );
 }
 
@@ -49,6 +52,12 @@ function isEnvironmentShape(value: unknown): value is InfraEnvironmentSpec {
         domain: infraFields.optionalText,
         publicBaseUrl: (publicBaseUrl) =>
           publicBaseUrl === undefined || isPublicHttpOrigin(publicBaseUrl),
+        tls: (tls) =>
+          tls === undefined ||
+          isInfraShape(tls, {
+            mode: (mode) => mode === 'acme-http-01',
+            contactEmail: isNonEmptyString,
+          }),
       }),
     workloads: (workloads) => workloads === undefined || isWorkloads(workloads),
   } satisfies InfraShape<InfraEnvironmentSpec>);
@@ -63,6 +72,15 @@ function isPublicHttpOrigin(value: unknown): boolean {
   } catch {
     return false;
   }
+}
+
+/*** Automatic TLS requires one matching HTTPS origin and public DNS hostname. */
+function hasNetworkingRelationships(value: InfraEnvironmentSpec): boolean {
+  const { networking } = value;
+  if (networking?.tls === undefined) return true;
+  if (networking.domain === undefined || networking.publicBaseUrl === undefined) return false;
+  const url = new URL(networking.publicBaseUrl);
+  return url.protocol === 'https:' && url.hostname === networking.domain;
 }
 
 /*** Validate portable, unique Cerbos policy files without host paths or traversal. */
