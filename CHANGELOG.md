@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 19.3.0
+
+### Minor Changes
+
+- 03da0f5: Add runtime-neutral ACME HTTP-01 TLS intent to Infra networking, including validation that automatic TLS uses a matching HTTPS public origin and domain.
+
 ## 19.2.2
 
 ### Patch Changes
