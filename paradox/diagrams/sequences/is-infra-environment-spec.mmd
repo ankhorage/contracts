@@ -1,4 +1,5 @@
 sequenceDiagram
+  participant participant_hasNetworkingRelationships as hasNetworkingRelationships
   participant participant_hasOnlyKeys as hasOnlyKeys
   participant participant_hasServiceDependencies as hasServiceDependencies
   participant participant_hasUniquePublishedPorts as hasUniquePublishedPorts
@@ -16,5 +17,7 @@ sequenceDiagram
   participant_isEnvironmentShape-->>participant_isInfraEnvironmentSpec: return
   participant_isInfraEnvironmentSpec->>participant_hasServiceDependencies: hasServiceDependencies()
   participant_hasServiceDependencies-->>participant_isInfraEnvironmentSpec: return
+  participant_isInfraEnvironmentSpec->>participant_hasNetworkingRelationships: hasNetworkingRelationships()
+  participant_hasNetworkingRelationships-->>participant_isInfraEnvironmentSpec: return
   participant_isInfraEnvironmentSpec->>participant_hasUniquePublishedPorts: hasUniquePublishedPorts()
   participant_hasUniquePublishedPorts-->>participant_isInfraEnvironmentSpec: return

@@ -2825,7 +2825,7 @@ Source: `src/types/infraManifest.ts:9:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:76:1`
+Source: `src/types/infraManifest.ts:98:1`
 
 ### Members
 
@@ -2837,13 +2837,13 @@ Source: `src/types/infraManifest.ts:76:1`
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:108:1`
+Source: `src/types/infraManifest.ts:130:1`
 
 ## InfraAuthzConfigMap
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:86:1`
+Source: `src/types/infraManifest.ts:108:1`
 
 ### Members
 
@@ -2855,7 +2855,7 @@ Source: `src/types/infraManifest.ts:86:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:92:1`
+Source: `src/types/infraManifest.ts:114:1`
 
 ### Members
 
@@ -2868,7 +2868,7 @@ Source: `src/types/infraManifest.ts:92:1`
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:111:1`
+Source: `src/types/infraManifest.ts:133:1`
 
 ## InfraCapability
 
@@ -2956,19 +2956,19 @@ Source: `src/types/infraSecrets.ts:4:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:65:1`
+Source: `src/types/infraManifest.ts:81:1`
 
 ### Members
 
-| Name     | Kind     | Type                                   | Required | Description |
-| -------- | -------- | -------------------------------------- | -------- | ----------- |
-| supabase | property | `{ readonly tier?: "dev" \| "prod"; }` | yes      |             |
+| Name     | Kind     | Type                                                                                       | Required | Description |
+| -------- | -------- | ------------------------------------------------------------------------------------------ | -------- | ----------- |
+| supabase | property | `{ readonly tier?: "dev" \| "prod"; readonly backup?: InfraScheduledDatabaseBackupSpec; }` | yes      |             |
 
 ## InfraDatabaseSpec
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:100:1`
+Source: `src/types/infraManifest.ts:122:1`
 
 ## InfraDeploymentSpec
 
@@ -3011,7 +3011,7 @@ Source: `src/types/infraLifecycle.ts:22:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:125:1`
+Source: `src/types/infraManifest.ts:156:1`
 
 ### Members
 
@@ -3019,7 +3019,7 @@ Source: `src/types/infraManifest.ts:125:1`
 | ------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
 | auth          | property | `({ readonly provider: "supabase"; } & { readonly scope?: AuthScope; readonly flow?: AuthFlowConfig; readonly signIn?: AuthSignInSpec; readonly signUp?: AuthSignUpSpec; readonly oauth?: AuthOAuthConfig; readonly profile?: AuthProfileSpec; }) \| undefined` | no       |             |
 | authz         | property | `({ readonly provider: "cerbos"; } & { readonly kind: "RBAC" \| "ABAC"; readonly policies?: readonly InfraAuthzPolicyFile[]; }) \| undefined`                                                                                                                   | no       |             |
-| database      | property | `({ readonly provider: "supabase"; } & { readonly tier?: "dev" \| "prod"; }) \| undefined`                                                                                                                                                                      | no       |             |
+| database      | property | `({ readonly provider: "supabase"; } & { readonly tier?: "dev" \| "prod"; readonly backup?: InfraScheduledDatabaseBackupSpec; }) \| undefined`                                                                                                                  | no       |             |
 | deployment    | property | `InfraDeploymentSpec`                                                                                                                                                                                                                                           | yes      |             |
 | networking    | property | `InfraNetworkingSpec \| undefined`                                                                                                                                                                                                                              | no       |             |
 | objectStorage | property | `InfraObjectStorageSpec \| undefined`                                                                                                                                                                                                                           | no       |             |
@@ -3081,7 +3081,7 @@ Source: `src/types/infraLifecycle.ts:89:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:136:1`
+Source: `src/types/infraManifest.ts:167:1`
 
 ### Members
 
@@ -3096,33 +3096,47 @@ Source: `src/types/infraManifest.ts:136:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:118:1`
+Source: `src/types/infraManifest.ts:147:1`
 
 ### Members
 
-| Name          | Kind     | Type                  | Required | Description |
-| ------------- | -------- | --------------------- | -------- | ----------- |
-| domain        | property | `string \| undefined` | no       |             |
-| publicBaseUrl | property | `string \| undefined` | no       |             |
+| Name          | Kind     | Type                                  | Required | Description |
+| ------------- | -------- | ------------------------------------- | -------- | ----------- |
+| domain        | property | `string \| undefined`                 | no       |             |
+| publicBaseUrl | property | `string \| undefined`                 | no       |             |
+| tls           | property | `InfraNetworkingTlsSpec \| undefined` | no       |             |
+
+## InfraNetworkingTlsSpec
+
+Kind: `type`
+Module: `src/types/infraManifest.ts`
+Source: `src/types/infraManifest.ts:140:1`
+
+### Members
+
+| Name         | Kind     | Type             | Required | Description |
+| ------------ | -------- | ---------------- | -------- | ----------- |
+| contactEmail | property | `string`         | yes      |             |
+| mode         | property | `"acme-http-01"` | yes      |             |
 
 ## InfraObjectStorageConfigMap
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:68:1`
+Source: `src/types/infraManifest.ts:87:1`
 
 ### Members
 
 | Name     | Kind     | Type                                                                                                                            | Required | Description |
 | -------- | -------- | ------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
 | r2       | property | `{ readonly buckets?: readonly string[]; readonly accountId?: string; readonly credentials?: InfraControlPlaneCredentialRef; }` | yes      |             |
-| supabase | property | `{ readonly buckets?: readonly string[]; }`                                                                                     | yes      |             |
+| supabase | property | `{ readonly buckets?: readonly string[]; readonly backend?: InfraS3PersistenceTarget; }`                                        | yes      |             |
 
 ## InfraObjectStorageSpec
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:103:1`
+Source: `src/types/infraManifest.ts:125:1`
 
 ## InfraOutput
 
@@ -3291,6 +3305,36 @@ Kind: `unknown`
 Module: `src/types/infraManifest.ts`
 Source: `src/types/infraManifest.ts:53:1`
 
+## InfraS3PersistenceTarget
+
+Kind: `type`
+Module: `src/types/infraManifest.ts`
+Source: `src/types/infraManifest.ts:66:1`
+
+### Members
+
+| Name           | Kind     | Type                             | Required | Description |
+| -------------- | -------- | -------------------------------- | -------- | ----------- |
+| bucket         | property | `string`                         | yes      |             |
+| credentials    | property | `InfraControlPlaneCredentialRef` | yes      |             |
+| endpoint       | property | `string`                         | yes      |             |
+| forcePathStyle | property | `boolean \| undefined`           | no       |             |
+| region         | property | `string`                         | yes      |             |
+
+## InfraScheduledDatabaseBackupSpec
+
+Kind: `type`
+Module: `src/types/infraManifest.ts`
+Source: `src/types/infraManifest.ts:75:1`
+
+### Members
+
+| Name          | Kind     | Type                       | Required | Description |
+| ------------- | -------- | -------------------------- | -------- | ----------- |
+| intervalHours | property | `number \| undefined`      | no       |             |
+| mode          | property | `"scheduled"`              | yes      |             |
+| target        | property | `InfraS3PersistenceTarget` | yes      |             |
+
 ## InfraSecretReference
 
 Kind: `type`
@@ -3311,7 +3355,7 @@ Source: `src/types/infraSecrets.ts:10:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:96:1`
+Source: `src/types/infraManifest.ts:118:1`
 
 ### Members
 
@@ -3323,7 +3367,7 @@ Source: `src/types/infraManifest.ts:96:1`
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:114:1`
+Source: `src/types/infraManifest.ts:136:1`
 
 ## InfraServiceAdapter
 
@@ -3376,7 +3420,7 @@ Source: `src/types/infraWorkload.ts:3:1`
 
 Kind: `type`
 Module: `src/types/infraWorkload.ts`
-Source: `src/types/infraWorkload.ts:59:1`
+Source: `src/types/infraWorkload.ts:61:1`
 
 ### Members
 
@@ -3429,7 +3473,7 @@ Source: `src/types/infraWorkload.ts:9:1`
 
 Kind: `type`
 Module: `src/types/infraWorkload.ts`
-Source: `src/types/infraWorkload.ts:64:1`
+Source: `src/types/infraWorkload.ts:66:1`
 
 ### Members
 
@@ -3468,6 +3512,7 @@ Source: `src/types/infraWorkload.ts:50:1`
 | id        | property | `string`                          | yes      |             |
 | mountPath | property | `string`                          | yes      |             |
 | retention | property | `"retain" \| "delete-on-destroy"` | yes      |             |
+| seed      | property | `"image" \| undefined`            | no       |             |
 | sizeGiB   | property | `number`                          | yes      |             |
 
 ## InternalRestApiDefinition
@@ -3747,7 +3792,7 @@ Validate provider-specific config and the exact same compatibility map used by T
 
 Kind: `function`
 Module: `src/infra/isInfraEnvironmentSpec.ts`
-Source: `src/infra/isInfraEnvironmentSpec.ts:15:1`
+Source: `src/infra/isInfraEnvironmentSpec.ts:20:1`
 
 Validate sibling capabilities and their required relationships within one environment.
 
