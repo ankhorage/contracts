@@ -51,6 +51,8 @@ export interface InfraWorkloadVolumeSpec {
   readonly id: string;
   readonly mountPath: string;
   readonly sizeGiB: number;
+  /** Seed a newly created empty volume from the image contents at mountPath before workload start. */
+  readonly seed?: 'image';
   /** Persistence survives down and is retained by default on destroy. */
   readonly retention: 'retain' | 'delete-on-destroy';
 }
