@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 19.4.0
+
+### Minor Changes
+
+- 59277a2: Add portable image-seeded initialization for persistent workload volumes.
+
 ## 19.3.0
 
 ### Minor Changes
