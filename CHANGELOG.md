@@ -1,5 +1,12 @@
 # @ankhorage/contracts
 
+## 19.2.1
+
+### Patch Changes
+
+- e331a1b: Provide the project root to deployment-provider setup adapters so project-aware providers can
+  inspect setup without depending on Deploy implementation state.
+
 ## 19.2.0
 
 ### Minor Changes
