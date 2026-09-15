@@ -1,5 +1,12 @@
 # @ankhorage/contracts
 
+## 19.5.0
+
+### Minor Changes
+
+- d078138: Add provider-neutral S3 persistence targets for continuous database backups and external Supabase
+  Storage backends.
+
 ## 19.4.0
 
 ### Minor Changes
