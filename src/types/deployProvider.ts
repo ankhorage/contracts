@@ -1,7 +1,7 @@
-import type { AppDeployTargetId } from '../deploy';
-import type { DeploymentMonetizationAdapter } from './deployMonetization';
-import type { DeploymentReleaseAdapter } from './deployRelease';
-import type { DeploymentStoreListingAdapter } from './deployStoreListing';
+import type { AppDeployTargetId } from '../deploy.js';
+import type { DeploymentMonetizationAdapter } from './deployMonetization.js';
+import type { DeploymentReleaseAdapter } from './deployRelease.js';
+import type { DeploymentStoreListingAdapter } from './deployStoreListing.js';
 
 export const DEPLOYMENT_CAPABILITIES = [
   'provision',
