@@ -31,6 +31,7 @@ graph LR
   module_src_data_values_ts["src/data/values.ts"]
   module_src_db_ts["src/db.ts"]
   module_src_deploy_ts["src/deploy.ts"]
+  module_src_deployProvider_ts["src/deployProvider.ts"]
   module_src_environments_ts["src/environments.ts"]
   module_src_index_ts["src/index.ts"]
   module_src_infra_ts["src/infra.ts"]
@@ -63,6 +64,10 @@ graph LR
   module_src_theme_ts["src/theme.ts"]
   module_src_types_ts["src/types.ts"]
   module_src_types_appManifest_ts["src/types/appManifest.ts"]
+  module_src_types_deployMonetization_ts["src/types/deployMonetization.ts"]
+  module_src_types_deployProvider_ts["src/types/deployProvider.ts"]
+  module_src_types_deployRelease_ts["src/types/deployRelease.ts"]
+  module_src_types_deployStoreListing_ts["src/types/deployStoreListing.ts"]
   module_src_types_infraAdapters_ts["src/types/infraAdapters.ts"]
   module_src_types_infraLifecycle_ts["src/types/infraLifecycle.ts"]
   module_src_types_infraManifest_ts["src/types/infraManifest.ts"]
@@ -89,6 +94,55 @@ graph LR
   export_AdaptiveTabsConfig -.-> export_NativeTabsConfig
   export_AlertAction["AlertAction"]
   module_src_types_ts --> export_AlertAction
+  export_ANDROID_DEPLOYMENT_TRACKS["ANDROID_DEPLOYMENT_TRACKS"]
+  module_src_types_deployProvider_ts --> export_ANDROID_DEPLOYMENT_TRACKS
+  export_ANDROID_RELEASE_STATUSES["ANDROID_RELEASE_STATUSES"]
+  module_src_types_deployProvider_ts --> export_ANDROID_RELEASE_STATUSES
+  export_AndroidBuildArtifact["AndroidBuildArtifact"]
+  module_src_types_deployProvider_ts --> export_AndroidBuildArtifact
+  export_AndroidBuildInspection["AndroidBuildInspection"]
+  module_src_types_deployProvider_ts --> export_AndroidBuildInspection
+  export_AndroidBuildInspectionRequest["AndroidBuildInspectionRequest"]
+  module_src_types_deployProvider_ts --> export_AndroidBuildInspectionRequest
+  export_AndroidBuildInspectionRequest -.-> export_DeploymentCredentialReference
+  export_AndroidBuildInspectionRequest -.-> export_DeploymentSecretResolver
+  export_AndroidBuildRequest["AndroidBuildRequest"]
+  module_src_types_deployProvider_ts --> export_AndroidBuildRequest
+  export_AndroidBuildRequest -.-> export_DeploymentCredentialReference
+  export_AndroidBuildRequest -.-> export_DeploymentSecretResolver
+  export_AndroidDeploymentBuilder["AndroidDeploymentBuilder"]
+  module_src_types_deployProvider_ts --> export_AndroidDeploymentBuilder
+  export_AndroidDeploymentBuilder -.-> export_AndroidBuildArtifact
+  export_AndroidDeploymentBuilder -.-> export_AndroidBuildInspection
+  export_AndroidDeploymentBuilder -.-> export_AndroidBuildInspectionRequest
+  export_AndroidDeploymentBuilder -.-> export_AndroidBuildRequest
+  export_AndroidDeploymentBuilder -.-> export_DeploymentProviderResult
+  export_AndroidDeploymentIntent["AndroidDeploymentIntent"]
+  module_src_types_deployProvider_ts --> export_AndroidDeploymentIntent
+  export_AndroidDeploymentPublication["AndroidDeploymentPublication"]
+  module_src_types_deployProvider_ts --> export_AndroidDeploymentPublication
+  export_AndroidDeploymentPublisher["AndroidDeploymentPublisher"]
+  module_src_types_deployProvider_ts --> export_AndroidDeploymentPublisher
+  export_AndroidDeploymentPublisher -.-> export_AndroidDeploymentPublication
+  export_AndroidDeploymentPublisher -.-> export_AndroidPublishInspection
+  export_AndroidDeploymentPublisher -.-> export_AndroidPublishInspectionRequest
+  export_AndroidDeploymentPublisher -.-> export_AndroidPublishRequest
+  export_AndroidDeploymentPublisher -.-> export_DeploymentProviderResult
+  export_AndroidDeploymentTrack["AndroidDeploymentTrack"]
+  module_src_types_deployProvider_ts --> export_AndroidDeploymentTrack
+  export_AndroidPublishInspection["AndroidPublishInspection"]
+  module_src_types_deployProvider_ts --> export_AndroidPublishInspection
+  export_AndroidPublishInspectionRequest["AndroidPublishInspectionRequest"]
+  module_src_types_deployProvider_ts --> export_AndroidPublishInspectionRequest
+  export_AndroidPublishInspectionRequest -.-> export_DeploymentCredentialReference
+  export_AndroidPublishInspectionRequest -.-> export_DeploymentSecretResolver
+  export_AndroidPublishRequest["AndroidPublishRequest"]
+  module_src_types_deployProvider_ts --> export_AndroidPublishRequest
+  export_AndroidPublishRequest -.-> export_AndroidBuildArtifact
+  export_AndroidPublishRequest -.-> export_DeploymentCredentialReference
+  export_AndroidPublishRequest -.-> export_DeploymentSecretResolver
+  export_AndroidReleaseStatus["AndroidReleaseStatus"]
+  module_src_types_deployProvider_ts --> export_AndroidReleaseStatus
   export_AnkhCapabilityId["AnkhCapabilityId"]
   module_src_cli_index_ts --> export_AnkhCapabilityId
   export_AnkhCommandCategory["AnkhCommandCategory"]
@@ -630,6 +684,92 @@ graph LR
   export_DbUpdateInput -.-> export_DbFilter
   export_DEFAULT_AUTH_FLOW["DEFAULT_AUTH_FLOW"]
   module_src_auth_ts --> export_DEFAULT_AUTH_FLOW
+  export_DEPLOYMENT_CAPABILITIES["DEPLOYMENT_CAPABILITIES"]
+  module_src_types_deployProvider_ts --> export_DEPLOYMENT_CAPABILITIES
+  export_DEPLOYMENT_PROVIDER_CAPABILITY_IDS["DEPLOYMENT_PROVIDER_CAPABILITY_IDS"]
+  module_src_types_deployProvider_ts --> export_DEPLOYMENT_PROVIDER_CAPABILITY_IDS
+  export_DeploymentAuthenticationRequiredAction["DeploymentAuthenticationRequiredAction"]
+  module_src_types_deployProvider_ts --> export_DeploymentAuthenticationRequiredAction
+  export_DeploymentAuthenticationState["DeploymentAuthenticationState"]
+  module_src_types_deployProvider_ts --> export_DeploymentAuthenticationState
+  export_DeploymentAutomatedProvisioningRequirement["DeploymentAutomatedProvisioningRequirement"]
+  module_src_types_deployProvider_ts --> export_DeploymentAutomatedProvisioningRequirement
+  export_DeploymentCapability["DeploymentCapability"]
+  module_src_types_deployProvider_ts --> export_DeploymentCapability
+  export_DeploymentCredentialReference["DeploymentCredentialReference"]
+  module_src_types_deployProvider_ts --> export_DeploymentCredentialReference
+  export_DeploymentFailure["DeploymentFailure"]
+  module_src_types_deployProvider_ts --> export_DeploymentFailure
+  export_DeploymentManualAction["DeploymentManualAction"]
+  module_src_types_deployProvider_ts --> export_DeploymentManualAction
+  export_DeploymentMonetizationAdapter["DeploymentMonetizationAdapter"]
+  module_src_types_deployMonetization_ts --> export_DeploymentMonetizationAdapter
+  export_DeploymentMonetizationAdapter -.-> export_DeploymentProviderResult
+  export_DeploymentMonetizationAdapter -.-> export_MonetizationAdapterContext
+  export_DeploymentMonetizationAdapter -.-> export_MonetizationSyncRequest
+  export_DeploymentMonetizationAdapter -.-> export_MonetizationTargetState
+  export_DeploymentProviderCapabilityDescriptor["DeploymentProviderCapabilityDescriptor"]
+  module_src_types_deployProvider_ts --> export_DeploymentProviderCapabilityDescriptor
+  export_DeploymentProviderCapabilityId["DeploymentProviderCapabilityId"]
+  module_src_types_deployProvider_ts --> export_DeploymentProviderCapabilityId
+  export_DeploymentProviderCapabilityState["DeploymentProviderCapabilityState"]
+  module_src_types_deployProvider_ts --> export_DeploymentProviderCapabilityState
+  export_DeploymentProviderDescriptor["DeploymentProviderDescriptor"]
+  module_src_types_deployProvider_ts --> export_DeploymentProviderDescriptor
+  export_DeploymentProviderDescriptor -.-> export_DeploymentProviderCapabilityDescriptor
+  export_DeploymentProviderRegistration["DeploymentProviderRegistration"]
+  module_src_types_deployProvider_ts --> export_DeploymentProviderRegistration
+  export_DeploymentProviderRegistration -.-> export_AndroidDeploymentBuilder
+  export_DeploymentProviderRegistration -.-> export_AndroidDeploymentPublisher
+  export_DeploymentProviderRegistration -.-> export_DeploymentMonetizationAdapter
+  export_DeploymentProviderRegistration -.-> export_DeploymentProviderDescriptor
+  export_DeploymentProviderRegistration -.-> export_DeploymentProviderSetupAdapter
+  export_DeploymentProviderRegistration -.-> export_DeploymentReleaseAdapter
+  export_DeploymentProviderRegistration -.-> export_DeploymentStoreListingAdapter
+  export_DeploymentProviderRegistration -.-> export_IosDeploymentBuilder
+  export_DeploymentProviderRegistration -.-> export_IosDeploymentPublisher
+  export_DeploymentProviderRegistration -.-> export_WebDeploymentPublisher
+  export_DeploymentProviderResult["DeploymentProviderResult"]
+  module_src_types_deployProvider_ts --> export_DeploymentProviderResult
+  export_DeploymentProviderSetupAdapter["DeploymentProviderSetupAdapter"]
+  module_src_types_deployProvider_ts --> export_DeploymentProviderSetupAdapter
+  export_DeploymentProviderSetupAdapter -.-> export_DeploymentProviderSetupContext
+  export_DeploymentProviderSetupAdapter -.-> export_DeploymentProviderSetupInspection
+  export_DeploymentProviderSetupContext["DeploymentProviderSetupContext"]
+  module_src_types_deployProvider_ts --> export_DeploymentProviderSetupContext
+  export_DeploymentProviderSetupContext -.-> export_DeploymentCredentialReference
+  export_DeploymentProviderSetupContext -.-> export_DeploymentSecretResolver
+  export_DeploymentProviderSetupInspection["DeploymentProviderSetupInspection"]
+  module_src_types_deployProvider_ts --> export_DeploymentProviderSetupInspection
+  export_DeploymentProviderSetupInspection -.-> export_DeploymentAuthenticationState
+  export_DeploymentProviderSetupInspection -.-> export_DeploymentProviderCapabilityState
+  export_DeploymentProviderSetupInspection -.-> export_DeploymentProvisioningRequirement
+  export_DeploymentProvisioningRequirement["DeploymentProvisioningRequirement"]
+  module_src_types_deployProvider_ts --> export_DeploymentProvisioningRequirement
+  export_DeploymentReleaseAdapter["DeploymentReleaseAdapter"]
+  module_src_types_deployRelease_ts --> export_DeploymentReleaseAdapter
+  export_DeploymentReleaseAdapter -.-> export_DeploymentProviderResult
+  export_DeploymentReleaseAdapter -.-> export_ReleaseControlExecutionResult
+  export_DeploymentReleaseAdapter -.-> export_ReleaseControlRequest
+  export_DeploymentReleaseAdapter -.-> export_ReleaseInspectionRequest
+  export_DeploymentReleaseAdapter -.-> export_ReleaseMutationResult
+  export_DeploymentReleaseAdapter -.-> export_ReleaseObservedNativeState
+  export_DeploymentReleaseAdapter -.-> export_ReleaseStepExecutionRequest
+  export_DeploymentRequiredAction["DeploymentRequiredAction"]
+  module_src_types_deployProvider_ts --> export_DeploymentRequiredAction
+  export_DeploymentSecretMaterial["DeploymentSecretMaterial"]
+  module_src_types_deployProvider_ts --> export_DeploymentSecretMaterial
+  export_DeploymentSecretResolver["DeploymentSecretResolver"]
+  module_src_types_deployProvider_ts --> export_DeploymentSecretResolver
+  export_DeploymentStoreIdentity["DeploymentStoreIdentity"]
+  module_src_types_deployProvider_ts --> export_DeploymentStoreIdentity
+  export_DeploymentStoreListingAdapter["DeploymentStoreListingAdapter"]
+  module_src_types_deployStoreListing_ts --> export_DeploymentStoreListingAdapter
+  export_DeploymentStoreListingAdapter -.-> export_DeploymentProviderResult
+  export_DeploymentStoreListingAdapter -.-> export_StoreListingAdapterContext
+  export_DeploymentStoreListingAdapter -.-> export_StoreListingSyncRequest
+  export_DeploymentStoreListingAdapter -.-> export_StoreListingTarget
+  export_DeploymentStoreListingAdapter -.-> export_StoreListingTargetState
   export_DRAWER_POSITIONS["DRAWER_POSITIONS"]
   module_src_navigator_ts --> export_DRAWER_POSITIONS
   export_DRAWER_TYPES["DRAWER_TYPES"]
@@ -908,6 +1048,47 @@ graph LR
   export_InternalRestApiDefinition -.-> export_DataContractValue
   export_InternalRestApiDefinition -.-> export_DataEndpointConfig
   export_InternalRestApiDefinition -.-> export_DataSchema
+  export_IosBuildArtifact["IosBuildArtifact"]
+  module_src_types_deployProvider_ts --> export_IosBuildArtifact
+  export_IosBuildInspection["IosBuildInspection"]
+  module_src_types_deployProvider_ts --> export_IosBuildInspection
+  export_IosBuildInspectionRequest["IosBuildInspectionRequest"]
+  module_src_types_deployProvider_ts --> export_IosBuildInspectionRequest
+  export_IosBuildInspectionRequest -.-> export_DeploymentCredentialReference
+  export_IosBuildInspectionRequest -.-> export_DeploymentSecretResolver
+  export_IosBuildRequest["IosBuildRequest"]
+  module_src_types_deployProvider_ts --> export_IosBuildRequest
+  export_IosBuildRequest -.-> export_DeploymentCredentialReference
+  export_IosBuildRequest -.-> export_DeploymentSecretResolver
+  export_IosDeploymentBuilder["IosDeploymentBuilder"]
+  module_src_types_deployProvider_ts --> export_IosDeploymentBuilder
+  export_IosDeploymentBuilder -.-> export_DeploymentProviderResult
+  export_IosDeploymentBuilder -.-> export_IosBuildArtifact
+  export_IosDeploymentBuilder -.-> export_IosBuildInspection
+  export_IosDeploymentBuilder -.-> export_IosBuildInspectionRequest
+  export_IosDeploymentBuilder -.-> export_IosBuildRequest
+  export_IosDeploymentIntent["IosDeploymentIntent"]
+  module_src_types_deployProvider_ts --> export_IosDeploymentIntent
+  export_IosDeploymentPublication["IosDeploymentPublication"]
+  module_src_types_deployProvider_ts --> export_IosDeploymentPublication
+  export_IosDeploymentPublisher["IosDeploymentPublisher"]
+  module_src_types_deployProvider_ts --> export_IosDeploymentPublisher
+  export_IosDeploymentPublisher -.-> export_DeploymentProviderResult
+  export_IosDeploymentPublisher -.-> export_IosDeploymentPublication
+  export_IosDeploymentPublisher -.-> export_IosPublishInspection
+  export_IosDeploymentPublisher -.-> export_IosPublishInspectionRequest
+  export_IosDeploymentPublisher -.-> export_IosPublishRequest
+  export_IosPublishInspection["IosPublishInspection"]
+  module_src_types_deployProvider_ts --> export_IosPublishInspection
+  export_IosPublishInspectionRequest["IosPublishInspectionRequest"]
+  module_src_types_deployProvider_ts --> export_IosPublishInspectionRequest
+  export_IosPublishInspectionRequest -.-> export_DeploymentCredentialReference
+  export_IosPublishInspectionRequest -.-> export_DeploymentSecretResolver
+  export_IosPublishRequest["IosPublishRequest"]
+  module_src_types_deployProvider_ts --> export_IosPublishRequest
+  export_IosPublishRequest -.-> export_DeploymentCredentialReference
+  export_IosPublishRequest -.-> export_DeploymentSecretResolver
+  export_IosPublishRequest -.-> export_IosBuildArtifact
   export_isAppDeployManifest["isAppDeployManifest"]
   module_src_appManifest_deploy_ts --> export_isAppDeployManifest
   export_isAppManifest["isAppManifest"]
@@ -993,6 +1174,56 @@ graph LR
   module_src_media_ts --> export_MediaStorageSource
   export_MediaUrlSource["MediaUrlSource"]
   module_src_media_ts --> export_MediaUrlSource
+  export_MonetizationAdapterContext["MonetizationAdapterContext"]
+  module_src_types_deployMonetization_ts --> export_MonetizationAdapterContext
+  export_MonetizationAdapterContext -.-> export_DeploymentCredentialReference
+  export_MonetizationAdapterContext -.-> export_DeploymentSecretResolver
+  export_MonetizationAdapterContext -.-> export_DeploymentStoreIdentity
+  export_MonetizationBasePrice["MonetizationBasePrice"]
+  module_src_types_deployMonetization_ts --> export_MonetizationBasePrice
+  export_MonetizationDesiredState["MonetizationDesiredState"]
+  module_src_types_deployMonetization_ts --> export_MonetizationDesiredState
+  export_MonetizationDesiredState -.-> export_MonetizationProduct
+  export_MonetizationDiagnostic["MonetizationDiagnostic"]
+  module_src_types_deployMonetization_ts --> export_MonetizationDiagnostic
+  export_MonetizationLocalization["MonetizationLocalization"]
+  module_src_types_deployMonetization_ts --> export_MonetizationLocalization
+  export_MonetizationObservedProduct["MonetizationObservedProduct"]
+  module_src_types_deployMonetization_ts --> export_MonetizationObservedProduct
+  export_MonetizationObservedProduct -.-> export_MonetizationBasePrice
+  export_MonetizationObservedProduct -.-> export_MonetizationLocalization
+  export_MonetizationObservedProduct -.-> export_MonetizationProductKind
+  export_MonetizationObservedProduct -.-> export_MonetizationSubscription
+  export_MonetizationPlan["MonetizationPlan"]
+  module_src_types_deployMonetization_ts --> export_MonetizationPlan
+  export_MonetizationPlan -.-> export_MonetizationDiagnostic
+  export_MonetizationPlan -.-> export_MonetizationPlanStep
+  export_MonetizationPlanStep["MonetizationPlanStep"]
+  module_src_types_deployMonetization_ts --> export_MonetizationPlanStep
+  export_MonetizationProduct["MonetizationProduct"]
+  module_src_types_deployMonetization_ts --> export_MonetizationProduct
+  export_MonetizationProduct -.-> export_MonetizationBasePrice
+  export_MonetizationProduct -.-> export_MonetizationLocalization
+  export_MonetizationProduct -.-> export_MonetizationProductKind
+  export_MonetizationProduct -.-> export_MonetizationSubscription
+  export_MonetizationProductKind["MonetizationProductKind"]
+  module_src_types_deployMonetization_ts --> export_MonetizationProductKind
+  export_MonetizationSubscription["MonetizationSubscription"]
+  module_src_types_deployMonetization_ts --> export_MonetizationSubscription
+  export_MonetizationSubscription -.-> export_MonetizationSubscriptionPeriod
+  export_MonetizationSubscriptionPeriod["MonetizationSubscriptionPeriod"]
+  module_src_types_deployMonetization_ts --> export_MonetizationSubscriptionPeriod
+  export_MonetizationSyncRequest["MonetizationSyncRequest"]
+  module_src_types_deployMonetization_ts --> export_MonetizationSyncRequest
+  export_MonetizationSyncRequest -.-> export_DeploymentCredentialReference
+  export_MonetizationSyncRequest -.-> export_DeploymentSecretResolver
+  export_MonetizationSyncRequest -.-> export_DeploymentStoreIdentity
+  export_MonetizationSyncRequest -.-> export_MonetizationDesiredState
+  export_MonetizationSyncRequest -.-> export_MonetizationPlan
+  export_MonetizationTargetState["MonetizationTargetState"]
+  module_src_types_deployMonetization_ts --> export_MonetizationTargetState
+  export_MonetizationTargetState -.-> export_MonetizationDiagnostic
+  export_MonetizationTargetState -.-> export_MonetizationObservedProduct
   export_NamedIconSpec["NamedIconSpec"]
   module_src_types_ts --> export_NamedIconSpec
   export_NATIVE_TABS_MINIMIZE_BEHAVIORS["NATIVE_TABS_MINIMIZE_BEHAVIORS"]
@@ -1152,6 +1383,87 @@ graph LR
   export_PropBinding -.-> export_BindingLifecycleBehavior
   export_PropBinding -.-> export_BindingValueSource
   export_PropBinding -.-> export_BindingValueTransform
+  export_ReleaseAdapterContext["ReleaseAdapterContext"]
+  module_src_types_deployRelease_ts --> export_ReleaseAdapterContext
+  export_ReleaseAdapterContext -.-> export_DeploymentCredentialReference
+  export_ReleaseAdapterContext -.-> export_DeploymentSecretResolver
+  export_ReleaseAdapterContext -.-> export_DeploymentStoreIdentity
+  export_ReleaseControlExecutionResult["ReleaseControlExecutionResult"]
+  module_src_types_deployRelease_ts --> export_ReleaseControlExecutionResult
+  export_ReleaseControlRequest["ReleaseControlRequest"]
+  module_src_types_deployRelease_ts --> export_ReleaseControlRequest
+  export_ReleaseControlRequest -.-> export_DeploymentCredentialReference
+  export_ReleaseControlRequest -.-> export_DeploymentSecretResolver
+  export_ReleaseControlRequest -.-> export_DeploymentStoreIdentity
+  export_ReleaseControlRequest -.-> export_ReleaseDesiredState
+  export_ReleaseControlRequest -.-> export_ReleaseLifecycleControl
+  export_ReleaseDesiredState["ReleaseDesiredState"]
+  module_src_types_deployRelease_ts --> export_ReleaseDesiredState
+  export_ReleaseDesiredState -.-> export_ReleaseNote
+  export_ReleaseDesiredState -.-> export_ReleaseRollout
+  export_ReleaseDesiredState -.-> export_ReleaseTarget
+  export_ReleaseDiagnostic["ReleaseDiagnostic"]
+  module_src_types_deployRelease_ts --> export_ReleaseDiagnostic
+  export_ReleaseDiagnostic -.-> export_ReleaseTarget
+  export_ReleaseInspectionRequest["ReleaseInspectionRequest"]
+  module_src_types_deployRelease_ts --> export_ReleaseInspectionRequest
+  export_ReleaseInspectionRequest -.-> export_DeploymentCredentialReference
+  export_ReleaseInspectionRequest -.-> export_DeploymentSecretResolver
+  export_ReleaseInspectionRequest -.-> export_DeploymentStoreIdentity
+  export_ReleaseLifecycleControl["ReleaseLifecycleControl"]
+  module_src_types_deployRelease_ts --> export_ReleaseLifecycleControl
+  export_ReleaseMutationResult["ReleaseMutationResult"]
+  module_src_types_deployRelease_ts --> export_ReleaseMutationResult
+  export_ReleaseNote["ReleaseNote"]
+  module_src_types_deployRelease_ts --> export_ReleaseNote
+  export_ReleaseObservedAndroidState["ReleaseObservedAndroidState"]
+  module_src_types_deployRelease_ts --> export_ReleaseObservedAndroidState
+  export_ReleaseObservedAndroidState -.-> export_ReleaseNote
+  export_ReleaseObservedIosState["ReleaseObservedIosState"]
+  module_src_types_deployRelease_ts --> export_ReleaseObservedIosState
+  export_ReleaseObservedIosState -.-> export_ReleaseNote
+  export_ReleaseObservedNativeState["ReleaseObservedNativeState"]
+  module_src_types_deployRelease_ts --> export_ReleaseObservedNativeState
+  export_ReleaseObservedState["ReleaseObservedState"]
+  module_src_types_deployRelease_ts --> export_ReleaseObservedState
+  export_ReleaseObservedState -.-> export_ReleaseObservedTargetState
+  export_ReleaseObservedTargetState["ReleaseObservedTargetState"]
+  module_src_types_deployRelease_ts --> export_ReleaseObservedTargetState
+  export_ReleaseObservedWebState["ReleaseObservedWebState"]
+  module_src_types_deployRelease_ts --> export_ReleaseObservedWebState
+  export_ReleasePlan["ReleasePlan"]
+  module_src_types_deployRelease_ts --> export_ReleasePlan
+  export_ReleasePlan -.-> export_ReleaseDiagnostic
+  export_ReleasePlan -.-> export_ReleasePlanStatus
+  export_ReleasePlan -.-> export_ReleasePlanStep
+  export_ReleasePlanStatus["ReleasePlanStatus"]
+  module_src_types_deployRelease_ts --> export_ReleasePlanStatus
+  export_ReleasePlanStep["ReleasePlanStep"]
+  module_src_types_deployRelease_ts --> export_ReleasePlanStep
+  export_ReleasePlanStep -.-> export_ReleaseStepOperation
+  export_ReleasePlanStep -.-> export_ReleaseStepRetry
+  export_ReleasePlanStep -.-> export_ReleaseTarget
+  export_ReleaseRollout["ReleaseRollout"]
+  module_src_types_deployRelease_ts --> export_ReleaseRollout
+  export_ReleaseRollout -.-> export_ReleaseTargetRollout
+  export_ReleaseRolloutMode["ReleaseRolloutMode"]
+  module_src_types_deployRelease_ts --> export_ReleaseRolloutMode
+  export_ReleaseStepExecutionRequest["ReleaseStepExecutionRequest"]
+  module_src_types_deployRelease_ts --> export_ReleaseStepExecutionRequest
+  export_ReleaseStepExecutionRequest -.-> export_DeploymentCredentialReference
+  export_ReleaseStepExecutionRequest -.-> export_DeploymentSecretResolver
+  export_ReleaseStepExecutionRequest -.-> export_DeploymentStoreIdentity
+  export_ReleaseStepExecutionRequest -.-> export_ReleaseDesiredState
+  export_ReleaseStepExecutionRequest -.-> export_ReleasePlanStep
+  export_ReleaseStepOperation["ReleaseStepOperation"]
+  module_src_types_deployRelease_ts --> export_ReleaseStepOperation
+  export_ReleaseStepRetry["ReleaseStepRetry"]
+  module_src_types_deployRelease_ts --> export_ReleaseStepRetry
+  export_ReleaseTarget["ReleaseTarget"]
+  module_src_types_deployRelease_ts --> export_ReleaseTarget
+  export_ReleaseTargetRollout["ReleaseTargetRollout"]
+  module_src_types_deployRelease_ts --> export_ReleaseTargetRollout
+  export_ReleaseTargetRollout -.-> export_ReleaseRolloutMode
   export_RepositoryManifest["RepositoryManifest"]
   module_src_repository_ts --> export_RepositoryManifest
   export_resolveAuthFlow["resolveAuthFlow"]
@@ -1385,6 +1697,64 @@ graph LR
   export_StorageUploadResult["StorageUploadResult"]
   module_src_storage_ts --> export_StorageUploadResult
   export_StorageUploadResult -.-> export_StorageAssetReference
+  export_StoreListingAdapterContext["StoreListingAdapterContext"]
+  module_src_types_deployStoreListing_ts --> export_StoreListingAdapterContext
+  export_StoreListingAdapterContext -.-> export_DeploymentCredentialReference
+  export_StoreListingAdapterContext -.-> export_DeploymentSecretResolver
+  export_StoreListingAdapterContext -.-> export_DeploymentStoreIdentity
+  export_StoreListingAsset["StoreListingAsset"]
+  module_src_types_deployStoreListing_ts --> export_StoreListingAsset
+  export_StoreListingAsset -.-> export_StoreListingAssetMediaType
+  export_StoreListingAssetMediaType["StoreListingAssetMediaType"]
+  module_src_types_deployStoreListing_ts --> export_StoreListingAssetMediaType
+  export_StoreListingAssetReader["StoreListingAssetReader"]
+  module_src_types_deployStoreListing_ts --> export_StoreListingAssetReader
+  export_StoreListingAssetSet["StoreListingAssetSet"]
+  module_src_types_deployStoreListing_ts --> export_StoreListingAssetSet
+  export_StoreListingAssetSet -.-> export_StoreListingAsset
+  export_StoreListingAssetSet -.-> export_StoreListingTarget
+  export_StoreListingDesiredState["StoreListingDesiredState"]
+  module_src_types_deployStoreListing_ts --> export_StoreListingDesiredState
+  export_StoreListingDesiredState -.-> export_StoreListingAssetSet
+  export_StoreListingDesiredState -.-> export_StoreListingLocale
+  export_StoreListingDiagnostic["StoreListingDiagnostic"]
+  module_src_types_deployStoreListing_ts --> export_StoreListingDiagnostic
+  export_StoreListingDiagnostic -.-> export_StoreListingField
+  export_StoreListingDiagnostic -.-> export_StoreListingTarget
+  export_StoreListingField["StoreListingField"]
+  module_src_types_deployStoreListing_ts --> export_StoreListingField
+  export_StoreListingLocale["StoreListingLocale"]
+  module_src_types_deployStoreListing_ts --> export_StoreListingLocale
+  export_StoreListingPlan["StoreListingPlan"]
+  module_src_types_deployStoreListing_ts --> export_StoreListingPlan
+  export_StoreListingPlan -.-> export_StoreListingDiagnostic
+  export_StoreListingPlan -.-> export_StoreListingPlanStep
+  export_StoreListingPlanOperation["StoreListingPlanOperation"]
+  module_src_types_deployStoreListing_ts --> export_StoreListingPlanOperation
+  export_StoreListingPlanStep["StoreListingPlanStep"]
+  module_src_types_deployStoreListing_ts --> export_StoreListingPlanStep
+  export_StoreListingPlanStep -.-> export_StoreListingPlanOperation
+  export_StoreListingPlanStep -.-> export_StoreListingTarget
+  export_StoreListingRemoteAssetSet["StoreListingRemoteAssetSet"]
+  module_src_types_deployStoreListing_ts --> export_StoreListingRemoteAssetSet
+  export_StoreListingRemoteAssetSet -.-> export_StoreListingTarget
+  export_StoreListingSyncRequest["StoreListingSyncRequest"]
+  module_src_types_deployStoreListing_ts --> export_StoreListingSyncRequest
+  export_StoreListingSyncRequest -.-> export_DeploymentCredentialReference
+  export_StoreListingSyncRequest -.-> export_DeploymentSecretResolver
+  export_StoreListingSyncRequest -.-> export_DeploymentStoreIdentity
+  export_StoreListingSyncRequest -.-> export_StoreListingAssetReader
+  export_StoreListingSyncRequest -.-> export_StoreListingDesiredState
+  export_StoreListingSyncRequest -.-> export_StoreListingPlan
+  export_StoreListingTarget["StoreListingTarget"]
+  module_src_types_deployStoreListing_ts --> export_StoreListingTarget
+  export_StoreListingTargetState["StoreListingTargetState"]
+  module_src_types_deployStoreListing_ts --> export_StoreListingTargetState
+  export_StoreListingTargetState -.-> export_StoreListingDiagnostic
+  export_StoreListingTargetState -.-> export_StoreListingField
+  export_StoreListingTargetState -.-> export_StoreListingLocale
+  export_StoreListingTargetState -.-> export_StoreListingRemoteAssetSet
+  export_StoreListingTargetState -.-> export_StoreListingTarget
   export_SvgIconSpec["SvgIconSpec"]
   module_src_types_ts --> export_SvgIconSpec
   export_SvgIconSpec -.-> export_MediaAssetReference
@@ -1525,3 +1895,17 @@ graph LR
   export_VerifyOtpInput["VerifyOtpInput"]
   module_src_auth_ts --> export_VerifyOtpInput
   export_VerifyOtpInput -.-> export_AuthIdentifier
+  export_WebDeploymentPublication["WebDeploymentPublication"]
+  module_src_types_deployProvider_ts --> export_WebDeploymentPublication
+  export_WebDeploymentPublisher["WebDeploymentPublisher"]
+  module_src_types_deployProvider_ts --> export_WebDeploymentPublisher
+  export_WebDeploymentPublisher -.-> export_DeploymentProviderResult
+  export_WebDeploymentPublisher -.-> export_WebDeploymentPublication
+  export_WebDeploymentPublisher -.-> export_WebDeploymentPublishRequest
+  export_WebDeploymentPublishIntent["WebDeploymentPublishIntent"]
+  module_src_types_deployProvider_ts --> export_WebDeploymentPublishIntent
+  export_WebDeploymentPublishRequest["WebDeploymentPublishRequest"]
+  module_src_types_deployProvider_ts --> export_WebDeploymentPublishRequest
+  export_WebDeploymentPublishRequest -.-> export_DeploymentCredentialReference
+  export_WebDeploymentPublishRequest -.-> export_DeploymentSecretResolver
+  export_WebDeploymentPublishRequest -.-> export_WebDeploymentPublishIntent

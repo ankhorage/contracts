@@ -32,13 +32,13 @@ Source: `src/data/refs.ts:15:1`
 
 ### Members
 
-| Name        | Kind     | Type                             | Required | Description |
-| ----------- | -------- | -------------------------------- | -------- | ----------- |
-| config      | property | `DataContractValue \| undefined` | no       |             |
-| exportName  | property | `string \| undefined`            | no       |             |
-| id          | property | `string`                         | yes      |             |
-| kind        | property | `AdapterKind`                    | yes      |             |
-| packageName | property | `string \| undefined`            | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| config | property | `DataContractValue \| undefined` | no |  |
+| exportName | property | `string \| undefined` | no |  |
+| id | property | `string` | yes |  |
+| kind | property | `AdapterKind` | yes |  |
+| packageName | property | `string \| undefined` | no |  |
 
 ## AdaptiveTabsConfig
 
@@ -48,11 +48,11 @@ Source: `src/navigator.ts:167:1`
 
 ### Members
 
-| Name           | Kind     | Type                                          | Required | Description |
-| -------------- | -------- | --------------------------------------------- | -------- | ----------- |
-| implementation | property | `"adaptive" \| undefined`                     | no       |             |
-| native         | property | `NativeTabsConfig \| undefined`               | no       |             |
-| web            | property | `HeadlessTabsPresentationConfig \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| implementation | property | `"adaptive" \| undefined` | no |  |
+| native | property | `NativeTabsConfig \| undefined` | no |  |
+| web | property | `HeadlessTabsPresentationConfig \| undefined` | no |  |
 
 ## AlertAction
 
@@ -62,10 +62,202 @@ Source: `src/types.ts:47:1`
 
 ### Members
 
-| Name    | Kind     | Type                                 | Required | Description |
-| ------- | -------- | ------------------------------------ | -------- | ----------- |
-| payload | property | `{ message?: string; } \| undefined` | no       |             |
-| type    | property | `"alert"`                            | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| payload | property | `{ message?: string; } \| undefined` | no |  |
+| type | property | `"alert"` | yes |  |
+
+## ANDROID_DEPLOYMENT_TRACKS
+
+Kind: `value`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:166:14`
+
+## ANDROID_RELEASE_STATUSES
+
+Kind: `value`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:169:14`
+
+## AndroidBuildArtifact
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:194:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| archiveUrl | property | `string` | yes |  |
+| buildId | property | `string` | yes |  |
+| buildProfile | property | `string` | yes |  |
+| fingerprint | property | `string` | yes |  |
+| provider | property | `string` | yes |  |
+| versionCode | property | `number` | yes |  |
+
+## AndroidBuildInspection
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:186:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| fingerprint | property | `string` | yes |  |
+
+## AndroidBuildInspectionRequest
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:178:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| buildProfile | property | `string` | yes |  |
+| credentials | property | `readonly DeploymentCredentialReference[]` | yes |  |
+| packageName | property | `string` | yes |  |
+| projectRoot | property | `string` | yes |  |
+| resolveSecret | property | `DeploymentSecretResolver` | yes |  |
+
+## AndroidBuildRequest
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:190:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| buildProfile | property | `string` | yes |  |
+| credentials | property | `readonly DeploymentCredentialReference[]` | yes |  |
+| expectedFingerprint | property | `string` | yes |  |
+| packageName | property | `string` | yes |  |
+| projectRoot | property | `string` | yes |  |
+| resolveSecret | property | `DeploymentSecretResolver` | yes |  |
+
+## AndroidDeploymentBuilder
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:203:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| buildAsync | method | `(request: AndroidBuildRequest) => Promise<DeploymentProviderResult<AndroidBuildArtifact>>` | yes |  |
+| inspectAsync | method | `(request: AndroidBuildInspectionRequest) => Promise<DeploymentProviderResult<AndroidBuildInspection>>` | yes |  |
+
+## AndroidDeploymentIntent
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:172:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| buildProfile | property | `string` | yes |  |
+| releaseStatus | property | `"draft" \| "completed"` | yes |  |
+| track | property | `"production" \| "internal" \| "alpha" \| "beta"` | yes |  |
+
+## AndroidDeploymentPublication
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:228:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| buildId | property | `string` | yes |  |
+| buildProvider | property | `string` | yes |  |
+| publishProvider | property | `string` | yes |  |
+| releaseStatus | property | `"draft" \| "completed"` | yes |  |
+| revision | property | `string` | yes |  |
+| target | property | `"android"` | yes |  |
+| track | property | `"production" \| "internal" \| "alpha" \| "beta"` | yes |  |
+| versionCode | property | `number` | yes |  |
+
+## AndroidDeploymentPublisher
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:239:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| inspectAsync | method | `(request: AndroidPublishInspectionRequest) => Promise<DeploymentProviderResult<AndroidPublishInspection>>` | yes |  |
+| publishAsync | method | `(request: AndroidPublishRequest) => Promise<DeploymentProviderResult<AndroidDeploymentPublication>>` | yes |  |
+| verifyAsync | method | `(request: AndroidPublishRequest) => Promise<DeploymentProviderResult<AndroidPublishInspection>>` | yes |  |
+
+## AndroidDeploymentTrack
+
+Kind: `unknown`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:167:1`
+
+## AndroidPublishInspection
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:217:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| activeVersionCodes | property | `readonly number[]` | yes |  |
+| track | property | `"production" \| "internal" \| "alpha" \| "beta"` | yes |  |
+
+## AndroidPublishInspectionRequest
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:210:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| credentials | property | `readonly DeploymentCredentialReference[]` | yes |  |
+| packageName | property | `string` | yes |  |
+| resolveSecret | property | `DeploymentSecretResolver` | yes |  |
+| track | property | `"production" \| "internal" \| "alpha" \| "beta"` | yes |  |
+
+## AndroidPublishRequest
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:222:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| artifact | property | `AndroidBuildArtifact` | yes |  |
+| credentials | property | `readonly DeploymentCredentialReference[]` | yes |  |
+| packageName | property | `string` | yes |  |
+| releaseStatus | property | `"draft" \| "completed"` | yes |  |
+| resolveSecret | property | `DeploymentSecretResolver` | yes |  |
+| revision | property | `string` | yes |  |
+| track | property | `"production" \| "internal" \| "alpha" \| "beta"` | yes |  |
+
+## AndroidReleaseStatus
+
+Kind: `unknown`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:170:1`
 
 ## AnkhCapabilityId
 
@@ -87,13 +279,13 @@ Source: `src/cli/index.ts:7:1`
 
 ### Members
 
-| Name       | Kind     | Type                             | Required | Description |
-| ---------- | -------- | -------------------------------- | -------- | ----------- |
-| aliases    | property | `readonly string[] \| undefined` | no       |             |
-| capability | property | `${string}.${string}`            | yes      |             |
-| examples   | property | `readonly string[] \| undefined` | no       |             |
-| path       | property | `readonly string[]`              | yes      |             |
-| summary    | property | `string`                         | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| aliases | property | `readonly string[] \| undefined` | no |  |
+| capability | property | ``${string}.${string}`` | yes |  |
+| examples | property | `readonly string[] \| undefined` | no |  |
+| path | property | `readonly string[]` | yes |  |
+| summary | property | `string` | yes |  |
 
 ## AnkhCommandProviderManifest
 
@@ -103,13 +295,13 @@ Source: `src/cli/index.ts:20:1`
 
 ### Members
 
-| Name         | Kind     | Type                               | Required | Description |
-| ------------ | -------- | ---------------------------------- | -------- | ----------- |
-| capabilities | property | `readonly `${string}.${string}`[]` | yes      |             |
-| category     | property | `string`                           | yes      |             |
-| commands     | property | `readonly AnkhCommandDescriptor[]` | yes      |             |
-| id           | property | `string`                           | yes      |             |
-| version      | property | `string`                           | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| capabilities | property | `readonly `${string}.${string}`[]` | yes |  |
+| category | property | `string` | yes |  |
+| commands | property | `readonly AnkhCommandDescriptor[]` | yes |  |
+| id | property | `string` | yes |  |
+| version | property | `string` | yes |  |
 
 ## ANKHORAGE_CAPABILITY_NAMES
 
@@ -143,11 +335,11 @@ Source: `src/cli/index.ts:28:1`
 
 ### Members
 
-| Name         | Kind     | Type                               | Required | Description |
-| ------------ | -------- | ---------------------------------- | -------- | ----------- |
-| capabilities | property | `readonly `${string}.${string}`[]` | yes      |             |
-| category     | property | `string`                           | yes      |             |
-| provider     | property | ``./${string}` \| null`            | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| capabilities | property | `readonly `${string}.${string}`[]` | yes |  |
+| category | property | `string` | yes |  |
+| provider | property | ``./${string}` \| null` | yes |  |
 
 ## AnkhProviderReference
 
@@ -163,17 +355,17 @@ Source: `src/data/apis.ts:10:1`
 
 ### Members
 
-| Name        | Kind     | Type                                                                    | Required | Description |
-| ----------- | -------- | ----------------------------------------------------------------------- | -------- | ----------- |
-| credential  | property | `CredentialRef \| undefined`                                            | no       |             |
-| description | property | `string \| undefined`                                                   | no       |             |
-| endpoints   | property | `Readonly<Record<string, import("./endpoints").DataEndpointConfig>>`    | yes      |             |
-| id          | property | `string`                                                                | yes      |             |
-| metadata    | property | `DataContractValue \| undefined`                                        | no       |             |
-| name        | property | `string \| undefined`                                                   | no       |             |
-| origin      | property | `ApiOrigin`                                                             | yes      |             |
-| protocol    | property | `ApiProtocol`                                                           | yes      |             |
-| schemas     | property | `Readonly<Record<string, import("./schemas").DataSchema>> \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| credential | property | `CredentialRef \| undefined` | no |  |
+| description | property | `string \| undefined` | no |  |
+| endpoints | property | `Readonly<Record<string, import("./endpoints").DataEndpointConfig>>` | yes |  |
+| id | property | `string` | yes |  |
+| metadata | property | `DataContractValue \| undefined` | no |  |
+| name | property | `string \| undefined` | no |  |
+| origin | property | `ApiOrigin` | yes |  |
+| protocol | property | `ApiProtocol` | yes |  |
+| schemas | property | `Readonly<Record<string, import("./schemas").DataSchema>> \| undefined` | no |  |
 
 ## ApiDefinition
 
@@ -237,12 +429,12 @@ Source: `src/deploy.ts:15:1`
 
 ### Members
 
-| Name      | Kind     | Type                                      | Required | Description |
-| --------- | -------- | ----------------------------------------- | -------- | ----------- |
-| enabled   | property | `boolean`                                 | yes      |             |
-| package   | property | `string`                                  | yes      |             |
-| providers | property | `AppDeployProviderSelection \| undefined` | no       |             |
-| scheme    | property | `string \| undefined`                     | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| enabled | property | `boolean` | yes |  |
+| package | property | `string` | yes |  |
+| providers | property | `AppDeployProviderSelection \| undefined` | no |  |
+| scheme | property | `string \| undefined` | no |  |
 
 ## AppDeployIosTargetConfig
 
@@ -252,12 +444,12 @@ Source: `src/deploy.ts:23:1`
 
 ### Members
 
-| Name             | Kind     | Type                                      | Required | Description |
-| ---------------- | -------- | ----------------------------------------- | -------- | ----------- |
-| bundleIdentifier | property | `string`                                  | yes      |             |
-| enabled          | property | `boolean`                                 | yes      |             |
-| providers        | property | `AppDeployProviderSelection \| undefined` | no       |             |
-| scheme           | property | `string \| undefined`                     | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| bundleIdentifier | property | `string` | yes |  |
+| enabled | property | `boolean` | yes |  |
+| providers | property | `AppDeployProviderSelection \| undefined` | no |  |
+| scheme | property | `string \| undefined` | no |  |
 
 ## AppDeployManifest
 
@@ -267,9 +459,9 @@ Source: `src/deploy.ts:37:1`
 
 ### Members
 
-| Name    | Kind     | Type               | Required | Description |
-| ------- | -------- | ------------------ | -------- | ----------- |
-| targets | property | `AppDeployTargets` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| targets | property | `AppDeployTargets` | yes |  |
 
 ## AppDeployProviderSelection
 
@@ -279,10 +471,10 @@ Source: `src/deploy.ts:5:1`
 
 ### Members
 
-| Name    | Kind     | Type                  | Required | Description |
-| ------- | -------- | --------------------- | -------- | ----------- |
-| build   | property | `string \| undefined` | no       |             |
-| publish | property | `string \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| build | property | `string \| undefined` | no |  |
+| publish | property | `string \| undefined` | no |  |
 
 ## AppDeployTargetId
 
@@ -298,11 +490,11 @@ Source: `src/deploy.ts:31:1`
 
 ### Members
 
-| Name    | Kind     | Type                                        | Required | Description |
-| ------- | -------- | ------------------------------------------- | -------- | ----------- |
-| android | property | `AppDeployAndroidTargetConfig \| undefined` | no       |             |
-| ios     | property | `AppDeployIosTargetConfig \| undefined`     | no       |             |
-| web     | property | `AppDeployWebTargetConfig \| undefined`     | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| android | property | `AppDeployAndroidTargetConfig \| undefined` | no |  |
+| ios | property | `AppDeployIosTargetConfig \| undefined` | no |  |
+| web | property | `AppDeployWebTargetConfig \| undefined` | no |  |
 
 ## AppDeployWebTargetConfig
 
@@ -312,10 +504,10 @@ Source: `src/deploy.ts:10:1`
 
 ### Members
 
-| Name      | Kind     | Type                                      | Required | Description |
-| --------- | -------- | ----------------------------------------- | -------- | ----------- |
-| enabled   | property | `boolean`                                 | yes      |             |
-| providers | property | `AppDeployProviderSelection \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| enabled | property | `boolean` | yes |  |
+| providers | property | `AppDeployProviderSelection \| undefined` | no |  |
 
 ## AppEnvironmentId
 
@@ -331,23 +523,23 @@ Source: `src/types.ts:268:1`
 
 ### Members
 
-| Name            | Kind     | Type                                                                                                                           | Required | Description |
-| --------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------ | -------- | ----------- |
-| activeThemeId   | property | `string`                                                                                                                       | yes      |             |
-| activeThemeMode | property | `"dark" \| "light" \| undefined`                                                                                               | no       |             |
-| dataBindings    | property | `Readonly<Record<string, import("./bindings").ComponentDataBinding>> \| undefined`                                             | no       |             |
-| dataSources     | property | `Readonly<Record<string, import("./data").DatabaseDataSourceConfig>> \| undefined`                                             | no       |             |
-| deploy          | property | `AppDeployManifest \| undefined`                                                                                               | no       |             |
-| infra           | property | `InfraManifest`                                                                                                                | yes      |             |
-| media           | property | `MediaManifest \| undefined`                                                                                                   | no       |             |
-| metadata        | property | `{ name: string; slug: string; version: string; category: AppCategory; themeId: string; created?: string; updated?: string; }` | yes      |             |
-| navigator       | property | `AppNavigatorManifest`                                                                                                         | yes      |             |
-| repository      | property | `RepositoryManifest \| undefined`                                                                                              | no       |             |
-| screens         | property | `Record<string, ScreenSpec>`                                                                                                   | yes      |             |
-| settings        | property | `AppSettings`                                                                                                                  | yes      |             |
-| splashScreen    | property | `SplashScreenSpec \| undefined`                                                                                                | no       |             |
-| state           | property | `AppStateSpec \| undefined`                                                                                                    | no       |             |
-| themes          | property | `ThemeConfig[]`                                                                                                                | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| activeThemeId | property | `string` | yes |  |
+| activeThemeMode | property | `"dark" \| "light" \| undefined` | no |  |
+| dataBindings | property | `Readonly<Record<string, import("./bindings").ComponentDataBinding>> \| undefined` | no |  |
+| dataSources | property | `Readonly<Record<string, import("./data").DatabaseDataSourceConfig>> \| undefined` | no |  |
+| deploy | property | `AppDeployManifest \| undefined` | no |  |
+| infra | property | `InfraManifest` | yes |  |
+| media | property | `MediaManifest \| undefined` | no |  |
+| metadata | property | `{ name: string; slug: string; version: string; category: AppCategory; themeId: string; created?: string; updated?: string; }` | yes |  |
+| navigator | property | `AppNavigatorManifest` | yes |  |
+| repository | property | `RepositoryManifest \| undefined` | no |  |
+| screens | property | `Record<string, ScreenSpec>` | yes |  |
+| settings | property | `AppSettings` | yes |  |
+| splashScreen | property | `SplashScreenSpec \| undefined` | no |  |
+| state | property | `AppStateSpec \| undefined` | no |  |
+| themes | property | `ThemeConfig[]` | yes |  |
 
 ## AppManifestParseResult
 
@@ -369,9 +561,9 @@ Source: `src/types.ts:261:1`
 
 ### Members
 
-| Name         | Kind     | Type                                            | Required | Description |
-| ------------ | -------- | ----------------------------------------------- | -------- | ----------- |
-| localization | property | `{ defaultLocale: string; locales: string[]; }` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| localization | property | `{ defaultLocale: string; locales: string[]; }` | yes |  |
 
 ## AppStateSpec
 
@@ -381,10 +573,10 @@ Source: `src/state.ts:2:1`
 
 ### Members
 
-| Name        | Kind     | Type                 | Required | Description |
-| ----------- | -------- | -------------------- | -------- | ----------- |
-| persistence | property | `false \| undefined` | no       |             |
-| provider    | property | `"legend"`           | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| persistence | property | `false \| undefined` | no |  |
+| provider | property | `"legend"` | yes |  |
 
 ## AUTH_IDENTIFIER_KINDS
 
@@ -508,17 +700,17 @@ Source: `src/auth.ts:382:1`
 
 ### Members
 
-| Name                 | Kind     | Type                                                                         | Required | Description |
-| -------------------- | -------- | ---------------------------------------------------------------------------- | -------- | ----------- |
-| capabilities         | property | `AuthAdapterCapabilities \| undefined`                                       | no       |             |
-| getSession           | method   | `() => Promise<AuthResult<AuthSession \| null>>`                             | yes      |             |
-| oauth                | property | `AuthOAuthAdapter \| undefined`                                              | no       |             |
-| refreshSession       | method   | `(() => Promise<AuthResult<AuthSession \| null>>) \| undefined`              | no       |             |
-| requestPasswordReset | method   | `((input: PasswordResetInput) => Promise<AuthResult>) \| undefined`          | no       |             |
-| signIn               | method   | `(input: SignInInput) => Promise<AuthResult<AuthSession>>`                   | yes      |             |
-| signOut              | method   | `(input?: SignOutInput) => Promise<AuthResult>`                              | yes      |             |
-| signUp               | method   | `(input: SignUpInput) => Promise<AuthResult<AuthSession \| AuthUser>>`       | yes      |             |
-| verifyOtp            | method   | `((input: VerifyOtpInput) => Promise<AuthResult<AuthSession>>) \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| capabilities | property | `AuthAdapterCapabilities \| undefined` | no |  |
+| getSession | method | `() => Promise<AuthResult<AuthSession \| null>>` | yes |  |
+| oauth | property | `AuthOAuthAdapter \| undefined` | no |  |
+| refreshSession | method | `(() => Promise<AuthResult<AuthSession \| null>>) \| undefined` | no |  |
+| requestPasswordReset | method | `((input: PasswordResetInput) => Promise<AuthResult>) \| undefined` | no |  |
+| signIn | method | `(input: SignInInput) => Promise<AuthResult<AuthSession>>` | yes |  |
+| signOut | method | `(input?: SignOutInput) => Promise<AuthResult>` | yes |  |
+| signUp | method | `(input: SignUpInput) => Promise<AuthResult<AuthSession \| AuthUser>>` | yes |  |
+| verifyOtp | method | `((input: VerifyOtpInput) => Promise<AuthResult<AuthSession>>) \| undefined` | no |  |
 
 ## AuthAdapterCapabilities
 
@@ -528,13 +720,13 @@ Source: `src/auth.ts:374:1`
 
 ### Members
 
-| Name                   | Kind     | Type                                   | Required | Description |
-| ---------------------- | -------- | -------------------------------------- | -------- | ----------- |
-| signInIdentifiers      | property | `("email" \| "phone" \| "username")[]` | yes      |             |
-| supportsOtp            | property | `boolean`                              | yes      |             |
-| supportsPasswordReset  | property | `boolean`                              | yes      |             |
-| supportsSessionRefresh | property | `boolean`                              | yes      |             |
-| supportsSignUp         | property | `boolean`                              | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| signInIdentifiers | property | `("email" \| "phone" \| "username")[]` | yes |  |
+| supportsOtp | property | `boolean` | yes |  |
+| supportsPasswordReset | property | `boolean` | yes |  |
+| supportsSessionRefresh | property | `boolean` | yes |  |
+| supportsSignUp | property | `boolean` | yes |  |
 
 ## AuthAdapterError
 
@@ -544,11 +736,11 @@ Source: `src/auth.ts:191:1`
 
 ### Members
 
-| Name    | Kind     | Type      | Required | Description |
-| ------- | -------- | --------- | -------- | ----------- |
-| cause   | property | `unknown` | no       |             |
-| code    | property | `string`  | yes      |             |
-| message | property | `string`  | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| cause | property | `unknown` | no |  |
+| code | property | `string` | yes |  |
+| message | property | `string` | yes |  |
 
 ## AuthFlowConfig
 
@@ -558,15 +750,15 @@ Source: `src/auth.ts:111:1`
 
 ### Members
 
-| Name                | Kind     | Type                  | Required | Description |
-| ------------------- | -------- | --------------------- | -------- | ----------- |
-| forgotPasswordRoute | property | `string \| undefined` | no       |             |
-| otpRoute            | property | `string \| undefined` | no       |             |
-| postSignInRoute     | property | `string`              | yes      |             |
-| signInRoute         | property | `string`              | yes      |             |
-| signOutRoute        | property | `string \| undefined` | no       |             |
-| signUpRoute         | property | `string \| undefined` | no       |             |
-| unauthorizedRoute   | property | `string \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| forgotPasswordRoute | property | `string \| undefined` | no |  |
+| otpRoute | property | `string \| undefined` | no |  |
+| postSignInRoute | property | `string` | yes |  |
+| signInRoute | property | `string` | yes |  |
+| signOutRoute | property | `string \| undefined` | no |  |
+| signUpRoute | property | `string \| undefined` | no |  |
+| unauthorizedRoute | property | `string \| undefined` | no |  |
 
 ## AuthIdentifier
 
@@ -576,10 +768,10 @@ Source: `src/auth.ts:106:1`
 
 ### Members
 
-| Name  | Kind     | Type                               | Required | Description |
-| ----- | -------- | ---------------------------------- | -------- | ----------- |
-| kind  | property | `"email" \| "phone" \| "username"` | yes      |             |
-| value | property | `string`                           | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| kind | property | `"email" \| "phone" \| "username"` | yes |  |
+| value | property | `string` | yes |  |
 
 ## AuthIdentifierKind
 
@@ -595,11 +787,11 @@ Source: `src/auth.ts:367:1`
 
 ### Members
 
-| Name                  | Kind     | Type                                                                             | Required | Description |
-| --------------------- | -------- | -------------------------------------------------------------------------------- | -------- | ----------- |
-| capabilities          | property | `AuthOAuthCapabilities`                                                          | yes      |             |
-| completeAuthorization | method   | `(input: CompleteOAuthAuthorizationInput) => Promise<AuthOAuthCompletionResult>` | yes      |             |
-| startAuthorization    | method   | `(input: StartOAuthAuthorizationInput) => Promise<AuthOAuthStartResult>`         | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| capabilities | property | `AuthOAuthCapabilities` | yes |  |
+| completeAuthorization | method | `(input: CompleteOAuthAuthorizationInput) => Promise<AuthOAuthCompletionResult>` | yes |  |
+| startAuthorization | method | `(input: StartOAuthAuthorizationInput) => Promise<AuthOAuthStartResult>` | yes |  |
 
 ## AuthOAuthAuthorizationRequest
 
@@ -609,12 +801,12 @@ Source: `src/auth.ts:307:1`
 
 ### Members
 
-| Name             | Kind     | Type                  | Required | Description |
-| ---------------- | -------- | --------------------- | -------- | ----------- |
-| attemptId        | property | `string`              | yes      |             |
-| authorizationUrl | property | `string`              | yes      |             |
-| provider         | property | `AuthOAuthProviderId` | yes      |             |
-| redirectUri      | property | `string`              | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| attemptId | property | `string` | yes |  |
+| authorizationUrl | property | `string` | yes |  |
+| provider | property | `AuthOAuthProviderId` | yes |  |
+| redirectUri | property | `string` | yes |  |
 
 ## AuthOAuthAuthorizationResponse
 
@@ -636,9 +828,9 @@ Source: `src/auth.ts:362:1`
 
 ### Members
 
-| Name      | Kind     | Type                                                       | Required | Description |
-| --------- | -------- | ---------------------------------------------------------- | -------- | ----------- |
-| providers | property | `readonly [AuthOAuthProviderId, ...AuthOAuthProviderId[]]` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| providers | property | `readonly [AuthOAuthProviderId, ...AuthOAuthProviderId[]]` | yes |  |
 
 ## AuthOAuthCompletionResult
 
@@ -654,11 +846,11 @@ Source: `src/auth.ts:154:1`
 
 ### Members
 
-| Name          | Kind     | Type                        | Required | Description |
-| ------------- | -------- | --------------------------- | -------- | ----------- |
-| callbackRoute | property | `string`                    | yes      |             |
-| enabled       | property | `boolean`                   | yes      |             |
-| providers     | property | `AuthOAuthProviderConfig[]` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| callbackRoute | property | `string` | yes |  |
+| enabled | property | `boolean` | yes |  |
+| providers | property | `AuthOAuthProviderConfig[]` | yes |  |
 
 ## AuthOAuthError
 
@@ -668,14 +860,14 @@ Source: `src/auth.ts:268:1`
 
 ### Members
 
-| Name        | Kind     | Type                                                                                                                                                                                                                                                                                                                                                                                         | Required | Description |
-| ----------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| cause       | property | `unknown`                                                                                                                                                                                                                                                                                                                                                                                    | no       |             |
-| code        | property | `"oauth_unavailable" \| "provider_disabled" \| "provider_misconfigured" \| "invalid_redirect_uri" \| "authorization_failed" \| "authorization_attempt_not_found" \| "invalid_callback" \| "state_mismatch" \| "pkce_mismatch" \| "callback_already_completed" \| "code_exchange_failed" \| "network_error" \| "session_persistence_failed" \| "profile_creation_failed" \| "provider_error"` | yes      |             |
-| message     | property | `string`                                                                                                                                                                                                                                                                                                                                                                                     | yes      |             |
-| provider    | property | `AuthOAuthProviderId \| undefined`                                                                                                                                                                                                                                                                                                                                                           | no       |             |
-| recoverable | property | `boolean`                                                                                                                                                                                                                                                                                                                                                                                    | yes      |             |
-| stage       | property | `"callback" \| "start" \| "transport" \| "exchange" \| "session" \| "profile"`                                                                                                                                                                                                                                                                                                               | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| cause | property | `unknown` | no |  |
+| code | property | `"oauth_unavailable" \| "provider_disabled" \| "provider_misconfigured" \| "invalid_redirect_uri" \| "authorization_failed" \| "authorization_attempt_not_found" \| "invalid_callback" \| "state_mismatch" \| "pkce_mismatch" \| "callback_already_completed" \| "code_exchange_failed" \| "network_error" \| "session_persistence_failed" \| "profile_creation_failed" \| "provider_error"` | yes |  |
+| message | property | `string` | yes |  |
+| provider | property | `AuthOAuthProviderId \| undefined` | no |  |
+| recoverable | property | `boolean` | yes |  |
+| stage | property | `"callback" \| "start" \| "transport" \| "exchange" \| "session" \| "profile"` | yes |  |
 
 ## AuthOAuthErrorCode
 
@@ -697,15 +889,15 @@ Source: `src/auth.ts:143:1`
 
 ### Members
 
-| Name           | Kind     | Type                                  | Required | Description |
-| -------------- | -------- | ------------------------------------- | -------- | ----------- |
-| credentialsRef | property | `string \| undefined`                 | no       |             |
-| enabled        | property | `boolean \| undefined`                | no       |             |
-| icon           | property | `IconSpec \| undefined`               | no       |             |
-| id             | property | `AuthOAuthProviderId`                 | yes      |             |
-| label          | property | `string \| undefined`                 | no       |             |
-| queryParams    | property | `Record<string, string> \| undefined` | no       |             |
-| scopes         | property | `string[] \| undefined`               | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| credentialsRef | property | `string \| undefined` | no |  |
+| enabled | property | `boolean \| undefined` | no |  |
+| icon | property | `IconSpec \| undefined` | no |  |
+| id | property | `AuthOAuthProviderId` | yes |  |
+| label | property | `string \| undefined` | no |  |
+| queryParams | property | `Record<string, string> \| undefined` | no |  |
+| scopes | property | `string[] \| undefined` | no |  |
 
 ## AuthOAuthProviderId
 
@@ -721,14 +913,14 @@ Source: `src/auth.ts:73:1`
 
 ### Members
 
-| Name        | Kind     | Type                                       | Required | Description |
-| ----------- | -------- | ------------------------------------------ | -------- | ----------- |
-| description | property | `string \| undefined`                      | no       |             |
-| kind        | property | `"callback"`                               | yes      |             |
-| label       | property | `string`                                   | yes      |             |
-| required    | property | `boolean`                                  | yes      |             |
-| role        | property | `"provider" \| "app"`                      | yes      |             |
-| target      | property | `"web" \| "android" \| "ios" \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| description | property | `string \| undefined` | no |  |
+| kind | property | `"callback"` | yes |  |
+| label | property | `string` | yes |  |
+| required | property | `boolean` | yes |  |
+| role | property | `"provider" \| "app"` | yes |  |
+| target | property | `"web" \| "android" \| "ios" \| undefined` | no |  |
 
 ## AuthOAuthSetupCallbackRole
 
@@ -744,10 +936,10 @@ Source: `src/auth.ts:101:1`
 
 ### Members
 
-| Name       | Kind     | Type                              | Required | Description |
-| ---------- | -------- | --------------------------------- | -------- | ----------- |
-| providers  | property | `readonly AuthOAuthProviderId[]`  | yes      |             |
-| transports | property | `readonly AuthOAuthTransportId[]` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| providers | property | `readonly AuthOAuthProviderId[]` | yes |  |
+| transports | property | `readonly AuthOAuthTransportId[]` | yes |  |
 
 ## AuthOAuthSetupFieldPersistence
 
@@ -763,16 +955,16 @@ Source: `src/auth.ts:60:1`
 
 ### Members
 
-| Name        | Kind     | Type                                       | Required | Description |
-| ----------- | -------- | ------------------------------------------ | -------- | ----------- |
-| description | property | `string \| undefined`                      | no       |             |
-| key         | property | `string`                                   | yes      |             |
-| kind        | property | `"field"`                                  | yes      |             |
-| label       | property | `string`                                   | yes      |             |
-| persistence | property | `"trustedCredential" \| "publicConfig"`    | yes      |             |
-| required    | property | `boolean`                                  | yes      |             |
-| sensitivity | property | `"public" \| "secret"`                     | yes      |             |
-| target      | property | `"web" \| "android" \| "ios" \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| description | property | `string \| undefined` | no |  |
+| key | property | `string` | yes |  |
+| kind | property | `"field"` | yes |  |
+| label | property | `string` | yes |  |
+| persistence | property | `"trustedCredential" \| "publicConfig"` | yes |  |
+| required | property | `boolean` | yes |  |
+| sensitivity | property | `"public" \| "secret"` | yes |  |
+| target | property | `"web" \| "android" \| "ios" \| undefined` | no |  |
 
 ## AuthOAuthSetupFieldSensitivity
 
@@ -788,13 +980,13 @@ Source: `src/auth.ts:91:1`
 
 ### Members
 
-| Name         | Kind     | Type                                       | Required | Description |
-| ------------ | -------- | ------------------------------------------ | -------- | ----------- |
-| environment  | property | `"local" \| "preview" \| "production"`     | yes      |             |
-| provider     | property | `AuthOAuthProviderId`                      | yes      |             |
-| requirements | property | `readonly AuthOAuthSetupRequirement[]`     | yes      |             |
-| targets      | property | `readonly ("web" \| "android" \| "ios")[]` | yes      |             |
-| transport    | property | `AuthOAuthTransportId`                     | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| environment | property | `"local" \| "preview" \| "production"` | yes |  |
+| provider | property | `AuthOAuthProviderId` | yes |  |
+| requirements | property | `readonly AuthOAuthSetupRequirement[]` | yes |  |
+| targets | property | `readonly ("web" \| "android" \| "ios")[]` | yes |  |
+| transport | property | `AuthOAuthTransportId` | yes |  |
 
 ## AuthOAuthSetupRequirement
 
@@ -822,11 +1014,11 @@ Source: `src/auth.ts:294:1`
 
 ### Members
 
-| Name    | Kind     | Type                                          | Required | Description |
-| ------- | -------- | --------------------------------------------- | -------- | ----------- |
-| cause   | property | `unknown`                                     | no       |             |
-| code    | property | `"browser_unavailable" \| "transport_failed"` | yes      |             |
-| message | property | `string`                                      | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| cause | property | `unknown` | no |  |
+| code | property | `"browser_unavailable" \| "transport_failed"` | yes |  |
+| message | property | `string` | yes |  |
 
 ## AuthOAuthTransportErrorCode
 
@@ -866,13 +1058,13 @@ Source: `src/types.ts:253:1`
 
 ### Members
 
-| Name           | Kind     | Type                                       | Required | Description |
-| -------------- | -------- | ------------------------------------------ | -------- | ----------- |
-| createStrategy | property | `"app" \| "trigger" \| "api" \| undefined` | no       |             |
-| fields         | property | `AuthProfileField[]`                       | yes      |             |
-| primaryKey     | property | `"authUserId" \| undefined`                | no       |             |
-| table          | property | `string \| undefined`                      | no       |             |
-| updateStrategy | property | `"app" \| "api" \| undefined`              | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| createStrategy | property | `"app" \| "trigger" \| "api" \| undefined` | no |  |
+| fields | property | `AuthProfileField[]` | yes |  |
+| primaryKey | property | `"authUserId" \| undefined` | no |  |
+| table | property | `string \| undefined` | no |  |
+| updateStrategy | property | `"app" \| "api" \| undefined` | no |  |
 
 ## AuthProfileUpdateStrategy
 
@@ -888,14 +1080,14 @@ Source: `src/auth.ts:160:1`
 
 ### Members
 
-| Name          | Kind     | Type                                 | Required | Description |
-| ------------- | -------- | ------------------------------------ | -------- | ----------- |
-| oauth         | property | `AuthOAuthConfig \| undefined`       | no       |             |
-| otp           | property | `{ enabled: boolean; } \| undefined` | no       |             |
-| passwordReset | property | `{ enabled: boolean; } \| undefined` | no       |             |
-| provider      | property | `string`                             | yes      |             |
-| signIn        | property | `AuthSignInConfig`                   | yes      |             |
-| signUp        | property | `AuthSignUpConfig \| undefined`      | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| oauth | property | `AuthOAuthConfig \| undefined` | no |  |
+| otp | property | `{ enabled: boolean; } \| undefined` | no |  |
+| passwordReset | property | `{ enabled: boolean; } \| undefined` | no |  |
+| provider | property | `string` | yes |  |
+| signIn | property | `AuthSignInConfig` | yes |  |
+| signUp | property | `AuthSignUpConfig \| undefined` | no |  |
 
 ## AuthResult
 
@@ -917,13 +1109,13 @@ Source: `src/auth.ts:183:1`
 
 ### Members
 
-| Name         | Kind     | Type                  | Required | Description |
-| ------------ | -------- | --------------------- | -------- | ----------- |
-| accessToken  | property | `string`              | yes      |             |
-| expiresAt    | property | `number \| undefined` | no       |             |
-| refreshToken | property | `string \| undefined` | no       |             |
-| tokenType    | property | `string \| undefined` | no       |             |
-| user         | property | `AuthUser`            | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| accessToken | property | `string` | yes |  |
+| expiresAt | property | `number \| undefined` | no |  |
+| refreshToken | property | `string \| undefined` | no |  |
+| tokenType | property | `string \| undefined` | no |  |
+| user | property | `AuthUser` | yes |  |
 
 ## AuthSignInConfig
 
@@ -933,9 +1125,9 @@ Source: `src/auth.ts:134:1`
 
 ### Members
 
-| Name        | Kind     | Type                                   | Required | Description |
-| ----------- | -------- | -------------------------------------- | -------- | ----------- |
-| identifiers | property | `("email" \| "phone" \| "username")[]` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| identifiers | property | `("email" \| "phone" \| "username")[]` | yes |  |
 
 ## AuthSignInIdentifier
 
@@ -951,9 +1143,9 @@ Source: `src/types.ts:243:1`
 
 ### Members
 
-| Name        | Kind     | Type                                   | Required | Description |
-| ----------- | -------- | -------------------------------------- | -------- | ----------- |
-| identifiers | property | `("email" \| "phone" \| "username")[]` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| identifiers | property | `("email" \| "phone" \| "username")[]` | yes |  |
 
 ## AuthSignUpConfig
 
@@ -963,10 +1155,10 @@ Source: `src/auth.ts:138:1`
 
 ### Members
 
-| Name           | Kind     | Type                             | Required | Description |
-| -------------- | -------- | -------------------------------- | -------- | ----------- |
-| optionalFields | property | `AuthSignUpField[] \| undefined` | no       |             |
-| requiredFields | property | `AuthSignUpField[]`              | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| optionalFields | property | `AuthSignUpField[] \| undefined` | no |  |
+| requiredFields | property | `AuthSignUpField[]` | yes |  |
 
 ## AuthSignUpField
 
@@ -988,11 +1180,11 @@ Source: `src/types.ts:247:1`
 
 ### Members
 
-| Name           | Kind     | Type                                                 | Required | Description |
-| -------------- | -------- | ---------------------------------------------------- | -------- | ----------- |
-| optionalFields | property | `AuthSignUpField[] \| undefined`                     | no       |             |
-| requiredFields | property | `AuthSignUpField[]`                                  | yes      |             |
-| signUpPolicy   | property | `"autoSignIn" \| "requireVerification" \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| optionalFields | property | `AuthSignUpField[] \| undefined` | no |  |
+| requiredFields | property | `AuthSignUpField[]` | yes |  |
+| signUpPolicy | property | `"autoSignIn" \| "requireVerification" \| undefined` | no |  |
 
 ## AuthUser
 
@@ -1002,15 +1194,15 @@ Source: `src/auth.ts:173:1`
 
 ### Members
 
-| Name        | Kind     | Type                                   | Required | Description |
-| ----------- | -------- | -------------------------------------- | -------- | ----------- |
-| avatarUrl   | property | `string \| undefined`                  | no       |             |
-| displayName | property | `string \| undefined`                  | no       |             |
-| email       | property | `string \| undefined`                  | no       |             |
-| id          | property | `string`                               | yes      |             |
-| metadata    | property | `Record<string, unknown> \| undefined` | no       |             |
-| phone       | property | `string \| undefined`                  | no       |             |
-| username    | property | `string \| undefined`                  | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| avatarUrl | property | `string \| undefined` | no |  |
+| displayName | property | `string \| undefined` | no |  |
+| email | property | `string \| undefined` | no |  |
+| id | property | `string` | yes |  |
+| metadata | property | `Record<string, unknown> \| undefined` | no |  |
+| phone | property | `string \| undefined` | no |  |
+| username | property | `string \| undefined` | no |  |
 
 ## BindingCondition
 
@@ -1020,11 +1212,11 @@ Source: `src/bindings.ts:108:1`
 
 ### Members
 
-| Name     | Kind     | Type                        | Required | Description |
-| -------- | -------- | --------------------------- | -------- | ----------- |
-| operator | property | `BindingConditionOperator`  | yes      |             |
-| source   | property | `BindingValueSource`        | yes      |             |
-| value    | property | `BindingValue \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| operator | property | `BindingConditionOperator` | yes |  |
+| source | property | `BindingValueSource` | yes |  |
+| value | property | `BindingValue \| undefined` | no |  |
 
 ## BindingConditionOperator
 
@@ -1046,10 +1238,10 @@ Source: `src/bindings.ts:54:1`
 
 ### Members
 
-| Name   | Kind     | Type                              | Required | Description |
-| ------ | -------- | --------------------------------- | -------- | ----------- |
-| source | property | `BindingValueSource \| undefined` | no       |             |
-| value  | property | `BindingValue \| undefined`       | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| source | property | `BindingValueSource \| undefined` | no |  |
+| value | property | `BindingValue \| undefined` | no |  |
 
 ## BindingInputMap
 
@@ -1071,11 +1263,11 @@ Source: `src/bindings.ts:61:1`
 
 ### Members
 
-| Name     | Kind     | Type                           | Required | Description |
-| -------- | -------- | ------------------------------ | -------- | ----------- |
-| fallback | property | `BindingFallback \| undefined` | no       |             |
-| message  | property | `string \| undefined`          | no       |             |
-| state    | property | `BindingLifecycleState`        | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| fallback | property | `BindingFallback \| undefined` | no |  |
+| message | property | `string \| undefined` | no |  |
+| state | property | `BindingLifecycleState` | yes |  |
 
 ## BindingLifecycleState
 
@@ -1091,11 +1283,11 @@ Source: `src/bindings.ts:20:1`
 
 ### Members
 
-| Name        | Kind     | Type                  | Required | Description |
-| ----------- | -------- | --------------------- | -------- | ----------- |
-| apiId       | property | `string`              | yes      |             |
-| endpointId  | property | `string \| undefined` | no       |             |
-| operationId | property | `string`              | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| apiId | property | `string` | yes |  |
+| endpointId | property | `string \| undefined` | no |  |
+| operationId | property | `string` | yes |  |
 
 ## BindingValue
 
@@ -1111,10 +1303,10 @@ Source: `src/bindings.ts:49:1`
 
 ### Members
 
-| Name       | Kind     | Type                                            | Required | Description |
-| ---------- | -------- | ----------------------------------------------- | -------- | ----------- |
-| source     | property | `BindingValueSource`                            | yes      |             |
-| transforms | property | `readonly BindingValueTransform[] \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| source | property | `BindingValueSource` | yes |  |
+| transforms | property | `readonly BindingValueTransform[] \| undefined` | no |  |
 
 ## BindingValueSource
 
@@ -1148,10 +1340,10 @@ Source: `src/types.ts:126:1`
 
 ### Members
 
-| Name   | Kind     | Type                            | Required | Description |
-| ------ | -------- | ------------------------------- | -------- | ----------- |
-| item   | property | `Record<string, ManifestValue>` | yes      |             |
-| itemId | property | `string \| number`              | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| item | property | `Record<string, ManifestValue>` | yes |  |
+| itemId | property | `string \| number` | yes |  |
 
 ## CompleteOAuthAuthorizationInput
 
@@ -1161,10 +1353,10 @@ Source: `src/auth.ts:338:1`
 
 ### Members
 
-| Name      | Kind     | Type                             | Required | Description |
-| --------- | -------- | -------------------------------- | -------- | ----------- |
-| attemptId | property | `string`                         | yes      |             |
-| response  | property | `AuthOAuthAuthorizationResponse` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| attemptId | property | `string` | yes |  |
+| response | property | `AuthOAuthAuthorizationResponse` | yes |  |
 
 ## ComponentDataBinding
 
@@ -1174,12 +1366,12 @@ Source: `src/bindings.ts:130:1`
 
 ### Members
 
-| Name          | Kind     | Type                                                             | Required | Description |
-| ------------- | -------- | ---------------------------------------------------------------- | -------- | ----------- |
-| componentId   | property | `string`                                                         | yes      |             |
-| componentType | property | `string \| undefined`                                            | no       |             |
-| events        | property | `Readonly<Record<string, readonly EventBinding[]>> \| undefined` | no       |             |
-| props         | property | `Readonly<Record<string, PropBinding>> \| undefined`             | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| componentId | property | `string` | yes |  |
+| componentType | property | `string \| undefined` | no |  |
+| events | property | `Readonly<Record<string, readonly EventBinding[]>> \| undefined` | no |  |
+| props | property | `Readonly<Record<string, PropBinding>> \| undefined` | no |  |
 
 ## ComponentDataBindingRegistry
 
@@ -1195,11 +1387,11 @@ Source: `src/types.ts:106:1`
 
 ### Members
 
-| Name         | Kind     | Type       | Required | Description |
-| ------------ | -------- | ---------- | -------- | ----------- |
-| payload      | property | `TPayload` | yes      |             |
-| sourceNodeId | property | `string`   | yes      |             |
-| type         | property | `TType`    | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| payload | property | `TPayload` | yes |  |
+| sourceNodeId | property | `string` | yes |  |
+| type | property | `TType` | yes |  |
 
 ## ComponentEventDtoKind
 
@@ -1227,10 +1419,10 @@ Source: `src/requirements.ts:40:1`
 
 ### Members
 
-| Name         | Kind     | Type                                                  | Required | Description |
-| ------------ | -------- | ----------------------------------------------------- | -------- | ----------- |
-| capabilities | property | `readonly ScreenCapabilityRequirement[] \| undefined` | no       |             |
-| permissions  | property | `readonly ScreenPermissionRequirement[] \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| capabilities | property | `readonly ScreenCapabilityRequirement[] \| undefined` | no |  |
+| permissions | property | `readonly ScreenPermissionRequirement[] \| undefined` | no |  |
 
 ## ComponentTypeId
 
@@ -1246,10 +1438,10 @@ Source: `src/types.ts:54:1`
 
 ### Members
 
-| Name    | Kind     | Type                                   | Required | Description |
-| ------- | -------- | -------------------------------------- | -------- | ----------- |
-| payload | property | `Record<string, unknown> \| undefined` | no       |             |
-| type    | property | `"console"`                            | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| payload | property | `Record<string, unknown> \| undefined` | no |  |
+| type | property | `"console"` | yes |  |
 
 ## CreateNavigatorPlanOptions
 
@@ -1259,12 +1451,12 @@ Source: `src/navigator/planning.ts:39:1`
 
 ### Members
 
-| Name              | Kind     | Type                                   | Required | Description |
-| ----------------- | -------- | -------------------------------------- | -------- | ----------- |
-| customNavigators  | property | `CustomNavigatorRegistry \| undefined` | no       |             |
-| expoRouterVersion | property | `string`                               | yes      |             |
-| platform          | property | `NavigatorRuntimePlatform`             | yes      |             |
-| responsiveSize    | property | `NavigatorResponsiveSize \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| customNavigators | property | `CustomNavigatorRegistry \| undefined` | no |  |
+| expoRouterVersion | property | `string` | yes |  |
+| platform | property | `NavigatorRuntimePlatform` | yes |  |
+| responsiveSize | property | `NavigatorResponsiveSize \| undefined` | no |  |
 
 ## CredentialId
 
@@ -1286,12 +1478,12 @@ Source: `src/data/refs.ts:6:1`
 
 ### Members
 
-| Name  | Kind     | Type                              | Required | Description |
-| ----- | -------- | --------------------------------- | -------- | ----------- |
-| id    | property | `string`                          | yes      |             |
-| kind  | property | `(string & {}) \| CredentialKind` | yes      |             |
-| label | property | `string \| undefined`             | no       |             |
-| scope | property | `string \| undefined`             | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| id | property | `string` | yes |  |
+| kind | property | `(string & {}) \| CredentialKind` | yes |  |
+| label | property | `string \| undefined` | no |  |
+| scope | property | `string \| undefined` | no |  |
 
 ## CustomNavigatorConfigIssue
 
@@ -1301,11 +1493,11 @@ Source: `src/navigator/extensions.ts:3:1`
 
 ### Members
 
-| Name    | Kind     | Type                  | Required | Description |
-| ------- | -------- | --------------------- | -------- | ----------- |
-| code    | property | `string`              | yes      |             |
-| message | property | `string`              | yes      |             |
-| path    | property | `string \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| code | property | `string` | yes |  |
+| message | property | `string` | yes |  |
+| path | property | `string \| undefined` | no |  |
 
 ## CustomNavigatorNode
 
@@ -1315,13 +1507,13 @@ Source: `src/navigator.ts:214:1`
 
 ### Members
 
-| Name             | Kind     | Type                                                   | Required | Description |
-| ---------------- | -------- | ------------------------------------------------------ | -------- | ----------- |
-| config           | property | `Readonly<Record<string, ManifestValue>> \| undefined` | no       |             |
-| initialRouteName | property | `string \| undefined`                                  | no       |             |
-| navigatorId      | property | `string`                                               | yes      |             |
-| routes           | property | `RouteDefinition[]`                                    | yes      |             |
-| type             | property | `"custom"`                                             | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| config | property | `Readonly<Record<string, ManifestValue>> \| undefined` | no |  |
+| initialRouteName | property | `string \| undefined` | no |  |
+| navigatorId | property | `string` | yes |  |
+| routes | property | `RouteDefinition[]` | yes |  |
+| type | property | `"custom"` | yes |  |
 
 ## CustomNavigatorRegistration
 
@@ -1331,16 +1523,16 @@ Source: `src/navigator/extensions.ts:9:1`
 
 ### Members
 
-| Name           | Kind     | Type                                                                               | Required | Description |
-| -------------- | -------- | ---------------------------------------------------------------------------------- | -------- | ----------- |
-| exportName     | property | `string`                                                                           | yes      |             |
-| id             | property | `string`                                                                           | yes      |             |
-| integration    | property | `"expo-router-standard"`                                                           | yes      |             |
-| module         | property | `string`                                                                           | yes      |             |
-| platforms      | property | `readonly NavigatorRuntimePlatform[]`                                              | yes      |             |
-| router         | property | `"stack" \| "tab"`                                                                 | yes      |             |
-| stability      | property | `NavigatorApiStability`                                                            | yes      |             |
-| validateConfig | property | `(config: CustomNavigatorNode["config"]) => readonly CustomNavigatorConfigIssue[]` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| exportName | property | `string` | yes |  |
+| id | property | `string` | yes |  |
+| integration | property | `"expo-router-standard"` | yes |  |
+| module | property | `string` | yes |  |
+| platforms | property | `readonly NavigatorRuntimePlatform[]` | yes |  |
+| router | property | `"stack" \| "tab"` | yes |  |
+| stability | property | `NavigatorApiStability` | yes |  |
+| validateConfig | property | `(config: CustomNavigatorNode["config"]) => readonly CustomNavigatorConfigIssue[]` | yes |  |
 
 ## CustomNavigatorRegistry
 
@@ -1356,13 +1548,13 @@ Source: `src/data/refs.ts:23:1`
 
 ### Members
 
-| Name        | Kind     | Type                             | Required | Description |
-| ----------- | -------- | -------------------------------- | -------- | ----------- |
-| config      | property | `DataContractValue \| undefined` | no       |             |
-| exportName  | property | `string \| undefined`            | no       |             |
-| id          | property | `string`                         | yes      |             |
-| kind        | property | `"database"`                     | yes      |             |
-| packageName | property | `string \| undefined`            | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| config | property | `DataContractValue \| undefined` | no |  |
+| exportName | property | `string \| undefined` | no |  |
+| id | property | `string` | yes |  |
+| kind | property | `"database"` | yes |  |
+| packageName | property | `string \| undefined` | no |  |
 
 ## DatabaseDataSourceConfig
 
@@ -1372,17 +1564,17 @@ Source: `src/data/sources.ts:9:1`
 
 ### Members
 
-| Name        | Kind     | Type                                                                    | Required | Description |
-| ----------- | -------- | ----------------------------------------------------------------------- | -------- | ----------- |
-| adapter     | property | `DatabaseAdapterRef`                                                    | yes      |             |
-| credential  | property | `CredentialRef \| undefined`                                            | no       |             |
-| description | property | `string \| undefined`                                                   | no       |             |
-| endpoints   | property | `Readonly<Record<string, import("./endpoints").DataEndpointConfig>>`    | yes      |             |
-| id          | property | `string`                                                                | yes      |             |
-| kind        | property | `"database"`                                                            | yes      |             |
-| metadata    | property | `DataContractValue \| undefined`                                        | no       |             |
-| name        | property | `string \| undefined`                                                   | no       |             |
-| schemas     | property | `Readonly<Record<string, import("./schemas").DataSchema>> \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| adapter | property | `DatabaseAdapterRef` | yes |  |
+| credential | property | `CredentialRef \| undefined` | no |  |
+| description | property | `string \| undefined` | no |  |
+| endpoints | property | `Readonly<Record<string, import("./endpoints").DataEndpointConfig>>` | yes |  |
+| id | property | `string` | yes |  |
+| kind | property | `"database"` | yes |  |
+| metadata | property | `DataContractValue \| undefined` | no |  |
+| name | property | `string \| undefined` | no |  |
+| schemas | property | `Readonly<Record<string, import("./schemas").DataSchema>> \| undefined` | no |  |
 
 ## DataContractValue
 
@@ -1410,17 +1602,17 @@ Source: `src/data/endpoints.ts:8:1`
 
 ### Members
 
-| Name        | Kind     | Type                                            | Required | Description |
-| ----------- | -------- | ----------------------------------------------- | -------- | ----------- |
-| baseUrl     | property | `string \| undefined`                           | no       |             |
-| credential  | property | `CredentialRef \| undefined`                    | no       |             |
-| description | property | `string \| undefined`                           | no       |             |
-| id          | property | `string`                                        | yes      |             |
-| kind        | property | `DataEndpointKind`                              | yes      |             |
-| metadata    | property | `DataContractValue \| undefined`                | no       |             |
-| name        | property | `string \| undefined`                           | no       |             |
-| operations  | property | `Readonly<Record<string, DataOperationConfig>>` | yes      |             |
-| path        | property | `string \| undefined`                           | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| baseUrl | property | `string \| undefined` | no |  |
+| credential | property | `CredentialRef \| undefined` | no |  |
+| description | property | `string \| undefined` | no |  |
+| id | property | `string` | yes |  |
+| kind | property | `DataEndpointKind` | yes |  |
+| metadata | property | `DataContractValue \| undefined` | no |  |
+| name | property | `string \| undefined` | no |  |
+| operations | property | `Readonly<Record<string, DataOperationConfig>>` | yes |  |
+| path | property | `string \| undefined` | no |  |
 
 ## DataEndpointKind
 
@@ -1442,21 +1634,21 @@ Source: `src/data/operations.ts:43:1`
 
 ### Members
 
-| Name        | Kind     | Type                                   | Required | Description |
-| ----------- | -------- | -------------------------------------- | -------- | ----------- |
-| credential  | property | `CredentialRef \| undefined`           | no       |             |
-| description | property | `string \| undefined`                  | no       |             |
-| endpointId  | property | `string \| undefined`                  | no       |             |
-| id          | property | `string`                               | yes      |             |
-| intent      | property | `DataOperationIntent`                  | yes      |             |
-| metadata    | property | `DataContractValue \| undefined`       | no       |             |
-| method      | property | `DataOperationMethod \| undefined`     | no       |             |
-| name        | property | `string \| undefined`                  | no       |             |
-| pagination  | property | `DataOperationPagination \| undefined` | no       |             |
-| path        | property | `string \| undefined`                  | no       |             |
-| protocol    | property | `DataOperationProtocol`                | yes      |             |
-| request     | property | `DataOperationRequest \| undefined`    | no       |             |
-| response    | property | `DataOperationResponse \| undefined`   | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| credential | property | `CredentialRef \| undefined` | no |  |
+| description | property | `string \| undefined` | no |  |
+| endpointId | property | `string \| undefined` | no |  |
+| id | property | `string` | yes |  |
+| intent | property | `DataOperationIntent` | yes |  |
+| metadata | property | `DataContractValue \| undefined` | no |  |
+| method | property | `DataOperationMethod \| undefined` | no |  |
+| name | property | `string \| undefined` | no |  |
+| pagination | property | `DataOperationPagination \| undefined` | no |  |
+| path | property | `string \| undefined` | no |  |
+| protocol | property | `DataOperationProtocol` | yes |  |
+| request | property | `DataOperationRequest \| undefined` | no |  |
+| response | property | `DataOperationResponse \| undefined` | no |  |
 
 ## DataOperationIntent
 
@@ -1478,14 +1670,14 @@ Source: `src/data/operations.ts:34:1`
 
 ### Members
 
-| Name              | Kind     | Type                                                                 | Required | Description |
-| ----------------- | -------- | -------------------------------------------------------------------- | -------- | ----------- |
-| cursorPath        | property | `string \| undefined`                                                | no       |             |
-| kind              | property | `(string & {}) \| "cursor" \| "limit-offset" \| "page" \| "unknown"` | yes      |             |
-| limitParameter    | property | `string \| undefined`                                                | no       |             |
-| offsetParameter   | property | `string \| undefined`                                                | no       |             |
-| pageParameter     | property | `string \| undefined`                                                | no       |             |
-| pageSizeParameter | property | `string \| undefined`                                                | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| cursorPath | property | `string \| undefined` | no |  |
+| kind | property | `(string & {}) \| "cursor" \| "limit-offset" \| "page" \| "unknown"` | yes |  |
+| limitParameter | property | `string \| undefined` | no |  |
+| offsetParameter | property | `string \| undefined` | no |  |
+| pageParameter | property | `string \| undefined` | no |  |
+| pageSizeParameter | property | `string \| undefined` | no |  |
 
 ## DataOperationParameter
 
@@ -1495,15 +1687,15 @@ Source: `src/data/operations.ts:15:1`
 
 ### Members
 
-| Name        | Kind     | Type                             | Required | Description |
-| ----------- | -------- | -------------------------------- | -------- | ----------- |
-| default     | property | `DataContractValue \| undefined` | no       |             |
-| description | property | `string \| undefined`            | no       |             |
-| location    | property | `DataOperationParameterLocation` | yes      |             |
-| name        | property | `string`                         | yes      |             |
-| required    | property | `boolean \| undefined`           | no       |             |
-| schema      | property | `DataSchema \| undefined`        | no       |             |
-| schemaRef   | property | `DataSchemaRef \| undefined`     | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| default | property | `DataContractValue \| undefined` | no |  |
+| description | property | `string \| undefined` | no |  |
+| location | property | `DataOperationParameterLocation` | yes |  |
+| name | property | `string` | yes |  |
+| required | property | `boolean \| undefined` | no |  |
+| schema | property | `DataSchema \| undefined` | no |  |
+| schemaRef | property | `DataSchemaRef \| undefined` | no |  |
 
 ## DataOperationParameterLocation
 
@@ -1531,12 +1723,12 @@ Source: `src/data/operations.ts:23:1`
 
 ### Members
 
-| Name        | Kind     | Type                                             | Required | Description |
-| ----------- | -------- | ------------------------------------------------ | -------- | ----------- |
-| contentType | property | `string \| undefined`                            | no       |             |
-| parameters  | property | `readonly DataOperationParameter[] \| undefined` | no       |             |
-| schema      | property | `DataSchema \| undefined`                        | no       |             |
-| schemaRef   | property | `DataSchemaRef \| undefined`                     | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| contentType | property | `string \| undefined` | no |  |
+| parameters | property | `readonly DataOperationParameter[] \| undefined` | no |  |
+| schema | property | `DataSchema \| undefined` | no |  |
+| schemaRef | property | `DataSchemaRef \| undefined` | no |  |
 
 ## DataOperationResponse
 
@@ -1546,13 +1738,13 @@ Source: `src/data/operations.ts:28:1`
 
 ### Members
 
-| Name        | Kind     | Type                            | Required | Description |
-| ----------- | -------- | ------------------------------- | -------- | ----------- |
-| contentType | property | `string \| undefined`           | no       |             |
-| description | property | `string \| undefined`           | no       |             |
-| schema      | property | `DataSchema \| undefined`       | no       |             |
-| schemaRef   | property | `DataSchemaRef \| undefined`    | no       |             |
-| status      | property | `string \| number \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| contentType | property | `string \| undefined` | no |  |
+| description | property | `string \| undefined` | no |  |
+| schema | property | `DataSchema \| undefined` | no |  |
+| schemaRef | property | `DataSchemaRef \| undefined` | no |  |
+| status | property | `string \| number \| undefined` | no |  |
 
 ## DataPath
 
@@ -1568,24 +1760,24 @@ Source: `src/data/schemas.ts:16:1`
 
 ### Members
 
-| Name                 | Kind     | Type                                                                         | Required | Description |
-| -------------------- | -------- | ---------------------------------------------------------------------------- | -------- | ----------- |
-| additionalProperties | property | `boolean \| DataSchema \| undefined`                                         | no       |             |
-| allOf                | property | `readonly DataSchema[] \| undefined`                                         | no       |             |
-| anyOf                | property | `readonly DataSchema[] \| undefined`                                         | no       |             |
-| const                | property | `DataContractValue \| undefined`                                             | no       |             |
-| default              | property | `DataContractValue \| undefined`                                             | no       |             |
-| description          | property | `string \| undefined`                                                        | no       |             |
-| enum                 | property | `readonly DataContractValue[] \| undefined`                                  | no       |             |
-| format               | property | `string \| undefined`                                                        | no       |             |
-| items                | property | `DataSchema \| undefined`                                                    | no       |             |
-| nullable             | property | `boolean \| undefined`                                                       | no       |             |
-| oneOf                | property | `readonly DataSchema[] \| undefined`                                         | no       |             |
-| properties           | property | `Readonly<Record<string, DataSchema>> \| undefined`                          | no       |             |
-| ref                  | property | `DataSchemaRef \| undefined`                                                 | no       |             |
-| required             | property | `readonly string[] \| undefined`                                             | no       |             |
-| title                | property | `string \| undefined`                                                        | no       |             |
-| type                 | property | `DataSchemaPrimitiveType \| readonly DataSchemaPrimitiveType[] \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| additionalProperties | property | `boolean \| DataSchema \| undefined` | no |  |
+| allOf | property | `readonly DataSchema[] \| undefined` | no |  |
+| anyOf | property | `readonly DataSchema[] \| undefined` | no |  |
+| const | property | `DataContractValue \| undefined` | no |  |
+| default | property | `DataContractValue \| undefined` | no |  |
+| description | property | `string \| undefined` | no |  |
+| enum | property | `readonly DataContractValue[] \| undefined` | no |  |
+| format | property | `string \| undefined` | no |  |
+| items | property | `DataSchema \| undefined` | no |  |
+| nullable | property | `boolean \| undefined` | no |  |
+| oneOf | property | `readonly DataSchema[] \| undefined` | no |  |
+| properties | property | `Readonly<Record<string, DataSchema>> \| undefined` | no |  |
+| ref | property | `DataSchemaRef \| undefined` | no |  |
+| required | property | `readonly string[] \| undefined` | no |  |
+| title | property | `string \| undefined` | no |  |
+| type | property | `DataSchemaPrimitiveType \| readonly DataSchemaPrimitiveType[] \| undefined` | no |  |
 
 ## DataSchemaPrimitiveType
 
@@ -1601,10 +1793,10 @@ Source: `src/data/schemas.ts:11:1`
 
 ### Members
 
-| Name        | Kind     | Type                  | Required | Description |
-| ----------- | -------- | --------------------- | -------- | ----------- |
-| description | property | `string \| undefined` | no       |             |
-| schema      | property | `DataSchema`          | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| description | property | `string \| undefined` | no |  |
+| schema | property | `DataSchema` | yes |  |
 
 ## DataSchemaRef
 
@@ -1614,9 +1806,9 @@ Source: `src/data/schemas.ts:7:1`
 
 ### Members
 
-| Name | Kind     | Type     | Required | Description |
-| ---- | -------- | -------- | -------- | ----------- |
-| id   | property | `string` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| id | property | `string` | yes |  |
 
 ## DataSchemaRegistry
 
@@ -1632,10 +1824,10 @@ Source: `src/data/schemas.ts:37:1`
 
 ### Members
 
-| Name      | Kind     | Type                         | Required | Description |
-| --------- | -------- | ---------------------------- | -------- | ----------- |
-| schema    | property | `DataSchema \| undefined`    | no       |             |
-| schemaRef | property | `DataSchemaRef \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| schema | property | `DataSchema \| undefined` | no |  |
+| schemaRef | property | `DataSchemaRef \| undefined` | no |  |
 
 ## DataSourceConfig
 
@@ -1651,17 +1843,17 @@ Source: `src/data/diagnostics.ts:22:1`
 
 ### Members
 
-| Name         | Kind     | Type                     | Required | Description |
-| ------------ | -------- | ------------------------ | -------- | ----------- |
-| apiId        | property | `string \| undefined`    | no       |             |
-| code         | property | `DataDiagnosticCode`     | yes      |             |
-| dataSourceId | property | `string \| undefined`    | no       |             |
-| endpointId   | property | `string \| undefined`    | no       |             |
-| hint         | property | `string \| undefined`    | no       |             |
-| message      | property | `string`                 | yes      |             |
-| operationId  | property | `string \| undefined`    | no       |             |
-| path         | property | `string \| undefined`    | no       |             |
-| severity     | property | `DataDiagnosticSeverity` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| apiId | property | `string \| undefined` | no |  |
+| code | property | `DataDiagnosticCode` | yes |  |
+| dataSourceId | property | `string \| undefined` | no |  |
+| endpointId | property | `string \| undefined` | no |  |
+| hint | property | `string \| undefined` | no |  |
+| message | property | `string` | yes |  |
+| operationId | property | `string \| undefined` | no |  |
+| path | property | `string \| undefined` | no |  |
+| severity | property | `DataDiagnosticSeverity` | yes |  |
 
 ## DataSourceDiagnosticResult
 
@@ -1695,15 +1887,15 @@ Source: `src/db.ts:83:1`
 
 ### Members
 
-| Name         | Kind     | Type                                                                                                    | Required | Description |
-| ------------ | -------- | ------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| capabilities | property | `DbAdapterCapabilities`                                                                                 | yes      |             |
-| delete       | method   | `<TRecord extends object = DbRecord>(input: DbDeleteInput) => Promise<DbResult<TRecord[]>>`             | yes      |             |
-| findById     | method   | `<TRecord extends object = DbRecord>(input: DbFindByIdInput) => Promise<DbResult<TRecord \| null>>`     | yes      |             |
-| insert       | method   | `<TRecord extends object = DbRecord>(input: DbInsertInput<TRecord>) => Promise<DbResult<TRecord[]>>`    | yes      |             |
-| select       | method   | `<TRecord extends object = DbRecord>(input: DbSelectInput) => Promise<DbResult<TRecord[]>>`             | yes      |             |
-| transaction  | method   | `(<TResult>(run: (adapter: DbAdapter) => Promise<TResult>) => Promise<DbResult<TResult>>) \| undefined` | no       |             |
-| update       | method   | `<TRecord extends object = DbRecord>(input: DbUpdateInput<TRecord>) => Promise<DbResult<TRecord[]>>`    | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| capabilities | property | `DbAdapterCapabilities` | yes |  |
+| delete | method | `<TRecord extends object = DbRecord>(input: DbDeleteInput) => Promise<DbResult<TRecord[]>>` | yes |  |
+| findById | method | `<TRecord extends object = DbRecord>(input: DbFindByIdInput) => Promise<DbResult<TRecord \| null>>` | yes |  |
+| insert | method | `<TRecord extends object = DbRecord>(input: DbInsertInput<TRecord>) => Promise<DbResult<TRecord[]>>` | yes |  |
+| select | method | `<TRecord extends object = DbRecord>(input: DbSelectInput) => Promise<DbResult<TRecord[]>>` | yes |  |
+| transaction | method | `(<TResult>(run: (adapter: DbAdapter) => Promise<TResult>) => Promise<DbResult<TResult>>) \| undefined` | no |  |
+| update | method | `<TRecord extends object = DbRecord>(input: DbUpdateInput<TRecord>) => Promise<DbResult<TRecord[]>>` | yes |  |
 
 ## DbAdapterCapabilities
 
@@ -1713,11 +1905,11 @@ Source: `src/db.ts:77:1`
 
 ### Members
 
-| Name         | Kind     | Type      | Required | Description |
-| ------------ | -------- | --------- | -------- | ----------- |
-| realtime     | property | `boolean` | yes      |             |
-| returning    | property | `boolean` | yes      |             |
-| transactions | property | `boolean` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| realtime | property | `boolean` | yes |  |
+| returning | property | `boolean` | yes |  |
+| transactions | property | `boolean` | yes |  |
 
 ## DbAdapterError
 
@@ -1727,11 +1919,11 @@ Source: `src/db.ts:3:1`
 
 ### Members
 
-| Name    | Kind     | Type      | Required | Description |
-| ------- | -------- | --------- | -------- | ----------- |
-| cause   | property | `unknown` | no       |             |
-| code    | property | `string`  | yes      |             |
-| message | property | `string`  | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| cause | property | `unknown` | no |  |
+| code | property | `string` | yes |  |
+| message | property | `string` | yes |  |
 
 ## DbAdminAdapter
 
@@ -1741,13 +1933,13 @@ Source: `src/db.ts:178:1`
 
 ### Members
 
-| Name                        | Kind     | Type                                                        | Required | Description |
-| --------------------------- | -------- | ----------------------------------------------------------- | -------- | ----------- |
-| capabilities                | property | `DbAdminAdapterCapabilities`                                | yes      |             |
-| createCollection            | method   | `(input: DbCollectionDefinition) => Promise<DbAdminResult>` | yes      |             |
-| deleteCollection            | method   | `(input: DbCollectionReference) => Promise<DbAdminResult>`  | yes      |             |
-| generateCreateCollectionSql | method   | `(input: DbCollectionDefinition) => DbAdminResult`          | yes      |             |
-| generateDeleteCollectionSql | method   | `(input: DbCollectionReference) => DbAdminResult`           | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| capabilities | property | `DbAdminAdapterCapabilities` | yes |  |
+| createCollection | method | `(input: DbCollectionDefinition) => Promise<DbAdminResult>` | yes |  |
+| deleteCollection | method | `(input: DbCollectionReference) => Promise<DbAdminResult>` | yes |  |
+| generateCreateCollectionSql | method | `(input: DbCollectionDefinition) => DbAdminResult` | yes |  |
+| generateDeleteCollectionSql | method | `(input: DbCollectionReference) => DbAdminResult` | yes |  |
 
 ## DbAdminAdapterCapabilities
 
@@ -1757,10 +1949,10 @@ Source: `src/db.ts:173:1`
 
 ### Members
 
-| Name             | Kind     | Type      | Required | Description |
-| ---------------- | -------- | --------- | -------- | ----------- |
-| directExecution  | property | `boolean` | yes      |             |
-| schemaGeneration | property | `boolean` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| directExecution | property | `boolean` | yes |  |
+| schemaGeneration | property | `boolean` | yes |  |
 
 ## DbAdminResult
 
@@ -1776,14 +1968,14 @@ Source: `src/db.ts:103:1`
 
 ### Members
 
-| Name           | Kind     | Type                   | Required | Description |
-| -------------- | -------- | ---------------------- | -------- | ----------- |
-| committedAt    | property | `string \| undefined`  | no       |             |
-| kind           | property | `DbChangeKind`         | yes      |             |
-| previousRecord | property | `TRecord \| undefined` | no       |             |
-| record         | property | `TRecord \| null`      | yes      |             |
-| schema         | property | `string \| undefined`  | no       |             |
-| table          | property | `string`               | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| committedAt | property | `string \| undefined` | no |  |
+| kind | property | `DbChangeKind` | yes |  |
+| previousRecord | property | `TRecord \| undefined` | no |  |
+| record | property | `TRecord \| null` | yes |  |
+| schema | property | `string \| undefined` | no |  |
+| table | property | `string` | yes |  |
 
 ## DbChangeKind
 
@@ -1805,12 +1997,12 @@ Source: `src/db.ts:150:1`
 
 ### Members
 
-| Name       | Kind     | Type                           | Required | Description |
-| ---------- | -------- | ------------------------------ | -------- | ----------- |
-| fields     | property | `readonly DbFieldDefinition[]` | yes      |             |
-| name       | property | `string`                       | yes      |             |
-| primaryKey | property | `string \| undefined`          | no       |             |
-| schema     | property | `string \| undefined`          | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| fields | property | `readonly DbFieldDefinition[]` | yes |  |
+| name | property | `string` | yes |  |
+| primaryKey | property | `string \| undefined` | no |  |
+| schema | property | `string \| undefined` | no |  |
 
 ## DbCollectionReference
 
@@ -1820,10 +2012,10 @@ Source: `src/db.ts:157:1`
 
 ### Members
 
-| Name   | Kind     | Type                  | Required | Description |
-| ------ | -------- | --------------------- | -------- | ----------- |
-| name   | property | `string`              | yes      |             |
-| schema | property | `string \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| name | property | `string` | yes |  |
+| schema | property | `string \| undefined` | no |  |
 
 ## DbCollectionSubscriptionInput
 
@@ -1839,11 +2031,11 @@ Source: `src/db.ts:73:1`
 
 ### Members
 
-| Name    | Kind     | Type                  | Required | Description |
-| ------- | -------- | --------------------- | -------- | ----------- |
-| filters | property | `readonly DbFilter[]` | yes      |             |
-| schema  | property | `string \| undefined` | no       |             |
-| table   | property | `string`              | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| filters | property | `readonly DbFilter[]` | yes |  |
+| schema | property | `string \| undefined` | no |  |
+| table | property | `string` | yes |  |
 
 ## DbFieldDefinition
 
@@ -1853,13 +2045,13 @@ Source: `src/db.ts:142:1`
 
 ### Members
 
-| Name         | Kind     | Type                                               | Required | Description |
-| ------------ | -------- | -------------------------------------------------- | -------- | ----------- |
-| defaultValue | property | `string \| number \| boolean \| null \| undefined` | no       |             |
-| name         | property | `string`                                           | yes      |             |
-| required     | property | `boolean \| undefined`                             | no       |             |
-| type         | property | `DbFieldType`                                      | yes      |             |
-| unique       | property | `boolean \| undefined`                             | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| defaultValue | property | `string \| number \| boolean \| null \| undefined` | no |  |
+| name | property | `string` | yes |  |
+| required | property | `boolean \| undefined` | no |  |
+| type | property | `DbFieldType` | yes |  |
+| unique | property | `boolean \| undefined` | no |  |
 
 ## DbFieldType
 
@@ -1875,11 +2067,11 @@ Source: `src/db.ts:40:1`
 
 ### Members
 
-| Name     | Kind     | Type               | Required | Description |
-| -------- | -------- | ------------------ | -------- | ----------- |
-| field    | property | `string`           | yes      |             |
-| operator | property | `DbFilterOperator` | yes      |             |
-| value    | property | `unknown`          | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| field | property | `string` | yes |  |
+| operator | property | `DbFilterOperator` | yes |  |
+| value | property | `unknown` | yes |  |
 
 ## DbFilterOperator
 
@@ -1895,13 +2087,13 @@ Source: `src/db.ts:58:1`
 
 ### Members
 
-| Name    | Kind     | Type                             | Required | Description |
-| ------- | -------- | -------------------------------- | -------- | ----------- |
-| columns | property | `readonly string[] \| undefined` | no       |             |
-| id      | property | `string \| number`               | yes      |             |
-| idField | property | `string \| undefined`            | no       |             |
-| schema  | property | `string \| undefined`            | no       |             |
-| table   | property | `string`                         | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| columns | property | `readonly string[] \| undefined` | no |  |
+| id | property | `string \| number` | yes |  |
+| idField | property | `string \| undefined` | no |  |
+| schema | property | `string \| undefined` | no |  |
+| table | property | `string` | yes |  |
 
 ## DbInsertInput
 
@@ -1911,11 +2103,11 @@ Source: `src/db.ts:64:1`
 
 ### Members
 
-| Name   | Kind     | Type                            | Required | Description |
-| ------ | -------- | ------------------------------- | -------- | ----------- |
-| schema | property | `string \| undefined`           | no       |             |
-| table  | property | `string`                        | yes      |             |
-| values | property | `TRecord \| readonly TRecord[]` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| schema | property | `string \| undefined` | no |  |
+| table | property | `string` | yes |  |
+| values | property | `TRecord \| readonly TRecord[]` | yes |  |
 
 ## DbPage
 
@@ -1925,10 +2117,10 @@ Source: `src/db.ts:32:1`
 
 ### Members
 
-| Name   | Kind     | Type                  | Required | Description |
-| ------ | -------- | --------------------- | -------- | ----------- |
-| limit  | property | `number \| undefined` | no       |             |
-| offset | property | `number \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| limit | property | `number \| undefined` | no |  |
+| offset | property | `number \| undefined` | no |  |
 
 ## DbRealtimeAdapter
 
@@ -1938,9 +2130,9 @@ Source: `src/db.ts:127:1`
 
 ### Members
 
-| Name     | Kind     | Type                                                                                                                                                                                                                                                                                                    | Required | Description |
-| -------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| realtime | property | `{ subscribeToCollection<TRecord extends object = DbRecord>(input: DbCollectionSubscriptionInput, listener: DbChangeListener<TRecord>): DbSubscription; subscribeToRecord<TRecord extends object = DbRecord>(input: DbRecordSubscriptionInput, listener: DbChangeListener<TRecord>): DbSubscription; }` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| realtime | property | `{ subscribeToCollection<TRecord extends object = DbRecord>(input: DbCollectionSubscriptionInput, listener: DbChangeListener<TRecord>): DbSubscription; subscribeToRecord<TRecord extends object = DbRecord>(input: DbRecordSubscriptionInput, listener: DbChangeListener<TRecord>): DbSubscription; }` | yes |  |
 
 ## DbRecord
 
@@ -1956,12 +2148,12 @@ Source: `src/db.ts:122:1`
 
 ### Members
 
-| Name    | Kind     | Type                  | Required | Description |
-| ------- | -------- | --------------------- | -------- | ----------- |
-| id      | property | `string \| number`    | yes      |             |
-| idField | property | `string \| undefined` | no       |             |
-| schema  | property | `string \| undefined` | no       |             |
-| table   | property | `string`              | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| id | property | `string \| number` | yes |  |
+| idField | property | `string \| undefined` | no |  |
+| schema | property | `string \| undefined` | no |  |
+| table | property | `string` | yes |  |
 
 ## DbResult
 
@@ -1977,14 +2169,14 @@ Source: `src/db.ts:51:1`
 
 ### Members
 
-| Name    | Kind     | Type                               | Required | Description |
-| ------- | -------- | ---------------------------------- | -------- | ----------- |
-| columns | property | `readonly string[] \| undefined`   | no       |             |
-| filters | property | `readonly DbFilter[] \| undefined` | no       |             |
-| page    | property | `DbPage \| undefined`              | no       |             |
-| schema  | property | `string \| undefined`              | no       |             |
-| sort    | property | `readonly DbSort[] \| undefined`   | no       |             |
-| table   | property | `string`                           | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| columns | property | `readonly string[] \| undefined` | no |  |
+| filters | property | `readonly DbFilter[] \| undefined` | no |  |
+| page | property | `DbPage \| undefined` | no |  |
+| schema | property | `string \| undefined` | no |  |
+| sort | property | `readonly DbSort[] \| undefined` | no |  |
+| table | property | `string` | yes |  |
 
 ## DbSort
 
@@ -1994,10 +2186,10 @@ Source: `src/db.ts:27:1`
 
 ### Members
 
-| Name      | Kind     | Type                           | Required | Description |
-| --------- | -------- | ------------------------------ | -------- | ----------- |
-| direction | property | `DbSortDirection \| undefined` | no       |             |
-| field     | property | `string`                       | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| direction | property | `DbSortDirection \| undefined` | no |  |
+| field | property | `string` | yes |  |
 
 ## DbSortDirection
 
@@ -2013,9 +2205,9 @@ Source: `src/db.ts:116:1`
 
 ### Members
 
-| Name        | Kind   | Type                          | Required | Description |
-| ----------- | ------ | ----------------------------- | -------- | ----------- |
-| unsubscribe | method | `() => Promise<void> \| void` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| unsubscribe | method | `() => Promise<void> \| void` | yes |  |
 
 ## DbSuccess
 
@@ -2031,10 +2223,10 @@ Source: `src/db.ts:46:1`
 
 ### Members
 
-| Name   | Kind     | Type                  | Required | Description |
-| ------ | -------- | --------------------- | -------- | ----------- |
-| schema | property | `string \| undefined` | no       |             |
-| table  | property | `string`              | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| schema | property | `string \| undefined` | no |  |
+| table | property | `string` | yes |  |
 
 ## DbUpdateInput
 
@@ -2044,18 +2236,312 @@ Source: `src/db.ts:68:1`
 
 ### Members
 
-| Name    | Kind     | Type                  | Required | Description |
-| ------- | -------- | --------------------- | -------- | ----------- |
-| filters | property | `readonly DbFilter[]` | yes      |             |
-| schema  | property | `string \| undefined` | no       |             |
-| table   | property | `string`              | yes      |             |
-| values  | property | `Partial<TRecord>`    | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| filters | property | `readonly DbFilter[]` | yes |  |
+| schema | property | `string \| undefined` | no |  |
+| table | property | `string` | yes |  |
+| values | property | `Partial<TRecord>` | yes |  |
 
 ## DEFAULT_AUTH_FLOW
 
 Kind: `value`
 Module: `src/auth.ts`
 Source: `src/auth.ts:121:14`
+
+## DEPLOYMENT_CAPABILITIES
+
+Kind: `value`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:6:14`
+
+## DEPLOYMENT_PROVIDER_CAPABILITY_IDS
+
+Kind: `value`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:16:14`
+
+## DeploymentAuthenticationRequiredAction
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:61:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| code | property | `string` | yes |  |
+| message | property | `string` | yes |  |
+| provider | property | `string` | yes |  |
+| target | property | `"web" \| "android" \| "ios" \| undefined` | no |  |
+| type | property | `"authentication"` | yes |  |
+
+## DeploymentAuthenticationState
+
+Kind: `unknown`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:86:1`
+
+## DeploymentAutomatedProvisioningRequirement
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:99:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| code | property | `string` | yes |  |
+| id | property | `string` | yes |  |
+| message | property | `string` | yes |  |
+| provider | property | `string` | yes |  |
+| target | property | `"web" \| "android" \| "ios" \| undefined` | no |  |
+| type | property | `"automated"` | yes |  |
+
+## DeploymentCapability
+
+Kind: `unknown`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:14:1`
+
+## DeploymentCredentialReference
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:42:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| id | property | `string` | yes |  |
+| kind | property | `string` | yes |  |
+| provider | property | `string` | yes |  |
+
+## DeploymentFailure
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:54:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| code | property | `string` | yes |  |
+| message | property | `string` | yes |  |
+| provider | property | `string \| undefined` | no |  |
+| target | property | `"web" \| "android" \| "ios" \| undefined` | no |  |
+
+## DeploymentManualAction
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:69:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| code | property | `string` | yes |  |
+| message | property | `string` | yes |  |
+| provider | property | `string \| undefined` | no |  |
+| target | property | `"web" \| "android" \| "ios"` | yes |  |
+| type | property | `"manual-action"` | yes |  |
+| url | property | `string \| undefined` | no |  |
+
+## DeploymentMonetizationAdapter
+
+Kind: `type`
+Module: `src/types/deployMonetization.ts`
+Source: `src/types/deployMonetization.ts:98:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| inspectAsync | method | `(context: MonetizationAdapterContext) => Promise<DeploymentProviderResult<MonetizationTargetState>>` | yes |  |
+| syncAsync | method | `(request: MonetizationSyncRequest) => Promise<DeploymentProviderResult<MonetizationTargetState>>` | yes |  |
+| target | property | `"android" \| "ios"` | yes |  |
+
+## DeploymentProviderCapabilityDescriptor
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:30:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| id | property | `"setup" \| "web-publish" \| "android-build" \| "android-publish" \| "ios-build" \| "ios-publish" \| "store-listing" \| "monetization" \| "release"` | yes |  |
+| targets | property | `readonly ("web" \| "android" \| "ios")[]` | yes |  |
+
+## DeploymentProviderCapabilityId
+
+Kind: `unknown`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:28:1`
+
+## DeploymentProviderCapabilityState
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:93:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| capability | property | `"provision" \| "prepare" \| "build" \| "publish" \| "verify"` | yes |  |
+| reason | property | `string \| undefined` | no |  |
+| status | property | `"available" \| "unavailable"` | yes |  |
+
+## DeploymentProviderDescriptor
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:35:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| capabilities | property | `readonly DeploymentProviderCapabilityDescriptor[]` | yes |  |
+| displayName | property | `string` | yes |  |
+| id | property | `string` | yes |  |
+| packageName | property | `string` | yes |  |
+
+## DeploymentProviderRegistration
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:328:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| androidBuilder | property | `AndroidDeploymentBuilder \| undefined` | no |  |
+| androidPublisher | property | `AndroidDeploymentPublisher \| undefined` | no |  |
+| descriptor | property | `DeploymentProviderDescriptor` | yes |  |
+| iosBuilder | property | `IosDeploymentBuilder \| undefined` | no |  |
+| iosPublisher | property | `IosDeploymentPublisher \| undefined` | no |  |
+| monetization | property | `DeploymentMonetizationAdapter \| undefined` | no |  |
+| release | property | `DeploymentReleaseAdapter \| undefined` | no |  |
+| setup | property | `DeploymentProviderSetupAdapter \| undefined` | no |  |
+| storeListing | property | `DeploymentStoreListingAdapter \| undefined` | no |  |
+| webPublisher | property | `WebDeploymentPublisher \| undefined` | no |  |
+
+## DeploymentProviderResult
+
+Kind: `unknown`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:81:1`
+
+## DeploymentProviderSetupAdapter
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:127:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| inspectSetup | method | `(context: DeploymentProviderSetupContext) => Promise<DeploymentProviderSetupInspection>` | yes |  |
+| provider | property | `string` | yes |  |
+
+## DeploymentProviderSetupContext
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:113:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| credentials | property | `readonly DeploymentCredentialReference[]` | yes |  |
+| projectRoot | property | `string` | yes |  |
+| resolveSecret | property | `DeploymentSecretResolver` | yes |  |
+| target | property | `"web" \| "android" \| "ios" \| undefined` | no |  |
+
+## DeploymentProviderSetupInspection
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:120:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| authentication | property | `DeploymentAuthenticationState` | yes |  |
+| capabilities | property | `readonly DeploymentProviderCapabilityState[]` | yes |  |
+| provider | property | `string` | yes |  |
+| provisioning | property | `readonly DeploymentProvisioningRequirement[]` | yes |  |
+
+## DeploymentProvisioningRequirement
+
+Kind: `unknown`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:108:1`
+
+## DeploymentReleaseAdapter
+
+Kind: `type`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:146:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| controlAsync | method | `(request: ReleaseControlRequest) => Promise<ReleaseControlExecutionResult>` | yes |  |
+| executeStepAsync | method | `(request: ReleaseStepExecutionRequest) => Promise<ReleaseMutationResult>` | yes |  |
+| inspectAsync | method | `(request: ReleaseInspectionRequest) => Promise<DeploymentProviderResult<ReleaseObservedNativeState>>` | yes |  |
+| target | property | `"android" \| "ios"` | yes |  |
+
+## DeploymentRequiredAction
+
+Kind: `unknown`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:78:1`
+
+## DeploymentSecretMaterial
+
+Kind: `unknown`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:48:1`
+
+## DeploymentSecretResolver
+
+Kind: `unknown`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:50:1`
+
+## DeploymentStoreIdentity
+
+Kind: `unknown`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:132:1`
+
+## DeploymentStoreListingAdapter
+
+Kind: `type`
+Module: `src/types/deployStoreListing.ts`
+Source: `src/types/deployStoreListing.ts:117:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| inspectAsync | method | `(context: StoreListingAdapterContext) => Promise<DeploymentProviderResult<StoreListingTargetState>>` | yes |  |
+| syncAsync | method | `(request: StoreListingSyncRequest) => Promise<DeploymentProviderResult<StoreListingTargetState>>` | yes |  |
+| target | property | `StoreListingTarget` | yes |  |
 
 ## DRAWER_POSITIONS
 
@@ -2077,12 +2563,12 @@ Source: `src/navigator.ts:192:1`
 
 ### Members
 
-| Name             | Kind     | Type                                  | Required | Description |
-| ---------------- | -------- | ------------------------------------- | -------- | ----------- |
-| initialRouteName | property | `string \| undefined`                 | no       |             |
-| options          | property | `DrawerNavigatorOptions \| undefined` | no       |             |
-| routes           | property | `RouteDefinition[]`                   | yes      |             |
-| type             | property | `"drawer"`                            | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| initialRouteName | property | `string \| undefined` | no |  |
+| options | property | `DrawerNavigatorOptions \| undefined` | no |  |
+| routes | property | `RouteDefinition[]` | yes |  |
+| type | property | `"drawer"` | yes |  |
 
 ## DrawerNavigatorOptions
 
@@ -2092,12 +2578,12 @@ Source: `src/navigator.ts:92:1`
 
 ### Members
 
-| Name           | Kind     | Type                                                       | Required | Description |
-| -------------- | -------- | ---------------------------------------------------------- | -------- | ----------- |
-| drawerPosition | property | `"left" \| "right" \| undefined`                           | no       |             |
-| drawerType     | property | `"front" \| "back" \| "slide" \| "permanent" \| undefined` | no       |             |
-| headerShown    | property | `boolean \| undefined`                                     | no       |             |
-| swipeEnabled   | property | `boolean \| undefined`                                     | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| drawerPosition | property | `"left" \| "right" \| undefined` | no |  |
+| drawerType | property | `"front" \| "back" \| "slide" \| "permanent" \| undefined` | no |  |
+| headerShown | property | `boolean \| undefined` | no |  |
+| swipeEnabled | property | `boolean \| undefined` | no |  |
 
 ## DrawerPosition
 
@@ -2125,11 +2611,11 @@ Source: `src/bindings.ts:124:1`
 
 ### Members
 
-| Name   | Kind     | Type                                                       | Required | Description |
-| ------ | -------- | ---------------------------------------------------------- | -------- | ----------- |
-| input  | property | `Readonly<Record<string, BindingInputValue>> \| undefined` | no       |             |
-| target | property | `EventBindingTarget`                                       | yes      |             |
-| when   | property | `BindingCondition \| undefined`                            | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| input | property | `Readonly<Record<string, BindingInputValue>> \| undefined` | no |  |
+| target | property | `EventBindingTarget` | yes |  |
+| when | property | `BindingCondition \| undefined` | no |  |
 
 ## EventBindingTarget
 
@@ -2151,19 +2637,19 @@ Source: `src/data/apis.ts:40:1`
 
 ### Members
 
-| Name          | Kind     | Type                                                                    | Required | Description |
-| ------------- | -------- | ----------------------------------------------------------------------- | -------- | ----------- |
-| credential    | property | `CredentialRef \| undefined`                                            | no       |             |
-| description   | property | `string \| undefined`                                                   | no       |             |
-| endpoints     | property | `Readonly<Record<string, import("./endpoints").DataEndpointConfig>>`    | yes      |             |
-| endpointUrl   | property | `string`                                                                | yes      |             |
-| id            | property | `string`                                                                | yes      |             |
-| introspection | property | `GraphQlIntrospectionConfig \| undefined`                               | no       |             |
-| metadata      | property | `DataContractValue \| undefined`                                        | no       |             |
-| name          | property | `string \| undefined`                                                   | no       |             |
-| origin        | property | `"external"`                                                            | yes      |             |
-| protocol      | property | `"graphql"`                                                             | yes      |             |
-| schemas       | property | `Readonly<Record<string, import("./schemas").DataSchema>> \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| credential | property | `CredentialRef \| undefined` | no |  |
+| description | property | `string \| undefined` | no |  |
+| endpoints | property | `Readonly<Record<string, import("./endpoints").DataEndpointConfig>>` | yes |  |
+| endpointUrl | property | `string` | yes |  |
+| id | property | `string` | yes |  |
+| introspection | property | `GraphQlIntrospectionConfig \| undefined` | no |  |
+| metadata | property | `DataContractValue \| undefined` | no |  |
+| name | property | `string \| undefined` | no |  |
+| origin | property | `"external"` | yes |  |
+| protocol | property | `"graphql"` | yes |  |
+| schemas | property | `Readonly<Record<string, import("./schemas").DataSchema>> \| undefined` | no |  |
 
 ## ExternalRestApiDefinition
 
@@ -2173,19 +2659,19 @@ Source: `src/data/apis.ts:28:1`
 
 ### Members
 
-| Name        | Kind     | Type                                                                    | Required | Description |
-| ----------- | -------- | ----------------------------------------------------------------------- | -------- | ----------- |
-| baseUrl     | property | `string`                                                                | yes      |             |
-| credential  | property | `CredentialRef \| undefined`                                            | no       |             |
-| description | property | `string \| undefined`                                                   | no       |             |
-| endpoints   | property | `Readonly<Record<string, import("./endpoints").DataEndpointConfig>>`    | yes      |             |
-| id          | property | `string`                                                                | yes      |             |
-| metadata    | property | `DataContractValue \| undefined`                                        | no       |             |
-| name        | property | `string \| undefined`                                                   | no       |             |
-| openApi     | property | `OpenApiDocumentRef \| undefined`                                       | no       |             |
-| origin      | property | `"external"`                                                            | yes      |             |
-| protocol    | property | `"rest"`                                                                | yes      |             |
-| schemas     | property | `Readonly<Record<string, import("./schemas").DataSchema>> \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| baseUrl | property | `string` | yes |  |
+| credential | property | `CredentialRef \| undefined` | no |  |
+| description | property | `string \| undefined` | no |  |
+| endpoints | property | `Readonly<Record<string, import("./endpoints").DataEndpointConfig>>` | yes |  |
+| id | property | `string` | yes |  |
+| metadata | property | `DataContractValue \| undefined` | no |  |
+| name | property | `string \| undefined` | no |  |
+| openApi | property | `OpenApiDocumentRef \| undefined` | no |  |
+| origin | property | `"external"` | yes |  |
+| protocol | property | `"rest"` | yes |  |
+| schemas | property | `Readonly<Record<string, import("./schemas").DataSchema>> \| undefined` | no |  |
 
 ## FilterAction
 
@@ -2195,10 +2681,10 @@ Source: `src/types.ts:79:1`
 
 ### Members
 
-| Name    | Kind     | Type                                          | Required | Description |
-| ------- | -------- | --------------------------------------------- | -------- | ----------- |
-| payload | property | `{ filterKey: string; filterValue: string; }` | yes      |             |
-| type    | property | `"filter"`                                    | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| payload | property | `{ filterKey: string; filterValue: string; }` | yes |  |
+| type | property | `"filter"` | yes |  |
 
 ## findForbiddenInlineSecretFields
 
@@ -2250,10 +2736,10 @@ Source: `src/data/apis.ts:35:1`
 
 ### Members
 
-| Name          | Kind     | Type                  | Required | Description |
-| ------------- | -------- | --------------------- | -------- | ----------- |
-| enabled       | property | `boolean`             | yes      |             |
-| schemaVersion | property | `string \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| enabled | property | `boolean` | yes |  |
+| schemaVersion | property | `string \| undefined` | no |  |
 
 ## HEADLESS_TABS_PRESENTATIONS
 
@@ -2305,11 +2791,11 @@ Source: `src/storage.ts:102:1`
 
 ### Members
 
-| Name      | Kind     | Type                  | Required | Description |
-| --------- | -------- | --------------------- | -------- | ----------- |
-| createdAt | property | `string \| undefined` | no       |             |
-| fileName  | property | `string \| undefined` | no       |             |
-| sizeBytes | property | `number \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| createdAt | property | `string \| undefined` | no |  |
+| fileName | property | `string \| undefined` | no |  |
+| sizeBytes | property | `number \| undefined` | no |  |
 
 ## INFRA_ADAPTER_CATALOG
 
@@ -2343,9 +2829,9 @@ Source: `src/types/infraManifest.ts:76:1`
 
 ### Members
 
-| Name     | Kind     | Type                                                                                                                                                                                                        | Required | Description |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| supabase | property | `{ readonly scope?: AuthScope; readonly flow?: AuthFlowConfig; readonly signIn?: AuthSignInSpec; readonly signUp?: AuthSignUpSpec; readonly oauth?: AuthOAuthConfig; readonly profile?: AuthProfileSpec; }` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| supabase | property | `{ readonly scope?: AuthScope; readonly flow?: AuthFlowConfig; readonly signIn?: AuthSignInSpec; readonly signUp?: AuthSignUpSpec; readonly oauth?: AuthOAuthConfig; readonly profile?: AuthProfileSpec; }` | yes |  |
 
 ## InfraAuthSpec
 
@@ -2361,9 +2847,9 @@ Source: `src/types/infraManifest.ts:86:1`
 
 ### Members
 
-| Name   | Kind     | Type                                                                                        | Required | Description |
-| ------ | -------- | ------------------------------------------------------------------------------------------- | -------- | ----------- |
-| cerbos | property | `{ readonly kind: "RBAC" \| "ABAC"; readonly policies?: readonly InfraAuthzPolicyFile[]; }` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| cerbos | property | `{ readonly kind: "RBAC" \| "ABAC"; readonly policies?: readonly InfraAuthzPolicyFile[]; }` | yes |  |
 
 ## InfraAuthzPolicyFile
 
@@ -2373,10 +2859,10 @@ Source: `src/types/infraManifest.ts:92:1`
 
 ### Members
 
-| Name    | Kind     | Type     | Required | Description |
-| ------- | -------- | -------- | -------- | ----------- |
-| content | property | `string` | yes      |             |
-| path    | property | `string` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| content | property | `string` | yes |  |
+| path | property | `string` | yes |  |
 
 ## InfraAuthzSpec
 
@@ -2398,15 +2884,15 @@ Source: `src/types/infraAdapters.ts:59:1`
 
 ### Members
 
-| Name          | Kind     | Type                                                                                                                        | Required | Description |
-| ------------- | -------- | --------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| descriptor    | property | `InfraAdapterDescriptor<P>`                                                                                                 | yes      |             |
-| destroyAsync  | method   | `(context: InfraExecutionContext, request: InfraDestroyRequest) => Promise<InfraResult<InfraReconcileResult>>`              | yes      |             |
-| ensureAsync   | method   | `(context: InfraExecutionContext, selection: InfraComputeSelection<P>) => Promise<InfraResult<InfraComputeSnapshot>>`       | yes      |             |
-| inspectAsync  | method   | `(context: InfraExecutionContext, selection: InfraComputeSelection<P>) => Promise<InfraResult<InfraComputeSnapshot>>`       | yes      |             |
-| planAsync     | method   | `(context: InfraExecutionContext, selection: InfraComputeSelection<P>) => Promise<InfraResult<readonly InfraPlanAction[]>>` | yes      |             |
-| statusAsync   | method   | `(context: InfraExecutionContext) => Promise<InfraResult<readonly InfraResourceStatus[]>>`                                  | yes      |             |
-| validateAsync | method   | `(context: InfraExecutionContext, selection: InfraComputeSelection<P>) => Promise<InfraResult<null>>`                       | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| descriptor | property | `InfraAdapterDescriptor<P>` | yes |  |
+| destroyAsync | method | `(context: InfraExecutionContext, request: InfraDestroyRequest) => Promise<InfraResult<InfraReconcileResult>>` | yes |  |
+| ensureAsync | method | `(context: InfraExecutionContext, selection: InfraComputeSelection<P>) => Promise<InfraResult<InfraComputeSnapshot>>` | yes |  |
+| inspectAsync | method | `(context: InfraExecutionContext, selection: InfraComputeSelection<P>) => Promise<InfraResult<InfraComputeSnapshot>>` | yes |  |
+| planAsync | method | `(context: InfraExecutionContext, selection: InfraComputeSelection<P>) => Promise<InfraResult<readonly InfraPlanAction[]>>` | yes |  |
+| statusAsync | method | `(context: InfraExecutionContext) => Promise<InfraResult<readonly InfraResourceStatus[]>>` | yes |  |
+| validateAsync | method | `(context: InfraExecutionContext, selection: InfraComputeSelection<P>) => Promise<InfraResult<null>>` | yes |  |
 
 ## InfraComputeConfigMap
 
@@ -2416,10 +2902,10 @@ Source: `src/types/infraManifest.ts:21:1`
 
 ### Members
 
-| Name    | Kind     | Type                                                                                                                                                                                                                                                                      | Required | Description |
-| ------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| hetzner | property | `{ readonly location: string; readonly serverType?: string; readonly image?: string; readonly credentials?: InfraControlPlaneCredentialRef; readonly ssh?: { readonly user?: string; readonly port?: number; readonly credentials?: InfraControlPlaneCredentialRef; }; }` | yes      |             |
-| local   | property | `{ readonly workingDirectory?: string; }`                                                                                                                                                                                                                                 | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| hetzner | property | `{ readonly location: string; readonly serverType?: string; readonly image?: string; readonly credentials?: InfraControlPlaneCredentialRef; readonly ssh?: { readonly user?: string; readonly port?: number; readonly credentials?: InfraControlPlaneCredentialRef; }; }` | yes |  |
+| local | property | `{ readonly workingDirectory?: string; }` | yes |  |
 
 ## InfraComputeProviderId
 
@@ -2441,11 +2927,11 @@ Source: `src/types/infraAdapters.ts:55:1`
 
 ### Members
 
-| Name      | Kind     | Type                            | Required | Description |
-| --------- | -------- | ------------------------------- | -------- | ----------- |
-| outputs   | property | `readonly InfraOutput[]`        | yes      |             |
-| resources | property | `readonly InfraOwnedResource[]` | yes      |             |
-| targets   | property | `readonly InfraComputeTarget[]` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| outputs | property | `readonly InfraOutput[]` | yes |  |
+| resources | property | `readonly InfraOwnedResource[]` | yes |  |
+| targets | property | `readonly InfraComputeTarget[]` | yes |  |
 
 ## InfraComputeTarget
 
@@ -2461,10 +2947,10 @@ Source: `src/types/infraSecrets.ts:4:1`
 
 ### Members
 
-| Name   | Kind     | Type              | Required | Description |
-| ------ | -------- | ----------------- | -------- | ----------- |
-| name   | property | `string`          | yes      |             |
-| source | property | `"control-plane"` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| name | property | `string` | yes |  |
+| source | property | `"control-plane"` | yes |  |
 
 ## InfraDatabaseConfigMap
 
@@ -2474,9 +2960,9 @@ Source: `src/types/infraManifest.ts:65:1`
 
 ### Members
 
-| Name     | Kind     | Type                                   | Required | Description |
-| -------- | -------- | -------------------------------------- | -------- | ----------- |
-| supabase | property | `{ readonly tier?: "dev" \| "prod"; }` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| supabase | property | `{ readonly tier?: "dev" \| "prod"; }` | yes |  |
 
 ## InfraDatabaseSpec
 
@@ -2498,12 +2984,12 @@ Source: `src/types/infraLifecycle.ts:102:1`
 
 ### Members
 
-| Name         | Kind     | Type                                                                                                                              | Required | Description |
-| ------------ | -------- | --------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| confirmation | property | `{ readonly projectId: string; readonly environment: AppEnvironmentId; }`                                                         | yes      |             |
-| environment  | property | `"local" \| "preview" \| "production"`                                                                                            | yes      |             |
-| persistence  | property | `{ readonly policy: "retain"; } \| { readonly policy: "delete"; readonly confirmedResources: readonly InfraResourceIdentity[]; }` | yes      |             |
-| projectId    | property | `string`                                                                                                                          | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| confirmation | property | `{ readonly projectId: string; readonly environment: AppEnvironmentId; }` | yes |  |
+| environment | property | `"local" \| "preview" \| "production"` | yes |  |
+| persistence | property | `{ readonly policy: "retain"; } \| { readonly policy: "delete"; readonly confirmedResources: readonly InfraResourceIdentity[]; }` | yes |  |
+| projectId | property | `string` | yes |  |
 
 ## InfraDiagnostic
 
@@ -2513,13 +2999,13 @@ Source: `src/types/infraLifecycle.ts:22:1`
 
 ### Members
 
-| Name     | Kind     | Type                                         | Required | Description |
-| -------- | -------- | -------------------------------------------- | -------- | ----------- |
-| code     | property | `string`                                     | yes      |             |
-| message  | property | `string`                                     | yes      |             |
-| owner    | property | `InfraResourceIdentity \| undefined`         | no       |             |
-| path     | property | `readonly (string \| number)[] \| undefined` | no       |             |
-| severity | property | `"error" \| "info" \| "warning"`             | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| code | property | `string` | yes |  |
+| message | property | `string` | yes |  |
+| owner | property | `InfraResourceIdentity \| undefined` | no |  |
+| path | property | `readonly (string \| number)[] \| undefined` | no |  |
+| severity | property | `"error" \| "info" \| "warning"` | yes |  |
 
 ## InfraEnvironmentSpec
 
@@ -2529,16 +3015,16 @@ Source: `src/types/infraManifest.ts:125:1`
 
 ### Members
 
-| Name          | Kind     | Type                                                                                                                                                                                                                                                            | Required | Description |
-| ------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| auth          | property | `({ readonly provider: "supabase"; } & { readonly scope?: AuthScope; readonly flow?: AuthFlowConfig; readonly signIn?: AuthSignInSpec; readonly signUp?: AuthSignUpSpec; readonly oauth?: AuthOAuthConfig; readonly profile?: AuthProfileSpec; }) \| undefined` | no       |             |
-| authz         | property | `({ readonly provider: "cerbos"; } & { readonly kind: "RBAC" \| "ABAC"; readonly policies?: readonly InfraAuthzPolicyFile[]; }) \| undefined`                                                                                                                   | no       |             |
-| database      | property | `({ readonly provider: "supabase"; } & { readonly tier?: "dev" \| "prod"; }) \| undefined`                                                                                                                                                                      | no       |             |
-| deployment    | property | `InfraDeploymentSpec`                                                                                                                                                                                                                                           | yes      |             |
-| networking    | property | `InfraNetworkingSpec \| undefined`                                                                                                                                                                                                                              | no       |             |
-| objectStorage | property | `InfraObjectStorageSpec \| undefined`                                                                                                                                                                                                                           | no       |             |
-| secretStore   | property | `({ readonly provider: "supabase-vault"; } & { readonly schema?: string; }) \| undefined`                                                                                                                                                                       | no       |             |
-| workloads     | property | `readonly InfraWorkloadSpec[] \| undefined`                                                                                                                                                                                                                     | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| auth | property | `({ readonly provider: "supabase"; } & { readonly scope?: AuthScope; readonly flow?: AuthFlowConfig; readonly signIn?: AuthSignInSpec; readonly signUp?: AuthSignUpSpec; readonly oauth?: AuthOAuthConfig; readonly profile?: AuthProfileSpec; }) \| undefined` | no |  |
+| authz | property | `({ readonly provider: "cerbos"; } & { readonly kind: "RBAC" \| "ABAC"; readonly policies?: readonly InfraAuthzPolicyFile[]; }) \| undefined` | no |  |
+| database | property | `({ readonly provider: "supabase"; } & { readonly tier?: "dev" \| "prod"; }) \| undefined` | no |  |
+| deployment | property | `InfraDeploymentSpec` | yes |  |
+| networking | property | `InfraNetworkingSpec \| undefined` | no |  |
+| objectStorage | property | `InfraObjectStorageSpec \| undefined` | no |  |
+| secretStore | property | `({ readonly provider: "supabase-vault"; } & { readonly schema?: string; }) \| undefined` | no |  |
+| workloads | property | `readonly InfraWorkloadSpec[] \| undefined` | no |  |
 
 ## InfraExecutionContext
 
@@ -2548,15 +3034,15 @@ Source: `src/types/infraAdapters.ts:33:1`
 
 ### Members
 
-| Name        | Kind     | Type                                                                                                                   | Required | Description |
-| ----------- | -------- | ---------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| credentials | property | `{ resolveAsync(reference: InfraControlPlaneCredentialRef): Promise<InfraResult<Readonly<Record<string, string>>>>; }` | yes      |             |
-| desired     | property | `InfraEnvironmentSpec`                                                                                                 | yes      |             |
-| environment | property | `"local" \| "preview" \| "production"`                                                                                 | yes      |             |
-| previous    | property | `InfraLedger \| undefined`                                                                                             | no       |             |
-| projectId   | property | `string`                                                                                                               | yes      |             |
-| secrets     | property | `{ resolveAsync(reference: InfraSecretReference): Promise<InfraResult<string>>; }`                                     | yes      |             |
-| signal      | property | `AbortSignal \| undefined`                                                                                             | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| credentials | property | `{ resolveAsync(reference: InfraControlPlaneCredentialRef): Promise<InfraResult<Readonly<Record<string, string>>>>; }` | yes |  |
+| desired | property | `InfraEnvironmentSpec` | yes |  |
+| environment | property | `"local" \| "preview" \| "production"` | yes |  |
+| previous | property | `InfraLedger \| undefined` | no |  |
+| projectId | property | `string` | yes |  |
+| secrets | property | `{ resolveAsync(reference: InfraSecretReference): Promise<InfraResult<string>>; }` | yes |  |
+| signal | property | `AbortSignal \| undefined` | no |  |
 
 ## InfraGeneratedArtifact
 
@@ -2566,12 +3052,12 @@ Source: `src/types/infraLifecycle.ts:81:1`
 
 ### Members
 
-| Name       | Kind     | Type                    | Required | Description |
-| ---------- | -------- | ----------------------- | -------- | ----------- |
-| content    | property | `string`                | yes      |             |
-| executable | property | `boolean \| undefined`  | no       |             |
-| owner      | property | `InfraResourceIdentity` | yes      |             |
-| path       | property | `string`                | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| content | property | `string` | yes |  |
+| executable | property | `boolean \| undefined` | no |  |
+| owner | property | `InfraResourceIdentity` | yes |  |
+| path | property | `string` | yes |  |
 
 ## InfraLedger
 
@@ -2581,15 +3067,15 @@ Source: `src/types/infraLifecycle.ts:89:1`
 
 ### Members
 
-| Name          | Kind     | Type                                                                           | Required | Description |
-| ------------- | -------- | ------------------------------------------------------------------------------ | -------- | ----------- |
-| artifacts     | property | `readonly { readonly owner: InfraResourceIdentity; readonly path: string; }[]` | yes      |             |
-| environment   | property | `"local" \| "preview" \| "production"`                                         | yes      |             |
-| outputs       | property | `readonly InfraOutput[]`                                                       | yes      |             |
-| projectId     | property | `string`                                                                       | yes      |             |
-| resources     | property | `readonly InfraOwnedResource[]`                                                | yes      |             |
-| schemaVersion | property | `1`                                                                            | yes      |             |
-| targets       | property | `readonly InfraComputeTarget[]`                                                | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| artifacts | property | `readonly { readonly owner: InfraResourceIdentity; readonly path: string; }[]` | yes |  |
+| environment | property | `"local" \| "preview" \| "production"` | yes |  |
+| outputs | property | `readonly InfraOutput[]` | yes |  |
+| projectId | property | `string` | yes |  |
+| resources | property | `readonly InfraOwnedResource[]` | yes |  |
+| schemaVersion | property | `1` | yes |  |
+| targets | property | `readonly InfraComputeTarget[]` | yes |  |
 
 ## InfraManifest
 
@@ -2599,12 +3085,12 @@ Source: `src/types/infraManifest.ts:136:1`
 
 ### Members
 
-| Name          | Kind     | Type                                                                                                                 | Required | Description |
-| ------------- | -------- | -------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| apis          | property | `ApiDefinitionList \| undefined`                                                                                     | no       |             |
-| environments  | property | `Readonly<Record<"local", InfraEnvironmentSpec> & Partial<Record<"preview" \| "production", InfraEnvironmentSpec>>>` | yes      |             |
-| modules       | property | `readonly string[]`                                                                                                  | yes      |             |
-| modulesConfig | property | `Readonly<Record<string, unknown>> \| undefined`                                                                     | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| apis | property | `ApiDefinitionList \| undefined` | no |  |
+| environments | property | `Readonly<Record<"local", InfraEnvironmentSpec> & Partial<Record<"preview" \| "production", InfraEnvironmentSpec>>>` | yes |  |
+| modules | property | `readonly string[]` | yes |  |
+| modulesConfig | property | `Readonly<Record<string, unknown>> \| undefined` | no |  |
 
 ## InfraNetworkingSpec
 
@@ -2614,10 +3100,10 @@ Source: `src/types/infraManifest.ts:118:1`
 
 ### Members
 
-| Name          | Kind     | Type                  | Required | Description |
-| ------------- | -------- | --------------------- | -------- | ----------- |
-| domain        | property | `string \| undefined` | no       |             |
-| publicBaseUrl | property | `string \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| domain | property | `string \| undefined` | no |  |
+| publicBaseUrl | property | `string \| undefined` | no |  |
 
 ## InfraObjectStorageConfigMap
 
@@ -2627,10 +3113,10 @@ Source: `src/types/infraManifest.ts:68:1`
 
 ### Members
 
-| Name     | Kind     | Type                                                                                                                            | Required | Description |
-| -------- | -------- | ------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| r2       | property | `{ readonly buckets?: readonly string[]; readonly accountId?: string; readonly credentials?: InfraControlPlaneCredentialRef; }` | yes      |             |
-| supabase | property | `{ readonly buckets?: readonly string[]; }`                                                                                     | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| r2 | property | `{ readonly buckets?: readonly string[]; readonly accountId?: string; readonly credentials?: InfraControlPlaneCredentialRef; }` | yes |  |
+| supabase | property | `{ readonly buckets?: readonly string[]; }` | yes |  |
 
 ## InfraObjectStorageSpec
 
@@ -2652,13 +3138,13 @@ Source: `src/types/infraLifecycle.ts:14:1`
 
 ### Members
 
-| Name       | Kind     | Type                               | Required | Description |
-| ---------- | -------- | ---------------------------------- | -------- | ----------- |
-| dependsOn  | property | `readonly InfraResourceIdentity[]` | yes      |             |
-| externalId | property | `string \| undefined`              | no       |             |
-| identity   | property | `InfraResourceIdentity`            | yes      |             |
-| persistent | property | `boolean`                          | yes      |             |
-| retention  | property | `"retain" \| "delete-on-destroy"`  | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| dependsOn | property | `readonly InfraResourceIdentity[]` | yes |  |
+| externalId | property | `string \| undefined` | no |  |
+| identity | property | `InfraResourceIdentity` | yes |  |
+| persistent | property | `boolean` | yes |  |
+| retention | property | `"retain" \| "delete-on-destroy"` | yes |  |
 
 ## InfraPlan
 
@@ -2668,11 +3154,11 @@ Source: `src/types/infraLifecycle.ts:43:1`
 
 ### Members
 
-| Name        | Kind     | Type                                   | Required | Description |
-| ----------- | -------- | -------------------------------------- | -------- | ----------- |
-| actions     | property | `readonly InfraPlanAction[]`           | yes      |             |
-| environment | property | `"local" \| "preview" \| "production"` | yes      |             |
-| projectId   | property | `string`                               | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| actions | property | `readonly InfraPlanAction[]` | yes |  |
+| environment | property | `"local" \| "preview" \| "production"` | yes |  |
+| projectId | property | `string` | yes |  |
 
 ## InfraPlanAction
 
@@ -2682,13 +3168,13 @@ Source: `src/types/infraLifecycle.ts:35:1`
 
 ### Members
 
-| Name      | Kind     | Type                                                     | Required | Description |
-| --------- | -------- | -------------------------------------------------------- | -------- | ----------- |
-| dependsOn | property | `readonly InfraResourceIdentity[]`                       | yes      |             |
-| detail    | property | `string`                                                 | yes      |             |
-| impact    | property | `"none" \| "interrupts-service" \| "deletes-data"`       | yes      |             |
-| operation | property | `"create" \| "delete" \| "update" \| "retain" \| "noop"` | yes      |             |
-| owner     | property | `InfraResourceIdentity`                                  | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| dependsOn | property | `readonly InfraResourceIdentity[]` | yes |  |
+| detail | property | `string` | yes |  |
+| impact | property | `"none" \| "interrupts-service" \| "deletes-data"` | yes |  |
+| operation | property | `"create" \| "delete" \| "update" \| "retain" \| "noop"` | yes |  |
+| owner | property | `InfraResourceIdentity` | yes |  |
 
 ## InfraProviderFor
 
@@ -2704,10 +3190,10 @@ Source: `src/types/infraAdapters.ts:49:1`
 
 ### Members
 
-| Name      | Kind     | Type                            | Required | Description |
-| --------- | -------- | ------------------------------- | -------- | ----------- |
-| outputs   | property | `readonly InfraOutput[]`        | yes      |             |
-| resources | property | `readonly InfraOwnedResource[]` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| outputs | property | `readonly InfraOutput[]` | yes |  |
+| resources | property | `readonly InfraOwnedResource[]` | yes |  |
 
 ## InfraResourceIdentity
 
@@ -2717,12 +3203,12 @@ Source: `src/types/infraLifecycle.ts:7:1`
 
 ### Members
 
-| Name        | Kind     | Type                                                                                                                    | Required | Description |
-| ----------- | -------- | ----------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| adapter     | property | `"local" \| "hetzner" \| "minikube" \| "k3s" \| "docker-compose" \| "supabase" \| "cerbos" \| "r2" \| "supabase-vault"` | yes      |             |
-| environment | property | `"local" \| "preview" \| "production"`                                                                                  | yes      |             |
-| projectId   | property | `string`                                                                                                                | yes      |             |
-| resourceId  | property | `string`                                                                                                                | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| adapter | property | `"local" \| "hetzner" \| "minikube" \| "k3s" \| "docker-compose" \| "supabase" \| "cerbos" \| "r2" \| "supabase-vault"` | yes |  |
+| environment | property | `"local" \| "preview" \| "production"` | yes |  |
+| projectId | property | `string` | yes |  |
+| resourceId | property | `string` | yes |  |
 
 ## InfraResourceStatus
 
@@ -2732,12 +3218,12 @@ Source: `src/types/infraLifecycle.ts:50:1`
 
 ### Members
 
-| Name        | Kind     | Type                                                                                                 | Required | Description |
-| ----------- | -------- | ---------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| detail      | property | `string \| undefined`                                                                                | no       |             |
-| diagnostics | property | `readonly InfraDiagnostic[] \| undefined`                                                            | no       |             |
-| owner       | property | `InfraResourceIdentity`                                                                              | yes      |             |
-| state       | property | `"unknown" \| "absent" \| "pending" \| "ready" \| "degraded" \| "stopped" \| "retained" \| "failed"` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| detail | property | `string \| undefined` | no |  |
+| diagnostics | property | `readonly InfraDiagnostic[] \| undefined` | no |  |
+| owner | property | `InfraResourceIdentity` | yes |  |
+| state | property | `"unknown" \| "absent" \| "pending" \| "ready" \| "degraded" \| "stopped" \| "retained" \| "failed"` | yes |  |
 
 ## InfraResult
 
@@ -2753,16 +3239,16 @@ Source: `src/types/infraAdapters.ts:96:1`
 
 ### Members
 
-| Name          | Kind     | Type                                                                                                                                                 | Required | Description |
-| ------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| descriptor    | property | `InfraAdapterDescriptor<P>`                                                                                                                          | yes      |             |
-| destroyAsync  | method   | `(context: InfraExecutionContext, desired: InfraRuntimeDesiredState<P>, request: InfraDestroyRequest) => Promise<InfraResult<InfraReconcileResult>>` | yes      |             |
-| ensureAsync   | method   | `(context: InfraExecutionContext, desired: InfraRuntimeDesiredState<P>) => Promise<InfraResult<InfraReconcileResult>>`                               | yes      |             |
-| generateAsync | method   | `((context: InfraExecutionContext, desired: InfraRuntimeDesiredState<P>) => Promise<InfraResult<readonly InfraGeneratedArtifact[]>>) \| undefined`   | no       |             |
-| planAsync     | method   | `(context: InfraExecutionContext, desired: InfraRuntimeDesiredState<P>) => Promise<InfraResult<readonly InfraPlanAction[]>>`                         | yes      |             |
-| statusAsync   | method   | `(context: InfraExecutionContext, desired: InfraRuntimeDesiredState<P>) => Promise<InfraResult<readonly InfraResourceStatus[]>>`                     | yes      |             |
-| suspendAsync  | method   | `(context: InfraExecutionContext, desired: InfraRuntimeDesiredState<P>) => Promise<InfraResult<InfraReconcileResult>>`                               | yes      |             |
-| validateAsync | method   | `(context: InfraExecutionContext, desired: InfraRuntimeDesiredState<P>) => Promise<InfraResult<null>>`                                               | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| descriptor | property | `InfraAdapterDescriptor<P>` | yes |  |
+| destroyAsync | method | `(context: InfraExecutionContext, desired: InfraRuntimeDesiredState<P>, request: InfraDestroyRequest) => Promise<InfraResult<InfraReconcileResult>>` | yes |  |
+| ensureAsync | method | `(context: InfraExecutionContext, desired: InfraRuntimeDesiredState<P>) => Promise<InfraResult<InfraReconcileResult>>` | yes |  |
+| generateAsync | method | `((context: InfraExecutionContext, desired: InfraRuntimeDesiredState<P>) => Promise<InfraResult<readonly InfraGeneratedArtifact[]>>) \| undefined` | no |  |
+| planAsync | method | `(context: InfraExecutionContext, desired: InfraRuntimeDesiredState<P>) => Promise<InfraResult<readonly InfraPlanAction[]>>` | yes |  |
+| statusAsync | method | `(context: InfraExecutionContext, desired: InfraRuntimeDesiredState<P>) => Promise<InfraResult<readonly InfraResourceStatus[]>>` | yes |  |
+| suspendAsync | method | `(context: InfraExecutionContext, desired: InfraRuntimeDesiredState<P>) => Promise<InfraResult<InfraReconcileResult>>` | yes |  |
+| validateAsync | method | `(context: InfraExecutionContext, desired: InfraRuntimeDesiredState<P>) => Promise<InfraResult<null>>` | yes |  |
 
 ## InfraRuntimeConfigMap
 
@@ -2772,11 +3258,11 @@ Source: `src/types/infraManifest.ts:36:1`
 
 ### Members
 
-| Name           | Kind     | Type                                                                                                                          | Required | Description |
-| -------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| docker-compose | property | `{ readonly projectName?: string; }`                                                                                          | yes      |             |
-| k3s            | property | `{ readonly version?: string; readonly topology?: { readonly servers: number; readonly agents: number; }; }`                  | yes      |             |
-| minikube       | property | `{ readonly profile?: string; readonly driver?: "docker" \| "podman"; readonly cpus?: number; readonly memoryMiB?: number; }` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| docker-compose | property | `{ readonly projectName?: string; }` | yes |  |
+| k3s | property | `{ readonly version?: string; readonly topology?: { readonly servers: number; readonly agents: number; }; }` | yes |  |
+| minikube | property | `{ readonly profile?: string; readonly driver?: "docker" \| "podman"; readonly cpus?: number; readonly memoryMiB?: number; }` | yes |  |
 
 ## InfraRuntimeDesiredState
 
@@ -2786,12 +3272,12 @@ Source: `src/types/infraAdapters.ts:86:1`
 
 ### Members
 
-| Name             | Kind     | Type                            | Required | Description |
-| ---------------- | -------- | ------------------------------- | -------- | ----------- |
-| availableOutputs | property | `readonly InfraOutput[]`        | yes      |             |
-| selection        | property | `InfraRuntimeSelection<P>`      | yes      |             |
-| targets          | property | `readonly InfraComputeTarget[]` | yes      |             |
-| workloads        | property | `readonly InfraWorkloadSpec[]`  | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| availableOutputs | property | `readonly InfraOutput[]` | yes |  |
+| selection | property | `InfraRuntimeSelection<P>` | yes |  |
+| targets | property | `readonly InfraComputeTarget[]` | yes |  |
+| workloads | property | `readonly InfraWorkloadSpec[]` | yes |  |
 
 ## InfraRuntimeProviderId
 
@@ -2813,13 +3299,13 @@ Source: `src/types/infraSecrets.ts:10:1`
 
 ### Members
 
-| Name        | Kind     | Type                                   | Required | Description |
-| ----------- | -------- | -------------------------------------- | -------- | ----------- |
-| environment | property | `"local" \| "preview" \| "production"` | yes      |             |
-| key         | property | `string`                               | yes      |             |
-| projectId   | property | `string`                               | yes      |             |
-| ref         | property | `string`                               | yes      |             |
-| source      | property | `"secret-store"`                       | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| environment | property | `"local" \| "preview" \| "production"` | yes |  |
+| key | property | `string` | yes |  |
+| projectId | property | `string` | yes |  |
+| ref | property | `string` | yes |  |
+| source | property | `"secret-store"` | yes |  |
 
 ## InfraSecretStoreConfigMap
 
@@ -2829,9 +3315,9 @@ Source: `src/types/infraManifest.ts:96:1`
 
 ### Members
 
-| Name           | Kind     | Type                            | Required | Description |
-| -------------- | -------- | ------------------------------- | -------- | ----------- |
-| supabase-vault | property | `{ readonly schema?: string; }` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| supabase-vault | property | `{ readonly schema?: string; }` | yes |  |
 
 ## InfraSecretStoreSpec
 
@@ -2847,16 +3333,16 @@ Source: `src/types/infraAdapters.ts:131:1`
 
 ### Members
 
-| Name                  | Kind     | Type                                                                                                                     | Required | Description |
-| --------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------ | -------- | ----------- |
-| descriptor            | property | `InfraAdapterDescriptor<"supabase" \| "cerbos" \| "r2" \| "supabase-vault">`                                             | yes      |             |
-| desiredWorkloadsAsync | method   | `(context: InfraExecutionContext) => Promise<InfraResult<readonly InfraWorkloadSpec[]>>`                                 | yes      |             |
-| destroyAsync          | method   | `(context: InfraExecutionContext, request: InfraDestroyRequest) => Promise<InfraResult<InfraReconcileResult>>`           | yes      |             |
-| planAsync             | method   | `(context: InfraExecutionContext) => Promise<InfraResult<readonly InfraPlanAction[]>>`                                   | yes      |             |
-| reconcileAsync        | method   | `(context: InfraExecutionContext, runtimeOutputs: readonly InfraOutput[]) => Promise<InfraResult<InfraReconcileResult>>` | yes      |             |
-| statusAsync           | method   | `(context: InfraExecutionContext) => Promise<InfraResult<readonly InfraResourceStatus[]>>`                               | yes      |             |
-| suspendAsync          | method   | `((context: InfraExecutionContext) => Promise<InfraResult<InfraReconcileResult>>) \| undefined`                          | no       |             |
-| validateAsync         | method   | `(context: InfraExecutionContext) => Promise<InfraResult<null>>`                                                         | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| descriptor | property | `InfraAdapterDescriptor<"supabase" \| "cerbos" \| "r2" \| "supabase-vault">` | yes |  |
+| desiredWorkloadsAsync | method | `(context: InfraExecutionContext) => Promise<InfraResult<readonly InfraWorkloadSpec[]>>` | yes |  |
+| destroyAsync | method | `(context: InfraExecutionContext, request: InfraDestroyRequest) => Promise<InfraResult<InfraReconcileResult>>` | yes |  |
+| planAsync | method | `(context: InfraExecutionContext) => Promise<InfraResult<readonly InfraPlanAction[]>>` | yes |  |
+| reconcileAsync | method | `(context: InfraExecutionContext, runtimeOutputs: readonly InfraOutput[]) => Promise<InfraResult<InfraReconcileResult>>` | yes |  |
+| statusAsync | method | `(context: InfraExecutionContext) => Promise<InfraResult<readonly InfraResourceStatus[]>>` | yes |  |
+| suspendAsync | method | `((context: InfraExecutionContext) => Promise<InfraResult<InfraReconcileResult>>) \| undefined` | no |  |
+| validateAsync | method | `(context: InfraExecutionContext) => Promise<InfraResult<null>>` | yes |  |
 
 ## InfraStatus
 
@@ -2866,12 +3352,12 @@ Source: `src/types/infraLifecycle.ts:58:1`
 
 ### Members
 
-| Name        | Kind     | Type                                                                                                 | Required | Description |
-| ----------- | -------- | ---------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| environment | property | `"local" \| "preview" \| "production"`                                                               | yes      |             |
-| projectId   | property | `string`                                                                                             | yes      |             |
-| resources   | property | `readonly InfraResourceStatus[]`                                                                     | yes      |             |
-| state       | property | `"unknown" \| "absent" \| "pending" \| "ready" \| "degraded" \| "stopped" \| "retained" \| "failed"` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| environment | property | `"local" \| "preview" \| "production"` | yes |  |
+| projectId | property | `string` | yes |  |
+| resources | property | `readonly InfraResourceStatus[]` | yes |  |
+| state | property | `"unknown" \| "absent" \| "pending" \| "ready" \| "degraded" \| "stopped" \| "retained" \| "failed"` | yes |  |
 
 ## InfraWorkloadArtifact
 
@@ -2881,10 +3367,10 @@ Source: `src/types/infraWorkload.ts:3:1`
 
 ### Members
 
-| Name  | Kind     | Type      | Required | Description |
-| ----- | -------- | --------- | -------- | ----------- |
-| image | property | `string`  | yes      |             |
-| kind  | property | `"image"` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| image | property | `string` | yes |  |
+| kind | property | `"image"` | yes |  |
 
 ## InfraWorkloadFileSpec
 
@@ -2894,10 +3380,10 @@ Source: `src/types/infraWorkload.ts:59:1`
 
 ### Members
 
-| Name    | Kind     | Type                 | Required | Description |
-| ------- | -------- | -------------------- | -------- | ----------- |
-| content | property | `InfraWorkloadValue` | yes      |             |
-| path    | property | `string`             | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| content | property | `InfraWorkloadValue` | yes |  |
+| path | property | `string` | yes |  |
 
 ## InfraWorkloadHealthSpec
 
@@ -2913,12 +3399,12 @@ Source: `src/types/infraWorkload.ts:27:1`
 
 ### Members
 
-| Name          | Kind     | Type                          | Required | Description |
-| ------------- | -------- | ----------------------------- | -------- | ----------- |
-| name          | property | `string`                      | yes      |             |
-| port          | property | `number`                      | yes      |             |
-| protocol      | property | `"tcp" \| "udp" \| undefined` | no       |             |
-| publishedPort | property | `number \| undefined`         | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| name | property | `string` | yes |  |
+| port | property | `number` | yes |  |
+| protocol | property | `"tcp" \| "udp" \| undefined` | no |  |
+| publishedPort | property | `number \| undefined` | no |  |
 
 ## InfraWorkloadResourceSpec
 
@@ -2928,10 +3414,10 @@ Source: `src/types/infraWorkload.ts:45:1`
 
 ### Members
 
-| Name      | Kind     | Type                  | Required | Description |
-| --------- | -------- | --------------------- | -------- | ----------- |
-| cpuMillis | property | `number \| undefined` | no       |             |
-| memoryMiB | property | `number \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| cpuMillis | property | `number \| undefined` | no |  |
+| memoryMiB | property | `number \| undefined` | no |  |
 
 ## InfraWorkloadScalarValue
 
@@ -2947,21 +3433,21 @@ Source: `src/types/infraWorkload.ts:64:1`
 
 ### Members
 
-| Name        | Kind     | Type                                                        | Required | Description |
-| ----------- | -------- | ----------------------------------------------------------- | -------- | ----------- |
-| args        | property | `readonly string[] \| undefined`                            | no       |             |
-| artifact    | property | `InfraWorkloadArtifact`                                     | yes      |             |
-| command     | property | `readonly string[] \| undefined`                            | no       |             |
-| dependsOn   | property | `readonly string[] \| undefined`                            | no       |             |
-| environment | property | `Readonly<Record<string, InfraWorkloadValue>> \| undefined` | no       |             |
-| exposure    | property | `"public" \| "internal" \| undefined`                       | no       |             |
-| files       | property | `readonly InfraWorkloadFileSpec[] \| undefined`             | no       |             |
-| health      | property | `InfraWorkloadHealthSpec \| undefined`                      | no       |             |
-| id          | property | `string`                                                    | yes      |             |
-| persistence | property | `readonly InfraWorkloadVolumeSpec[] \| undefined`           | no       |             |
-| ports       | property | `readonly InfraWorkloadPort[] \| undefined`                 | no       |             |
-| replicas    | property | `number \| undefined`                                       | no       |             |
-| resources   | property | `InfraWorkloadResourceSpec \| undefined`                    | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| args | property | `readonly string[] \| undefined` | no |  |
+| artifact | property | `InfraWorkloadArtifact` | yes |  |
+| command | property | `readonly string[] \| undefined` | no |  |
+| dependsOn | property | `readonly string[] \| undefined` | no |  |
+| environment | property | `Readonly<Record<string, InfraWorkloadValue>> \| undefined` | no |  |
+| exposure | property | `"public" \| "internal" \| undefined` | no |  |
+| files | property | `readonly InfraWorkloadFileSpec[] \| undefined` | no |  |
+| health | property | `InfraWorkloadHealthSpec \| undefined` | no |  |
+| id | property | `string` | yes |  |
+| persistence | property | `readonly InfraWorkloadVolumeSpec[] \| undefined` | no |  |
+| ports | property | `readonly InfraWorkloadPort[] \| undefined` | no |  |
+| replicas | property | `number \| undefined` | no |  |
+| resources | property | `InfraWorkloadResourceSpec \| undefined` | no |  |
 
 ## InfraWorkloadValue
 
@@ -2977,12 +3463,12 @@ Source: `src/types/infraWorkload.ts:50:1`
 
 ### Members
 
-| Name      | Kind     | Type                              | Required | Description |
-| --------- | -------- | --------------------------------- | -------- | ----------- |
-| id        | property | `string`                          | yes      |             |
-| mountPath | property | `string`                          | yes      |             |
-| retention | property | `"retain" \| "delete-on-destroy"` | yes      |             |
-| sizeGiB   | property | `number`                          | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| id | property | `string` | yes |  |
+| mountPath | property | `string` | yes |  |
+| retention | property | `"retain" \| "delete-on-destroy"` | yes |  |
+| sizeGiB | property | `number` | yes |  |
 
 ## InternalRestApiDefinition
 
@@ -2992,18 +3478,186 @@ Source: `src/data/apis.ts:54:1`
 
 ### Members
 
-| Name        | Kind     | Type                                                                    | Required | Description |
-| ----------- | -------- | ----------------------------------------------------------------------- | -------- | ----------- |
-| basePath    | property | `string`                                                                | yes      |             |
-| credential  | property | `CredentialRef \| undefined`                                            | no       |             |
-| description | property | `string \| undefined`                                                   | no       |             |
-| endpoints   | property | `Readonly<Record<string, import("./endpoints").DataEndpointConfig>>`    | yes      |             |
-| id          | property | `string`                                                                | yes      |             |
-| metadata    | property | `DataContractValue \| undefined`                                        | no       |             |
-| name        | property | `string \| undefined`                                                   | no       |             |
-| origin      | property | `"internal"`                                                            | yes      |             |
-| protocol    | property | `"rest"`                                                                | yes      |             |
-| schemas     | property | `Readonly<Record<string, import("./schemas").DataSchema>> \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| basePath | property | `string` | yes |  |
+| credential | property | `CredentialRef \| undefined` | no |  |
+| description | property | `string \| undefined` | no |  |
+| endpoints | property | `Readonly<Record<string, import("./endpoints").DataEndpointConfig>>` | yes |  |
+| id | property | `string` | yes |  |
+| metadata | property | `DataContractValue \| undefined` | no |  |
+| name | property | `string \| undefined` | no |  |
+| origin | property | `"internal"` | yes |  |
+| protocol | property | `"rest"` | yes |  |
+| schemas | property | `Readonly<Record<string, import("./schemas").DataSchema>> \| undefined` | no |  |
+
+## IosBuildArtifact
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:273:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| archiveUrl | property | `string` | yes |  |
+| buildId | property | `string` | yes |  |
+| buildNumber | property | `string` | yes |  |
+| buildProfile | property | `string` | yes |  |
+| fingerprint | property | `string` | yes |  |
+| provider | property | `string` | yes |  |
+| version | property | `string` | yes |  |
+
+## IosBuildInspection
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:264:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| fingerprint | property | `string` | yes |  |
+
+## IosBuildInspectionRequest
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:256:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| buildProfile | property | `string` | yes |  |
+| bundleIdentifier | property | `string` | yes |  |
+| credentials | property | `readonly DeploymentCredentialReference[]` | yes |  |
+| projectRoot | property | `string` | yes |  |
+| resolveSecret | property | `DeploymentSecretResolver` | yes |  |
+
+## IosBuildRequest
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:268:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| buildProfile | property | `string` | yes |  |
+| bundleIdentifier | property | `string` | yes |  |
+| credentials | property | `readonly DeploymentCredentialReference[]` | yes |  |
+| expectedFingerprint | property | `string` | yes |  |
+| projectRoot | property | `string` | yes |  |
+| resolveSecret | property | `DeploymentSecretResolver` | yes |  |
+| version | property | `string` | yes |  |
+
+## IosDeploymentBuilder
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:283:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| buildAsync | method | `(request: IosBuildRequest) => Promise<DeploymentProviderResult<IosBuildArtifact>>` | yes |  |
+| inspectAsync | method | `(request: IosBuildInspectionRequest) => Promise<DeploymentProviderResult<IosBuildInspection>>` | yes |  |
+
+## IosDeploymentIntent
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:251:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| buildProfile | property | `string` | yes |  |
+| version | property | `string` | yes |  |
+
+## IosDeploymentPublication
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:308:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| buildId | property | `string` | yes |  |
+| buildNumber | property | `string` | yes |  |
+| buildProvider | property | `string` | yes |  |
+| publishProvider | property | `string` | yes |  |
+| revision | property | `string` | yes |  |
+| target | property | `"ios"` | yes |  |
+| version | property | `string` | yes |  |
+
+## IosDeploymentPublisher
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:318:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| inspectAsync | method | `(request: IosPublishInspectionRequest) => Promise<DeploymentProviderResult<IosPublishInspection>>` | yes |  |
+| publishAsync | method | `(request: IosPublishRequest) => Promise<DeploymentProviderResult<IosDeploymentPublication>>` | yes |  |
+| verifyAsync | method | `(request: IosPublishRequest) => Promise<DeploymentProviderResult<IosPublishInspection>>` | yes |  |
+
+## IosPublishInspection
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:297:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| buildNumber | property | `string \| null` | yes |  |
+| bundleIdentifier | property | `string` | yes |  |
+| version | property | `string \| null` | yes |  |
+
+## IosPublishInspectionRequest
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:290:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| bundleIdentifier | property | `string` | yes |  |
+| credentials | property | `readonly DeploymentCredentialReference[]` | yes |  |
+| resolveSecret | property | `DeploymentSecretResolver` | yes |  |
+| version | property | `string` | yes |  |
+
+## IosPublishRequest
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:303:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| artifact | property | `IosBuildArtifact` | yes |  |
+| bundleIdentifier | property | `string` | yes |  |
+| credentials | property | `readonly DeploymentCredentialReference[]` | yes |  |
+| resolveSecret | property | `DeploymentSecretResolver` | yes |  |
+| revision | property | `string` | yes |  |
+| version | property | `string` | yes |  |
 
 ## isAppDeployManifest
 
@@ -3177,10 +3831,10 @@ Source: `src/navigator.ts:162:1`
 
 ### Members
 
-| Name           | Kind     | Type                             | Required | Description |
-| -------------- | -------- | -------------------------------- | -------- | ----------- |
-| implementation | property | `"javascript"`                   | yes      |             |
-| presentation   | property | `"bottom" \| "top" \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| implementation | property | `"javascript"` | yes |  |
+| presentation | property | `"bottom" \| "top" \| undefined` | no |  |
 
 ## JavaScriptTabsPresentation
 
@@ -3246,14 +3900,14 @@ Canonical Studio-managed authoring media entry.
 
 ### Members
 
-| Name        | Kind     | Type                                                | Required | Description |
-| ----------- | -------- | --------------------------------------------------- | -------- | ----------- |
-| contentType | property | `string \| undefined`                               | no       |             |
-| id          | property | `string`                                            | yes      |             |
-| kind        | property | `"image" \| "audio" \| "video" \| "font" \| "file"` | yes      |             |
-| metadata    | property | `MediaAssetMetadata \| undefined`                   | no       |             |
-| name        | property | `string`                                            | yes      |             |
-| source      | property | `MediaAssetSource`                                  | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| contentType | property | `string \| undefined` | no |  |
+| id | property | `string` | yes |  |
+| kind | property | `"image" \| "audio" \| "video" \| "font" \| "file"` | yes |  |
+| metadata | property | `MediaAssetMetadata \| undefined` | no |  |
+| name | property | `string` | yes |  |
+| source | property | `MediaAssetSource` | yes |  |
 
 ## MediaAssetKind
 
@@ -3269,14 +3923,14 @@ Source: `src/media.ts:30:1`
 
 ### Members
 
-| Name             | Kind     | Type                  | Required | Description |
-| ---------------- | -------- | --------------------- | -------- | ----------- |
-| createdAt        | property | `string \| undefined` | no       |             |
-| durationMs       | property | `number \| undefined` | no       |             |
-| height           | property | `number \| undefined` | no       |             |
-| originalFileName | property | `string \| undefined` | no       |             |
-| sizeBytes        | property | `number \| undefined` | no       |             |
-| width            | property | `number \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| createdAt | property | `string \| undefined` | no |  |
+| durationMs | property | `number \| undefined` | no |  |
+| height | property | `number \| undefined` | no |  |
+| originalFileName | property | `string \| undefined` | no |  |
+| sizeBytes | property | `number \| undefined` | no |  |
+| width | property | `number \| undefined` | no |  |
 
 ## MediaAssetReference
 
@@ -3288,9 +3942,9 @@ Stable component/property reference to one entry in `AppManifest.media.assets`.
 
 ### Members
 
-| Name    | Kind     | Type     | Required | Description |
-| ------- | -------- | -------- | -------- | ----------- |
-| mediaId | property | `string` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| mediaId | property | `string` | yes |  |
 
 ## MediaAssetRegistry
 
@@ -3312,10 +3966,10 @@ Source: `src/media.ts:22:1`
 
 ### Members
 
-| Name | Kind     | Type        | Required | Description                                                             |
-| ---- | -------- | ----------- | -------- | ----------------------------------------------------------------------- |
-| kind | property | `"bundled"` | yes      |                                                                         |
-| path | property | `string`    | yes      | App-relative bundled asset path resolved by the generated/runtime host. |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| kind | property | `"bundled"` | yes |  |
+| path | property | `string` | yes | App-relative bundled asset path resolved by the generated/runtime host. |
 
 ## MediaManifest
 
@@ -3327,9 +3981,9 @@ App-authoring media pool. Runtime/user-generated uploads do not belong here.
 
 ### Members
 
-| Name   | Kind     | Type                                   | Required | Description |
-| ------ | -------- | -------------------------------------- | -------- | ----------- |
-| assets | property | `Readonly<Record<string, MediaAsset>>` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| assets | property | `Readonly<Record<string, MediaAsset>>` | yes |  |
 
 ## MediaStorageAdapter
 
@@ -3339,14 +3993,14 @@ Source: `src/storage.ts:155:1`
 
 ### Members
 
-| Name             | Kind   | Type                                                                                     | Required | Description |
-| ---------------- | ------ | ---------------------------------------------------------------------------------------- | -------- | ----------- |
-| getImageMetadata | method | `((input: StorageAssetReference) => Promise<StorageResult<ImageMetadata>>) \| undefined` | no       |             |
-| list             | method | `(input: StorageListInput) => Promise<StorageResult<StorageListResult>>`                 | yes      |             |
-| publicUrl        | method | `(input: StoragePublicUrlInput) => Promise<StorageResult<StoragePublicUrlResult>>`       | yes      |             |
-| remove           | method | `(input: StorageRemoveInput) => Promise<StorageResult>`                                  | yes      |             |
-| resolve          | method | `(input: StorageResolveInput) => Promise<StorageResult<StorageResolveResult>>`           | yes      |             |
-| upload           | method | `(input: StorageUploadInput) => Promise<StorageResult<StorageUploadResult>>`             | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| getImageMetadata | method | `((input: StorageAssetReference) => Promise<StorageResult<ImageMetadata>>) \| undefined` | no |  |
+| list | method | `(input: StorageListInput) => Promise<StorageResult<StorageListResult>>` | yes |  |
+| publicUrl | method | `(input: StoragePublicUrlInput) => Promise<StorageResult<StoragePublicUrlResult>>` | yes |  |
+| remove | method | `(input: StorageRemoveInput) => Promise<StorageResult>` | yes |  |
+| resolve | method | `(input: StorageResolveInput) => Promise<StorageResult<StorageResolveResult>>` | yes |  |
+| upload | method | `(input: StorageUploadInput) => Promise<StorageResult<StorageUploadResult>>` | yes |  |
 
 ## MediaStorageSource
 
@@ -3356,12 +4010,12 @@ Source: `src/media.ts:8:1`
 
 ### Members
 
-| Name      | Kind     | Type                  | Required | Description                                                                   |
-| --------- | -------- | --------------------- | -------- | ----------------------------------------------------------------------------- |
-| bucket    | property | `string`              | yes      |                                                                               |
-| kind      | property | `"storage"`           | yes      |                                                                               |
-| path      | property | `string`              | yes      |                                                                               |
-| storageId | property | `string \| undefined` | no       | Optional logical storage connection identifier for future multi-storage apps. |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| bucket | property | `string` | yes |  |
+| kind | property | `"storage"` | yes |  |
+| path | property | `string` | yes |  |
+| storageId | property | `string \| undefined` | no | Optional logical storage connection identifier for future multi-storage apps. |
 
 ## MediaUrlSource
 
@@ -3371,10 +4025,202 @@ Source: `src/media.ts:16:1`
 
 ### Members
 
-| Name | Kind     | Type     | Required | Description                                                                     |
-| ---- | -------- | -------- | -------- | ------------------------------------------------------------------------------- |
-| kind | property | `"url"`  | yes      |                                                                                 |
-| url  | property | `string` | yes      | Stable remote URL. Transient/local URL schemes are not canonical media sources. |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| kind | property | `"url"` | yes |  |
+| url | property | `string` | yes | Stable remote URL. Transient/local URL schemes are not canonical media sources. |
+
+## MonetizationAdapterContext
+
+Kind: `type`
+Module: `src/types/deployMonetization.ts`
+Source: `src/types/deployMonetization.ts:87:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| credentials | property | `readonly DeploymentCredentialReference[]` | yes |  |
+| identity | property | `DeploymentStoreIdentity` | yes |  |
+| resolveSecret | property | `DeploymentSecretResolver` | yes |  |
+
+## MonetizationBasePrice
+
+Kind: `type`
+Module: `src/types/deployMonetization.ts`
+Source: `src/types/deployMonetization.ts:16:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| amount | property | `string` | yes |  |
+| country | property | `string` | yes |  |
+| currency | property | `string` | yes |  |
+
+## MonetizationDesiredState
+
+Kind: `type`
+Module: `src/types/deployMonetization.ts`
+Source: `src/types/deployMonetization.ts:46:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| products | property | `readonly MonetizationProduct[]` | yes |  |
+| revision | property | `string` | yes |  |
+
+## MonetizationDiagnostic
+
+Kind: `type`
+Module: `src/types/deployMonetization.ts`
+Source: `src/types/deployMonetization.ts:51:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| code | property | `string` | yes |  |
+| locale | property | `string \| undefined` | no |  |
+| message | property | `string` | yes |  |
+| productId | property | `string \| undefined` | no |  |
+| severity | property | `"error" \| "warning"` | yes |  |
+| target | property | `"android" \| "ios" \| undefined` | no |  |
+
+## MonetizationLocalization
+
+Kind: `type`
+Module: `src/types/deployMonetization.ts`
+Source: `src/types/deployMonetization.ts:10:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| description | property | `string` | yes |  |
+| locale | property | `string` | yes |  |
+| name | property | `string` | yes |  |
+
+## MonetizationObservedProduct
+
+Kind: `type`
+Module: `src/types/deployMonetization.ts`
+Source: `src/types/deployMonetization.ts:38:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| basePrice | property | `MonetizationBasePrice \| undefined` | no |  |
+| id | property | `string` | yes |  |
+| kind | property | `MonetizationProductKind \| "one-time"` | yes |  |
+| localizations | property | `readonly MonetizationLocalization[]` | yes |  |
+| subscription | property | `MonetizationSubscription \| undefined` | no |  |
+
+## MonetizationPlan
+
+Kind: `type`
+Module: `src/types/deployMonetization.ts`
+Source: `src/types/deployMonetization.ts:79:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| currentRevision | property | `string` | yes |  |
+| desiredRevision | property | `string` | yes |  |
+| diagnostics | property | `readonly MonetizationDiagnostic[]` | yes |  |
+| status | property | `"no-change" \| "changes" \| "blocked"` | yes |  |
+| steps | property | `readonly MonetizationPlanStep[]` | yes |  |
+
+## MonetizationPlanStep
+
+Kind: `type`
+Module: `src/types/deployMonetization.ts`
+Source: `src/types/deployMonetization.ts:67:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| id | property | `string` | yes |  |
+| operation | property | `"ensure-subscription-family" \| "create-product" \| "update-metadata" \| "update-price" \| "update-subscription"` | yes |  |
+| productId | property | `string` | yes |  |
+| target | property | `"android" \| "ios"` | yes |  |
+
+## MonetizationProduct
+
+Kind: `type`
+Module: `src/types/deployMonetization.ts`
+Source: `src/types/deployMonetization.ts:30:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| basePrice | property | `MonetizationBasePrice` | yes |  |
+| id | property | `string` | yes |  |
+| kind | property | `MonetizationProductKind` | yes |  |
+| localizations | property | `readonly MonetizationLocalization[]` | yes |  |
+| subscription | property | `MonetizationSubscription \| undefined` | no |  |
+
+## MonetizationProductKind
+
+Kind: `unknown`
+Module: `src/types/deployMonetization.ts`
+Source: `src/types/deployMonetization.ts:8:1`
+
+## MonetizationSubscription
+
+Kind: `type`
+Module: `src/types/deployMonetization.ts`
+Source: `src/types/deployMonetization.ts:24:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| family | property | `string` | yes |  |
+| level | property | `number \| undefined` | no |  |
+| period | property | `MonetizationSubscriptionPeriod` | yes |  |
+
+## MonetizationSubscriptionPeriod
+
+Kind: `unknown`
+Module: `src/types/deployMonetization.ts`
+Source: `src/types/deployMonetization.ts:22:1`
+
+## MonetizationSyncRequest
+
+Kind: `type`
+Module: `src/types/deployMonetization.ts`
+Source: `src/types/deployMonetization.ts:93:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| credentials | property | `readonly DeploymentCredentialReference[]` | yes |  |
+| desired | property | `MonetizationDesiredState` | yes |  |
+| identity | property | `DeploymentStoreIdentity` | yes |  |
+| plan | property | `MonetizationPlan` | yes |  |
+| resolveSecret | property | `DeploymentSecretResolver` | yes |  |
+
+## MonetizationTargetState
+
+Kind: `type`
+Module: `src/types/deployMonetization.ts`
+Source: `src/types/deployMonetization.ts:60:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| diagnostics | property | `readonly MonetizationDiagnostic[]` | yes |  |
+| products | property | `readonly MonetizationObservedProduct[]` | yes |  |
+| subscriptionFamilies | property | `readonly string[]` | yes |  |
+| target | property | `"android" \| "ios"` | yes |  |
 
 ## NamedIconSpec
 
@@ -3384,13 +4230,13 @@ Source: `src/types.ts:202:1`
 
 ### Members
 
-| Name     | Kind     | Type                            | Required | Description |
-| -------- | -------- | ------------------------------- | -------- | ----------- |
-| color    | property | `string \| undefined`           | no       |             |
-| name     | property | `string`                        | yes      |             |
-| provider | property | `string \| undefined`           | no       |             |
-| size     | property | `string \| number \| undefined` | no       |             |
-| source   | property | `undefined`                     | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| color | property | `string \| undefined` | no |  |
+| name | property | `string` | yes |  |
+| provider | property | `string \| undefined` | no |  |
+| size | property | `string \| number \| undefined` | no |  |
+| source | property | `undefined` | no |  |
 
 ## NATIVE_TABS_MINIMIZE_BEHAVIORS
 
@@ -3406,11 +4252,11 @@ Source: `src/navigator.ts:154:1`
 
 ### Members
 
-| Name             | Kind     | Type                                                                    | Required | Description |
-| ---------------- | -------- | ----------------------------------------------------------------------- | -------- | ----------- |
-| bottomAccessory  | property | `NavigatorScreenReference \| undefined`                                 | no       |             |
-| implementation   | property | `"native"`                                                              | yes      |             |
-| minimizeBehavior | property | `"automatic" \| "never" \| "onScrollDown" \| "onScrollUp" \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| bottomAccessory | property | `NavigatorScreenReference \| undefined` | no |  |
+| implementation | property | `"native"` | yes |  |
+| minimizeBehavior | property | `"never" \| "automatic" \| "onScrollDown" \| "onScrollUp" \| undefined` | no |  |
 
 ## NativeTabsMinimizeBehavior
 
@@ -3426,10 +4272,10 @@ Source: `src/types.ts:39:1`
 
 ### Members
 
-| Name    | Kind     | Type                                                            | Required | Description |
-| ------- | -------- | --------------------------------------------------------------- | -------- | ----------- |
-| payload | property | `{ route: string; params?: Record<string, number \| string>; }` | yes      |             |
-| type    | property | `"navigate"`                                                    | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| payload | property | `{ route: string; params?: Record<string, number \| string>; }` | yes |  |
+| type | property | `"navigate"` | yes |  |
 
 ## NAVIGATOR_PRESETS
 
@@ -3457,14 +4303,14 @@ Source: `src/navigator/planning.ts:68:1`
 
 ### Members
 
-| Name        | Kind     | Type                     | Required | Description |
-| ----------- | -------- | ------------------------ | -------- | ----------- |
-| exportName  | property | `string \| undefined`    | no       |             |
-| id          | property | `NavigatorAdapterId`     | yes      |             |
-| limitations | property | `readonly string[]`      | yes      |             |
-| module      | property | `string \| undefined`    | no       |             |
-| stability   | property | `NavigatorApiStability`  | yes      |             |
-| support     | property | `NavigatorSupportStatus` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| exportName | property | `string \| undefined` | no |  |
+| id | property | `NavigatorAdapterId` | yes |  |
+| limitations | property | `readonly string[]` | yes |  |
+| module | property | `string \| undefined` | no |  |
+| stability | property | `NavigatorApiStability` | yes |  |
+| support | property | `NavigatorSupportStatus` | yes |  |
 
 ## NavigatorApiStability
 
@@ -3480,18 +4326,18 @@ Source: `src/navigator/catalog.ts:57:1`
 
 ### Members
 
-| Name              | Kind     | Type                                                                  | Required | Description |
-| ----------------- | -------- | --------------------------------------------------------------------- | -------- | ----------- |
-| dependencies      | property | `readonly NavigatorDependencyRequirement[]`                           | yes      |             |
-| id                | property | `string`                                                              | yes      |             |
-| implementation    | property | `NavigatorImplementation \| undefined`                                | no       |             |
-| incompatibilities | property | `readonly string[]`                                                   | yes      |             |
-| limitations       | property | `readonly string[]`                                                   | yes      |             |
-| presentation      | property | `NavigatorPresentation \| undefined`                                  | no       |             |
-| requirements      | property | `readonly NavigatorCapabilityRequirement[]`                           | yes      |             |
-| stability         | property | `NavigatorApiStability`                                               | yes      |             |
-| targets           | property | `readonly NavigatorCapabilityTarget[]`                                | yes      |             |
-| topology          | property | `"custom" \| "slot" \| "drawer" \| "split-view" \| "stack" \| "tabs"` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| dependencies | property | `readonly NavigatorDependencyRequirement[]` | yes |  |
+| id | property | `string` | yes |  |
+| implementation | property | `NavigatorImplementation \| undefined` | no |  |
+| incompatibilities | property | `readonly string[]` | yes |  |
+| limitations | property | `readonly string[]` | yes |  |
+| presentation | property | `NavigatorPresentation \| undefined` | no |  |
+| requirements | property | `readonly NavigatorCapabilityRequirement[]` | yes |  |
+| stability | property | `NavigatorApiStability` | yes |  |
+| targets | property | `readonly NavigatorCapabilityTarget[]` | yes |  |
+| topology | property | `"custom" \| "slot" \| "drawer" \| "split-view" \| "stack" \| "tabs"` | yes |  |
 
 ## NavigatorCapabilityId
 
@@ -3507,10 +4353,10 @@ Source: `src/navigator/catalog.ts:52:1`
 
 ### Members
 
-| Name        | Kind     | Type     | Required | Description |
-| ----------- | -------- | -------- | -------- | ----------- |
-| description | property | `string` | yes      |             |
-| id          | property | `string` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| description | property | `string` | yes |  |
+| id | property | `string` | yes |  |
 
 ## NavigatorCapabilityTarget
 
@@ -3520,11 +4366,11 @@ Source: `src/navigator/catalog.ts:46:1`
 
 ### Members
 
-| Name         | Kind     | Type                                         | Required | Description |
-| ------------ | -------- | -------------------------------------------- | -------- | ----------- |
-| platform     | property | `NavigatorRuntimePlatform`                   | yes      |             |
-| support      | property | `NavigatorSupportStatus`                     | yes      |             |
-| verification | property | `readonly NavigatorCapabilityVerification[]` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| platform | property | `NavigatorRuntimePlatform` | yes |  |
+| support | property | `NavigatorSupportStatus` | yes |  |
+| verification | property | `readonly NavigatorCapabilityVerification[]` | yes |  |
 
 ## NavigatorCapabilityVerification
 
@@ -3534,10 +4380,10 @@ Source: `src/navigator/catalog.ts:41:1`
 
 ### Members
 
-| Name   | Kind     | Type                          | Required | Description |
-| ------ | -------- | ----------------------------- | -------- | ----------- |
-| kind   | property | `NavigatorVerificationKind`   | yes      |             |
-| status | property | `NavigatorVerificationStatus` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| kind | property | `NavigatorVerificationKind` | yes |  |
+| status | property | `NavigatorVerificationStatus` | yes |  |
 
 ## NavigatorCatalog
 
@@ -3547,10 +4393,10 @@ Source: `src/navigator/catalog.ts:76:1`
 
 ### Members
 
-| Name         | Kind     | Type                                       | Required | Description |
-| ------------ | -------- | ------------------------------------------ | -------- | ----------- |
-| capabilities | property | `readonly NavigatorCapabilityDescriptor[]` | yes      |             |
-| presets      | property | `readonly NavigatorPresetDescriptor[]`     | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| capabilities | property | `readonly NavigatorCapabilityDescriptor[]` | yes |  |
+| presets | property | `readonly NavigatorPresetDescriptor[]` | yes |  |
 
 ## NavigatorDefaults
 
@@ -3560,10 +4406,10 @@ Source: `src/navigator.ts:242:1`
 
 ### Members
 
-| Name  | Kind     | Type                                     | Required | Description |
-| ----- | -------- | ---------------------------------------- | -------- | ----------- |
-| stack | property | `StackImplementationConfig \| undefined` | no       |             |
-| tabs  | property | `TabsImplementationConfig \| undefined`  | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| stack | property | `StackImplementationConfig \| undefined` | no |  |
+| tabs | property | `TabsImplementationConfig \| undefined` | no |  |
 
 ## NavigatorDependencyRequirement
 
@@ -3573,11 +4419,11 @@ Source: `src/navigator/generation.ts:20:1`
 
 ### Members
 
-| Name         | Kind     | Type                               | Required | Description |
-| ------------ | -------- | ---------------------------------- | -------- | ----------- |
-| kind         | property | `"dependency" \| "peerDependency"` | yes      |             |
-| packageName  | property | `string`                           | yes      |             |
-| versionRange | property | `string`                           | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| kind | property | `"dependency" \| "peerDependency"` | yes |  |
+| packageName | property | `string` | yes |  |
+| versionRange | property | `string` | yes |  |
 
 ## NavigatorDiagnostic
 
@@ -3587,12 +4433,12 @@ Source: `src/navigator/planning.ts:82:1`
 
 ### Members
 
-| Name     | Kind     | Type                   | Required | Description |
-| -------- | -------- | ---------------------- | -------- | ----------- |
-| code     | property | `string`               | yes      |             |
-| message  | property | `string`               | yes      |             |
-| path     | property | `string`               | yes      |             |
-| severity | property | `"error" \| "warning"` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| code | property | `string` | yes |  |
+| message | property | `string` | yes |  |
+| path | property | `string` | yes |  |
+| severity | property | `"error" \| "warning"` | yes |  |
 
 ## NavigatorGeneratedFile
 
@@ -3602,10 +4448,10 @@ Source: `src/navigator/generation.ts:8:1`
 
 ### Members
 
-| Name     | Kind     | Type     | Required | Description |
-| -------- | -------- | -------- | -------- | ----------- |
-| contents | property | `string` | yes      |             |
-| path     | property | `string` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| contents | property | `string` | yes |  |
+| path | property | `string` | yes |  |
 
 ## NavigatorGenerationBindings
 
@@ -3615,12 +4461,12 @@ Source: `src/navigator/generation.ts:13:1`
 
 ### Members
 
-| Name               | Kind     | Type                                                           | Required | Description |
-| ------------------ | -------- | -------------------------------------------------------------- | -------- | ----------- |
-| guards             | property | `Readonly<Record<string, NavigatorScreenModule>>`              | yes      |             |
-| iconSourceResolver | property | `NavigatorScreenModule \| undefined`                           | no       |             |
-| screens            | property | `Readonly<Record<string, NavigatorScreenModule>>`              | yes      |             |
-| tabPresentations   | property | `Readonly<Record<string, NavigatorScreenModule>> \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| guards | property | `Readonly<Record<string, NavigatorScreenModule>>` | yes |  |
+| iconSourceResolver | property | `NavigatorScreenModule \| undefined` | no |  |
+| screens | property | `Readonly<Record<string, NavigatorScreenModule>>` | yes |  |
+| tabPresentations | property | `Readonly<Record<string, NavigatorScreenModule>> \| undefined` | no |  |
 
 ## NavigatorGenerationOptions
 
@@ -3630,10 +4476,10 @@ Source: `src/navigator/generation.ts:36:1`
 
 ### Members
 
-| Name               | Kind     | Type                   | Required | Description |
-| ------------------ | -------- | ---------------------- | -------- | ----------- |
-| includeScreenFiles | property | `boolean \| undefined` | no       |             |
-| rootDirectory      | property | `string \| undefined`  | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| includeScreenFiles | property | `boolean \| undefined` | no |  |
+| rootDirectory | property | `string \| undefined` | no |  |
 
 ## NavigatorGenerationResult
 
@@ -3643,14 +4489,14 @@ Source: `src/navigator/generation.ts:26:1`
 
 ### Members
 
-| Name          | Kind     | Type                                        | Required | Description |
-| ------------- | -------- | ------------------------------------------- | -------- | ----------- |
-| capabilityIds | property | `readonly string[]`                         | yes      |             |
-| dependencies  | property | `readonly NavigatorDependencyRequirement[]` | yes      |             |
-| diagnostics   | property | `readonly NavigatorDiagnostic[]`            | yes      |             |
-| files         | property | `readonly NavigatorGeneratedFile[]`         | yes      |             |
-| plan          | property | `NavigatorPlan`                             | yes      |             |
-| support       | property | `NavigatorSupportStatus`                    | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| capabilityIds | property | `readonly string[]` | yes |  |
+| dependencies | property | `readonly NavigatorDependencyRequirement[]` | yes |  |
+| diagnostics | property | `readonly NavigatorDiagnostic[]` | yes |  |
+| files | property | `readonly NavigatorGeneratedFile[]` | yes |  |
+| plan | property | `NavigatorPlan` | yes |  |
+| support | property | `NavigatorSupportStatus` | yes |  |
 
 ## NavigatorImplementation
 
@@ -3672,18 +4518,18 @@ Source: `src/navigator/planning.ts:89:1`
 
 ### Members
 
-| Name             | Kind     | Type                                                                                                                                                                | Required | Description |
-| ---------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| adapter          | property | `NavigatorAdapterPlan`                                                                                                                                              | yes      |             |
-| custom           | property | `{ navigatorId: string; config?: CustomNavigatorNode["config"]; } \| undefined`                                                                                     | no       |             |
-| drawer           | property | `{ options?: DrawerNavigatorOptions; } \| undefined`                                                                                                                | no       |             |
-| initialRouteName | property | `string \| undefined`                                                                                                                                               | no       |             |
-| pointer          | property | `string`                                                                                                                                                            | yes      |             |
-| routes           | property | `readonly NavigatorRoutePlan[]`                                                                                                                                     | yes      |             |
-| splitView        | property | `{ columns: { primary: string; supplementary?: string; }; inspector?: string; topColumnForCollapsing?: "primary" \| "secondary" \| "supplementary"; } \| undefined` | no       |             |
-| stack            | property | `{ implementation: StackImplementation; options?: StackScreenOptions; } \| undefined`                                                                               | no       |             |
-| tabs             | property | `TabsNavigatorPlan \| undefined`                                                                                                                                    | no       |             |
-| type             | property | `"custom" \| "slot" \| "drawer" \| "split-view" \| "stack" \| "tabs"`                                                                                               | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| adapter | property | `NavigatorAdapterPlan` | yes |  |
+| custom | property | `{ navigatorId: string; config?: CustomNavigatorNode["config"]; } \| undefined` | no |  |
+| drawer | property | `{ options?: DrawerNavigatorOptions; } \| undefined` | no |  |
+| initialRouteName | property | `string \| undefined` | no |  |
+| pointer | property | `string` | yes |  |
+| routes | property | `readonly NavigatorRoutePlan[]` | yes |  |
+| splitView | property | `{ columns: { primary: string; supplementary?: string; }; inspector?: string; topColumnForCollapsing?: "primary" \| "secondary" \| "supplementary"; } \| undefined` | no |  |
+| stack | property | `{ implementation: StackImplementation; options?: StackScreenOptions; } \| undefined` | no |  |
+| tabs | property | `TabsNavigatorPlan \| undefined` | no |  |
+| type | property | `"custom" \| "slot" \| "drawer" \| "split-view" \| "stack" \| "tabs"` | yes |  |
 
 ## NavigatorPlan
 
@@ -3693,14 +4539,14 @@ Source: `src/navigator/planning.ts:117:1`
 
 ### Members
 
-| Name          | Kind     | Type                                        | Required | Description |
-| ------------- | -------- | ------------------------------------------- | -------- | ----------- |
-| capabilityIds | property | `readonly string[]`                         | yes      |             |
-| context       | property | `NavigatorValidationContext`                | yes      |             |
-| dependencies  | property | `readonly NavigatorDependencyRequirement[]` | yes      |             |
-| diagnostics   | property | `readonly NavigatorDiagnostic[]`            | yes      |             |
-| root          | property | `NavigatorNodePlan`                         | yes      |             |
-| support       | property | `NavigatorSupportStatus`                    | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| capabilityIds | property | `readonly string[]` | yes |  |
+| context | property | `NavigatorValidationContext` | yes |  |
+| dependencies | property | `readonly NavigatorDependencyRequirement[]` | yes |  |
+| diagnostics | property | `readonly NavigatorDiagnostic[]` | yes |  |
+| root | property | `NavigatorNodePlan` | yes |  |
+| support | property | `NavigatorSupportStatus` | yes |  |
 
 ## NavigatorPlatformConfig
 
@@ -3710,10 +4556,10 @@ Source: `src/navigator.ts:247:1`
 
 ### Members
 
-| Name  | Kind     | Type                                     | Required | Description |
-| ----- | -------- | ---------------------------------------- | -------- | ----------- |
-| stack | property | `StackImplementationConfig \| undefined` | no       |             |
-| tabs  | property | `TabsImplementationConfig \| undefined`  | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| stack | property | `StackImplementationConfig \| undefined` | no |  |
+| tabs | property | `TabsImplementationConfig \| undefined` | no |  |
 
 ## NavigatorPlatforms
 
@@ -3723,11 +4569,11 @@ Source: `src/navigator.ts:252:1`
 
 ### Members
 
-| Name    | Kind     | Type                                   | Required | Description |
-| ------- | -------- | -------------------------------------- | -------- | ----------- |
-| android | property | `NavigatorPlatformConfig \| undefined` | no       |             |
-| ios     | property | `NavigatorPlatformConfig \| undefined` | no       |             |
-| web     | property | `NavigatorPlatformConfig \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| android | property | `NavigatorPlatformConfig \| undefined` | no |  |
+| ios | property | `NavigatorPlatformConfig \| undefined` | no |  |
+| web | property | `NavigatorPlatformConfig \| undefined` | no |  |
 
 ## NavigatorPresentation
 
@@ -3749,11 +4595,11 @@ Source: `src/navigator/catalog.ts:70:1`
 
 ### Members
 
-| Name        | Kind     | Type                                                                                                                                                                                                                                                                                | Required | Description |
-| ----------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| description | property | `string`                                                                                                                                                                                                                                                                            | yes      |             |
-| id          | property | `"custom" \| "slot" \| "drawer" \| "split-view" \| "stack" \| "tabs" \| "tabs-stack" \| "stack-tabs" \| "stack-tabs-stack" \| "drawer-stack" \| "stack-drawer" \| "stack-drawer-stack" \| "drawer-tabs" \| "drawer-tabs-stack" \| "stack-drawer-tabs" \| "stack-drawer-tabs-stack"` | yes      |             |
-| topology    | property | `readonly ("custom" \| "slot" \| "drawer" \| "split-view" \| "stack" \| "tabs")[]`                                                                                                                                                                                                  | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| description | property | `string` | yes |  |
+| id | property | `"custom" \| "slot" \| "drawer" \| "split-view" \| "stack" \| "tabs" \| "tabs-stack" \| "stack-tabs" \| "stack-tabs-stack" \| "drawer-stack" \| "stack-drawer" \| "stack-drawer-stack" \| "drawer-tabs" \| "drawer-tabs-stack" \| "stack-drawer-tabs" \| "stack-drawer-tabs-stack"` | yes |  |
+| topology | property | `readonly ("custom" \| "slot" \| "drawer" \| "split-view" \| "stack" \| "tabs")[]` | yes |  |
 
 ## NavigatorResponsiveSize
 
@@ -3769,17 +4615,17 @@ Source: `src/navigator/planning.ts:128:1`
 
 ### Members
 
-| Name                    | Kind     | Type                                 | Required | Description |
-| ----------------------- | -------- | ------------------------------------ | -------- | ----------- |
-| guards                  | property | `readonly string[]`                  | yes      |             |
-| icon                    | property | `import("..").IconSpec \| undefined` | no       |             |
-| label                   | property | `string \| undefined`                | no       |             |
-| name                    | property | `string`                             | yes      |             |
-| navigator               | property | `NavigatorNodePlan \| undefined`     | no       |             |
-| path                    | property | `string \| undefined`                | no       |             |
-| screenId                | property | `string \| undefined`                | no       |             |
-| showInPrimaryNavigation | property | `boolean \| undefined`               | no       |             |
-| stackOptions            | property | `StackScreenOptions \| undefined`    | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| guards | property | `readonly string[]` | yes |  |
+| icon | property | `import("..").IconSpec \| undefined` | no |  |
+| label | property | `string \| undefined` | no |  |
+| name | property | `string` | yes |  |
+| navigator | property | `NavigatorNodePlan \| undefined` | no |  |
+| path | property | `string \| undefined` | no |  |
+| screenId | property | `string \| undefined` | no |  |
+| showInPrimaryNavigation | property | `boolean \| undefined` | no |  |
+| stackOptions | property | `StackScreenOptions \| undefined` | no |  |
 
 ## NavigatorRuntimePlatform
 
@@ -3795,10 +4641,10 @@ Source: `src/navigator/generation.ts:43:1`
 
 ### Members
 
-| Name       | Kind     | Type     | Required | Description |
-| ---------- | -------- | -------- | -------- | ----------- |
-| exportName | property | `string` | yes      |             |
-| module     | property | `string` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| exportName | property | `string` | yes |  |
+| module | property | `string` | yes |  |
 
 ## NavigatorScreenReference
 
@@ -3808,9 +4654,9 @@ Source: `src/navigator.ts:150:1`
 
 ### Members
 
-| Name     | Kind     | Type     | Required | Description |
-| -------- | -------- | -------- | -------- | ----------- |
-| screenId | property | `string` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| screenId | property | `string` | yes |  |
 
 ## NavigatorSupportStatus
 
@@ -3832,10 +4678,10 @@ Source: `src/navigator/planning.ts:144:1`
 
 ### Members
 
-| Name              | Kind     | Type                       | Required | Description |
-| ----------------- | -------- | -------------------------- | -------- | ----------- |
-| expoRouterVersion | property | `string`                   | yes      |             |
-| platform          | property | `NavigatorRuntimePlatform` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| expoRouterVersion | property | `string` | yes |  |
+| platform | property | `NavigatorRuntimePlatform` | yes |  |
 
 ## NavigatorVerificationKind
 
@@ -3881,11 +4727,11 @@ Source: `src/data/apis.ts:22:1`
 
 ### Members
 
-| Name       | Kind     | Type                  | Required | Description |
-| ---------- | -------- | --------------------- | -------- | ----------- |
-| documentId | property | `string \| undefined` | no       |             |
-| url        | property | `string \| undefined` | no       |             |
-| version    | property | `string \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| documentId | property | `string \| undefined` | no |  |
+| url | property | `string \| undefined` | no |  |
+| version | property | `string \| undefined` | no |  |
 
 ## OperationId
 
@@ -3901,12 +4747,12 @@ Source: `src/bindings.ts:97:1`
 
 ### Members
 
-| Name      | Kind     | Type                                                       | Required | Description |
-| --------- | -------- | ---------------------------------------------------------- | -------- | ----------- |
-| id        | property | `string \| undefined`                                      | no       |             |
-| input     | property | `Readonly<Record<string, BindingInputValue>> \| undefined` | no       |             |
-| kind      | property | `"operation"`                                              | yes      |             |
-| operation | property | `BindingOperationRef`                                      | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| id | property | `string \| undefined` | no |  |
+| input | property | `Readonly<Record<string, BindingInputValue>> \| undefined` | no |  |
+| kind | property | `"operation"` | yes |  |
+| operation | property | `BindingOperationRef` | yes |  |
 
 ## parseAppManifest
 
@@ -3940,10 +4786,10 @@ Source: `src/auth.ts:227:1`
 
 ### Members
 
-| Name       | Kind     | Type                  | Required | Description |
-| ---------- | -------- | --------------------- | -------- | ----------- |
-| identifier | property | `AuthIdentifier`      | yes      |             |
-| redirectTo | property | `string \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| identifier | property | `AuthIdentifier` | yes |  |
+| redirectTo | property | `string \| undefined` | no |  |
 
 ## PropBinding
 
@@ -3953,14 +4799,303 @@ Source: `src/bindings.ts:67:1`
 
 ### Members
 
-| Name       | Kind     | Type                                            | Required | Description |
-| ---------- | -------- | ----------------------------------------------- | -------- | ----------- |
-| empty      | property | `BindingLifecycleBehavior \| undefined`         | no       |             |
-| error      | property | `BindingLifecycleBehavior \| undefined`         | no       |             |
-| fallback   | property | `BindingFallback \| undefined`                  | no       |             |
-| loading    | property | `BindingLifecycleBehavior \| undefined`         | no       |             |
-| source     | property | `BindingValueSource`                            | yes      |             |
-| transforms | property | `readonly BindingValueTransform[] \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| empty | property | `BindingLifecycleBehavior \| undefined` | no |  |
+| error | property | `BindingLifecycleBehavior \| undefined` | no |  |
+| fallback | property | `BindingFallback \| undefined` | no |  |
+| loading | property | `BindingLifecycleBehavior \| undefined` | no |  |
+| source | property | `BindingValueSource` | yes |  |
+| transforms | property | `readonly BindingValueTransform[] \| undefined` | no |  |
+
+## ReleaseAdapterContext
+
+Kind: `type`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:124:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| credentials | property | `readonly DeploymentCredentialReference[]` | yes |  |
+| identity | property | `DeploymentStoreIdentity` | yes |  |
+| resolveSecret | property | `DeploymentSecretResolver` | yes |  |
+
+## ReleaseControlExecutionResult
+
+Kind: `unknown`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:119:1`
+
+## ReleaseControlRequest
+
+Kind: `type`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:139:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| control | property | `ReleaseLifecycleControl` | yes |  |
+| credentials | property | `readonly DeploymentCredentialReference[]` | yes |  |
+| desired | property | `ReleaseDesiredState` | yes |  |
+| identity | property | `DeploymentStoreIdentity` | yes |  |
+| resolveSecret | property | `DeploymentSecretResolver` | yes |  |
+
+## ReleaseDesiredState
+
+Kind: `type`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:27:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| notes | property | `readonly ReleaseNote[]` | yes |  |
+| revision | property | `string` | yes |  |
+| rollout | property | `ReleaseRollout` | yes |  |
+| targets | property | `readonly ReleaseTarget[]` | yes |  |
+| version | property | `string` | yes |  |
+
+## ReleaseDiagnostic
+
+Kind: `type`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:83:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| code | property | `string` | yes |  |
+| message | property | `string` | yes |  |
+| severity | property | `"error" \| "warning"` | yes |  |
+| target | property | `"release" \| ReleaseTarget \| undefined` | no |  |
+
+## ReleaseInspectionRequest
+
+Kind: `type`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:130:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| credentials | property | `readonly DeploymentCredentialReference[]` | yes |  |
+| identity | property | `DeploymentStoreIdentity` | yes |  |
+| resolveSecret | property | `DeploymentSecretResolver` | yes |  |
+| version | property | `string` | yes |  |
+
+## ReleaseLifecycleControl
+
+Kind: `unknown`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:107:1`
+
+## ReleaseMutationResult
+
+Kind: `unknown`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:114:1`
+
+## ReleaseNote
+
+Kind: `type`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:11:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| locale | property | `string` | yes |  |
+| text | property | `string` | yes |  |
+
+## ReleaseObservedAndroidState
+
+Kind: `type`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:41:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| artifactRevision | property | `string \| null` | yes |  |
+| releaseNotes | property | `readonly ReleaseNote[]` | yes |  |
+| rolloutStatus | property | `"draft" \| "completed" \| "missing" \| "inProgress" \| "halted"` | yes |  |
+| target | property | `"android"` | yes |  |
+| userFraction | property | `string \| undefined` | no |  |
+| version | property | `string \| null` | yes |  |
+| versionCodes | property | `readonly string[]` | yes |  |
+
+## ReleaseObservedIosState
+
+Kind: `type`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:51:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| appVersionState | property | `string \| undefined` | no |  |
+| artifactRevision | property | `string \| null` | yes |  |
+| buildNumber | property | `string \| null` | yes |  |
+| phasedReleaseState | property | `"INACTIVE" \| "ACTIVE" \| "PAUSED" \| "COMPLETE" \| null` | yes |  |
+| releaseNotes | property | `readonly ReleaseNote[]` | yes |  |
+| releaseType | property | `string \| undefined` | no |  |
+| reviewState | property | `string \| undefined` | no |  |
+| target | property | `"ios"` | yes |  |
+| version | property | `string \| null` | yes |  |
+
+## ReleaseObservedNativeState
+
+Kind: `unknown`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:144:1`
+
+## ReleaseObservedState
+
+Kind: `type`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:66:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| targets | property | `readonly ReleaseObservedTargetState[]` | yes |  |
+
+## ReleaseObservedTargetState
+
+Kind: `unknown`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:63:1`
+
+## ReleaseObservedWebState
+
+Kind: `type`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:35:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| artifactRevision | property | `string \| null` | yes |  |
+| target | property | `"web"` | yes |  |
+| version | property | `string \| null` | yes |  |
+
+## ReleasePlan
+
+Kind: `type`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:99:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| currentRevision | property | `string` | yes |  |
+| desiredRevision | property | `string` | yes |  |
+| diagnostics | property | `readonly ReleaseDiagnostic[]` | yes |  |
+| status | property | `ReleasePlanStatus` | yes |  |
+| steps | property | `readonly ReleasePlanStep[]` | yes |  |
+
+## ReleasePlanStatus
+
+Kind: `unknown`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:70:1`
+
+## ReleasePlanStep
+
+Kind: `type`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:90:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| dependsOn | property | `readonly string[]` | yes |  |
+| id | property | `string` | yes |  |
+| irreversible | property | `boolean` | yes |  |
+| operation | property | `ReleaseStepOperation` | yes |  |
+| retry | property | `ReleaseStepRetry` | yes |  |
+| target | property | `"release" \| ReleaseTarget` | yes |  |
+
+## ReleaseRollout
+
+Kind: `type`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:21:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| android | property | `ReleaseTargetRollout \| undefined` | no |  |
+| ios | property | `ReleaseTargetRollout \| undefined` | no |  |
+| web | property | `ReleaseTargetRollout \| undefined` | no |  |
+
+## ReleaseRolloutMode
+
+Kind: `unknown`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:9:1`
+
+## ReleaseStepExecutionRequest
+
+Kind: `type`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:134:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| credentials | property | `readonly DeploymentCredentialReference[]` | yes |  |
+| desired | property | `ReleaseDesiredState` | yes |  |
+| identity | property | `DeploymentStoreIdentity` | yes |  |
+| resolveSecret | property | `DeploymentSecretResolver` | yes |  |
+| step | property | `ReleasePlanStep` | yes |  |
+
+## ReleaseStepOperation
+
+Kind: `unknown`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:72:1`
+
+## ReleaseStepRetry
+
+Kind: `unknown`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:71:1`
+
+## ReleaseTarget
+
+Kind: `unknown`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:8:1`
+
+## ReleaseTargetRollout
+
+Kind: `type`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:16:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| initialFraction | property | `string \| undefined` | no |  |
+| mode | property | `ReleaseRolloutMode` | yes |  |
 
 ## RepositoryManifest
 
@@ -3970,13 +5105,13 @@ Source: `src/repository.ts:1:1`
 
 ### Members
 
-| Name          | Kind     | Type       | Required | Description |
-| ------------- | -------- | ---------- | -------- | ----------- |
-| defaultBranch | property | `"main"`   | yes      |             |
-| name          | property | `string`   | yes      |             |
-| owner         | property | `string`   | yes      |             |
-| provider      | property | `"github"` | yes      |             |
-| url           | property | `string`   | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| defaultBranch | property | `"main"` | yes |  |
+| name | property | `string` | yes |  |
+| owner | property | `string` | yes |  |
+| provider | property | `"github"` | yes |  |
+| url | property | `string` | yes |  |
 
 ## resolveAuthFlow
 
@@ -3998,10 +5133,10 @@ Source: `src/navigator/planning.ts:12:1`
 
 ### Members
 
-| Name                 | Kind     | Type                       | Required | Description |
-| -------------------- | -------- | -------------------------- | -------- | ----------- |
-| customPresentationId | property | `string \| undefined`      | no       |             |
-| presentation         | property | `ResolvedTabsPresentation` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| customPresentationId | property | `string \| undefined` | no |  |
+| presentation | property | `ResolvedTabsPresentation` | yes |  |
 
 ## ResolvedTabsImplementation
 
@@ -4023,11 +5158,11 @@ Source: `src/navigator.ts:120:1`
 
 ### Members
 
-| Name     | Kind     | Type                                                    | Required | Description |
-| -------- | -------- | ------------------------------------------------------- | -------- | ----------- |
-| compact  | property | `"bottom" \| "top" \| "rail" \| "sidebar"`              | yes      |             |
-| expanded | property | `"bottom" \| "top" \| "rail" \| "sidebar"`              | yes      |             |
-| medium   | property | `"bottom" \| "top" \| "rail" \| "sidebar" \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| compact | property | `"bottom" \| "top" \| "rail" \| "sidebar"` | yes |  |
+| expanded | property | `"bottom" \| "top" \| "rail" \| "sidebar"` | yes |  |
+| medium | property | `"bottom" \| "top" \| "rail" \| "sidebar" \| undefined` | no |  |
 
 ## RouteDefinition
 
@@ -4037,17 +5172,17 @@ Source: `src/navigator.ts:228:1`
 
 ### Members
 
-| Name                    | Kind     | Type                              | Required | Description |
-| ----------------------- | -------- | --------------------------------- | -------- | ----------- |
-| guards                  | property | `string[] \| undefined`           | no       |             |
-| icon                    | property | `IconSpec \| undefined`           | no       |             |
-| label                   | property | `string \| undefined`             | no       |             |
-| name                    | property | `string`                          | yes      |             |
-| navigator               | property | `NavigatorNode \| undefined`      | no       |             |
-| path                    | property | `string \| undefined`             | no       |             |
-| screenId                | property | `string \| undefined`             | no       |             |
-| showInPrimaryNavigation | property | `boolean \| undefined`            | no       |             |
-| stackOptions            | property | `StackScreenOptions \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| guards | property | `string[] \| undefined` | no |  |
+| icon | property | `IconSpec \| undefined` | no |  |
+| label | property | `string \| undefined` | no |  |
+| name | property | `string` | yes |  |
+| navigator | property | `NavigatorNode \| undefined` | no |  |
+| path | property | `string \| undefined` | no |  |
+| screenId | property | `string \| undefined` | no |  |
+| showInPrimaryNavigation | property | `boolean \| undefined` | no |  |
+| stackOptions | property | `StackScreenOptions \| undefined` | no |  |
 
 ## RuntimeCallback
 
@@ -4063,11 +5198,11 @@ Source: `src/runtimeCallbacks.ts:12:1`
 
 ### Members
 
-| Name            | Kind     | Type                  | Required | Description |
-| --------------- | -------- | --------------------- | -------- | ----------- |
-| node            | property | `UiNode \| undefined` | no       |             |
-| payload         | property | `unknown`             | yes      |             |
-| resolvedPayload | property | `object \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| node | property | `UiNode \| undefined` | no |  |
+| payload | property | `unknown` | yes |  |
+| resolvedPayload | property | `object \| undefined` | no |  |
 
 ## RuntimeCallbackMap
 
@@ -4089,10 +5224,10 @@ Source: `src/runtimeCallbacks.ts:3:1`
 
 ### Members
 
-| Name  | Kind     | Type                      | Required | Description |
-| ----- | -------- | ------------------------- | -------- | ----------- |
-| node  | property | `UiNode`                  | yes      |             |
-| props | property | `Record<string, unknown>` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| node | property | `UiNode` | yes |  |
+| props | property | `Record<string, unknown>` | yes |  |
 
 ## SchemaId
 
@@ -4108,9 +5243,9 @@ Source: `src/requirements.ts:31:1`
 
 ### Members
 
-| Name       | Kind     | Type                                                                                                                                    | Required | Description |
-| ---------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| capability | property | `"notifications" \| "clipboard" \| "barcodeScanner" \| "cameraPreview" \| "ebookReader" \| "mediaPicker" \| "filePicker" \| "location"` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| capability | property | `"notifications" \| "clipboard" \| "barcodeScanner" \| "cameraPreview" \| "ebookReader" \| "mediaPicker" \| "filePicker" \| "location"` | yes |  |
 
 ## ScreenDataLoaderDefinition
 
@@ -4126,9 +5261,9 @@ Source: `src/requirements.ts:27:1`
 
 ### Members
 
-| Name       | Kind     | Type                                                                                                                                                  | Required | Description |
-| ---------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| permission | property | `"camera" \| "microphone" \| "mediaLibrary" \| "mediaLibraryWrite" \| "locationForeground" \| "locationBackground" \| "notifications" \| "clipboard"` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| permission | property | `"camera" \| "microphone" \| "mediaLibrary" \| "mediaLibraryWrite" \| "locationForeground" \| "locationBackground" \| "notifications" \| "clipboard"` | yes |  |
 
 ## ScreenRequirements
 
@@ -4138,10 +5273,10 @@ Source: `src/requirements.ts:35:1`
 
 ### Members
 
-| Name         | Kind     | Type                                                  | Required | Description |
-| ------------ | -------- | ----------------------------------------------------- | -------- | ----------- |
-| capabilities | property | `readonly ScreenCapabilityRequirement[] \| undefined` | no       |             |
-| permissions  | property | `readonly ScreenPermissionRequirement[] \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| capabilities | property | `readonly ScreenCapabilityRequirement[] \| undefined` | no |  |
+| permissions | property | `readonly ScreenPermissionRequirement[] \| undefined` | no |  |
 
 ## ScreenSpec
 
@@ -4151,15 +5286,15 @@ Source: `src/types.ts:233:1`
 
 ### Members
 
-| Name        | Kind     | Type                                                                               | Required | Description |
-| ----------- | -------- | ---------------------------------------------------------------------------------- | -------- | ----------- |
-| dataLoaders | property | `readonly import("./bindings").OperationScreenDataLoaderDefinition[] \| undefined` | no       |             |
-| description | property | `string \| undefined`                                                              | no       |             |
-| id          | property | `string`                                                                           | yes      |             |
-| name        | property | `string`                                                                           | yes      |             |
-| requires    | property | `ScreenRequirements \| undefined`                                                  | no       |             |
-| root        | property | `UiNode`                                                                           | yes      |             |
-| title       | property | `string \| undefined`                                                              | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| dataLoaders | property | `readonly import("./bindings").OperationScreenDataLoaderDefinition[] \| undefined` | no |  |
+| description | property | `string \| undefined` | no |  |
+| id | property | `string` | yes |  |
+| name | property | `string` | yes |  |
+| requires | property | `ScreenRequirements \| undefined` | no |  |
+| root | property | `UiNode` | yes |  |
+| title | property | `string \| undefined` | no |  |
 
 ## SearchAction
 
@@ -4169,10 +5304,10 @@ Source: `src/types.ts:71:1`
 
 ### Members
 
-| Name    | Kind     | Type                                 | Required | Description |
-| ------- | -------- | ------------------------------------ | -------- | ----------- |
-| payload | property | `{ query: string; scope?: string; }` | yes      |             |
-| type    | property | `"search"`                           | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| payload | property | `{ query: string; scope?: string; }` | yes |  |
+| type | property | `"search"` | yes |  |
 
 ## SECRET_STORE_ERROR_CODES
 
@@ -4194,13 +5329,13 @@ Source: `src/secrets.ts:64:1`
 
 ### Members
 
-| Name     | Kind     | Type                               | Required | Description |
-| -------- | -------- | ---------------------------------- | -------- | ----------- |
-| kind     | property | `string`                           | yes      |             |
-| payload  | property | `Readonly<Record<string, string>>` | yes      |             |
-| provider | property | `string \| undefined`              | no       |             |
-| ref      | property | `string`                           | yes      |             |
-| scope    | property | `SecretScope`                      | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| kind | property | `string` | yes |  |
+| payload | property | `Readonly<Record<string, string>>` | yes |  |
+| provider | property | `string \| undefined` | no |  |
+| ref | property | `string` | yes |  |
+| scope | property | `SecretScope` | yes |  |
 
 ## SecretGetMetadataInput
 
@@ -4210,10 +5345,10 @@ Source: `src/secrets.ts:59:1`
 
 ### Members
 
-| Name  | Kind     | Type          | Required | Description |
-| ----- | -------- | ------------- | -------- | ----------- |
-| ref   | property | `string`      | yes      |             |
-| scope | property | `SecretScope` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| ref | property | `string` | yes |  |
+| scope | property | `SecretScope` | yes |  |
 
 ## SecretListInput
 
@@ -4223,11 +5358,11 @@ Source: `src/secrets.ts:53:1`
 
 ### Members
 
-| Name     | Kind     | Type                  | Required | Description |
-| -------- | -------- | --------------------- | -------- | ----------- |
-| kind     | property | `string \| undefined` | no       |             |
-| provider | property | `string \| undefined` | no       |             |
-| scope    | property | `SecretScope`         | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| kind | property | `string \| undefined` | no |  |
+| provider | property | `string \| undefined` | no |  |
+| scope | property | `SecretScope` | yes |  |
 
 ## SecretMetadata
 
@@ -4237,15 +5372,15 @@ Source: `src/secrets.ts:14:1`
 
 ### Members
 
-| Name             | Kind     | Type                  | Required | Description |
-| ---------------- | -------- | --------------------- | -------- | ----------- |
-| configuredFields | property | `readonly string[]`   | yes      |             |
-| createdAt        | property | `string`              | yes      |             |
-| kind             | property | `string`              | yes      |             |
-| provider         | property | `string \| undefined` | no       |             |
-| ref              | property | `string`              | yes      |             |
-| scope            | property | `SecretScope`         | yes      |             |
-| updatedAt        | property | `string`              | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| configuredFields | property | `readonly string[]` | yes |  |
+| createdAt | property | `string` | yes |  |
+| kind | property | `string` | yes |  |
+| provider | property | `string \| undefined` | no |  |
+| ref | property | `string` | yes |  |
+| scope | property | `SecretScope` | yes |  |
+| updatedAt | property | `string` | yes |  |
 
 ## SecretPayload
 
@@ -4267,10 +5402,10 @@ Source: `src/secrets.ts:78:1`
 
 ### Members
 
-| Name  | Kind     | Type          | Required | Description |
-| ----- | -------- | ------------- | -------- | ----------- |
-| ref   | property | `string`      | yes      |             |
-| scope | property | `SecretScope` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| ref | property | `string` | yes |  |
+| scope | property | `SecretScope` | yes |  |
 
 ## SecretReplaceInput
 
@@ -4280,11 +5415,11 @@ Source: `src/secrets.ts:72:1`
 
 ### Members
 
-| Name    | Kind     | Type                               | Required | Description |
-| ------- | -------- | ---------------------------------- | -------- | ----------- |
-| payload | property | `Readonly<Record<string, string>>` | yes      |             |
-| ref     | property | `string`                           | yes      |             |
-| scope   | property | `SecretScope`                      | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| payload | property | `Readonly<Record<string, string>>` | yes |  |
+| ref | property | `string` | yes |  |
+| scope | property | `SecretScope` | yes |  |
 
 ## SecretResolveInput
 
@@ -4294,10 +5429,10 @@ Source: `src/secrets.ts:83:1`
 
 ### Members
 
-| Name  | Kind     | Type          | Required | Description |
-| ----- | -------- | ------------- | -------- | ----------- |
-| ref   | property | `string`      | yes      |             |
-| scope | property | `SecretScope` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| ref | property | `string` | yes |  |
+| scope | property | `SecretScope` | yes |  |
 
 ## SecretScope
 
@@ -4307,10 +5442,10 @@ Source: `src/secrets.ts:7:1`
 
 ### Members
 
-| Name        | Kind     | Type     | Required | Description |
-| ----------- | -------- | -------- | -------- | ----------- |
-| environment | property | `string` | yes      |             |
-| projectId   | property | `string` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| environment | property | `string` | yes |  |
+| projectId | property | `string` | yes |  |
 
 ## SecretStoreAdapter
 
@@ -4320,14 +5455,14 @@ Source: `src/secrets.ts:94:1`
 
 ### Members
 
-| Name        | Kind   | Type                                                                                | Required | Description |
-| ----------- | ------ | ----------------------------------------------------------------------------------- | -------- | ----------- |
-| create      | method | `(input: SecretCreateInput) => Promise<SecretStoreResult<SecretMetadata>>`          | yes      |             |
-| getMetadata | method | `(input: SecretGetMetadataInput) => Promise<SecretStoreResult<SecretMetadata>>`     | yes      |             |
-| list        | method | `(input: SecretListInput) => Promise<SecretStoreResult<readonly SecretMetadata[]>>` | yes      |             |
-| remove      | method | `(input: SecretRemoveInput) => Promise<SecretStoreResult>`                          | yes      |             |
-| replace     | method | `(input: SecretReplaceInput) => Promise<SecretStoreResult<SecretMetadata>>`         | yes      |             |
-| resolve     | method | `(input: SecretResolveInput) => Promise<SecretStoreResult<SecretPayload>>`          | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| create | method | `(input: SecretCreateInput) => Promise<SecretStoreResult<SecretMetadata>>` | yes |  |
+| getMetadata | method | `(input: SecretGetMetadataInput) => Promise<SecretStoreResult<SecretMetadata>>` | yes |  |
+| list | method | `(input: SecretListInput) => Promise<SecretStoreResult<readonly SecretMetadata[]>>` | yes |  |
+| remove | method | `(input: SecretRemoveInput) => Promise<SecretStoreResult>` | yes |  |
+| replace | method | `(input: SecretReplaceInput) => Promise<SecretStoreResult<SecretMetadata>>` | yes |  |
+| resolve | method | `(input: SecretResolveInput) => Promise<SecretStoreResult<SecretPayload>>` | yes |  |
 
 ## SecretStoreError
 
@@ -4337,11 +5472,11 @@ Source: `src/secrets.ts:36:1`
 
 ### Members
 
-| Name    | Kind     | Type                                                                                                                                                    | Required | Description |
-| ------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| cause   | property | `unknown`                                                                                                                                               | no       |             |
-| code    | property | `"provider_error" \| "invalid_config" \| "invalid_reference" \| "invalid_payload" \| "not_found" \| "conflict" \| "permission_denied" \| "unavailable"` | yes      |             |
-| message | property | `string`                                                                                                                                                | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| cause | property | `unknown` | no |  |
+| code | property | `"provider_error" \| "unavailable" \| "invalid_config" \| "invalid_reference" \| "invalid_payload" \| "not_found" \| "conflict" \| "permission_denied"` | yes |  |
+| message | property | `string` | yes |  |
 
 ## SecretStoreErrorCode
 
@@ -4375,10 +5510,10 @@ Source: `src/types.ts:64:1`
 
 ### Members
 
-| Name    | Kind     | Type                  | Required | Description |
-| ------- | -------- | --------------------- | -------- | ----------- |
-| payload | property | `{ locale: string; }` | yes      |             |
-| type    | property | `"setLanguage"`       | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| payload | property | `{ locale: string; }` | yes |  |
+| type | property | `"setLanguage"` | yes |  |
 
 ## SignInInput
 
@@ -4388,13 +5523,13 @@ Source: `src/auth.ts:207:1`
 
 ### Members
 
-| Name       | Kind     | Type                                   | Required | Description |
-| ---------- | -------- | -------------------------------------- | -------- | ----------- |
-| identifier | property | `AuthIdentifier`                       | yes      |             |
-| metadata   | property | `Record<string, unknown> \| undefined` | no       |             |
-| otp        | property | `string \| undefined`                  | no       |             |
-| password   | property | `string \| undefined`                  | no       |             |
-| redirectTo | property | `string \| undefined`                  | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| identifier | property | `AuthIdentifier` | yes |  |
+| metadata | property | `Record<string, unknown> \| undefined` | no |  |
+| otp | property | `string \| undefined` | no |  |
+| password | property | `string \| undefined` | no |  |
+| redirectTo | property | `string \| undefined` | no |  |
 
 ## SignOutInput
 
@@ -4404,9 +5539,9 @@ Source: `src/auth.ts:223:1`
 
 ### Members
 
-| Name       | Kind     | Type                   | Required | Description |
-| ---------- | -------- | ---------------------- | -------- | ----------- |
-| allDevices | property | `boolean \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| allDevices | property | `boolean \| undefined` | no |  |
 
 ## SignUpInput
 
@@ -4416,13 +5551,13 @@ Source: `src/auth.ts:215:1`
 
 ### Members
 
-| Name       | Kind     | Type                                   | Required | Description |
-| ---------- | -------- | -------------------------------------- | -------- | ----------- |
-| identifier | property | `AuthIdentifier`                       | yes      |             |
-| metadata   | property | `Record<string, unknown> \| undefined` | no       |             |
-| password   | property | `string \| undefined`                  | no       |             |
-| profile    | property | `Record<string, unknown> \| undefined` | no       |             |
-| redirectTo | property | `string \| undefined`                  | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| identifier | property | `AuthIdentifier` | yes |  |
+| metadata | property | `Record<string, unknown> \| undefined` | no |  |
+| password | property | `string \| undefined` | no |  |
+| profile | property | `Record<string, unknown> \| undefined` | no |  |
+| redirectTo | property | `string \| undefined` | no |  |
 
 ## SlotNavigatorNode
 
@@ -4432,11 +5567,11 @@ Source: `src/navigator.ts:184:1`
 
 ### Members
 
-| Name             | Kind     | Type                  | Required | Description |
-| ---------------- | -------- | --------------------- | -------- | ----------- |
-| initialRouteName | property | `string \| undefined` | no       |             |
-| routes           | property | `RouteDefinition[]`   | yes      |             |
-| type             | property | `"slot"`              | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| initialRouteName | property | `string \| undefined` | no |  |
+| routes | property | `RouteDefinition[]` | yes |  |
+| type | property | `"slot"` | yes |  |
 
 ## SplashScreenModeSpec
 
@@ -4464,14 +5599,14 @@ Source: `src/navigator.ts:203:1`
 
 ### Members
 
-| Name                   | Kind     | Type                                                                               | Required | Description |
-| ---------------------- | -------- | ---------------------------------------------------------------------------------- | -------- | ----------- |
-| columns                | property | `{ primary: NavigatorScreenReference; supplementary?: NavigatorScreenReference; }` | yes      |             |
-| initialRouteName       | property | `string \| undefined`                                                              | no       |             |
-| inspector              | property | `NavigatorScreenReference \| undefined`                                            | no       |             |
-| routes                 | property | `RouteDefinition[]`                                                                | yes      |             |
-| topColumnForCollapsing | property | `"primary" \| "supplementary" \| "secondary" \| undefined`                         | no       |             |
-| type                   | property | `"split-view"`                                                                     | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| columns | property | `{ primary: NavigatorScreenReference; supplementary?: NavigatorScreenReference; }` | yes |  |
+| initialRouteName | property | `string \| undefined` | no |  |
+| inspector | property | `NavigatorScreenReference \| undefined` | no |  |
+| routes | property | `RouteDefinition[]` | yes |  |
+| topColumnForCollapsing | property | `"primary" \| "supplementary" \| "secondary" \| undefined` | no |  |
+| type | property | `"split-view"` | yes |  |
 
 ## STACK_IMPLEMENTATIONS
 
@@ -4493,12 +5628,12 @@ Source: `src/navigator.ts:45:1`
 
 ### Members
 
-| Name              | Kind     | Type                   | Required | Description |
-| ----------------- | -------- | ---------------------- | -------- | ----------- |
-| headerBackVisible | property | `boolean \| undefined` | no       |             |
-| headerShown       | property | `boolean \| undefined` | no       |             |
-| headerTransparent | property | `boolean \| undefined` | no       |             |
-| title             | property | `string \| undefined`  | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| headerBackVisible | property | `boolean \| undefined` | no |  |
+| headerShown | property | `boolean \| undefined` | no |  |
+| headerTransparent | property | `boolean \| undefined` | no |  |
+| title | property | `string \| undefined` | no |  |
 
 ## StackImplementation
 
@@ -4538,12 +5673,12 @@ Source: `src/auth.ts:300:1`
 
 ### Members
 
-| Name        | Kind     | Type                                            | Required | Description |
-| ----------- | -------- | ----------------------------------------------- | -------- | ----------- |
-| provider    | property | `AuthOAuthProviderId`                           | yes      |             |
-| queryParams | property | `Readonly<Record<string, string>> \| undefined` | no       |             |
-| redirectUri | property | `string`                                        | yes      |             |
-| scopes      | property | `readonly string[] \| undefined`                | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| provider | property | `AuthOAuthProviderId` | yes |  |
+| queryParams | property | `Readonly<Record<string, string>> \| undefined` | no |  |
+| redirectUri | property | `string` | yes |  |
+| scopes | property | `readonly string[] \| undefined` | no |  |
 
 ## StateAdapter
 
@@ -4553,13 +5688,13 @@ Source: `src/state.ts:59:1`
 
 ### Members
 
-| Name         | Kind     | Type                                                                                                                           | Required | Description |
-| ------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------ | -------- | ----------- |
-| capabilities | property | `StateAdapterCapabilities`                                                                                                     | yes      |             |
-| delete       | method   | `((path: StatePath) => StateResult) \| undefined`                                                                              | no       |             |
-| get          | method   | `<TValue extends StateValue = StateValue>(path: StatePath) => StateResult<TValue \| undefined>`                                | yes      |             |
-| set          | method   | `<TValue extends StateValue = StateValue>(path: StatePath, value: TValue) => StateResult`                                      | yes      |             |
-| subscribe    | method   | `<TValue extends StateValue = StateValue>(path: StatePath, listener: StateListener<TValue>) => StateResult<StateSubscription>` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| capabilities | property | `StateAdapterCapabilities` | yes |  |
+| delete | method | `((path: StatePath) => StateResult) \| undefined` | no |  |
+| get | method | `<TValue extends StateValue = StateValue>(path: StatePath) => StateResult<TValue \| undefined>` | yes |  |
+| set | method | `<TValue extends StateValue = StateValue>(path: StatePath, value: TValue) => StateResult` | yes |  |
+| subscribe | method | `<TValue extends StateValue = StateValue>(path: StatePath, listener: StateListener<TValue>) => StateResult<StateSubscription>` | yes |  |
 
 ## StateAdapterCapabilities
 
@@ -4569,11 +5704,11 @@ Source: `src/state.ts:18:1`
 
 ### Members
 
-| Name          | Kind     | Type      | Required | Description |
-| ------------- | -------- | --------- | -------- | ----------- |
-| computed      | property | `boolean` | yes      |             |
-| persistence   | property | `boolean` | yes      |             |
-| subscriptions | property | `boolean` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| computed | property | `boolean` | yes |  |
+| persistence | property | `boolean` | yes |  |
+| subscriptions | property | `boolean` | yes |  |
 
 ## StateAdapterError
 
@@ -4583,11 +5718,11 @@ Source: `src/state.ts:24:1`
 
 ### Members
 
-| Name    | Kind     | Type      | Required | Description |
-| ------- | -------- | --------- | -------- | ----------- |
-| cause   | property | `unknown` | no       |             |
-| code    | property | `string`  | yes      |             |
-| message | property | `string`  | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| cause | property | `unknown` | no |  |
+| code | property | `string` | yes |  |
+| message | property | `string` | yes |  |
 
 ## StateListener
 
@@ -4621,10 +5756,10 @@ Source: `src/state.ts:46:1`
 
 ### Members
 
-| Name  | Kind     | Type                  | Required | Description |
-| ----- | -------- | --------------------- | -------- | ----------- |
-| path  | property | `StatePath`           | yes      |             |
-| value | property | `TValue \| undefined` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| path | property | `StatePath` | yes |  |
+| value | property | `TValue \| undefined` | yes |  |
 
 ## StateSubscription
 
@@ -4634,9 +5769,9 @@ Source: `src/state.ts:55:1`
 
 ### Members
 
-| Name        | Kind   | Type                          | Required | Description |
-| ----------- | ------ | ----------------------------- | -------- | ----------- |
-| unsubscribe | method | `() => Promise<void> \| void` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| unsubscribe | method | `() => Promise<void> \| void` | yes |  |
 
 ## StateSuccess
 
@@ -4658,12 +5793,12 @@ Source: `src/storage.ts:133:1`
 
 ### Members
 
-| Name             | Kind   | Type                                                                                     | Required | Description |
-| ---------------- | ------ | ---------------------------------------------------------------------------------------- | -------- | ----------- |
-| getImageMetadata | method | `((input: StorageAssetReference) => Promise<StorageResult<ImageMetadata>>) \| undefined` | no       |             |
-| publicUrl        | method | `(input: StoragePublicUrlInput) => Promise<StorageResult<StoragePublicUrlResult>>`       | yes      |             |
-| remove           | method | `(input: StorageRemoveInput) => Promise<StorageResult>`                                  | yes      |             |
-| upload           | method | `(input: StorageUploadInput) => Promise<StorageResult<StorageUploadResult>>`             | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| getImageMetadata | method | `((input: StorageAssetReference) => Promise<StorageResult<ImageMetadata>>) \| undefined` | no |  |
+| publicUrl | method | `(input: StoragePublicUrlInput) => Promise<StorageResult<StoragePublicUrlResult>>` | yes |  |
+| remove | method | `(input: StorageRemoveInput) => Promise<StorageResult>` | yes |  |
+| upload | method | `(input: StorageUploadInput) => Promise<StorageResult<StorageUploadResult>>` | yes |  |
 
 ## StorageAdapterError
 
@@ -4673,11 +5808,11 @@ Source: `src/storage.ts:1:1`
 
 ### Members
 
-| Name    | Kind     | Type      | Required | Description |
-| ------- | -------- | --------- | -------- | ----------- |
-| cause   | property | `unknown` | no       |             |
-| code    | property | `string`  | yes      |             |
-| message | property | `string`  | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| cause | property | `unknown` | no |  |
+| code | property | `string` | yes |  |
+| message | property | `string` | yes |  |
 
 ## StorageAssetReference
 
@@ -4687,12 +5822,12 @@ Source: `src/storage.ts:18:1`
 
 ### Members
 
-| Name      | Kind     | Type                  | Required | Description |
-| --------- | -------- | --------------------- | -------- | ----------- |
-| bucket    | property | `string`              | yes      |             |
-| path      | property | `string`              | yes      |             |
-| publicUrl | property | `string \| undefined` | no       |             |
-| storageId | property | `string \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| bucket | property | `string` | yes |  |
+| path | property | `string` | yes |  |
+| publicUrl | property | `string \| undefined` | no |  |
+| storageId | property | `string \| undefined` | no |  |
 
 ## StorageImageAssetSource
 
@@ -4702,18 +5837,18 @@ Source: `src/storage.ts:108:1`
 
 ### Members
 
-| Name        | Kind     | Type                         | Required | Description |
-| ----------- | -------- | ---------------------------- | -------- | ----------- |
-| alt         | property | `string \| undefined`        | no       |             |
-| bucket      | property | `string`                     | yes      |             |
-| contentType | property | `string \| undefined`        | no       |             |
-| height      | property | `number \| undefined`        | no       |             |
-| kind        | property | `"storage"`                  | yes      |             |
-| metadata    | property | `ImageMetadata \| undefined` | no       |             |
-| path        | property | `string`                     | yes      |             |
-| publicUrl   | property | `string \| undefined`        | no       |             |
-| storageId   | property | `string \| undefined`        | no       |             |
-| width       | property | `number \| undefined`        | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| alt | property | `string \| undefined` | no |  |
+| bucket | property | `string` | yes |  |
+| contentType | property | `string \| undefined` | no |  |
+| height | property | `number \| undefined` | no |  |
+| kind | property | `"storage"` | yes |  |
+| metadata | property | `ImageMetadata \| undefined` | no |  |
+| path | property | `string` | yes |  |
+| publicUrl | property | `string \| undefined` | no |  |
+| storageId | property | `string \| undefined` | no |  |
+| width | property | `number \| undefined` | no |  |
 
 ## StorageListAdapter
 
@@ -4723,9 +5858,9 @@ Source: `src/storage.ts:140:1`
 
 ### Members
 
-| Name | Kind   | Type                                                                     | Required | Description |
-| ---- | ------ | ------------------------------------------------------------------------ | -------- | ----------- |
-| list | method | `(input: StorageListInput) => Promise<StorageResult<StorageListResult>>` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| list | method | `(input: StorageListInput) => Promise<StorageResult<StorageListResult>>` | yes |  |
 
 ## StorageListInput
 
@@ -4735,13 +5870,13 @@ Source: `src/storage.ts:66:1`
 
 ### Members
 
-| Name      | Kind     | Type                  | Required | Description |
-| --------- | -------- | --------------------- | -------- | ----------- |
-| bucket    | property | `string`              | yes      |             |
-| cursor    | property | `string \| undefined` | no       |             |
-| limit     | property | `number \| undefined` | no       |             |
-| prefix    | property | `string \| undefined` | no       |             |
-| storageId | property | `string \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| bucket | property | `string` | yes |  |
+| cursor | property | `string \| undefined` | no |  |
+| limit | property | `number \| undefined` | no |  |
+| prefix | property | `string \| undefined` | no |  |
+| storageId | property | `string \| undefined` | no |  |
 
 ## StorageListResult
 
@@ -4751,10 +5886,10 @@ Source: `src/storage.ts:74:1`
 
 ### Members
 
-| Name       | Kind     | Type                               | Required | Description |
-| ---------- | -------- | ---------------------------------- | -------- | ----------- |
-| nextCursor | property | `string \| undefined`              | no       |             |
-| objects    | property | `readonly StorageObjectMetadata[]` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| nextCursor | property | `string \| undefined` | no |  |
+| objects | property | `readonly StorageObjectMetadata[]` | yes |  |
 
 ## StorageObjectMetadata
 
@@ -4764,16 +5899,16 @@ Source: `src/storage.ts:55:1`
 
 ### Members
 
-| Name        | Kind     | Type                  | Required | Description |
-| ----------- | -------- | --------------------- | -------- | ----------- |
-| bucket      | property | `string`              | yes      |             |
-| contentType | property | `string \| undefined` | no       |             |
-| createdAt   | property | `string \| undefined` | no       |             |
-| etag        | property | `string \| undefined` | no       |             |
-| path        | property | `string`              | yes      |             |
-| sizeBytes   | property | `number \| undefined` | no       |             |
-| storageId   | property | `string \| undefined` | no       |             |
-| updatedAt   | property | `string \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| bucket | property | `string` | yes |  |
+| contentType | property | `string \| undefined` | no |  |
+| createdAt | property | `string \| undefined` | no |  |
+| etag | property | `string \| undefined` | no |  |
+| path | property | `string` | yes |  |
+| sizeBytes | property | `number \| undefined` | no |  |
+| storageId | property | `string \| undefined` | no |  |
+| updatedAt | property | `string \| undefined` | no |  |
 
 ## StorageOkResult
 
@@ -4789,11 +5924,11 @@ Source: `src/storage.ts:45:1`
 
 ### Members
 
-| Name      | Kind     | Type                  | Required | Description |
-| --------- | -------- | --------------------- | -------- | ----------- |
-| bucket    | property | `string`              | yes      |             |
-| path      | property | `string`              | yes      |             |
-| storageId | property | `string \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| bucket | property | `string` | yes |  |
+| path | property | `string` | yes |  |
+| storageId | property | `string \| undefined` | no |  |
 
 ## StoragePublicUrlResult
 
@@ -4803,9 +5938,9 @@ Source: `src/storage.ts:51:1`
 
 ### Members
 
-| Name      | Kind     | Type     | Required | Description |
-| --------- | -------- | -------- | -------- | ----------- |
-| publicUrl | property | `string` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| publicUrl | property | `string` | yes |  |
 
 ## StorageRemoveInput
 
@@ -4815,11 +5950,11 @@ Source: `src/storage.ts:39:1`
 
 ### Members
 
-| Name      | Kind     | Type                  | Required | Description |
-| --------- | -------- | --------------------- | -------- | ----------- |
-| bucket    | property | `string`              | yes      |             |
-| path      | property | `string`              | yes      |             |
-| storageId | property | `string \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| bucket | property | `string` | yes |  |
+| path | property | `string` | yes |  |
+| storageId | property | `string \| undefined` | no |  |
 
 ## StorageResolveAdapter
 
@@ -4829,9 +5964,9 @@ Source: `src/storage.ts:144:1`
 
 ### Members
 
-| Name    | Kind   | Type                                                                           | Required | Description |
-| ------- | ------ | ------------------------------------------------------------------------------ | -------- | ----------- |
-| resolve | method | `(input: StorageResolveInput) => Promise<StorageResult<StorageResolveResult>>` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| resolve | method | `(input: StorageResolveInput) => Promise<StorageResult<StorageResolveResult>>` | yes |  |
 
 ## StorageResolvedAccess
 
@@ -4847,14 +5982,14 @@ Source: `src/storage.ts:89:1`
 
 ### Members
 
-| Name      | Kind     | Type                    | Required | Description |
-| --------- | -------- | ----------------------- | -------- | ----------- |
-| access    | property | `StorageResolvedAccess` | yes      |             |
-| bucket    | property | `string`                | yes      |             |
-| expiresAt | property | `string \| undefined`   | no       |             |
-| path      | property | `string`                | yes      |             |
-| storageId | property | `string \| undefined`   | no       |             |
-| url       | property | `string`                | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| access | property | `StorageResolvedAccess` | yes |  |
+| bucket | property | `string` | yes |  |
+| expiresAt | property | `string \| undefined` | no |  |
+| path | property | `string` | yes |  |
+| storageId | property | `string \| undefined` | no |  |
+| url | property | `string` | yes |  |
 
 ## StorageResolveInput
 
@@ -4864,13 +5999,13 @@ Source: `src/storage.ts:81:1`
 
 ### Members
 
-| Name             | Kind     | Type                                 | Required | Description |
-| ---------------- | -------- | ------------------------------------ | -------- | ----------- |
-| access           | property | `StorageResolvedAccess \| undefined` | no       |             |
-| bucket           | property | `string`                             | yes      |             |
-| expiresInSeconds | property | `number \| undefined`                | no       |             |
-| path             | property | `string`                             | yes      |             |
-| storageId        | property | `string \| undefined`                | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| access | property | `StorageResolvedAccess \| undefined` | no |  |
+| bucket | property | `string` | yes |  |
+| expiresInSeconds | property | `number \| undefined` | no |  |
+| path | property | `string` | yes |  |
+| storageId | property | `string \| undefined` | no |  |
 
 ## StorageResolveResult
 
@@ -4880,9 +6015,9 @@ Source: `src/storage.ts:98:1`
 
 ### Members
 
-| Name  | Kind     | Type                   | Required | Description |
-| ----- | -------- | ---------------------- | -------- | ----------- |
-| asset | property | `StorageResolvedAsset` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| asset | property | `StorageResolvedAsset` | yes |  |
 
 ## StorageResult
 
@@ -4898,15 +6033,15 @@ Source: `src/storage.ts:25:1`
 
 ### Members
 
-| Name         | Kind     | Type                          | Required | Description |
-| ------------ | -------- | ----------------------------- | -------- | ----------- |
-| body         | property | `Uint8Array<ArrayBufferLike>` | yes      |             |
-| bucket       | property | `string`                      | yes      |             |
-| cacheControl | property | `string \| undefined`         | no       |             |
-| contentType  | property | `string \| undefined`         | no       |             |
-| path         | property | `string`                      | yes      |             |
-| storageId    | property | `string \| undefined`         | no       |             |
-| upsert       | property | `boolean \| undefined`        | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| body | property | `Uint8Array<ArrayBufferLike>` | yes |  |
+| bucket | property | `string` | yes |  |
+| cacheControl | property | `string \| undefined` | no |  |
+| contentType | property | `string \| undefined` | no |  |
+| path | property | `string` | yes |  |
+| storageId | property | `string \| undefined` | no |  |
+| upsert | property | `boolean \| undefined` | no |  |
 
 ## StorageUploadResult
 
@@ -4916,9 +6051,224 @@ Source: `src/storage.ts:35:1`
 
 ### Members
 
-| Name  | Kind     | Type                    | Required | Description |
-| ----- | -------- | ----------------------- | -------- | ----------- |
-| asset | property | `StorageAssetReference` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| asset | property | `StorageAssetReference` | yes |  |
+
+## StoreListingAdapterContext
+
+Kind: `type`
+Module: `src/types/deployStoreListing.ts`
+Source: `src/types/deployStoreListing.ts:105:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| credentials | property | `readonly DeploymentCredentialReference[]` | yes |  |
+| identity | property | `DeploymentStoreIdentity` | yes |  |
+| resolveSecret | property | `DeploymentSecretResolver` | yes |  |
+
+## StoreListingAsset
+
+Kind: `type`
+Module: `src/types/deployStoreListing.ts`
+Source: `src/types/deployStoreListing.ts:36:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| md5 | property | `string` | yes |  |
+| mediaType | property | `StoreListingAssetMediaType` | yes |  |
+| relativePath | property | `string` | yes |  |
+| sha256 | property | `string` | yes |  |
+| size | property | `number` | yes |  |
+
+## StoreListingAssetMediaType
+
+Kind: `unknown`
+Module: `src/types/deployStoreListing.ts`
+Source: `src/types/deployStoreListing.ts:34:1`
+
+## StoreListingAssetReader
+
+Kind: `type`
+Module: `src/types/deployStoreListing.ts`
+Source: `src/types/deployStoreListing.ts:101:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| readAsync | method | `(relativePath: string) => Promise<Uint8Array>` | yes |  |
+
+## StoreListingAssetSet
+
+Kind: `type`
+Module: `src/types/deployStoreListing.ts`
+Source: `src/types/deployStoreListing.ts:44:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| assets | property | `readonly StoreListingAsset[]` | yes |  |
+| locale | property | `string` | yes |  |
+| target | property | `StoreListingTarget` | yes |  |
+| variant | property | `string` | yes |  |
+
+## StoreListingDesiredState
+
+Kind: `type`
+Module: `src/types/deployStoreListing.ts`
+Source: `src/types/deployStoreListing.ts:59:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| assetSets | property | `readonly StoreListingAssetSet[]` | yes |  |
+| locales | property | `readonly StoreListingLocale[]` | yes |  |
+| revision | property | `string` | yes |  |
+
+## StoreListingDiagnostic
+
+Kind: `type`
+Module: `src/types/deployStoreListing.ts`
+Source: `src/types/deployStoreListing.ts:65:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| code | property | `string` | yes |  |
+| field | property | `StoreListingField \| undefined` | no |  |
+| locale | property | `string \| undefined` | no |  |
+| message | property | `string` | yes |  |
+| severity | property | `"error" \| "warning"` | yes |  |
+| target | property | `StoreListingTarget \| undefined` | no |  |
+| variant | property | `string \| undefined` | no |  |
+
+## StoreListingField
+
+Kind: `unknown`
+Module: `src/types/deployStoreListing.ts`
+Source: `src/types/deployStoreListing.ts:10:1`
+
+## StoreListingLocale
+
+Kind: `type`
+Module: `src/types/deployStoreListing.ts`
+Source: `src/types/deployStoreListing.ts:21:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| description | property | `string \| undefined` | no |  |
+| keywords | property | `readonly string[] \| undefined` | no |  |
+| locale | property | `string` | yes |  |
+| marketingUrl | property | `string \| undefined` | no |  |
+| name | property | `string` | yes |  |
+| privacyPolicyUrl | property | `string \| undefined` | no |  |
+| promotionalText | property | `string \| undefined` | no |  |
+| promoVideoUrl | property | `string \| undefined` | no |  |
+| summary | property | `string \| undefined` | no |  |
+| supportUrl | property | `string \| undefined` | no |  |
+
+## StoreListingPlan
+
+Kind: `type`
+Module: `src/types/deployStoreListing.ts`
+Source: `src/types/deployStoreListing.ts:93:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| currentRevision | property | `string` | yes |  |
+| desiredRevision | property | `string` | yes |  |
+| diagnostics | property | `readonly StoreListingDiagnostic[]` | yes |  |
+| status | property | `"no-change" \| "changes" \| "blocked"` | yes |  |
+| steps | property | `readonly StoreListingPlanStep[]` | yes |  |
+
+## StoreListingPlanOperation
+
+Kind: `unknown`
+Module: `src/types/deployStoreListing.ts`
+Source: `src/types/deployStoreListing.ts:83:1`
+
+## StoreListingPlanStep
+
+Kind: `type`
+Module: `src/types/deployStoreListing.ts`
+Source: `src/types/deployStoreListing.ts:85:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| id | property | `string` | yes |  |
+| locale | property | `string` | yes |  |
+| operation | property | `StoreListingPlanOperation` | yes |  |
+| target | property | `StoreListingTarget` | yes |  |
+| variant | property | `string \| undefined` | no |  |
+
+## StoreListingRemoteAssetSet
+
+Kind: `type`
+Module: `src/types/deployStoreListing.ts`
+Source: `src/types/deployStoreListing.ts:51:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| checksum | property | `"md5" \| "sha256"` | yes |  |
+| hashes | property | `readonly string[]` | yes |  |
+| locale | property | `string` | yes |  |
+| target | property | `StoreListingTarget` | yes |  |
+| variant | property | `string` | yes |  |
+
+## StoreListingSyncRequest
+
+Kind: `type`
+Module: `src/types/deployStoreListing.ts`
+Source: `src/types/deployStoreListing.ts:111:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| assets | property | `StoreListingAssetReader` | yes |  |
+| credentials | property | `readonly DeploymentCredentialReference[]` | yes |  |
+| desired | property | `StoreListingDesiredState` | yes |  |
+| identity | property | `DeploymentStoreIdentity` | yes |  |
+| plan | property | `StoreListingPlan` | yes |  |
+| resolveSecret | property | `DeploymentSecretResolver` | yes |  |
+
+## StoreListingTarget
+
+Kind: `unknown`
+Module: `src/types/deployStoreListing.ts`
+Source: `src/types/deployStoreListing.ts:8:1`
+
+## StoreListingTargetState
+
+Kind: `type`
+Module: `src/types/deployStoreListing.ts`
+Source: `src/types/deployStoreListing.ts:75:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| assetSets | property | `readonly StoreListingRemoteAssetSet[]` | yes |  |
+| diagnostics | property | `readonly StoreListingDiagnostic[]` | yes |  |
+| locales | property | `readonly StoreListingLocale[]` | yes |  |
+| supportedFields | property | `readonly StoreListingField[]` | yes |  |
+| target | property | `StoreListingTarget` | yes |  |
 
 ## SvgIconSpec
 
@@ -4928,13 +6278,13 @@ Source: `src/types.ts:208:1`
 
 ### Members
 
-| Name     | Kind     | Type                            | Required | Description |
-| -------- | -------- | ------------------------------- | -------- | ----------- |
-| color    | property | `string \| undefined`           | no       |             |
-| name     | property | `undefined`                     | no       |             |
-| provider | property | `undefined`                     | no       |             |
-| size     | property | `string \| number \| undefined` | no       |             |
-| source   | property | `MediaAssetReference`           | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| color | property | `string \| undefined` | no |  |
+| name | property | `undefined` | no |  |
+| provider | property | `undefined` | no |  |
+| size | property | `string \| number \| undefined` | no |  |
+| source | property | `MediaAssetReference` | yes |  |
 
 ## TabsImplementationConfig
 
@@ -4962,17 +6312,17 @@ Source: `src/navigator/planning.ts:27:1`
 
 ### Members
 
-| Name                    | Kind     | Type                                                                               | Required | Description |
-| ----------------------- | -------- | ---------------------------------------------------------------------------------- | -------- | ----------- |
-| bottomAccessoryScreenId | property | `string \| undefined`                                                              | no       |             |
-| customPresentationId    | property | `string \| undefined`                                                              | no       |             |
-| exportName              | property | `string`                                                                           | yes      |             |
-| implementation          | property | `ResolvedTabsImplementation`                                                       | yes      |             |
-| minimizeBehavior        | property | `"automatic" \| "never" \| "onScrollDown" \| "onScrollUp" \| undefined`            | no       |             |
-| module                  | property | `ExpoRouterNavigatorModule`                                                        | yes      |             |
-| presentation            | property | `ResolvedTabsPresentation \| undefined`                                            | no       |             |
-| presentations           | property | `Readonly<Record<NavigatorResponsiveSize, ResolvedTabsPresentation>> \| undefined` | no       |             |
-| stability               | property | `NavigatorApiStability`                                                            | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| bottomAccessoryScreenId | property | `string \| undefined` | no |  |
+| customPresentationId | property | `string \| undefined` | no |  |
+| exportName | property | `string` | yes |  |
+| implementation | property | `ResolvedTabsImplementation` | yes |  |
+| minimizeBehavior | property | `"never" \| "automatic" \| "onScrollDown" \| "onScrollUp" \| undefined` | no |  |
+| module | property | `ExpoRouterNavigatorModule` | yes |  |
+| presentation | property | `ResolvedTabsPresentation \| undefined` | no |  |
+| presentations | property | `Readonly<Record<NavigatorResponsiveSize, ResolvedTabsPresentation>> \| undefined` | no |  |
+| stability | property | `NavigatorApiStability` | yes |  |
 
 ## ThemeConfig
 
@@ -4982,14 +6332,14 @@ Source: `src/types.ts:25:1`
 
 ### Members
 
-| Name    | Kind     | Type                                     | Required | Description |
-| ------- | -------- | ---------------------------------------- | -------- | ----------- |
-| dark    | property | `ThemeModeConfig`                        | yes      |             |
-| id      | property | `string`                                 | yes      |             |
-| light   | property | `ThemeModeConfig`                        | yes      |             |
-| name    | property | `string`                                 | yes      |             |
-| recipes | property | `ThemeRecipeOverrides \| undefined`      | no       |             |
-| tokens  | property | `ThemeGlobalTokenOverrides \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| dark | property | `ThemeModeConfig` | yes |  |
+| id | property | `string` | yes |  |
+| light | property | `ThemeModeConfig` | yes |  |
+| name | property | `string` | yes |  |
+| recipes | property | `ThemeRecipeOverrides \| undefined` | no |  |
+| tokens | property | `ThemeGlobalTokenOverrides \| undefined` | no |  |
 
 ## ThemeGlobalTokenOverrides
 
@@ -4999,12 +6349,12 @@ Source: `src/theme.ts:28:1`
 
 ### Members
 
-| Name       | Kind     | Type                                            | Required | Description |
-| ---------- | -------- | ----------------------------------------------- | -------- | ----------- |
-| radii      | property | `Readonly<Record<string, number>> \| undefined` | no       |             |
-| shadows    | property | `Readonly<Record<string, number>> \| undefined` | no       |             |
-| spacing    | property | `Readonly<Record<string, number>> \| undefined` | no       |             |
-| typography | property | `ThemeTypographyTokenOverrides \| undefined`    | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| radii | property | `Readonly<Record<string, number>> \| undefined` | no |  |
+| shadows | property | `Readonly<Record<string, number>> \| undefined` | no |  |
+| spacing | property | `Readonly<Record<string, number>> \| undefined` | no |  |
+| typography | property | `ThemeTypographyTokenOverrides \| undefined` | no |  |
 
 ## ThemeModeConfig
 
@@ -5014,10 +6364,10 @@ Source: `src/types.ts:20:1`
 
 ### Members
 
-| Name         | Kind     | Type                                                                                                               | Required | Description |
-| ------------ | -------- | ------------------------------------------------------------------------------------------------------------------ | -------- | ----------- |
-| harmony      | property | `"monochromatic" \| "analogous" \| "complementary" \| "splitComplementary" \| "triadic" \| "tetradic" \| "square"` | yes      |             |
-| primaryColor | property | `string`                                                                                                           | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| harmony | property | `"monochromatic" \| "analogous" \| "complementary" \| "splitComplementary" \| "triadic" \| "tetradic" \| "square"` | yes |  |
+| primaryColor | property | `string` | yes |  |
 
 ## ThemeNumericTokenOverrides
 
@@ -5039,10 +6389,10 @@ Source: `src/theme.ts:47:1`
 
 ### Members
 
-| Name       | Kind     | Type                                                                                        | Required | Description |
-| ---------- | -------- | ------------------------------------------------------------------------------------------- | -------- | ----------- |
-| components | property | `Readonly<Record<string, Readonly<Record<string, ThemeRecipeOverrideValue>>>> \| undefined` | no       |             |
-| patterns   | property | `Readonly<Record<string, Readonly<Record<string, ThemeRecipeOverrideValue>>>> \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| components | property | `Readonly<Record<string, Readonly<Record<string, ThemeRecipeOverrideValue>>>> \| undefined` | no |  |
+| patterns | property | `Readonly<Record<string, Readonly<Record<string, ThemeRecipeOverrideValue>>>> \| undefined` | no |  |
 
 ## ThemeRecipeOverrideValue
 
@@ -5064,11 +6414,11 @@ Source: `src/theme.ts:8:1`
 
 ### Members
 
-| Name       | Kind     | Type                  | Required | Description |
-| ---------- | -------- | --------------------- | -------- | ----------- |
-| lineHeight | property | `number \| undefined` | no       |             |
-| size       | property | `number \| undefined` | no       |             |
-| weight     | property | `string \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| lineHeight | property | `number \| undefined` | no |  |
+| size | property | `number \| undefined` | no |  |
+| weight | property | `string \| undefined` | no |  |
 
 ## ThemeTypographyTokenOverrides
 
@@ -5078,11 +6428,11 @@ Source: `src/theme.ts:15:1`
 
 ### Members
 
-| Name     | Kind     | Type                                                                     | Required | Description |
-| -------- | -------- | ------------------------------------------------------------------------ | -------- | ----------- |
-| headings | property | `Readonly<Record<string, ThemeTypographyHeadingOverrides>> \| undefined` | no       |             |
-| sizes    | property | `Readonly<Record<string, number>> \| undefined`                          | no       |             |
-| weights  | property | `Readonly<Record<string, string>> \| undefined`                          | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| headings | property | `Readonly<Record<string, ThemeTypographyHeadingOverrides>> \| undefined` | no |  |
+| sizes | property | `Readonly<Record<string, number>> \| undefined` | no |  |
+| weights | property | `Readonly<Record<string, string>> \| undefined` | no |  |
 
 ## ToggleDarkModeAction
 
@@ -5092,10 +6442,10 @@ Source: `src/types.ts:59:1`
 
 ### Members
 
-| Name    | Kind     | Type               | Required | Description |
-| ------- | -------- | ------------------ | -------- | ----------- |
-| payload | property | `undefined`        | no       |             |
-| type    | property | `"toggleDarkMode"` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| payload | property | `undefined` | no |  |
+| type | property | `"toggleDarkMode"` | yes |  |
 
 ## UiBindableEventMeta
 
@@ -5105,11 +6455,11 @@ Source: `src/ui.ts:127:1`
 
 ### Members
 
-| Name        | Kind     | Type                                      | Required | Description |
-| ----------- | -------- | ----------------------------------------- | -------- | ----------- |
-| description | property | `string \| undefined`                     | no       |             |
-| label       | property | `string \| undefined`                     | no       |             |
-| payload     | property | `UiBindableEventPayloadMeta \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| description | property | `string \| undefined` | no |  |
+| label | property | `string \| undefined` | no |  |
+| payload | property | `UiBindableEventPayloadMeta \| undefined` | no |  |
 
 ## UiBindableEventPayloadMeta
 
@@ -5119,10 +6469,10 @@ Source: `src/ui.ts:122:1`
 
 ### Members
 
-| Name      | Kind     | Type                                                       | Required | Description |
-| --------- | -------- | ---------------------------------------------------------- | -------- | ----------- |
-| eventType | property | `UiComponentEventPayloadKind`                              | yes      |             |
-| fields    | property | `readonly UiComponentEventPayloadFieldMeta[] \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| eventType | property | `UiComponentEventPayloadKind` | yes |  |
+| fields | property | `readonly UiComponentEventPayloadFieldMeta[] \| undefined` | no |  |
 
 ## UiBindablePropMeta
 
@@ -5132,14 +6482,14 @@ Source: `src/ui.ts:113:1`
 
 ### Members
 
-| Name              | Kind     | Type                   | Required | Description |
-| ----------------- | -------- | ---------------------- | -------- | ----------- |
-| acceptsFallback   | property | `boolean \| undefined` | no       |             |
-| acceptsTransforms | property | `boolean \| undefined` | no       |             |
-| description       | property | `string \| undefined`  | no       |             |
-| label             | property | `string \| undefined`  | no       |             |
-| required          | property | `boolean \| undefined` | no       |             |
-| value             | property | `UiBindableValueMeta`  | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| acceptsFallback | property | `boolean \| undefined` | no |  |
+| acceptsTransforms | property | `boolean \| undefined` | no |  |
+| description | property | `string \| undefined` | no |  |
+| label | property | `string \| undefined` | no |  |
+| required | property | `boolean \| undefined` | no |  |
+| value | property | `UiBindableValueMeta` | yes |  |
 
 ## UiBindableValueFieldMeta
 
@@ -5149,13 +6499,13 @@ Source: `src/ui.ts:97:1`
 
 ### Members
 
-| Name        | Kind     | Type                   | Required | Description |
-| ----------- | -------- | ---------------------- | -------- | ----------- |
-| description | property | `string \| undefined`  | no       |             |
-| label       | property | `string \| undefined`  | no       |             |
-| path        | property | `string`               | yes      |             |
-| required    | property | `boolean \| undefined` | no       |             |
-| type        | property | `UiBindableValueType`  | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| description | property | `string \| undefined` | no |  |
+| label | property | `string \| undefined` | no |  |
+| path | property | `string` | yes |  |
+| required | property | `boolean \| undefined` | no |  |
+| type | property | `UiBindableValueType` | yes |  |
 
 ## UiBindableValueMeta
 
@@ -5165,13 +6515,13 @@ Source: `src/ui.ts:105:1`
 
 ### Members
 
-| Name        | Kind     | Type                                               | Required | Description |
-| ----------- | -------- | -------------------------------------------------- | -------- | ----------- |
-| description | property | `string \| undefined`                              | no       |             |
-| fields      | property | `readonly UiBindableValueFieldMeta[] \| undefined` | no       |             |
-| itemType    | property | `UiBindableValueType \| undefined`                 | no       |             |
-| label       | property | `string \| undefined`                              | no       |             |
-| type        | property | `UiBindableValueType`                              | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| description | property | `string \| undefined` | no |  |
+| fields | property | `readonly UiBindableValueFieldMeta[] \| undefined` | no |  |
+| itemType | property | `UiBindableValueType \| undefined` | no |  |
+| label | property | `string \| undefined` | no |  |
+| type | property | `UiBindableValueType` | yes |  |
 
 ## UiBindableValueType
 
@@ -5187,10 +6537,10 @@ Source: `src/ui.ts:133:1`
 
 ### Members
 
-| Name   | Kind     | Type                                                         | Required | Description |
-| ------ | -------- | ------------------------------------------------------------ | -------- | ----------- |
-| events | property | `Readonly<Record<string, UiBindableEventMeta>> \| undefined` | no       |             |
-| props  | property | `Readonly<Record<string, UiBindablePropMeta>> \| undefined`  | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| events | property | `Readonly<Record<string, UiBindableEventMeta>> \| undefined` | no |  |
+| props | property | `Readonly<Record<string, UiBindablePropMeta>> \| undefined` | no |  |
 
 ## UiComponentBlueprint
 
@@ -5200,11 +6550,11 @@ Source: `src/ui.ts:52:1`
 
 ### Members
 
-| Name         | Kind     | Type                                                          | Required | Description |
-| ------------ | -------- | ------------------------------------------------------------- | -------- | ----------- |
-| defaultProps | property | `Readonly<Record<string, UiComponentPropValue>> \| undefined` | no       |             |
-| icon         | property | `UiComponentBlueprintIcon \| undefined`                       | no       |             |
-| label        | property | `string`                                                      | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| defaultProps | property | `Readonly<Record<string, UiComponentPropValue>> \| undefined` | no |  |
+| icon | property | `UiComponentBlueprintIcon \| undefined` | no |  |
+| label | property | `string` | yes |  |
 
 ## UiComponentBlueprintIcon
 
@@ -5214,10 +6564,10 @@ Source: `src/ui.ts:47:1`
 
 ### Members
 
-| Name     | Kind     | Type                  | Required | Description |
-| -------- | -------- | --------------------- | -------- | ----------- |
-| name     | property | `string`              | yes      |             |
-| provider | property | `string \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| name | property | `string` | yes |  |
+| provider | property | `string \| undefined` | no |  |
 
 ## UiComponentCategory
 
@@ -5233,12 +6583,12 @@ Source: `src/ui.ts:79:1`
 
 ### Members
 
-| Name          | Kind     | Type                                                       | Required | Description |
-| ------------- | -------- | ---------------------------------------------------------- | -------- | ----------- |
-| description   | property | `string \| undefined`                                      | no       |             |
-| eventType     | property | `UiComponentEventPayloadKind`                              | yes      |             |
-| label         | property | `string`                                                   | yes      |             |
-| payloadFields | property | `readonly UiComponentEventPayloadFieldMeta[] \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| description | property | `string \| undefined` | no |  |
+| eventType | property | `UiComponentEventPayloadKind` | yes |  |
+| label | property | `string` | yes |  |
+| payloadFields | property | `readonly UiComponentEventPayloadFieldMeta[] \| undefined` | no |  |
 
 ## UiComponentEventPayloadFieldMeta
 
@@ -5248,12 +6598,12 @@ Source: `src/ui.ts:72:1`
 
 ### Members
 
-| Name        | Kind     | Type                               | Required | Description |
-| ----------- | -------- | ---------------------------------- | -------- | ----------- |
-| description | property | `string \| undefined`              | no       |             |
-| label       | property | `string \| undefined`              | no       |             |
-| path        | property | `string`                           | yes      |             |
-| type        | property | `UiComponentEventPayloadFieldType` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| description | property | `string \| undefined` | no |  |
+| label | property | `string \| undefined` | no |  |
+| path | property | `string` | yes |  |
+| type | property | `UiComponentEventPayloadFieldType` | yes |  |
 
 ## UiComponentEventPayloadFieldType
 
@@ -5275,10 +6625,10 @@ Source: `src/ui.ts:58:1`
 
 ### Members
 
-| Name            | Kind     | Type     | Required | Description |
-| --------------- | -------- | -------- | -------- | ----------- |
-| defaultTextProp | property | `string` | yes      |             |
-| keyProp         | property | `string` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| defaultTextProp | property | `string` | yes |  |
+| keyProp | property | `string` | yes |  |
 
 ## UiComponentI18nMeta
 
@@ -5288,9 +6638,9 @@ Source: `src/ui.ts:63:1`
 
 ### Members
 
-| Name   | Kind     | Type                                  | Required | Description |
-| ------ | -------- | ------------------------------------- | -------- | ----------- |
-| fields | property | `readonly UiComponentI18nFieldMeta[]` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| fields | property | `readonly UiComponentI18nFieldMeta[]` | yes |  |
 
 ## UiComponentMeta
 
@@ -5300,20 +6650,20 @@ Source: `src/ui.ts:143:1`
 
 ### Members
 
-| Name               | Kind     | Type                                                          | Required | Description |
-| ------------------ | -------- | ------------------------------------------------------------- | -------- | ----------- |
-| allowedChildren    | property | `readonly string[]`                                           | yes      |             |
-| bindings           | property | `UiComponentBindingMeta \| undefined`                         | no       |             |
-| blueprint          | property | `UiComponentBlueprint \| undefined`                           | no       |             |
-| category           | property | `UiComponentCategory`                                         | yes      |             |
-| description        | property | `string \| undefined`                                         | no       |             |
-| directManifestNode | property | `boolean`                                                     | yes      |             |
-| events             | property | `Readonly<Record<string, UiComponentEventMeta>> \| undefined` | no       |             |
-| i18n               | property | `UiComponentI18nMeta \| undefined`                            | no       |             |
-| name               | property | `string`                                                      | yes      |             |
-| note               | property | `string \| undefined`                                         | no       |             |
-| props              | property | `Readonly<Record<string, UiComponentPropSchema>>`             | yes      |             |
-| slots              | property | `Readonly<Record<string, UiComponentSlotMeta>> \| undefined`  | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| allowedChildren | property | `readonly string[]` | yes |  |
+| bindings | property | `UiComponentBindingMeta \| undefined` | no |  |
+| blueprint | property | `UiComponentBlueprint \| undefined` | no |  |
+| category | property | `UiComponentCategory` | yes |  |
+| description | property | `string \| undefined` | no |  |
+| directManifestNode | property | `boolean` | yes |  |
+| events | property | `Readonly<Record<string, UiComponentEventMeta>> \| undefined` | no |  |
+| i18n | property | `UiComponentI18nMeta \| undefined` | no |  |
+| name | property | `string` | yes |  |
+| note | property | `string \| undefined` | no |  |
+| props | property | `Readonly<Record<string, UiComponentPropSchema>>` | yes |  |
+| slots | property | `Readonly<Record<string, UiComponentSlotMeta>> \| undefined` | no |  |
 
 ## UiComponentMetaRegistry
 
@@ -5329,11 +6679,11 @@ Source: `src/ui.ts:160:1`
 
 ### Members
 
-| Name        | Kind     | Type                                        | Required | Description |
-| ----------- | -------- | ------------------------------------------- | -------- | ----------- |
-| components  | property | `Readonly<Record<string, UiComponentMeta>>` | yes      |             |
-| displayName | property | `string \| undefined`                       | no       |             |
-| packageName | property | `string`                                    | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| components | property | `Readonly<Record<string, UiComponentMeta>>` | yes |  |
+| displayName | property | `string \| undefined` | no |  |
+| packageName | property | `string` | yes |  |
 
 ## UiComponentPropArrayItemSchema
 
@@ -5343,10 +6693,10 @@ Source: `src/ui.ts:32:1`
 
 ### Members
 
-| Name   | Kind     | Type                    | Required | Description |
-| ------ | -------- | ----------------------- | -------- | ----------- |
-| key    | property | `string`                | yes      |             |
-| schema | property | `UiComponentPropSchema` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| key | property | `string` | yes |  |
+| schema | property | `UiComponentPropSchema` | yes |  |
 
 ## UiComponentPropSchema
 
@@ -5356,15 +6706,15 @@ Source: `src/ui.ts:37:1`
 
 ### Members
 
-| Name       | Kind     | Type                                                                          | Required | Description |
-| ---------- | -------- | ----------------------------------------------------------------------------- | -------- | ----------- |
-| category   | property | `string`                                                                      | yes      |             |
-| default    | property | `UiComponentPropValue \| undefined`                                           | no       |             |
-| enum       | property | `readonly (string \| number)[] \| undefined`                                  | no       |             |
-| itemSchema | property | `readonly UiComponentPropArrayItemSchema[] \| undefined`                      | no       |             |
-| label      | property | `string \| undefined`                                                         | no       |             |
-| mediaKinds | property | `readonly ("image" \| "audio" \| "video" \| "font" \| "file")[] \| undefined` | no       |             |
-| type       | property | `UiComponentPropType`                                                         | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| category | property | `string` | yes |  |
+| default | property | `UiComponentPropValue \| undefined` | no |  |
+| enum | property | `readonly (string \| number)[] \| undefined` | no |  |
+| itemSchema | property | `readonly UiComponentPropArrayItemSchema[] \| undefined` | no |  |
+| label | property | `string \| undefined` | no |  |
+| mediaKinds | property | `readonly ("image" \| "audio" \| "video" \| "font" \| "file")[] \| undefined` | no |  |
+| type | property | `UiComponentPropType` | yes |  |
 
 ## UiComponentPropType
 
@@ -5386,10 +6736,10 @@ Source: `src/ui.ts:138:1`
 
 ### Members
 
-| Name            | Kind     | Type                             | Required | Description |
-| --------------- | -------- | -------------------------------- | -------- | ----------- |
-| allowedChildren | property | `readonly string[] \| undefined` | no       |             |
-| label           | property | `string \| undefined`            | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| allowedChildren | property | `readonly string[] \| undefined` | no |  |
+| label | property | `string \| undefined` | no |  |
 
 ## UiNode
 
@@ -5399,15 +6749,15 @@ Source: `src/types.ts:223:1`
 
 ### Members
 
-| Name     | Kind     | Type                                            | Required | Description |
-| -------- | -------- | ----------------------------------------------- | -------- | ----------- |
-| alias    | property | `string \| undefined`                           | no       |             |
-| children | property | `UiNode[] \| undefined`                         | no       |             |
-| id       | property | `string`                                        | yes      |             |
-| props    | property | `Record<string, unknown> \| undefined`          | no       |             |
-| repeat   | property | `UiNodeRepeatSpec \| undefined`                 | no       |             |
-| style    | property | `Record<string, string \| number> \| undefined` | no       |             |
-| type     | property | `string`                                        | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| alias | property | `string \| undefined` | no |  |
+| children | property | `UiNode[] \| undefined` | no |  |
+| id | property | `string` | yes |  |
+| props | property | `Record<string, unknown> \| undefined` | no |  |
+| repeat | property | `UiNodeRepeatSpec \| undefined` | no |  |
+| style | property | `Record<string, string \| number> \| undefined` | no |  |
+| type | property | `string` | yes |  |
 
 ## UiNodeRepeatSpec
 
@@ -5417,12 +6767,12 @@ Source: `src/types.ts:216:1`
 
 ### Members
 
-| Name      | Kind     | Type                             | Required | Description |
-| --------- | -------- | -------------------------------- | -------- | ----------- |
-| empty     | property | `readonly UiNode[] \| undefined` | no       |             |
-| itemAlias | property | `string \| undefined`            | no       |             |
-| keyPath   | property | `string \| undefined`            | no       |             |
-| source    | property | `BindingValueSource`             | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| empty | property | `readonly UiNode[] \| undefined` | no |  |
+| itemAlias | property | `string \| undefined` | no |  |
+| keyPath | property | `string \| undefined` | no |  |
+| source | property | `BindingValueSource` | yes |  |
 
 ## UrlImageAssetSource
 
@@ -5432,15 +6782,15 @@ Source: `src/storage.ts:121:1`
 
 ### Members
 
-| Name        | Kind     | Type                         | Required | Description |
-| ----------- | -------- | ---------------------------- | -------- | ----------- |
-| alt         | property | `string \| undefined`        | no       |             |
-| contentType | property | `string \| undefined`        | no       |             |
-| height      | property | `number \| undefined`        | no       |             |
-| kind        | property | `"url"`                      | yes      |             |
-| metadata    | property | `ImageMetadata \| undefined` | no       |             |
-| url         | property | `string`                     | yes      |             |
-| width       | property | `number \| undefined`        | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| alt | property | `string \| undefined` | no |  |
+| contentType | property | `string \| undefined` | no |  |
+| height | property | `number \| undefined` | no |  |
+| kind | property | `"url"` | yes |  |
+| metadata | property | `ImageMetadata \| undefined` | no |  |
+| url | property | `string` | yes |  |
+| width | property | `number \| undefined` | no |  |
 
 ## validateInfraAdapterSelection
 
@@ -5475,9 +6825,69 @@ Source: `src/auth.ts:232:1`
 
 ### Members
 
-| Name       | Kind     | Type                                   | Required | Description |
-| ---------- | -------- | -------------------------------------- | -------- | ----------- |
-| identifier | property | `AuthIdentifier`                       | yes      |             |
-| metadata   | property | `Record<string, unknown> \| undefined` | no       |             |
-| redirectTo | property | `string \| undefined`                  | no       |             |
-| token      | property | `string`                               | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| identifier | property | `AuthIdentifier` | yes |  |
+| metadata | property | `Record<string, unknown> \| undefined` | no |  |
+| redirectTo | property | `string \| undefined` | no |  |
+| token | property | `string` | yes |  |
+
+## WebDeploymentPublication
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:142:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| deploymentId | property | `string` | yes |  |
+| production | property | `boolean` | yes |  |
+| provider | property | `string` | yes |  |
+| revision | property | `string` | yes |  |
+| target | property | `"web"` | yes |  |
+| url | property | `string` | yes |  |
+
+## WebDeploymentPublisher
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:160:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| publishAsync | method | `(request: WebDeploymentPublishRequest) => Promise<DeploymentProviderResult<WebDeploymentPublication>>` | yes |  |
+
+## WebDeploymentPublishIntent
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:136:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| alias | property | `string \| undefined` | no |  |
+| environment | property | `string \| undefined` | no |  |
+| mode | property | `"preview" \| "production"` | yes |  |
+
+## WebDeploymentPublishRequest
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:151:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| credentials | property | `readonly DeploymentCredentialReference[]` | yes |  |
+| exportDirectory | property | `string` | yes |  |
+| intent | property | `WebDeploymentPublishIntent` | yes |  |
+| projectRoot | property | `string` | yes |  |
+| resolveSecret | property | `DeploymentSecretResolver` | yes |  |
+| revision | property | `string` | yes |  |
