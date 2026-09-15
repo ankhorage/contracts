@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 19.2.0
+
+### Minor Changes
+
+- 8644f9c: Add portable deployment provider contracts for provider registration, native builds, store delivery, listings, monetization, and releases.
+
 ## 19.1.0
 
 ### Minor Changes
