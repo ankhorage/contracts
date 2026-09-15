@@ -111,7 +111,8 @@ function isContinuousDatabaseBackup(value: unknown): value is InfraContinuousDat
     mode: (mode) => mode === 'continuous',
     target: isS3PersistenceTarget,
     baseBackupIntervalHours: (interval) =>
-      interval === undefined || (Number.isInteger(interval) && interval > 0),
+      interval === undefined ||
+      (typeof interval === 'number' && Number.isInteger(interval) && interval > 0),
   });
 }
 
