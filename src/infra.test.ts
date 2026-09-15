@@ -26,7 +26,11 @@ const production = {
   objectStorage: { provider: 'r2', buckets: ['media'] },
   authz: { provider: 'cerbos', kind: 'ABAC' },
   secretStore: { provider: 'supabase-vault' },
-  networking: { domain: 'api.example.ch', publicBaseUrl: 'https://api.example.ch' },
+  networking: {
+    domain: 'api.example.ch',
+    publicBaseUrl: 'https://api.example.ch',
+    tls: { mode: 'acme-http-01', contactEmail: 'infra@example.ch' },
+  },
 } as const satisfies InfraEnvironmentSpec;
 
 describe('standalone Infra environments', () => {
@@ -168,6 +172,35 @@ describe('sibling service configuration', () => {
     { networking: { publicBaseUrl: 'ftp://api.example.ch' } },
     { networking: { publicBaseUrl: 'https://api.example.ch/auth/v1' } },
     { networking: { publicBaseUrl: 'https://api.example.ch/' } },
+    { networking: { tls: { mode: 'acme-http-01', contactEmail: 'infra@example.ch' } } },
+    {
+      networking: {
+        domain: 'api.example.ch',
+        publicBaseUrl: 'http://api.example.ch',
+        tls: { mode: 'acme-http-01', contactEmail: 'infra@example.ch' },
+      },
+    },
+    {
+      networking: {
+        domain: 'api.example.ch',
+        publicBaseUrl: 'https://other.example.ch',
+        tls: { mode: 'acme-http-01', contactEmail: 'infra@example.ch' },
+      },
+    },
+    {
+      networking: {
+        domain: 'api.example.ch',
+        publicBaseUrl: 'https://api.example.ch',
+        tls: { mode: 'manual', contactEmail: 'infra@example.ch' },
+      },
+    },
+    {
+      networking: {
+        domain: 'api.example.ch',
+        publicBaseUrl: 'https://api.example.ch',
+        tls: { mode: 'acme-http-01', contactEmail: '' },
+      },
+    },
   ])('rejects unsupported service selection: %j', (selection) => {
     expect(isInfraEnvironmentSpec({ ...local, ...selection })).toBe(false);
   });
