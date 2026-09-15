@@ -75,7 +75,9 @@ export interface DeploymentManualAction {
   readonly url?: string;
 }
 
-export type DeploymentRequiredAction = DeploymentAuthenticationRequiredAction | DeploymentManualAction;
+export type DeploymentRequiredAction =
+  | DeploymentAuthenticationRequiredAction
+  | DeploymentManualAction;
 
 export type DeploymentProviderResult<T> =
   | { readonly status: 'completed'; readonly value: T }
@@ -317,10 +319,10 @@ export interface IosDeploymentPublisher {
   inspectAsync(
     request: IosPublishInspectionRequest,
   ): Promise<DeploymentProviderResult<IosPublishInspection>>;
-  publishAsync(request: IosPublishRequest): Promise<DeploymentProviderResult<IosDeploymentPublication>>;
-  verifyAsync(
+  publishAsync(
     request: IosPublishRequest,
-  ): Promise<DeploymentProviderResult<IosPublishInspection>>;
+  ): Promise<DeploymentProviderResult<IosDeploymentPublication>>;
+  verifyAsync(request: IosPublishRequest): Promise<DeploymentProviderResult<IosPublishInspection>>;
 }
 
 export interface DeploymentProviderRegistration {
