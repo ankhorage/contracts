@@ -67,6 +67,198 @@ Source: `src/types.ts:47:1`
 | payload | property | `{ message?: string; } \| undefined` | no       |             |
 | type    | property | `"alert"`                            | yes      |             |
 
+## ANDROID_DEPLOYMENT_TRACKS
+
+Kind: `value`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:166:14`
+
+## ANDROID_RELEASE_STATUSES
+
+Kind: `value`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:169:14`
+
+## AndroidBuildArtifact
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:194:1`
+
+### Members
+
+| Name         | Kind     | Type     | Required | Description |
+| ------------ | -------- | -------- | -------- | ----------- |
+| archiveUrl   | property | `string` | yes      |             |
+| buildId      | property | `string` | yes      |             |
+| buildProfile | property | `string` | yes      |             |
+| fingerprint  | property | `string` | yes      |             |
+| provider     | property | `string` | yes      |             |
+| versionCode  | property | `number` | yes      |             |
+
+## AndroidBuildInspection
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:186:1`
+
+### Members
+
+| Name        | Kind     | Type     | Required | Description |
+| ----------- | -------- | -------- | -------- | ----------- |
+| fingerprint | property | `string` | yes      |             |
+
+## AndroidBuildInspectionRequest
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:178:1`
+
+### Members
+
+| Name          | Kind     | Type                                       | Required | Description |
+| ------------- | -------- | ------------------------------------------ | -------- | ----------- |
+| buildProfile  | property | `string`                                   | yes      |             |
+| credentials   | property | `readonly DeploymentCredentialReference[]` | yes      |             |
+| packageName   | property | `string`                                   | yes      |             |
+| projectRoot   | property | `string`                                   | yes      |             |
+| resolveSecret | property | `DeploymentSecretResolver`                 | yes      |             |
+
+## AndroidBuildRequest
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:190:1`
+
+### Members
+
+| Name                | Kind     | Type                                       | Required | Description |
+| ------------------- | -------- | ------------------------------------------ | -------- | ----------- |
+| buildProfile        | property | `string`                                   | yes      |             |
+| credentials         | property | `readonly DeploymentCredentialReference[]` | yes      |             |
+| expectedFingerprint | property | `string`                                   | yes      |             |
+| packageName         | property | `string`                                   | yes      |             |
+| projectRoot         | property | `string`                                   | yes      |             |
+| resolveSecret       | property | `DeploymentSecretResolver`                 | yes      |             |
+
+## AndroidDeploymentBuilder
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:203:1`
+
+### Members
+
+| Name         | Kind   | Type                                                                                                    | Required | Description |
+| ------------ | ------ | ------------------------------------------------------------------------------------------------------- | -------- | ----------- |
+| buildAsync   | method | `(request: AndroidBuildRequest) => Promise<DeploymentProviderResult<AndroidBuildArtifact>>`             | yes      |             |
+| inspectAsync | method | `(request: AndroidBuildInspectionRequest) => Promise<DeploymentProviderResult<AndroidBuildInspection>>` | yes      |             |
+
+## AndroidDeploymentIntent
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:172:1`
+
+### Members
+
+| Name          | Kind     | Type                                              | Required | Description |
+| ------------- | -------- | ------------------------------------------------- | -------- | ----------- |
+| buildProfile  | property | `string`                                          | yes      |             |
+| releaseStatus | property | `"draft" \| "completed"`                          | yes      |             |
+| track         | property | `"production" \| "internal" \| "alpha" \| "beta"` | yes      |             |
+
+## AndroidDeploymentPublication
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:228:1`
+
+### Members
+
+| Name            | Kind     | Type                                              | Required | Description |
+| --------------- | -------- | ------------------------------------------------- | -------- | ----------- |
+| buildId         | property | `string`                                          | yes      |             |
+| buildProvider   | property | `string`                                          | yes      |             |
+| publishProvider | property | `string`                                          | yes      |             |
+| releaseStatus   | property | `"draft" \| "completed"`                          | yes      |             |
+| revision        | property | `string`                                          | yes      |             |
+| target          | property | `"android"`                                       | yes      |             |
+| track           | property | `"production" \| "internal" \| "alpha" \| "beta"` | yes      |             |
+| versionCode     | property | `number`                                          | yes      |             |
+
+## AndroidDeploymentPublisher
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:239:1`
+
+### Members
+
+| Name         | Kind   | Type                                                                                                        | Required | Description |
+| ------------ | ------ | ----------------------------------------------------------------------------------------------------------- | -------- | ----------- |
+| inspectAsync | method | `(request: AndroidPublishInspectionRequest) => Promise<DeploymentProviderResult<AndroidPublishInspection>>` | yes      |             |
+| publishAsync | method | `(request: AndroidPublishRequest) => Promise<DeploymentProviderResult<AndroidDeploymentPublication>>`       | yes      |             |
+| verifyAsync  | method | `(request: AndroidPublishRequest) => Promise<DeploymentProviderResult<AndroidPublishInspection>>`           | yes      |             |
+
+## AndroidDeploymentTrack
+
+Kind: `unknown`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:167:1`
+
+## AndroidPublishInspection
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:217:1`
+
+### Members
+
+| Name               | Kind     | Type                                              | Required | Description |
+| ------------------ | -------- | ------------------------------------------------- | -------- | ----------- |
+| activeVersionCodes | property | `readonly number[]`                               | yes      |             |
+| track              | property | `"production" \| "internal" \| "alpha" \| "beta"` | yes      |             |
+
+## AndroidPublishInspectionRequest
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:210:1`
+
+### Members
+
+| Name          | Kind     | Type                                              | Required | Description |
+| ------------- | -------- | ------------------------------------------------- | -------- | ----------- |
+| credentials   | property | `readonly DeploymentCredentialReference[]`        | yes      |             |
+| packageName   | property | `string`                                          | yes      |             |
+| resolveSecret | property | `DeploymentSecretResolver`                        | yes      |             |
+| track         | property | `"production" \| "internal" \| "alpha" \| "beta"` | yes      |             |
+
+## AndroidPublishRequest
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:222:1`
+
+### Members
+
+| Name          | Kind     | Type                                              | Required | Description |
+| ------------- | -------- | ------------------------------------------------- | -------- | ----------- |
+| artifact      | property | `AndroidBuildArtifact`                            | yes      |             |
+| credentials   | property | `readonly DeploymentCredentialReference[]`        | yes      |             |
+| packageName   | property | `string`                                          | yes      |             |
+| releaseStatus | property | `"draft" \| "completed"`                          | yes      |             |
+| resolveSecret | property | `DeploymentSecretResolver`                        | yes      |             |
+| revision      | property | `string`                                          | yes      |             |
+| track         | property | `"production" \| "internal" \| "alpha" \| "beta"` | yes      |             |
+
+## AndroidReleaseStatus
+
+Kind: `unknown`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:170:1`
+
 ## AnkhCapabilityId
 
 Kind: `unknown`
@@ -2057,6 +2249,300 @@ Kind: `value`
 Module: `src/auth.ts`
 Source: `src/auth.ts:121:14`
 
+## DEPLOYMENT_CAPABILITIES
+
+Kind: `value`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:6:14`
+
+## DEPLOYMENT_PROVIDER_CAPABILITY_IDS
+
+Kind: `value`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:16:14`
+
+## DeploymentAuthenticationRequiredAction
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:61:1`
+
+### Members
+
+| Name     | Kind     | Type                                       | Required | Description |
+| -------- | -------- | ------------------------------------------ | -------- | ----------- |
+| code     | property | `string`                                   | yes      |             |
+| message  | property | `string`                                   | yes      |             |
+| provider | property | `string`                                   | yes      |             |
+| target   | property | `"web" \| "android" \| "ios" \| undefined` | no       |             |
+| type     | property | `"authentication"`                         | yes      |             |
+
+## DeploymentAuthenticationState
+
+Kind: `unknown`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:86:1`
+
+## DeploymentAutomatedProvisioningRequirement
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:99:1`
+
+### Members
+
+| Name     | Kind     | Type                                       | Required | Description |
+| -------- | -------- | ------------------------------------------ | -------- | ----------- |
+| code     | property | `string`                                   | yes      |             |
+| id       | property | `string`                                   | yes      |             |
+| message  | property | `string`                                   | yes      |             |
+| provider | property | `string`                                   | yes      |             |
+| target   | property | `"web" \| "android" \| "ios" \| undefined` | no       |             |
+| type     | property | `"automated"`                              | yes      |             |
+
+## DeploymentCapability
+
+Kind: `unknown`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:14:1`
+
+## DeploymentCredentialReference
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:42:1`
+
+### Members
+
+| Name     | Kind     | Type     | Required | Description |
+| -------- | -------- | -------- | -------- | ----------- |
+| id       | property | `string` | yes      |             |
+| kind     | property | `string` | yes      |             |
+| provider | property | `string` | yes      |             |
+
+## DeploymentFailure
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:54:1`
+
+### Members
+
+| Name     | Kind     | Type                                       | Required | Description |
+| -------- | -------- | ------------------------------------------ | -------- | ----------- |
+| code     | property | `string`                                   | yes      |             |
+| message  | property | `string`                                   | yes      |             |
+| provider | property | `string \| undefined`                      | no       |             |
+| target   | property | `"web" \| "android" \| "ios" \| undefined` | no       |             |
+
+## DeploymentManualAction
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:69:1`
+
+### Members
+
+| Name     | Kind     | Type                          | Required | Description |
+| -------- | -------- | ----------------------------- | -------- | ----------- |
+| code     | property | `string`                      | yes      |             |
+| message  | property | `string`                      | yes      |             |
+| provider | property | `string \| undefined`         | no       |             |
+| target   | property | `"web" \| "android" \| "ios"` | yes      |             |
+| type     | property | `"manual-action"`             | yes      |             |
+| url      | property | `string \| undefined`         | no       |             |
+
+## DeploymentMonetizationAdapter
+
+Kind: `type`
+Module: `src/types/deployMonetization.ts`
+Source: `src/types/deployMonetization.ts:98:1`
+
+### Members
+
+| Name         | Kind     | Type                                                                                                  | Required | Description |
+| ------------ | -------- | ----------------------------------------------------------------------------------------------------- | -------- | ----------- |
+| inspectAsync | method   | `(context: MonetizationAdapterContext) => Promise<DeploymentProviderResult<MonetizationTargetState>>` | yes      |             |
+| syncAsync    | method   | `(request: MonetizationSyncRequest) => Promise<DeploymentProviderResult<MonetizationTargetState>>`    | yes      |             |
+| target       | property | `"android" \| "ios"`                                                                                  | yes      |             |
+
+## DeploymentProviderCapabilityDescriptor
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:30:1`
+
+### Members
+
+| Name    | Kind     | Type                                                                                                                                                 | Required | Description |
+| ------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
+| id      | property | `"setup" \| "web-publish" \| "android-build" \| "android-publish" \| "ios-build" \| "ios-publish" \| "store-listing" \| "monetization" \| "release"` | yes      |             |
+| targets | property | `readonly ("web" \| "android" \| "ios")[]`                                                                                                           | yes      |             |
+
+## DeploymentProviderCapabilityId
+
+Kind: `unknown`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:28:1`
+
+## DeploymentProviderCapabilityState
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:93:1`
+
+### Members
+
+| Name       | Kind     | Type                                                           | Required | Description |
+| ---------- | -------- | -------------------------------------------------------------- | -------- | ----------- |
+| capability | property | `"provision" \| "prepare" \| "build" \| "publish" \| "verify"` | yes      |             |
+| reason     | property | `string \| undefined`                                          | no       |             |
+| status     | property | `"available" \| "unavailable"`                                 | yes      |             |
+
+## DeploymentProviderDescriptor
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:35:1`
+
+### Members
+
+| Name         | Kind     | Type                                                | Required | Description |
+| ------------ | -------- | --------------------------------------------------- | -------- | ----------- |
+| capabilities | property | `readonly DeploymentProviderCapabilityDescriptor[]` | yes      |             |
+| displayName  | property | `string`                                            | yes      |             |
+| id           | property | `string`                                            | yes      |             |
+| packageName  | property | `string`                                            | yes      |             |
+
+## DeploymentProviderRegistration
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:328:1`
+
+### Members
+
+| Name             | Kind     | Type                                          | Required | Description |
+| ---------------- | -------- | --------------------------------------------- | -------- | ----------- |
+| androidBuilder   | property | `AndroidDeploymentBuilder \| undefined`       | no       |             |
+| androidPublisher | property | `AndroidDeploymentPublisher \| undefined`     | no       |             |
+| descriptor       | property | `DeploymentProviderDescriptor`                | yes      |             |
+| iosBuilder       | property | `IosDeploymentBuilder \| undefined`           | no       |             |
+| iosPublisher     | property | `IosDeploymentPublisher \| undefined`         | no       |             |
+| monetization     | property | `DeploymentMonetizationAdapter \| undefined`  | no       |             |
+| release          | property | `DeploymentReleaseAdapter \| undefined`       | no       |             |
+| setup            | property | `DeploymentProviderSetupAdapter \| undefined` | no       |             |
+| storeListing     | property | `DeploymentStoreListingAdapter \| undefined`  | no       |             |
+| webPublisher     | property | `WebDeploymentPublisher \| undefined`         | no       |             |
+
+## DeploymentProviderResult
+
+Kind: `unknown`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:81:1`
+
+## DeploymentProviderSetupAdapter
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:127:1`
+
+### Members
+
+| Name         | Kind     | Type                                                                                      | Required | Description |
+| ------------ | -------- | ----------------------------------------------------------------------------------------- | -------- | ----------- |
+| inspectSetup | method   | `(context: DeploymentProviderSetupContext) => Promise<DeploymentProviderSetupInspection>` | yes      |             |
+| provider     | property | `string`                                                                                  | yes      |             |
+
+## DeploymentProviderSetupContext
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:113:1`
+
+### Members
+
+| Name          | Kind     | Type                                       | Required | Description |
+| ------------- | -------- | ------------------------------------------ | -------- | ----------- |
+| credentials   | property | `readonly DeploymentCredentialReference[]` | yes      |             |
+| projectRoot   | property | `string`                                   | yes      |             |
+| resolveSecret | property | `DeploymentSecretResolver`                 | yes      |             |
+| target        | property | `"web" \| "android" \| "ios" \| undefined` | no       |             |
+
+## DeploymentProviderSetupInspection
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:120:1`
+
+### Members
+
+| Name           | Kind     | Type                                           | Required | Description |
+| -------------- | -------- | ---------------------------------------------- | -------- | ----------- |
+| authentication | property | `DeploymentAuthenticationState`                | yes      |             |
+| capabilities   | property | `readonly DeploymentProviderCapabilityState[]` | yes      |             |
+| provider       | property | `string`                                       | yes      |             |
+| provisioning   | property | `readonly DeploymentProvisioningRequirement[]` | yes      |             |
+
+## DeploymentProvisioningRequirement
+
+Kind: `unknown`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:108:1`
+
+## DeploymentReleaseAdapter
+
+Kind: `type`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:146:1`
+
+### Members
+
+| Name             | Kind     | Type                                                                                                   | Required | Description |
+| ---------------- | -------- | ------------------------------------------------------------------------------------------------------ | -------- | ----------- |
+| controlAsync     | method   | `(request: ReleaseControlRequest) => Promise<ReleaseControlExecutionResult>`                           | yes      |             |
+| executeStepAsync | method   | `(request: ReleaseStepExecutionRequest) => Promise<ReleaseMutationResult>`                             | yes      |             |
+| inspectAsync     | method   | `(request: ReleaseInspectionRequest) => Promise<DeploymentProviderResult<ReleaseObservedNativeState>>` | yes      |             |
+| target           | property | `"android" \| "ios"`                                                                                   | yes      |             |
+
+## DeploymentRequiredAction
+
+Kind: `unknown`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:78:1`
+
+## DeploymentSecretMaterial
+
+Kind: `unknown`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:48:1`
+
+## DeploymentSecretResolver
+
+Kind: `unknown`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:50:1`
+
+## DeploymentStoreIdentity
+
+Kind: `unknown`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:132:1`
+
+## DeploymentStoreListingAdapter
+
+Kind: `type`
+Module: `src/types/deployStoreListing.ts`
+Source: `src/types/deployStoreListing.ts:117:1`
+
+### Members
+
+| Name         | Kind     | Type                                                                                                  | Required | Description |
+| ------------ | -------- | ----------------------------------------------------------------------------------------------------- | -------- | ----------- |
+| inspectAsync | method   | `(context: StoreListingAdapterContext) => Promise<DeploymentProviderResult<StoreListingTargetState>>` | yes      |             |
+| syncAsync    | method   | `(request: StoreListingSyncRequest) => Promise<DeploymentProviderResult<StoreListingTargetState>>`    | yes      |             |
+| target       | property | `StoreListingTarget`                                                                                  | yes      |             |
+
 ## DRAWER_POSITIONS
 
 Kind: `value`
@@ -3005,6 +3491,174 @@ Source: `src/data/apis.ts:54:1`
 | protocol    | property | `"rest"`                                                                | yes      |             |
 | schemas     | property | `Readonly<Record<string, import("./schemas").DataSchema>> \| undefined` | no       |             |
 
+## IosBuildArtifact
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:273:1`
+
+### Members
+
+| Name         | Kind     | Type     | Required | Description |
+| ------------ | -------- | -------- | -------- | ----------- |
+| archiveUrl   | property | `string` | yes      |             |
+| buildId      | property | `string` | yes      |             |
+| buildNumber  | property | `string` | yes      |             |
+| buildProfile | property | `string` | yes      |             |
+| fingerprint  | property | `string` | yes      |             |
+| provider     | property | `string` | yes      |             |
+| version      | property | `string` | yes      |             |
+
+## IosBuildInspection
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:264:1`
+
+### Members
+
+| Name        | Kind     | Type     | Required | Description |
+| ----------- | -------- | -------- | -------- | ----------- |
+| fingerprint | property | `string` | yes      |             |
+
+## IosBuildInspectionRequest
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:256:1`
+
+### Members
+
+| Name             | Kind     | Type                                       | Required | Description |
+| ---------------- | -------- | ------------------------------------------ | -------- | ----------- |
+| buildProfile     | property | `string`                                   | yes      |             |
+| bundleIdentifier | property | `string`                                   | yes      |             |
+| credentials      | property | `readonly DeploymentCredentialReference[]` | yes      |             |
+| projectRoot      | property | `string`                                   | yes      |             |
+| resolveSecret    | property | `DeploymentSecretResolver`                 | yes      |             |
+
+## IosBuildRequest
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:268:1`
+
+### Members
+
+| Name                | Kind     | Type                                       | Required | Description |
+| ------------------- | -------- | ------------------------------------------ | -------- | ----------- |
+| buildProfile        | property | `string`                                   | yes      |             |
+| bundleIdentifier    | property | `string`                                   | yes      |             |
+| credentials         | property | `readonly DeploymentCredentialReference[]` | yes      |             |
+| expectedFingerprint | property | `string`                                   | yes      |             |
+| projectRoot         | property | `string`                                   | yes      |             |
+| resolveSecret       | property | `DeploymentSecretResolver`                 | yes      |             |
+| version             | property | `string`                                   | yes      |             |
+
+## IosDeploymentBuilder
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:283:1`
+
+### Members
+
+| Name         | Kind   | Type                                                                                            | Required | Description |
+| ------------ | ------ | ----------------------------------------------------------------------------------------------- | -------- | ----------- |
+| buildAsync   | method | `(request: IosBuildRequest) => Promise<DeploymentProviderResult<IosBuildArtifact>>`             | yes      |             |
+| inspectAsync | method | `(request: IosBuildInspectionRequest) => Promise<DeploymentProviderResult<IosBuildInspection>>` | yes      |             |
+
+## IosDeploymentIntent
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:251:1`
+
+### Members
+
+| Name         | Kind     | Type     | Required | Description |
+| ------------ | -------- | -------- | -------- | ----------- |
+| buildProfile | property | `string` | yes      |             |
+| version      | property | `string` | yes      |             |
+
+## IosDeploymentPublication
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:308:1`
+
+### Members
+
+| Name            | Kind     | Type     | Required | Description |
+| --------------- | -------- | -------- | -------- | ----------- |
+| buildId         | property | `string` | yes      |             |
+| buildNumber     | property | `string` | yes      |             |
+| buildProvider   | property | `string` | yes      |             |
+| publishProvider | property | `string` | yes      |             |
+| revision        | property | `string` | yes      |             |
+| target          | property | `"ios"`  | yes      |             |
+| version         | property | `string` | yes      |             |
+
+## IosDeploymentPublisher
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:318:1`
+
+### Members
+
+| Name         | Kind   | Type                                                                                                | Required | Description |
+| ------------ | ------ | --------------------------------------------------------------------------------------------------- | -------- | ----------- |
+| inspectAsync | method | `(request: IosPublishInspectionRequest) => Promise<DeploymentProviderResult<IosPublishInspection>>` | yes      |             |
+| publishAsync | method | `(request: IosPublishRequest) => Promise<DeploymentProviderResult<IosDeploymentPublication>>`       | yes      |             |
+| verifyAsync  | method | `(request: IosPublishRequest) => Promise<DeploymentProviderResult<IosPublishInspection>>`           | yes      |             |
+
+## IosPublishInspection
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:297:1`
+
+### Members
+
+| Name             | Kind     | Type             | Required | Description |
+| ---------------- | -------- | ---------------- | -------- | ----------- |
+| buildNumber      | property | `string \| null` | yes      |             |
+| bundleIdentifier | property | `string`         | yes      |             |
+| version          | property | `string \| null` | yes      |             |
+
+## IosPublishInspectionRequest
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:290:1`
+
+### Members
+
+| Name             | Kind     | Type                                       | Required | Description |
+| ---------------- | -------- | ------------------------------------------ | -------- | ----------- |
+| bundleIdentifier | property | `string`                                   | yes      |             |
+| credentials      | property | `readonly DeploymentCredentialReference[]` | yes      |             |
+| resolveSecret    | property | `DeploymentSecretResolver`                 | yes      |             |
+| version          | property | `string`                                   | yes      |             |
+
+## IosPublishRequest
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:303:1`
+
+### Members
+
+| Name             | Kind     | Type                                       | Required | Description |
+| ---------------- | -------- | ------------------------------------------ | -------- | ----------- |
+| artifact         | property | `IosBuildArtifact`                         | yes      |             |
+| bundleIdentifier | property | `string`                                   | yes      |             |
+| credentials      | property | `readonly DeploymentCredentialReference[]` | yes      |             |
+| resolveSecret    | property | `DeploymentSecretResolver`                 | yes      |             |
+| revision         | property | `string`                                   | yes      |             |
+| version          | property | `string`                                   | yes      |             |
+
 ## isAppDeployManifest
 
 Kind: `function`
@@ -3376,6 +4030,198 @@ Source: `src/media.ts:16:1`
 | kind | property | `"url"`  | yes      |                                                                                 |
 | url  | property | `string` | yes      | Stable remote URL. Transient/local URL schemes are not canonical media sources. |
 
+## MonetizationAdapterContext
+
+Kind: `type`
+Module: `src/types/deployMonetization.ts`
+Source: `src/types/deployMonetization.ts:87:1`
+
+### Members
+
+| Name          | Kind     | Type                                       | Required | Description |
+| ------------- | -------- | ------------------------------------------ | -------- | ----------- |
+| credentials   | property | `readonly DeploymentCredentialReference[]` | yes      |             |
+| identity      | property | `DeploymentStoreIdentity`                  | yes      |             |
+| resolveSecret | property | `DeploymentSecretResolver`                 | yes      |             |
+
+## MonetizationBasePrice
+
+Kind: `type`
+Module: `src/types/deployMonetization.ts`
+Source: `src/types/deployMonetization.ts:16:1`
+
+### Members
+
+| Name     | Kind     | Type     | Required | Description |
+| -------- | -------- | -------- | -------- | ----------- |
+| amount   | property | `string` | yes      |             |
+| country  | property | `string` | yes      |             |
+| currency | property | `string` | yes      |             |
+
+## MonetizationDesiredState
+
+Kind: `type`
+Module: `src/types/deployMonetization.ts`
+Source: `src/types/deployMonetization.ts:46:1`
+
+### Members
+
+| Name     | Kind     | Type                             | Required | Description |
+| -------- | -------- | -------------------------------- | -------- | ----------- |
+| products | property | `readonly MonetizationProduct[]` | yes      |             |
+| revision | property | `string`                         | yes      |             |
+
+## MonetizationDiagnostic
+
+Kind: `type`
+Module: `src/types/deployMonetization.ts`
+Source: `src/types/deployMonetization.ts:51:1`
+
+### Members
+
+| Name      | Kind     | Type                              | Required | Description |
+| --------- | -------- | --------------------------------- | -------- | ----------- |
+| code      | property | `string`                          | yes      |             |
+| locale    | property | `string \| undefined`             | no       |             |
+| message   | property | `string`                          | yes      |             |
+| productId | property | `string \| undefined`             | no       |             |
+| severity  | property | `"error" \| "warning"`            | yes      |             |
+| target    | property | `"android" \| "ios" \| undefined` | no       |             |
+
+## MonetizationLocalization
+
+Kind: `type`
+Module: `src/types/deployMonetization.ts`
+Source: `src/types/deployMonetization.ts:10:1`
+
+### Members
+
+| Name        | Kind     | Type     | Required | Description |
+| ----------- | -------- | -------- | -------- | ----------- |
+| description | property | `string` | yes      |             |
+| locale      | property | `string` | yes      |             |
+| name        | property | `string` | yes      |             |
+
+## MonetizationObservedProduct
+
+Kind: `type`
+Module: `src/types/deployMonetization.ts`
+Source: `src/types/deployMonetization.ts:38:1`
+
+### Members
+
+| Name          | Kind     | Type                                    | Required | Description |
+| ------------- | -------- | --------------------------------------- | -------- | ----------- |
+| basePrice     | property | `MonetizationBasePrice \| undefined`    | no       |             |
+| id            | property | `string`                                | yes      |             |
+| kind          | property | `MonetizationProductKind \| "one-time"` | yes      |             |
+| localizations | property | `readonly MonetizationLocalization[]`   | yes      |             |
+| subscription  | property | `MonetizationSubscription \| undefined` | no       |             |
+
+## MonetizationPlan
+
+Kind: `type`
+Module: `src/types/deployMonetization.ts`
+Source: `src/types/deployMonetization.ts:79:1`
+
+### Members
+
+| Name            | Kind     | Type                                    | Required | Description |
+| --------------- | -------- | --------------------------------------- | -------- | ----------- |
+| currentRevision | property | `string`                                | yes      |             |
+| desiredRevision | property | `string`                                | yes      |             |
+| diagnostics     | property | `readonly MonetizationDiagnostic[]`     | yes      |             |
+| status          | property | `"no-change" \| "changes" \| "blocked"` | yes      |             |
+| steps           | property | `readonly MonetizationPlanStep[]`       | yes      |             |
+
+## MonetizationPlanStep
+
+Kind: `type`
+Module: `src/types/deployMonetization.ts`
+Source: `src/types/deployMonetization.ts:67:1`
+
+### Members
+
+| Name      | Kind     | Type                                                                                                               | Required | Description |
+| --------- | -------- | ------------------------------------------------------------------------------------------------------------------ | -------- | ----------- |
+| id        | property | `string`                                                                                                           | yes      |             |
+| operation | property | `"ensure-subscription-family" \| "create-product" \| "update-metadata" \| "update-price" \| "update-subscription"` | yes      |             |
+| productId | property | `string`                                                                                                           | yes      |             |
+| target    | property | `"android" \| "ios"`                                                                                               | yes      |             |
+
+## MonetizationProduct
+
+Kind: `type`
+Module: `src/types/deployMonetization.ts`
+Source: `src/types/deployMonetization.ts:30:1`
+
+### Members
+
+| Name          | Kind     | Type                                    | Required | Description |
+| ------------- | -------- | --------------------------------------- | -------- | ----------- |
+| basePrice     | property | `MonetizationBasePrice`                 | yes      |             |
+| id            | property | `string`                                | yes      |             |
+| kind          | property | `MonetizationProductKind`               | yes      |             |
+| localizations | property | `readonly MonetizationLocalization[]`   | yes      |             |
+| subscription  | property | `MonetizationSubscription \| undefined` | no       |             |
+
+## MonetizationProductKind
+
+Kind: `unknown`
+Module: `src/types/deployMonetization.ts`
+Source: `src/types/deployMonetization.ts:8:1`
+
+## MonetizationSubscription
+
+Kind: `type`
+Module: `src/types/deployMonetization.ts`
+Source: `src/types/deployMonetization.ts:24:1`
+
+### Members
+
+| Name   | Kind     | Type                             | Required | Description |
+| ------ | -------- | -------------------------------- | -------- | ----------- |
+| family | property | `string`                         | yes      |             |
+| level  | property | `number \| undefined`            | no       |             |
+| period | property | `MonetizationSubscriptionPeriod` | yes      |             |
+
+## MonetizationSubscriptionPeriod
+
+Kind: `unknown`
+Module: `src/types/deployMonetization.ts`
+Source: `src/types/deployMonetization.ts:22:1`
+
+## MonetizationSyncRequest
+
+Kind: `type`
+Module: `src/types/deployMonetization.ts`
+Source: `src/types/deployMonetization.ts:93:1`
+
+### Members
+
+| Name          | Kind     | Type                                       | Required | Description |
+| ------------- | -------- | ------------------------------------------ | -------- | ----------- |
+| credentials   | property | `readonly DeploymentCredentialReference[]` | yes      |             |
+| desired       | property | `MonetizationDesiredState`                 | yes      |             |
+| identity      | property | `DeploymentStoreIdentity`                  | yes      |             |
+| plan          | property | `MonetizationPlan`                         | yes      |             |
+| resolveSecret | property | `DeploymentSecretResolver`                 | yes      |             |
+
+## MonetizationTargetState
+
+Kind: `type`
+Module: `src/types/deployMonetization.ts`
+Source: `src/types/deployMonetization.ts:60:1`
+
+### Members
+
+| Name                 | Kind     | Type                                     | Required | Description |
+| -------------------- | -------- | ---------------------------------------- | -------- | ----------- |
+| diagnostics          | property | `readonly MonetizationDiagnostic[]`      | yes      |             |
+| products             | property | `readonly MonetizationObservedProduct[]` | yes      |             |
+| subscriptionFamilies | property | `readonly string[]`                      | yes      |             |
+| target               | property | `"android" \| "ios"`                     | yes      |             |
+
 ## NamedIconSpec
 
 Kind: `type`
@@ -3410,7 +4256,7 @@ Source: `src/navigator.ts:154:1`
 | ---------------- | -------- | ----------------------------------------------------------------------- | -------- | ----------- |
 | bottomAccessory  | property | `NavigatorScreenReference \| undefined`                                 | no       |             |
 | implementation   | property | `"native"`                                                              | yes      |             |
-| minimizeBehavior | property | `"automatic" \| "never" \| "onScrollDown" \| "onScrollUp" \| undefined` | no       |             |
+| minimizeBehavior | property | `"never" \| "automatic" \| "onScrollDown" \| "onScrollUp" \| undefined` | no       |             |
 
 ## NativeTabsMinimizeBehavior
 
@@ -3962,6 +4808,295 @@ Source: `src/bindings.ts:67:1`
 | source     | property | `BindingValueSource`                            | yes      |             |
 | transforms | property | `readonly BindingValueTransform[] \| undefined` | no       |             |
 
+## ReleaseAdapterContext
+
+Kind: `type`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:124:1`
+
+### Members
+
+| Name          | Kind     | Type                                       | Required | Description |
+| ------------- | -------- | ------------------------------------------ | -------- | ----------- |
+| credentials   | property | `readonly DeploymentCredentialReference[]` | yes      |             |
+| identity      | property | `DeploymentStoreIdentity`                  | yes      |             |
+| resolveSecret | property | `DeploymentSecretResolver`                 | yes      |             |
+
+## ReleaseControlExecutionResult
+
+Kind: `unknown`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:119:1`
+
+## ReleaseControlRequest
+
+Kind: `type`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:139:1`
+
+### Members
+
+| Name          | Kind     | Type                                       | Required | Description |
+| ------------- | -------- | ------------------------------------------ | -------- | ----------- |
+| control       | property | `ReleaseLifecycleControl`                  | yes      |             |
+| credentials   | property | `readonly DeploymentCredentialReference[]` | yes      |             |
+| desired       | property | `ReleaseDesiredState`                      | yes      |             |
+| identity      | property | `DeploymentStoreIdentity`                  | yes      |             |
+| resolveSecret | property | `DeploymentSecretResolver`                 | yes      |             |
+
+## ReleaseDesiredState
+
+Kind: `type`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:27:1`
+
+### Members
+
+| Name     | Kind     | Type                       | Required | Description |
+| -------- | -------- | -------------------------- | -------- | ----------- |
+| notes    | property | `readonly ReleaseNote[]`   | yes      |             |
+| revision | property | `string`                   | yes      |             |
+| rollout  | property | `ReleaseRollout`           | yes      |             |
+| targets  | property | `readonly ReleaseTarget[]` | yes      |             |
+| version  | property | `string`                   | yes      |             |
+
+## ReleaseDiagnostic
+
+Kind: `type`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:83:1`
+
+### Members
+
+| Name     | Kind     | Type                                      | Required | Description |
+| -------- | -------- | ----------------------------------------- | -------- | ----------- |
+| code     | property | `string`                                  | yes      |             |
+| message  | property | `string`                                  | yes      |             |
+| severity | property | `"error" \| "warning"`                    | yes      |             |
+| target   | property | `"release" \| ReleaseTarget \| undefined` | no       |             |
+
+## ReleaseInspectionRequest
+
+Kind: `type`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:130:1`
+
+### Members
+
+| Name          | Kind     | Type                                       | Required | Description |
+| ------------- | -------- | ------------------------------------------ | -------- | ----------- |
+| credentials   | property | `readonly DeploymentCredentialReference[]` | yes      |             |
+| identity      | property | `DeploymentStoreIdentity`                  | yes      |             |
+| resolveSecret | property | `DeploymentSecretResolver`                 | yes      |             |
+| version       | property | `string`                                   | yes      |             |
+
+## ReleaseLifecycleControl
+
+Kind: `unknown`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:107:1`
+
+## ReleaseMutationResult
+
+Kind: `unknown`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:114:1`
+
+## ReleaseNote
+
+Kind: `type`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:11:1`
+
+### Members
+
+| Name   | Kind     | Type     | Required | Description |
+| ------ | -------- | -------- | -------- | ----------- |
+| locale | property | `string` | yes      |             |
+| text   | property | `string` | yes      |             |
+
+## ReleaseObservedAndroidState
+
+Kind: `type`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:41:1`
+
+### Members
+
+| Name             | Kind     | Type                                                              | Required | Description |
+| ---------------- | -------- | ----------------------------------------------------------------- | -------- | ----------- |
+| artifactRevision | property | `string \| null`                                                  | yes      |             |
+| releaseNotes     | property | `readonly ReleaseNote[]`                                          | yes      |             |
+| rolloutStatus    | property | `"draft" \| "completed" \| "missing" \| "inProgress" \| "halted"` | yes      |             |
+| target           | property | `"android"`                                                       | yes      |             |
+| userFraction     | property | `string \| undefined`                                             | no       |             |
+| version          | property | `string \| null`                                                  | yes      |             |
+| versionCodes     | property | `readonly string[]`                                               | yes      |             |
+
+## ReleaseObservedIosState
+
+Kind: `type`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:51:1`
+
+### Members
+
+| Name               | Kind     | Type                                                       | Required | Description |
+| ------------------ | -------- | ---------------------------------------------------------- | -------- | ----------- |
+| appVersionState    | property | `string \| undefined`                                      | no       |             |
+| artifactRevision   | property | `string \| null`                                           | yes      |             |
+| buildNumber        | property | `string \| null`                                           | yes      |             |
+| phasedReleaseState | property | `"INACTIVE" \| "ACTIVE" \| "PAUSED" \| "COMPLETE" \| null` | yes      |             |
+| releaseNotes       | property | `readonly ReleaseNote[]`                                   | yes      |             |
+| releaseType        | property | `string \| undefined`                                      | no       |             |
+| reviewState        | property | `string \| undefined`                                      | no       |             |
+| target             | property | `"ios"`                                                    | yes      |             |
+| version            | property | `string \| null`                                           | yes      |             |
+
+## ReleaseObservedNativeState
+
+Kind: `unknown`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:144:1`
+
+## ReleaseObservedState
+
+Kind: `type`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:66:1`
+
+### Members
+
+| Name    | Kind     | Type                                    | Required | Description |
+| ------- | -------- | --------------------------------------- | -------- | ----------- |
+| targets | property | `readonly ReleaseObservedTargetState[]` | yes      |             |
+
+## ReleaseObservedTargetState
+
+Kind: `unknown`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:63:1`
+
+## ReleaseObservedWebState
+
+Kind: `type`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:35:1`
+
+### Members
+
+| Name             | Kind     | Type             | Required | Description |
+| ---------------- | -------- | ---------------- | -------- | ----------- |
+| artifactRevision | property | `string \| null` | yes      |             |
+| target           | property | `"web"`          | yes      |             |
+| version          | property | `string \| null` | yes      |             |
+
+## ReleasePlan
+
+Kind: `type`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:99:1`
+
+### Members
+
+| Name            | Kind     | Type                           | Required | Description |
+| --------------- | -------- | ------------------------------ | -------- | ----------- |
+| currentRevision | property | `string`                       | yes      |             |
+| desiredRevision | property | `string`                       | yes      |             |
+| diagnostics     | property | `readonly ReleaseDiagnostic[]` | yes      |             |
+| status          | property | `ReleasePlanStatus`            | yes      |             |
+| steps           | property | `readonly ReleasePlanStep[]`   | yes      |             |
+
+## ReleasePlanStatus
+
+Kind: `unknown`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:70:1`
+
+## ReleasePlanStep
+
+Kind: `type`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:90:1`
+
+### Members
+
+| Name         | Kind     | Type                         | Required | Description |
+| ------------ | -------- | ---------------------------- | -------- | ----------- |
+| dependsOn    | property | `readonly string[]`          | yes      |             |
+| id           | property | `string`                     | yes      |             |
+| irreversible | property | `boolean`                    | yes      |             |
+| operation    | property | `ReleaseStepOperation`       | yes      |             |
+| retry        | property | `ReleaseStepRetry`           | yes      |             |
+| target       | property | `"release" \| ReleaseTarget` | yes      |             |
+
+## ReleaseRollout
+
+Kind: `type`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:21:1`
+
+### Members
+
+| Name    | Kind     | Type                                | Required | Description |
+| ------- | -------- | ----------------------------------- | -------- | ----------- |
+| android | property | `ReleaseTargetRollout \| undefined` | no       |             |
+| ios     | property | `ReleaseTargetRollout \| undefined` | no       |             |
+| web     | property | `ReleaseTargetRollout \| undefined` | no       |             |
+
+## ReleaseRolloutMode
+
+Kind: `unknown`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:9:1`
+
+## ReleaseStepExecutionRequest
+
+Kind: `type`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:134:1`
+
+### Members
+
+| Name          | Kind     | Type                                       | Required | Description |
+| ------------- | -------- | ------------------------------------------ | -------- | ----------- |
+| credentials   | property | `readonly DeploymentCredentialReference[]` | yes      |             |
+| desired       | property | `ReleaseDesiredState`                      | yes      |             |
+| identity      | property | `DeploymentStoreIdentity`                  | yes      |             |
+| resolveSecret | property | `DeploymentSecretResolver`                 | yes      |             |
+| step          | property | `ReleasePlanStep`                          | yes      |             |
+
+## ReleaseStepOperation
+
+Kind: `unknown`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:72:1`
+
+## ReleaseStepRetry
+
+Kind: `unknown`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:71:1`
+
+## ReleaseTarget
+
+Kind: `unknown`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:8:1`
+
+## ReleaseTargetRollout
+
+Kind: `type`
+Module: `src/types/deployRelease.ts`
+Source: `src/types/deployRelease.ts:16:1`
+
+### Members
+
+| Name            | Kind     | Type                  | Required | Description |
+| --------------- | -------- | --------------------- | -------- | ----------- |
+| initialFraction | property | `string \| undefined` | no       |             |
+| mode            | property | `ReleaseRolloutMode`  | yes      |             |
+
 ## RepositoryManifest
 
 Kind: `type`
@@ -4340,7 +5475,7 @@ Source: `src/secrets.ts:36:1`
 | Name    | Kind     | Type                                                                                                                                                    | Required | Description |
 | ------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
 | cause   | property | `unknown`                                                                                                                                               | no       |             |
-| code    | property | `"provider_error" \| "invalid_config" \| "invalid_reference" \| "invalid_payload" \| "not_found" \| "conflict" \| "permission_denied" \| "unavailable"` | yes      |             |
+| code    | property | `"provider_error" \| "unavailable" \| "invalid_config" \| "invalid_reference" \| "invalid_payload" \| "not_found" \| "conflict" \| "permission_denied"` | yes      |             |
 | message | property | `string`                                                                                                                                                | yes      |             |
 
 ## SecretStoreErrorCode
@@ -4920,6 +6055,221 @@ Source: `src/storage.ts:35:1`
 | ----- | -------- | ----------------------- | -------- | ----------- |
 | asset | property | `StorageAssetReference` | yes      |             |
 
+## StoreListingAdapterContext
+
+Kind: `type`
+Module: `src/types/deployStoreListing.ts`
+Source: `src/types/deployStoreListing.ts:105:1`
+
+### Members
+
+| Name          | Kind     | Type                                       | Required | Description |
+| ------------- | -------- | ------------------------------------------ | -------- | ----------- |
+| credentials   | property | `readonly DeploymentCredentialReference[]` | yes      |             |
+| identity      | property | `DeploymentStoreIdentity`                  | yes      |             |
+| resolveSecret | property | `DeploymentSecretResolver`                 | yes      |             |
+
+## StoreListingAsset
+
+Kind: `type`
+Module: `src/types/deployStoreListing.ts`
+Source: `src/types/deployStoreListing.ts:36:1`
+
+### Members
+
+| Name         | Kind     | Type                         | Required | Description |
+| ------------ | -------- | ---------------------------- | -------- | ----------- |
+| md5          | property | `string`                     | yes      |             |
+| mediaType    | property | `StoreListingAssetMediaType` | yes      |             |
+| relativePath | property | `string`                     | yes      |             |
+| sha256       | property | `string`                     | yes      |             |
+| size         | property | `number`                     | yes      |             |
+
+## StoreListingAssetMediaType
+
+Kind: `unknown`
+Module: `src/types/deployStoreListing.ts`
+Source: `src/types/deployStoreListing.ts:34:1`
+
+## StoreListingAssetReader
+
+Kind: `type`
+Module: `src/types/deployStoreListing.ts`
+Source: `src/types/deployStoreListing.ts:101:1`
+
+### Members
+
+| Name      | Kind   | Type                                            | Required | Description |
+| --------- | ------ | ----------------------------------------------- | -------- | ----------- |
+| readAsync | method | `(relativePath: string) => Promise<Uint8Array>` | yes      |             |
+
+## StoreListingAssetSet
+
+Kind: `type`
+Module: `src/types/deployStoreListing.ts`
+Source: `src/types/deployStoreListing.ts:44:1`
+
+### Members
+
+| Name    | Kind     | Type                           | Required | Description |
+| ------- | -------- | ------------------------------ | -------- | ----------- |
+| assets  | property | `readonly StoreListingAsset[]` | yes      |             |
+| locale  | property | `string`                       | yes      |             |
+| target  | property | `StoreListingTarget`           | yes      |             |
+| variant | property | `string`                       | yes      |             |
+
+## StoreListingDesiredState
+
+Kind: `type`
+Module: `src/types/deployStoreListing.ts`
+Source: `src/types/deployStoreListing.ts:59:1`
+
+### Members
+
+| Name      | Kind     | Type                              | Required | Description |
+| --------- | -------- | --------------------------------- | -------- | ----------- |
+| assetSets | property | `readonly StoreListingAssetSet[]` | yes      |             |
+| locales   | property | `readonly StoreListingLocale[]`   | yes      |             |
+| revision  | property | `string`                          | yes      |             |
+
+## StoreListingDiagnostic
+
+Kind: `type`
+Module: `src/types/deployStoreListing.ts`
+Source: `src/types/deployStoreListing.ts:65:1`
+
+### Members
+
+| Name     | Kind     | Type                              | Required | Description |
+| -------- | -------- | --------------------------------- | -------- | ----------- |
+| code     | property | `string`                          | yes      |             |
+| field    | property | `StoreListingField \| undefined`  | no       |             |
+| locale   | property | `string \| undefined`             | no       |             |
+| message  | property | `string`                          | yes      |             |
+| severity | property | `"error" \| "warning"`            | yes      |             |
+| target   | property | `StoreListingTarget \| undefined` | no       |             |
+| variant  | property | `string \| undefined`             | no       |             |
+
+## StoreListingField
+
+Kind: `unknown`
+Module: `src/types/deployStoreListing.ts`
+Source: `src/types/deployStoreListing.ts:10:1`
+
+## StoreListingLocale
+
+Kind: `type`
+Module: `src/types/deployStoreListing.ts`
+Source: `src/types/deployStoreListing.ts:21:1`
+
+### Members
+
+| Name             | Kind     | Type                             | Required | Description |
+| ---------------- | -------- | -------------------------------- | -------- | ----------- |
+| description      | property | `string \| undefined`            | no       |             |
+| keywords         | property | `readonly string[] \| undefined` | no       |             |
+| locale           | property | `string`                         | yes      |             |
+| marketingUrl     | property | `string \| undefined`            | no       |             |
+| name             | property | `string`                         | yes      |             |
+| privacyPolicyUrl | property | `string \| undefined`            | no       |             |
+| promotionalText  | property | `string \| undefined`            | no       |             |
+| promoVideoUrl    | property | `string \| undefined`            | no       |             |
+| summary          | property | `string \| undefined`            | no       |             |
+| supportUrl       | property | `string \| undefined`            | no       |             |
+
+## StoreListingPlan
+
+Kind: `type`
+Module: `src/types/deployStoreListing.ts`
+Source: `src/types/deployStoreListing.ts:93:1`
+
+### Members
+
+| Name            | Kind     | Type                                    | Required | Description |
+| --------------- | -------- | --------------------------------------- | -------- | ----------- |
+| currentRevision | property | `string`                                | yes      |             |
+| desiredRevision | property | `string`                                | yes      |             |
+| diagnostics     | property | `readonly StoreListingDiagnostic[]`     | yes      |             |
+| status          | property | `"no-change" \| "changes" \| "blocked"` | yes      |             |
+| steps           | property | `readonly StoreListingPlanStep[]`       | yes      |             |
+
+## StoreListingPlanOperation
+
+Kind: `unknown`
+Module: `src/types/deployStoreListing.ts`
+Source: `src/types/deployStoreListing.ts:83:1`
+
+## StoreListingPlanStep
+
+Kind: `type`
+Module: `src/types/deployStoreListing.ts`
+Source: `src/types/deployStoreListing.ts:85:1`
+
+### Members
+
+| Name      | Kind     | Type                        | Required | Description |
+| --------- | -------- | --------------------------- | -------- | ----------- |
+| id        | property | `string`                    | yes      |             |
+| locale    | property | `string`                    | yes      |             |
+| operation | property | `StoreListingPlanOperation` | yes      |             |
+| target    | property | `StoreListingTarget`        | yes      |             |
+| variant   | property | `string \| undefined`       | no       |             |
+
+## StoreListingRemoteAssetSet
+
+Kind: `type`
+Module: `src/types/deployStoreListing.ts`
+Source: `src/types/deployStoreListing.ts:51:1`
+
+### Members
+
+| Name     | Kind     | Type                 | Required | Description |
+| -------- | -------- | -------------------- | -------- | ----------- |
+| checksum | property | `"md5" \| "sha256"`  | yes      |             |
+| hashes   | property | `readonly string[]`  | yes      |             |
+| locale   | property | `string`             | yes      |             |
+| target   | property | `StoreListingTarget` | yes      |             |
+| variant  | property | `string`             | yes      |             |
+
+## StoreListingSyncRequest
+
+Kind: `type`
+Module: `src/types/deployStoreListing.ts`
+Source: `src/types/deployStoreListing.ts:111:1`
+
+### Members
+
+| Name          | Kind     | Type                                       | Required | Description |
+| ------------- | -------- | ------------------------------------------ | -------- | ----------- |
+| assets        | property | `StoreListingAssetReader`                  | yes      |             |
+| credentials   | property | `readonly DeploymentCredentialReference[]` | yes      |             |
+| desired       | property | `StoreListingDesiredState`                 | yes      |             |
+| identity      | property | `DeploymentStoreIdentity`                  | yes      |             |
+| plan          | property | `StoreListingPlan`                         | yes      |             |
+| resolveSecret | property | `DeploymentSecretResolver`                 | yes      |             |
+
+## StoreListingTarget
+
+Kind: `unknown`
+Module: `src/types/deployStoreListing.ts`
+Source: `src/types/deployStoreListing.ts:8:1`
+
+## StoreListingTargetState
+
+Kind: `type`
+Module: `src/types/deployStoreListing.ts`
+Source: `src/types/deployStoreListing.ts:75:1`
+
+### Members
+
+| Name            | Kind     | Type                                    | Required | Description |
+| --------------- | -------- | --------------------------------------- | -------- | ----------- |
+| assetSets       | property | `readonly StoreListingRemoteAssetSet[]` | yes      |             |
+| diagnostics     | property | `readonly StoreListingDiagnostic[]`     | yes      |             |
+| locales         | property | `readonly StoreListingLocale[]`         | yes      |             |
+| supportedFields | property | `readonly StoreListingField[]`          | yes      |             |
+| target          | property | `StoreListingTarget`                    | yes      |             |
+
 ## SvgIconSpec
 
 Kind: `type`
@@ -4968,7 +6318,7 @@ Source: `src/navigator/planning.ts:27:1`
 | customPresentationId    | property | `string \| undefined`                                                              | no       |             |
 | exportName              | property | `string`                                                                           | yes      |             |
 | implementation          | property | `ResolvedTabsImplementation`                                                       | yes      |             |
-| minimizeBehavior        | property | `"automatic" \| "never" \| "onScrollDown" \| "onScrollUp" \| undefined`            | no       |             |
+| minimizeBehavior        | property | `"never" \| "automatic" \| "onScrollDown" \| "onScrollUp" \| undefined`            | no       |             |
 | module                  | property | `ExpoRouterNavigatorModule`                                                        | yes      |             |
 | presentation            | property | `ResolvedTabsPresentation \| undefined`                                            | no       |             |
 | presentations           | property | `Readonly<Record<NavigatorResponsiveSize, ResolvedTabsPresentation>> \| undefined` | no       |             |
@@ -5481,3 +6831,63 @@ Source: `src/auth.ts:232:1`
 | metadata   | property | `Record<string, unknown> \| undefined` | no       |             |
 | redirectTo | property | `string \| undefined`                  | no       |             |
 | token      | property | `string`                               | yes      |             |
+
+## WebDeploymentPublication
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:142:1`
+
+### Members
+
+| Name         | Kind     | Type      | Required | Description |
+| ------------ | -------- | --------- | -------- | ----------- |
+| deploymentId | property | `string`  | yes      |             |
+| production   | property | `boolean` | yes      |             |
+| provider     | property | `string`  | yes      |             |
+| revision     | property | `string`  | yes      |             |
+| target       | property | `"web"`   | yes      |             |
+| url          | property | `string`  | yes      |             |
+
+## WebDeploymentPublisher
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:160:1`
+
+### Members
+
+| Name         | Kind   | Type                                                                                                    | Required | Description |
+| ------------ | ------ | ------------------------------------------------------------------------------------------------------- | -------- | ----------- |
+| publishAsync | method | `(request: WebDeploymentPublishRequest) => Promise<DeploymentProviderResult<WebDeploymentPublication>>` | yes      |             |
+
+## WebDeploymentPublishIntent
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:136:1`
+
+### Members
+
+| Name        | Kind     | Type                        | Required | Description |
+| ----------- | -------- | --------------------------- | -------- | ----------- |
+| alias       | property | `string \| undefined`       | no       |             |
+| environment | property | `string \| undefined`       | no       |             |
+| mode        | property | `"preview" \| "production"` | yes      |             |
+
+## WebDeploymentPublishRequest
+
+Kind: `type`
+Module: `src/types/deployProvider.ts`
+Source: `src/types/deployProvider.ts:151:1`
+
+### Members
+
+| Name            | Kind     | Type                                       | Required | Description |
+| --------------- | -------- | ------------------------------------------ | -------- | ----------- |
+| credentials     | property | `readonly DeploymentCredentialReference[]` | yes      |             |
+| exportDirectory | property | `string`                                   | yes      |             |
+| intent          | property | `WebDeploymentPublishIntent`               | yes      |             |
+| projectRoot     | property | `string`                                   | yes      |             |
+| resolveSecret   | property | `DeploymentSecretResolver`                 | yes      |             |
+| revision        | property | `string`                                   | yes      |             |

@@ -199,6 +199,632 @@
     "structuredRows": []
   },
   {
+    "name": "ANDROID_DEPLOYMENT_TRACKS",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "value",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 166,
+      "column": 14
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "ANDROID_RELEASE_STATUSES",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "value",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 169,
+      "column": 14
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "AndroidBuildArtifact",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 194,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "archiveUrl",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "buildId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "buildProfile",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "fingerprint",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "provider",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "versionCode",
+        "kind": "property",
+        "type": "number",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "AndroidBuildInspection",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 186,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "fingerprint",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "AndroidBuildInspectionRequest",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 178,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["DeploymentCredentialReference", "DeploymentSecretResolver"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "buildProfile",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "credentials",
+        "kind": "property",
+        "type": "readonly DeploymentCredentialReference[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "packageName",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "projectRoot",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "resolveSecret",
+        "kind": "property",
+        "type": "DeploymentSecretResolver",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "AndroidBuildRequest",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 190,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["DeploymentCredentialReference", "DeploymentSecretResolver"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "buildProfile",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "credentials",
+        "kind": "property",
+        "type": "readonly DeploymentCredentialReference[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "expectedFingerprint",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "packageName",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "projectRoot",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "resolveSecret",
+        "kind": "property",
+        "type": "DeploymentSecretResolver",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "AndroidDeploymentBuilder",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 203,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [
+      "AndroidBuildArtifact",
+      "AndroidBuildInspection",
+      "AndroidBuildInspectionRequest",
+      "AndroidBuildRequest",
+      "DeploymentProviderResult"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "buildAsync",
+        "kind": "method",
+        "type": "(request: AndroidBuildRequest) => Promise<DeploymentProviderResult<AndroidBuildArtifact>>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "inspectAsync",
+        "kind": "method",
+        "type": "(request: AndroidBuildInspectionRequest) => Promise<DeploymentProviderResult<AndroidBuildInspection>>",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "AndroidDeploymentIntent",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 172,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "buildProfile",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "releaseStatus",
+        "kind": "property",
+        "type": "\"draft\" | \"completed\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "track",
+        "kind": "property",
+        "type": "\"production\" | \"internal\" | \"alpha\" | \"beta\"",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "AndroidDeploymentPublication",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 228,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "buildId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "buildProvider",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "publishProvider",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "releaseStatus",
+        "kind": "property",
+        "type": "\"draft\" | \"completed\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "revision",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "target",
+        "kind": "property",
+        "type": "\"android\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "track",
+        "kind": "property",
+        "type": "\"production\" | \"internal\" | \"alpha\" | \"beta\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "versionCode",
+        "kind": "property",
+        "type": "number",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "AndroidDeploymentPublisher",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 239,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [
+      "AndroidDeploymentPublication",
+      "AndroidPublishInspection",
+      "AndroidPublishInspectionRequest",
+      "AndroidPublishRequest",
+      "DeploymentProviderResult"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "inspectAsync",
+        "kind": "method",
+        "type": "(request: AndroidPublishInspectionRequest) => Promise<DeploymentProviderResult<AndroidPublishInspection>>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "publishAsync",
+        "kind": "method",
+        "type": "(request: AndroidPublishRequest) => Promise<DeploymentProviderResult<AndroidDeploymentPublication>>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "verifyAsync",
+        "kind": "method",
+        "type": "(request: AndroidPublishRequest) => Promise<DeploymentProviderResult<AndroidPublishInspection>>",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "AndroidDeploymentTrack",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 167,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "AndroidPublishInspection",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 217,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "activeVersionCodes",
+        "kind": "property",
+        "type": "readonly number[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "track",
+        "kind": "property",
+        "type": "\"production\" | \"internal\" | \"alpha\" | \"beta\"",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "AndroidPublishInspectionRequest",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 210,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["DeploymentCredentialReference", "DeploymentSecretResolver"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "credentials",
+        "kind": "property",
+        "type": "readonly DeploymentCredentialReference[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "packageName",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "resolveSecret",
+        "kind": "property",
+        "type": "DeploymentSecretResolver",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "track",
+        "kind": "property",
+        "type": "\"production\" | \"internal\" | \"alpha\" | \"beta\"",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "AndroidPublishRequest",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 222,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [
+      "AndroidBuildArtifact",
+      "DeploymentCredentialReference",
+      "DeploymentSecretResolver"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "artifact",
+        "kind": "property",
+        "type": "AndroidBuildArtifact",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "credentials",
+        "kind": "property",
+        "type": "readonly DeploymentCredentialReference[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "packageName",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "releaseStatus",
+        "kind": "property",
+        "type": "\"draft\" | \"completed\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "resolveSecret",
+        "kind": "property",
+        "type": "DeploymentSecretResolver",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "revision",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "track",
+        "kind": "property",
+        "type": "\"production\" | \"internal\" | \"alpha\" | \"beta\"",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "AndroidReleaseStatus",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 170,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
     "name": "AnkhCapabilityId",
     "description": null,
     "isReadme": false,
@@ -6539,6 +7165,964 @@
     "structuredRows": []
   },
   {
+    "name": "DEPLOYMENT_CAPABILITIES",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "value",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 6,
+      "column": 14
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "DEPLOYMENT_PROVIDER_CAPABILITY_IDS",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "value",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 16,
+      "column": 14
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "DeploymentAuthenticationRequiredAction",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 61,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "code",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "message",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "provider",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "target",
+        "kind": "property",
+        "type": "\"web\" | \"android\" | \"ios\" | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "type",
+        "kind": "property",
+        "type": "\"authentication\"",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "DeploymentAuthenticationState",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 86,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "DeploymentAutomatedProvisioningRequirement",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 99,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "code",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "message",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "provider",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "target",
+        "kind": "property",
+        "type": "\"web\" | \"android\" | \"ios\" | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "type",
+        "kind": "property",
+        "type": "\"automated\"",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "DeploymentCapability",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 14,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "DeploymentCredentialReference",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 42,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "kind",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "provider",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "DeploymentFailure",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 54,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "code",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "message",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "provider",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "target",
+        "kind": "property",
+        "type": "\"web\" | \"android\" | \"ios\" | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "DeploymentManualAction",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 69,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "code",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "message",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "provider",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "target",
+        "kind": "property",
+        "type": "\"web\" | \"android\" | \"ios\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "type",
+        "kind": "property",
+        "type": "\"manual-action\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "url",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "DeploymentMonetizationAdapter",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployMonetization.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployMonetization.ts",
+      "line": 98,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [
+      "DeploymentProviderResult",
+      "MonetizationAdapterContext",
+      "MonetizationSyncRequest",
+      "MonetizationTargetState"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "inspectAsync",
+        "kind": "method",
+        "type": "(context: MonetizationAdapterContext) => Promise<DeploymentProviderResult<MonetizationTargetState>>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "syncAsync",
+        "kind": "method",
+        "type": "(request: MonetizationSyncRequest) => Promise<DeploymentProviderResult<MonetizationTargetState>>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "target",
+        "kind": "property",
+        "type": "\"android\" | \"ios\"",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "DeploymentProviderCapabilityDescriptor",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 30,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "\"setup\" | \"web-publish\" | \"android-build\" | \"android-publish\" | \"ios-build\" | \"ios-publish\" | \"store-listing\" | \"monetization\" | \"release\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "targets",
+        "kind": "property",
+        "type": "readonly (\"web\" | \"android\" | \"ios\")[]",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "DeploymentProviderCapabilityId",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 28,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "DeploymentProviderCapabilityState",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 93,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "capability",
+        "kind": "property",
+        "type": "\"provision\" | \"prepare\" | \"build\" | \"publish\" | \"verify\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "reason",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "status",
+        "kind": "property",
+        "type": "\"available\" | \"unavailable\"",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "DeploymentProviderDescriptor",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 35,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["DeploymentProviderCapabilityDescriptor"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "capabilities",
+        "kind": "property",
+        "type": "readonly DeploymentProviderCapabilityDescriptor[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "displayName",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "packageName",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "DeploymentProviderRegistration",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 328,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [
+      "AndroidDeploymentBuilder",
+      "AndroidDeploymentPublisher",
+      "DeploymentMonetizationAdapter",
+      "DeploymentProviderDescriptor",
+      "DeploymentProviderSetupAdapter",
+      "DeploymentReleaseAdapter",
+      "DeploymentStoreListingAdapter",
+      "IosDeploymentBuilder",
+      "IosDeploymentPublisher",
+      "WebDeploymentPublisher"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "androidBuilder",
+        "kind": "property",
+        "type": "AndroidDeploymentBuilder | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "androidPublisher",
+        "kind": "property",
+        "type": "AndroidDeploymentPublisher | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "descriptor",
+        "kind": "property",
+        "type": "DeploymentProviderDescriptor",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "iosBuilder",
+        "kind": "property",
+        "type": "IosDeploymentBuilder | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "iosPublisher",
+        "kind": "property",
+        "type": "IosDeploymentPublisher | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "monetization",
+        "kind": "property",
+        "type": "DeploymentMonetizationAdapter | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "release",
+        "kind": "property",
+        "type": "DeploymentReleaseAdapter | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "setup",
+        "kind": "property",
+        "type": "DeploymentProviderSetupAdapter | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "storeListing",
+        "kind": "property",
+        "type": "DeploymentStoreListingAdapter | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "webPublisher",
+        "kind": "property",
+        "type": "WebDeploymentPublisher | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "DeploymentProviderResult",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 81,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "DeploymentProviderSetupAdapter",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 127,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["DeploymentProviderSetupContext", "DeploymentProviderSetupInspection"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "inspectSetup",
+        "kind": "method",
+        "type": "(context: DeploymentProviderSetupContext) => Promise<DeploymentProviderSetupInspection>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "provider",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "DeploymentProviderSetupContext",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 113,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["DeploymentCredentialReference", "DeploymentSecretResolver"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "credentials",
+        "kind": "property",
+        "type": "readonly DeploymentCredentialReference[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "projectRoot",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "resolveSecret",
+        "kind": "property",
+        "type": "DeploymentSecretResolver",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "target",
+        "kind": "property",
+        "type": "\"web\" | \"android\" | \"ios\" | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "DeploymentProviderSetupInspection",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 120,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [
+      "DeploymentAuthenticationState",
+      "DeploymentProviderCapabilityState",
+      "DeploymentProvisioningRequirement"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "authentication",
+        "kind": "property",
+        "type": "DeploymentAuthenticationState",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "capabilities",
+        "kind": "property",
+        "type": "readonly DeploymentProviderCapabilityState[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "provider",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "provisioning",
+        "kind": "property",
+        "type": "readonly DeploymentProvisioningRequirement[]",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "DeploymentProvisioningRequirement",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 108,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "DeploymentReleaseAdapter",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployRelease.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployRelease.ts",
+      "line": 146,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [
+      "DeploymentProviderResult",
+      "ReleaseControlExecutionResult",
+      "ReleaseControlRequest",
+      "ReleaseInspectionRequest",
+      "ReleaseMutationResult",
+      "ReleaseObservedNativeState",
+      "ReleaseStepExecutionRequest"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "controlAsync",
+        "kind": "method",
+        "type": "(request: ReleaseControlRequest) => Promise<ReleaseControlExecutionResult>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "executeStepAsync",
+        "kind": "method",
+        "type": "(request: ReleaseStepExecutionRequest) => Promise<ReleaseMutationResult>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "inspectAsync",
+        "kind": "method",
+        "type": "(request: ReleaseInspectionRequest) => Promise<DeploymentProviderResult<ReleaseObservedNativeState>>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "target",
+        "kind": "property",
+        "type": "\"android\" | \"ios\"",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "DeploymentRequiredAction",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 78,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "DeploymentSecretMaterial",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 48,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "DeploymentSecretResolver",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 50,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "DeploymentStoreIdentity",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 132,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "DeploymentStoreListingAdapter",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployStoreListing.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployStoreListing.ts",
+      "line": 117,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [
+      "DeploymentProviderResult",
+      "StoreListingAdapterContext",
+      "StoreListingSyncRequest",
+      "StoreListingTarget",
+      "StoreListingTargetState"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "inspectAsync",
+        "kind": "method",
+        "type": "(context: StoreListingAdapterContext) => Promise<DeploymentProviderResult<StoreListingTargetState>>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "syncAsync",
+        "kind": "method",
+        "type": "(request: StoreListingSyncRequest) => Promise<DeploymentProviderResult<StoreListingTargetState>>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "target",
+        "kind": "property",
+        "type": "StoreListingTarget",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
     "name": "DRAWER_POSITIONS",
     "description": null,
     "isReadme": false,
@@ -9614,6 +11198,560 @@
     "structuredRows": []
   },
   {
+    "name": "IosBuildArtifact",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 273,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "archiveUrl",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "buildId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "buildNumber",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "buildProfile",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "fingerprint",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "provider",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "version",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "IosBuildInspection",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 264,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "fingerprint",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "IosBuildInspectionRequest",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 256,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["DeploymentCredentialReference", "DeploymentSecretResolver"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "buildProfile",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "bundleIdentifier",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "credentials",
+        "kind": "property",
+        "type": "readonly DeploymentCredentialReference[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "projectRoot",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "resolveSecret",
+        "kind": "property",
+        "type": "DeploymentSecretResolver",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "IosBuildRequest",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 268,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["DeploymentCredentialReference", "DeploymentSecretResolver"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "buildProfile",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "bundleIdentifier",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "credentials",
+        "kind": "property",
+        "type": "readonly DeploymentCredentialReference[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "expectedFingerprint",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "projectRoot",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "resolveSecret",
+        "kind": "property",
+        "type": "DeploymentSecretResolver",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "version",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "IosDeploymentBuilder",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 283,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [
+      "DeploymentProviderResult",
+      "IosBuildArtifact",
+      "IosBuildInspection",
+      "IosBuildInspectionRequest",
+      "IosBuildRequest"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "buildAsync",
+        "kind": "method",
+        "type": "(request: IosBuildRequest) => Promise<DeploymentProviderResult<IosBuildArtifact>>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "inspectAsync",
+        "kind": "method",
+        "type": "(request: IosBuildInspectionRequest) => Promise<DeploymentProviderResult<IosBuildInspection>>",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "IosDeploymentIntent",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 251,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "buildProfile",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "version",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "IosDeploymentPublication",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 308,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "buildId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "buildNumber",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "buildProvider",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "publishProvider",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "revision",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "target",
+        "kind": "property",
+        "type": "\"ios\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "version",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "IosDeploymentPublisher",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 318,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [
+      "DeploymentProviderResult",
+      "IosDeploymentPublication",
+      "IosPublishInspection",
+      "IosPublishInspectionRequest",
+      "IosPublishRequest"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "inspectAsync",
+        "kind": "method",
+        "type": "(request: IosPublishInspectionRequest) => Promise<DeploymentProviderResult<IosPublishInspection>>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "publishAsync",
+        "kind": "method",
+        "type": "(request: IosPublishRequest) => Promise<DeploymentProviderResult<IosDeploymentPublication>>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "verifyAsync",
+        "kind": "method",
+        "type": "(request: IosPublishRequest) => Promise<DeploymentProviderResult<IosPublishInspection>>",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "IosPublishInspection",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 297,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "buildNumber",
+        "kind": "property",
+        "type": "string | null",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "bundleIdentifier",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "version",
+        "kind": "property",
+        "type": "string | null",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "IosPublishInspectionRequest",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 290,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["DeploymentCredentialReference", "DeploymentSecretResolver"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "bundleIdentifier",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "credentials",
+        "kind": "property",
+        "type": "readonly DeploymentCredentialReference[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "resolveSecret",
+        "kind": "property",
+        "type": "DeploymentSecretResolver",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "version",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "IosPublishRequest",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 303,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [
+      "DeploymentCredentialReference",
+      "DeploymentSecretResolver",
+      "IosBuildArtifact"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "artifact",
+        "kind": "property",
+        "type": "IosBuildArtifact",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "bundleIdentifier",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "credentials",
+        "kind": "property",
+        "type": "readonly DeploymentCredentialReference[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "resolveSecret",
+        "kind": "property",
+        "type": "DeploymentSecretResolver",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "revision",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "version",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
     "name": "isAppDeployManifest",
     "description": "Validate authored application deployment configuration.",
     "isReadme": false,
@@ -10616,6 +12754,626 @@
     "structuredRows": []
   },
   {
+    "name": "MonetizationAdapterContext",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployMonetization.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployMonetization.ts",
+      "line": 87,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [
+      "DeploymentCredentialReference",
+      "DeploymentSecretResolver",
+      "DeploymentStoreIdentity"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "credentials",
+        "kind": "property",
+        "type": "readonly DeploymentCredentialReference[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "identity",
+        "kind": "property",
+        "type": "DeploymentStoreIdentity",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "resolveSecret",
+        "kind": "property",
+        "type": "DeploymentSecretResolver",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "MonetizationBasePrice",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployMonetization.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployMonetization.ts",
+      "line": 16,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "amount",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "country",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "currency",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "MonetizationDesiredState",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployMonetization.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployMonetization.ts",
+      "line": 46,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["MonetizationProduct"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "products",
+        "kind": "property",
+        "type": "readonly MonetizationProduct[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "revision",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "MonetizationDiagnostic",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployMonetization.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployMonetization.ts",
+      "line": 51,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "code",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "locale",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "message",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "productId",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "severity",
+        "kind": "property",
+        "type": "\"error\" | \"warning\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "target",
+        "kind": "property",
+        "type": "\"android\" | \"ios\" | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "MonetizationLocalization",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployMonetization.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployMonetization.ts",
+      "line": 10,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "description",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "locale",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "name",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "MonetizationObservedProduct",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployMonetization.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployMonetization.ts",
+      "line": 38,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [
+      "MonetizationBasePrice",
+      "MonetizationLocalization",
+      "MonetizationProductKind",
+      "MonetizationSubscription"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "basePrice",
+        "kind": "property",
+        "type": "MonetizationBasePrice | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "kind",
+        "kind": "property",
+        "type": "MonetizationProductKind | \"one-time\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "localizations",
+        "kind": "property",
+        "type": "readonly MonetizationLocalization[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "subscription",
+        "kind": "property",
+        "type": "MonetizationSubscription | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "MonetizationPlan",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployMonetization.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployMonetization.ts",
+      "line": 79,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["MonetizationDiagnostic", "MonetizationPlanStep"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "currentRevision",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "desiredRevision",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "diagnostics",
+        "kind": "property",
+        "type": "readonly MonetizationDiagnostic[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "status",
+        "kind": "property",
+        "type": "\"no-change\" | \"changes\" | \"blocked\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "steps",
+        "kind": "property",
+        "type": "readonly MonetizationPlanStep[]",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "MonetizationPlanStep",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployMonetization.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployMonetization.ts",
+      "line": 67,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "operation",
+        "kind": "property",
+        "type": "\"ensure-subscription-family\" | \"create-product\" | \"update-metadata\" | \"update-price\" | \"update-subscription\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "productId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "target",
+        "kind": "property",
+        "type": "\"android\" | \"ios\"",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "MonetizationProduct",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployMonetization.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployMonetization.ts",
+      "line": 30,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [
+      "MonetizationBasePrice",
+      "MonetizationLocalization",
+      "MonetizationProductKind",
+      "MonetizationSubscription"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "basePrice",
+        "kind": "property",
+        "type": "MonetizationBasePrice",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "kind",
+        "kind": "property",
+        "type": "MonetizationProductKind",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "localizations",
+        "kind": "property",
+        "type": "readonly MonetizationLocalization[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "subscription",
+        "kind": "property",
+        "type": "MonetizationSubscription | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "MonetizationProductKind",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/types/deployMonetization.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployMonetization.ts",
+      "line": 8,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "MonetizationSubscription",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployMonetization.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployMonetization.ts",
+      "line": 24,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["MonetizationSubscriptionPeriod"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "family",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "level",
+        "kind": "property",
+        "type": "number | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "period",
+        "kind": "property",
+        "type": "MonetizationSubscriptionPeriod",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "MonetizationSubscriptionPeriod",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/types/deployMonetization.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployMonetization.ts",
+      "line": 22,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "MonetizationSyncRequest",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployMonetization.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployMonetization.ts",
+      "line": 93,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [
+      "DeploymentCredentialReference",
+      "DeploymentSecretResolver",
+      "DeploymentStoreIdentity",
+      "MonetizationDesiredState",
+      "MonetizationPlan"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "credentials",
+        "kind": "property",
+        "type": "readonly DeploymentCredentialReference[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "desired",
+        "kind": "property",
+        "type": "MonetizationDesiredState",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "identity",
+        "kind": "property",
+        "type": "DeploymentStoreIdentity",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "plan",
+        "kind": "property",
+        "type": "MonetizationPlan",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "resolveSecret",
+        "kind": "property",
+        "type": "DeploymentSecretResolver",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "MonetizationTargetState",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployMonetization.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployMonetization.ts",
+      "line": 60,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["MonetizationDiagnostic", "MonetizationObservedProduct"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "diagnostics",
+        "kind": "property",
+        "type": "readonly MonetizationDiagnostic[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "products",
+        "kind": "property",
+        "type": "readonly MonetizationObservedProduct[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "subscriptionFamilies",
+        "kind": "property",
+        "type": "readonly string[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "target",
+        "kind": "property",
+        "type": "\"android\" | \"ios\"",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
     "name": "NamedIconSpec",
     "description": null,
     "isReadme": false,
@@ -10720,7 +13478,7 @@
       {
         "name": "minimizeBehavior",
         "kind": "property",
-        "type": "\"automatic\" | \"never\" | \"onScrollDown\" | \"onScrollUp\" | undefined",
+        "type": "\"never\" | \"automatic\" | \"onScrollDown\" | \"onScrollUp\" | undefined",
         "required": false,
         "description": null
       }
@@ -12432,6 +15190,939 @@
     "structuredRows": []
   },
   {
+    "name": "ReleaseAdapterContext",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployRelease.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployRelease.ts",
+      "line": 124,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [
+      "DeploymentCredentialReference",
+      "DeploymentSecretResolver",
+      "DeploymentStoreIdentity"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "credentials",
+        "kind": "property",
+        "type": "readonly DeploymentCredentialReference[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "identity",
+        "kind": "property",
+        "type": "DeploymentStoreIdentity",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "resolveSecret",
+        "kind": "property",
+        "type": "DeploymentSecretResolver",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ReleaseControlExecutionResult",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/types/deployRelease.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployRelease.ts",
+      "line": 119,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "ReleaseControlRequest",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployRelease.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployRelease.ts",
+      "line": 139,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [
+      "DeploymentCredentialReference",
+      "DeploymentSecretResolver",
+      "DeploymentStoreIdentity",
+      "ReleaseDesiredState",
+      "ReleaseLifecycleControl"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "control",
+        "kind": "property",
+        "type": "ReleaseLifecycleControl",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "credentials",
+        "kind": "property",
+        "type": "readonly DeploymentCredentialReference[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "desired",
+        "kind": "property",
+        "type": "ReleaseDesiredState",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "identity",
+        "kind": "property",
+        "type": "DeploymentStoreIdentity",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "resolveSecret",
+        "kind": "property",
+        "type": "DeploymentSecretResolver",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ReleaseDesiredState",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployRelease.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployRelease.ts",
+      "line": 27,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["ReleaseNote", "ReleaseRollout", "ReleaseTarget"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "notes",
+        "kind": "property",
+        "type": "readonly ReleaseNote[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "revision",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "rollout",
+        "kind": "property",
+        "type": "ReleaseRollout",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "targets",
+        "kind": "property",
+        "type": "readonly ReleaseTarget[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "version",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ReleaseDiagnostic",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployRelease.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployRelease.ts",
+      "line": 83,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["ReleaseTarget"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "code",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "message",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "severity",
+        "kind": "property",
+        "type": "\"error\" | \"warning\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "target",
+        "kind": "property",
+        "type": "\"release\" | ReleaseTarget | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ReleaseInspectionRequest",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployRelease.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployRelease.ts",
+      "line": 130,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [
+      "DeploymentCredentialReference",
+      "DeploymentSecretResolver",
+      "DeploymentStoreIdentity"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "credentials",
+        "kind": "property",
+        "type": "readonly DeploymentCredentialReference[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "identity",
+        "kind": "property",
+        "type": "DeploymentStoreIdentity",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "resolveSecret",
+        "kind": "property",
+        "type": "DeploymentSecretResolver",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "version",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ReleaseLifecycleControl",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/types/deployRelease.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployRelease.ts",
+      "line": 107,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "ReleaseMutationResult",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/types/deployRelease.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployRelease.ts",
+      "line": 114,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "ReleaseNote",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployRelease.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployRelease.ts",
+      "line": 11,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "locale",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "text",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ReleaseObservedAndroidState",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployRelease.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployRelease.ts",
+      "line": 41,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["ReleaseNote"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "artifactRevision",
+        "kind": "property",
+        "type": "string | null",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "releaseNotes",
+        "kind": "property",
+        "type": "readonly ReleaseNote[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "rolloutStatus",
+        "kind": "property",
+        "type": "\"draft\" | \"completed\" | \"missing\" | \"inProgress\" | \"halted\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "target",
+        "kind": "property",
+        "type": "\"android\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "userFraction",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "version",
+        "kind": "property",
+        "type": "string | null",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "versionCodes",
+        "kind": "property",
+        "type": "readonly string[]",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ReleaseObservedIosState",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployRelease.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployRelease.ts",
+      "line": 51,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["ReleaseNote"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "appVersionState",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "artifactRevision",
+        "kind": "property",
+        "type": "string | null",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "buildNumber",
+        "kind": "property",
+        "type": "string | null",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "phasedReleaseState",
+        "kind": "property",
+        "type": "\"INACTIVE\" | \"ACTIVE\" | \"PAUSED\" | \"COMPLETE\" | null",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "releaseNotes",
+        "kind": "property",
+        "type": "readonly ReleaseNote[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "releaseType",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "reviewState",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "target",
+        "kind": "property",
+        "type": "\"ios\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "version",
+        "kind": "property",
+        "type": "string | null",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ReleaseObservedNativeState",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/types/deployRelease.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployRelease.ts",
+      "line": 144,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "ReleaseObservedState",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployRelease.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployRelease.ts",
+      "line": 66,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["ReleaseObservedTargetState"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "targets",
+        "kind": "property",
+        "type": "readonly ReleaseObservedTargetState[]",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ReleaseObservedTargetState",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/types/deployRelease.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployRelease.ts",
+      "line": 63,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "ReleaseObservedWebState",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployRelease.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployRelease.ts",
+      "line": 35,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "artifactRevision",
+        "kind": "property",
+        "type": "string | null",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "target",
+        "kind": "property",
+        "type": "\"web\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "version",
+        "kind": "property",
+        "type": "string | null",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ReleasePlan",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployRelease.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployRelease.ts",
+      "line": 99,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["ReleaseDiagnostic", "ReleasePlanStatus", "ReleasePlanStep"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "currentRevision",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "desiredRevision",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "diagnostics",
+        "kind": "property",
+        "type": "readonly ReleaseDiagnostic[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "status",
+        "kind": "property",
+        "type": "ReleasePlanStatus",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "steps",
+        "kind": "property",
+        "type": "readonly ReleasePlanStep[]",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ReleasePlanStatus",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/types/deployRelease.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployRelease.ts",
+      "line": 70,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "ReleasePlanStep",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployRelease.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployRelease.ts",
+      "line": 90,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["ReleaseStepOperation", "ReleaseStepRetry", "ReleaseTarget"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "dependsOn",
+        "kind": "property",
+        "type": "readonly string[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "irreversible",
+        "kind": "property",
+        "type": "boolean",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "operation",
+        "kind": "property",
+        "type": "ReleaseStepOperation",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "retry",
+        "kind": "property",
+        "type": "ReleaseStepRetry",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "target",
+        "kind": "property",
+        "type": "\"release\" | ReleaseTarget",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ReleaseRollout",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployRelease.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployRelease.ts",
+      "line": 21,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["ReleaseTargetRollout"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "android",
+        "kind": "property",
+        "type": "ReleaseTargetRollout | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "ios",
+        "kind": "property",
+        "type": "ReleaseTargetRollout | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "web",
+        "kind": "property",
+        "type": "ReleaseTargetRollout | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ReleaseRolloutMode",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/types/deployRelease.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployRelease.ts",
+      "line": 9,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "ReleaseStepExecutionRequest",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployRelease.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployRelease.ts",
+      "line": 134,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [
+      "DeploymentCredentialReference",
+      "DeploymentSecretResolver",
+      "DeploymentStoreIdentity",
+      "ReleaseDesiredState",
+      "ReleasePlanStep"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "credentials",
+        "kind": "property",
+        "type": "readonly DeploymentCredentialReference[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "desired",
+        "kind": "property",
+        "type": "ReleaseDesiredState",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "identity",
+        "kind": "property",
+        "type": "DeploymentStoreIdentity",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "resolveSecret",
+        "kind": "property",
+        "type": "DeploymentSecretResolver",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "step",
+        "kind": "property",
+        "type": "ReleasePlanStep",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ReleaseStepOperation",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/types/deployRelease.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployRelease.ts",
+      "line": 72,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "ReleaseStepRetry",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/types/deployRelease.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployRelease.ts",
+      "line": 71,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "ReleaseTarget",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/types/deployRelease.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployRelease.ts",
+      "line": 8,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "ReleaseTargetRollout",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployRelease.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployRelease.ts",
+      "line": 16,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["ReleaseRolloutMode"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "initialFraction",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "mode",
+        "kind": "property",
+        "type": "ReleaseRolloutMode",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
     "name": "RepositoryManifest",
     "description": null,
     "isReadme": false,
@@ -13560,7 +17251,7 @@
       {
         "name": "code",
         "kind": "property",
-        "type": "\"provider_error\" | \"invalid_config\" | \"invalid_reference\" | \"invalid_payload\" | \"not_found\" | \"conflict\" | \"permission_denied\" | \"unavailable\"",
+        "type": "\"provider_error\" | \"unavailable\" | \"invalid_config\" | \"invalid_reference\" | \"invalid_payload\" | \"not_found\" | \"conflict\" | \"permission_denied\"",
         "required": true,
         "description": null
       },
@@ -15338,6 +19029,736 @@
     "structuredRows": []
   },
   {
+    "name": "StoreListingAdapterContext",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployStoreListing.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployStoreListing.ts",
+      "line": 105,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [
+      "DeploymentCredentialReference",
+      "DeploymentSecretResolver",
+      "DeploymentStoreIdentity"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "credentials",
+        "kind": "property",
+        "type": "readonly DeploymentCredentialReference[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "identity",
+        "kind": "property",
+        "type": "DeploymentStoreIdentity",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "resolveSecret",
+        "kind": "property",
+        "type": "DeploymentSecretResolver",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "StoreListingAsset",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployStoreListing.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployStoreListing.ts",
+      "line": 36,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["StoreListingAssetMediaType"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "md5",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "mediaType",
+        "kind": "property",
+        "type": "StoreListingAssetMediaType",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "relativePath",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "sha256",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "size",
+        "kind": "property",
+        "type": "number",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "StoreListingAssetMediaType",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/types/deployStoreListing.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployStoreListing.ts",
+      "line": 34,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "StoreListingAssetReader",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployStoreListing.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployStoreListing.ts",
+      "line": 101,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "readAsync",
+        "kind": "method",
+        "type": "(relativePath: string) => Promise<Uint8Array>",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "StoreListingAssetSet",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployStoreListing.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployStoreListing.ts",
+      "line": 44,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["StoreListingAsset", "StoreListingTarget"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "assets",
+        "kind": "property",
+        "type": "readonly StoreListingAsset[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "locale",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "target",
+        "kind": "property",
+        "type": "StoreListingTarget",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "variant",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "StoreListingDesiredState",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployStoreListing.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployStoreListing.ts",
+      "line": 59,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["StoreListingAssetSet", "StoreListingLocale"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "assetSets",
+        "kind": "property",
+        "type": "readonly StoreListingAssetSet[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "locales",
+        "kind": "property",
+        "type": "readonly StoreListingLocale[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "revision",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "StoreListingDiagnostic",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployStoreListing.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployStoreListing.ts",
+      "line": 65,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["StoreListingField", "StoreListingTarget"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "code",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "field",
+        "kind": "property",
+        "type": "StoreListingField | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "locale",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "message",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "severity",
+        "kind": "property",
+        "type": "\"error\" | \"warning\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "target",
+        "kind": "property",
+        "type": "StoreListingTarget | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "variant",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "StoreListingField",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/types/deployStoreListing.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployStoreListing.ts",
+      "line": 10,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "StoreListingLocale",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployStoreListing.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployStoreListing.ts",
+      "line": 21,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "description",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "keywords",
+        "kind": "property",
+        "type": "readonly string[] | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "locale",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "marketingUrl",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "name",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "privacyPolicyUrl",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "promotionalText",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "promoVideoUrl",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "summary",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "supportUrl",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "StoreListingPlan",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployStoreListing.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployStoreListing.ts",
+      "line": 93,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["StoreListingDiagnostic", "StoreListingPlanStep"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "currentRevision",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "desiredRevision",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "diagnostics",
+        "kind": "property",
+        "type": "readonly StoreListingDiagnostic[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "status",
+        "kind": "property",
+        "type": "\"no-change\" | \"changes\" | \"blocked\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "steps",
+        "kind": "property",
+        "type": "readonly StoreListingPlanStep[]",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "StoreListingPlanOperation",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/types/deployStoreListing.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployStoreListing.ts",
+      "line": 83,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "StoreListingPlanStep",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployStoreListing.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployStoreListing.ts",
+      "line": 85,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["StoreListingPlanOperation", "StoreListingTarget"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "locale",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "operation",
+        "kind": "property",
+        "type": "StoreListingPlanOperation",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "target",
+        "kind": "property",
+        "type": "StoreListingTarget",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "variant",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "StoreListingRemoteAssetSet",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployStoreListing.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployStoreListing.ts",
+      "line": 51,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["StoreListingTarget"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "checksum",
+        "kind": "property",
+        "type": "\"md5\" | \"sha256\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "hashes",
+        "kind": "property",
+        "type": "readonly string[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "locale",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "target",
+        "kind": "property",
+        "type": "StoreListingTarget",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "variant",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "StoreListingSyncRequest",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployStoreListing.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployStoreListing.ts",
+      "line": 111,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [
+      "DeploymentCredentialReference",
+      "DeploymentSecretResolver",
+      "DeploymentStoreIdentity",
+      "StoreListingAssetReader",
+      "StoreListingDesiredState",
+      "StoreListingPlan"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "assets",
+        "kind": "property",
+        "type": "StoreListingAssetReader",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "credentials",
+        "kind": "property",
+        "type": "readonly DeploymentCredentialReference[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "desired",
+        "kind": "property",
+        "type": "StoreListingDesiredState",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "identity",
+        "kind": "property",
+        "type": "DeploymentStoreIdentity",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "plan",
+        "kind": "property",
+        "type": "StoreListingPlan",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "resolveSecret",
+        "kind": "property",
+        "type": "DeploymentSecretResolver",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "StoreListingTarget",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/types/deployStoreListing.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployStoreListing.ts",
+      "line": 8,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "StoreListingTargetState",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployStoreListing.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployStoreListing.ts",
+      "line": 75,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [
+      "StoreListingDiagnostic",
+      "StoreListingField",
+      "StoreListingLocale",
+      "StoreListingRemoteAssetSet",
+      "StoreListingTarget"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "assetSets",
+        "kind": "property",
+        "type": "readonly StoreListingRemoteAssetSet[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "diagnostics",
+        "kind": "property",
+        "type": "readonly StoreListingDiagnostic[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "locales",
+        "kind": "property",
+        "type": "readonly StoreListingLocale[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "supportedFields",
+        "kind": "property",
+        "type": "readonly StoreListingField[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "target",
+        "kind": "property",
+        "type": "StoreListingTarget",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
     "name": "SvgIconSpec",
     "description": null,
     "isReadme": false,
@@ -15498,7 +19919,7 @@
       {
         "name": "minimizeBehavior",
         "kind": "property",
-        "type": "\"automatic\" | \"never\" | \"onScrollDown\" | \"onScrollUp\" | undefined",
+        "type": "\"never\" | \"automatic\" | \"onScrollDown\" | \"onScrollUp\" | undefined",
         "required": false,
         "description": null
       },
@@ -17100,6 +21521,202 @@
       },
       {
         "name": "token",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "WebDeploymentPublication",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 142,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "deploymentId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "production",
+        "kind": "property",
+        "type": "boolean",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "provider",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "revision",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "target",
+        "kind": "property",
+        "type": "\"web\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "url",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "WebDeploymentPublisher",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 160,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [
+      "DeploymentProviderResult",
+      "WebDeploymentPublication",
+      "WebDeploymentPublishRequest"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "publishAsync",
+        "kind": "method",
+        "type": "(request: WebDeploymentPublishRequest) => Promise<DeploymentProviderResult<WebDeploymentPublication>>",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "WebDeploymentPublishIntent",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 136,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "alias",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "environment",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "mode",
+        "kind": "property",
+        "type": "\"preview\" | \"production\"",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "WebDeploymentPublishRequest",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/deployProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/types/deployProvider.ts",
+      "line": 151,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [
+      "DeploymentCredentialReference",
+      "DeploymentSecretResolver",
+      "WebDeploymentPublishIntent"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "credentials",
+        "kind": "property",
+        "type": "readonly DeploymentCredentialReference[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "exportDirectory",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "intent",
+        "kind": "property",
+        "type": "WebDeploymentPublishIntent",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "projectRoot",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "resolveSecret",
+        "kind": "property",
+        "type": "DeploymentSecretResolver",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "revision",
         "kind": "property",
         "type": "string",
         "required": true,

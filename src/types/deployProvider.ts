@@ -111,6 +111,7 @@ export type DeploymentProvisioningRequirement =
   | { readonly type: 'manual-action'; readonly action: DeploymentManualAction };
 
 export interface DeploymentProviderSetupContext {
+  readonly projectRoot: string;
   readonly target?: AppDeployTargetId;
   readonly credentials: readonly DeploymentCredentialReference[];
   readonly resolveSecret: DeploymentSecretResolver;
