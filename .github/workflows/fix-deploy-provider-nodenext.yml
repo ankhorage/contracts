@@ -28,6 +28,7 @@ jobs:
 
           replacements = {
               'src/deploy.ts': {"'./appManifest/deploy'": "'./appManifest/deploy.js'"},
+              'src/appManifest/deploy.ts': {"'../deploy'": "'../deploy.js'"},
               'src/deployProvider.ts': {
                   "'./types/deployMonetization'": "'./types/deployMonetization.js'",
                   "'./types/deployProvider'": "'./types/deployProvider.js'",
@@ -76,6 +77,6 @@ jobs:
         run: |
           git config user.name "ankhorage-renovate-sync[bot]"
           git config user.email "ankhorage-renovate-sync[bot]@users.noreply.github.com"
-          git add src/deploy.ts src/deployProvider.ts src/types/deployProvider.ts src/types/deployMonetization.ts src/types/deployRelease.ts src/types/deployStoreListing.ts consumer-tests tsconfig.deploy-provider-consumer.json package.json .changeset/deploy-provider-nodenext.md
+          git add src/deploy.ts src/appManifest/deploy.ts src/deployProvider.ts src/types/deployProvider.ts src/types/deployMonetization.ts src/types/deployRelease.ts src/types/deployStoreListing.ts consumer-tests tsconfig.deploy-provider-consumer.json package.json .changeset/deploy-provider-nodenext.md
           git commit -m "fix: make deploy provider declarations NodeNext compatible [nodenext]"
           git push origin HEAD:fix/deploy-provider-nodenext
