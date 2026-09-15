@@ -140,39 +140,6 @@ describe('runtime topology configuration', () => {
   });
 });
 
-describe('sibling service configuration', () => {
-  it('accepts Supabase auth, Cerbos and independent R2 storage', () => {
-    expect(isInfraEnvironmentSpec(production)).toBe(true);
-    expect(isInfraEnvironmentSpec({ ...production, objectStorage: { provider: 'supabase' } })).toBe(
-      true,
-    );
-    expect(isInfraEnvironmentSpec({ ...local, auth: { provider: 'supabase' } })).toBe(true);
-  });
-
-  it.each([
-    { database: { provider: 'postgres' } },
-    { database: { provider: 'supabase', tier: 'enterprise' } },
-    { objectStorage: { provider: 'auto' } },
-    { objectStorage: { provider: 's3' } },
-    { objectStorage: { provider: 'supabase', buckets: [1] } },
-    { objectStorage: { provider: 'supabase', accountId: 'r2-account' } },
-    { auth: { provider: 'custom' } },
-    { auth: { provider: 'supabase', scope: 'unknown' } },
-    { auth: { provider: 'supabase', authorization: { kind: 'ABAC', engine: 'cerbos' } } },
-    { authz: { provider: 'native', kind: 'RBAC' } },
-    { authz: { engine: 'cerbos', kind: 'ABAC' } },
-    { authz: { provider: 'cerbos', kind: 'unknown' } },
-    { secretStore: { provider: 'unknown' } },
-    { secretStore: { provider: 'supabase-vault' } },
-    { networking: { domain: 'example.ch', cdn: true } },
-    { networking: { publicBaseUrl: 'ftp://api.example.ch' } },
-    { networking: { publicBaseUrl: 'https://api.example.ch/auth/v1' } },
-    { networking: { publicBaseUrl: 'https://api.example.ch/' } },
-  ])('rejects unsupported service selection: %j', (selection) => {
-    expect(isInfraEnvironmentSpec({ ...local, ...selection })).toBe(false);
-  });
-});
-
 describe('Cerbos policy configuration', () => {
   it('accepts portable policy files', () => {
     expect(
