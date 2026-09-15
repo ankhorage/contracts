@@ -1,7 +1,12 @@
 import { isRecord } from '@ankhorage/utility/object';
 import { isNonEmptyString } from '@ankhorage/utility/string';
 
-import type { InfraEnvironmentSpec, InfraObjectStorageSpec } from '../types/infraManifest';
+import type {
+  InfraContinuousDatabaseBackupSpec,
+  InfraEnvironmentSpec,
+  InfraObjectStorageSpec,
+  InfraS3PersistenceTarget,
+} from '../types/infraManifest';
 import type { InfraShape } from '../types/infraValidation';
 import { INFRA_ADAPTER_CATALOG } from './constants';
 import { infraFields } from './infraFields';
@@ -30,6 +35,7 @@ function isEnvironmentShape(value: unknown): value is InfraEnvironmentSpec {
       isInfraShape(database, {
         provider: (provider) => provider === 'supabase',
         tier: (tier) => tier === undefined || tier === 'dev' || tier === 'prod',
+        backup: (backup) => backup === undefined || isContinuousDatabaseBackup(backup),
       }),
     objectStorage: (storage) => storage === undefined || isObjectStorage(storage),
     auth: (auth) => auth === undefined || isInfraAuthSpec(auth),
@@ -99,6 +105,28 @@ function isPolicyFiles(value: unknown): boolean {
   );
 }
 
+/*** Validate provider-neutral continuous database backup intent. */
+function isContinuousDatabaseBackup(value: unknown): value is InfraContinuousDatabaseBackupSpec {
+  return isInfraShape(value, {
+    mode: (mode) => mode === 'continuous',
+    target: isS3PersistenceTarget,
+    baseBackupIntervalHours: (interval) =>
+      interval === undefined || (Number.isInteger(interval) && interval > 0),
+  });
+}
+
+/*** Validate one portable S3-compatible persistence target without resolving credentials. */
+function isS3PersistenceTarget(value: unknown): value is InfraS3PersistenceTarget {
+  return isInfraShape(value, {
+    endpoint: isPublicHttpOrigin,
+    region: isNonEmptyString,
+    bucket: isNonEmptyString,
+    credentials: isInfraCredentialRef,
+    forcePathStyle: (forcePathStyle) =>
+      forcePathStyle === undefined || typeof forcePathStyle === 'boolean',
+  });
+}
+
 /*** Object storage can vary independently from database/auth; there is no implicit auto provider. */
 function isObjectStorage(value: unknown): boolean {
   if (!isRecord(value)) return false;
@@ -106,7 +134,13 @@ function isObjectStorage(value: unknown): boolean {
     provider: (provider: unknown) => provider === value.provider,
     buckets: infraFields.optionalStrings,
   };
-  if (value.provider === 'supabase') return isInfraShape(value, common);
+  if (value.provider === 'supabase') {
+    return isInfraShape(value, {
+      ...common,
+      provider: (provider) => provider === 'supabase',
+      backend: (backend) => backend === undefined || isS3PersistenceTarget(backend),
+    } satisfies InfraShape<Extract<InfraObjectStorageSpec, { readonly provider: 'supabase' }>>);
+  }
   return isInfraShape(value, {
     ...common,
     provider: (provider) => provider === 'r2',
