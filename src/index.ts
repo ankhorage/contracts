@@ -5,6 +5,7 @@ export * from './cli';
 export * from './data';
 export * from './db';
 export * from './deploy';
+export * from './deployProvider';
 export * from './environments';
 export * from './infra';
 export * from './media';
