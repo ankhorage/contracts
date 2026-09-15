@@ -115,11 +115,20 @@ export type InfraSecretStoreSpec = {
   [P in InfraProviderFor<'secretStore'>]: { readonly provider: P } & InfraSecretStoreConfigMap[P];
 }[InfraProviderFor<'secretStore'>];
 
+export interface InfraNetworkingTlsSpec {
+  /** First production slice: runtime-managed ACME using the HTTP-01 challenge. */
+  readonly mode: 'acme-http-01';
+  /** ACME registration and expiry-notification contact. */
+  readonly contactEmail: string;
+}
+
 export interface InfraNetworkingSpec {
   /** Public DNS name intent, not automatic DNS/CDN vendor provisioning. */
   readonly domain?: string;
   /** Absolute HTTP(S) origin used by workloads that must know their external URL at startup. */
   readonly publicBaseUrl?: string;
+  /** Runtime-neutral automatic TLS intent; the selected runtime owns concrete ingress configuration. */
+  readonly tls?: InfraNetworkingTlsSpec;
 }
 
 export interface InfraEnvironmentSpec {
