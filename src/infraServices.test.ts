@@ -18,7 +18,7 @@ const production = {
   networking: { domain: 'api.example.ch', publicBaseUrl: 'https://api.example.ch' },
 } as const satisfies InfraEnvironmentSpec;
 
-const invalidServiceSelections = [
+const invalidServiceSelections: Record<string, unknown>[] = [
   { database: { provider: 'postgres' } },
   { database: { provider: 'supabase', tier: 'enterprise' } },
   { objectStorage: { provider: 'auto' } },
@@ -33,7 +33,7 @@ const invalidServiceSelections = [
   { authz: { provider: 'cerbos', kind: 'unknown' } },
   { secretStore: { provider: 'unknown' } },
   { secretStore: { provider: 'supabase-vault' } },
-] as const;
+];
 
 describe('sibling service configuration', () => {
   it('accepts Supabase auth, Cerbos and independent R2 storage', () => {
