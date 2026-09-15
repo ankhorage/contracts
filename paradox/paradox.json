@@ -66,9 +66,7 @@
   "readmeCli": null,
   "readmeConfig": null,
   "config": null,
-  "entrypoints": [
-    "src/index.ts"
-  ],
+  "entrypoints": ["src/index.ts"],
   "modules": [
     {
       "path": "src/appManifest.ts",
@@ -91,16 +89,12 @@
         "src/appManifest/isManifestValue.ts",
         "src/data/index.ts"
       ],
-      "exports": [
-        "isApiDefinitionList"
-      ]
+      "exports": ["isApiDefinitionList"]
     },
     {
       "path": "src/appManifest/bindings.ts",
       "isEntrypoint": false,
-      "dependencies": [
-        "src/appManifest/isManifestValue.ts"
-      ],
+      "dependencies": ["src/appManifest/isManifestValue.ts"],
       "exports": [
         "isBindingValueSource",
         "isComponentDataBindingRegistry",
@@ -110,19 +104,13 @@
     {
       "path": "src/appManifest/constants.ts",
       "isEntrypoint": false,
-      "dependencies": [
-        "src/types.ts"
-      ],
-      "exports": [
-        "APP_MANIFEST_KEY_POLICY"
-      ]
+      "dependencies": ["src/types.ts"],
+      "exports": ["APP_MANIFEST_KEY_POLICY"]
     },
     {
       "path": "src/appManifest/data.ts",
       "isEntrypoint": false,
-      "dependencies": [
-        "src/appManifest/isManifestValue.ts"
-      ],
+      "dependencies": ["src/appManifest/isManifestValue.ts"],
       "exports": [
         "isAdapterRef",
         "isCredentialRef",
@@ -133,33 +121,20 @@
     {
       "path": "src/appManifest/dataSources.ts",
       "isEntrypoint": false,
-      "dependencies": [
-        "src/appManifest/data.ts",
-        "src/appManifest/isManifestValue.ts"
-      ],
-      "exports": [
-        "isDataSourceRegistry"
-      ]
+      "dependencies": ["src/appManifest/data.ts", "src/appManifest/isManifestValue.ts"],
+      "exports": ["isDataSourceRegistry"]
     },
     {
       "path": "src/appManifest/deploy.ts",
       "isEntrypoint": false,
-      "dependencies": [
-        "src/deploy.ts"
-      ],
-      "exports": [
-        "isAppDeployManifest"
-      ]
+      "dependencies": ["src/deploy.ts"],
+      "exports": ["isAppDeployManifest"]
     },
     {
       "path": "src/appManifest/icon.ts",
       "isEntrypoint": false,
-      "dependencies": [
-        "src/media.ts"
-      ],
-      "exports": [
-        "isIconSpec"
-      ]
+      "dependencies": ["src/media.ts"],
+      "exports": ["isIconSpec"]
     },
     {
       "path": "src/appManifest/isAppManifest.ts",
@@ -175,37 +150,25 @@
         "src/infra/isInfraManifest.ts",
         "src/types.ts"
       ],
-      "exports": [
-        "isAppManifest"
-      ]
+      "exports": ["isAppManifest"]
     },
     {
       "path": "src/appManifest/isAppStateSpec.ts",
       "isEntrypoint": false,
-      "dependencies": [
-        "src/state.ts"
-      ],
-      "exports": [
-        "isAppStateSpec"
-      ]
+      "dependencies": ["src/state.ts"],
+      "exports": ["isAppStateSpec"]
     },
     {
       "path": "src/appManifest/isManifestValue.ts",
       "isEntrypoint": false,
       "dependencies": [],
-      "exports": [
-        "isManifestValue"
-      ]
+      "exports": ["isManifestValue"]
     },
     {
       "path": "src/appManifest/media.ts",
       "isEntrypoint": false,
-      "dependencies": [
-        "src/media.ts"
-      ],
-      "exports": [
-        "isMediaManifest"
-      ]
+      "dependencies": ["src/media.ts"],
+      "exports": ["isMediaManifest"]
     },
     {
       "path": "src/appManifest/navigator.ts",
@@ -215,16 +178,12 @@
         "src/appManifest/navigatorOptions.ts",
         "src/navigator.ts"
       ],
-      "exports": [
-        "isAppNavigatorManifest"
-      ]
+      "exports": ["isAppNavigatorManifest"]
     },
     {
       "path": "src/appManifest/navigatorOptions.ts",
       "isEntrypoint": false,
-      "dependencies": [
-        "src/navigator.ts"
-      ],
+      "dependencies": ["src/navigator.ts"],
       "exports": [
         "isDrawerNavigatorOptions",
         "isNavigatorScreenReference",
@@ -236,22 +195,13 @@
     {
       "path": "src/appManifest/parseAppManifest.ts",
       "isEntrypoint": false,
-      "dependencies": [
-        "src/appManifest/isAppManifest.ts",
-        "src/types/appManifest.ts"
-      ],
-      "exports": [
-        "parseAppManifest"
-      ]
+      "dependencies": ["src/appManifest/isAppManifest.ts", "src/types/appManifest.ts"],
+      "exports": ["parseAppManifest"]
     },
     {
       "path": "src/appManifest/screens.ts",
       "isEntrypoint": false,
-      "dependencies": [
-        "src/appManifest/bindings.ts",
-        "src/media.ts",
-        "src/types.ts"
-      ],
+      "dependencies": ["src/appManifest/bindings.ts", "src/media.ts", "src/types.ts"],
       "exports": [
         "isAppNavigatorManifest",
         "isManifestMetadata",
@@ -263,24 +213,13 @@
     {
       "path": "src/appManifest/splashScreen.ts",
       "isEntrypoint": false,
-      "dependencies": [
-        "src/media.ts"
-      ],
-      "exports": [
-        "SplashScreenModeSpec",
-        "SplashScreenResizeMode",
-        "SplashScreenSpec"
-      ]
+      "dependencies": ["src/media.ts"],
+      "exports": ["SplashScreenModeSpec", "SplashScreenResizeMode", "SplashScreenSpec"]
     },
     {
       "path": "src/auth.ts",
       "isEntrypoint": false,
-      "dependencies": [
-        "src/deploy.ts",
-        "src/environments.ts",
-        "src/secrets.ts",
-        "src/types.ts"
-      ],
+      "dependencies": ["src/deploy.ts", "src/environments.ts", "src/secrets.ts", "src/types.ts"],
       "exports": [
         "AUTH_IDENTIFIER_KINDS",
         "AUTH_OAUTH_CANCELLATION_REASONS",
@@ -349,9 +288,7 @@
     {
       "path": "src/bindings.ts",
       "isEntrypoint": false,
-      "dependencies": [
-        "src/data/index.ts"
-      ],
+      "dependencies": ["src/data/index.ts"],
       "exports": [
         "BindingCondition",
         "BindingConditionOperator",
@@ -416,9 +353,7 @@
     {
       "path": "src/data/diagnostics.ts",
       "isEntrypoint": false,
-      "dependencies": [
-        "src/data/ids.ts"
-      ],
+      "dependencies": ["src/data/ids.ts"],
       "exports": [
         "DataDiagnosticCode",
         "DataDiagnosticSeverity",
@@ -435,11 +370,7 @@
         "src/data/refs.ts",
         "src/data/values.ts"
       ],
-      "exports": [
-        "DataEndpointConfig",
-        "DataEndpointKind",
-        "DataEndpointRegistry"
-      ]
+      "exports": ["DataEndpointConfig", "DataEndpointKind", "DataEndpointRegistry"]
     },
     {
       "path": "src/data/ids.ts",
@@ -538,10 +469,7 @@
     {
       "path": "src/data/refs.ts",
       "isEntrypoint": false,
-      "dependencies": [
-        "src/data/ids.ts",
-        "src/data/values.ts"
-      ],
+      "dependencies": ["src/data/ids.ts", "src/data/values.ts"],
       "exports": [
         "AdapterKind",
         "AdapterRef",
@@ -553,10 +481,7 @@
     {
       "path": "src/data/schemas.ts",
       "isEntrypoint": false,
-      "dependencies": [
-        "src/data/ids.ts",
-        "src/data/values.ts"
-      ],
+      "dependencies": ["src/data/ids.ts", "src/data/values.ts"],
       "exports": [
         "DataSchema",
         "DataSchemaPrimitiveType",
@@ -587,10 +512,7 @@
       "path": "src/data/values.ts",
       "isEntrypoint": false,
       "dependencies": [],
-      "exports": [
-        "DataContractValue",
-        "DataPath"
-      ]
+      "exports": ["DataContractValue", "DataPath"]
     },
     {
       "path": "src/db.ts",
@@ -768,10 +690,7 @@
       "path": "src/environments.ts",
       "isEntrypoint": false,
       "dependencies": [],
-      "exports": [
-        "APP_ENVIRONMENT_IDS",
-        "AppEnvironmentId"
-      ]
+      "exports": ["APP_ENVIRONMENT_IDS", "AppEnvironmentId"]
     },
     {
       "path": "src/index.ts",
@@ -1477,18 +1396,13 @@
       "path": "src/infra/constants.ts",
       "isEntrypoint": false,
       "dependencies": [],
-      "exports": [
-        "INFRA_ADAPTER_CATALOG",
-        "INFRA_RUNTIME_COMPATIBILITY"
-      ]
+      "exports": ["INFRA_ADAPTER_CATALOG", "INFRA_RUNTIME_COMPATIBILITY"]
     },
     {
       "path": "src/infra/infraFields.ts",
       "isEntrypoint": false,
       "dependencies": [],
-      "exports": [
-        "infraFields"
-      ]
+      "exports": ["infraFields"]
     },
     {
       "path": "src/infra/isInfraAdapterDescriptor.ts",
@@ -1498,9 +1412,7 @@
         "src/infra/isInfraShape.ts",
         "src/types/infraAdapters.ts"
       ],
-      "exports": [
-        "isInfraAdapterDescriptor"
-      ]
+      "exports": ["isInfraAdapterDescriptor"]
     },
     {
       "path": "src/infra/isInfraAuthSpec.ts",
@@ -1513,19 +1425,13 @@
         "src/types/infraManifest.ts",
         "src/types/infraValidation.ts"
       ],
-      "exports": [
-        "isInfraAuthSpec"
-      ]
+      "exports": ["isInfraAuthSpec"]
     },
     {
       "path": "src/infra/isInfraCredentialRef.ts",
       "isEntrypoint": false,
-      "dependencies": [
-        "src/infra/isInfraShape.ts"
-      ],
-      "exports": [
-        "isInfraCredentialRef"
-      ]
+      "dependencies": ["src/infra/isInfraShape.ts"],
+      "exports": ["isInfraCredentialRef"]
     },
     {
       "path": "src/infra/isInfraDeploymentSpec.ts",
@@ -1538,9 +1444,7 @@
         "src/types/infraManifest.ts",
         "src/types/infraValidation.ts"
       ],
-      "exports": [
-        "isInfraDeploymentSpec"
-      ]
+      "exports": ["isInfraDeploymentSpec"]
     },
     {
       "path": "src/infra/isInfraEnvironmentSpec.ts",
@@ -1556,9 +1460,7 @@
         "src/types/infraManifest.ts",
         "src/types/infraValidation.ts"
       ],
-      "exports": [
-        "isInfraEnvironmentSpec"
-      ]
+      "exports": ["isInfraEnvironmentSpec"]
     },
     {
       "path": "src/infra/isInfraManifest.ts",
@@ -1572,28 +1474,19 @@
         "src/types/infraManifest.ts",
         "src/types/infraValidation.ts"
       ],
-      "exports": [
-        "isInfraManifest"
-      ]
+      "exports": ["isInfraManifest"]
     },
     {
       "path": "src/infra/isInfraShape.ts",
       "isEntrypoint": false,
       "dependencies": [],
-      "exports": [
-        "isInfraShape"
-      ]
+      "exports": ["isInfraShape"]
     },
     {
       "path": "src/infra/isInfraWorkloadHealth.ts",
       "isEntrypoint": false,
-      "dependencies": [
-        "src/infra/infraFields.ts",
-        "src/infra/isInfraShape.ts"
-      ],
-      "exports": [
-        "isInfraWorkloadHealth"
-      ]
+      "dependencies": ["src/infra/infraFields.ts", "src/infra/isInfraShape.ts"],
+      "exports": ["isInfraWorkloadHealth"]
     },
     {
       "path": "src/infra/isInfraWorkloadSpec.ts",
@@ -1606,9 +1499,7 @@
         "src/types/infraValidation.ts",
         "src/types/infraWorkload.ts"
       ],
-      "exports": [
-        "isInfraWorkloadSpec"
-      ]
+      "exports": ["isInfraWorkloadSpec"]
     },
     {
       "path": "src/infra/isInfraWorkloadValue.ts",
@@ -1619,9 +1510,7 @@
         "src/infra/isInfraShape.ts",
         "src/types/infraWorkload.ts"
       ],
-      "exports": [
-        "isInfraWorkloadValue"
-      ]
+      "exports": ["isInfraWorkloadValue"]
     },
     {
       "path": "src/infra/parseInfraManifest.ts",
@@ -1631,9 +1520,7 @@
         "src/types/infraLifecycle.ts",
         "src/types/infraManifest.ts"
       ],
-      "exports": [
-        "parseInfraManifest"
-      ]
+      "exports": ["parseInfraManifest"]
     },
     {
       "path": "src/infra/validateInfraAdapterSelection.ts",
@@ -1645,9 +1532,7 @@
         "src/types/infraLifecycle.ts",
         "src/types/infraManifest.ts"
       ],
-      "exports": [
-        "validateInfraAdapterSelection"
-      ]
+      "exports": ["validateInfraAdapterSelection"]
     },
     {
       "path": "src/media.ts",
@@ -1671,9 +1556,7 @@
     {
       "path": "src/navigator.ts",
       "isEntrypoint": false,
-      "dependencies": [
-        "src/types.ts"
-      ],
+      "dependencies": ["src/types.ts"],
       "exports": [
         "AdaptiveTabsConfig",
         "AppNavigatorManifest",
@@ -1788,10 +1671,7 @@
     {
       "path": "src/navigator/extensions.ts",
       "isEntrypoint": false,
-      "dependencies": [
-        "src/navigator.ts",
-        "src/navigator/planning.ts"
-      ],
+      "dependencies": ["src/navigator.ts", "src/navigator/planning.ts"],
       "exports": [
         "CustomNavigatorConfigIssue",
         "CustomNavigatorRegistration",
@@ -1801,9 +1681,7 @@
     {
       "path": "src/navigator/generation.ts",
       "isEntrypoint": false,
-      "dependencies": [
-        "src/navigator/planning.ts"
-      ],
+      "dependencies": ["src/navigator/planning.ts"],
       "exports": [
         "NavigatorDependencyRequirement",
         "NavigatorGeneratedFile",
@@ -1846,9 +1724,7 @@
       "path": "src/repository.ts",
       "isEntrypoint": false,
       "dependencies": [],
-      "exports": [
-        "RepositoryManifest"
-      ]
+      "exports": ["RepositoryManifest"]
     },
     {
       "path": "src/requirements.ts",
@@ -1868,9 +1744,7 @@
     {
       "path": "src/runtimeCallbacks.ts",
       "isEntrypoint": false,
-      "dependencies": [
-        "src/types.ts"
-      ],
+      "dependencies": ["src/types.ts"],
       "exports": [
         "RuntimeCallback",
         "RuntimeCallbackArgs",
@@ -2047,19 +1921,13 @@
     {
       "path": "src/types/appManifest.ts",
       "isEntrypoint": false,
-      "dependencies": [
-        "src/types.ts"
-      ],
-      "exports": [
-        "AppManifestParseResult"
-      ]
+      "dependencies": ["src/types.ts"],
+      "exports": ["AppManifestParseResult"]
     },
     {
       "path": "src/types/deployMonetization.ts",
       "isEntrypoint": false,
-      "dependencies": [
-        "src/types/deployProvider.ts"
-      ],
+      "dependencies": ["src/types/deployProvider.ts"],
       "exports": [
         "DeploymentMonetizationAdapter",
         "MonetizationAdapterContext",
@@ -2146,9 +2014,7 @@
     {
       "path": "src/types/deployRelease.ts",
       "isEntrypoint": false,
-      "dependencies": [
-        "src/types/deployProvider.ts"
-      ],
+      "dependencies": ["src/types/deployProvider.ts"],
       "exports": [
         "DeploymentReleaseAdapter",
         "ReleaseAdapterContext",
@@ -2181,9 +2047,7 @@
     {
       "path": "src/types/deployStoreListing.ts",
       "isEntrypoint": false,
-      "dependencies": [
-        "src/types/deployProvider.ts"
-      ],
+      "dependencies": ["src/types/deployProvider.ts"],
       "exports": [
         "DeploymentStoreListingAdapter",
         "StoreListingAdapterContext",
@@ -2293,38 +2157,25 @@
     {
       "path": "src/types/infraSecrets.ts",
       "isEntrypoint": false,
-      "dependencies": [
-        "src/environments.ts"
-      ],
-      "exports": [
-        "InfraControlPlaneCredentialRef",
-        "InfraSecretReference"
-      ]
+      "dependencies": ["src/environments.ts"],
+      "exports": ["InfraControlPlaneCredentialRef", "InfraSecretReference"]
     },
     {
       "path": "src/types/infraTargets.ts",
       "isEntrypoint": false,
-      "dependencies": [
-        "src/types/infraSecrets.ts"
-      ],
-      "exports": [
-        "InfraComputeTarget"
-      ]
+      "dependencies": ["src/types/infraSecrets.ts"],
+      "exports": ["InfraComputeTarget"]
     },
     {
       "path": "src/types/infraValidation.ts",
       "isEntrypoint": false,
       "dependencies": [],
-      "exports": [
-        "InfraShape"
-      ]
+      "exports": ["InfraShape"]
     },
     {
       "path": "src/types/infraWorkload.ts",
       "isEntrypoint": false,
-      "dependencies": [
-        "src/types/infraSecrets.ts"
-      ],
+      "dependencies": ["src/types/infraSecrets.ts"],
       "exports": [
         "InfraWorkloadArtifact",
         "InfraWorkloadFileSpec",
@@ -2340,10 +2191,7 @@
     {
       "path": "src/ui.ts",
       "isEntrypoint": false,
-      "dependencies": [
-        "src/media.ts",
-        "src/types.ts"
-      ],
+      "dependencies": ["src/media.ts", "src/types.ts"],
       "exports": [
         "UiBindableEventMeta",
         "UiBindableEventPayloadMeta",
@@ -2385,9 +2233,7 @@
         "line": 87,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -2405,9 +2251,7 @@
         "line": 36,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -2425,9 +2269,7 @@
         "line": 7,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -2445,9 +2287,7 @@
         "line": 13,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -2465,13 +2305,8 @@
         "line": 15,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "AdapterKind",
-        "DataContractValue"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["AdapterKind", "DataContractValue"],
       "signatures": [],
       "members": [
         {
@@ -2524,13 +2359,8 @@
         "line": 167,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "HeadlessTabsPresentationConfig",
-        "NativeTabsConfig"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["HeadlessTabsPresentationConfig", "NativeTabsConfig"],
       "signatures": [],
       "members": [
         {
@@ -2569,9 +2399,7 @@
         "line": 47,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -2604,9 +2432,7 @@
         "line": 166,
         "column": 14
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -2624,9 +2450,7 @@
         "line": 169,
         "column": 14
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -2644,9 +2468,7 @@
         "line": 194,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -2707,9 +2529,7 @@
         "line": 186,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -2735,13 +2555,8 @@
         "line": 178,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "DeploymentCredentialReference",
-        "DeploymentSecretResolver"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["DeploymentCredentialReference", "DeploymentSecretResolver"],
       "signatures": [],
       "members": [
         {
@@ -2794,13 +2609,8 @@
         "line": 190,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "DeploymentCredentialReference",
-        "DeploymentSecretResolver"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["DeploymentCredentialReference", "DeploymentSecretResolver"],
       "signatures": [],
       "members": [
         {
@@ -2860,9 +2670,7 @@
         "line": 203,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "AndroidBuildArtifact",
         "AndroidBuildInspection",
@@ -2901,9 +2709,7 @@
         "line": 172,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -2943,9 +2749,7 @@
         "line": 228,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -3020,9 +2824,7 @@
         "line": 239,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "AndroidDeploymentPublication",
         "AndroidPublishInspection",
@@ -3068,9 +2870,7 @@
         "line": 167,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -3088,9 +2888,7 @@
         "line": 217,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -3123,13 +2921,8 @@
         "line": 210,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "DeploymentCredentialReference",
-        "DeploymentSecretResolver"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["DeploymentCredentialReference", "DeploymentSecretResolver"],
       "signatures": [],
       "members": [
         {
@@ -3175,9 +2968,7 @@
         "line": 222,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "AndroidBuildArtifact",
         "DeploymentCredentialReference",
@@ -3249,9 +3040,7 @@
         "line": 170,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -3269,9 +3058,7 @@
         "line": 5,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -3289,9 +3076,7 @@
         "line": 1,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -3309,9 +3094,7 @@
         "line": 7,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -3365,12 +3148,8 @@
         "line": 20,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "AnkhCommandDescriptor"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["AnkhCommandDescriptor"],
       "signatures": [],
       "members": [
         {
@@ -3423,9 +3202,7 @@
         "line": 14,
         "column": 14
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -3443,9 +3220,7 @@
         "line": 1,
         "column": 14
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -3463,9 +3238,7 @@
         "line": 25,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -3483,9 +3256,7 @@
         "line": 12,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -3503,9 +3274,7 @@
         "line": 28,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -3545,9 +3314,7 @@
         "line": 3,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -3565,9 +3332,7 @@
         "line": 10,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "ApiOrigin",
         "ApiProtocol",
@@ -3656,9 +3421,7 @@
         "line": 60,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -3676,9 +3439,7 @@
         "line": 63,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -3696,9 +3457,7 @@
         "line": 1,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -3716,9 +3475,7 @@
         "line": 7,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -3736,9 +3493,7 @@
         "line": 8,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -3756,9 +3511,7 @@
         "line": 142,
         "column": 14
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -3776,9 +3529,7 @@
         "line": 1,
         "column": 14
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -3796,9 +3547,7 @@
         "line": 2,
         "column": 14
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -3816,9 +3565,7 @@
         "line": 167,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -3836,12 +3583,8 @@
         "line": 15,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "AppDeployProviderSelection"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["AppDeployProviderSelection"],
       "signatures": [],
       "members": [
         {
@@ -3887,12 +3630,8 @@
         "line": 23,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "AppDeployProviderSelection"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["AppDeployProviderSelection"],
       "signatures": [],
       "members": [
         {
@@ -3938,12 +3677,8 @@
         "line": 37,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "AppDeployTargets"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["AppDeployTargets"],
       "signatures": [],
       "members": [
         {
@@ -3968,9 +3703,7 @@
         "line": 5,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -4003,9 +3736,7 @@
         "line": 3,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -4023,9 +3754,7 @@
         "line": 31,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "AppDeployAndroidTargetConfig",
         "AppDeployIosTargetConfig",
@@ -4069,12 +3798,8 @@
         "line": 10,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "AppDeployProviderSelection"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["AppDeployProviderSelection"],
       "signatures": [],
       "members": [
         {
@@ -4106,9 +3831,7 @@
         "line": 4,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -4126,9 +3849,7 @@
         "line": 268,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "AppCategory",
         "AppDeployManifest",
@@ -4266,9 +3987,7 @@
         "line": 3,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -4286,9 +4005,7 @@
         "line": 264,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -4306,9 +4023,7 @@
         "line": 261,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -4334,9 +4049,7 @@
         "line": 2,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -4369,9 +4082,7 @@
         "line": 6,
         "column": 14
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -4389,9 +4100,7 @@
         "line": 282,
         "column": 14
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -4409,9 +4118,7 @@
         "line": 249,
         "column": 14
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -4429,9 +4136,7 @@
         "line": 239,
         "column": 14
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -4449,9 +4154,7 @@
         "line": 19,
         "column": 14
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -4469,9 +4172,7 @@
         "line": 57,
         "column": 14
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -4489,9 +4190,7 @@
         "line": 47,
         "column": 14
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -4509,9 +4208,7 @@
         "line": 54,
         "column": 14
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -4529,9 +4226,7 @@
         "line": 275,
         "column": 14
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -4549,9 +4244,7 @@
         "line": 288,
         "column": 14
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -4569,9 +4262,7 @@
         "line": 43,
         "column": 14
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -4589,9 +4280,7 @@
         "line": 191,
         "column": 14
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -4609,9 +4298,7 @@
         "line": 178,
         "column": 14
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -4629,9 +4316,7 @@
         "line": 188,
         "column": 14
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -4649,9 +4334,7 @@
         "line": 194,
         "column": 14
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -4669,9 +4352,7 @@
         "line": 169,
         "column": 14
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -4689,9 +4370,7 @@
         "line": 172,
         "column": 14
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -4709,9 +4388,7 @@
         "line": 9,
         "column": 14
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -4729,9 +4406,7 @@
         "line": 175,
         "column": 14
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -4749,9 +4424,7 @@
         "line": 382,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "AuthAdapterCapabilities",
         "AuthOAuthAdapter",
@@ -4844,9 +4517,7 @@
         "line": 374,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -4900,9 +4571,7 @@
         "line": 191,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -4942,9 +4611,7 @@
         "line": 111,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -5012,9 +4679,7 @@
         "line": 106,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -5047,9 +4712,7 @@
         "line": 7,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -5067,9 +4730,7 @@
         "line": 367,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "AuthOAuthCapabilities",
         "AuthOAuthCompletionResult",
@@ -5115,12 +4776,8 @@
         "line": 307,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "AuthOAuthProviderId"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["AuthOAuthProviderId"],
       "signatures": [],
       "members": [
         {
@@ -5166,9 +4823,7 @@
         "line": 324,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -5186,9 +4841,7 @@
         "line": 286,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -5206,12 +4859,8 @@
         "line": 362,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "AuthOAuthProviderId"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["AuthOAuthProviderId"],
       "signatures": [],
       "members": [
         {
@@ -5236,9 +4885,7 @@
         "line": 343,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -5256,12 +4903,8 @@
         "line": 154,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "AuthOAuthProviderConfig"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["AuthOAuthProviderConfig"],
       "signatures": [],
       "members": [
         {
@@ -5300,12 +4943,8 @@
         "line": 268,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "AuthOAuthProviderId"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["AuthOAuthProviderId"],
       "signatures": [],
       "members": [
         {
@@ -5365,9 +5004,7 @@
         "line": 266,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -5385,9 +5022,7 @@
         "line": 247,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -5405,13 +5040,8 @@
         "line": 143,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "AuthOAuthProviderId",
-        "IconSpec"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["AuthOAuthProviderId", "IconSpec"],
       "signatures": [],
       "members": [
         {
@@ -5478,9 +5108,7 @@
         "line": 41,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -5498,9 +5126,7 @@
         "line": 73,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -5561,9 +5187,7 @@
         "line": 58,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -5581,13 +5205,8 @@
         "line": 101,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "AuthOAuthProviderId",
-        "AuthOAuthTransportId"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["AuthOAuthProviderId", "AuthOAuthTransportId"],
       "signatures": [],
       "members": [
         {
@@ -5619,9 +5238,7 @@
         "line": 51,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -5639,9 +5256,7 @@
         "line": 60,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -5716,9 +5331,7 @@
         "line": 55,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -5736,9 +5349,7 @@
         "line": 91,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "AuthOAuthProviderId",
         "AuthOAuthSetupRequirement",
@@ -5796,9 +5407,7 @@
         "line": 83,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -5816,9 +5425,7 @@
         "line": 314,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -5836,9 +5443,7 @@
         "line": 279,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -5856,9 +5461,7 @@
         "line": 294,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -5898,9 +5501,7 @@
         "line": 292,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -5918,9 +5519,7 @@
         "line": 45,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -5938,9 +5537,7 @@
         "line": 192,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -5958,9 +5555,7 @@
         "line": 186,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -5978,9 +5573,7 @@
         "line": 189,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -5998,12 +5591,8 @@
         "line": 253,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "AuthProfileField"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["AuthProfileField"],
       "signatures": [],
       "members": [
         {
@@ -6056,9 +5645,7 @@
         "line": 195,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -6076,14 +5663,8 @@
         "line": 160,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "AuthOAuthConfig",
-        "AuthSignInConfig",
-        "AuthSignUpConfig"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["AuthOAuthConfig", "AuthSignInConfig", "AuthSignUpConfig"],
       "signatures": [],
       "members": [
         {
@@ -6143,9 +5724,7 @@
         "line": 197,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -6163,9 +5742,7 @@
         "line": 170,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -6183,12 +5760,8 @@
         "line": 183,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "AuthUser"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["AuthUser"],
       "signatures": [],
       "members": [
         {
@@ -6241,9 +5814,7 @@
         "line": 134,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -6269,9 +5840,7 @@
         "line": 173,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -6289,9 +5858,7 @@
         "line": 243,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -6317,12 +5884,8 @@
         "line": 138,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "AuthSignUpField"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["AuthSignUpField"],
       "signatures": [],
       "members": [
         {
@@ -6354,9 +5917,7 @@
         "line": 17,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -6374,9 +5935,7 @@
         "line": 176,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -6394,12 +5953,8 @@
         "line": 247,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "AuthSignUpField"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["AuthSignUpField"],
       "signatures": [],
       "members": [
         {
@@ -6438,9 +5993,7 @@
         "line": 173,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -6508,14 +6061,8 @@
         "line": 108,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "BindingConditionOperator",
-        "BindingValue",
-        "BindingValueSource"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["BindingConditionOperator", "BindingValue", "BindingValueSource"],
       "signatures": [],
       "members": [
         {
@@ -6554,9 +6101,7 @@
         "line": 106,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -6574,9 +6119,7 @@
         "line": 16,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -6594,13 +6137,8 @@
         "line": 54,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "BindingValue",
-        "BindingValueSource"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["BindingValue", "BindingValueSource"],
       "signatures": [],
       "members": [
         {
@@ -6632,9 +6170,7 @@
         "line": 95,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -6652,9 +6188,7 @@
         "line": 76,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -6672,13 +6206,8 @@
         "line": 61,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "BindingFallback",
-        "BindingLifecycleState"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["BindingFallback", "BindingLifecycleState"],
       "signatures": [],
       "members": [
         {
@@ -6717,9 +6246,7 @@
         "line": 59,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -6737,9 +6264,7 @@
         "line": 20,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -6779,9 +6304,7 @@
         "line": 6,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -6799,13 +6322,8 @@
         "line": 49,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "BindingValueSource",
-        "BindingValueTransform"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["BindingValueSource", "BindingValueTransform"],
       "signatures": [],
       "members": [
         {
@@ -6837,9 +6355,7 @@
         "line": 26,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -6857,9 +6373,7 @@
         "line": 18,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -6877,9 +6391,7 @@
         "line": 124,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -6897,9 +6409,7 @@
         "line": 131,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -6917,12 +6427,8 @@
         "line": 126,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "ManifestValue"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["ManifestValue"],
       "signatures": [],
       "members": [
         {
@@ -6954,12 +6460,8 @@
         "line": 338,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "AuthOAuthAuthorizationResponse"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["AuthOAuthAuthorizationResponse"],
       "signatures": [],
       "members": [
         {
@@ -6991,13 +6493,8 @@
         "line": 130,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "EventBinding",
-        "PropBinding"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["EventBinding", "PropBinding"],
       "signatures": [],
       "members": [
         {
@@ -7043,9 +6540,7 @@
         "line": 137,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -7063,9 +6558,7 @@
         "line": 106,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -7105,9 +6598,7 @@
         "line": 136,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -7125,9 +6616,7 @@
         "line": 104,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -7145,9 +6634,7 @@
         "line": 3,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -7165,13 +6652,8 @@
         "line": 40,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "ScreenCapabilityRequirement",
-        "ScreenPermissionRequirement"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["ScreenCapabilityRequirement", "ScreenPermissionRequirement"],
       "signatures": [],
       "members": [
         {
@@ -7203,9 +6685,7 @@
         "line": 4,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -7223,9 +6703,7 @@
         "line": 54,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -7258,9 +6736,7 @@
         "line": 39,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "CustomNavigatorRegistry",
         "NavigatorResponsiveSize",
@@ -7311,9 +6787,7 @@
         "line": 6,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -7331,9 +6805,7 @@
         "line": 4,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -7351,12 +6823,8 @@
         "line": 6,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "CredentialKind"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["CredentialKind"],
       "signatures": [],
       "members": [
         {
@@ -7402,9 +6870,7 @@
         "line": 3,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -7444,13 +6910,8 @@
         "line": 214,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "ManifestValue",
-        "RouteDefinition"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["ManifestValue", "RouteDefinition"],
       "signatures": [],
       "members": [
         {
@@ -7503,9 +6964,7 @@
         "line": 9,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "CustomNavigatorConfigIssue",
         "CustomNavigatorNode",
@@ -7585,9 +7044,7 @@
         "line": 22,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -7605,12 +7062,8 @@
         "line": 23,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "DataContractValue"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["DataContractValue"],
       "signatures": [],
       "members": [
         {
@@ -7663,9 +7116,7 @@
         "line": 9,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "CredentialRef",
         "DatabaseAdapterRef",
@@ -7753,9 +7204,7 @@
         "line": 1,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -7773,9 +7222,7 @@
         "line": 5,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -7793,9 +7240,7 @@
         "line": 3,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -7813,9 +7258,7 @@
         "line": 8,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "CredentialRef",
         "DataContractValue",
@@ -7902,9 +7345,7 @@
         "line": 6,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -7922,9 +7363,7 @@
         "line": 20,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -7942,9 +7381,7 @@
         "line": 43,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "CredentialRef",
         "DataContractValue",
@@ -8063,9 +7500,7 @@
         "line": 6,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -8083,9 +7518,7 @@
         "line": 8,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -8103,9 +7536,7 @@
         "line": 34,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -8166,9 +7597,7 @@
         "line": 15,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "DataContractValue",
         "DataOperationParameterLocation",
@@ -8241,9 +7670,7 @@
         "line": 13,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -8261,9 +7688,7 @@
         "line": 11,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -8281,9 +7706,7 @@
         "line": 59,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -8301,14 +7724,8 @@
         "line": 23,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "DataOperationParameter",
-        "DataSchema",
-        "DataSchemaRef"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["DataOperationParameter", "DataSchema", "DataSchemaRef"],
       "signatures": [],
       "members": [
         {
@@ -8354,13 +7771,8 @@
         "line": 28,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "DataSchema",
-        "DataSchemaRef"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["DataSchema", "DataSchemaRef"],
       "signatures": [],
       "members": [
         {
@@ -8413,9 +7825,7 @@
         "line": 11,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -8433,14 +7843,8 @@
         "line": 16,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "DataContractValue",
-        "DataSchemaPrimitiveType",
-        "DataSchemaRef"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["DataContractValue", "DataSchemaPrimitiveType", "DataSchemaRef"],
       "signatures": [],
       "members": [
         {
@@ -8570,9 +7974,7 @@
         "line": 4,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -8590,12 +7992,8 @@
         "line": 11,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "DataSchema"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["DataSchema"],
       "signatures": [],
       "members": [
         {
@@ -8627,9 +8025,7 @@
         "line": 7,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -8655,9 +8051,7 @@
         "line": 35,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -8675,13 +8069,8 @@
         "line": 37,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "DataSchema",
-        "DataSchemaRef"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["DataSchema", "DataSchemaRef"],
       "signatures": [],
       "members": [
         {
@@ -8713,9 +8102,7 @@
         "line": 21,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -8733,13 +8120,8 @@
         "line": 22,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "DataDiagnosticCode",
-        "DataDiagnosticSeverity"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["DataDiagnosticCode", "DataDiagnosticSeverity"],
       "signatures": [],
       "members": [
         {
@@ -8820,9 +8202,7 @@
         "line": 34,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -8840,9 +8220,7 @@
         "line": 2,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -8860,9 +8238,7 @@
         "line": 7,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -8880,9 +8256,7 @@
         "line": 22,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -8900,9 +8274,7 @@
         "line": 83,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "DbAdapterCapabilities",
         "DbDeleteInput",
@@ -8979,9 +8351,7 @@
         "line": 77,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -9021,9 +8391,7 @@
         "line": 3,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -9063,9 +8431,7 @@
         "line": 178,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "DbAdminAdapterCapabilities",
         "DbAdminResult",
@@ -9124,9 +8490,7 @@
         "line": 173,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -9159,9 +8523,7 @@
         "line": 162,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -9179,12 +8541,8 @@
         "line": 103,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "DbChangeKind"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["DbChangeKind"],
       "signatures": [],
       "members": [
         {
@@ -9244,9 +8602,7 @@
         "line": 101,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -9264,9 +8620,7 @@
         "line": 112,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -9284,12 +8638,8 @@
         "line": 150,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "DbFieldDefinition"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["DbFieldDefinition"],
       "signatures": [],
       "members": [
         {
@@ -9335,9 +8685,7 @@
         "line": 157,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -9370,9 +8718,7 @@
         "line": 120,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -9390,12 +8736,8 @@
         "line": 73,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "DbFilter"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["DbFilter"],
       "signatures": [],
       "members": [
         {
@@ -9434,12 +8776,8 @@
         "line": 142,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "DbFieldType"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["DbFieldType"],
       "signatures": [],
       "members": [
         {
@@ -9492,9 +8830,7 @@
         "line": 140,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -9512,12 +8848,8 @@
         "line": 40,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "DbFilterOperator"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["DbFilterOperator"],
       "signatures": [],
       "members": [
         {
@@ -9556,9 +8888,7 @@
         "line": 37,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -9576,9 +8906,7 @@
         "line": 58,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -9632,9 +8960,7 @@
         "line": 64,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -9674,9 +9000,7 @@
         "line": 32,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -9709,9 +9033,7 @@
         "line": 127,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "DbChangeListener",
         "DbCollectionSubscriptionInput",
@@ -9743,9 +9065,7 @@
         "line": 1,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -9763,9 +9083,7 @@
         "line": 122,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -9812,9 +9130,7 @@
         "line": 18,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -9832,14 +9148,8 @@
         "line": 51,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "DbFilter",
-        "DbPage",
-        "DbSort"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["DbFilter", "DbPage", "DbSort"],
       "signatures": [],
       "members": [
         {
@@ -9899,12 +9209,8 @@
         "line": 27,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "DbSortDirection"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["DbSortDirection"],
       "signatures": [],
       "members": [
         {
@@ -9936,9 +9242,7 @@
         "line": 25,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -9956,9 +9260,7 @@
         "line": 116,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -9984,9 +9286,7 @@
         "line": 9,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -10004,9 +9304,7 @@
         "line": 46,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -10039,12 +9337,8 @@
         "line": 68,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "DbFilter"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["DbFilter"],
       "signatures": [],
       "members": [
         {
@@ -10090,9 +9384,7 @@
         "line": 121,
         "column": 14
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -10110,9 +9402,7 @@
         "line": 6,
         "column": 14
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -10130,9 +9420,7 @@
         "line": 16,
         "column": 14
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -10150,9 +9438,7 @@
         "line": 61,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -10206,9 +9492,7 @@
         "line": 86,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -10226,9 +9510,7 @@
         "line": 99,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -10289,9 +9571,7 @@
         "line": 14,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -10309,9 +9589,7 @@
         "line": 42,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -10351,9 +9629,7 @@
         "line": 54,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -10400,9 +9676,7 @@
         "line": 69,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -10463,9 +9737,7 @@
         "line": 98,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "DeploymentProviderResult",
         "MonetizationAdapterContext",
@@ -10510,9 +9782,7 @@
         "line": 30,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -10545,9 +9815,7 @@
         "line": 28,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -10565,9 +9833,7 @@
         "line": 93,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -10607,12 +9873,8 @@
         "line": 35,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "DeploymentProviderCapabilityDescriptor"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["DeploymentProviderCapabilityDescriptor"],
       "signatures": [],
       "members": [
         {
@@ -10658,9 +9920,7 @@
         "line": 328,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "AndroidDeploymentBuilder",
         "AndroidDeploymentPublisher",
@@ -10760,9 +10020,7 @@
         "line": 81,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -10780,13 +10038,8 @@
         "line": 127,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "DeploymentProviderSetupContext",
-        "DeploymentProviderSetupInspection"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["DeploymentProviderSetupContext", "DeploymentProviderSetupInspection"],
       "signatures": [],
       "members": [
         {
@@ -10818,13 +10071,8 @@
         "line": 113,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "DeploymentCredentialReference",
-        "DeploymentSecretResolver"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["DeploymentCredentialReference", "DeploymentSecretResolver"],
       "signatures": [],
       "members": [
         {
@@ -10870,9 +10118,7 @@
         "line": 120,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "DeploymentAuthenticationState",
         "DeploymentProviderCapabilityState",
@@ -10923,9 +10169,7 @@
         "line": 108,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -10943,9 +10187,7 @@
         "line": 146,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "DeploymentProviderResult",
         "ReleaseControlExecutionResult",
@@ -11000,9 +10242,7 @@
         "line": 78,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -11020,9 +10260,7 @@
         "line": 48,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -11040,9 +10278,7 @@
         "line": 50,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -11060,9 +10296,7 @@
         "line": 132,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -11080,9 +10314,7 @@
         "line": 117,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "DeploymentProviderResult",
         "StoreListingAdapterContext",
@@ -11128,9 +10360,7 @@
         "line": 86,
         "column": 14
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -11148,9 +10378,7 @@
         "line": 89,
         "column": 14
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -11168,13 +10396,8 @@
         "line": 192,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "DrawerNavigatorOptions",
-        "RouteDefinition"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["DrawerNavigatorOptions", "RouteDefinition"],
       "signatures": [],
       "members": [
         {
@@ -11220,9 +10443,7 @@
         "line": 92,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -11269,9 +10490,7 @@
         "line": 87,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -11289,9 +10508,7 @@
         "line": 90,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -11309,9 +10526,7 @@
         "line": 3,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -11329,14 +10544,8 @@
         "line": 124,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "BindingCondition",
-        "BindingInputValue",
-        "EventBindingTarget"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["BindingCondition", "BindingInputValue", "EventBindingTarget"],
       "signatures": [],
       "members": [
         {
@@ -11375,9 +10584,7 @@
         "line": 114,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -11395,9 +10602,7 @@
         "line": 46,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -11415,9 +10620,7 @@
         "line": 40,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "CredentialRef",
         "DataContractValue",
@@ -11519,9 +10722,7 @@
         "line": 28,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "CredentialRef",
         "DataContractValue",
@@ -11623,9 +10824,7 @@
         "line": 79,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -11658,9 +10857,7 @@
         "line": 183,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [
         {
@@ -11692,9 +10889,7 @@
         "line": 99,
         "column": 14
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -11712,9 +10907,7 @@
         "line": 100,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -11732,9 +10925,7 @@
         "line": 174,
         "column": 14
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -11752,9 +10943,7 @@
         "line": 117,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -11772,9 +10961,7 @@
         "line": 115,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -11792,9 +10979,7 @@
         "line": 35,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -11827,9 +11012,7 @@
         "line": 102,
         "column": 14
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -11847,9 +11030,7 @@
         "line": 144,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -11867,9 +11048,7 @@
         "line": 107,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -11887,9 +11066,7 @@
         "line": 126,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -11907,9 +11084,7 @@
         "line": 148,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -11927,9 +11102,7 @@
         "line": 214,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -11947,9 +11120,7 @@
         "line": 131,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -11967,9 +11138,7 @@
         "line": 102,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -12009,9 +11178,7 @@
         "line": 9,
         "column": 14
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -12029,9 +11196,7 @@
         "line": 2,
         "column": 14
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -12049,9 +11214,7 @@
         "line": 26,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -12069,9 +11232,7 @@
         "line": 9,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -12089,9 +11250,7 @@
         "line": 76,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "AuthFlowConfig",
         "AuthOAuthConfig",
@@ -12124,9 +11283,7 @@
         "line": 108,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -12144,12 +11301,8 @@
         "line": 86,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "InfraAuthzPolicyFile"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["InfraAuthzPolicyFile"],
       "signatures": [],
       "members": [
         {
@@ -12174,9 +11327,7 @@
         "line": 92,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -12209,9 +11360,7 @@
         "line": 111,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -12229,9 +11378,7 @@
         "line": 10,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -12249,9 +11396,7 @@
         "line": 59,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "InfraAdapterDescriptor",
         "InfraComputeSelection",
@@ -12329,12 +11474,8 @@
         "line": 21,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "InfraControlPlaneCredentialRef"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["InfraControlPlaneCredentialRef"],
       "signatures": [],
       "members": [
         {
@@ -12366,9 +11507,7 @@
         "line": 17,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -12386,9 +11525,7 @@
         "line": 50,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -12406,14 +11543,8 @@
         "line": 55,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "InfraComputeTarget",
-        "InfraOutput",
-        "InfraOwnedResource"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["InfraComputeTarget", "InfraOutput", "InfraOwnedResource"],
       "signatures": [],
       "members": [
         {
@@ -12452,9 +11583,7 @@
         "line": 4,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -12472,9 +11601,7 @@
         "line": 4,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -12507,9 +11634,7 @@
         "line": 65,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -12535,9 +11660,7 @@
         "line": 100,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -12555,9 +11678,7 @@
         "line": 58,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -12575,13 +11696,8 @@
         "line": 102,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "AppEnvironmentId",
-        "InfraResourceIdentity"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["AppEnvironmentId", "InfraResourceIdentity"],
       "signatures": [],
       "members": [
         {
@@ -12627,12 +11743,8 @@
         "line": 22,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "InfraResourceIdentity"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["InfraResourceIdentity"],
       "signatures": [],
       "members": [
         {
@@ -12685,9 +11797,7 @@
         "line": 125,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "AuthFlowConfig",
         "AuthOAuthConfig",
@@ -12774,9 +11884,7 @@
         "line": 33,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "InfraControlPlaneCredentialRef",
         "InfraEnvironmentSpec",
@@ -12850,12 +11958,8 @@
         "line": 81,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "InfraResourceIdentity"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["InfraResourceIdentity"],
       "signatures": [],
       "members": [
         {
@@ -12901,9 +12005,7 @@
         "line": 89,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "InfraComputeTarget",
         "InfraOutput",
@@ -12976,13 +12078,8 @@
         "line": 136,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "ApiDefinitionList",
-        "InfraEnvironmentSpec"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["ApiDefinitionList", "InfraEnvironmentSpec"],
       "signatures": [],
       "members": [
         {
@@ -13028,9 +12125,7 @@
         "line": 118,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -13063,12 +12158,8 @@
         "line": 68,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "InfraControlPlaneCredentialRef"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["InfraControlPlaneCredentialRef"],
       "signatures": [],
       "members": [
         {
@@ -13100,9 +12191,7 @@
         "line": 103,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -13120,9 +12209,7 @@
         "line": 66,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -13140,12 +12227,8 @@
         "line": 14,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "InfraResourceIdentity"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["InfraResourceIdentity"],
       "signatures": [],
       "members": [
         {
@@ -13198,12 +12281,8 @@
         "line": 43,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "InfraPlanAction"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["InfraPlanAction"],
       "signatures": [],
       "members": [
         {
@@ -13242,12 +12321,8 @@
         "line": 35,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "InfraResourceIdentity"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["InfraResourceIdentity"],
       "signatures": [],
       "members": [
         {
@@ -13300,9 +12375,7 @@
         "line": 12,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -13320,13 +12393,8 @@
         "line": 49,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "InfraOutput",
-        "InfraOwnedResource"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["InfraOutput", "InfraOwnedResource"],
       "signatures": [],
       "members": [
         {
@@ -13358,9 +12426,7 @@
         "line": 7,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -13407,13 +12473,8 @@
         "line": 50,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "InfraDiagnostic",
-        "InfraResourceIdentity"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["InfraDiagnostic", "InfraResourceIdentity"],
       "signatures": [],
       "members": [
         {
@@ -13459,9 +12520,7 @@
         "line": 31,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -13479,9 +12538,7 @@
         "line": 96,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "InfraAdapterDescriptor",
         "InfraDestroyRequest",
@@ -13566,9 +12623,7 @@
         "line": 36,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -13608,9 +12663,7 @@
         "line": 86,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "InfraComputeTarget",
         "InfraOutput",
@@ -13662,9 +12715,7 @@
         "line": 18,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -13682,9 +12733,7 @@
         "line": 53,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -13702,9 +12751,7 @@
         "line": 10,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -13758,9 +12805,7 @@
         "line": 96,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -13786,9 +12831,7 @@
         "line": 114,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -13806,9 +12849,7 @@
         "line": 131,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "InfraAdapterDescriptor",
         "InfraDestroyRequest",
@@ -13893,12 +12934,8 @@
         "line": 58,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "InfraResourceStatus"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["InfraResourceStatus"],
       "signatures": [],
       "members": [
         {
@@ -13944,9 +12981,7 @@
         "line": 3,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -13979,12 +13014,8 @@
         "line": 59,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "InfraWorkloadValue"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["InfraWorkloadValue"],
       "signatures": [],
       "members": [
         {
@@ -14016,9 +13047,7 @@
         "line": 35,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -14036,9 +13065,7 @@
         "line": 27,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -14085,9 +13112,7 @@
         "line": 45,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -14120,9 +13145,7 @@
         "line": 9,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -14140,9 +13163,7 @@
         "line": 64,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "InfraWorkloadArtifact",
         "InfraWorkloadFileSpec",
@@ -14260,9 +13281,7 @@
         "line": 19,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -14280,9 +13299,7 @@
         "line": 50,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -14329,15 +13346,8 @@
         "line": 54,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "CredentialRef",
-        "DataContractValue",
-        "DataEndpointConfig",
-        "DataSchema"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["CredentialRef", "DataContractValue", "DataEndpointConfig", "DataSchema"],
       "signatures": [],
       "members": [
         {
@@ -14425,9 +13435,7 @@
         "line": 273,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -14495,9 +13503,7 @@
         "line": 264,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -14523,13 +13529,8 @@
         "line": 256,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "DeploymentCredentialReference",
-        "DeploymentSecretResolver"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["DeploymentCredentialReference", "DeploymentSecretResolver"],
       "signatures": [],
       "members": [
         {
@@ -14582,13 +13583,8 @@
         "line": 268,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "DeploymentCredentialReference",
-        "DeploymentSecretResolver"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["DeploymentCredentialReference", "DeploymentSecretResolver"],
       "signatures": [],
       "members": [
         {
@@ -14655,9 +13651,7 @@
         "line": 283,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "DeploymentProviderResult",
         "IosBuildArtifact",
@@ -14696,9 +13690,7 @@
         "line": 251,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -14731,9 +13723,7 @@
         "line": 308,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -14801,9 +13791,7 @@
         "line": 318,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "DeploymentProviderResult",
         "IosDeploymentPublication",
@@ -14849,9 +13837,7 @@
         "line": 297,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -14891,13 +13877,8 @@
         "line": 290,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "DeploymentCredentialReference",
-        "DeploymentSecretResolver"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["DeploymentCredentialReference", "DeploymentSecretResolver"],
       "signatures": [],
       "members": [
         {
@@ -14943,9 +13924,7 @@
         "line": 303,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "DeploymentCredentialReference",
         "DeploymentSecretResolver",
@@ -15010,9 +13989,7 @@
         "line": 22,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [
         {
@@ -15044,9 +14021,7 @@
         "line": 21,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [
         {
@@ -15078,9 +14053,7 @@
         "line": 16,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [
         {
@@ -15112,9 +14085,7 @@
         "line": 8,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [
         {
@@ -15146,9 +14117,7 @@
         "line": 20,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [
         {
@@ -15180,9 +14149,7 @@
         "line": 16,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [
         {
@@ -15214,9 +14181,7 @@
         "line": 15,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [
         {
@@ -15248,9 +14213,7 @@
         "line": 12,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [
         {
@@ -15282,9 +14245,7 @@
         "line": 13,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [
         {
@@ -15316,9 +14277,7 @@
         "line": 62,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [
         {
@@ -15350,9 +14309,7 @@
         "line": 42,
         "column": 14
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -15370,9 +14327,7 @@
         "line": 109,
         "column": 14
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -15390,9 +14345,7 @@
         "line": 43,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -15410,9 +14363,7 @@
         "line": 66,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -15430,9 +14381,7 @@
         "line": 162,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -15465,9 +14414,7 @@
         "line": 110,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -15485,9 +14432,7 @@
         "line": 40,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -15505,9 +14450,7 @@
         "line": 44,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -15525,9 +14468,7 @@
         "line": 185,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -15545,9 +14486,7 @@
         "line": 16,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -15565,9 +14504,7 @@
         "line": 139,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -15585,9 +14522,7 @@
         "line": 2,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -15605,9 +14540,7 @@
         "line": 96,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -15625,9 +14558,7 @@
         "line": 4,
         "column": 14
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -15645,13 +14576,8 @@
         "line": 40,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "MediaAssetMetadata",
-        "MediaAssetSource"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["MediaAssetMetadata", "MediaAssetSource"],
       "signatures": [],
       "members": [
         {
@@ -15711,9 +14637,7 @@
         "line": 6,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -15731,9 +14655,7 @@
         "line": 30,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -15794,9 +14716,7 @@
         "line": 57,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -15822,9 +14742,7 @@
         "line": 49,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -15842,9 +14760,7 @@
         "line": 28,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -15862,9 +14778,7 @@
         "line": 22,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -15897,12 +14811,8 @@
         "line": 52,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "MediaAsset"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["MediaAsset"],
       "signatures": [],
       "members": [
         {
@@ -15927,9 +14837,7 @@
         "line": 155,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "ImageMetadata",
         "StorageAssetReference",
@@ -16003,9 +14911,7 @@
         "line": 8,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -16052,9 +14958,7 @@
         "line": 16,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -16087,9 +14991,7 @@
         "line": 87,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "DeploymentCredentialReference",
         "DeploymentSecretResolver",
@@ -16133,9 +15035,7 @@
         "line": 16,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -16175,12 +15075,8 @@
         "line": 46,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "MonetizationProduct"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["MonetizationProduct"],
       "signatures": [],
       "members": [
         {
@@ -16212,9 +15108,7 @@
         "line": 51,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -16275,9 +15169,7 @@
         "line": 10,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -16317,9 +15209,7 @@
         "line": 38,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "MonetizationBasePrice",
         "MonetizationLocalization",
@@ -16378,13 +15268,8 @@
         "line": 79,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "MonetizationDiagnostic",
-        "MonetizationPlanStep"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["MonetizationDiagnostic", "MonetizationPlanStep"],
       "signatures": [],
       "members": [
         {
@@ -16437,9 +15322,7 @@
         "line": 67,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -16486,9 +15369,7 @@
         "line": 30,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "MonetizationBasePrice",
         "MonetizationLocalization",
@@ -16547,9 +15428,7 @@
         "line": 8,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -16567,12 +15446,8 @@
         "line": 24,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "MonetizationSubscriptionPeriod"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["MonetizationSubscriptionPeriod"],
       "signatures": [],
       "members": [
         {
@@ -16611,9 +15486,7 @@
         "line": 22,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -16631,9 +15504,7 @@
         "line": 93,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "DeploymentCredentialReference",
         "DeploymentSecretResolver",
@@ -16693,13 +15564,8 @@
         "line": 60,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "MonetizationDiagnostic",
-        "MonetizationObservedProduct"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["MonetizationDiagnostic", "MonetizationObservedProduct"],
       "signatures": [],
       "members": [
         {
@@ -16745,9 +15611,7 @@
         "line": 202,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -16801,9 +15665,7 @@
         "line": 112,
         "column": 14
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -16821,12 +15683,8 @@
         "line": 154,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "NavigatorScreenReference"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["NavigatorScreenReference"],
       "signatures": [],
       "members": [
         {
@@ -16865,9 +15723,7 @@
         "line": 118,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -16885,9 +15741,7 @@
         "line": 39,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -16920,9 +15774,7 @@
         "line": 8,
         "column": 14
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -16940,9 +15792,7 @@
         "line": 5,
         "column": 14
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -16960,9 +15810,7 @@
         "line": 56,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -16980,14 +15828,8 @@
         "line": 68,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "NavigatorAdapterId",
-        "NavigatorApiStability",
-        "NavigatorSupportStatus"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["NavigatorAdapterId", "NavigatorApiStability", "NavigatorSupportStatus"],
       "signatures": [],
       "members": [
         {
@@ -17047,9 +15889,7 @@
         "line": 78,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -17067,9 +15907,7 @@
         "line": 57,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "NavigatorApiStability",
         "NavigatorCapabilityRequirement",
@@ -17165,9 +16003,7 @@
         "line": 80,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -17185,9 +16021,7 @@
         "line": 52,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -17220,9 +16054,7 @@
         "line": 46,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "NavigatorCapabilityVerification",
         "NavigatorRuntimePlatform",
@@ -17266,13 +16098,8 @@
         "line": 41,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "NavigatorVerificationKind",
-        "NavigatorVerificationStatus"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["NavigatorVerificationKind", "NavigatorVerificationStatus"],
       "signatures": [],
       "members": [
         {
@@ -17304,13 +16131,8 @@
         "line": 76,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "NavigatorCapabilityDescriptor",
-        "NavigatorPresetDescriptor"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["NavigatorCapabilityDescriptor", "NavigatorPresetDescriptor"],
       "signatures": [],
       "members": [
         {
@@ -17342,13 +16164,8 @@
         "line": 242,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "StackImplementationConfig",
-        "TabsImplementationConfig"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["StackImplementationConfig", "TabsImplementationConfig"],
       "signatures": [],
       "members": [
         {
@@ -17380,9 +16197,7 @@
         "line": 20,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -17422,9 +16237,7 @@
         "line": 82,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -17471,9 +16284,7 @@
         "line": 8,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -17506,12 +16317,8 @@
         "line": 13,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "NavigatorScreenModule"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["NavigatorScreenModule"],
       "signatures": [],
       "members": [
         {
@@ -17557,9 +16364,7 @@
         "line": 36,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -17592,9 +16397,7 @@
         "line": 26,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "NavigatorDependencyRequirement",
         "NavigatorDiagnostic",
@@ -17661,9 +16464,7 @@
         "line": 32,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -17681,9 +16482,7 @@
         "line": 220,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -17701,9 +16500,7 @@
         "line": 89,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "CustomNavigatorNode",
         "DrawerNavigatorOptions",
@@ -17800,9 +16597,7 @@
         "line": 117,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "NavigatorDependencyRequirement",
         "NavigatorDiagnostic",
@@ -17869,13 +16664,8 @@
         "line": 247,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "StackImplementationConfig",
-        "TabsImplementationConfig"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["StackImplementationConfig", "TabsImplementationConfig"],
       "signatures": [],
       "members": [
         {
@@ -17907,12 +16697,8 @@
         "line": 252,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "NavigatorPlatformConfig"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["NavigatorPlatformConfig"],
       "signatures": [],
       "members": [
         {
@@ -17951,9 +16737,7 @@
         "line": 34,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -17971,9 +16755,7 @@
         "line": 26,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -17991,9 +16773,7 @@
         "line": 70,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -18033,9 +16813,7 @@
         "line": 126,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -18053,14 +16831,8 @@
         "line": 128,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "IconSpec",
-        "NavigatorNodePlan",
-        "StackScreenOptions"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["IconSpec", "NavigatorNodePlan", "StackScreenOptions"],
       "signatures": [],
       "members": [
         {
@@ -18141,9 +16913,7 @@
         "line": 140,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -18161,9 +16931,7 @@
         "line": 43,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -18196,9 +16964,7 @@
         "line": 150,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -18224,9 +16990,7 @@
         "line": 142,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -18244,9 +17008,7 @@
         "line": 6,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -18264,12 +17026,8 @@
         "line": 144,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "NavigatorRuntimePlatform"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["NavigatorRuntimePlatform"],
       "signatures": [],
       "members": [
         {
@@ -18301,9 +17059,7 @@
         "line": 16,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -18321,9 +17077,7 @@
         "line": 30,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -18341,12 +17095,8 @@
         "line": 105,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "SecretStoreResult"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["SecretStoreResult"],
       "signatures": [
         {
           "label": "(value: string) => SecretStoreResult<string>",
@@ -18377,13 +17127,8 @@
         "line": 129,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "SecretScope",
-        "SecretStoreResult"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["SecretScope", "SecretStoreResult"],
       "signatures": [
         {
           "label": "(scope: SecretScope) => SecretStoreResult<SecretScope>",
@@ -18414,9 +17159,7 @@
         "line": 22,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -18456,9 +17199,7 @@
         "line": 4,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -18476,13 +17217,8 @@
         "line": 97,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "BindingInputValue",
-        "BindingOperationRef"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["BindingInputValue", "BindingOperationRef"],
       "signatures": [],
       "members": [
         {
@@ -18528,12 +17264,8 @@
         "line": 11,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "AppManifestParseResult"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["AppManifestParseResult"],
       "signatures": [
         {
           "label": "(value: unknown) => AppManifestParseResult",
@@ -18564,13 +17296,8 @@
         "line": 6,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "InfraManifest",
-        "InfraResult"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["InfraManifest", "InfraResult"],
       "signatures": [
         {
           "label": "(value: unknown) => InfraResult<InfraManifest>",
@@ -18601,12 +17328,8 @@
         "line": 227,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "AuthIdentifier"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["AuthIdentifier"],
       "signatures": [],
       "members": [
         {
@@ -18638,9 +17361,7 @@
         "line": 67,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "BindingFallback",
         "BindingLifecycleBehavior",
@@ -18706,9 +17427,7 @@
         "line": 124,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "DeploymentCredentialReference",
         "DeploymentSecretResolver",
@@ -18752,9 +17471,7 @@
         "line": 119,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -18772,9 +17489,7 @@
         "line": 139,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "DeploymentCredentialReference",
         "DeploymentSecretResolver",
@@ -18834,14 +17549,8 @@
         "line": 27,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "ReleaseNote",
-        "ReleaseRollout",
-        "ReleaseTarget"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["ReleaseNote", "ReleaseRollout", "ReleaseTarget"],
       "signatures": [],
       "members": [
         {
@@ -18894,12 +17603,8 @@
         "line": 83,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "ReleaseTarget"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["ReleaseTarget"],
       "signatures": [],
       "members": [
         {
@@ -18945,9 +17650,7 @@
         "line": 130,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "DeploymentCredentialReference",
         "DeploymentSecretResolver",
@@ -18998,9 +17701,7 @@
         "line": 107,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -19018,9 +17719,7 @@
         "line": 114,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -19038,9 +17737,7 @@
         "line": 11,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -19073,12 +17770,8 @@
         "line": 41,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "ReleaseNote"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["ReleaseNote"],
       "signatures": [],
       "members": [
         {
@@ -19145,12 +17838,8 @@
         "line": 51,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "ReleaseNote"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["ReleaseNote"],
       "signatures": [],
       "members": [
         {
@@ -19231,9 +17920,7 @@
         "line": 144,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -19251,12 +17938,8 @@
         "line": 66,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "ReleaseObservedTargetState"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["ReleaseObservedTargetState"],
       "signatures": [],
       "members": [
         {
@@ -19281,9 +17964,7 @@
         "line": 63,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -19301,9 +17982,7 @@
         "line": 35,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -19343,14 +18022,8 @@
         "line": 99,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "ReleaseDiagnostic",
-        "ReleasePlanStatus",
-        "ReleasePlanStep"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["ReleaseDiagnostic", "ReleasePlanStatus", "ReleasePlanStep"],
       "signatures": [],
       "members": [
         {
@@ -19403,9 +18076,7 @@
         "line": 70,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -19423,14 +18094,8 @@
         "line": 90,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "ReleaseStepOperation",
-        "ReleaseStepRetry",
-        "ReleaseTarget"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["ReleaseStepOperation", "ReleaseStepRetry", "ReleaseTarget"],
       "signatures": [],
       "members": [
         {
@@ -19490,12 +18155,8 @@
         "line": 21,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "ReleaseTargetRollout"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["ReleaseTargetRollout"],
       "signatures": [],
       "members": [
         {
@@ -19534,9 +18195,7 @@
         "line": 9,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -19554,9 +18213,7 @@
         "line": 134,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "DeploymentCredentialReference",
         "DeploymentSecretResolver",
@@ -19616,9 +18273,7 @@
         "line": 72,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -19636,9 +18291,7 @@
         "line": 71,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -19656,9 +18309,7 @@
         "line": 8,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -19676,12 +18327,8 @@
         "line": 16,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "ReleaseRolloutMode"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["ReleaseRolloutMode"],
       "signatures": [],
       "members": [
         {
@@ -19713,9 +18360,7 @@
         "line": 1,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -19769,12 +18414,8 @@
         "line": 130,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "AuthFlowConfig"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["AuthFlowConfig"],
       "signatures": [
         {
           "label": "(flow?: AuthFlowConfig | undefined) => AuthFlowConfig",
@@ -19805,12 +18446,8 @@
         "line": 12,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "ResolvedTabsPresentation"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["ResolvedTabsPresentation"],
       "signatures": [],
       "members": [
         {
@@ -19842,9 +18479,7 @@
         "line": 17,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -19862,9 +18497,7 @@
         "line": 19,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -19882,9 +18515,7 @@
         "line": 120,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -19924,14 +18555,8 @@
         "line": 228,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "IconSpec",
-        "NavigatorNode",
-        "StackScreenOptions"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["IconSpec", "NavigatorNode", "StackScreenOptions"],
       "signatures": [],
       "members": [
         {
@@ -20012,9 +18637,7 @@
         "line": 18,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -20032,12 +18655,8 @@
         "line": 12,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "UiNode"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["UiNode"],
       "signatures": [],
       "members": [
         {
@@ -20076,9 +18695,7 @@
         "line": 19,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -20096,9 +18713,7 @@
         "line": 8,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -20116,12 +18731,8 @@
         "line": 3,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "UiNode"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["UiNode"],
       "signatures": [],
       "members": [
         {
@@ -20153,9 +18764,7 @@
         "line": 5,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -20173,9 +18782,7 @@
         "line": 31,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -20201,9 +18808,7 @@
         "line": 104,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -20221,9 +18826,7 @@
         "line": 27,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -20249,13 +18852,8 @@
         "line": 35,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "ScreenCapabilityRequirement",
-        "ScreenPermissionRequirement"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["ScreenCapabilityRequirement", "ScreenPermissionRequirement"],
       "signatures": [],
       "members": [
         {
@@ -20287,14 +18885,8 @@
         "line": 233,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "OperationScreenDataLoaderDefinition",
-        "ScreenRequirements",
-        "UiNode"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["OperationScreenDataLoaderDefinition", "ScreenRequirements", "UiNode"],
       "signatures": [],
       "members": [
         {
@@ -20361,9 +18953,7 @@
         "line": 71,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -20396,9 +18986,7 @@
         "line": 24,
         "column": 14
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -20416,9 +19004,7 @@
         "line": 1,
         "column": 14
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -20436,12 +19022,8 @@
         "line": 64,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "SecretScope"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["SecretScope"],
       "signatures": [],
       "members": [
         {
@@ -20494,12 +19076,8 @@
         "line": 59,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "SecretScope"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["SecretScope"],
       "signatures": [],
       "members": [
         {
@@ -20531,12 +19109,8 @@
         "line": 53,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "SecretScope"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["SecretScope"],
       "signatures": [],
       "members": [
         {
@@ -20575,12 +19149,8 @@
         "line": 14,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "SecretScope"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["SecretScope"],
       "signatures": [],
       "members": [
         {
@@ -20647,9 +19217,7 @@
         "line": 12,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -20667,9 +19235,7 @@
         "line": 5,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -20687,12 +19253,8 @@
         "line": 78,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "SecretScope"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["SecretScope"],
       "signatures": [],
       "members": [
         {
@@ -20724,12 +19286,8 @@
         "line": 72,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "SecretScope"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["SecretScope"],
       "signatures": [],
       "members": [
         {
@@ -20768,12 +19326,8 @@
         "line": 83,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "SecretScope"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["SecretScope"],
       "signatures": [],
       "members": [
         {
@@ -20805,9 +19359,7 @@
         "line": 7,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -20840,9 +19392,7 @@
         "line": 94,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "SecretCreateInput",
         "SecretGetMetadataInput",
@@ -20913,9 +19463,7 @@
         "line": 36,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -20955,9 +19503,7 @@
         "line": 34,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -20975,9 +19521,7 @@
         "line": 42,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -20995,9 +19539,7 @@
         "line": 3,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -21015,9 +19557,7 @@
         "line": 46,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -21035,9 +19575,7 @@
         "line": 64,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -21070,12 +19608,8 @@
         "line": 207,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "AuthIdentifier"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["AuthIdentifier"],
       "signatures": [],
       "members": [
         {
@@ -21128,9 +19662,7 @@
         "line": 223,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -21156,12 +19688,8 @@
         "line": 215,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "AuthIdentifier"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["AuthIdentifier"],
       "signatures": [],
       "members": [
         {
@@ -21214,12 +19742,8 @@
         "line": 184,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "RouteDefinition"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["RouteDefinition"],
       "signatures": [],
       "members": [
         {
@@ -21258,9 +19782,7 @@
         "line": 18,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -21278,9 +19800,7 @@
         "line": 16,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -21298,9 +19818,7 @@
         "line": 22,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -21318,13 +19836,8 @@
         "line": 203,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "NavigatorScreenReference",
-        "RouteDefinition"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["NavigatorScreenReference", "RouteDefinition"],
       "signatures": [],
       "members": [
         {
@@ -21384,9 +19897,7 @@
         "line": 28,
         "column": 14
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -21404,9 +19915,7 @@
         "line": 31,
         "column": 14
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -21424,9 +19933,7 @@
         "line": 45,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -21473,9 +19980,7 @@
         "line": 29,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -21493,9 +19998,7 @@
         "line": 70,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -21513,9 +20016,7 @@
         "line": 188,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -21533,9 +20034,7 @@
         "line": 40,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -21553,9 +20052,7 @@
         "line": 52,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -21573,12 +20070,8 @@
         "line": 300,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "AuthOAuthProviderId"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["AuthOAuthProviderId"],
       "signatures": [],
       "members": [
         {
@@ -21624,9 +20117,7 @@
         "line": 59,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "StateAdapterCapabilities",
         "StateListener",
@@ -21687,9 +20178,7 @@
         "line": 18,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -21729,9 +20218,7 @@
         "line": 24,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -21771,9 +20258,7 @@
         "line": 51,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -21791,9 +20276,7 @@
         "line": 16,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -21811,9 +20294,7 @@
         "line": 7,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -21831,9 +20312,7 @@
         "line": 39,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -21851,12 +20330,8 @@
         "line": 46,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "StatePath"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["StatePath"],
       "signatures": [],
       "members": [
         {
@@ -21888,9 +20363,7 @@
         "line": 55,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -21916,9 +20389,7 @@
         "line": 30,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -21936,9 +20407,7 @@
         "line": 9,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -21956,9 +20425,7 @@
         "line": 133,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "ImageMetadata",
         "StorageAssetReference",
@@ -22014,9 +20481,7 @@
         "line": 1,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -22056,9 +20521,7 @@
         "line": 18,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -22105,12 +20568,8 @@
         "line": 108,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "ImageMetadata"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["ImageMetadata"],
       "signatures": [],
       "members": [
         {
@@ -22198,14 +20657,8 @@
         "line": 140,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "StorageListInput",
-        "StorageListResult",
-        "StorageResult"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["StorageListInput", "StorageListResult", "StorageResult"],
       "signatures": [],
       "members": [
         {
@@ -22230,9 +20683,7 @@
         "line": 66,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -22286,12 +20737,8 @@
         "line": 74,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "StorageObjectMetadata"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["StorageObjectMetadata"],
       "signatures": [],
       "members": [
         {
@@ -22323,9 +20770,7 @@
         "line": 55,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -22400,9 +20845,7 @@
         "line": 7,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -22420,9 +20863,7 @@
         "line": 45,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -22462,9 +20903,7 @@
         "line": 51,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -22490,9 +20929,7 @@
         "line": 39,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -22532,14 +20969,8 @@
         "line": 144,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "StorageResolveInput",
-        "StorageResolveResult",
-        "StorageResult"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["StorageResolveInput", "StorageResolveResult", "StorageResult"],
       "signatures": [],
       "members": [
         {
@@ -22564,9 +20995,7 @@
         "line": 79,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -22584,12 +21013,8 @@
         "line": 89,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "StorageResolvedAccess"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["StorageResolvedAccess"],
       "signatures": [],
       "members": [
         {
@@ -22649,12 +21074,8 @@
         "line": 81,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "StorageResolvedAccess"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["StorageResolvedAccess"],
       "signatures": [],
       "members": [
         {
@@ -22707,12 +21128,8 @@
         "line": 98,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "StorageResolvedAsset"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["StorageResolvedAsset"],
       "signatures": [],
       "members": [
         {
@@ -22737,9 +21154,7 @@
         "line": 11,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -22757,9 +21172,7 @@
         "line": 25,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -22827,12 +21240,8 @@
         "line": 35,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "StorageAssetReference"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["StorageAssetReference"],
       "signatures": [],
       "members": [
         {
@@ -22857,9 +21266,7 @@
         "line": 105,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "DeploymentCredentialReference",
         "DeploymentSecretResolver",
@@ -22903,12 +21310,8 @@
         "line": 36,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "StoreListingAssetMediaType"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["StoreListingAssetMediaType"],
       "signatures": [],
       "members": [
         {
@@ -22961,9 +21364,7 @@
         "line": 34,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -22981,9 +21382,7 @@
         "line": 101,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -23009,13 +21408,8 @@
         "line": 44,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "StoreListingAsset",
-        "StoreListingTarget"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["StoreListingAsset", "StoreListingTarget"],
       "signatures": [],
       "members": [
         {
@@ -23061,13 +21455,8 @@
         "line": 59,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "StoreListingAssetSet",
-        "StoreListingLocale"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["StoreListingAssetSet", "StoreListingLocale"],
       "signatures": [],
       "members": [
         {
@@ -23106,13 +21495,8 @@
         "line": 65,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "StoreListingField",
-        "StoreListingTarget"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["StoreListingField", "StoreListingTarget"],
       "signatures": [],
       "members": [
         {
@@ -23179,9 +21563,7 @@
         "line": 10,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -23199,9 +21581,7 @@
         "line": 21,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -23290,13 +21670,8 @@
         "line": 93,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "StoreListingDiagnostic",
-        "StoreListingPlanStep"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["StoreListingDiagnostic", "StoreListingPlanStep"],
       "signatures": [],
       "members": [
         {
@@ -23349,9 +21724,7 @@
         "line": 83,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -23369,13 +21742,8 @@
         "line": 85,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "StoreListingPlanOperation",
-        "StoreListingTarget"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["StoreListingPlanOperation", "StoreListingTarget"],
       "signatures": [],
       "members": [
         {
@@ -23428,12 +21796,8 @@
         "line": 51,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "StoreListingTarget"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["StoreListingTarget"],
       "signatures": [],
       "members": [
         {
@@ -23486,9 +21850,7 @@
         "line": 111,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "DeploymentCredentialReference",
         "DeploymentSecretResolver",
@@ -23556,9 +21918,7 @@
         "line": 8,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -23576,9 +21936,7 @@
         "line": 75,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "StoreListingDiagnostic",
         "StoreListingField",
@@ -23638,12 +21996,8 @@
         "line": 208,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "MediaAssetReference"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["MediaAssetReference"],
       "signatures": [],
       "members": [
         {
@@ -23696,9 +22050,7 @@
         "line": 176,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -23716,9 +22068,7 @@
         "line": 197,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -23736,9 +22086,7 @@
         "line": 201,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -23756,9 +22104,7 @@
         "line": 27,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "ExpoRouterNavigatorModule",
         "NavigatorApiStability",
@@ -23846,14 +22192,8 @@
         "line": 25,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "ThemeGlobalTokenOverrides",
-        "ThemeModeConfig",
-        "ThemeRecipeOverrides"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["ThemeGlobalTokenOverrides", "ThemeModeConfig", "ThemeRecipeOverrides"],
       "signatures": [],
       "members": [
         {
@@ -23913,12 +22253,8 @@
         "line": 28,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "ThemeTypographyTokenOverrides"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["ThemeTypographyTokenOverrides"],
       "signatures": [],
       "members": [
         {
@@ -23964,9 +22300,7 @@
         "line": 20,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -23999,9 +22333,7 @@
         "line": 2,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -24019,9 +22351,7 @@
         "line": 39,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -24039,12 +22369,8 @@
         "line": 47,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "ThemeRecipeOverrideValue"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["ThemeRecipeOverrideValue"],
       "signatures": [],
       "members": [
         {
@@ -24076,9 +22402,7 @@
         "line": 36,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -24096,9 +22420,7 @@
         "line": 5,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -24116,9 +22438,7 @@
         "line": 8,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -24158,12 +22478,8 @@
         "line": 15,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "ThemeTypographyHeadingOverrides"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["ThemeTypographyHeadingOverrides"],
       "signatures": [],
       "members": [
         {
@@ -24202,9 +22518,7 @@
         "line": 59,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -24237,12 +22551,8 @@
         "line": 127,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "UiBindableEventPayloadMeta"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["UiBindableEventPayloadMeta"],
       "signatures": [],
       "members": [
         {
@@ -24281,13 +22591,8 @@
         "line": 122,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "UiComponentEventPayloadFieldMeta",
-        "UiComponentEventPayloadKind"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["UiComponentEventPayloadFieldMeta", "UiComponentEventPayloadKind"],
       "signatures": [],
       "members": [
         {
@@ -24319,12 +22624,8 @@
         "line": 113,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "UiBindableValueMeta"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["UiBindableValueMeta"],
       "signatures": [],
       "members": [
         {
@@ -24384,12 +22685,8 @@
         "line": 97,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "UiBindableValueType"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["UiBindableValueType"],
       "signatures": [],
       "members": [
         {
@@ -24442,13 +22739,8 @@
         "line": 105,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "UiBindableValueFieldMeta",
-        "UiBindableValueType"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["UiBindableValueFieldMeta", "UiBindableValueType"],
       "signatures": [],
       "members": [
         {
@@ -24501,9 +22793,7 @@
         "line": 86,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -24521,13 +22811,8 @@
         "line": 133,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "UiBindableEventMeta",
-        "UiBindablePropMeta"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["UiBindableEventMeta", "UiBindablePropMeta"],
       "signatures": [],
       "members": [
         {
@@ -24559,13 +22844,8 @@
         "line": 52,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "UiComponentBlueprintIcon",
-        "UiComponentPropValue"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["UiComponentBlueprintIcon", "UiComponentPropValue"],
       "signatures": [],
       "members": [
         {
@@ -24604,9 +22884,7 @@
         "line": 47,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -24639,9 +22917,7 @@
         "line": 4,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -24659,13 +22935,8 @@
         "line": 79,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "UiComponentEventPayloadFieldMeta",
-        "UiComponentEventPayloadKind"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["UiComponentEventPayloadFieldMeta", "UiComponentEventPayloadKind"],
       "signatures": [],
       "members": [
         {
@@ -24711,12 +22982,8 @@
         "line": 72,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "UiComponentEventPayloadFieldType"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["UiComponentEventPayloadFieldType"],
       "signatures": [],
       "members": [
         {
@@ -24762,9 +23029,7 @@
         "line": 69,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -24782,9 +23047,7 @@
         "line": 67,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -24802,9 +23065,7 @@
         "line": 58,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -24837,12 +23098,8 @@
         "line": 63,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "UiComponentI18nFieldMeta"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["UiComponentI18nFieldMeta"],
       "signatures": [],
       "members": [
         {
@@ -24867,9 +23124,7 @@
         "line": 143,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "UiComponentBindingMeta",
         "UiComponentBlueprint",
@@ -24980,9 +23235,7 @@
         "line": 158,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -25000,12 +23253,8 @@
         "line": 160,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "UiComponentMeta"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["UiComponentMeta"],
       "signatures": [],
       "members": [
         {
@@ -25044,12 +23293,8 @@
         "line": 32,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "UiComponentPropSchema"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["UiComponentPropSchema"],
       "signatures": [],
       "members": [
         {
@@ -25081,9 +23326,7 @@
         "line": 37,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "UiComponentPropArrayItemSchema",
         "UiComponentPropType",
@@ -25155,9 +23398,7 @@
         "line": 6,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -25175,9 +23416,7 @@
         "line": 22,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -25195,9 +23434,7 @@
         "line": 138,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -25230,12 +23467,8 @@
         "line": 223,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "UiNodeRepeatSpec"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["UiNodeRepeatSpec"],
       "signatures": [],
       "members": [
         {
@@ -25302,13 +23535,8 @@
         "line": 216,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "BindingValueSource",
-        "UiNode"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["BindingValueSource", "UiNode"],
       "signatures": [],
       "members": [
         {
@@ -25354,12 +23582,8 @@
         "line": 121,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "ImageMetadata"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["ImageMetadata"],
       "signatures": [],
       "members": [
         {
@@ -25426,14 +23650,8 @@
         "line": 8,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "InfraAdapterDescriptor",
-        "InfraEnvironmentSpec",
-        "InfraResult"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["InfraAdapterDescriptor", "InfraEnvironmentSpec", "InfraResult"],
       "signatures": [
         {
           "label": "(environment: InfraEnvironmentSpec, installed: readonly unknown[]) => InfraResult<readonly InfraAdapterDescriptor[]>",
@@ -25470,12 +23688,8 @@
         "line": 146,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "SecretStoreResult"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["SecretStoreResult"],
       "signatures": [
         {
           "label": "(payload: Readonly<Record<string, string>>) => SecretStoreResult<Readonly<Record<string, string>>>",
@@ -25506,12 +23720,8 @@
         "line": 232,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "AuthIdentifier"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["AuthIdentifier"],
       "signatures": [],
       "members": [
         {
@@ -25557,9 +23767,7 @@
         "line": 142,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -25620,9 +23828,7 @@
         "line": 160,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "DeploymentProviderResult",
         "WebDeploymentPublication",
@@ -25652,9 +23858,7 @@
         "line": 136,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -25694,9 +23898,7 @@
         "line": 151,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "DeploymentCredentialReference",
         "DeploymentSecretResolver",
