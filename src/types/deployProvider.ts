@@ -25,8 +25,7 @@ export const DEPLOYMENT_PROVIDER_CAPABILITY_IDS = [
   'release',
 ] as const;
 
-export type DeploymentProviderCapabilityId =
-  (typeof DEPLOYMENT_PROVIDER_CAPABILITY_IDS)[number];
+export type DeploymentProviderCapabilityId = (typeof DEPLOYMENT_PROVIDER_CAPABILITY_IDS)[number];
 
 export interface DeploymentProviderCapabilityDescriptor {
   readonly id: DeploymentProviderCapabilityId;
@@ -76,9 +75,7 @@ export interface DeploymentManualAction {
   readonly url?: string;
 }
 
-export type DeploymentRequiredAction =
-  | DeploymentAuthenticationRequiredAction
-  | DeploymentManualAction;
+export type DeploymentRequiredAction = DeploymentAuthenticationRequiredAction | DeploymentManualAction;
 
 export type DeploymentProviderResult<T> =
   | { readonly status: 'completed'; readonly value: T }
@@ -127,9 +124,7 @@ export interface DeploymentProviderSetupInspection {
 
 export interface DeploymentProviderSetupAdapter {
   readonly provider: string;
-  inspectSetup(
-    context: DeploymentProviderSetupContext,
-  ): Promise<DeploymentProviderSetupInspection>;
+  inspectSetup(context: DeploymentProviderSetupContext): Promise<DeploymentProviderSetupInspection>;
 }
 
 export type DeploymentStoreIdentity =
@@ -284,7 +279,9 @@ export interface IosBuildArtifact {
 }
 
 export interface IosDeploymentBuilder {
-  inspectAsync(request: IosBuildInspectionRequest): Promise<DeploymentProviderResult<IosBuildInspection>>;
+  inspectAsync(
+    request: IosBuildInspectionRequest,
+  ): Promise<DeploymentProviderResult<IosBuildInspection>>;
   buildAsync(request: IosBuildRequest): Promise<DeploymentProviderResult<IosBuildArtifact>>;
 }
 
@@ -320,9 +317,7 @@ export interface IosDeploymentPublisher {
   inspectAsync(
     request: IosPublishInspectionRequest,
   ): Promise<DeploymentProviderResult<IosPublishInspection>>;
-  publishAsync(
-    request: IosPublishRequest,
-  ): Promise<DeploymentProviderResult<IosDeploymentPublication>>;
+  publishAsync(request: IosPublishRequest): Promise<DeploymentProviderResult<IosDeploymentPublication>>;
   verifyAsync(
     request: IosPublishRequest,
   ): Promise<DeploymentProviderResult<IosPublishInspection>>;

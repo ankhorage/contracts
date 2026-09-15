@@ -61,9 +61,7 @@ export interface ReleaseObservedIosState {
 }
 
 export type ReleaseObservedTargetState =
-  | ReleaseObservedWebState
-  | ReleaseObservedAndroidState
-  | ReleaseObservedIosState;
+  ReleaseObservedWebState | ReleaseObservedAndroidState | ReleaseObservedIosState;
 
 export interface ReleaseObservedState {
   readonly targets: readonly ReleaseObservedTargetState[];
@@ -143,9 +141,7 @@ export interface ReleaseControlRequest extends ReleaseAdapterContext {
   readonly control: ReleaseLifecycleControl;
 }
 
-export type ReleaseObservedNativeState =
-  | ReleaseObservedAndroidState
-  | ReleaseObservedIosState;
+export type ReleaseObservedNativeState = ReleaseObservedAndroidState | ReleaseObservedIosState;
 
 export interface DeploymentReleaseAdapter {
   readonly target: 'android' | 'ios';

@@ -16,17 +16,18 @@ const fakeProvider: DeploymentProviderRegistration = {
     capabilities: [{ id: 'web-publish', targets: ['web'] }],
   },
   webPublisher: {
-    publishAsync: async (request) => ({
-      status: 'completed',
-      value: {
-        target: 'web',
-        revision: request.revision,
-        provider: 'fake',
-        deploymentId: 'fake-deployment',
-        url: 'https://example.test',
-        production: request.intent.mode === 'production',
-      },
-    }),
+    publishAsync: (request) =>
+      Promise.resolve({
+        status: 'completed',
+        value: {
+          target: 'web',
+          revision: request.revision,
+          provider: 'fake',
+          deploymentId: 'fake-deployment',
+          url: 'https://example.test',
+          production: request.intent.mode === 'production',
+        },
+      }),
   },
 };
 
@@ -52,7 +53,7 @@ describe('deployment provider contracts', () => {
       revision: 'revision-1',
       intent: { mode: 'production' },
       credentials: [],
-      resolveSecret: async () => null,
+      resolveSecret: () => Promise.resolve(null),
     });
 
     expect(result).toEqual({
