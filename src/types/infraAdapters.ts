@@ -29,6 +29,23 @@ export type InfraAdapterDescriptor<P extends InfraAdapterId = InfraAdapterId> = 
   };
 }[P];
 
+/** Trusted execution-only control-plane credential lookup, resolution and persistence. */
+export interface InfraCredentialPort {
+  /** Return a credential bundle when present; absence is not an error. */
+  findAsync(
+    reference: InfraControlPlaneCredentialRef,
+  ): Promise<InfraResult<Readonly<Record<string, string>> | null>>;
+  /** Resolve a required credential bundle; absence is an error. */
+  resolveAsync(
+    reference: InfraControlPlaneCredentialRef,
+  ): Promise<InfraResult<Readonly<Record<string, string>>>>;
+  /** Persist an opaque provider-owned credential bundle without exposing its schema to the host. */
+  persistAsync(
+    reference: InfraControlPlaneCredentialRef,
+    values: Readonly<Record<string, string>>,
+  ): Promise<InfraResult<null>>;
+}
+
 /** Trusted execution-only ports. Implementations must not serialize resolved credential values. */
 export interface InfraExecutionContext {
   readonly projectId: string;
@@ -36,11 +53,7 @@ export interface InfraExecutionContext {
   readonly desired: InfraEnvironmentSpec;
   readonly previous?: InfraLedger;
   readonly signal?: AbortSignal;
-  readonly credentials: {
-    resolveAsync(
-      reference: InfraControlPlaneCredentialRef,
-    ): Promise<InfraResult<Readonly<Record<string, string>>>>;
-  };
+  readonly credentials: InfraCredentialPort;
   readonly secrets: {
     resolveAsync(reference: InfraSecretReference): Promise<InfraResult<string>>;
   };
@@ -133,6 +146,8 @@ export interface InfraServiceAdapter {
   /** Read-only service config, bootstrap credentials and dependency validation. */
   validateAsync(context: InfraExecutionContext): Promise<InfraResult<null>>;
   planAsync(context: InfraExecutionContext): Promise<InfraResult<readonly InfraPlanAction[]>>;
+  /** Mutating pre-runtime preparation invoked only by an orchestrated `up` operation. */
+  prepareAsync?(context: InfraExecutionContext): Promise<InfraResult<null>>;
   desiredWorkloadsAsync(
     context: InfraExecutionContext,
   ): Promise<InfraResult<readonly InfraWorkloadSpec[]>>;
