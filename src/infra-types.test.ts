@@ -8,8 +8,10 @@ import type {
   InfraComputeAdapter,
   InfraComputeSnapshot,
   InfraControlPlaneCredentialRef,
+  InfraCredentialPort,
   InfraDeploymentSpec,
   InfraDestroyRequest,
+  InfraExecutionContext,
   InfraManifest,
   InfraObjectStorageSpec,
   InfraOutput,
@@ -17,6 +19,7 @@ import type {
   InfraRuntimeAdapter,
   InfraRuntimeDesiredState,
   InfraRuntimeProviderId,
+  InfraServiceAdapter,
 } from './infra';
 import type { AppStateSpec } from './state';
 
@@ -121,4 +124,28 @@ it('requires read-only compute discovery separately from mutating ensure', () =>
   ] = [true, true];
 
   expect(computeBoundary).toEqual([true, true]);
+});
+
+it('shares one generic credential port and optional service preparation lifecycle', () => {
+  type CredentialBundle = Readonly<Record<string, string>>;
+  type Service = InfraServiceAdapter;
+
+  const boundary: readonly [
+    Assignable<InfraExecutionContext['credentials'], InfraCredentialPort>,
+    Assignable<
+      Awaited<ReturnType<InfraCredentialPort['findAsync']>>,
+      InfraResult<CredentialBundle | null>
+    >,
+    Assignable<
+      Awaited<ReturnType<InfraCredentialPort['resolveAsync']>>,
+      InfraResult<CredentialBundle>
+    >,
+    Assignable<Awaited<ReturnType<InfraCredentialPort['persistAsync']>>, InfraResult<null>>,
+    Assignable<
+      Exclude<Service['prepareAsync'], undefined>,
+      (context: InfraExecutionContext) => Promise<InfraResult<null>>
+    >,
+  ] = [true, true, true, true, true];
+
+  expect(boundary).toEqual([true, true, true, true, true]);
 });
