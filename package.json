@@ -97,18 +97,19 @@
   },
   "description": "Serializable app, action, theme, auth, and secret-store contracts for Ankhorage.",
   "keywords": [
-    "typescript",
-    "contracts",
-    "schema",
-    "manifest",
-    "auth",
-    "secrets",
-    "secret-store",
-    "storage",
     "adapter",
+    "ankhorage",
+    "assets",
+    "auth",
+    "contracts",
+    "manifest",
     "media",
     "navigator",
-    "assets"
+    "schema",
+    "secret-store",
+    "secrets",
+    "storage",
+    "typescript"
   ],
   "files": [
     "dist",
