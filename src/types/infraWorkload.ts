@@ -76,7 +76,7 @@ export interface InfraWorkloadSpec {
   readonly exposure?: 'internal' | 'public';
   readonly replicas?: number;
   /** IDs in the composed desired-state graph; the orchestrator validates missing/cyclic edges. */
-  readonly dependsOn?: SerializableSet<InfraWorkloadId>;
+  readonly dependsOn?: SerializableSet;
 }
 
 export type InfraWorkloadRegistry = Readonly<Record<InfraWorkloadId, InfraWorkloadSpec>>;
