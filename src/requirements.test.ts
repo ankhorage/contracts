@@ -14,7 +14,7 @@ describe('platform requirements', () => {
       capabilities: { [capability]: true },
     };
     const screenRequirements: ScreenRequirements = {
-      capabilities: [{ capability }],
+      capabilities: { [capability]: true },
     };
 
     expect(ANKHORAGE_CAPABILITY_NAMES).toContain(capability);
