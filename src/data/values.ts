@@ -1,11 +1,5 @@
-export type DataContractValue =
-  | string
-  | number
-  | boolean
-  | null
-  | readonly DataContractValue[]
-  | {
-      readonly [key: string]: DataContractValue;
-    };
+import type { SerializableValue } from '../serializable';
+
+export type DataContractValue = SerializableValue;
 
 export type DataPath = string;
