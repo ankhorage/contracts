@@ -1,5 +1,5 @@
-import type { SerializableValue } from './serializable';
 import type { ApiId, EndpointId, OperationId } from './data';
+import type { SerializableValue } from './serializable';
 
 export type ComponentInstanceId = string;
 export type ComponentTypeId = string;
