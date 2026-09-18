@@ -1,14 +1,10 @@
 import { COLOR_HARMONIES } from '@ankhorage/color-theory';
 import { isRecord } from '@ankhorage/utility/object';
-
-import { isSerializableSet } from '../collections';
 import { isOptionalString } from '@ankhorage/utility/string';
 
+import { isSerializableSet } from '../collections';
 import { isMediaAssetReference } from '../media';
-import {
-  ANKHORAGE_CAPABILITY_NAMES,
-  ANKHORAGE_PERMISSION_NAMES,
-} from '../requirements';
+import { ANKHORAGE_CAPABILITY_NAMES, ANKHORAGE_PERMISSION_NAMES } from '../requirements';
 import { APP_CATEGORIES, type ThemeRegistry } from '../types';
 import { isBindingValueSource, isScreenDataLoaderDefinition } from './bindings';
 
