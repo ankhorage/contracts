@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 22.0.2
+
+### Patch Changes
+
+- ab3dff9: Update Ankhorage dependencies: `@ankhorage/color-theory`, `@ankhorage/paradox`.
+
 ## 22.0.1
 
 ### Patch Changes
