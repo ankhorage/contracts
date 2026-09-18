@@ -1,10 +1,11 @@
 import type { AuthFlowConfig, AuthOAuthConfig } from '../auth';
-import type { ApiDefinitionList } from '../data';
+import type { ApiDefinitionRegistry, DataContractValue } from '../data';
+import type { SerializableSet } from '../collections';
 import type { AppEnvironmentId } from '../environments';
 import type { INFRA_ADAPTER_CATALOG, INFRA_RUNTIME_COMPATIBILITY } from '../infra/constants';
 import type { AuthProfileSpec, AuthScope, AuthSignInSpec, AuthSignUpSpec } from '../types';
 import type { InfraControlPlaneCredentialRef } from './infraSecrets';
-import type { InfraWorkloadSpec } from './infraWorkload';
+import type { InfraWorkloadRegistry } from './infraWorkload';
 
 export type InfraAdapterId = keyof typeof INFRA_ADAPTER_CATALOG;
 export type InfraCapability =
@@ -86,11 +87,11 @@ export interface InfraDatabaseConfigMap {
 }
 export interface InfraObjectStorageConfigMap {
   readonly supabase: {
-    readonly buckets?: readonly string[];
+    readonly buckets?: SerializableSet<string>;
     readonly backend?: InfraS3PersistenceTarget;
   };
   readonly r2: {
-    readonly buckets?: readonly string[];
+    readonly buckets?: SerializableSet<string>;
     readonly accountId?: string;
     readonly credentials?: InfraControlPlaneCredentialRef;
   };
@@ -108,12 +109,8 @@ export interface InfraAuthConfigMap {
 export interface InfraAuthzConfigMap {
   readonly cerbos: {
     readonly kind: 'RBAC' | 'ABAC';
-    readonly policies?: readonly InfraAuthzPolicyFile[];
+    readonly policies?: Readonly<Record<string, string>>;
   };
-}
-export interface InfraAuthzPolicyFile {
-  readonly path: string;
-  readonly content: string;
 }
 export interface InfraSecretStoreConfigMap {
   readonly 'supabase-vault': { readonly schema?: string };
@@ -161,15 +158,22 @@ export interface InfraEnvironmentSpec {
   readonly authz?: InfraAuthzSpec;
   readonly secretStore?: InfraSecretStoreSpec;
   readonly networking?: InfraNetworkingSpec;
-  readonly workloads?: readonly InfraWorkloadSpec[];
+  readonly workloads?: InfraWorkloadRegistry;
 }
+
+export type InfraModuleId = string;
+
+export interface InfraModuleSpec {
+  readonly config?: DataContractValue;
+}
+
+export type InfraModuleRegistry = Readonly<Record<InfraModuleId, InfraModuleSpec>>;
 
 export interface InfraManifest {
   readonly environments: Readonly<
     Record<'local', InfraEnvironmentSpec> &
       Partial<Record<Exclude<AppEnvironmentId, 'local'>, InfraEnvironmentSpec>>
   >;
-  readonly apis?: ApiDefinitionList;
-  readonly modules: readonly string[];
-  readonly modulesConfig?: Readonly<Record<string, unknown>>;
+  readonly apis?: ApiDefinitionRegistry;
+  readonly modules: InfraModuleRegistry;
 }
