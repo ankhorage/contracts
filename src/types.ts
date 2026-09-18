@@ -13,8 +13,8 @@ import type { InfraManifest } from './infra';
 import type { MediaAssetReference, MediaManifest } from './media';
 import type { AppNavigatorManifest } from './navigator';
 import type { RepositoryManifest } from './repository';
-import type { SerializableValue } from './serializable';
 import type { ScreenRequirements } from './requirements';
+import type { SerializableValue } from './serializable';
 import type { AppStateSpec } from './state';
 import type { ThemeGlobalTokenOverrides, ThemeRecipeOverrides } from './theme';
 
