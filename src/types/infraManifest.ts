@@ -1,6 +1,6 @@
 import type { AuthFlowConfig, AuthOAuthConfig } from '../auth';
-import type { ApiDefinitionRegistry, DataContractValue } from '../data';
 import type { SerializableSet } from '../collections';
+import type { ApiDefinitionRegistry, DataContractValue } from '../data';
 import type { AppEnvironmentId } from '../environments';
 import type { INFRA_ADAPTER_CATALOG, INFRA_RUNTIME_COMPATIBILITY } from '../infra/constants';
 import type { AuthProfileSpec, AuthScope, AuthSignInSpec, AuthSignUpSpec } from '../types';
@@ -87,11 +87,11 @@ export interface InfraDatabaseConfigMap {
 }
 export interface InfraObjectStorageConfigMap {
   readonly supabase: {
-    readonly buckets?: SerializableSet<string>;
+    readonly buckets?: SerializableSet;
     readonly backend?: InfraS3PersistenceTarget;
   };
   readonly r2: {
-    readonly buckets?: SerializableSet<string>;
+    readonly buckets?: SerializableSet;
     readonly accountId?: string;
     readonly credentials?: InfraControlPlaneCredentialRef;
   };
