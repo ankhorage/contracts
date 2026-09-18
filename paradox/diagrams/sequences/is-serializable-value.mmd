@@ -1,0 +1,5 @@
+sequenceDiagram
+  participant participant_isRecord as isRecord
+  participant participant_isSerializableValue as isSerializableValue
+  participant_isSerializableValue->>participant_isRecord: isRecord()
+  participant_isRecord-->>participant_isSerializableValue: return

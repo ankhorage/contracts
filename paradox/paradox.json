@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v19.5.0",
+      "value": "v22.0.0",
       "color": "cb3837"
     },
     {
@@ -89,7 +89,7 @@
         "src/appManifest/isManifestValue.ts",
         "src/data/index.ts"
       ],
-      "exports": ["isApiDefinitionList"]
+      "exports": ["isApiDefinitionRegistry"]
     },
     {
       "path": "src/appManifest/bindings.ts",
@@ -161,7 +161,7 @@
     {
       "path": "src/appManifest/isManifestValue.ts",
       "isEntrypoint": false,
-      "dependencies": [],
+      "dependencies": ["src/serializable.ts"],
       "exports": ["isManifestValue"]
     },
     {
@@ -201,13 +201,19 @@
     {
       "path": "src/appManifest/screens.ts",
       "isEntrypoint": false,
-      "dependencies": ["src/appManifest/bindings.ts", "src/media.ts", "src/types.ts"],
+      "dependencies": [
+        "src/appManifest/bindings.ts",
+        "src/collections.ts",
+        "src/media.ts",
+        "src/requirements.ts",
+        "src/types.ts"
+      ],
       "exports": [
         "isAppNavigatorManifest",
         "isManifestMetadata",
         "isScreenRegistry",
         "isSplashScreenSpec",
-        "isThemeConfig"
+        "isThemeRegistry"
       ]
     },
     {
@@ -288,7 +294,7 @@
     {
       "path": "src/bindings.ts",
       "isEntrypoint": false,
-      "dependencies": ["src/data/index.ts"],
+      "dependencies": ["src/data/index.ts", "src/serializable.ts"],
       "exports": [
         "BindingCondition",
         "BindingConditionOperator",
@@ -328,6 +334,12 @@
       ]
     },
     {
+      "path": "src/collections.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": ["isSerializableSet", "SerializableSet"]
+    },
+    {
       "path": "src/data/apis.ts",
       "isEntrypoint": false,
       "dependencies": [
@@ -340,7 +352,7 @@
       "exports": [
         "ApiBaseDefinition",
         "ApiDefinition",
-        "ApiDefinitionList",
+        "ApiDefinitionRegistry",
         "ApiOrigin",
         "ApiProtocol",
         "ExternalGraphQlApiDefinition",
@@ -396,7 +408,7 @@
         "AdapterRef",
         "ApiBaseDefinition",
         "ApiDefinition",
-        "ApiDefinitionList",
+        "ApiDefinitionRegistry",
         "ApiId",
         "ApiOrigin",
         "ApiProtocol",
@@ -511,7 +523,7 @@
     {
       "path": "src/data/values.ts",
       "isEntrypoint": false,
-      "dependencies": [],
+      "dependencies": ["src/serializable.ts"],
       "exports": ["DataContractValue", "DataPath"]
     },
     {
@@ -731,7 +743,7 @@
         "AnkhProviderReference",
         "ApiBaseDefinition",
         "ApiDefinition",
-        "ApiDefinitionList",
+        "ApiDefinitionRegistry",
         "ApiId",
         "ApiOrigin",
         "ApiProtocol",
@@ -977,7 +989,6 @@
         "InfraAuthConfigMap",
         "InfraAuthSpec",
         "InfraAuthzConfigMap",
-        "InfraAuthzPolicyFile",
         "InfraAuthzSpec",
         "InfraCapability",
         "InfraComputeAdapter",
@@ -987,6 +998,7 @@
         "InfraComputeSnapshot",
         "InfraComputeTarget",
         "InfraControlPlaneCredentialRef",
+        "InfraCredentialPort",
         "InfraDatabaseConfigMap",
         "InfraDatabaseSpec",
         "InfraDeploymentSpec",
@@ -997,6 +1009,9 @@
         "InfraGeneratedArtifact",
         "InfraLedger",
         "InfraManifest",
+        "InfraModuleId",
+        "InfraModuleRegistry",
+        "InfraModuleSpec",
         "InfraNetworkingSpec",
         "InfraNetworkingTlsSpec",
         "InfraObjectStorageConfigMap",
@@ -1023,13 +1038,17 @@
         "InfraServiceAdapter",
         "InfraStatus",
         "InfraWorkloadArtifact",
-        "InfraWorkloadFileSpec",
+        "InfraWorkloadFileMap",
         "InfraWorkloadHealthSpec",
+        "InfraWorkloadId",
         "InfraWorkloadPort",
+        "InfraWorkloadPortRegistry",
+        "InfraWorkloadRegistry",
         "InfraWorkloadResourceSpec",
         "InfraWorkloadScalarValue",
         "InfraWorkloadSpec",
         "InfraWorkloadValue",
+        "InfraWorkloadVolumeRegistry",
         "InfraWorkloadVolumeSpec",
         "InternalRestApiDefinition",
         "IosBuildArtifact",
@@ -1053,6 +1072,8 @@
         "isInfraManifest",
         "isInfraWorkloadSpec",
         "isMediaAssetReference",
+        "isSerializableSet",
+        "isSerializableValue",
         "JAVASCRIPT_STACK_PRESENTATIONS",
         "JAVASCRIPT_TABS_PRESENTATIONS",
         "JavaScriptStackPresentation",
@@ -1181,9 +1202,7 @@
         "RuntimeNodePropsResolver",
         "RuntimeResolveNodePropsArgs",
         "SchemaId",
-        "ScreenCapabilityRequirement",
         "ScreenDataLoaderDefinition",
-        "ScreenPermissionRequirement",
         "ScreenRequirements",
         "ScreenSpec",
         "SearchAction",
@@ -1205,6 +1224,8 @@
         "SecretStoreOkResult",
         "SecretStoreProvider",
         "SecretStoreResult",
+        "SerializableSet",
+        "SerializableValue",
         "SetLanguageAction",
         "SignInInput",
         "SignOutInput",
@@ -1277,11 +1298,13 @@
         "TabsNavigatorPlan",
         "ThemeConfig",
         "ThemeGlobalTokenOverrides",
+        "ThemeId",
         "ThemeModeConfig",
         "ThemeNumericTokenOverrides",
         "ThemeRecipeFieldOverrides",
         "ThemeRecipeOverrides",
         "ThemeRecipeOverrideValue",
+        "ThemeRegistry",
         "ThemeStringTokenOverrides",
         "ThemeTypographyHeadingOverrides",
         "ThemeTypographyTokenOverrides",
@@ -1334,7 +1357,6 @@
         "InfraAuthConfigMap",
         "InfraAuthSpec",
         "InfraAuthzConfigMap",
-        "InfraAuthzPolicyFile",
         "InfraAuthzSpec",
         "InfraCapability",
         "InfraComputeAdapter",
@@ -1344,6 +1366,7 @@
         "InfraComputeSnapshot",
         "InfraComputeTarget",
         "InfraControlPlaneCredentialRef",
+        "InfraCredentialPort",
         "InfraDatabaseConfigMap",
         "InfraDatabaseSpec",
         "InfraDeploymentSpec",
@@ -1354,6 +1377,9 @@
         "InfraGeneratedArtifact",
         "InfraLedger",
         "InfraManifest",
+        "InfraModuleId",
+        "InfraModuleRegistry",
+        "InfraModuleSpec",
         "InfraNetworkingSpec",
         "InfraNetworkingTlsSpec",
         "InfraObjectStorageConfigMap",
@@ -1380,13 +1406,17 @@
         "InfraServiceAdapter",
         "InfraStatus",
         "InfraWorkloadArtifact",
-        "InfraWorkloadFileSpec",
+        "InfraWorkloadFileMap",
         "InfraWorkloadHealthSpec",
+        "InfraWorkloadId",
         "InfraWorkloadPort",
+        "InfraWorkloadPortRegistry",
+        "InfraWorkloadRegistry",
         "InfraWorkloadResourceSpec",
         "InfraWorkloadScalarValue",
         "InfraWorkloadSpec",
         "InfraWorkloadValue",
+        "InfraWorkloadVolumeRegistry",
         "InfraWorkloadVolumeSpec",
         "isInfraAdapterDescriptor",
         "isInfraAuthSpec",
@@ -1456,6 +1486,7 @@
       "path": "src/infra/isInfraEnvironmentSpec.ts",
       "isEntrypoint": false,
       "dependencies": [
+        "src/collections.ts",
         "src/infra/constants.ts",
         "src/infra/infraFields.ts",
         "src/infra/isInfraAuthSpec.ts",
@@ -1474,9 +1505,9 @@
       "dependencies": [
         "src/appManifest/apis.ts",
         "src/environments.ts",
-        "src/infra/infraFields.ts",
         "src/infra/isInfraEnvironmentSpec.ts",
         "src/infra/isInfraShape.ts",
+        "src/serializable.ts",
         "src/types/infraManifest.ts",
         "src/types/infraValidation.ts"
       ],
@@ -1498,6 +1529,7 @@
       "path": "src/infra/isInfraWorkloadSpec.ts",
       "isEntrypoint": false,
       "dependencies": [
+        "src/collections.ts",
         "src/infra/infraFields.ts",
         "src/infra/isInfraShape.ts",
         "src/infra/isInfraWorkloadHealth.ts",
@@ -1735,15 +1767,13 @@
     {
       "path": "src/requirements.ts",
       "isEntrypoint": false,
-      "dependencies": [],
+      "dependencies": ["src/collections.ts"],
       "exports": [
         "ANKHORAGE_CAPABILITY_NAMES",
         "ANKHORAGE_PERMISSION_NAMES",
         "AnkhorageCapabilityName",
         "AnkhoragePermissionName",
         "ComponentRequirements",
-        "ScreenCapabilityRequirement",
-        "ScreenPermissionRequirement",
         "ScreenRequirements"
       ]
     },
@@ -1791,9 +1821,15 @@
       ]
     },
     {
-      "path": "src/state.ts",
+      "path": "src/serializable.ts",
       "isEntrypoint": false,
       "dependencies": [],
+      "exports": ["isSerializableValue", "SerializableValue"]
+    },
+    {
+      "path": "src/state.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/serializable.ts"],
       "exports": [
         "AppStateSpec",
         "StateAdapter",
@@ -1869,6 +1905,7 @@
         "src/navigator.ts",
         "src/repository.ts",
         "src/requirements.ts",
+        "src/serializable.ts",
         "src/state.ts",
         "src/theme.ts"
       ],
@@ -1918,7 +1955,9 @@
         "SetLanguageAction",
         "SvgIconSpec",
         "ThemeConfig",
+        "ThemeId",
         "ThemeModeConfig",
+        "ThemeRegistry",
         "ToggleDarkModeAction",
         "UiNode",
         "UiNodeRepeatSpec"
@@ -2090,6 +2129,7 @@
         "InfraAdapterDescriptor",
         "InfraComputeAdapter",
         "InfraComputeSnapshot",
+        "InfraCredentialPort",
         "InfraExecutionContext",
         "InfraReconcileResult",
         "InfraRuntimeAdapter",
@@ -2126,6 +2166,7 @@
       "isEntrypoint": false,
       "dependencies": [
         "src/auth.ts",
+        "src/collections.ts",
         "src/data/index.ts",
         "src/environments.ts",
         "src/infra/constants.ts",
@@ -2138,7 +2179,6 @@
         "InfraAuthConfigMap",
         "InfraAuthSpec",
         "InfraAuthzConfigMap",
-        "InfraAuthzPolicyFile",
         "InfraAuthzSpec",
         "InfraCapability",
         "InfraComputeConfigMap",
@@ -2149,6 +2189,9 @@
         "InfraDeploymentSpec",
         "InfraEnvironmentSpec",
         "InfraManifest",
+        "InfraModuleId",
+        "InfraModuleRegistry",
+        "InfraModuleSpec",
         "InfraNetworkingSpec",
         "InfraNetworkingTlsSpec",
         "InfraObjectStorageConfigMap",
@@ -2184,16 +2227,20 @@
     {
       "path": "src/types/infraWorkload.ts",
       "isEntrypoint": false,
-      "dependencies": ["src/types/infraSecrets.ts"],
+      "dependencies": ["src/collections.ts", "src/types/infraSecrets.ts"],
       "exports": [
         "InfraWorkloadArtifact",
-        "InfraWorkloadFileSpec",
+        "InfraWorkloadFileMap",
         "InfraWorkloadHealthSpec",
+        "InfraWorkloadId",
         "InfraWorkloadPort",
+        "InfraWorkloadPortRegistry",
+        "InfraWorkloadRegistry",
         "InfraWorkloadResourceSpec",
         "InfraWorkloadScalarValue",
         "InfraWorkloadSpec",
         "InfraWorkloadValue",
+        "InfraWorkloadVolumeRegistry",
         "InfraWorkloadVolumeSpec"
       ]
     },
@@ -2239,7 +2286,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 87,
+        "line": 92,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2257,7 +2304,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 36,
+        "line": 41,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2315,13 +2362,13 @@
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["AdapterKind", "DataContractValue"],
+      "relatedSymbols": ["AdapterKind", "SerializableValue"],
       "signatures": [],
       "members": [
         {
           "name": "config",
           "kind": "property",
-          "type": "DataContractValue | undefined",
+          "type": "import(\"..\").SerializableValue | undefined",
           "required": false,
           "description": null
         },
@@ -2405,7 +2452,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 47,
+        "line": 52,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3208,7 +3255,7 @@
       "modulePath": "src/requirements.ts",
       "sourceLocation": {
         "filePath": "src/requirements.ts",
-        "line": 14,
+        "line": 16,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -3226,7 +3273,7 @@
       "modulePath": "src/requirements.ts",
       "sourceLocation": {
         "filePath": "src/requirements.ts",
-        "line": 1,
+        "line": 3,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -3244,7 +3291,7 @@
       "modulePath": "src/requirements.ts",
       "sourceLocation": {
         "filePath": "src/requirements.ts",
-        "line": 25,
+        "line": 27,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3262,7 +3309,7 @@
       "modulePath": "src/requirements.ts",
       "sourceLocation": {
         "filePath": "src/requirements.ts",
-        "line": 12,
+        "line": 14,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3346,9 +3393,9 @@
         "ApiOrigin",
         "ApiProtocol",
         "CredentialRef",
-        "DataContractValue",
         "DataEndpointConfig",
-        "DataSchema"
+        "DataSchema",
+        "SerializableValue"
       ],
       "signatures": [],
       "members": [
@@ -3383,7 +3430,7 @@
         {
           "name": "metadata",
           "kind": "property",
-          "type": "DataContractValue | undefined",
+          "type": "import(\"..\").SerializableValue | undefined",
           "required": false,
           "description": null
         },
@@ -3437,7 +3484,7 @@
       "structuredRows": []
     },
     {
-      "name": "ApiDefinitionList",
+      "name": "ApiDefinitionRegistry",
       "description": null,
       "isReadme": false,
       "examples": [],
@@ -3517,7 +3564,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 142,
+        "line": 141,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -3571,7 +3618,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 167,
+        "line": 166,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3855,7 +3902,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 268,
+        "line": 267,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3872,7 +3919,8 @@
         "RepositoryManifest",
         "ScreenSpec",
         "SplashScreenSpec",
-        "ThemeConfig"
+        "ThemeConfig",
+        "ThemeId"
       ],
       "signatures": [],
       "members": [
@@ -3928,7 +3976,7 @@
         {
           "name": "metadata",
           "kind": "property",
-          "type": "{ name: string; slug: string; version: string; category: AppCategory; themeId: string; created?: string; updated?: string; }",
+          "type": "{ name: string; slug: string; version: string; category: AppCategory; themeId: ThemeId; created?: string; updated?: string; }",
           "required": true,
           "description": null
         },
@@ -3949,7 +3997,7 @@
         {
           "name": "screens",
           "kind": "property",
-          "type": "Record<string, ScreenSpec>",
+          "type": "Readonly<Record<string, ScreenSpec>>",
           "required": true,
           "description": null
         },
@@ -3977,7 +4025,7 @@
         {
           "name": "themes",
           "kind": "property",
-          "type": "ThemeConfig[]",
+          "type": "Readonly<Record<string, ThemeConfig>>",
           "required": true,
           "description": null
         }
@@ -4029,7 +4077,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 261,
+        "line": 260,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4055,7 +4103,7 @@
       "modulePath": "src/state.ts",
       "sourceLocation": {
         "filePath": "src/state.ts",
-        "line": 2,
+        "line": 4,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -4286,7 +4334,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 191,
+        "line": 190,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -4304,7 +4352,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 178,
+        "line": 177,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -4322,7 +4370,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 188,
+        "line": 187,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -4340,7 +4388,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 194,
+        "line": 193,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -4358,7 +4406,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 169,
+        "line": 168,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -4376,7 +4424,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 172,
+        "line": 171,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -4412,7 +4460,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 175,
+        "line": 174,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -5543,7 +5591,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 192,
+        "line": 191,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -5561,7 +5609,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 186,
+        "line": 185,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -5579,7 +5627,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 189,
+        "line": 188,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -5597,7 +5645,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 253,
+        "line": 252,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -5651,7 +5699,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 195,
+        "line": 194,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -5748,7 +5796,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 170,
+        "line": 169,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -5846,7 +5894,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 173,
+        "line": 172,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -5864,7 +5912,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 243,
+        "line": 242,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -5941,7 +5989,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 176,
+        "line": 175,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -5959,7 +6007,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 247,
+        "line": 246,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -6067,11 +6115,11 @@
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 108,
+        "line": 101,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["BindingConditionOperator", "BindingValue", "BindingValueSource"],
+      "relatedSymbols": ["BindingConditionOperator", "BindingValueSource", "SerializableValue"],
       "signatures": [],
       "members": [
         {
@@ -6091,7 +6139,7 @@
         {
           "name": "value",
           "kind": "property",
-          "type": "BindingValue | undefined",
+          "type": "SerializableValue | undefined",
           "required": false,
           "description": null
         }
@@ -6107,7 +6155,7 @@
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 106,
+        "line": 99,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -6125,7 +6173,7 @@
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 16,
+        "line": 9,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -6143,11 +6191,11 @@
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 54,
+        "line": 47,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["BindingValue", "BindingValueSource"],
+      "relatedSymbols": ["BindingValueSource", "SerializableValue"],
       "signatures": [],
       "members": [
         {
@@ -6160,7 +6208,7 @@
         {
           "name": "value",
           "kind": "property",
-          "type": "BindingValue | undefined",
+          "type": "SerializableValue | undefined",
           "required": false,
           "description": null
         }
@@ -6176,7 +6224,7 @@
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 95,
+        "line": 88,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -6194,7 +6242,7 @@
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 76,
+        "line": 69,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -6212,7 +6260,7 @@
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 61,
+        "line": 54,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -6252,7 +6300,7 @@
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 59,
+        "line": 52,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -6270,7 +6318,7 @@
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 20,
+        "line": 13,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -6310,7 +6358,7 @@
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 6,
+        "line": 7,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -6328,7 +6376,7 @@
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 49,
+        "line": 42,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -6361,7 +6409,7 @@
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 26,
+        "line": 19,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -6379,7 +6427,7 @@
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 18,
+        "line": 11,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -6397,7 +6445,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 124,
+        "line": 123,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -6415,7 +6463,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 131,
+        "line": 130,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -6433,17 +6481,17 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 126,
+        "line": 125,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["ManifestValue"],
+      "relatedSymbols": ["SerializableValue"],
       "signatures": [],
       "members": [
         {
           "name": "item",
           "kind": "property",
-          "type": "Record<string, ManifestValue>",
+          "type": "Record<string, SerializableValue>",
           "required": true,
           "description": null
         },
@@ -6499,7 +6547,7 @@
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 130,
+        "line": 123,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -6546,7 +6594,7 @@
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 137,
+        "line": 130,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -6564,7 +6612,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 106,
+        "line": 105,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -6604,7 +6652,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 136,
+        "line": 135,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -6622,7 +6670,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 104,
+        "line": 103,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -6640,7 +6688,7 @@
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 3,
+        "line": 4,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -6658,24 +6706,24 @@
       "modulePath": "src/requirements.ts",
       "sourceLocation": {
         "filePath": "src/requirements.ts",
-        "line": 40,
+        "line": 34,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["ScreenCapabilityRequirement", "ScreenPermissionRequirement"],
+      "relatedSymbols": [],
       "signatures": [],
       "members": [
         {
           "name": "capabilities",
           "kind": "property",
-          "type": "readonly ScreenCapabilityRequirement[] | undefined",
+          "type": "Readonly<Partial<Record<\"notifications\" | \"clipboard\" | \"barcodeScanner\" | \"cameraPreview\" | \"ebookReader\" | \"mediaPicker\" | \"filePicker\" | \"location\", true>>> | undefined",
           "required": false,
           "description": null
         },
         {
           "name": "permissions",
           "kind": "property",
-          "type": "readonly ScreenPermissionRequirement[] | undefined",
+          "type": "Readonly<Partial<Record<\"camera\" | \"microphone\" | \"mediaLibrary\" | \"mediaLibraryWrite\" | \"locationForeground\" | \"locationBackground\" | \"notifications\" | \"clipboard\", true>>> | undefined",
           "required": false,
           "description": null
         }
@@ -6691,7 +6739,7 @@
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 4,
+        "line": 5,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -6709,7 +6757,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 54,
+        "line": 59,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -6920,13 +6968,13 @@
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["ManifestValue", "RouteDefinition"],
+      "relatedSymbols": ["RouteDefinition", "SerializableValue"],
       "signatures": [],
       "members": [
         {
           "name": "config",
           "kind": "property",
-          "type": "Readonly<Record<string, ManifestValue>> | undefined",
+          "type": "Readonly<Record<string, import(\"./serializable\").SerializableValue>> | undefined",
           "required": false,
           "description": null
         },
@@ -7072,13 +7120,13 @@
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["DataContractValue"],
+      "relatedSymbols": ["SerializableValue"],
       "signatures": [],
       "members": [
         {
           "name": "config",
           "kind": "property",
-          "type": "DataContractValue | undefined",
+          "type": "import(\"..\").SerializableValue | undefined",
           "required": false,
           "description": null
         },
@@ -7129,9 +7177,9 @@
       "relatedSymbols": [
         "CredentialRef",
         "DatabaseAdapterRef",
-        "DataContractValue",
         "DataEndpointConfig",
-        "DataSchema"
+        "DataSchema",
+        "SerializableValue"
       ],
       "signatures": [],
       "members": [
@@ -7180,7 +7228,7 @@
         {
           "name": "metadata",
           "kind": "property",
-          "type": "DataContractValue | undefined",
+          "type": "import(\"..\").SerializableValue | undefined",
           "required": false,
           "description": null
         },
@@ -7210,7 +7258,7 @@
       "modulePath": "src/data/values.ts",
       "sourceLocation": {
         "filePath": "src/data/values.ts",
-        "line": 1,
+        "line": 3,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -7270,9 +7318,9 @@
       "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "CredentialRef",
-        "DataContractValue",
         "DataEndpointKind",
-        "DataOperationConfig"
+        "DataOperationConfig",
+        "SerializableValue"
       ],
       "signatures": [],
       "members": [
@@ -7314,7 +7362,7 @@
         {
           "name": "metadata",
           "kind": "property",
-          "type": "DataContractValue | undefined",
+          "type": "import(\"..\").SerializableValue | undefined",
           "required": false,
           "description": null
         },
@@ -7393,13 +7441,13 @@
       "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "CredentialRef",
-        "DataContractValue",
         "DataOperationIntent",
         "DataOperationMethod",
         "DataOperationPagination",
         "DataOperationProtocol",
         "DataOperationRequest",
-        "DataOperationResponse"
+        "DataOperationResponse",
+        "SerializableValue"
       ],
       "signatures": [],
       "members": [
@@ -7441,7 +7489,7 @@
         {
           "name": "metadata",
           "kind": "property",
-          "type": "DataContractValue | undefined",
+          "type": "import(\"..\").SerializableValue | undefined",
           "required": false,
           "description": null
         },
@@ -7608,17 +7656,17 @@
       },
       "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
-        "DataContractValue",
         "DataOperationParameterLocation",
         "DataSchema",
-        "DataSchemaRef"
+        "DataSchemaRef",
+        "SerializableValue"
       ],
       "signatures": [],
       "members": [
         {
           "name": "default",
           "kind": "property",
-          "type": "DataContractValue | undefined",
+          "type": "import(\"..\").SerializableValue | undefined",
           "required": false,
           "description": null
         },
@@ -7831,7 +7879,7 @@
       "modulePath": "src/data/values.ts",
       "sourceLocation": {
         "filePath": "src/data/values.ts",
-        "line": 11,
+        "line": 5,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -7853,7 +7901,7 @@
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["DataContractValue", "DataSchemaPrimitiveType", "DataSchemaRef"],
+      "relatedSymbols": ["DataSchemaPrimitiveType", "DataSchemaRef", "SerializableValue"],
       "signatures": [],
       "members": [
         {
@@ -7880,14 +7928,14 @@
         {
           "name": "const",
           "kind": "property",
-          "type": "DataContractValue | undefined",
+          "type": "import(\"..\").SerializableValue | undefined",
           "required": false,
           "description": null
         },
         {
           "name": "default",
           "kind": "property",
-          "type": "DataContractValue | undefined",
+          "type": "import(\"..\").SerializableValue | undefined",
           "required": false,
           "description": null
         },
@@ -7901,7 +7949,7 @@
         {
           "name": "enum",
           "kind": "property",
-          "type": "readonly DataContractValue[] | undefined",
+          "type": "readonly import(\"..\").SerializableValue[] | undefined",
           "required": false,
           "description": null
         },
@@ -10550,7 +10598,7 @@
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 124,
+        "line": 117,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10590,7 +10638,7 @@
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 114,
+        "line": 107,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10632,10 +10680,10 @@
       "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "CredentialRef",
-        "DataContractValue",
         "DataEndpointConfig",
         "DataSchema",
-        "GraphQlIntrospectionConfig"
+        "GraphQlIntrospectionConfig",
+        "SerializableValue"
       ],
       "signatures": [],
       "members": [
@@ -10684,7 +10732,7 @@
         {
           "name": "metadata",
           "kind": "property",
-          "type": "DataContractValue | undefined",
+          "type": "import(\"..\").SerializableValue | undefined",
           "required": false,
           "description": null
         },
@@ -10734,10 +10782,10 @@
       "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "CredentialRef",
-        "DataContractValue",
         "DataEndpointConfig",
         "DataSchema",
-        "OpenApiDocumentRef"
+        "OpenApiDocumentRef",
+        "SerializableValue"
       ],
       "signatures": [],
       "members": [
@@ -10779,7 +10827,7 @@
         {
           "name": "metadata",
           "kind": "property",
-          "type": "DataContractValue | undefined",
+          "type": "import(\"..\").SerializableValue | undefined",
           "required": false,
           "description": null
         },
@@ -10830,7 +10878,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 79,
+        "line": 84,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10949,7 +10997,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 117,
+        "line": 116,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -10967,7 +11015,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 115,
+        "line": 114,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11108,7 +11156,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 214,
+        "line": 213,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11238,7 +11286,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 9,
+        "line": 10,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11256,7 +11304,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 98,
+        "line": 99,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11289,7 +11337,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 130,
+        "line": 127,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11307,33 +11355,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 108,
-        "column": 1
-      },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["InfraAuthzPolicyFile"],
-      "signatures": [],
-      "members": [
-        {
-          "name": "cerbos",
-          "kind": "property",
-          "type": "{ readonly kind: \"RBAC\" | \"ABAC\"; readonly policies?: readonly InfraAuthzPolicyFile[]; }",
-          "required": true,
-          "description": null
-        }
-      ],
-      "structuredRows": []
-    },
-    {
-      "name": "InfraAuthzPolicyFile",
-      "description": null,
-      "isReadme": false,
-      "examples": [],
-      "kind": "type",
-      "modulePath": "src/types/infraManifest.ts",
-      "sourceLocation": {
-        "filePath": "src/types/infraManifest.ts",
-        "line": 114,
+        "line": 109,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11341,16 +11363,9 @@
       "signatures": [],
       "members": [
         {
-          "name": "content",
+          "name": "cerbos",
           "kind": "property",
-          "type": "string",
-          "required": true,
-          "description": null
-        },
-        {
-          "name": "path",
-          "kind": "property",
-          "type": "string",
+          "type": "{ readonly kind: \"RBAC\" | \"ABAC\"; readonly policies?: Readonly<Record<string, string>>; }",
           "required": true,
           "description": null
         }
@@ -11366,7 +11381,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 133,
+        "line": 130,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11384,7 +11399,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 10,
+        "line": 11,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11402,7 +11417,7 @@
       "modulePath": "src/types/infraAdapters.ts",
       "sourceLocation": {
         "filePath": "src/types/infraAdapters.ts",
-        "line": 59,
+        "line": 72,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11480,7 +11495,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 21,
+        "line": 22,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11513,7 +11528,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 17,
+        "line": 18,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11531,7 +11546,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 50,
+        "line": 51,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11549,7 +11564,7 @@
       "modulePath": "src/types/infraAdapters.ts",
       "sourceLocation": {
         "filePath": "src/types/infraAdapters.ts",
-        "line": 55,
+        "line": 68,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11632,6 +11647,46 @@
       "structuredRows": []
     },
     {
+      "name": "InfraCredentialPort",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/types/infraAdapters.ts",
+      "sourceLocation": {
+        "filePath": "src/types/infraAdapters.ts",
+        "line": 33,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["InfraControlPlaneCredentialRef", "InfraResult"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "findAsync",
+          "kind": "method",
+          "type": "(reference: InfraControlPlaneCredentialRef) => Promise<InfraResult<Readonly<Record<string, string>> | null>>",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "persistAsync",
+          "kind": "method",
+          "type": "(reference: InfraControlPlaneCredentialRef, values: Readonly<Record<string, string>>) => Promise<InfraResult<null>>",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "resolveAsync",
+          "kind": "method",
+          "type": "(reference: InfraControlPlaneCredentialRef) => Promise<InfraResult<Readonly<Record<string, string>>>>",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
       "name": "InfraDatabaseConfigMap",
       "description": null,
       "isReadme": false,
@@ -11640,7 +11695,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 81,
+        "line": 82,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11666,7 +11721,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 122,
+        "line": 119,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11684,7 +11739,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 58,
+        "line": 59,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11803,7 +11858,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 156,
+        "line": 153,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -11814,7 +11869,6 @@
         "AuthScope",
         "AuthSignInSpec",
         "AuthSignUpSpec",
-        "InfraAuthzPolicyFile",
         "InfraDeploymentSpec",
         "InfraNetworkingSpec",
         "InfraObjectStorageSpec",
@@ -11833,7 +11887,7 @@
         {
           "name": "authz",
           "kind": "property",
-          "type": "({ readonly provider: \"cerbos\"; } & { readonly kind: \"RBAC\" | \"ABAC\"; readonly policies?: readonly InfraAuthzPolicyFile[]; }) | undefined",
+          "type": "({ readonly provider: \"cerbos\"; } & { readonly kind: \"RBAC\" | \"ABAC\"; readonly policies?: Readonly<Record<string, string>>; }) | undefined",
           "required": false,
           "description": null
         },
@@ -11875,7 +11929,7 @@
         {
           "name": "workloads",
           "kind": "property",
-          "type": "readonly InfraWorkloadSpec[] | undefined",
+          "type": "Readonly<Record<string, import(\"./infraWorkload\").InfraWorkloadSpec>> | undefined",
           "required": false,
           "description": null
         }
@@ -11891,12 +11945,12 @@
       "modulePath": "src/types/infraAdapters.ts",
       "sourceLocation": {
         "filePath": "src/types/infraAdapters.ts",
-        "line": 33,
+        "line": 50,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
-        "InfraControlPlaneCredentialRef",
+        "InfraCredentialPort",
         "InfraEnvironmentSpec",
         "InfraLedger",
         "InfraResult",
@@ -11907,7 +11961,7 @@
         {
           "name": "credentials",
           "kind": "property",
-          "type": "{ resolveAsync(reference: InfraControlPlaneCredentialRef): Promise<InfraResult<Readonly<Record<string, string>>>>; }",
+          "type": "InfraCredentialPort",
           "required": true,
           "description": null
         },
@@ -12085,17 +12139,17 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 167,
+        "line": 172,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["ApiDefinitionList", "InfraEnvironmentSpec"],
+      "relatedSymbols": ["ApiDefinition", "InfraEnvironmentSpec", "InfraModuleSpec"],
       "signatures": [],
       "members": [
         {
           "name": "apis",
           "kind": "property",
-          "type": "ApiDefinitionList | undefined",
+          "type": "Readonly<Record<string, import(\"..\").ApiDefinition>> | undefined",
           "required": false,
           "description": null
         },
@@ -12109,14 +12163,69 @@
         {
           "name": "modules",
           "kind": "property",
-          "type": "readonly string[]",
+          "type": "Readonly<Record<string, InfraModuleSpec>>",
           "required": true,
           "description": null
-        },
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "InfraModuleId",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/types/infraManifest.ts",
+      "sourceLocation": {
+        "filePath": "src/types/infraManifest.ts",
+        "line": 164,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "InfraModuleRegistry",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/types/infraManifest.ts",
+      "sourceLocation": {
+        "filePath": "src/types/infraManifest.ts",
+        "line": 170,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "InfraModuleSpec",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/types/infraManifest.ts",
+      "sourceLocation": {
+        "filePath": "src/types/infraManifest.ts",
+        "line": 166,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["SerializableValue"],
+      "signatures": [],
+      "members": [
         {
-          "name": "modulesConfig",
+          "name": "config",
           "kind": "property",
-          "type": "Readonly<Record<string, unknown>> | undefined",
+          "type": "import(\"..\").SerializableValue | undefined",
           "required": false,
           "description": null
         }
@@ -12132,7 +12241,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 147,
+        "line": 144,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12172,7 +12281,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 140,
+        "line": 137,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12205,24 +12314,28 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 87,
+        "line": 88,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["InfraControlPlaneCredentialRef", "InfraS3PersistenceTarget"],
+      "relatedSymbols": [
+        "InfraControlPlaneCredentialRef",
+        "InfraS3PersistenceTarget",
+        "SerializableSet"
+      ],
       "signatures": [],
       "members": [
         {
           "name": "r2",
           "kind": "property",
-          "type": "{ readonly buckets?: readonly string[]; readonly accountId?: string; readonly credentials?: InfraControlPlaneCredentialRef; }",
+          "type": "{ readonly buckets?: SerializableSet; readonly accountId?: string; readonly credentials?: InfraControlPlaneCredentialRef; }",
           "required": true,
           "description": null
         },
         {
           "name": "supabase",
           "kind": "property",
-          "type": "{ readonly buckets?: readonly string[]; readonly backend?: InfraS3PersistenceTarget; }",
+          "type": "{ readonly buckets?: SerializableSet; readonly backend?: InfraS3PersistenceTarget; }",
           "required": true,
           "description": null
         }
@@ -12238,7 +12351,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 125,
+        "line": 122,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12422,7 +12535,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 12,
+        "line": 13,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12440,7 +12553,7 @@
       "modulePath": "src/types/infraAdapters.ts",
       "sourceLocation": {
         "filePath": "src/types/infraAdapters.ts",
-        "line": 49,
+        "line": 62,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12585,7 +12698,7 @@
       "modulePath": "src/types/infraAdapters.ts",
       "sourceLocation": {
         "filePath": "src/types/infraAdapters.ts",
-        "line": 96,
+        "line": 109,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12670,7 +12783,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 36,
+        "line": 37,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12710,7 +12823,7 @@
       "modulePath": "src/types/infraAdapters.ts",
       "sourceLocation": {
         "filePath": "src/types/infraAdapters.ts",
-        "line": 86,
+        "line": 99,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12762,7 +12875,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 18,
+        "line": 19,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12780,7 +12893,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 53,
+        "line": 54,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12798,7 +12911,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 66,
+        "line": 67,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12852,7 +12965,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 75,
+        "line": 76,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12946,7 +13059,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 118,
+        "line": 115,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12972,7 +13085,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 136,
+        "line": 133,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -12990,7 +13103,7 @@
       "modulePath": "src/types/infraAdapters.ts",
       "sourceLocation": {
         "filePath": "src/types/infraAdapters.ts",
-        "line": 131,
+        "line": 144,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -13033,6 +13146,13 @@
           "kind": "method",
           "type": "(context: InfraExecutionContext) => Promise<InfraResult<readonly InfraPlanAction[]>>",
           "required": true,
+          "description": null
+        },
+        {
+          "name": "prepareAsync",
+          "kind": "method",
+          "type": "((context: InfraExecutionContext) => Promise<InfraResult<null>>) | undefined",
+          "required": false,
           "description": null
         },
         {
@@ -13122,7 +13242,7 @@
       "modulePath": "src/types/infraWorkload.ts",
       "sourceLocation": {
         "filePath": "src/types/infraWorkload.ts",
-        "line": 3,
+        "line": 4,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -13147,36 +13267,21 @@
       "structuredRows": []
     },
     {
-      "name": "InfraWorkloadFileSpec",
+      "name": "InfraWorkloadFileMap",
       "description": null,
       "isReadme": false,
       "examples": [],
-      "kind": "type",
+      "kind": "unknown",
       "modulePath": "src/types/infraWorkload.ts",
       "sourceLocation": {
         "filePath": "src/types/infraWorkload.ts",
-        "line": 61,
+        "line": 62,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["InfraWorkloadValue"],
+      "relatedSymbols": [],
       "signatures": [],
-      "members": [
-        {
-          "name": "content",
-          "kind": "property",
-          "type": "InfraWorkloadValue",
-          "required": true,
-          "description": null
-        },
-        {
-          "name": "path",
-          "kind": "property",
-          "type": "string",
-          "required": true,
-          "description": null
-        }
-      ],
+      "members": [],
       "structuredRows": []
     },
     {
@@ -13198,6 +13303,24 @@
       "structuredRows": []
     },
     {
+      "name": "InfraWorkloadId",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/types/infraWorkload.ts",
+      "sourceLocation": {
+        "filePath": "src/types/infraWorkload.ts",
+        "line": 60,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
       "name": "InfraWorkloadPort",
       "description": null,
       "isReadme": false,
@@ -13206,20 +13329,13 @@
       "modulePath": "src/types/infraWorkload.ts",
       "sourceLocation": {
         "filePath": "src/types/infraWorkload.ts",
-        "line": 27,
+        "line": 28,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
-        {
-          "name": "name",
-          "kind": "property",
-          "type": "string",
-          "required": true,
-          "description": null
-        },
         {
           "name": "port",
           "kind": "property",
@@ -13242,6 +13358,42 @@
           "description": null
         }
       ],
+      "structuredRows": []
+    },
+    {
+      "name": "InfraWorkloadPortRegistry",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/types/infraWorkload.ts",
+      "sourceLocation": {
+        "filePath": "src/types/infraWorkload.ts",
+        "line": 61,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "InfraWorkloadRegistry",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/types/infraWorkload.ts",
+      "sourceLocation": {
+        "filePath": "src/types/infraWorkload.ts",
+        "line": 82,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
       "structuredRows": []
     },
     {
@@ -13286,7 +13438,7 @@
       "modulePath": "src/types/infraWorkload.ts",
       "sourceLocation": {
         "filePath": "src/types/infraWorkload.ts",
-        "line": 9,
+        "line": 10,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -13304,13 +13456,12 @@
       "modulePath": "src/types/infraWorkload.ts",
       "sourceLocation": {
         "filePath": "src/types/infraWorkload.ts",
-        "line": 66,
+        "line": 65,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "InfraWorkloadArtifact",
-        "InfraWorkloadFileSpec",
         "InfraWorkloadHealthSpec",
         "InfraWorkloadPort",
         "InfraWorkloadResourceSpec",
@@ -13343,7 +13494,7 @@
         {
           "name": "dependsOn",
           "kind": "property",
-          "type": "readonly string[] | undefined",
+          "type": "Readonly<Partial<Record<string, true>>> | undefined",
           "required": false,
           "description": null
         },
@@ -13364,7 +13515,7 @@
         {
           "name": "files",
           "kind": "property",
-          "type": "readonly InfraWorkloadFileSpec[] | undefined",
+          "type": "Readonly<Record<string, InfraWorkloadValue>> | undefined",
           "required": false,
           "description": null
         },
@@ -13385,14 +13536,14 @@
         {
           "name": "persistence",
           "kind": "property",
-          "type": "readonly InfraWorkloadVolumeSpec[] | undefined",
+          "type": "Readonly<Record<string, InfraWorkloadVolumeSpec>> | undefined",
           "required": false,
           "description": null
         },
         {
           "name": "ports",
           "kind": "property",
-          "type": "readonly InfraWorkloadPort[] | undefined",
+          "type": "Readonly<Record<string, InfraWorkloadPort>> | undefined",
           "required": false,
           "description": null
         },
@@ -13422,7 +13573,25 @@
       "modulePath": "src/types/infraWorkload.ts",
       "sourceLocation": {
         "filePath": "src/types/infraWorkload.ts",
-        "line": 19,
+        "line": 20,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "InfraWorkloadVolumeRegistry",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/types/infraWorkload.ts",
+      "sourceLocation": {
+        "filePath": "src/types/infraWorkload.ts",
+        "line": 63,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -13498,7 +13667,7 @@
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["CredentialRef", "DataContractValue", "DataEndpointConfig", "DataSchema"],
+      "relatedSymbols": ["CredentialRef", "DataEndpointConfig", "DataSchema", "SerializableValue"],
       "signatures": [],
       "members": [
         {
@@ -13539,7 +13708,7 @@
         {
           "name": "metadata",
           "kind": "property",
-          "type": "DataContractValue | undefined",
+          "type": "import(\"..\").SerializableValue | undefined",
           "required": false,
           "description": null
         },
@@ -14329,7 +14498,7 @@
       "modulePath": "src/infra/isInfraEnvironmentSpec.ts",
       "sourceLocation": {
         "filePath": "src/infra/isInfraEnvironmentSpec.ts",
-        "line": 20,
+        "line": 21,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -14393,7 +14562,7 @@
       "modulePath": "src/infra/isInfraWorkloadSpec.ts",
       "sourceLocation": {
         "filePath": "src/infra/isInfraWorkloadSpec.ts",
-        "line": 13,
+        "line": 14,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -14426,6 +14595,70 @@
       "sourceLocation": {
         "filePath": "src/media.ts",
         "line": 62,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [
+        {
+          "label": "(value: unknown) => boolean",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "unknown",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "boolean",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "isSerializableSet",
+      "description": "Validate the canonical JSON-safe representation for unordered string membership.",
+      "isReadme": false,
+      "examples": [],
+      "kind": "function",
+      "modulePath": "src/collections.ts",
+      "sourceLocation": {
+        "filePath": "src/collections.ts",
+        "line": 6,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [
+        {
+          "label": "(value: unknown) => boolean",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "unknown",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "boolean",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "isSerializableValue",
+      "description": "Validate recursively serializable manifest/config values without accepting functions or host objects.",
+      "isReadme": false,
+      "examples": [],
+      "kind": "function",
+      "modulePath": "src/serializable.ts",
+      "sourceLocation": {
+        "filePath": "src/serializable.ts",
+        "line": 14,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -14616,7 +14849,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 185,
+        "line": 184,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -14652,7 +14885,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 139,
+        "line": 138,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -14688,7 +14921,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 96,
+        "line": 101,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -15759,7 +15992,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 202,
+        "line": 201,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -15889,7 +16122,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 39,
+        "line": 44,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -17365,7 +17598,7 @@
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 97,
+        "line": 90,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -17509,7 +17742,7 @@
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 67,
+        "line": 60,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -18922,32 +19155,6 @@
       "structuredRows": []
     },
     {
-      "name": "ScreenCapabilityRequirement",
-      "description": null,
-      "isReadme": false,
-      "examples": [],
-      "kind": "type",
-      "modulePath": "src/requirements.ts",
-      "sourceLocation": {
-        "filePath": "src/requirements.ts",
-        "line": 31,
-        "column": 1
-      },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": [],
-      "signatures": [],
-      "members": [
-        {
-          "name": "capability",
-          "kind": "property",
-          "type": "\"notifications\" | \"clipboard\" | \"barcodeScanner\" | \"cameraPreview\" | \"ebookReader\" | \"mediaPicker\" | \"filePicker\" | \"location\"",
-          "required": true,
-          "description": null
-        }
-      ],
-      "structuredRows": []
-    },
-    {
       "name": "ScreenDataLoaderDefinition",
       "description": null,
       "isReadme": false,
@@ -18956,39 +19163,13 @@
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 104,
+        "line": 97,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
-      "structuredRows": []
-    },
-    {
-      "name": "ScreenPermissionRequirement",
-      "description": null,
-      "isReadme": false,
-      "examples": [],
-      "kind": "type",
-      "modulePath": "src/requirements.ts",
-      "sourceLocation": {
-        "filePath": "src/requirements.ts",
-        "line": 27,
-        "column": 1
-      },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": [],
-      "signatures": [],
-      "members": [
-        {
-          "name": "permission",
-          "kind": "property",
-          "type": "\"camera\" | \"microphone\" | \"mediaLibrary\" | \"mediaLibraryWrite\" | \"locationForeground\" | \"locationBackground\" | \"notifications\" | \"clipboard\"",
-          "required": true,
-          "description": null
-        }
-      ],
       "structuredRows": []
     },
     {
@@ -19000,24 +19181,24 @@
       "modulePath": "src/requirements.ts",
       "sourceLocation": {
         "filePath": "src/requirements.ts",
-        "line": 35,
+        "line": 29,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["ScreenCapabilityRequirement", "ScreenPermissionRequirement"],
+      "relatedSymbols": [],
       "signatures": [],
       "members": [
         {
           "name": "capabilities",
           "kind": "property",
-          "type": "readonly ScreenCapabilityRequirement[] | undefined",
+          "type": "Readonly<Partial<Record<\"notifications\" | \"clipboard\" | \"barcodeScanner\" | \"cameraPreview\" | \"ebookReader\" | \"mediaPicker\" | \"filePicker\" | \"location\", true>>> | undefined",
           "required": false,
           "description": null
         },
         {
           "name": "permissions",
           "kind": "property",
-          "type": "readonly ScreenPermissionRequirement[] | undefined",
+          "type": "Readonly<Partial<Record<\"camera\" | \"microphone\" | \"mediaLibrary\" | \"mediaLibraryWrite\" | \"locationForeground\" | \"locationBackground\" | \"notifications\" | \"clipboard\", true>>> | undefined",
           "required": false,
           "description": null
         }
@@ -19033,7 +19214,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 233,
+        "line": 232,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -19101,7 +19282,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 71,
+        "line": 76,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -19715,6 +19896,42 @@
       "structuredRows": []
     },
     {
+      "name": "SerializableSet",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/collections.ts",
+      "sourceLocation": {
+        "filePath": "src/collections.ts",
+        "line": 3,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "SerializableValue",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/serializable.ts",
+      "sourceLocation": {
+        "filePath": "src/serializable.ts",
+        "line": 3,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
       "name": "SetLanguageAction",
       "description": null,
       "isReadme": false,
@@ -19723,7 +19940,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 64,
+        "line": 69,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -19926,17 +20143,32 @@
       "description": null,
       "isReadme": false,
       "examples": [],
-      "kind": "unknown",
+      "kind": "type",
       "modulePath": "src/appManifest/splashScreen.ts",
       "sourceLocation": {
         "filePath": "src/appManifest/splashScreen.ts",
-        "line": 18,
+        "line": 5,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
-      "relatedSymbols": [],
+      "relatedSymbols": ["MediaAssetReference"],
       "signatures": [],
-      "members": [],
+      "members": [
+        {
+          "name": "backgroundColor",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "image",
+          "kind": "property",
+          "type": "MediaAssetReference | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
       "structuredRows": []
     },
     {
@@ -19948,7 +20180,7 @@
       "modulePath": "src/appManifest/splashScreen.ts",
       "sourceLocation": {
         "filePath": "src/appManifest/splashScreen.ts",
-        "line": 16,
+        "line": 3,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -19962,17 +20194,53 @@
       "description": null,
       "isReadme": false,
       "examples": [],
-      "kind": "unknown",
+      "kind": "type",
       "modulePath": "src/appManifest/splashScreen.ts",
       "sourceLocation": {
         "filePath": "src/appManifest/splashScreen.ts",
-        "line": 22,
+        "line": 10,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
-      "relatedSymbols": [],
+      "relatedSymbols": ["MediaAssetReference", "SplashScreenModeSpec", "SplashScreenResizeMode"],
       "signatures": [],
-      "members": [],
+      "members": [
+        {
+          "name": "backgroundColor",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "dark",
+          "kind": "property",
+          "type": "SplashScreenModeSpec | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "image",
+          "kind": "property",
+          "type": "MediaAssetReference | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "imageWidth",
+          "kind": "property",
+          "type": "number | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "resizeMode",
+          "kind": "property",
+          "type": "SplashScreenResizeMode | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
       "structuredRows": []
     },
     {
@@ -20265,11 +20533,12 @@
       "modulePath": "src/state.ts",
       "sourceLocation": {
         "filePath": "src/state.ts",
-        "line": 59,
+        "line": 56,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
+        "SerializableValue",
         "StateAdapterCapabilities",
         "StateListener",
         "StatePath",
@@ -20296,21 +20565,21 @@
         {
           "name": "get",
           "kind": "method",
-          "type": "<TValue extends StateValue = StateValue>(path: StatePath) => StateResult<TValue | undefined>",
+          "type": "<TValue extends StateValue = SerializableValue>(path: StatePath) => StateResult<TValue | undefined>",
           "required": true,
           "description": null
         },
         {
           "name": "set",
           "kind": "method",
-          "type": "<TValue extends StateValue = StateValue>(path: StatePath, value: TValue) => StateResult",
+          "type": "<TValue extends StateValue = SerializableValue>(path: StatePath, value: TValue) => StateResult",
           "required": true,
           "description": null
         },
         {
           "name": "subscribe",
           "kind": "method",
-          "type": "<TValue extends StateValue = StateValue>(path: StatePath, listener: StateListener<TValue>) => StateResult<StateSubscription>",
+          "type": "<TValue extends StateValue = SerializableValue>(path: StatePath, listener: StateListener<TValue>) => StateResult<StateSubscription>",
           "required": true,
           "description": null
         }
@@ -20326,7 +20595,7 @@
       "modulePath": "src/state.ts",
       "sourceLocation": {
         "filePath": "src/state.ts",
-        "line": 18,
+        "line": 15,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -20366,7 +20635,7 @@
       "modulePath": "src/state.ts",
       "sourceLocation": {
         "filePath": "src/state.ts",
-        "line": 24,
+        "line": 21,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -20406,7 +20675,7 @@
       "modulePath": "src/state.ts",
       "sourceLocation": {
         "filePath": "src/state.ts",
-        "line": 51,
+        "line": 48,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -20424,7 +20693,7 @@
       "modulePath": "src/state.ts",
       "sourceLocation": {
         "filePath": "src/state.ts",
-        "line": 16,
+        "line": 13,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -20442,7 +20711,7 @@
       "modulePath": "src/state.ts",
       "sourceLocation": {
         "filePath": "src/state.ts",
-        "line": 7,
+        "line": 9,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -20460,7 +20729,7 @@
       "modulePath": "src/state.ts",
       "sourceLocation": {
         "filePath": "src/state.ts",
-        "line": 39,
+        "line": 36,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -20478,7 +20747,7 @@
       "modulePath": "src/state.ts",
       "sourceLocation": {
         "filePath": "src/state.ts",
-        "line": 46,
+        "line": 43,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -20511,7 +20780,7 @@
       "modulePath": "src/state.ts",
       "sourceLocation": {
         "filePath": "src/state.ts",
-        "line": 55,
+        "line": 52,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -20537,7 +20806,7 @@
       "modulePath": "src/state.ts",
       "sourceLocation": {
         "filePath": "src/state.ts",
-        "line": 30,
+        "line": 27,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -20555,7 +20824,7 @@
       "modulePath": "src/state.ts",
       "sourceLocation": {
         "filePath": "src/state.ts",
-        "line": 9,
+        "line": 11,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -22144,7 +22413,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 208,
+        "line": 207,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -22340,7 +22609,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 25,
+        "line": 28,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -22440,6 +22709,24 @@
       "structuredRows": []
     },
     {
+      "name": "ThemeId",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/types.ts",
+      "sourceLocation": {
+        "filePath": "src/types.ts",
+        "line": 26,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
       "name": "ThemeModeConfig",
       "description": null,
       "isReadme": false,
@@ -22448,7 +22735,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 20,
+        "line": 21,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -22551,6 +22838,24 @@
       "sourceLocation": {
         "filePath": "src/theme.ts",
         "line": 36,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "ThemeRegistry",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/types.ts",
+      "sourceLocation": {
+        "filePath": "src/types.ts",
+        "line": 39,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -22666,7 +22971,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 59,
+        "line": 64,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -23615,7 +23920,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 223,
+        "line": 222,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -23683,7 +23988,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 216,
+        "line": 215,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -24106,8 +24411,8 @@
   "components": [],
   "sourceFunctions": [
     {
-      "name": "isApiDefinitionList",
-      "description": "Validate API definitions and require unique API identities.",
+      "name": "isApiDefinitionRegistry",
+      "description": "Validate API definitions in the canonical registry and require key/identity consistency.",
       "sourceLocation": {
         "filePath": "src/appManifest/apis.ts",
         "line": 26,
@@ -24119,7 +24424,7 @@
       "description": "Validate one API definition against its origin and protocol branch.",
       "sourceLocation": {
         "filePath": "src/appManifest/apis.ts",
-        "line": 33,
+        "line": 36,
         "column": 1
       }
     },
@@ -24128,7 +24433,7 @@
       "description": "Validate common API identity, endpoint, schema and authored metadata fields.",
       "sourceLocation": {
         "filePath": "src/appManifest/apis.ts",
-        "line": 44,
+        "line": 47,
         "column": 1
       }
     },
@@ -24137,7 +24442,7 @@
       "description": "Validate external REST endpoint and optional OpenAPI metadata.",
       "sourceLocation": {
         "filePath": "src/appManifest/apis.ts",
-        "line": 59,
+        "line": 62,
         "column": 1
       }
     },
@@ -24146,7 +24451,7 @@
       "description": "Validate external GraphQL endpoint and optional introspection metadata.",
       "sourceLocation": {
         "filePath": "src/appManifest/apis.ts",
-        "line": 68,
+        "line": 71,
         "column": 1
       }
     },
@@ -24155,7 +24460,7 @@
       "description": "Validate the supported internal REST API configuration.",
       "sourceLocation": {
         "filePath": "src/appManifest/apis.ts",
-        "line": 77,
+        "line": 80,
         "column": 1
       }
     },
@@ -24164,7 +24469,7 @@
       "description": "Validate optional OpenAPI document location and version fields.",
       "sourceLocation": {
         "filePath": "src/appManifest/apis.ts",
-        "line": 82,
+        "line": 85,
         "column": 1
       }
     },
@@ -24173,7 +24478,7 @@
       "description": "Validate explicit GraphQL introspection settings.",
       "sourceLocation": {
         "filePath": "src/appManifest/apis.ts",
-        "line": 93,
+        "line": 96,
         "column": 1
       }
     },
@@ -24191,7 +24496,7 @@
       "description": "Validate literal, operation and path-based binding sources.",
       "sourceLocation": {
         "filePath": "src/appManifest/bindings.ts",
-        "line": 12,
+        "line": 18,
         "column": 1
       }
     },
@@ -24200,7 +24505,7 @@
       "description": "Validate a screen operation loader and its optional input mapping.",
       "sourceLocation": {
         "filePath": "src/appManifest/bindings.ts",
-        "line": 26,
+        "line": 32,
         "column": 1
       }
     },
@@ -24209,7 +24514,7 @@
       "description": "Validate component identity and its property and event bindings.",
       "sourceLocation": {
         "filePath": "src/appManifest/bindings.ts",
-        "line": 37,
+        "line": 43,
         "column": 1
       }
     },
@@ -24218,7 +24523,7 @@
       "description": "Validate a property binding with optional transforms and fallback behavior.",
       "sourceLocation": {
         "filePath": "src/appManifest/bindings.ts",
-        "line": 53,
+        "line": 59,
         "column": 1
       }
     },
@@ -24227,7 +24532,7 @@
       "description": "Validate an event binding and its declared target.",
       "sourceLocation": {
         "filePath": "src/appManifest/bindings.ts",
-        "line": 66,
+        "line": 72,
         "column": 1
       }
     },
@@ -24236,7 +24541,7 @@
       "description": "Validate the selected operation or action event target.",
       "sourceLocation": {
         "filePath": "src/appManifest/bindings.ts",
-        "line": 76,
+        "line": 82,
         "column": 1
       }
     },
@@ -24245,7 +24550,7 @@
       "description": "Validate a binding condition and its source value.",
       "sourceLocation": {
         "filePath": "src/appManifest/bindings.ts",
-        "line": 85,
+        "line": 91,
         "column": 1
       }
     },
@@ -24254,7 +24559,7 @@
       "description": "Validate API and operation identities with an optional endpoint reference.",
       "sourceLocation": {
         "filePath": "src/appManifest/bindings.ts",
-        "line": 95,
+        "line": 101,
         "column": 1
       }
     },
@@ -24263,7 +24568,7 @@
       "description": "Validate authored binding fallback values.",
       "sourceLocation": {
         "filePath": "src/appManifest/bindings.ts",
-        "line": 105,
+        "line": 111,
         "column": 1
       }
     },
@@ -24272,7 +24577,7 @@
       "description": "Validate loading, empty and error binding behavior.",
       "sourceLocation": {
         "filePath": "src/appManifest/bindings.ts",
-        "line": 114,
+        "line": 120,
         "column": 1
       }
     },
@@ -24281,7 +24586,7 @@
       "description": "Validate optional ordered binding transformations.",
       "sourceLocation": {
         "filePath": "src/appManifest/bindings.ts",
-        "line": 125,
+        "line": 131,
         "column": 1
       }
     },
@@ -24290,7 +24595,7 @@
       "description": "Validate every value in an operation input mapping.",
       "sourceLocation": {
         "filePath": "src/appManifest/bindings.ts",
-        "line": 134,
+        "line": 140,
         "column": 1
       }
     },
@@ -24299,7 +24604,7 @@
       "description": "Validate recursive array, object, literal and source operation inputs.",
       "sourceLocation": {
         "filePath": "src/appManifest/bindings.ts",
-        "line": 139,
+        "line": 145,
         "column": 1
       }
     },
@@ -24317,7 +24622,7 @@
       "description": "Validate every schema in the data schema registry.",
       "sourceLocation": {
         "filePath": "src/appManifest/data.ts",
-        "line": 25,
+        "line": 31,
         "column": 1
       }
     },
@@ -24326,7 +24631,7 @@
       "description": "Validate credential identity and optional descriptive metadata.",
       "sourceLocation": {
         "filePath": "src/appManifest/data.ts",
-        "line": 30,
+        "line": 36,
         "column": 1
       }
     },
@@ -24335,7 +24640,7 @@
       "description": "Validate an adapter reference and its optional authored configuration.",
       "sourceLocation": {
         "filePath": "src/appManifest/data.ts",
-        "line": 41,
+        "line": 47,
         "column": 1
       }
     },
@@ -24344,7 +24649,7 @@
       "description": "Validate endpoint identity, operations and optional connection metadata.",
       "sourceLocation": {
         "filePath": "src/appManifest/data.ts",
-        "line": 53,
+        "line": 59,
         "column": 1
       }
     },
@@ -24353,7 +24658,7 @@
       "description": "Validate operation protocol, intent, request and response configuration.",
       "sourceLocation": {
         "filePath": "src/appManifest/data.ts",
-        "line": 70,
+        "line": 79,
         "column": 1
       }
     },
@@ -24362,7 +24667,7 @@
       "description": "Validate request schema, parameters and optional content type.",
       "sourceLocation": {
         "filePath": "src/appManifest/data.ts",
-        "line": 91,
+        "line": 100,
         "column": 1
       }
     },
@@ -24371,7 +24676,7 @@
       "description": "Validate parameter identity, location, schema and optional default value.",
       "sourceLocation": {
         "filePath": "src/appManifest/data.ts",
-        "line": 102,
+        "line": 111,
         "column": 1
       }
     },
@@ -24380,7 +24685,7 @@
       "description": "Validate response status, schema and optional descriptive metadata.",
       "sourceLocation": {
         "filePath": "src/appManifest/data.ts",
-        "line": 116,
+        "line": 125,
         "column": 1
       }
     },
@@ -24389,7 +24694,7 @@
       "description": "Validate inline schema and schema-reference fields.",
       "sourceLocation": {
         "filePath": "src/appManifest/data.ts",
-        "line": 129,
+        "line": 138,
         "column": 1
       }
     },
@@ -24398,7 +24703,7 @@
       "description": "Validate supported schema types, constraints and compositions.",
       "sourceLocation": {
         "filePath": "src/appManifest/data.ts",
-        "line": 137,
+        "line": 146,
         "column": 1
       }
     },
@@ -24407,7 +24712,7 @@
       "description": "Validate a supported schema type or an array of supported types.",
       "sourceLocation": {
         "filePath": "src/appManifest/data.ts",
-        "line": 145,
+        "line": 154,
         "column": 1
       }
     },
@@ -24416,7 +24721,7 @@
       "description": "Validate optional scalar schema constraints.",
       "sourceLocation": {
         "filePath": "src/appManifest/data.ts",
-        "line": 155,
+        "line": 164,
         "column": 1
       }
     },
@@ -24425,7 +24730,7 @@
       "description": "Validate optional schema properties, items and required fields.",
       "sourceLocation": {
         "filePath": "src/appManifest/data.ts",
-        "line": 170,
+        "line": 179,
         "column": 1
       }
     },
@@ -24434,7 +24739,7 @@
       "description": "Validate optional schema alternatives and intersections.",
       "sourceLocation": {
         "filePath": "src/appManifest/data.ts",
-        "line": 183,
+        "line": 192,
         "column": 1
       }
     },
@@ -24443,7 +24748,7 @@
       "description": "Validate a named schema reference.",
       "sourceLocation": {
         "filePath": "src/appManifest/data.ts",
-        "line": 191,
+        "line": 200,
         "column": 1
       }
     },
@@ -24620,7 +24925,7 @@
     },
     {
       "name": "isManifestValue",
-      "description": "Validate the existing recursive ManifestValue domain used by authored bindings and API metadata.",
+      "description": "Validate authored values through the canonical serializable-value contract.",
       "sourceLocation": {
         "filePath": "src/appManifest/isManifestValue.ts",
         "line": 4,
@@ -24992,7 +25297,7 @@
       "description": "Validate application identity and optional authored metadata.",
       "sourceLocation": {
         "filePath": "src/appManifest/screens.ts",
-        "line": 16,
+        "line": 20,
         "column": 1
       }
     },
@@ -25001,7 +25306,16 @@
       "description": "Validate theme identity and its required light and dark modes.",
       "sourceLocation": {
         "filePath": "src/appManifest/screens.ts",
-        "line": 31,
+        "line": 35,
+        "column": 1
+      }
+    },
+    {
+      "name": "isThemeRegistry",
+      "description": "Validate themes in the authored theme registry and require registry keys to match theme identity.",
+      "sourceLocation": {
+        "filePath": "src/appManifest/screens.ts",
+        "line": 46,
         "column": 1
       }
     },
@@ -25010,7 +25324,7 @@
       "description": "Validate screens in the authored screen registry.",
       "sourceLocation": {
         "filePath": "src/appManifest/screens.ts",
-        "line": 42,
+        "line": 56,
         "column": 1
       }
     },
@@ -25019,7 +25333,7 @@
       "description": "Validate optional light and dark splash-screen configuration.",
       "sourceLocation": {
         "filePath": "src/appManifest/screens.ts",
-        "line": 53,
+        "line": 67,
         "column": 1
       }
     },
@@ -25028,7 +25342,7 @@
       "description": "Validate the primary color and supported color harmony of a theme mode.",
       "sourceLocation": {
         "filePath": "src/appManifest/screens.ts",
-        "line": 62,
+        "line": 76,
         "column": 1
       }
     },
@@ -25037,7 +25351,7 @@
       "description": "Validate an authored component node and its nested children.",
       "sourceLocation": {
         "filePath": "src/appManifest/screens.ts",
-        "line": 72,
+        "line": 86,
         "column": 1
       }
     },
@@ -25046,7 +25360,7 @@
       "description": "Validate repeat source and item binding configuration.",
       "sourceLocation": {
         "filePath": "src/appManifest/screens.ts",
-        "line": 87,
+        "line": 101,
         "column": 1
       }
     },
@@ -25055,7 +25369,7 @@
       "description": "Validate screen identity, root component and optional requirements.",
       "sourceLocation": {
         "filePath": "src/appManifest/screens.ts",
-        "line": 98,
+        "line": 112,
         "column": 1
       }
     },
@@ -25064,7 +25378,7 @@
       "description": "Validate one splash-screen appearance configuration.",
       "sourceLocation": {
         "filePath": "src/appManifest/screens.ts",
-        "line": 114,
+        "line": 128,
         "column": 1
       }
     },
@@ -25073,16 +25387,16 @@
       "description": "Validate screen capability and permission requirements.",
       "sourceLocation": {
         "filePath": "src/appManifest/screens.ts",
-        "line": 127,
+        "line": 141,
         "column": 1
       }
     },
     {
-      "name": "isRequirementArray",
-      "description": "Validate the entries of a capability or permission requirement list.",
+      "name": "isRequirementSet",
+      "description": "Validate unordered requirement membership against the supported capability or permission names.",
       "sourceLocation": {
         "filePath": "src/appManifest/screens.ts",
-        "line": 136,
+        "line": 150,
         "column": 1
       }
     },
@@ -25092,6 +25406,15 @@
       "sourceLocation": {
         "filePath": "src/auth.ts",
         "line": 130,
+        "column": 1
+      }
+    },
+    {
+      "name": "isSerializableSet",
+      "description": "Validate the canonical JSON-safe representation for unordered string membership.",
+      "sourceLocation": {
+        "filePath": "src/collections.ts",
+        "line": 6,
         "column": 1
       }
     },
@@ -25208,7 +25531,7 @@
       "description": "Validate sibling capabilities and their required relationships within one environment.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraEnvironmentSpec.ts",
-        "line": 20,
+        "line": 21,
         "column": 1
       }
     },
@@ -25217,7 +25540,7 @@
       "description": "Check all environment field shapes before inspecting canonical dependency metadata.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraEnvironmentSpec.ts",
-        "line": 30,
+        "line": 31,
         "column": 1
       }
     },
@@ -25226,7 +25549,7 @@
       "description": "Public workload configuration uses one canonical absolute HTTP(S) origin without path state.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraEnvironmentSpec.ts",
-        "line": 73,
+        "line": 74,
         "column": 1
       }
     },
@@ -25235,7 +25558,7 @@
       "description": "Automatic TLS requires one matching HTTPS origin and public DNS hostname.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraEnvironmentSpec.ts",
-        "line": 84,
+        "line": 85,
         "column": 1
       }
     },
@@ -25244,7 +25567,7 @@
       "description": "Validate portable, unique Cerbos policy files without host paths or traversal.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraEnvironmentSpec.ts",
-        "line": 93,
+        "line": 94,
         "column": 1
       }
     },
@@ -25253,7 +25576,7 @@
       "description": "Validate provider-neutral scheduled database backup intent.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraEnvironmentSpec.ts",
-        "line": 109,
+        "line": 108,
         "column": 1
       }
     },
@@ -25262,7 +25585,7 @@
       "description": "Validate one portable S3-compatible persistence target without resolving credentials.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraEnvironmentSpec.ts",
-        "line": 120,
+        "line": 119,
         "column": 1
       }
     },
@@ -25271,7 +25594,7 @@
       "description": "Object storage can vary independently from database/auth; there is no implicit auto provider.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraEnvironmentSpec.ts",
-        "line": 132,
+        "line": 131,
         "column": 1
       }
     },
@@ -25280,7 +25603,7 @@
       "description": "Duplicate desired workload identities cannot be reconciled safely.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraEnvironmentSpec.ts",
-        "line": 154,
+        "line": 153,
         "column": 1
       }
     },
@@ -25316,7 +25639,25 @@
       "description": "Local is required; preview and production are optional but never inferred from arbitrary keys.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraManifest.ts",
-        "line": 22,
+        "line": 21,
+        "column": 1
+      }
+    },
+    {
+      "name": "isModuleRegistry",
+      "description": "Validate installed module identity and optional serializable module-owned configuration.",
+      "sourceLocation": {
+        "filePath": "src/infra/isInfraManifest.ts",
+        "line": 31,
+        "column": 1
+      }
+    },
+    {
+      "name": "isModuleSpec",
+      "description": "Validate one module registry entry.",
+      "sourceLocation": {
+        "filePath": "src/infra/isInfraManifest.ts",
+        "line": 36,
         "column": 1
       }
     },
@@ -25343,7 +25684,16 @@
       "description": "Validate the portable desired workload; runtime-specific fields and plaintext secret objects fail.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraWorkloadSpec.ts",
-        "line": 13,
+        "line": 14,
+        "column": 1
+      }
+    },
+    {
+      "name": "isPortRegistry",
+      "description": "Validate named transport ports keyed by their stable authored name.",
+      "sourceLocation": {
+        "filePath": "src/infra/isInfraWorkloadSpec.ts",
+        "line": 47,
         "column": 1
       }
     },
@@ -25361,16 +25711,25 @@
       "description": "Require fixed external listeners to belong to one public workload replica.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraWorkloadSpec.ts",
-        "line": 65,
+        "line": 64,
         "column": 1
       }
     },
     {
-      "name": "isFile",
-      "description": "Portable files model policy/config materialization without host filesystem access.",
+      "name": "isFileMap",
+      "description": "Validate portable config/policy files keyed by their absolute container path.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraWorkloadSpec.ts",
-        "line": 82,
+        "line": 81,
+        "column": 1
+      }
+    },
+    {
+      "name": "isVolumeRegistry",
+      "description": "Validate persistence volumes by stable ID and keep mount paths unique within one workload.",
+      "sourceLocation": {
+        "filePath": "src/infra/isInfraWorkloadSpec.ts",
+        "line": 91,
         "column": 1
       }
     },
@@ -25379,7 +25738,7 @@
       "description": "Persistence has explicit ownership-local identity, optional initialization and retention policy.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraWorkloadSpec.ts",
-        "line": 87,
+        "line": 108,
         "column": 1
       }
     },
@@ -25388,16 +25747,7 @@
       "description": "Workload paths are absolute container paths, never relative host traversal.",
       "sourceLocation": {
         "filePath": "src/infra/isInfraWorkloadSpec.ts",
-        "line": 98,
-        "column": 1
-      }
-    },
-    {
-      "name": "hasUniqueField",
-      "description": "Duplicate workload-local identities would make runtime projection ambiguous.",
-      "sourceLocation": {
-        "filePath": "src/infra/isInfraWorkloadSpec.ts",
-        "line": 108,
+        "line": 119,
         "column": 1
       }
     },
@@ -25490,6 +25840,15 @@
         "line": 183,
         "column": 1
       }
+    },
+    {
+      "name": "isSerializableValue",
+      "description": "Validate recursively serializable manifest/config values without accepting functions or host objects.",
+      "sourceLocation": {
+        "filePath": "src/serializable.ts",
+        "line": 14,
+        "column": 1
+      }
     }
   ],
   "sequenceScenarios": [
@@ -25579,6 +25938,22 @@
       "sourcePath": "src/media.ts",
       "symbolName": "isMediaAssetReference",
       "description": "Validate an authored media reference with exactly one enumerable key and a non-empty media ID.",
+      "isReadme": false
+    },
+    {
+      "kind": "export",
+      "name": "isSerializableSet",
+      "sourcePath": "src/collections.ts",
+      "symbolName": "isSerializableSet",
+      "description": "Validate the canonical JSON-safe representation for unordered string membership.",
+      "isReadme": false
+    },
+    {
+      "kind": "export",
+      "name": "isSerializableValue",
+      "sourcePath": "src/serializable.ts",
+      "symbolName": "isSerializableValue",
+      "description": "Validate recursively serializable manifest/config values without accepting functions or host objects.",
       "isReadme": false
     },
     {
@@ -25686,6 +26061,11 @@
         "sourcePath": "src/bindings.ts"
       },
       {
+        "fromPath": "src/bindings.ts",
+        "toPath": "src/serializable.ts",
+        "sourcePath": "src/bindings.ts"
+      },
+      {
         "fromPath": "src/deploy.ts",
         "toPath": "src/appManifest/deploy.ts",
         "sourcePath": "src/deploy.ts"
@@ -25728,6 +26108,11 @@
       {
         "fromPath": "src/index.ts",
         "toPath": "src/cli/index.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/collections.ts",
         "sourcePath": "src/index.ts"
       },
       {
@@ -25788,6 +26173,11 @@
       {
         "fromPath": "src/index.ts",
         "toPath": "src/secrets.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/serializable.ts",
         "sourcePath": "src/index.ts"
       },
       {
@@ -25921,9 +26311,19 @@
         "sourcePath": "src/navigator.ts"
       },
       {
+        "fromPath": "src/requirements.ts",
+        "toPath": "src/collections.ts",
+        "sourcePath": "src/requirements.ts"
+      },
+      {
         "fromPath": "src/runtimeCallbacks.ts",
         "toPath": "src/types.ts",
         "sourcePath": "src/runtimeCallbacks.ts"
+      },
+      {
+        "fromPath": "src/state.ts",
+        "toPath": "src/serializable.ts",
+        "sourcePath": "src/state.ts"
       },
       {
         "fromPath": "src/types.ts",
@@ -25973,6 +26373,11 @@
       {
         "fromPath": "src/types.ts",
         "toPath": "src/requirements.ts",
+        "sourcePath": "src/types.ts"
+      },
+      {
+        "fromPath": "src/types.ts",
+        "toPath": "src/serializable.ts",
         "sourcePath": "src/types.ts"
       },
       {
@@ -26096,6 +26501,11 @@
         "sourcePath": "src/appManifest/isAppStateSpec.ts"
       },
       {
+        "fromPath": "src/appManifest/isManifestValue.ts",
+        "toPath": "src/serializable.ts",
+        "sourcePath": "src/appManifest/isManifestValue.ts"
+      },
+      {
         "fromPath": "src/appManifest/media.ts",
         "toPath": "src/media.ts",
         "sourcePath": "src/appManifest/media.ts"
@@ -26132,7 +26542,17 @@
       },
       {
         "fromPath": "src/appManifest/screens.ts",
+        "toPath": "src/collections.ts",
+        "sourcePath": "src/appManifest/screens.ts"
+      },
+      {
+        "fromPath": "src/appManifest/screens.ts",
         "toPath": "src/media.ts",
+        "sourcePath": "src/appManifest/screens.ts"
+      },
+      {
+        "fromPath": "src/appManifest/screens.ts",
+        "toPath": "src/requirements.ts",
         "sourcePath": "src/appManifest/screens.ts"
       },
       {
@@ -26316,6 +26736,11 @@
         "sourcePath": "src/data/sources.ts"
       },
       {
+        "fromPath": "src/data/values.ts",
+        "toPath": "src/serializable.ts",
+        "sourcePath": "src/data/values.ts"
+      },
+      {
         "fromPath": "src/infra/isInfraAdapterDescriptor.ts",
         "toPath": "src/types/infraAdapters.ts",
         "sourcePath": "src/infra/isInfraAdapterDescriptor.ts"
@@ -26397,6 +26822,11 @@
       },
       {
         "fromPath": "src/infra/isInfraEnvironmentSpec.ts",
+        "toPath": "src/collections.ts",
+        "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraEnvironmentSpec.ts",
         "toPath": "src/types/infraManifest.ts",
         "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
       },
@@ -26452,17 +26882,17 @@
       },
       {
         "fromPath": "src/infra/isInfraManifest.ts",
+        "toPath": "src/serializable.ts",
+        "sourcePath": "src/infra/isInfraManifest.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraManifest.ts",
         "toPath": "src/types/infraManifest.ts",
         "sourcePath": "src/infra/isInfraManifest.ts"
       },
       {
         "fromPath": "src/infra/isInfraManifest.ts",
         "toPath": "src/types/infraValidation.ts",
-        "sourcePath": "src/infra/isInfraManifest.ts"
-      },
-      {
-        "fromPath": "src/infra/isInfraManifest.ts",
-        "toPath": "src/infra/infraFields.ts",
         "sourcePath": "src/infra/isInfraManifest.ts"
       },
       {
@@ -26484,6 +26914,11 @@
         "fromPath": "src/infra/isInfraWorkloadHealth.ts",
         "toPath": "src/infra/isInfraShape.ts",
         "sourcePath": "src/infra/isInfraWorkloadHealth.ts"
+      },
+      {
+        "fromPath": "src/infra/isInfraWorkloadSpec.ts",
+        "toPath": "src/collections.ts",
+        "sourcePath": "src/infra/isInfraWorkloadSpec.ts"
       },
       {
         "fromPath": "src/infra/isInfraWorkloadSpec.ts",
@@ -26722,6 +27157,11 @@
       },
       {
         "fromPath": "src/types/infraManifest.ts",
+        "toPath": "src/collections.ts",
+        "sourcePath": "src/types/infraManifest.ts"
+      },
+      {
+        "fromPath": "src/types/infraManifest.ts",
         "toPath": "src/data/index.ts",
         "sourcePath": "src/types/infraManifest.ts"
       },
@@ -26762,11 +27202,22 @@
       },
       {
         "fromPath": "src/types/infraWorkload.ts",
+        "toPath": "src/collections.ts",
+        "sourcePath": "src/types/infraWorkload.ts"
+      },
+      {
+        "fromPath": "src/types/infraWorkload.ts",
         "toPath": "src/types/infraSecrets.ts",
         "sourcePath": "src/types/infraWorkload.ts"
       }
     ],
     "calls": [
+      {
+        "fromSymbol": "isSerializableSet",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/collections.ts"
+      },
       {
         "fromSymbol": "isMediaAssetReference",
         "toSymbol": "isRecord",
@@ -26778,6 +27229,24 @@
         "toSymbol": "isNonEmptyString",
         "callExpression": "isNonEmptyString",
         "sourcePath": "src/media.ts"
+      },
+      {
+        "fromSymbol": "isSerializableValue",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/serializable.ts"
+      },
+      {
+        "fromSymbol": "isApiDefinitionRegistry",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/apis.ts"
+      },
+      {
+        "fromSymbol": "src/appManifest/apis.ts",
+        "toSymbol": "isApiDefinition",
+        "callExpression": "isApiDefinition",
+        "sourcePath": "src/appManifest/apis.ts"
       },
       {
         "fromSymbol": "isApiDefinition",
@@ -26925,6 +27394,18 @@
       },
       {
         "fromSymbol": "isComponentDataBindingRegistry",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "src/appManifest/bindings.ts",
+        "toSymbol": "isComponentDataBinding",
+        "callExpression": "isComponentDataBinding",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "src/appManifest/bindings.ts",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
         "sourcePath": "src/appManifest/bindings.ts"
@@ -27164,6 +27645,18 @@
         "sourcePath": "src/appManifest/data.ts"
       },
       {
+        "fromSymbol": "src/appManifest/data.ts",
+        "toSymbol": "isDataEndpointConfig",
+        "callExpression": "isDataEndpointConfig",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "src/appManifest/data.ts",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
         "fromSymbol": "isDataSchemaRegistry",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
@@ -27215,6 +27708,12 @@
         "fromSymbol": "isDataEndpointConfig",
         "toSymbol": "isCredentialRef",
         "callExpression": "isCredentialRef",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "src/appManifest/data.ts",
+        "toSymbol": "isDataOperationConfig",
+        "callExpression": "isDataOperationConfig",
         "sourcePath": "src/appManifest/data.ts"
       },
       {
@@ -27395,6 +27894,12 @@
         "fromSymbol": "isOptionalSchemaCollections",
         "toSymbol": "isDataSchema",
         "callExpression": "isDataSchema",
+        "sourcePath": "src/appManifest/data.ts"
+      },
+      {
+        "fromSymbol": "src/appManifest/data.ts",
+        "toSymbol": "readOwnProperty",
+        "callExpression": "readOwnProperty",
         "sourcePath": "src/appManifest/data.ts"
       },
       {
@@ -27705,6 +28210,12 @@
       },
       {
         "fromSymbol": "isPresentation",
+        "toSymbol": "isThemeRegistry",
+        "callExpression": "isThemeRegistry",
+        "sourcePath": "src/appManifest/isAppManifest.ts"
+      },
+      {
+        "fromSymbol": "isPresentation",
         "toSymbol": "isActiveThemeMode",
         "callExpression": "isActiveThemeMode",
         "sourcePath": "src/appManifest/isAppManifest.ts"
@@ -27759,8 +28270,8 @@
       },
       {
         "fromSymbol": "isManifestValue",
-        "toSymbol": "isRecord",
-        "callExpression": "isRecord",
+        "toSymbol": "isSerializableValue",
+        "callExpression": "isSerializableValue",
         "sourcePath": "src/appManifest/isManifestValue.ts"
       },
       {
@@ -28424,6 +28935,24 @@
         "sourcePath": "src/appManifest/screens.ts"
       },
       {
+        "fromSymbol": "isThemeRegistry",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/screens.ts"
+      },
+      {
+        "fromSymbol": "src/appManifest/screens.ts",
+        "toSymbol": "isThemeConfig",
+        "callExpression": "isThemeConfig",
+        "sourcePath": "src/appManifest/screens.ts"
+      },
+      {
+        "fromSymbol": "src/appManifest/screens.ts",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/screens.ts"
+      },
+      {
         "fromSymbol": "isScreenRegistry",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
@@ -28433,12 +28962,6 @@
         "fromSymbol": "src/appManifest/screens.ts",
         "toSymbol": "isScreenSpec",
         "callExpression": "isScreenSpec",
-        "sourcePath": "src/appManifest/screens.ts"
-      },
-      {
-        "fromSymbol": "src/appManifest/screens.ts",
-        "toSymbol": "isRecord",
-        "callExpression": "isRecord",
         "sourcePath": "src/appManifest/screens.ts"
       },
       {
@@ -28545,8 +29068,14 @@
       },
       {
         "fromSymbol": "isScreenRequirements",
-        "toSymbol": "isRequirementArray",
-        "callExpression": "isRequirementArray",
+        "toSymbol": "isRequirementSet",
+        "callExpression": "isRequirementSet",
+        "sourcePath": "src/appManifest/screens.ts"
+      },
+      {
+        "fromSymbol": "isRequirementSet",
+        "toSymbol": "isSerializableSet",
+        "callExpression": "isSerializableSet",
         "sourcePath": "src/appManifest/screens.ts"
       },
       {
@@ -28850,21 +29379,15 @@
         "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
       },
       {
-        "fromSymbol": "src/infra/isInfraEnvironmentSpec.ts",
-        "toSymbol": "isInfraShape",
-        "callExpression": "isInfraShape",
-        "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
-      },
-      {
-        "fromSymbol": "path",
-        "toSymbol": "isNonEmptyString",
-        "callExpression": "isNonEmptyString",
-        "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
-      },
-      {
-        "fromSymbol": "src/infra/isInfraEnvironmentSpec.ts",
+        "fromSymbol": "isPolicyFiles",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
+        "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
+      },
+      {
+        "fromSymbol": "src/infra/isInfraEnvironmentSpec.ts",
+        "toSymbol": "isNonEmptyString",
+        "callExpression": "isNonEmptyString",
         "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
       },
       {
@@ -28886,6 +29409,12 @@
         "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
       },
       {
+        "fromSymbol": "buckets",
+        "toSymbol": "isSerializableSet",
+        "callExpression": "isSerializableSet",
+        "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
+      },
+      {
         "fromSymbol": "isObjectStorage",
         "toSymbol": "isInfraShape",
         "callExpression": "isInfraShape",
@@ -28904,6 +29433,18 @@
         "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
       },
       {
+        "fromSymbol": "isWorkloads",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
+      },
+      {
+        "fromSymbol": "src/infra/isInfraEnvironmentSpec.ts",
+        "toSymbol": "isInfraWorkloadSpec",
+        "callExpression": "isInfraWorkloadSpec",
+        "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
+      },
+      {
         "fromSymbol": "isInfraManifest",
         "toSymbol": "isInfraShape",
         "callExpression": "isInfraShape",
@@ -28911,14 +29452,8 @@
       },
       {
         "fromSymbol": "apis",
-        "toSymbol": "isApiDefinitionList",
-        "callExpression": "isApiDefinitionList",
-        "sourcePath": "src/infra/isInfraManifest.ts"
-      },
-      {
-        "fromSymbol": "modulesConfig",
-        "toSymbol": "isRecord",
-        "callExpression": "isRecord",
+        "toSymbol": "isApiDefinitionRegistry",
+        "callExpression": "isApiDefinitionRegistry",
         "sourcePath": "src/infra/isInfraManifest.ts"
       },
       {
@@ -28937,6 +29472,24 @@
         "fromSymbol": "src/infra/isInfraManifest.ts",
         "toSymbol": "isInfraEnvironmentSpec",
         "callExpression": "isInfraEnvironmentSpec",
+        "sourcePath": "src/infra/isInfraManifest.ts"
+      },
+      {
+        "fromSymbol": "isModuleRegistry",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/infra/isInfraManifest.ts"
+      },
+      {
+        "fromSymbol": "isModuleSpec",
+        "toSymbol": "isInfraShape",
+        "callExpression": "isInfraShape",
+        "sourcePath": "src/infra/isInfraManifest.ts"
+      },
+      {
+        "fromSymbol": "config",
+        "toSymbol": "isSerializableValue",
+        "callExpression": "isSerializableValue",
         "sourcePath": "src/infra/isInfraManifest.ts"
       },
       {
@@ -28995,8 +29548,8 @@
       },
       {
         "fromSymbol": "ports",
-        "toSymbol": "hasUniqueField",
-        "callExpression": "hasUniqueField",
+        "toSymbol": "isPortRegistry",
+        "callExpression": "isPortRegistry",
         "sourcePath": "src/infra/isInfraWorkloadSpec.ts"
       },
       {
@@ -29007,8 +29560,8 @@
       },
       {
         "fromSymbol": "files",
-        "toSymbol": "hasUniqueField",
-        "callExpression": "hasUniqueField",
+        "toSymbol": "isFileMap",
+        "callExpression": "isFileMap",
         "sourcePath": "src/infra/isInfraWorkloadSpec.ts"
       },
       {
@@ -29025,14 +29578,38 @@
       },
       {
         "fromSymbol": "persistence",
-        "toSymbol": "hasUniqueField",
-        "callExpression": "hasUniqueField",
+        "toSymbol": "isVolumeRegistry",
+        "callExpression": "isVolumeRegistry",
+        "sourcePath": "src/infra/isInfraWorkloadSpec.ts"
+      },
+      {
+        "fromSymbol": "dependsOn",
+        "toSymbol": "isSerializableSet",
+        "callExpression": "isSerializableSet",
         "sourcePath": "src/infra/isInfraWorkloadSpec.ts"
       },
       {
         "fromSymbol": "isInfraWorkloadSpec",
         "toSymbol": "hasValidPublishedPorts",
         "callExpression": "hasValidPublishedPorts",
+        "sourcePath": "src/infra/isInfraWorkloadSpec.ts"
+      },
+      {
+        "fromSymbol": "isPortRegistry",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/infra/isInfraWorkloadSpec.ts"
+      },
+      {
+        "fromSymbol": "src/infra/isInfraWorkloadSpec.ts",
+        "toSymbol": "isNonEmptyString",
+        "callExpression": "isNonEmptyString",
+        "sourcePath": "src/infra/isInfraWorkloadSpec.ts"
+      },
+      {
+        "fromSymbol": "src/infra/isInfraWorkloadSpec.ts",
+        "toSymbol": "isPort",
+        "callExpression": "isPort",
         "sourcePath": "src/infra/isInfraWorkloadSpec.ts"
       },
       {
@@ -29054,9 +29631,33 @@
         "sourcePath": "src/infra/isInfraWorkloadSpec.ts"
       },
       {
-        "fromSymbol": "isFile",
-        "toSymbol": "isInfraShape",
-        "callExpression": "isInfraShape",
+        "fromSymbol": "isFileMap",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/infra/isInfraWorkloadSpec.ts"
+      },
+      {
+        "fromSymbol": "src/infra/isInfraWorkloadSpec.ts",
+        "toSymbol": "isAbsoluteWorkloadPath",
+        "callExpression": "isAbsoluteWorkloadPath",
+        "sourcePath": "src/infra/isInfraWorkloadSpec.ts"
+      },
+      {
+        "fromSymbol": "src/infra/isInfraWorkloadSpec.ts",
+        "toSymbol": "isInfraWorkloadValue",
+        "callExpression": "isInfraWorkloadValue",
+        "sourcePath": "src/infra/isInfraWorkloadSpec.ts"
+      },
+      {
+        "fromSymbol": "isVolumeRegistry",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/infra/isInfraWorkloadSpec.ts"
+      },
+      {
+        "fromSymbol": "src/infra/isInfraWorkloadSpec.ts",
+        "toSymbol": "isVolume",
+        "callExpression": "isVolume",
         "sourcePath": "src/infra/isInfraWorkloadSpec.ts"
       },
       {
@@ -29107,6 +29708,26 @@
         "fromSymbol": "parseAppManifest",
         "toType": "AppManifestParseResult",
         "sourcePath": "src/appManifest/parseAppManifest.ts"
+      },
+      {
+        "fromSymbol": "SplashScreenModeSpec",
+        "toType": "MediaAssetReference",
+        "sourcePath": "src/appManifest/splashScreen.ts"
+      },
+      {
+        "fromSymbol": "SplashScreenSpec",
+        "toType": "MediaAssetReference",
+        "sourcePath": "src/appManifest/splashScreen.ts"
+      },
+      {
+        "fromSymbol": "SplashScreenSpec",
+        "toType": "SplashScreenModeSpec",
+        "sourcePath": "src/appManifest/splashScreen.ts"
+      },
+      {
+        "fromSymbol": "SplashScreenSpec",
+        "toType": "SplashScreenResizeMode",
+        "sourcePath": "src/appManifest/splashScreen.ts"
       },
       {
         "fromSymbol": "resolveAuthFlow",
@@ -29315,12 +29936,12 @@
       },
       {
         "fromSymbol": "BindingFallback",
-        "toType": "BindingValue",
+        "toType": "BindingValueSource",
         "sourcePath": "src/bindings.ts"
       },
       {
         "fromSymbol": "BindingFallback",
-        "toType": "BindingValueSource",
+        "toType": "SerializableValue",
         "sourcePath": "src/bindings.ts"
       },
       {
@@ -29375,12 +29996,12 @@
       },
       {
         "fromSymbol": "BindingCondition",
-        "toType": "BindingValue",
+        "toType": "BindingValueSource",
         "sourcePath": "src/bindings.ts"
       },
       {
         "fromSymbol": "BindingCondition",
-        "toType": "BindingValueSource",
+        "toType": "SerializableValue",
         "sourcePath": "src/bindings.ts"
       },
       {
@@ -29440,11 +30061,6 @@
       },
       {
         "fromSymbol": "ApiBaseDefinition",
-        "toType": "DataContractValue",
-        "sourcePath": "src/data/apis.ts"
-      },
-      {
-        "fromSymbol": "ApiBaseDefinition",
         "toType": "DataEndpointConfig",
         "sourcePath": "src/data/apis.ts"
       },
@@ -29459,13 +30075,13 @@
         "sourcePath": "src/data/apis.ts"
       },
       {
-        "fromSymbol": "ExternalRestApiDefinition",
-        "toType": "CredentialRef",
+        "fromSymbol": "ApiBaseDefinition",
+        "toType": "SerializableValue",
         "sourcePath": "src/data/apis.ts"
       },
       {
         "fromSymbol": "ExternalRestApiDefinition",
-        "toType": "DataContractValue",
+        "toType": "CredentialRef",
         "sourcePath": "src/data/apis.ts"
       },
       {
@@ -29489,13 +30105,13 @@
         "sourcePath": "src/data/apis.ts"
       },
       {
-        "fromSymbol": "ExternalGraphQlApiDefinition",
-        "toType": "CredentialRef",
+        "fromSymbol": "ExternalRestApiDefinition",
+        "toType": "SerializableValue",
         "sourcePath": "src/data/apis.ts"
       },
       {
         "fromSymbol": "ExternalGraphQlApiDefinition",
-        "toType": "DataContractValue",
+        "toType": "CredentialRef",
         "sourcePath": "src/data/apis.ts"
       },
       {
@@ -29519,13 +30135,13 @@
         "sourcePath": "src/data/apis.ts"
       },
       {
-        "fromSymbol": "InternalRestApiDefinition",
-        "toType": "CredentialRef",
+        "fromSymbol": "ExternalGraphQlApiDefinition",
+        "toType": "SerializableValue",
         "sourcePath": "src/data/apis.ts"
       },
       {
         "fromSymbol": "InternalRestApiDefinition",
-        "toType": "DataContractValue",
+        "toType": "CredentialRef",
         "sourcePath": "src/data/apis.ts"
       },
       {
@@ -29541,6 +30157,11 @@
       {
         "fromSymbol": "InternalRestApiDefinition",
         "toType": "Readonly",
+        "sourcePath": "src/data/apis.ts"
+      },
+      {
+        "fromSymbol": "InternalRestApiDefinition",
+        "toType": "SerializableValue",
         "sourcePath": "src/data/apis.ts"
       },
       {
@@ -29560,11 +30181,6 @@
       },
       {
         "fromSymbol": "DataEndpointConfig",
-        "toType": "DataContractValue",
-        "sourcePath": "src/data/endpoints.ts"
-      },
-      {
-        "fromSymbol": "DataEndpointConfig",
         "toType": "DataEndpointKind",
         "sourcePath": "src/data/endpoints.ts"
       },
@@ -29579,9 +30195,9 @@
         "sourcePath": "src/data/endpoints.ts"
       },
       {
-        "fromSymbol": "DataOperationParameter",
-        "toType": "DataContractValue",
-        "sourcePath": "src/data/operations.ts"
+        "fromSymbol": "DataEndpointConfig",
+        "toType": "SerializableValue",
+        "sourcePath": "src/data/endpoints.ts"
       },
       {
         "fromSymbol": "DataOperationParameter",
@@ -29596,6 +30212,11 @@
       {
         "fromSymbol": "DataOperationParameter",
         "toType": "DataSchemaRef",
+        "sourcePath": "src/data/operations.ts"
+      },
+      {
+        "fromSymbol": "DataOperationParameter",
+        "toType": "SerializableValue",
         "sourcePath": "src/data/operations.ts"
       },
       {
@@ -29630,11 +30251,6 @@
       },
       {
         "fromSymbol": "DataOperationConfig",
-        "toType": "DataContractValue",
-        "sourcePath": "src/data/operations.ts"
-      },
-      {
-        "fromSymbol": "DataOperationConfig",
         "toType": "DataOperationIntent",
         "sourcePath": "src/data/operations.ts"
       },
@@ -29664,6 +30280,11 @@
         "sourcePath": "src/data/operations.ts"
       },
       {
+        "fromSymbol": "DataOperationConfig",
+        "toType": "SerializableValue",
+        "sourcePath": "src/data/operations.ts"
+      },
+      {
         "fromSymbol": "CredentialRef",
         "toType": "CredentialKind",
         "sourcePath": "src/data/refs.ts"
@@ -29675,22 +30296,17 @@
       },
       {
         "fromSymbol": "AdapterRef",
-        "toType": "DataContractValue",
+        "toType": "SerializableValue",
         "sourcePath": "src/data/refs.ts"
       },
       {
         "fromSymbol": "DatabaseAdapterRef",
-        "toType": "DataContractValue",
+        "toType": "SerializableValue",
         "sourcePath": "src/data/refs.ts"
       },
       {
         "fromSymbol": "DataSchemaProperty",
         "toType": "DataSchema",
-        "sourcePath": "src/data/schemas.ts"
-      },
-      {
-        "fromSymbol": "DataSchema",
-        "toType": "DataContractValue",
         "sourcePath": "src/data/schemas.ts"
       },
       {
@@ -29706,6 +30322,11 @@
       {
         "fromSymbol": "DataSchema",
         "toType": "Readonly",
+        "sourcePath": "src/data/schemas.ts"
+      },
+      {
+        "fromSymbol": "DataSchema",
+        "toType": "SerializableValue",
         "sourcePath": "src/data/schemas.ts"
       },
       {
@@ -29730,11 +30351,6 @@
       },
       {
         "fromSymbol": "DatabaseDataSourceConfig",
-        "toType": "DataContractValue",
-        "sourcePath": "src/data/sources.ts"
-      },
-      {
-        "fromSymbol": "DatabaseDataSourceConfig",
         "toType": "DataEndpointConfig",
         "sourcePath": "src/data/sources.ts"
       },
@@ -29746,6 +30362,11 @@
       {
         "fromSymbol": "DatabaseDataSourceConfig",
         "toType": "Readonly",
+        "sourcePath": "src/data/sources.ts"
+      },
+      {
+        "fromSymbol": "DatabaseDataSourceConfig",
+        "toType": "SerializableValue",
         "sourcePath": "src/data/sources.ts"
       },
       {
@@ -30789,13 +31410,28 @@
         "sourcePath": "src/infra/validateInfraAdapterSelection.ts"
       },
       {
+        "fromSymbol": "InfraCredentialPort",
+        "toType": "InfraControlPlaneCredentialRef",
+        "sourcePath": "src/types/infraAdapters.ts"
+      },
+      {
+        "fromSymbol": "InfraCredentialPort",
+        "toType": "InfraResult",
+        "sourcePath": "src/types/infraAdapters.ts"
+      },
+      {
+        "fromSymbol": "InfraCredentialPort",
+        "toType": "Readonly",
+        "sourcePath": "src/types/infraAdapters.ts"
+      },
+      {
         "fromSymbol": "InfraExecutionContext",
         "toType": "AbortSignal",
         "sourcePath": "src/types/infraAdapters.ts"
       },
       {
         "fromSymbol": "InfraExecutionContext",
-        "toType": "InfraControlPlaneCredentialRef",
+        "toType": "InfraCredentialPort",
         "sourcePath": "src/types/infraAdapters.ts"
       },
       {
@@ -30816,11 +31452,6 @@
       {
         "fromSymbol": "InfraExecutionContext",
         "toType": "InfraSecretReference",
-        "sourcePath": "src/types/infraAdapters.ts"
-      },
-      {
-        "fromSymbol": "InfraExecutionContext",
-        "toType": "Readonly",
         "sourcePath": "src/types/infraAdapters.ts"
       },
       {
@@ -31119,6 +31750,11 @@
         "sourcePath": "src/types/infraManifest.ts"
       },
       {
+        "fromSymbol": "InfraObjectStorageConfigMap",
+        "toType": "SerializableSet",
+        "sourcePath": "src/types/infraManifest.ts"
+      },
+      {
         "fromSymbol": "InfraAuthConfigMap",
         "toType": "AuthFlowConfig",
         "sourcePath": "src/types/infraManifest.ts"
@@ -31155,12 +31791,12 @@
       },
       {
         "fromSymbol": "InfraAuthzConfigMap",
-        "toType": "InfraAuthzPolicyFile",
+        "toType": "RBAC",
         "sourcePath": "src/types/infraManifest.ts"
       },
       {
         "fromSymbol": "InfraAuthzConfigMap",
-        "toType": "RBAC",
+        "toType": "Readonly",
         "sourcePath": "src/types/infraManifest.ts"
       },
       {
@@ -31205,11 +31841,6 @@
       },
       {
         "fromSymbol": "InfraEnvironmentSpec",
-        "toType": "InfraAuthzPolicyFile",
-        "sourcePath": "src/types/infraManifest.ts"
-      },
-      {
-        "fromSymbol": "InfraEnvironmentSpec",
         "toType": "InfraDeploymentSpec",
         "sourcePath": "src/types/infraManifest.ts"
       },
@@ -31239,13 +31870,28 @@
         "sourcePath": "src/types/infraManifest.ts"
       },
       {
+        "fromSymbol": "InfraEnvironmentSpec",
+        "toType": "Readonly",
+        "sourcePath": "src/types/infraManifest.ts"
+      },
+      {
+        "fromSymbol": "InfraModuleSpec",
+        "toType": "SerializableValue",
+        "sourcePath": "src/types/infraManifest.ts"
+      },
+      {
         "fromSymbol": "InfraManifest",
-        "toType": "ApiDefinitionList",
+        "toType": "ApiDefinition",
         "sourcePath": "src/types/infraManifest.ts"
       },
       {
         "fromSymbol": "InfraManifest",
         "toType": "InfraEnvironmentSpec",
+        "sourcePath": "src/types/infraManifest.ts"
+      },
+      {
+        "fromSymbol": "InfraManifest",
+        "toType": "InfraModuleSpec",
         "sourcePath": "src/types/infraManifest.ts"
       },
       {
@@ -31259,18 +31905,8 @@
         "sourcePath": "src/types/infraManifest.ts"
       },
       {
-        "fromSymbol": "InfraWorkloadFileSpec",
-        "toType": "InfraWorkloadValue",
-        "sourcePath": "src/types/infraWorkload.ts"
-      },
-      {
         "fromSymbol": "InfraWorkloadSpec",
         "toType": "InfraWorkloadArtifact",
-        "sourcePath": "src/types/infraWorkload.ts"
-      },
-      {
-        "fromSymbol": "InfraWorkloadSpec",
-        "toType": "InfraWorkloadFileSpec",
         "sourcePath": "src/types/infraWorkload.ts"
       },
       {
@@ -31296,6 +31932,11 @@
       {
         "fromSymbol": "InfraWorkloadSpec",
         "toType": "InfraWorkloadVolumeSpec",
+        "sourcePath": "src/types/infraWorkload.ts"
+      },
+      {
+        "fromSymbol": "InfraWorkloadSpec",
+        "toType": "Partial",
         "sourcePath": "src/types/infraWorkload.ts"
       },
       {
@@ -31365,17 +32006,17 @@
       },
       {
         "fromSymbol": "CustomNavigatorNode",
-        "toType": "ManifestValue",
-        "sourcePath": "src/navigator.ts"
-      },
-      {
-        "fromSymbol": "CustomNavigatorNode",
         "toType": "Readonly",
         "sourcePath": "src/navigator.ts"
       },
       {
         "fromSymbol": "CustomNavigatorNode",
         "toType": "RouteDefinition",
+        "sourcePath": "src/navigator.ts"
+      },
+      {
+        "fromSymbol": "CustomNavigatorNode",
+        "toType": "SerializableValue",
         "sourcePath": "src/navigator.ts"
       },
       {
@@ -31685,22 +32326,22 @@
       },
       {
         "fromSymbol": "ScreenRequirements",
-        "toType": "ScreenCapabilityRequirement",
+        "toType": "Partial",
         "sourcePath": "src/requirements.ts"
       },
       {
         "fromSymbol": "ScreenRequirements",
-        "toType": "ScreenPermissionRequirement",
+        "toType": "Readonly",
         "sourcePath": "src/requirements.ts"
       },
       {
         "fromSymbol": "ComponentRequirements",
-        "toType": "ScreenCapabilityRequirement",
+        "toType": "Partial",
         "sourcePath": "src/requirements.ts"
       },
       {
         "fromSymbol": "ComponentRequirements",
-        "toType": "ScreenPermissionRequirement",
+        "toType": "Readonly",
         "sourcePath": "src/requirements.ts"
       },
       {
@@ -31836,6 +32477,11 @@
       {
         "fromSymbol": "StateSnapshot",
         "toType": "TValue",
+        "sourcePath": "src/state.ts"
+      },
+      {
+        "fromSymbol": "StateAdapter",
+        "toType": "SerializableValue",
         "sourcePath": "src/state.ts"
       },
       {
@@ -32105,7 +32751,7 @@
       },
       {
         "fromSymbol": "CollectionItemPressPayload",
-        "toType": "ManifestValue",
+        "toType": "SerializableValue",
         "sourcePath": "src/types.ts"
       },
       {
@@ -32221,6 +32867,11 @@
       {
         "fromSymbol": "AppManifest",
         "toType": "ThemeConfig",
+        "sourcePath": "src/types.ts"
+      },
+      {
+        "fromSymbol": "AppManifest",
+        "toType": "ThemeId",
         "sourcePath": "src/types.ts"
       },
       {
