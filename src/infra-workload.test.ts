@@ -10,6 +10,13 @@ import {
 } from './infra';
 import type { AppManifest } from './types';
 
+const defaultTheme = {
+  id: 'default',
+  name: 'Default',
+  light: { primaryColor: '#3366ff', harmony: 'analogous' },
+  dark: { primaryColor: '#6699ff', harmony: 'analogous' },
+} as const;
+
 const reference = {
   source: 'secret-store',
   projectId: 'example',
@@ -261,14 +268,7 @@ describe('application state boundary', () => {
       category: 'developer_tools',
       themeId: 'default',
     },
-    themes: {
-      default: {
-        id: 'default',
-        name: 'Default',
-        light: { primaryColor: '#3366ff', harmony: 'analogous' },
-        dark: { primaryColor: '#6699ff', harmony: 'analogous' },
-      },
-    },
+    themes: { default: defaultTheme },
     activeThemeId: 'default',
     screens: {},
     navigator: { type: 'stack', routes: [] },
