@@ -1,24 +1,14 @@
-import type { Props as ExpoSplashScreenPluginProps } from 'expo-splash-screen/plugin';
-
 import type { MediaAssetReference } from '../media';
 
-type ExpoSplashScreenRootProps = Pick<
-  ExpoSplashScreenPluginProps,
-  'backgroundColor' | 'image' | 'imageWidth' | 'resizeMode'
->;
+export type SplashScreenResizeMode = 'contain' | 'cover' | 'native';
 
-type PortableSplashScreenProps<T extends { readonly image?: string }> = Readonly<
-  Omit<T, 'image'>
-> & {
+export interface SplashScreenModeSpec {
+  readonly backgroundColor?: string;
   readonly image?: MediaAssetReference;
-};
+}
 
-export type SplashScreenResizeMode = NonNullable<ExpoSplashScreenPluginProps['resizeMode']>;
-
-export type SplashScreenModeSpec = PortableSplashScreenProps<
-  NonNullable<ExpoSplashScreenPluginProps['dark']>
->;
-
-export type SplashScreenSpec = PortableSplashScreenProps<ExpoSplashScreenRootProps> & {
+export interface SplashScreenSpec extends SplashScreenModeSpec {
+  readonly imageWidth?: number;
+  readonly resizeMode?: SplashScreenResizeMode;
   readonly dark?: SplashScreenModeSpec;
-};
+}
