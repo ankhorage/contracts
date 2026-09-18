@@ -5,7 +5,7 @@ import { isInfraEnvironmentSpec, isInfraWorkloadSpec } from './infra';
 const publicWorkload = {
   id: 'api',
   artifact: { kind: 'image', image: 'example/api:1' },
-  ports: [{ name: 'http', port: 8080, publishedPort: 18_080 }],
+  ports: { http: { port: 8080, publishedPort: 18_080 } },
   exposure: 'public',
 } as const;
 
@@ -17,16 +17,16 @@ describe('published workload ports', () => {
   });
 
   it.each([
-    { ...publicWorkload, ports: [{ name: 'http', port: 80, publishedPort: 0 }] },
-    { ...publicWorkload, ports: [{ name: 'http', port: 80, publishedPort: 65_536 }] },
+    { ...publicWorkload, ports: { http: { port: 80, publishedPort: 0 } } },
+    { ...publicWorkload, ports: { http: { port: 80, publishedPort: 65_536 } } },
     { ...publicWorkload, exposure: 'internal' },
     { ...publicWorkload, replicas: 2 },
     {
       ...publicWorkload,
-      ports: [
-        { name: 'http', port: 80, publishedPort: 8080 },
-        { name: 'admin', port: 81, publishedPort: 8080 },
-      ],
+      ports: {
+        http: { port: 80, publishedPort: 8080 },
+        admin: { port: 81, publishedPort: 8080 },
+      },
     },
   ])('rejects an invalid fixed external listener: %j', (workload) => {
     expect(isInfraWorkloadSpec(workload)).toBe(false);
@@ -36,7 +36,7 @@ describe('published workload ports', () => {
     expect(
       isInfraEnvironmentSpec({
         deployment: { compute: { provider: 'local' }, runtime: { provider: 'minikube' } },
-        workloads: [publicWorkload, { ...publicWorkload, id: 'admin' }],
+        workloads: { api: publicWorkload, admin: { ...publicWorkload, id: 'admin' } },
       }),
     ).toBe(false);
   });
