@@ -2,7 +2,6 @@ import { isRecord } from '@ankhorage/utility/object';
 import { isNonEmptyString } from '@ankhorage/utility/string';
 
 import { isSerializableSet } from '../collections';
-
 import type {
   InfraEnvironmentSpec,
   InfraObjectStorageSpec,
