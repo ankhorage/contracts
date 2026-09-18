@@ -1,5 +1,5 @@
 import { isStringArray } from '@ankhorage/utility/array';
-import { isRecord } from '@ankhorage/utility/object';
+import { isRecord, readOwnProperty } from '@ankhorage/utility/object';
 import { isOptionalString } from '@ankhorage/utility/string';
 
 import { isManifestValue } from './isManifestValue';
@@ -182,7 +182,7 @@ function isOptionalSchemaCollections(value: Record<string, unknown>): boolean {
 /*** Validate optional schema alternatives and intersections. */
 function isOptionalSchemaComposition(value: Record<string, unknown>): boolean {
   return ['allOf', 'anyOf', 'oneOf'].every((key) => {
-    const entry = value[key];
+    const entry = readOwnProperty(value, key);
     return entry === undefined || (Array.isArray(entry) && entry.every(isDataSchema));
   });
 }
