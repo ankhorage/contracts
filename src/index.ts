@@ -14,6 +14,7 @@ export * from './navigator';
 export * from './repository';
 export * from './requirements';
 export * from './runtimeCallbacks';
+export * from './serializable';
 export * from './secrets';
 export * from './state';
 export * from './storage';
