@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 22.0.1
+
+### Patch Changes
+
+- dae0cab: Keep the portable splash-screen manifest contract independent from Expo package installation.
+
 ## 22.0.0
 
 ### Major Changes
