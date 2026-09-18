@@ -9,7 +9,7 @@ import {
   ANKHORAGE_CAPABILITY_NAMES,
   ANKHORAGE_PERMISSION_NAMES,
 } from '../requirements';
-import { APP_CATEGORIES } from '../types';
+import { APP_CATEGORIES, type ThemeRegistry } from '../types';
 import { isBindingValueSource, isScreenDataLoaderDefinition } from './bindings';
 
 export { isAppNavigatorManifest } from './navigator';
@@ -47,7 +47,7 @@ export function isThemeConfig(value: unknown): boolean {
 }
 
 /*** Validate themes in the authored theme registry and require registry keys to match theme identity. */
-export function isThemeRegistry(value: unknown): boolean {
+export function isThemeRegistry(value: unknown): value is ThemeRegistry {
   return (
     isRecord(value) &&
     Object.entries(value).every(
