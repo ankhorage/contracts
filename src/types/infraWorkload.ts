@@ -1,3 +1,4 @@
+import type { SerializableSet } from '../collections';
 import type { InfraControlPlaneCredentialRef, InfraSecretReference } from './infraSecrets';
 
 export interface InfraWorkloadArtifact {
@@ -25,7 +26,6 @@ export type InfraWorkloadValue =
     };
 
 export interface InfraWorkloadPort {
-  readonly name: string;
   readonly port: number;
   readonly protocol?: 'tcp' | 'udp';
   /** Exact external listener port requested for a public single-replica workload. */
@@ -57,25 +57,26 @@ export interface InfraWorkloadVolumeSpec {
   readonly retention: 'retain' | 'delete-on-destroy';
 }
 
-/** Portable config/policy files; secret values are materialized by the runtime. */
-export interface InfraWorkloadFileSpec {
-  readonly path: string;
-  readonly content: InfraWorkloadValue;
-}
+export type InfraWorkloadId = string;
+export type InfraWorkloadPortRegistry = Readonly<Record<string, InfraWorkloadPort>>;
+export type InfraWorkloadFileMap = Readonly<Record<string, InfraWorkloadValue>>;
+export type InfraWorkloadVolumeRegistry = Readonly<Record<string, InfraWorkloadVolumeSpec>>;
 
 export interface InfraWorkloadSpec {
-  readonly id: string;
+  readonly id: InfraWorkloadId;
   readonly artifact: InfraWorkloadArtifact;
   readonly command?: readonly string[];
   readonly args?: readonly string[];
-  readonly ports?: readonly InfraWorkloadPort[];
+  readonly ports?: InfraWorkloadPortRegistry;
   readonly environment?: Readonly<Record<string, InfraWorkloadValue>>;
-  readonly files?: readonly InfraWorkloadFileSpec[];
+  readonly files?: InfraWorkloadFileMap;
   readonly health?: InfraWorkloadHealthSpec;
   readonly resources?: InfraWorkloadResourceSpec;
-  readonly persistence?: readonly InfraWorkloadVolumeSpec[];
+  readonly persistence?: InfraWorkloadVolumeRegistry;
   readonly exposure?: 'internal' | 'public';
   readonly replicas?: number;
   /** IDs in the composed desired-state graph; the orchestrator validates missing/cyclic edges. */
-  readonly dependsOn?: readonly string[];
+  readonly dependsOn?: SerializableSet;
 }
+
+export type InfraWorkloadRegistry = Readonly<Record<InfraWorkloadId, InfraWorkloadSpec>>;

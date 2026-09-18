@@ -23,7 +23,7 @@ const production = {
   },
   database: { provider: 'supabase' },
   auth: { provider: 'supabase' },
-  objectStorage: { provider: 'r2', buckets: ['media'] },
+  objectStorage: { provider: 'r2', buckets: { media: true } },
   authz: { provider: 'cerbos', kind: 'ABAC' },
   secretStore: { provider: 'supabase-vault' },
   networking: { domain: 'api.example.ch', publicBaseUrl: 'https://api.example.ch' },
@@ -33,7 +33,7 @@ describe('standalone Infra environments', () => {
   it('parses local/preview/production without an AppManifest or Deploy', () => {
     const manifest = {
       environments: { local, preview: production, production },
-      modules: [],
+      modules: {},
     } satisfies InfraManifest;
     expect(parseInfraManifest(JSON.parse(JSON.stringify(manifest)))).toEqual({
       ok: true,
@@ -45,14 +45,14 @@ describe('standalone Infra environments', () => {
   it.each([
     null,
     {},
-    { modules: [] },
-    { environments: {}, modules: [] },
-    { environments: { production }, modules: [] },
-    { environments: { local, staging: local }, modules: [] },
-    { environments: { local, preview: null }, modules: [] },
-    { environments: { local }, modules: [42] },
-    { environments: { local }, modules: [], modulesConfig: [] },
-    { environments: { local }, modules: [], apis: 'invalid' },
+    { modules: {} },
+    { environments: {}, modules: {} },
+    { environments: { production }, modules: {} },
+    { environments: { local, staging: local }, modules: {} },
+    { environments: { local, preview: null }, modules: {} },
+    { environments: { local }, modules: { invalid: 42 } },
+    { environments: { local }, modules: {}, modulesConfig: {} },
+    { environments: { local }, modules: {}, apis: 'invalid' },
   ])('rejects invalid environment boundaries: %j', (value) => {
     expect(isInfraManifest(value)).toBe(false);
     expect(parseInfraManifest(value).ok).toBe(false);
@@ -69,7 +69,7 @@ describe('standalone Infra environments', () => {
     'plugins',
     'pluginsConfig',
   ])('rejects removed top-level %s', (key) => {
-    expect(isInfraManifest({ environments: { local }, modules: [], [key]: {} })).toBe(false);
+    expect(isInfraManifest({ environments: { local }, modules: {}, [key]: {} })).toBe(false);
   });
 
   it.each(['storage', 'state', 'monitoring', 'observability', 'target'])(
@@ -148,21 +148,17 @@ describe('Cerbos policy configuration', () => {
         authz: {
           provider: 'cerbos',
           kind: 'ABAC',
-          policies: [{ path: 'app.yaml', content: 'apiVersion: api.cerbos.dev/v1' }],
+          policies: { 'app.yaml': 'apiVersion: api.cerbos.dev/v1' },
         },
       }),
     ).toBe(true);
   });
 
   it.each([
-    { policies: [{ path: '../app.yaml', content: 'x' }] },
-    {
-      policies: [
-        { path: 'app.yaml', content: 'x' },
-        { path: 'app.yaml', content: 'y' },
-      ],
-    },
-  ])('rejects unsafe or duplicate policy files: %j', ({ policies }) => {
+    { policies: { '../app.yaml': 'x' } },
+    { policies: { 'app.yaml': 42 } },
+    { policies: [{ path: 'app.yaml', content: 'legacy-array-shape' }] },
+  ])('rejects unsafe or non-canonical policy files: %j', ({ policies }) => {
     expect(
       isInfraEnvironmentSpec({
         ...local,

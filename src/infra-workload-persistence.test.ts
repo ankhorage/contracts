@@ -5,15 +5,15 @@ import { isInfraWorkloadSpec } from './infra';
 const workload = {
   id: 'database',
   artifact: { kind: 'image', image: 'example/database:1' },
-  persistence: [
-    {
+  persistence: {
+    config: {
       id: 'config',
       mountPath: '/etc/database-custom',
       sizeGiB: 1,
       seed: 'image',
       retention: 'retain',
     },
-  ],
+  },
 } as const;
 
 it('accepts image-seeded persistence initialization', () => {
@@ -24,7 +24,7 @@ it('rejects unsupported persistence initialization modes', () => {
   expect(
     isInfraWorkloadSpec({
       ...workload,
-      persistence: [{ ...workload.persistence[0], seed: 'empty' }],
+      persistence: { config: { ...workload.persistence.config, seed: 'empty' } },
     }),
   ).toBe(false);
 });

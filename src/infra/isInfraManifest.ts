@@ -1,10 +1,10 @@
 import { isRecord } from '@ankhorage/utility/object';
 
-import { isApiDefinitionList } from '../appManifest/apis';
+import { isApiDefinitionRegistry } from '../appManifest/apis';
 import { APP_ENVIRONMENT_IDS } from '../environments';
-import type { InfraManifest } from '../types/infraManifest';
+import { isSerializableValue } from '../serializable';
+import type { InfraManifest, InfraModuleSpec } from '../types/infraManifest';
 import type { InfraShape } from '../types/infraValidation';
-import { infraFields } from './infraFields';
 import { isInfraEnvironmentSpec } from './isInfraEnvironmentSpec';
 import { isInfraShape } from './isInfraShape';
 
@@ -12,9 +12,8 @@ import { isInfraShape } from './isInfraShape';
 export function isInfraManifest(value: unknown): value is InfraManifest {
   return isInfraShape(value, {
     environments: isEnvironments,
-    apis: (apis) => apis === undefined || isApiDefinitionList(apis),
-    modules: infraFields.strings,
-    modulesConfig: (config) => config === undefined || isRecord(config),
+    apis: (apis) => apis === undefined || isApiDefinitionRegistry(apis),
+    modules: isModuleRegistry,
   } satisfies InfraShape<InfraManifest>);
 }
 
@@ -26,4 +25,16 @@ function isEnvironments(value: unknown): boolean {
       APP_ENVIRONMENT_IDS.some((id) => id === key) &&
       ((environment === undefined && key !== 'local') || isInfraEnvironmentSpec(environment)),
   );
+}
+
+/*** Validate installed module identity and optional serializable module-owned configuration. */
+function isModuleRegistry(value: unknown): boolean {
+  return isRecord(value) && Object.values(value).every(isModuleSpec);
+}
+
+/*** Validate one module registry entry. */
+function isModuleSpec(value: unknown): value is InfraModuleSpec {
+  return isInfraShape(value, {
+    config: (config) => config === undefined || isSerializableValue(config),
+  });
 }

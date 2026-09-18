@@ -2,8 +2,10 @@ import { COLOR_HARMONIES } from '@ankhorage/color-theory';
 import { isRecord } from '@ankhorage/utility/object';
 import { isOptionalString } from '@ankhorage/utility/string';
 
+import { isSerializableSet } from '../collections';
 import { isMediaAssetReference } from '../media';
-import { APP_CATEGORIES } from '../types';
+import { ANKHORAGE_CAPABILITY_NAMES, ANKHORAGE_PERMISSION_NAMES } from '../requirements';
+import { APP_CATEGORIES, type ThemeRegistry } from '../types';
 import { isBindingValueSource, isScreenDataLoaderDefinition } from './bindings';
 
 export { isAppNavigatorManifest } from './navigator';
@@ -11,6 +13,8 @@ export { isAppNavigatorManifest } from './navigator';
 const APP_CATEGORY_SET = new Set<string>(APP_CATEGORIES);
 const COLOR_HARMONY_SET = new Set<string>(COLOR_HARMONIES);
 const SPLASH_SCREEN_RESIZE_MODE_SET = new Set<string>(['contain', 'cover', 'native']);
+const PERMISSION_NAME_SET = new Set<string>(ANKHORAGE_PERMISSION_NAMES);
+const CAPABILITY_NAME_SET = new Set<string>(ANKHORAGE_CAPABILITY_NAMES);
 
 /*** Validate application identity and optional authored metadata. */
 export function isManifestMetadata(value: unknown): boolean {
@@ -28,13 +32,23 @@ export function isManifestMetadata(value: unknown): boolean {
 }
 
 /*** Validate theme identity and its required light and dark modes. */
-export function isThemeConfig(value: unknown): boolean {
+function isThemeConfig(value: unknown): boolean {
   return (
     isRecord(value) &&
     typeof value.id === 'string' &&
     typeof value.name === 'string' &&
     isThemeModeConfig(value.light) &&
     isThemeModeConfig(value.dark)
+  );
+}
+
+/*** Validate themes in the authored theme registry and require registry keys to match theme identity. */
+export function isThemeRegistry(value: unknown): value is ThemeRegistry {
+  return (
+    isRecord(value) &&
+    Object.entries(value).every(
+      ([registryKey, theme]) => isThemeConfig(theme) && isRecord(theme) && registryKey === theme.id,
+    )
   );
 }
 
@@ -127,15 +141,12 @@ function isSplashScreenModeSpec(value: unknown): boolean {
 function isScreenRequirements(value: unknown): boolean {
   return (
     isRecord(value) &&
-    (value.permissions === undefined || isRequirementArray(value.permissions, 'permission')) &&
-    (value.capabilities === undefined || isRequirementArray(value.capabilities, 'capability'))
+    (value.permissions === undefined || isRequirementSet(value.permissions, PERMISSION_NAME_SET)) &&
+    (value.capabilities === undefined || isRequirementSet(value.capabilities, CAPABILITY_NAME_SET))
   );
 }
 
-/*** Validate the entries of a capability or permission requirement list. */
-function isRequirementArray(value: unknown, key: 'capability' | 'permission'): boolean {
-  return (
-    Array.isArray(value) &&
-    value.every((entry) => isRecord(entry) && typeof entry[key] === 'string')
-  );
+/*** Validate unordered requirement membership against the supported capability or permission names. */
+function isRequirementSet(value: unknown, allowedNames: ReadonlySet<string>): boolean {
+  return isSerializableSet(value) && Object.keys(value).every((name) => allowedNames.has(name));
 }

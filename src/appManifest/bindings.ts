@@ -5,7 +5,13 @@ import { isManifestValue } from './isManifestValue';
 
 /*** Validate every component binding in the authored registry. */
 export function isComponentDataBindingRegistry(value: unknown): boolean {
-  return isRecord(value) && Object.values(value).every(isComponentDataBinding);
+  return (
+    isRecord(value) &&
+    Object.entries(value).every(
+      ([componentId, binding]) =>
+        isComponentDataBinding(binding) && isRecord(binding) && binding.componentId === componentId,
+    )
+  );
 }
 
 /*** Validate literal, operation and path-based binding sources. */

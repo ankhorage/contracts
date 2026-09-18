@@ -1,7 +1,7 @@
 import { hasOnlyKeys, isRecord } from '@ankhorage/utility/object';
 import { isNonEmptyString, isOptionalString } from '@ankhorage/utility/string';
 
-import type { ApiDefinition, ApiDefinitionList } from '../data';
+import type { ApiDefinition, ApiDefinitionRegistry } from '../data';
 import { isCredentialRef, isDataEndpointRegistry, isDataSchemaRegistry } from './data';
 import { isManifestValue } from './isManifestValue';
 
@@ -22,11 +22,14 @@ const INTERNAL_REST_KEYS = [...API_BASE_KEYS, 'basePath'] as const;
 const OPEN_API_KEYS = ['url', 'documentId', 'version'] as const;
 const INTROSPECTION_KEYS = ['enabled', 'schemaVersion'] as const;
 
-/*** Validate API definitions and require unique API identities. */
-export function isApiDefinitionList(value: unknown): value is ApiDefinitionList {
-  if (!Array.isArray(value) || !value.every(isApiDefinition)) return false;
-  const ids = value.map((api) => api.id);
-  return new Set(ids).size === ids.length;
+/*** Validate API definitions in the canonical registry and require key/identity consistency. */
+export function isApiDefinitionRegistry(value: unknown): value is ApiDefinitionRegistry {
+  return (
+    isRecord(value) &&
+    Object.entries(value).every(
+      ([registryKey, api]) => isApiDefinition(api) && registryKey === api.id,
+    )
+  );
 }
 
 /*** Validate one API definition against its origin and protocol branch. */

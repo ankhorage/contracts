@@ -12,7 +12,7 @@ const production = {
   },
   database: { provider: 'supabase' },
   auth: { provider: 'supabase' },
-  objectStorage: { provider: 'r2', buckets: ['media'] },
+  objectStorage: { provider: 'r2', buckets: { media: true } },
   authz: { provider: 'cerbos', kind: 'ABAC' },
   secretStore: { provider: 'supabase-vault' },
   networking: { domain: 'api.example.ch', publicBaseUrl: 'https://api.example.ch' },

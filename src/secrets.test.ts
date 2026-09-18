@@ -67,7 +67,7 @@ describe('secret-store contracts', () => {
     };
 
     const infra: InfraManifest = {
-      modules: [],
+      modules: {},
       environments: {
         local: {
           deployment: { compute: { provider: 'local' }, runtime: { provider: 'minikube' } },

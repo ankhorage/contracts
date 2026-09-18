@@ -1,3 +1,5 @@
+import type { SerializableValue } from './serializable';
+
 /** Legend currently implements in-memory state only; unsupported persistence cannot be selected. */
 export interface AppStateSpec {
   readonly provider: 'legend';
@@ -6,12 +8,7 @@ export interface AppStateSpec {
 
 export type StatePrimitive = string | number | boolean | null;
 
-export type StateValue =
-  | StatePrimitive
-  | readonly StateValue[]
-  | {
-      readonly [key: string]: StateValue;
-    };
+export type StateValue = SerializableValue;
 
 export type StatePath = string | readonly string[];
 

@@ -1,5 +1,5 @@
 import { isStringArray } from '@ankhorage/utility/array';
-import { isRecord } from '@ankhorage/utility/object';
+import { isRecord, readOwnProperty } from '@ankhorage/utility/object';
 import { isOptionalString } from '@ankhorage/utility/string';
 
 import { isManifestValue } from './isManifestValue';
@@ -18,7 +18,13 @@ const PARAMETER_LOCATIONS = new Set(['body', 'cookie', 'header', 'path', 'query'
 
 /*** Validate every endpoint in the data endpoint registry. */
 export function isDataEndpointRegistry(value: unknown): boolean {
-  return isRecord(value) && Object.values(value).every(isDataEndpointConfig);
+  return (
+    isRecord(value) &&
+    Object.entries(value).every(
+      ([endpointId, endpoint]) =>
+        isDataEndpointConfig(endpoint) && isRecord(endpoint) && endpoint.id === endpointId,
+    )
+  );
 }
 
 /*** Validate every schema in the data schema registry. */
@@ -61,7 +67,10 @@ function isDataEndpointConfig(value: unknown): boolean {
     isOptionalString(value.path) &&
     (value.credential === undefined || isCredentialRef(value.credential)) &&
     isRecord(value.operations) &&
-    Object.values(value.operations).every(isDataOperationConfig) &&
+    Object.entries(value.operations).every(
+      ([operationId, operation]) =>
+        isDataOperationConfig(operation) && isRecord(operation) && operation.id === operationId,
+    ) &&
     (value.metadata === undefined || isManifestValue(value.metadata))
   );
 }
@@ -182,7 +191,7 @@ function isOptionalSchemaCollections(value: Record<string, unknown>): boolean {
 /*** Validate optional schema alternatives and intersections. */
 function isOptionalSchemaComposition(value: Record<string, unknown>): boolean {
   return ['allOf', 'anyOf', 'oneOf'].every((key) => {
-    const entry = value[key];
+    const entry = readOwnProperty(value, key);
     return entry === undefined || (Array.isArray(entry) && entry.every(isDataSchema));
   });
 }

@@ -1,6 +1,7 @@
 import { isRecord } from '@ankhorage/utility/object';
 import { isNonEmptyString } from '@ankhorage/utility/string';
 
+import { isSerializableSet } from '../collections';
 import type {
   InfraEnvironmentSpec,
   InfraObjectStorageSpec,
@@ -92,16 +93,14 @@ function hasNetworkingRelationships(value: InfraEnvironmentSpec): boolean {
 /*** Validate portable, unique Cerbos policy files without host paths or traversal. */
 function isPolicyFiles(value: unknown): boolean {
   return (
-    Array.isArray(value) &&
-    value.every((policy) =>
-      isInfraShape(policy, {
-        path: (path) =>
-          isNonEmptyString(path) && !path.startsWith('/') && !path.split('/').includes('..'),
-        content: isNonEmptyString,
-      }),
-    ) &&
-    new Set(value.map((policy) => (isRecord(policy) ? policy.path : undefined))).size ===
-      value.length
+    isRecord(value) &&
+    Object.entries(value).every(
+      ([path, content]) =>
+        isNonEmptyString(path) &&
+        !path.startsWith('/') &&
+        !path.split('/').includes('..') &&
+        isNonEmptyString(content),
+    )
   );
 }
 
@@ -133,7 +132,7 @@ function isObjectStorage(value: unknown): boolean {
   if (!isRecord(value)) return false;
   const common = {
     provider: (provider: unknown) => provider === value.provider,
-    buckets: infraFields.optionalStrings,
+    buckets: (buckets: unknown) => buckets === undefined || isSerializableSet(buckets),
   };
   if (value.provider === 'supabase') {
     return isInfraShape(value, {
@@ -153,16 +152,17 @@ function isObjectStorage(value: unknown): boolean {
 /*** Duplicate desired workload identities cannot be reconciled safely. */
 function isWorkloads(value: unknown): boolean {
   return (
-    Array.isArray(value) &&
-    value.every(isInfraWorkloadSpec) &&
-    new Set(value.map((workload) => workload.id)).size === value.length
+    isRecord(value) &&
+    Object.entries(value).every(
+      ([workloadId, workload]) => isInfraWorkloadSpec(workload) && workload.id === workloadId,
+    )
   );
 }
 
 /*** Prevent two workloads in one environment from claiming the same external listener. */
 function hasUniquePublishedPorts(value: InfraEnvironmentSpec): boolean {
-  const ports = (value.workloads ?? []).flatMap((workload) =>
-    (workload.ports ?? []).flatMap(({ publishedPort }) =>
+  const ports = Object.values(value.workloads ?? {}).flatMap((workload) =>
+    Object.values(workload.ports ?? {}).flatMap(({ publishedPort }) =>
       publishedPort === undefined ? [] : [publishedPort],
     ),
   );

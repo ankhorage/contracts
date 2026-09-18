@@ -14,7 +14,7 @@ import {
   isManifestMetadata,
   isScreenRegistry,
   isSplashScreenSpec,
-  isThemeConfig,
+  isThemeRegistry,
 } from './screens';
 
 /*** Return whether an unknown value satisfies the canonical AppManifest shape. */
@@ -74,9 +74,9 @@ function isAppSettings(value: unknown): boolean {
 /*** Validate authored appearance as one cohesive manifest concern. */
 function isPresentation(value: Record<string, unknown>): boolean {
   return (
-    Array.isArray(value.themes) &&
-    value.themes.every(isThemeConfig) &&
+    isThemeRegistry(value.themes) &&
     typeof value.activeThemeId === 'string' &&
+    Object.hasOwn(value.themes, value.activeThemeId) &&
     isActiveThemeMode(value.activeThemeMode) &&
     (value.splashScreen === undefined || isSplashScreenSpec(value.splashScreen)) &&
     (value.media === undefined || isMediaManifest(value.media))

@@ -14,6 +14,7 @@ import type { MediaAssetReference, MediaManifest } from './media';
 import type { AppNavigatorManifest } from './navigator';
 import type { RepositoryManifest } from './repository';
 import type { ScreenRequirements } from './requirements';
+import type { SerializableValue } from './serializable';
 import type { AppStateSpec } from './state';
 import type { ThemeGlobalTokenOverrides, ThemeRecipeOverrides } from './theme';
 
@@ -22,8 +23,10 @@ export interface ThemeModeConfig {
   harmony: ColorHarmony;
 }
 
+export type ThemeId = string;
+
 export interface ThemeConfig {
-  id: string;
+  id: ThemeId;
   name: string;
   light: ThemeModeConfig;
   dark: ThemeModeConfig;
@@ -32,6 +35,8 @@ export interface ThemeConfig {
   /** Component/pattern recipe override values; recipe schemas remain package-owned metadata. */
   recipes?: ThemeRecipeOverrides;
 }
+
+export type ThemeRegistry = Readonly<Record<ThemeId, ThemeConfig>>;
 
 export type ActionType =
   'navigate' | 'alert' | 'console' | 'toggleDarkMode' | 'setLanguage' | 'search' | 'filter';
@@ -93,13 +98,7 @@ export type Action =
   | SetLanguageAction
   | ToggleDarkModeAction;
 
-export type ManifestValue =
-  | string
-  | number
-  | boolean
-  | null
-  | readonly ManifestValue[]
-  | { readonly [key: string]: ManifestValue };
+export type ManifestValue = SerializableValue;
 
 export type ComponentEventPayloadValue = ManifestValue;
 
@@ -271,12 +270,12 @@ export interface AppManifest {
     slug: string;
     version: string;
     category: AppCategory;
-    themeId: string;
+    themeId: ThemeId;
     created?: string;
     updated?: string;
   };
-  themes: ThemeConfig[];
-  activeThemeId: string;
+  themes: ThemeRegistry;
+  activeThemeId: ThemeId;
   activeThemeMode?: 'dark' | 'light';
   splashScreen?: SplashScreenSpec;
   /** Studio-managed authoring media. Runtime/user uploads are intentionally separate. */
@@ -287,7 +286,7 @@ export interface AppManifest {
   state?: AppStateSpec;
   infra: InfraManifest;
   navigator: AppNavigatorManifest;
-  screens: Record<string, ScreenSpec>;
+  screens: Readonly<Record<string, ScreenSpec>>;
   dataSources?: DataSourceRegistry;
   dataBindings?: ComponentDataBindingRegistry;
   repository?: RepositoryManifest;

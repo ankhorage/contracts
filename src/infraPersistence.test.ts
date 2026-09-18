@@ -34,7 +34,7 @@ it('accepts scheduled database backups and an S3-backed Supabase storage service
         },
         objectStorage: {
           provider: 'supabase',
-          buckets: ['media'],
+          buckets: { media: true },
           backend: { ...target, bucket: 'ankhorage-storage' },
         },
       }),

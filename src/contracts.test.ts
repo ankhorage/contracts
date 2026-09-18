@@ -260,10 +260,11 @@ describe('contracts', () => {
             deployment: { compute: { provider: 'local' }, runtime: { provider: 'minikube' } },
           },
         },
-        modules: [],
-        modulesConfig: {
-          localization: {
-            defaultLocale: 'en',
+        modules: {
+          'expo-localization': {
+            config: {
+              defaultLocale: 'en',
+            },
           },
         },
       },
@@ -273,10 +274,11 @@ describe('contracts', () => {
       state,
       infra: {
         environments: manifest.infra.environments,
-        modules: [],
-        modulesConfig: {
-          localization: {
-            defaultLocale: 'en',
+        modules: {
+          'expo-localization': {
+            config: {
+              defaultLocale: 'en',
+            },
           },
         },
       },
@@ -295,11 +297,12 @@ describe('contracts', () => {
           deployment: { compute: { provider: 'local' }, runtime: { provider: 'minikube' } },
         },
       },
-      modules: ['expo-localization'],
-      modulesConfig: {
+      modules: {
         'expo-localization': {
-          defaultLocale: 'en',
-          locales: ['en', 'de'],
+          config: {
+            defaultLocale: 'en',
+            locales: ['en', 'de'],
+          },
         },
       },
     };
@@ -311,7 +314,7 @@ describe('contracts', () => {
 
     expect(hasLegacyModules).toBe(false);
     expect(hasLegacyModulesConfig).toBe(false);
-    expect(Object.keys(infra).sort()).toEqual(['environments', 'modules', 'modulesConfig']);
+    expect(Object.keys(infra).sort()).toEqual(['environments', 'modules']);
     expect(expoConfig.plugins).toEqual(['expo-router']);
   });
 

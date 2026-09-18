@@ -1,3 +1,4 @@
+import { readOwnProperty } from '@ankhorage/utility/object';
 import { describe, expect, it } from 'bun:test';
 
 import { isAppManifest, parseAppManifest } from './appManifest';
@@ -11,14 +12,14 @@ function createManifest(): Record<string, unknown> {
       category: 'developer_tools',
       themeId: 'default',
     },
-    themes: [
-      {
+    themes: {
+      default: {
         id: 'default',
         name: 'Default',
         light: { primaryColor: '#3366ff', harmony: 'analogous' },
         dark: { primaryColor: '#6699ff', harmony: 'analogous' },
       },
-    ],
+    },
     activeThemeId: 'default',
     activeThemeMode: 'light',
     splashScreen: {
@@ -43,12 +44,12 @@ function createManifest(): Record<string, unknown> {
         local: {
           deployment: { compute: { provider: 'local' }, runtime: { provider: 'minikube' } },
           database: { provider: 'supabase', tier: 'dev' },
-          objectStorage: { provider: 'supabase', buckets: ['media'] },
+          objectStorage: { provider: 'supabase', buckets: { media: true } },
           networking: { domain: 'example.test' },
         },
       },
-      apis: [
-        {
+      apis: {
+        nutrition: {
           id: 'nutrition',
           origin: 'external',
           protocol: 'rest',
@@ -81,9 +82,10 @@ function createManifest(): Record<string, unknown> {
             },
           },
         },
-      ],
-      modules: ['expo-localization'],
-      modulesConfig: { localization: { defaultLocale: 'en' } },
+      },
+      modules: {
+        'expo-localization': { config: { defaultLocale: 'en' } },
+      },
     },
     navigator: {
       type: 'stack',
@@ -120,8 +122,8 @@ function createManifest(): Record<string, unknown> {
           },
         ],
         requires: {
-          permissions: [{ permission: 'camera' }],
-          capabilities: [{ capability: 'barcodeScanner' }, { capability: 'ebookReader' }],
+          permissions: { camera: true },
+          capabilities: { barcodeScanner: true, ebookReader: true },
         },
       },
     },
@@ -199,8 +201,9 @@ describe('AppManifest runtime parsing', () => {
 
   it('rejects malformed nested canonical structures', () => {
     const manifest = createManifest();
-    const themes = manifest.themes as Record<string, unknown>[];
-    const light = themes[0]?.light as Record<string, unknown>;
+    const themes = manifest.themes as Record<string, unknown>;
+    const theme = readOwnProperty<Record<string, unknown>>(themes, 'default');
+    const light = theme?.light as Record<string, unknown>;
     light.harmony = 'not-a-harmony';
 
     expect(parseAppManifest(manifest)).toEqual({
@@ -209,11 +212,13 @@ describe('AppManifest runtime parsing', () => {
     });
   });
 
-  it('rejects duplicate canonical API ids', () => {
+  it('rejects API registries whose key disagrees with API id', () => {
     const manifest = createManifest();
     const infra = manifest.infra as Record<string, unknown>;
-    const apis = infra.apis as Record<string, unknown>[];
-    apis.push(structuredClone(apis[0]));
+    const apis = infra.apis as Record<string, unknown>;
+    const nutrition = readOwnProperty(apis, 'nutrition');
+    apis.catalog = nutrition;
+    delete apis.nutrition;
 
     expect(isAppManifest(manifest)).toBe(false);
   });

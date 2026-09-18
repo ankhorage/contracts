@@ -1,3 +1,5 @@
+import type { SerializableSet } from './collections';
+
 export const ANKHORAGE_PERMISSION_NAMES = [
   'camera',
   'microphone',
@@ -24,20 +26,12 @@ export const ANKHORAGE_CAPABILITY_NAMES = [
 
 export type AnkhorageCapabilityName = (typeof ANKHORAGE_CAPABILITY_NAMES)[number];
 
-export interface ScreenPermissionRequirement {
-  readonly permission: AnkhoragePermissionName;
-}
-
-export interface ScreenCapabilityRequirement {
-  readonly capability: AnkhorageCapabilityName;
-}
-
 export interface ScreenRequirements {
-  readonly permissions?: readonly ScreenPermissionRequirement[];
-  readonly capabilities?: readonly ScreenCapabilityRequirement[];
+  readonly permissions?: SerializableSet<AnkhoragePermissionName>;
+  readonly capabilities?: SerializableSet<AnkhorageCapabilityName>;
 }
 
 export interface ComponentRequirements {
-  readonly permissions?: readonly ScreenPermissionRequirement[];
-  readonly capabilities?: readonly ScreenCapabilityRequirement[];
+  readonly permissions?: SerializableSet<AnkhoragePermissionName>;
+  readonly capabilities?: SerializableSet<AnkhorageCapabilityName>;
 }

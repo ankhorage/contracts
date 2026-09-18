@@ -10,6 +10,13 @@ import {
 } from './infra';
 import type { AppManifest } from './types';
 
+const defaultTheme = {
+  id: 'default',
+  name: 'Default',
+  light: { primaryColor: '#3366ff', harmony: 'analogous' },
+  dark: { primaryColor: '#6699ff', harmony: 'analogous' },
+} as const;
+
 const reference = {
   source: 'secret-store',
   projectId: 'example',
@@ -22,7 +29,7 @@ const workload = {
   artifact: { kind: 'image', image: 'example/backend@sha256:abc' },
   command: ['server'],
   args: ['--verbose'],
-  ports: [{ name: 'http', port: 8080, publishedPort: 18_080 }],
+  ports: { http: { port: 8080, publishedPort: 18_080 } },
   environment: {
     NODE_ENV: { kind: 'literal', value: 'production' },
     DB_PASSWORD: { kind: 'secret', reference },
@@ -45,36 +52,31 @@ const workload = {
       ],
     },
   },
-  files: [{ path: '/etc/backend/config.json', content: { kind: 'literal', value: '{}' } }],
+  files: { '/etc/backend/config.json': { kind: 'literal', value: '{}' } },
   health: { kind: 'http', port: 8080, path: '/health', intervalSeconds: 5 },
   resources: { cpuMillis: 500, memoryMiB: 256 },
-  persistence: [{ id: 'data', mountPath: '/data', sizeGiB: 10, retention: 'retain' }],
+  persistence: { data: { id: 'data', mountPath: '/data', sizeGiB: 10, retention: 'retain' } },
   exposure: 'public',
   replicas: 1,
-  dependsOn: ['database'],
+  dependsOn: { database: true },
 } as const satisfies InfraWorkloadSpec;
 
 const invalidWorkloads = [
   { artifact: { kind: 'build', dockerfile: 'Dockerfile' } },
   { artifact: { kind: 'image', image: '' } },
-  { ports: [{ name: 'http', port: 0 }] },
-  { ports: [{ name: 'http', port: 65536 }] },
-  { ports: [{ name: 'http', port: 1.5 }] },
-  { ports: [{ name: 'http', port: 80, protocol: 'sctp' }] },
-  {
-    ports: [
-      { name: 'http', port: 80 },
-      { name: 'http', port: 81 },
-    ],
-  },
+  { ports: { http: { port: 0 } } },
+  { ports: { http: { port: 65536 } } },
+  { ports: { http: { port: 1.5 } } },
+  { ports: { http: { port: 80, protocol: 'sctp' } } },
+  { ports: { '': { port: 80 } } },
   { replicas: -1 },
   { replicas: NaN },
   { replicas: 1.5 },
   { resources: { memoryMiB: Infinity } },
   { resources: { cpuMillis: 0 } },
-  { persistence: [{ id: 'data', mountPath: '/data', sizeGiB: 1 }] },
-  { persistence: [{ id: 'data', mountPath: '../data', sizeGiB: 1, retention: 'retain' }] },
-  { files: [{ path: '/etc/../secret', content: { kind: 'literal', value: 'x' } }] },
+  { persistence: { data: { id: 'data', mountPath: '/data', sizeGiB: 1 } } },
+  { persistence: { data: { id: 'data', mountPath: '../data', sizeGiB: 1, retention: 'retain' } } },
+  { files: { '/etc/../secret': { kind: 'literal', value: 'x' } } },
   { health: { kind: 'http', port: 80, path: '/health', failureThreshold: 0 } },
   { health: { kind: 'tcp', port: 80, path: '/health' } },
   { health: { kind: 'command', command: [] } },
@@ -134,7 +136,7 @@ describe('runtime-neutral workload boundary', () => {
       expect(
         isInfraEnvironmentSpec({
           deployment: { compute: { provider: 'local' }, runtime: { provider } },
-          workloads: [workload],
+          workloads: { backend: workload },
         }),
       ).toBe(true);
     }
@@ -156,11 +158,11 @@ describe('runtime-neutral workload boundary', () => {
     ).toBe(true);
   });
 
-  it('rejects duplicate workload identities', () => {
+  it('rejects workload registries whose key disagrees with workload id', () => {
     expect(
       isInfraEnvironmentSpec({
         deployment: { compute: { provider: 'local' }, runtime: { provider: 'k3s' } },
-        workloads: [workload, workload],
+        workloads: { duplicate: workload },
       }),
     ).toBe(false);
   });
@@ -266,7 +268,7 @@ describe('application state boundary', () => {
       category: 'developer_tools',
       themeId: 'default',
     },
-    themes: [],
+    themes: { default: defaultTheme },
     activeThemeId: 'default',
     screens: {},
     navigator: { type: 'stack', routes: [] },
@@ -276,7 +278,7 @@ describe('application state boundary', () => {
           deployment: { compute: { provider: 'local' }, runtime: { provider: 'minikube' } },
         },
       },
-      modules: [],
+      modules: {},
     },
     settings: { localization: { defaultLocale: 'en', locales: ['en'] } },
   } satisfies AppManifest;

@@ -1,3 +1,4 @@
+import { readOwnProperty } from '@ankhorage/utility/object';
 import { describe, expect, it } from 'bun:test';
 
 import type {
@@ -474,8 +475,8 @@ describe('component data-binding contracts', () => {
         category: 'developer_tools',
         themeId: 'default',
       },
-      themes: [
-        {
+      themes: {
+        default: {
           id: 'default',
           name: 'Default',
           light: {
@@ -487,7 +488,7 @@ describe('component data-binding contracts', () => {
             harmony: 'analogous',
           },
         },
-      ],
+      },
       activeThemeId: 'default',
       infra: {
         environments: {
@@ -495,8 +496,8 @@ describe('component data-binding contracts', () => {
             deployment: { compute: { provider: 'local' }, runtime: { provider: 'minikube' } },
           },
         },
-        apis: [
-          {
+        apis: {
+          cms: {
             id: 'cms',
             origin: 'external',
             protocol: 'rest',
@@ -519,8 +520,8 @@ describe('component data-binding contracts', () => {
               },
             },
           },
-        ],
-        modules: [],
+        },
+        modules: {},
       },
       navigator: {
         type: 'stack',
@@ -566,6 +567,8 @@ describe('component data-binding contracts', () => {
 
     assertSerializable(manifest);
     expect(manifest.dataBindings?.['hero-title']?.props?.children?.source.kind).toBe('operation');
-    expect(manifest.infra.apis?.[0]?.id).toBe('cms');
+    expect(manifest.infra.apis ? readOwnProperty(manifest.infra.apis, 'cms')?.id : undefined).toBe(
+      'cms',
+    );
   });
 });
