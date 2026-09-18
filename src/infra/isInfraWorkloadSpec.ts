@@ -2,6 +2,8 @@ import { isStringArray } from '@ankhorage/utility/array';
 import { isRecord } from '@ankhorage/utility/object';
 import { isNonEmptyString } from '@ankhorage/utility/string';
 
+import { isSerializableSet } from '../collections';
+
 import type { InfraShape } from '../types/infraValidation';
 import type { InfraWorkloadSpec } from '../types/infraWorkload';
 import { infraFields } from './infraFields';
@@ -18,15 +20,11 @@ export function isInfraWorkloadSpec(value: unknown): value is InfraWorkloadSpec 
         isInfraShape(artifact, { kind: (kind) => kind === 'image', image: isNonEmptyString }),
       command: infraFields.optionalStrings,
       args: (args) => args === undefined || isStringArray(args),
-      ports: (ports) =>
-        ports === undefined ||
-        (Array.isArray(ports) && ports.every(isPort) && hasUniqueField(ports, 'name')),
+      ports: (ports) => ports === undefined || isPortRegistry(ports),
       environment: (environment) =>
         environment === undefined ||
         (isRecord(environment) && Object.values(environment).every(isInfraWorkloadValue)),
-      files: (files) =>
-        files === undefined ||
-        (Array.isArray(files) && files.every(isFile) && hasUniqueField(files, 'path')),
+      files: (files) => files === undefined || isFileMap(files),
       health: (health) => health === undefined || isInfraWorkloadHealth(health),
       resources: (resources) =>
         resources === undefined ||
@@ -34,16 +32,11 @@ export function isInfraWorkloadSpec(value: unknown): value is InfraWorkloadSpec 
           cpuMillis: infraFields.optionalPositiveInteger,
           memoryMiB: infraFields.optionalPositiveInteger,
         }),
-      persistence: (volumes) =>
-        volumes === undefined ||
-        (Array.isArray(volumes) &&
-          volumes.every(isVolume) &&
-          hasUniqueField(volumes, 'id') &&
-          hasUniqueField(volumes, 'mountPath')),
+      persistence: (volumes) => volumes === undefined || isVolumeRegistry(volumes),
       exposure: (exposure) =>
         exposure === undefined || exposure === 'internal' || exposure === 'public',
       replicas: infraFields.optionalNonnegativeInteger,
-      dependsOn: infraFields.optionalStrings,
+      dependsOn: (dependsOn) => dependsOn === undefined || isSerializableSet(dependsOn),
     } satisfies InfraShape<InfraWorkloadSpec>)
   ) {
     return false;
@@ -51,10 +44,17 @@ export function isInfraWorkloadSpec(value: unknown): value is InfraWorkloadSpec 
   return hasValidPublishedPorts(value);
 }
 
+/*** Validate named transport ports keyed by their stable authored name. */
+function isPortRegistry(value: unknown): boolean {
+  return (
+    isRecord(value) &&
+    Object.entries(value).every(([name, port]) => isNonEmptyString(name) && isPort(port))
+  );
+}
+
 /*** Named transport ports stay independent from runtime resource types. */
 function isPort(value: unknown): boolean {
   return isInfraShape(value, {
-    name: isNonEmptyString,
     port: infraFields.port,
     protocol: (protocol) => protocol === undefined || protocol === 'tcp' || protocol === 'udp',
     publishedPort: infraFields.optionalPort,
@@ -64,7 +64,7 @@ function isPort(value: unknown): boolean {
 /*** Require fixed external listeners to belong to one public workload replica. */
 function hasValidPublishedPorts(workload: unknown): boolean {
   if (!isRecord(workload)) return false;
-  const ports = Array.isArray(workload.ports) ? workload.ports : [];
+  const ports = isRecord(workload.ports) ? Object.values(workload.ports) : [];
   const published = ports.flatMap((port) => {
     if (!isRecord(port) || typeof port.publishedPort !== 'number') return [];
     return [port.publishedPort];
@@ -78,9 +78,31 @@ function hasValidPublishedPorts(workload: unknown): boolean {
   );
 }
 
-/*** Portable files model policy/config materialization without host filesystem access. */
-function isFile(value: unknown): boolean {
-  return isInfraShape(value, { path: isAbsoluteWorkloadPath, content: isInfraWorkloadValue });
+/*** Validate portable config/policy files keyed by their absolute container path. */
+function isFileMap(value: unknown): boolean {
+  return (
+    isRecord(value) &&
+    Object.entries(value).every(
+      ([filePath, content]) => isAbsoluteWorkloadPath(filePath) && isInfraWorkloadValue(content),
+    )
+  );
+}
+
+/*** Validate persistence volumes by stable ID and keep mount paths unique within one workload. */
+function isVolumeRegistry(value: unknown): boolean {
+  if (!isRecord(value)) return false;
+  const entries = Object.entries(value);
+  if (
+    !entries.every(
+      ([volumeId, volume]) => isVolume(volume) && isRecord(volume) && volume.id === volumeId,
+    )
+  ) {
+    return false;
+  }
+  const mountPaths = Object.values(value).map((volume) =>
+    isRecord(volume) ? volume.mountPath : undefined,
+  );
+  return new Set(mountPaths).size === mountPaths.length;
 }
 
 /*** Persistence has explicit ownership-local identity, optional initialization and retention policy. */
@@ -104,8 +126,3 @@ function isAbsoluteWorkloadPath(value: unknown): boolean {
   );
 }
 
-/*** Duplicate workload-local identities would make runtime projection ambiguous. */
-function hasUniqueField(values: readonly unknown[], field: string): boolean {
-  const ids = values.map((value) => (isRecord(value) ? Reflect.get(value, field) : undefined));
-  return new Set(ids).size === ids.length;
-}
