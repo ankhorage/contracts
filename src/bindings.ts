@@ -1,17 +1,10 @@
+import type { SerializableValue } from './serializable';
 import type { ApiId, EndpointId, OperationId } from './data';
 
 export type ComponentInstanceId = string;
 export type ComponentTypeId = string;
 
-export type BindingValue =
-  | string
-  | number
-  | boolean
-  | null
-  | readonly BindingValue[]
-  | {
-      readonly [key: string]: BindingValue;
-    };
+export type BindingValue = SerializableValue;
 
 export type BindingDataPath = string;
 
