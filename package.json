@@ -11,8 +11,7 @@
   },
   "dependencies": {
     "@ankhorage/color-theory": "^0.3.0",
-    "@ankhorage/utility": "^0.8.0",
-    "expo-splash-screen": "~57.0.9"
+    "@ankhorage/utility": "^0.8.0"
   },
   "devDependencies": {
     "@ankhorage/devtools": "^1.12.0",
