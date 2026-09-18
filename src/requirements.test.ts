@@ -11,7 +11,7 @@ describe('platform requirements', () => {
   it('exports ebookReader as the canonical reader capability', () => {
     const capability: AnkhorageCapabilityName = 'ebookReader';
     const componentRequirements: ComponentRequirements = {
-      capabilities: [{ capability }],
+      capabilities: { [capability]: true },
     };
     const screenRequirements: ScreenRequirements = {
       capabilities: [{ capability }],
