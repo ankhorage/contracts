@@ -3,7 +3,6 @@ import { isRecord } from '@ankhorage/utility/object';
 import { isNonEmptyString } from '@ankhorage/utility/string';
 
 import { isSerializableSet } from '../collections';
-
 import type { InfraShape } from '../types/infraValidation';
 import type { InfraWorkloadSpec } from '../types/infraWorkload';
 import { infraFields } from './infraFields';
@@ -125,4 +124,3 @@ function isAbsoluteWorkloadPath(value: unknown): boolean {
     !value.split('/').includes('..')
   );
 }
-
