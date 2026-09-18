@@ -22,8 +22,10 @@ export interface ThemeModeConfig {
   harmony: ColorHarmony;
 }
 
+export type ThemeId = string;
+
 export interface ThemeConfig {
-  id: string;
+  id: ThemeId;
   name: string;
   light: ThemeModeConfig;
   dark: ThemeModeConfig;
@@ -32,6 +34,8 @@ export interface ThemeConfig {
   /** Component/pattern recipe override values; recipe schemas remain package-owned metadata. */
   recipes?: ThemeRecipeOverrides;
 }
+
+export type ThemeRegistry = Readonly<Record<ThemeId, ThemeConfig>>;
 
 export type ActionType =
   'navigate' | 'alert' | 'console' | 'toggleDarkMode' | 'setLanguage' | 'search' | 'filter';
@@ -271,12 +275,12 @@ export interface AppManifest {
     slug: string;
     version: string;
     category: AppCategory;
-    themeId: string;
+    themeId: ThemeId;
     created?: string;
     updated?: string;
   };
-  themes: ThemeConfig[];
-  activeThemeId: string;
+  themes: ThemeRegistry;
+  activeThemeId: ThemeId;
   activeThemeMode?: 'dark' | 'light';
   splashScreen?: SplashScreenSpec;
   /** Studio-managed authoring media. Runtime/user uploads are intentionally separate. */
@@ -287,7 +291,7 @@ export interface AppManifest {
   state?: AppStateSpec;
   infra: InfraManifest;
   navigator: AppNavigatorManifest;
-  screens: Record<string, ScreenSpec>;
+  screens: Readonly<Record<string, ScreenSpec>>;
   dataSources?: DataSourceRegistry;
   dataBindings?: ComponentDataBindingRegistry;
   repository?: RepositoryManifest;
