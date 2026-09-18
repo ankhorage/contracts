@@ -13,6 +13,7 @@ import type { InfraManifest } from './infra';
 import type { MediaAssetReference, MediaManifest } from './media';
 import type { AppNavigatorManifest } from './navigator';
 import type { RepositoryManifest } from './repository';
+import type { SerializableValue } from './serializable';
 import type { ScreenRequirements } from './requirements';
 import type { AppStateSpec } from './state';
 import type { ThemeGlobalTokenOverrides, ThemeRecipeOverrides } from './theme';
@@ -97,13 +98,7 @@ export type Action =
   | SetLanguageAction
   | ToggleDarkModeAction;
 
-export type ManifestValue =
-  | string
-  | number
-  | boolean
-  | null
-  | readonly ManifestValue[]
-  | { readonly [key: string]: ManifestValue };
+export type ManifestValue = SerializableValue;
 
 export type ComponentEventPayloadValue = ManifestValue;
 
