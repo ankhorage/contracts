@@ -32,7 +32,7 @@ export function isManifestMetadata(value: unknown): boolean {
 }
 
 /*** Validate theme identity and its required light and dark modes. */
-export function isThemeConfig(value: unknown): boolean {
+function isThemeConfig(value: unknown): boolean {
   return (
     isRecord(value) &&
     typeof value.id === 'string' &&
