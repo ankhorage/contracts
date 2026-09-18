@@ -20,7 +20,7 @@ part of this PR.
 Generic record, string-array, non-empty-string and allowed-key checks import the published
 `@ankhorage/utility/object`, `/array` and `/string` APIs directly. Optional string fields reuse
 Utility's `isOptionalString` guard. The recursive authored-value policy remains in
-`src/appManifest/isManifestValue.ts`; there is no `shared` helper module or forwarding barrel.
+`src/serializable.ts` and is reused by manifest/data/state/binding aliases; there is no `shared` helper module or forwarding barrel.
 Contracts requires Utility `^0.8.0`, whose package has no Contracts dependency. This preserves
 the one-way package dependency from Contracts to Utility.
 
@@ -38,7 +38,7 @@ const infra = {
       },
       database: { provider: 'supabase' },
       auth: { provider: 'supabase' },
-      objectStorage: { provider: 'supabase', buckets: ['media'] },
+      objectStorage: { provider: 'supabase', buckets: { media: true } },
     },
     production: {
       deployment: {
@@ -54,14 +54,14 @@ const infra = {
       authz: {
         provider: 'cerbos',
         kind: 'ABAC',
-        policies: [{ path: 'resource.yaml', content: 'apiVersion: api.cerbos.dev/v1' }],
+        policies: { 'resource.yaml': 'apiVersion: api.cerbos.dev/v1' },
       },
-      objectStorage: { provider: 'r2', buckets: ['media'] },
+      objectStorage: { provider: 'r2', buckets: { media: true } },
       secretStore: { provider: 'supabase-vault' },
       networking: { domain: 'api.example.ch' },
     },
   },
-  modules: [],
+  modules: {},
 } satisfies InfraManifest;
 ```
 
@@ -125,7 +125,8 @@ must verify host authenticity; they do not import compute-provider implementatio
 
 `InfraWorkloadSpec` describes a prebuilt image, process command/arguments, named ports, environment
 values, config/policy files, health checks, resource budgets, persistent volumes, exposure, replicas
-and dependency IDs. It has no Kubernetes resource types or registry build/push requirements.
+and dependency IDs. Stable workload entities are keyed registries; unordered dependency membership
+uses the canonical JSON-safe serializable set shape. It has no Kubernetes resource types or registry build/push requirements.
 Minikube, k3s and Compose accept the same workload shape. Runtime drivers map it to their technology.
 
 Workload values distinguish literals, resource output references, managed secret references and
@@ -133,7 +134,7 @@ keyed control-plane credential references. The producer must use references for 
 credential value names one field in a trusted execution-only credential bundle, so a provider can
 start the service that will later own managed secrets without creating a circular dependency.
 Config files allow Cerbos policies and service config to be contributed without Kubernetes YAML.
-Cerbos policy paths are relative, traversal-free and unique. The orchestrator validates
+Cerbos policies are keyed by relative traversal-free path, so path identity and uniqueness are encoded by the map. The orchestrator validates
 missing/cyclic dependencies after composing application and provider workloads; a manifest can
 reference provider-contributed workload IDs that are not available during structural parsing.
 
@@ -199,6 +200,6 @@ persistent data in all environments. Production mutations must always be explici
    `{ provider: 'legend', persistence: false }`. The current Legend runtime has no persistence
    implementation; old strings including `local` are rejected rather than silently downgraded.
 
-Templates/generated manifests and Studio need follow-up consumer migrations after release. Infra
+Templates/generated manifests, Runtime and Studio need follow-up consumer migrations after release. Infra
 orchestration and local runtime parity remain gated by the later adapter phases. The roadmap must
 remain open, and Phase 1 must not be marked complete solely because this Contracts PR is merged.
