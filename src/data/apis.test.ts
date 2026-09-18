@@ -1,7 +1,8 @@
+import { readOwnProperty } from '@ankhorage/utility/object';
 import { describe, expect, it } from 'bun:test';
 
 import type {
-  ApiDefinitionList,
+  ApiDefinitionRegistry,
   ExternalRestApiDefinition,
   InternalRestApiDefinition,
 } from './apis';
@@ -56,11 +57,12 @@ describe('canonical API contracts', () => {
     expect(api.endpoints.products?.operations['products.list']?.method).toBe('GET');
   });
 
-  it('stores canonical APIs as an ordered infra list', () => {
-    const apis: ApiDefinitionList = [createNutritionApi()];
+  it('stores canonical APIs in an identity-keyed registry', () => {
+    const api = createNutritionApi();
+    const apis: ApiDefinitionRegistry = { [api.id]: api };
 
     assertSerializable(apis);
-    expect(apis[0]?.id).toBe('nutrition');
+    expect(readOwnProperty<ApiDefinitionRegistry[string]>(apis, 'nutrition')?.id).toBe('nutrition');
   });
 
   it('reserves an internal REST API identity without persistence implementation', () => {
