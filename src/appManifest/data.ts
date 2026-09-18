@@ -18,7 +18,13 @@ const PARAMETER_LOCATIONS = new Set(['body', 'cookie', 'header', 'path', 'query'
 
 /*** Validate every endpoint in the data endpoint registry. */
 export function isDataEndpointRegistry(value: unknown): boolean {
-  return isRecord(value) && Object.values(value).every(isDataEndpointConfig);
+  return (
+    isRecord(value) &&
+    Object.entries(value).every(
+      ([endpointId, endpoint]) =>
+        isDataEndpointConfig(endpoint) && isRecord(endpoint) && endpoint.id === endpointId,
+    )
+  );
 }
 
 /*** Validate every schema in the data schema registry. */
@@ -61,7 +67,10 @@ function isDataEndpointConfig(value: unknown): boolean {
     isOptionalString(value.path) &&
     (value.credential === undefined || isCredentialRef(value.credential)) &&
     isRecord(value.operations) &&
-    Object.values(value.operations).every(isDataOperationConfig) &&
+    Object.entries(value.operations).every(
+      ([operationId, operation]) =>
+        isDataOperationConfig(operation) && isRecord(operation) && operation.id === operationId,
+    ) &&
     (value.metadata === undefined || isManifestValue(value.metadata))
   );
 }
