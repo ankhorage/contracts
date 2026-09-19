@@ -1,13 +1,13 @@
 import type { ColorHarmony } from '@ankhorage/color-theory';
 
 import type { SplashScreenSpec } from './appManifest/splashScreen';
-import type { EntityRegistry, ValueMap } from './collections';
 import type { AuthIdentifierKind, AuthSignUpField } from './auth';
 import type {
   BindingValueSource,
   ComponentDataBindingRegistry,
   ScreenDataLoaderDefinition,
 } from './bindings';
+import type { EntityRegistry, ValueMap } from './collections';
 import type { DataSourceRegistry } from './data';
 import type { AppDeployManifest } from './deploy';
 import type { InfraManifest } from './infra';
