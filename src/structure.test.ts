@@ -9,8 +9,8 @@ import {
   type StructureDescriptorDocument,
 } from './structure';
 
-describe('structural descriptor validation', () => {
-  test('accepts every canonical structural kind', () => {
+describe('structural descriptor primitives', () => {
+  test('accepts scalar, enum and object descriptors', () => {
     expect(isStructureDescriptor({ kind: 'scalar', type: 'string' })).toBe(true);
     expect(isStructureDescriptor({ kind: 'enum', values: ['light', 'dark'] })).toBe(true);
     expect(
@@ -22,6 +22,9 @@ describe('structural descriptor validation', () => {
         },
       }),
     ).toBe(true);
+  });
+
+  test('accepts registry, map, set and ordered-list descriptors', () => {
     expect(
       isStructureDescriptor({
         kind: 'entity-registry',
@@ -49,6 +52,9 @@ describe('structural descriptor validation', () => {
         item: { kind: 'scalar', type: 'string' },
       }),
     ).toBe(true);
+  });
+
+  test('accepts unions and references', () => {
     expect(
       isStructureDescriptor({
         kind: 'union',
@@ -59,13 +65,31 @@ describe('structural descriptor validation', () => {
         ],
       }),
     ).toBe(true);
+    expect(
+      isStructureDescriptor({
+        kind: 'ref',
+        packageName: '@ankhorage/example-owner',
+        id: 'external-config',
+      }),
+    ).toBe(true);
   });
+});
 
-  test('rejects malformed or ambiguous descriptor shapes', () => {
+describe('structural descriptor rejection', () => {
+  test('rejects malformed scalar and union declarations', () => {
     expect(isStructureDescriptor({ kind: 'unknown' })).toBe(false);
     expect(isStructureDescriptor({ kind: 'enum', values: [] })).toBe(false);
     expect(isStructureDescriptor({ kind: 'enum', values: ['x', 'x'] })).toBe(false);
     expect(isStructureDescriptor({ kind: 'enum', values: [Number.NaN] })).toBe(false);
+    expect(
+      isStructureDescriptor({
+        kind: 'union',
+        variants: [{ kind: 'scalar', type: 'string' }],
+      }),
+    ).toBe(false);
+  });
+
+  test('rejects non-string map keys and set members', () => {
     expect(
       isStructureDescriptor({
         kind: 'value-map',
@@ -77,12 +101,6 @@ describe('structural descriptor validation', () => {
       isStructureDescriptor({
         kind: 'set',
         member: { kind: 'scalar', type: 'boolean' },
-      }),
-    ).toBe(false);
-    expect(
-      isStructureDescriptor({
-        kind: 'union',
-        variants: [{ kind: 'scalar', type: 'string' }],
       }),
     ).toBe(false);
   });
@@ -101,27 +119,25 @@ describe('structural descriptor validation', () => {
 });
 
 describe('structural descriptor documents', () => {
-  test('accepts recursive local references and package-qualified external references', () => {
-    const document = recursiveDocument();
-
-    expect(isStructureDescriptorDocument(document)).toBe(true);
-    expect(JSON.parse(JSON.stringify(document))).toEqual(document);
+  test('accepts recursive local and package-qualified references', () => {
+    expect(isStructureDescriptorDocument(STRUCTURE_DOCUMENT_FIXTURE)).toBe(true);
+    expect(JSON.parse(JSON.stringify(STRUCTURE_DOCUMENT_FIXTURE))).toEqual(
+      STRUCTURE_DOCUMENT_FIXTURE,
+    );
   });
 
   test('rejects unresolved local roots and references', () => {
-    const document = recursiveDocument();
-
     expect(
       isStructureDescriptorDocument({
-        ...document,
+        ...STRUCTURE_DOCUMENT_FIXTURE,
         roots: { app: 'missing' },
       }),
     ).toBe(false);
     expect(
       isStructureDescriptorDocument({
-        ...document,
+        ...STRUCTURE_DOCUMENT_FIXTURE,
         descriptors: {
-          ...document.descriptors,
+          ...STRUCTURE_DOCUMENT_FIXTURE.descriptors,
           app: {
             id: 'app',
             descriptor: { kind: 'ref', id: 'missing' },
@@ -131,31 +147,27 @@ describe('structural descriptor documents', () => {
     ).toBe(false);
   });
 
-  test('rejects registry key/definition identity mismatches', () => {
-    const document = recursiveDocument();
-
+  test('rejects registry key and definition identity mismatches', () => {
     expect(
       isStructureDescriptorDocument({
-        ...document,
+        ...STRUCTURE_DOCUMENT_FIXTURE,
         descriptors: {
-          ...document.descriptors,
+          ...STRUCTURE_DOCUMENT_FIXTURE.descriptors,
           app: {
             id: 'different-id',
-            descriptor: document.descriptors.app?.descriptor,
+            descriptor: { kind: 'scalar', type: 'string' },
           },
         },
       }),
     ).toBe(false);
   });
 
-  test('proves referenced map keys and set members are strings', () => {
-    const document = recursiveDocument();
-
+  test('proves referenced set members are strings', () => {
     expect(
       isStructureDescriptorDocument({
-        ...document,
+        ...STRUCTURE_DOCUMENT_FIXTURE,
         descriptors: {
-          ...document.descriptors,
+          ...STRUCTURE_DOCUMENT_FIXTURE.descriptors,
           numeric: {
             id: 'numeric',
             descriptor: { kind: 'scalar', type: 'number' },
@@ -178,75 +190,74 @@ describe('structural descriptor documents', () => {
     ) as {
       exports?: Readonly<Record<string, { default?: string; types?: string }>>;
     };
+    const exports = new Map(Object.entries(packageJson.exports ?? {}));
 
-    expect(packageJson.exports?.['./structure']).toEqual({
+    expect(exports.get('./structure')).toEqual({
       types: './dist/structure/index.d.ts',
       default: './dist/structure/index.js',
     });
   });
 });
 
-function recursiveDocument(): StructureDescriptorDocument {
-  return {
-    protocolVersion: 1,
-    packageName: '@ankhorage/contracts',
-    packageVersion: '0.0.0-test',
-    roots: { app: 'app' },
-    descriptors: {
-      app: {
-        id: 'app',
-        descriptor: {
-          kind: 'object',
-          fields: {
-            themes: {
-              value: {
-                kind: 'entity-registry',
-                key: { kind: 'scalar', type: 'string' },
-                value: { kind: 'ref', id: 'theme' },
-                identityField: 'id',
-              },
-            },
-            permissions: {
-              optional: true,
-              value: {
-                kind: 'set',
-                member: { kind: 'ref', id: 'permission-name' },
-              },
-            },
-            external: {
-              optional: true,
-              value: {
-                kind: 'ref',
-                packageName: '@ankhorage/example-owner',
-                id: 'external-config',
-              },
+const STRUCTURE_DOCUMENT_FIXTURE = {
+  protocolVersion: 1,
+  packageName: '@ankhorage/contracts',
+  packageVersion: '0.0.0-test',
+  roots: { app: 'app' },
+  descriptors: {
+    app: {
+      id: 'app',
+      descriptor: {
+        kind: 'object',
+        fields: {
+          themes: {
+            value: {
+              kind: 'entity-registry',
+              key: { kind: 'scalar', type: 'string' },
+              value: { kind: 'ref', id: 'theme' },
+              identityField: 'id',
             },
           },
-        },
-      },
-      theme: {
-        id: 'theme',
-        descriptor: {
-          kind: 'object',
-          fields: {
-            id: { value: { kind: 'scalar', type: 'string' } },
-            children: {
-              optional: true,
-              value: {
-                kind: 'ordered-list',
-                item: { kind: 'ref', id: 'theme' },
-              },
+          permissions: {
+            optional: true,
+            value: {
+              kind: 'set',
+              member: { kind: 'ref', id: 'permission-name' },
             },
           },
-        },
-      },
-      'permission-name': {
-        id: 'permission-name',
-        descriptor: {
-          kind: 'enum',
-          values: ['camera', 'microphone'],
+          external: {
+            optional: true,
+            value: {
+              kind: 'ref',
+              packageName: '@ankhorage/example-owner',
+              id: 'external-config',
+            },
+          },
         },
       },
     },
-  };
-}
+    theme: {
+      id: 'theme',
+      descriptor: {
+        kind: 'object',
+        fields: {
+          id: { value: { kind: 'scalar', type: 'string' } },
+          children: {
+            optional: true,
+            value: {
+              kind: 'ordered-list',
+              item: { kind: 'ref', id: 'theme' },
+            },
+          },
+        },
+      },
+    },
+    'permission-name': {
+      id: 'permission-name',
+      descriptor: {
+        kind: 'enum',
+        values: ['camera', 'microphone'],
+      },
+    },
+  },
+} as const satisfies StructureDescriptorDocument;
