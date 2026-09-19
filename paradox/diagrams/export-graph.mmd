@@ -63,6 +63,7 @@ graph LR
   module_src_serializable_ts["src/serializable.ts"]
   module_src_state_ts["src/state.ts"]
   module_src_storage_ts["src/storage.ts"]
+  module_src_structure_generated_ts["src/structure/generated.ts"]
   module_src_structure_index_ts["src/structure/index.ts"]
   module_src_structure_isStructureDescriptor_ts["src/structure/isStructureDescriptor.ts"]
   module_src_structure_isStructureDescriptorDocument_ts["src/structure/isStructureDescriptorDocument.ts"]
@@ -168,8 +169,14 @@ graph LR
   module_src_requirements_ts --> export_AnkhoragePermissionName
   export_AnkhPackageMetadata["AnkhPackageMetadata"]
   module_src_cli_index_ts --> export_AnkhPackageMetadata
+  export_AnkhPackageMetadata -.-> export_AnkhStructureMetadata
   export_AnkhProviderReference["AnkhProviderReference"]
   module_src_cli_index_ts --> export_AnkhProviderReference
+  export_AnkhStructureMetadata["AnkhStructureMetadata"]
+  module_src_cli_index_ts --> export_AnkhStructureMetadata
+  export_AnkhStructureMetadata -.-> export_AnkhStructureRootMetadata
+  export_AnkhStructureRootMetadata["AnkhStructureRootMetadata"]
+  module_src_cli_index_ts --> export_AnkhStructureRootMetadata
   export_ApiBaseDefinition["ApiBaseDefinition"]
   module_src_data_apis_ts --> export_ApiBaseDefinition
   export_ApiBaseDefinition -.-> export_ApiOrigin
@@ -1544,6 +1551,8 @@ graph LR
   module_src_data_ids_ts --> export_SchemaId
   export_ScreenDataLoaderDefinition["ScreenDataLoaderDefinition"]
   module_src_bindings_ts --> export_ScreenDataLoaderDefinition
+  export_ScreenMetadataSpec["ScreenMetadataSpec"]
+  module_src_types_ts --> export_ScreenMetadataSpec
   export_ScreenRequirements["ScreenRequirements"]
   module_src_requirements_ts --> export_ScreenRequirements
   export_ScreenSpec["ScreenSpec"]
@@ -1803,6 +1812,12 @@ graph LR
   export_StoreListingTargetState -.-> export_StoreListingLocale
   export_StoreListingTargetState -.-> export_StoreListingRemoteAssetSet
   export_StoreListingTargetState -.-> export_StoreListingTarget
+  export_STRUCTURE_DESCRIPTOR["STRUCTURE_DESCRIPTOR"]
+  module_src_structure_generated_ts --> export_STRUCTURE_DESCRIPTOR
+  export_STRUCTURE_DESCRIPTOR_COMPILER_VERSION["STRUCTURE_DESCRIPTOR_COMPILER_VERSION"]
+  module_src_structure_generated_ts --> export_STRUCTURE_DESCRIPTOR_COMPILER_VERSION
+  export_STRUCTURE_DESCRIPTOR_FINGERPRINT["STRUCTURE_DESCRIPTOR_FINGERPRINT"]
+  module_src_structure_generated_ts --> export_STRUCTURE_DESCRIPTOR_FINGERPRINT
   export_StructureDescriptor["StructureDescriptor"]
   module_src_structure_types_ts --> export_StructureDescriptor
   export_StructureDescriptorDefinition["StructureDescriptorDefinition"]

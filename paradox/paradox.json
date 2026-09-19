@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v22.1.2",
+      "value": "v22.2.0",
       "color": "cb3837"
     },
     {
@@ -394,7 +394,9 @@
         "AnkhCommandDescriptor",
         "AnkhCommandProviderManifest",
         "AnkhPackageMetadata",
-        "AnkhProviderReference"
+        "AnkhProviderReference",
+        "AnkhStructureMetadata",
+        "AnkhStructureRootMetadata"
       ]
     },
     {
@@ -835,6 +837,8 @@
         "AnkhoragePermissionName",
         "AnkhPackageMetadata",
         "AnkhProviderReference",
+        "AnkhStructureMetadata",
+        "AnkhStructureRootMetadata",
         "ApiBaseDefinition",
         "ApiDefinition",
         "ApiDefinitionRegistry",
@@ -1300,6 +1304,7 @@
         "RuntimeResolveNodePropsArgs",
         "SchemaId",
         "ScreenDataLoaderDefinition",
+        "ScreenMetadataSpec",
         "ScreenRequirements",
         "ScreenSpec",
         "SearchAction",
@@ -1388,6 +1393,9 @@
         "StoreListingSyncRequest",
         "StoreListingTarget",
         "StoreListingTargetState",
+        "STRUCTURE_DESCRIPTOR",
+        "STRUCTURE_DESCRIPTOR_COMPILER_VERSION",
+        "STRUCTURE_DESCRIPTOR_FINGERPRINT",
         "StructureDescriptor",
         "StructureDescriptorDefinition",
         "StructureDescriptorDocument",
@@ -2047,6 +2055,18 @@
       ]
     },
     {
+      "path": "src/structure/generated.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/structure/index.ts"
+      ],
+      "exports": [
+        "STRUCTURE_DESCRIPTOR",
+        "STRUCTURE_DESCRIPTOR_COMPILER_VERSION",
+        "STRUCTURE_DESCRIPTOR_FINGERPRINT"
+      ]
+    },
+    {
       "path": "src/structure/index.ts",
       "isEntrypoint": false,
       "dependencies": [],
@@ -2055,6 +2075,9 @@
         "isStructureDescriptor",
         "isStructureDescriptorDocument",
         "SerializableSet",
+        "STRUCTURE_DESCRIPTOR",
+        "STRUCTURE_DESCRIPTOR_COMPILER_VERSION",
+        "STRUCTURE_DESCRIPTOR_FINGERPRINT",
         "StructureDescriptor",
         "StructureDescriptorDefinition",
         "StructureDescriptorDocument",
@@ -2199,6 +2222,7 @@
         "ManifestValue",
         "NamedIconSpec",
         "NavigateAction",
+        "ScreenMetadataSpec",
         "ScreenSpec",
         "SearchAction",
         "SetLanguageAction",
@@ -3680,13 +3704,15 @@
       "modulePath": "src/cli/index.ts",
       "sourceLocation": {
         "filePath": "src/cli/index.ts",
-        "line": 28,
+        "line": 38,
         "column": 1
       },
       "exportPaths": [
         "src/index.ts"
       ],
-      "relatedSymbols": [],
+      "relatedSymbols": [
+        "AnkhStructureMetadata"
+      ],
       "signatures": [],
       "members": [
         {
@@ -3708,6 +3734,13 @@
           "kind": "property",
           "type": "`./${string}` | null",
           "required": true,
+          "description": null
+        },
+        {
+          "name": "structure",
+          "kind": "property",
+          "type": "AnkhStructureMetadata | undefined",
+          "required": false,
           "description": null
         }
       ],
@@ -3731,6 +3764,78 @@
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "AnkhStructureMetadata",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/cli/index.ts",
+      "sourceLocation": {
+        "filePath": "src/cli/index.ts",
+        "line": 33,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "AnkhStructureRootMetadata"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "output",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "roots",
+          "kind": "property",
+          "type": "Readonly<Record<string, AnkhStructureRootMetadata>>",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "AnkhStructureRootMetadata",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/cli/index.ts",
+      "sourceLocation": {
+        "filePath": "src/cli/index.ts",
+        "line": 28,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "export",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "source",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        }
+      ],
       "structuredRows": []
     },
     {
@@ -4303,7 +4408,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 268,
+        "line": 271,
         "column": 1
       },
       "exportPaths": [
@@ -4485,7 +4590,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 261,
+        "line": 264,
         "column": 1
       },
       "exportPaths": [
@@ -6177,7 +6282,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 253,
+        "line": 256,
         "column": 1
       },
       "exportPaths": [
@@ -6468,7 +6573,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 243,
+        "line": 246,
         "column": 1
       },
       "exportPaths": [
@@ -6573,7 +6678,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 247,
+        "line": 250,
         "column": 1
       },
       "exportPaths": [
@@ -20811,6 +20916,55 @@
       "structuredRows": []
     },
     {
+      "name": "ScreenMetadataSpec",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/types.ts",
+      "sourceLocation": {
+        "filePath": "src/types.ts",
+        "line": 233,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "description",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "id",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "name",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "title",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
       "name": "ScreenRequirements",
       "description": null,
       "isReadme": false,
@@ -20854,7 +21008,7 @@
       "modulePath": "src/types.ts",
       "sourceLocation": {
         "filePath": "src/types.ts",
-        "line": 233,
+        "line": 240,
         "column": 1
       },
       "exportPaths": [
@@ -24292,6 +24446,66 @@
           "description": null
         }
       ],
+      "structuredRows": []
+    },
+    {
+      "name": "STRUCTURE_DESCRIPTOR",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "value",
+      "modulePath": "src/structure/generated.ts",
+      "sourceLocation": {
+        "filePath": "src/structure/generated.ts",
+        "line": 7,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "STRUCTURE_DESCRIPTOR_COMPILER_VERSION",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "value",
+      "modulePath": "src/structure/generated.ts",
+      "sourceLocation": {
+        "filePath": "src/structure/generated.ts",
+        "line": 4,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "STRUCTURE_DESCRIPTOR_FINGERPRINT",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "value",
+      "modulePath": "src/structure/generated.ts",
+      "sourceLocation": {
+        "filePath": "src/structure/generated.ts",
+        "line": 5,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
       "structuredRows": []
     },
     {
@@ -30025,8 +30239,18 @@
         "sourcePath": "src/navigator/planning.ts"
       },
       {
+        "fromPath": "src/structure/generated.ts",
+        "toPath": "src/structure/index.ts",
+        "sourcePath": "src/structure/generated.ts"
+      },
+      {
         "fromPath": "src/structure/index.ts",
         "toPath": "src/collections.ts",
+        "sourcePath": "src/structure/index.ts"
+      },
+      {
+        "fromPath": "src/structure/index.ts",
+        "toPath": "src/structure/generated.ts",
         "sourcePath": "src/structure/index.ts"
       },
       {
@@ -33399,6 +33623,21 @@
       {
         "fromSymbol": "AnkhCommandProviderManifest",
         "toType": "AnkhCommandDescriptor",
+        "sourcePath": "src/cli/index.ts"
+      },
+      {
+        "fromSymbol": "AnkhStructureMetadata",
+        "toType": "AnkhStructureRootMetadata",
+        "sourcePath": "src/cli/index.ts"
+      },
+      {
+        "fromSymbol": "AnkhStructureMetadata",
+        "toType": "Readonly",
+        "sourcePath": "src/cli/index.ts"
+      },
+      {
+        "fromSymbol": "AnkhPackageMetadata",
+        "toType": "AnkhStructureMetadata",
         "sourcePath": "src/cli/index.ts"
       },
       {

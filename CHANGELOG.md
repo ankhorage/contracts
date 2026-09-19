@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 22.2.0
+
+### Minor Changes
+
+- af50e7e: Publish generated structural evidence for canonical ScreenSpec metadata authoring.
+
 ## 22.1.2
 
 ### Patch Changes

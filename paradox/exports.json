@@ -1126,13 +1126,15 @@
     "modulePath": "src/cli/index.ts",
     "sourceLocation": {
       "filePath": "src/cli/index.ts",
-      "line": 28,
+      "line": 38,
       "column": 1
     },
     "exportPaths": [
       "src/index.ts"
     ],
-    "relatedSymbols": [],
+    "relatedSymbols": [
+      "AnkhStructureMetadata"
+    ],
     "signatures": [],
     "members": [
       {
@@ -1154,6 +1156,13 @@
         "kind": "property",
         "type": "`./${string}` | null",
         "required": true,
+        "description": null
+      },
+      {
+        "name": "structure",
+        "kind": "property",
+        "type": "AnkhStructureMetadata | undefined",
+        "required": false,
         "description": null
       }
     ],
@@ -1177,6 +1186,78 @@
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "AnkhStructureMetadata",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/cli/index.ts",
+    "sourceLocation": {
+      "filePath": "src/cli/index.ts",
+      "line": 33,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "AnkhStructureRootMetadata"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "output",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "roots",
+        "kind": "property",
+        "type": "Readonly<Record<string, AnkhStructureRootMetadata>>",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "AnkhStructureRootMetadata",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/cli/index.ts",
+    "sourceLocation": {
+      "filePath": "src/cli/index.ts",
+      "line": 28,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "export",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "source",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
     "structuredRows": []
   },
   {
@@ -1749,7 +1830,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 268,
+      "line": 271,
       "column": 1
     },
     "exportPaths": [
@@ -1931,7 +2012,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 261,
+      "line": 264,
       "column": 1
     },
     "exportPaths": [
@@ -3623,7 +3704,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 253,
+      "line": 256,
       "column": 1
     },
     "exportPaths": [
@@ -3914,7 +3995,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 243,
+      "line": 246,
       "column": 1
     },
     "exportPaths": [
@@ -4019,7 +4100,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 247,
+      "line": 250,
       "column": 1
     },
     "exportPaths": [
@@ -18257,6 +18338,55 @@
     "structuredRows": []
   },
   {
+    "name": "ScreenMetadataSpec",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types.ts",
+    "sourceLocation": {
+      "filePath": "src/types.ts",
+      "line": 233,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "description",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "name",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "title",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
     "name": "ScreenRequirements",
     "description": null,
     "isReadme": false,
@@ -18300,7 +18430,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 233,
+      "line": 240,
       "column": 1
     },
     "exportPaths": [
@@ -21738,6 +21868,66 @@
         "description": null
       }
     ],
+    "structuredRows": []
+  },
+  {
+    "name": "STRUCTURE_DESCRIPTOR",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "value",
+    "modulePath": "src/structure/generated.ts",
+    "sourceLocation": {
+      "filePath": "src/structure/generated.ts",
+      "line": 7,
+      "column": 14
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "STRUCTURE_DESCRIPTOR_COMPILER_VERSION",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "value",
+    "modulePath": "src/structure/generated.ts",
+    "sourceLocation": {
+      "filePath": "src/structure/generated.ts",
+      "line": 4,
+      "column": 14
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "STRUCTURE_DESCRIPTOR_FINGERPRINT",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "value",
+    "modulePath": "src/structure/generated.ts",
+    "sourceLocation": {
+      "filePath": "src/structure/generated.ts",
+      "line": 5,
+      "column": 14
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
     "structuredRows": []
   },
   {

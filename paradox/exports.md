@@ -331,7 +331,7 @@ Source: `src/requirements.ts:14:1`
 
 Kind: `type`
 Module: `src/cli/index.ts`
-Source: `src/cli/index.ts:28:1`
+Source: `src/cli/index.ts:38:1`
 
 ### Members
 
@@ -340,12 +340,39 @@ Source: `src/cli/index.ts:28:1`
 | capabilities | property | `readonly `${string}.${string}`[]` | yes |  |
 | category | property | `string` | yes |  |
 | provider | property | ``./${string}` \| null` | yes |  |
+| structure | property | `AnkhStructureMetadata \| undefined` | no |  |
 
 ## AnkhProviderReference
 
 Kind: `unknown`
 Module: `src/cli/index.ts`
 Source: `src/cli/index.ts:3:1`
+
+## AnkhStructureMetadata
+
+Kind: `type`
+Module: `src/cli/index.ts`
+Source: `src/cli/index.ts:33:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| output | property | `string` | yes |  |
+| roots | property | `Readonly<Record<string, AnkhStructureRootMetadata>>` | yes |  |
+
+## AnkhStructureRootMetadata
+
+Kind: `type`
+Module: `src/cli/index.ts`
+Source: `src/cli/index.ts:28:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| export | property | `string` | yes |  |
+| source | property | `string` | yes |  |
 
 ## ApiBaseDefinition
 
@@ -519,7 +546,7 @@ Source: `src/environments.ts:4:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:268:1`
+Source: `src/types.ts:271:1`
 
 ### Members
 
@@ -557,7 +584,7 @@ Source: `src/navigator.ts:265:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:261:1`
+Source: `src/types.ts:264:1`
 
 ### Members
 
@@ -1054,7 +1081,7 @@ Source: `src/types.ts:189:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:253:1`
+Source: `src/types.ts:256:1`
 
 ### Members
 
@@ -1139,7 +1166,7 @@ Source: `src/types.ts:173:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:243:1`
+Source: `src/types.ts:246:1`
 
 ### Members
 
@@ -1176,7 +1203,7 @@ Source: `src/types.ts:176:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:247:1`
+Source: `src/types.ts:250:1`
 
 ### Members
 
@@ -5389,6 +5416,21 @@ Kind: `unknown`
 Module: `src/bindings.ts`
 Source: `src/bindings.ts:98:1`
 
+## ScreenMetadataSpec
+
+Kind: `type`
+Module: `src/types.ts`
+Source: `src/types.ts:233:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| description | property | `string \| undefined` | no |  |
+| id | property | `string` | yes |  |
+| name | property | `string` | yes |  |
+| title | property | `string \| undefined` | no |  |
+
 ## ScreenRequirements
 
 Kind: `type`
@@ -5406,7 +5448,7 @@ Source: `src/requirements.ts:29:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:233:1`
+Source: `src/types.ts:240:1`
 
 ### Members
 
@@ -6422,6 +6464,24 @@ Source: `src/types/deployStoreListing.ts:75:1`
 | locales | property | `readonly StoreListingLocale[]` | yes |  |
 | supportedFields | property | `readonly StoreListingField[]` | yes |  |
 | target | property | `StoreListingTarget` | yes |  |
+
+## STRUCTURE_DESCRIPTOR
+
+Kind: `value`
+Module: `src/structure/generated.ts`
+Source: `src/structure/generated.ts:7:14`
+
+## STRUCTURE_DESCRIPTOR_COMPILER_VERSION
+
+Kind: `value`
+Module: `src/structure/generated.ts`
+Source: `src/structure/generated.ts:4:14`
+
+## STRUCTURE_DESCRIPTOR_FINGERPRINT
+
+Kind: `value`
+Module: `src/structure/generated.ts`
+Source: `src/structure/generated.ts:5:14`
 
 ## StructureDescriptor
 
