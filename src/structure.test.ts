@@ -8,6 +8,9 @@ import {
   isStructureDescriptor,
   isStructureDescriptorDocument,
   type SerializableSet,
+  STRUCTURE_DESCRIPTOR,
+  STRUCTURE_DESCRIPTOR_COMPILER_VERSION,
+  STRUCTURE_DESCRIPTOR_FINGERPRINT,
   type StructureDescriptorDocument,
   type ValueMap,
 } from './structure';
@@ -24,6 +27,14 @@ test('exports canonical structural collection markers from the structure boundar
   expect(registry.theme.id).toBe('theme');
   expect(values.spacing).toBe(8);
   expect(membership.camera).toBe(true);
+});
+
+test('publishes generated screen metadata structure evidence', () => {
+  expect(STRUCTURE_DESCRIPTOR.roots['screen-metadata']).toBe('ScreenMetadataSpec');
+  expect(STRUCTURE_DESCRIPTOR.descriptors.ScreenMetadataSpec?.descriptor.kind).toBe('object');
+  expect(STRUCTURE_DESCRIPTOR_COMPILER_VERSION).toBe('5.9.3');
+  expect(STRUCTURE_DESCRIPTOR_FINGERPRINT).toMatch(/^sha256:[a-f0-9]{64}$/u);
+  expect(isStructureDescriptorDocument(STRUCTURE_DESCRIPTOR)).toBe(true);
 });
 
 test('accepts scalar, enum and object descriptors', () => {
