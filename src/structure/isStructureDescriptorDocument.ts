@@ -46,6 +46,7 @@ export function isStructureDescriptorDocument(
 function isRootMap(value: unknown): value is Readonly<Record<string, StructureDescriptorId>> {
   return (
     isRecord(value) &&
+    Object.keys(value).length > 0 &&
     Object.entries(value).every(
       ([name, descriptorId]) => isNonEmptyString(name) && isNonEmptyString(descriptorId),
     )
@@ -56,6 +57,7 @@ function isRootMap(value: unknown): value is Readonly<Record<string, StructureDe
 function isDescriptorRegistry(value: unknown): value is StructureDescriptorRegistry {
   return (
     isRecord(value) &&
+    Object.keys(value).length > 0 &&
     Object.entries(value).every(
       ([descriptorId, definition]) => isDefinition(definition, descriptorId),
     )
