@@ -146,7 +146,7 @@ export interface AuthOAuthProviderConfig {
   label?: string;
   enabled?: boolean;
   scopes?: string[];
-  queryParams?: ValueMap<string, string>;
+  queryParams?: Record<string, string>;
   icon?: IconSpec;
   /** Logical server-side secret reference; raw credentials must never be stored here. */
   credentialsRef?: SecretRef;
