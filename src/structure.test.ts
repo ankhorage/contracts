@@ -1,7 +1,7 @@
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 
-import { describe, expect, test } from 'bun:test';
+import { expect, test } from 'bun:test';
 
 import {
   isStructureDescriptor,
@@ -9,8 +9,7 @@ import {
   type StructureDescriptorDocument,
 } from './structure';
 
-describe('structural descriptor primitives', () => {
-  test('accepts scalar, enum and object descriptors', () => {
+test('accepts scalar, enum and object descriptors', () => {
     expect(isStructureDescriptor({ kind: 'scalar', type: 'string' })).toBe(true);
     expect(isStructureDescriptor({ kind: 'enum', values: ['light', 'dark'] })).toBe(true);
     expect(
@@ -24,7 +23,7 @@ describe('structural descriptor primitives', () => {
     ).toBe(true);
   });
 
-  test('accepts registry, map, set and ordered-list descriptors', () => {
+test('accepts registry, map, set and ordered-list descriptors', () => {
     expect(
       isStructureDescriptor({
         kind: 'entity-registry',
@@ -54,7 +53,7 @@ describe('structural descriptor primitives', () => {
     ).toBe(true);
   });
 
-  test('accepts unions and references', () => {
+test('accepts unions and references', () => {
     expect(
       isStructureDescriptor({
         kind: 'union',
@@ -73,10 +72,7 @@ describe('structural descriptor primitives', () => {
       }),
     ).toBe(true);
   });
-});
-
-describe('structural descriptor rejection', () => {
-  test('rejects malformed scalar and union declarations', () => {
+test('rejects malformed scalar and union declarations', () => {
     expect(isStructureDescriptor({ kind: 'unknown' })).toBe(false);
     expect(isStructureDescriptor({ kind: 'enum', values: [] })).toBe(false);
     expect(isStructureDescriptor({ kind: 'enum', values: ['x', 'x'] })).toBe(false);
@@ -89,7 +85,7 @@ describe('structural descriptor rejection', () => {
     ).toBe(false);
   });
 
-  test('rejects non-string map keys and set members', () => {
+test('rejects non-string map keys and set members', () => {
     expect(
       isStructureDescriptor({
         kind: 'value-map',
@@ -105,7 +101,7 @@ describe('structural descriptor rejection', () => {
     ).toBe(false);
   });
 
-  test('rejects cyclic inline object graphs without overflowing', () => {
+test('rejects cyclic inline object graphs without overflowing', () => {
     const cyclic: Record<string, unknown> = {
       kind: 'object',
       fields: {},
@@ -116,17 +112,14 @@ describe('structural descriptor rejection', () => {
 
     expect(isStructureDescriptor(cyclic)).toBe(false);
   });
-});
-
-describe('structural descriptor documents', () => {
-  test('accepts recursive local and package-qualified references', () => {
+test('accepts recursive local and package-qualified references', () => {
     expect(isStructureDescriptorDocument(STRUCTURE_DOCUMENT_FIXTURE)).toBe(true);
     expect(JSON.parse(JSON.stringify(STRUCTURE_DOCUMENT_FIXTURE))).toEqual(
       STRUCTURE_DOCUMENT_FIXTURE,
     );
   });
 
-  test('rejects unresolved local roots and references', () => {
+test('rejects unresolved local roots and references', () => {
     expect(
       isStructureDescriptorDocument({
         ...STRUCTURE_DOCUMENT_FIXTURE,
@@ -147,7 +140,7 @@ describe('structural descriptor documents', () => {
     ).toBe(false);
   });
 
-  test('rejects registry key and definition identity mismatches', () => {
+test('rejects registry key and definition identity mismatches', () => {
     expect(
       isStructureDescriptorDocument({
         ...STRUCTURE_DOCUMENT_FIXTURE,
@@ -162,7 +155,7 @@ describe('structural descriptor documents', () => {
     ).toBe(false);
   });
 
-  test('proves referenced set members are strings', () => {
+test('proves referenced set members are strings', () => {
     expect(
       isStructureDescriptorDocument({
         ...STRUCTURE_DOCUMENT_FIXTURE,
@@ -184,7 +177,7 @@ describe('structural descriptor documents', () => {
     ).toBe(false);
   });
 
-  test('publishes the dedicated structure subpath', async () => {
+test('publishes the dedicated structure subpath', async () => {
     const packageJson = JSON.parse(
       await readFile(join(process.cwd(), 'package.json'), 'utf8'),
     ) as {
@@ -197,8 +190,6 @@ describe('structural descriptor documents', () => {
       default: './dist/structure/index.js',
     });
   });
-});
-
 const STRUCTURE_DOCUMENT_FIXTURE = {
   protocolVersion: 1,
   packageName: '@ankhorage/contracts',
