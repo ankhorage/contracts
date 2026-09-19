@@ -1,5 +1,6 @@
-import type { EndpointId, OperationId } from './ids';
-import type { DataOperationConfig } from './operations';
+import type { EntityRegistry } from '../collections';
+import type { EndpointId } from './ids';
+import type { DataOperationRegistry } from './operations';
 import type { CredentialRef } from './refs';
 import type { DataContractValue } from './values';
 
@@ -13,8 +14,8 @@ export interface DataEndpointConfig {
   readonly baseUrl?: string;
   readonly path?: string;
   readonly credential?: CredentialRef;
-  readonly operations: Readonly<Record<OperationId, DataOperationConfig>>;
+  readonly operations: DataOperationRegistry;
   readonly metadata?: DataContractValue;
 }
 
-export type DataEndpointRegistry = Readonly<Record<EndpointId, DataEndpointConfig>>;
+export type DataEndpointRegistry = EntityRegistry<EndpointId, DataEndpointConfig, 'id'>;
