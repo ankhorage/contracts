@@ -24,8 +24,8 @@ jobs:
         with:
           bun-version: '1.4.2'
 
-      - name: Install updated toolchain
-        run: bun install --ignore-scripts
+      - name: Refresh structure toolchain
+        run: bun update @ankhorage/devtools @ankhorage/contracts --ignore-scripts
 
       - name: Generate structure evidence
         run: ./node_modules/.bin/ankhorage-structure build .
