@@ -1,3 +1,4 @@
+import type { EntityRegistry } from '../collections';
 import type { DataEndpointRegistry } from './endpoints';
 import type { ApiId } from './ids';
 import type { CredentialRef } from './refs';
@@ -60,4 +61,4 @@ export interface InternalRestApiDefinition extends ApiBaseDefinition {
 export type ApiDefinition =
   ExternalGraphQlApiDefinition | ExternalRestApiDefinition | InternalRestApiDefinition;
 
-export type ApiDefinitionRegistry = Readonly<Record<ApiId, ApiDefinition>>;
+export type ApiDefinitionRegistry = EntityRegistry<ApiId, ApiDefinition, 'id'>;
