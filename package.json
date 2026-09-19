@@ -11,13 +11,9 @@
     "structure": {
       "output": "src/structure/generated.ts",
       "roots": {
-        "screen-registry": {
+        "screen-metadata": {
           "source": "src/types.ts",
-          "export": "ScreenRegistry"
-        },
-        "screen-spec": {
-          "source": "src/types.ts",
-          "export": "ScreenSpec"
+          "export": "ScreenMetadataSpec"
         }
       }
     }
