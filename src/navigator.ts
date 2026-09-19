@@ -1,3 +1,4 @@
+import type { ValueMap } from './collections';
 import type { IconSpec, ManifestValue } from './types';
 
 export { isAppNavigatorManifest } from './appManifest/navigator';
@@ -214,7 +215,7 @@ export interface SplitViewNavigatorNode extends NavigatorNodeBase {
 export interface CustomNavigatorNode extends NavigatorNodeBase {
   type: 'custom';
   navigatorId: string;
-  config?: Readonly<Record<string, ManifestValue>>;
+  config?: ValueMap<string, ManifestValue>;
 }
 
 export type NavigatorNode =
