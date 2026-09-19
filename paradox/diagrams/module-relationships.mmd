@@ -63,6 +63,10 @@ graph LR
   module_src_serializable_ts["src/serializable.ts"]
   module_src_state_ts["src/state.ts"]
   module_src_storage_ts["src/storage.ts"]
+  module_src_structure_index_ts["src/structure/index.ts"]
+  module_src_structure_isStructureDescriptor_ts["src/structure/isStructureDescriptor.ts"]
+  module_src_structure_isStructureDescriptorDocument_ts["src/structure/isStructureDescriptorDocument.ts"]
+  module_src_structure_types_ts["src/structure/types.ts"]
   module_src_theme_ts["src/theme.ts"]
   module_src_types_ts["src/types.ts"]
   module_src_types_appManifest_ts["src/types/appManifest.ts"]
@@ -112,30 +116,37 @@ graph LR
   module_src_appManifest_screens_ts --> module_src_requirements_ts
   module_src_appManifest_screens_ts --> module_src_types_ts
   module_src_appManifest_splashScreen_ts --> module_src_media_ts
+  module_src_auth_ts --> module_src_collections_ts
   module_src_auth_ts --> module_src_deploy_ts
   module_src_auth_ts --> module_src_environments_ts
   module_src_auth_ts --> module_src_secrets_ts
   module_src_auth_ts --> module_src_types_ts
+  module_src_bindings_ts --> module_src_collections_ts
   module_src_bindings_ts --> module_src_data_index_ts
   module_src_bindings_ts --> module_src_serializable_ts
+  module_src_data_apis_ts --> module_src_collections_ts
   module_src_data_apis_ts --> module_src_data_endpoints_ts
   module_src_data_apis_ts --> module_src_data_ids_ts
   module_src_data_apis_ts --> module_src_data_refs_ts
   module_src_data_apis_ts --> module_src_data_schemas_ts
   module_src_data_apis_ts --> module_src_data_values_ts
   module_src_data_diagnostics_ts --> module_src_data_ids_ts
+  module_src_data_endpoints_ts --> module_src_collections_ts
   module_src_data_endpoints_ts --> module_src_data_ids_ts
   module_src_data_endpoints_ts --> module_src_data_operations_ts
   module_src_data_endpoints_ts --> module_src_data_refs_ts
   module_src_data_endpoints_ts --> module_src_data_values_ts
+  module_src_data_operations_ts --> module_src_collections_ts
   module_src_data_operations_ts --> module_src_data_ids_ts
   module_src_data_operations_ts --> module_src_data_refs_ts
   module_src_data_operations_ts --> module_src_data_schemas_ts
   module_src_data_operations_ts --> module_src_data_values_ts
   module_src_data_refs_ts --> module_src_data_ids_ts
   module_src_data_refs_ts --> module_src_data_values_ts
+  module_src_data_schemas_ts --> module_src_collections_ts
   module_src_data_schemas_ts --> module_src_data_ids_ts
   module_src_data_schemas_ts --> module_src_data_values_ts
+  module_src_data_sources_ts --> module_src_collections_ts
   module_src_data_sources_ts --> module_src_data_endpoints_ts
   module_src_data_sources_ts --> module_src_data_ids_ts
   module_src_data_sources_ts --> module_src_data_refs_ts
@@ -196,6 +207,8 @@ graph LR
   module_src_infra_validateInfraAdapterSelection_ts --> module_src_types_infraAdapters_ts
   module_src_infra_validateInfraAdapterSelection_ts --> module_src_types_infraLifecycle_ts
   module_src_infra_validateInfraAdapterSelection_ts --> module_src_types_infraManifest_ts
+  module_src_media_ts --> module_src_collections_ts
+  module_src_navigator_ts --> module_src_collections_ts
   module_src_navigator_ts --> module_src_types_ts
   module_src_navigator_catalog_ts --> module_src_navigator_ts
   module_src_navigator_catalog_ts --> module_src_navigator_generation_ts
@@ -209,9 +222,15 @@ graph LR
   module_src_requirements_ts --> module_src_collections_ts
   module_src_runtimeCallbacks_ts --> module_src_types_ts
   module_src_state_ts --> module_src_serializable_ts
+  module_src_structure_isStructureDescriptor_ts --> module_src_structure_types_ts
+  module_src_structure_isStructureDescriptorDocument_ts --> module_src_structure_isStructureDescriptor_ts
+  module_src_structure_isStructureDescriptorDocument_ts --> module_src_structure_types_ts
+  module_src_structure_types_ts --> module_src_collections_ts
+  module_src_theme_ts --> module_src_collections_ts
   module_src_types_ts --> module_src_appManifest_splashScreen_ts
   module_src_types_ts --> module_src_auth_ts
   module_src_types_ts --> module_src_bindings_ts
+  module_src_types_ts --> module_src_collections_ts
   module_src_types_ts --> module_src_data_index_ts
   module_src_types_ts --> module_src_deploy_ts
   module_src_types_ts --> module_src_infra_ts

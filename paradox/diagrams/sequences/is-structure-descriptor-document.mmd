@@ -1,0 +1,27 @@
+sequenceDiagram
+  participant participant_hasOnlyKeys as hasOnlyKeys
+  participant participant_hasResolvableRoots as hasResolvableRoots
+  participant participant_isDescriptorGraphValid as isDescriptorGraphValid
+  participant participant_isDescriptorRegistry as isDescriptorRegistry
+  participant participant_isNonEmptyString as isNonEmptyString
+  participant participant_isRecord as isRecord
+  participant participant_isRootMap as isRootMap
+  participant participant_isStructureDescriptorDocument as isStructureDescriptorDocument
+  participant_isStructureDescriptorDocument->>participant_isRecord: isRecord()
+  participant_isRecord-->>participant_isStructureDescriptorDocument: return
+  participant_isStructureDescriptorDocument->>participant_hasOnlyKeys: hasOnlyKeys()
+  participant_hasOnlyKeys-->>participant_isStructureDescriptorDocument: return
+  participant_isStructureDescriptorDocument->>participant_isNonEmptyString: isNonEmptyString()
+  participant_isNonEmptyString-->>participant_isStructureDescriptorDocument: return
+  participant_isStructureDescriptorDocument->>participant_isRootMap: isRootMap()
+  participant_isRootMap->>participant_isRecord: isRecord()
+  participant_isRecord-->>participant_isRootMap: return
+  participant_isRootMap-->>participant_isStructureDescriptorDocument: return
+  participant_isStructureDescriptorDocument->>participant_isDescriptorRegistry: isDescriptorRegistry()
+  participant_isDescriptorRegistry->>participant_isRecord: isRecord()
+  participant_isRecord-->>participant_isDescriptorRegistry: return
+  participant_isDescriptorRegistry-->>participant_isStructureDescriptorDocument: return
+  participant_isStructureDescriptorDocument->>participant_hasResolvableRoots: hasResolvableRoots()
+  participant_hasResolvableRoots-->>participant_isStructureDescriptorDocument: return
+  participant_isStructureDescriptorDocument->>participant_isDescriptorGraphValid: isDescriptorGraphValid()
+  participant_isDescriptorGraphValid-->>participant_isStructureDescriptorDocument: return

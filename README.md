@@ -3,7 +3,7 @@
 
 # @ankhorage/contracts
 
-![license: MIT](././paradox/badges/license.svg) ![npm: v22.0.0](././paradox/badges/npm.svg) ![runtime: bun](././paradox/badges/runtime.svg) ![typescript: strict](././paradox/badges/typescript.svg) ![eslint: checked](././paradox/badges/eslint.svg) ![prettier: checked](././paradox/badges/prettier.svg) ![build: checked](././paradox/badges/build.svg) ![tests: checked](././paradox/badges/tests.svg) ![docs: paradox](././paradox/badges/docs.svg)
+![license: MIT](././paradox/badges/license.svg) ![npm: v22.1.1](././paradox/badges/npm.svg) ![runtime: bun](././paradox/badges/runtime.svg) ![typescript: strict](././paradox/badges/typescript.svg) ![eslint: checked](././paradox/badges/eslint.svg) ![prettier: checked](././paradox/badges/prettier.svg) ![build: checked](././paradox/badges/build.svg) ![tests: checked](././paradox/badges/tests.svg) ![docs: paradox](././paradox/badges/docs.svg)
 
 Serializable app, action, theme, auth, and secret-store contracts for Ankhorage.
 
@@ -24,4 +24,5 @@ Serializable app, action, theme, auth, and secret-store contracts for Ankhorage.
 - [isMediaAssetReference sequence](././paradox/diagrams/sequences/is-media-asset-reference.mmd)
 - [isSerializableSet sequence](././paradox/diagrams/sequences/is-serializable-set.mmd)
 - [isSerializableValue sequence](././paradox/diagrams/sequences/is-serializable-value.mmd)
+- [isStructureDescriptorDocument sequence](././paradox/diagrams/sequences/is-structure-descriptor-document.mmd)
 - [parseInfraManifest sequence](././paradox/diagrams/sequences/parse-infra-manifest.mmd)

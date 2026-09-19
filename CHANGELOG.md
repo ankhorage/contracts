@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 22.1.1
+
+### Patch Changes
+
+- 3518d8d: Export the canonical entity-registry, value-map, and serializable-set markers from the structure subpath for descriptor generators.
+
 ## 22.1.0
 
 ### Minor Changes

@@ -63,6 +63,10 @@ graph LR
   module_src_serializable_ts["src/serializable.ts"]
   module_src_state_ts["src/state.ts"]
   module_src_storage_ts["src/storage.ts"]
+  module_src_structure_index_ts["src/structure/index.ts"]
+  module_src_structure_isStructureDescriptor_ts["src/structure/isStructureDescriptor.ts"]
+  module_src_structure_isStructureDescriptorDocument_ts["src/structure/isStructureDescriptorDocument.ts"]
+  module_src_structure_types_ts["src/structure/types.ts"]
   module_src_theme_ts["src/theme.ts"]
   module_src_types_ts["src/types.ts"]
   module_src_types_appManifest_ts["src/types/appManifest.ts"]
@@ -171,7 +175,7 @@ graph LR
   export_ApiBaseDefinition -.-> export_ApiOrigin
   export_ApiBaseDefinition -.-> export_ApiProtocol
   export_ApiBaseDefinition -.-> export_CredentialRef
-  export_ApiBaseDefinition -.-> export_DataEndpointConfig
+  export_ApiBaseDefinition -.-> export_DataEndpointRegistry
   export_ApiBaseDefinition -.-> export_DataSchema
   export_ApiBaseDefinition -.-> export_SerializableValue
   export_ApiDefinition["ApiDefinition"]
@@ -222,15 +226,16 @@ graph LR
   export_AppManifest -.-> export_AppNavigatorManifest
   export_AppManifest -.-> export_AppSettings
   export_AppManifest -.-> export_AppStateSpec
-  export_AppManifest -.-> export_ComponentDataBinding
-  export_AppManifest -.-> export_DatabaseDataSourceConfig
+  export_AppManifest -.-> export_ComponentDataBindingRegistry
+  export_AppManifest -.-> export_DataSourceRegistry
+  export_AppManifest -.-> export_EntityRegistry
   export_AppManifest -.-> export_InfraManifest
   export_AppManifest -.-> export_MediaManifest
   export_AppManifest -.-> export_RepositoryManifest
   export_AppManifest -.-> export_ScreenSpec
   export_AppManifest -.-> export_SplashScreenSpec
-  export_AppManifest -.-> export_ThemeConfig
   export_AppManifest -.-> export_ThemeId
+  export_AppManifest -.-> export_ThemeRegistry
   export_AppManifestParseResult["AppManifestParseResult"]
   module_src_types_appManifest_ts --> export_AppManifestParseResult
   export_AppNavigatorManifest["AppNavigatorManifest"]
@@ -504,7 +509,7 @@ graph LR
   module_src_data_sources_ts --> export_DatabaseDataSourceConfig
   export_DatabaseDataSourceConfig -.-> export_CredentialRef
   export_DatabaseDataSourceConfig -.-> export_DatabaseAdapterRef
-  export_DatabaseDataSourceConfig -.-> export_DataEndpointConfig
+  export_DatabaseDataSourceConfig -.-> export_DataEndpointRegistry
   export_DatabaseDataSourceConfig -.-> export_DataSchema
   export_DatabaseDataSourceConfig -.-> export_SerializableValue
   export_DataContractValue["DataContractValue"]
@@ -517,7 +522,7 @@ graph LR
   module_src_data_endpoints_ts --> export_DataEndpointConfig
   export_DataEndpointConfig -.-> export_CredentialRef
   export_DataEndpointConfig -.-> export_DataEndpointKind
-  export_DataEndpointConfig -.-> export_DataOperationConfig
+  export_DataEndpointConfig -.-> export_DataOperationRegistry
   export_DataEndpointConfig -.-> export_SerializableValue
   export_DataEndpointKind["DataEndpointKind"]
   module_src_data_endpoints_ts --> export_DataEndpointKind
@@ -787,6 +792,8 @@ graph LR
   module_src_navigator_ts --> export_DrawerType
   export_EndpointId["EndpointId"]
   module_src_data_ids_ts --> export_EndpointId
+  export_EntityRegistry["EntityRegistry"]
+  module_src_collections_ts --> export_EntityRegistry
   export_EventBinding["EventBinding"]
   module_src_bindings_ts --> export_EventBinding
   export_EventBinding -.-> export_BindingCondition
@@ -799,14 +806,14 @@ graph LR
   export_ExternalGraphQlApiDefinition["ExternalGraphQlApiDefinition"]
   module_src_data_apis_ts --> export_ExternalGraphQlApiDefinition
   export_ExternalGraphQlApiDefinition -.-> export_CredentialRef
-  export_ExternalGraphQlApiDefinition -.-> export_DataEndpointConfig
+  export_ExternalGraphQlApiDefinition -.-> export_DataEndpointRegistry
   export_ExternalGraphQlApiDefinition -.-> export_DataSchema
   export_ExternalGraphQlApiDefinition -.-> export_GraphQlIntrospectionConfig
   export_ExternalGraphQlApiDefinition -.-> export_SerializableValue
   export_ExternalRestApiDefinition["ExternalRestApiDefinition"]
   module_src_data_apis_ts --> export_ExternalRestApiDefinition
   export_ExternalRestApiDefinition -.-> export_CredentialRef
-  export_ExternalRestApiDefinition -.-> export_DataEndpointConfig
+  export_ExternalRestApiDefinition -.-> export_DataEndpointRegistry
   export_ExternalRestApiDefinition -.-> export_DataSchema
   export_ExternalRestApiDefinition -.-> export_OpenApiDocumentRef
   export_ExternalRestApiDefinition -.-> export_SerializableValue
@@ -862,6 +869,7 @@ graph LR
   module_src_types_infraManifest_ts --> export_InfraAuthSpec
   export_InfraAuthzConfigMap["InfraAuthzConfigMap"]
   module_src_types_infraManifest_ts --> export_InfraAuthzConfigMap
+  export_InfraAuthzConfigMap -.-> export_ValueMap
   export_InfraAuthzSpec["InfraAuthzSpec"]
   module_src_types_infraManifest_ts --> export_InfraAuthzSpec
   export_InfraCapability["InfraCapability"]
@@ -923,7 +931,8 @@ graph LR
   export_InfraEnvironmentSpec -.-> export_InfraNetworkingSpec
   export_InfraEnvironmentSpec -.-> export_InfraObjectStorageSpec
   export_InfraEnvironmentSpec -.-> export_InfraScheduledDatabaseBackupSpec
-  export_InfraEnvironmentSpec -.-> export_InfraWorkloadSpec
+  export_InfraEnvironmentSpec -.-> export_InfraWorkloadRegistry
+  export_InfraEnvironmentSpec -.-> export_ValueMap
   export_InfraExecutionContext["InfraExecutionContext"]
   module_src_types_infraAdapters_ts --> export_InfraExecutionContext
   export_InfraExecutionContext -.-> export_InfraCredentialPort
@@ -942,9 +951,9 @@ graph LR
   export_InfraLedger -.-> export_InfraResourceIdentity
   export_InfraManifest["InfraManifest"]
   module_src_types_infraManifest_ts --> export_InfraManifest
-  export_InfraManifest -.-> export_ApiDefinition
+  export_InfraManifest -.-> export_ApiDefinitionRegistry
   export_InfraManifest -.-> export_InfraEnvironmentSpec
-  export_InfraManifest -.-> export_InfraModuleSpec
+  export_InfraManifest -.-> export_InfraModuleRegistry
   export_InfraModuleId["InfraModuleId"]
   module_src_types_infraManifest_ts --> export_InfraModuleId
   export_InfraModuleRegistry["InfraModuleRegistry"]
@@ -1060,10 +1069,10 @@ graph LR
   module_src_types_infraWorkload_ts --> export_InfraWorkloadSpec
   export_InfraWorkloadSpec -.-> export_InfraWorkloadArtifact
   export_InfraWorkloadSpec -.-> export_InfraWorkloadHealthSpec
-  export_InfraWorkloadSpec -.-> export_InfraWorkloadPort
+  export_InfraWorkloadSpec -.-> export_InfraWorkloadPortRegistry
   export_InfraWorkloadSpec -.-> export_InfraWorkloadResourceSpec
   export_InfraWorkloadSpec -.-> export_InfraWorkloadValue
-  export_InfraWorkloadSpec -.-> export_InfraWorkloadVolumeSpec
+  export_InfraWorkloadSpec -.-> export_InfraWorkloadVolumeRegistry
   export_InfraWorkloadValue["InfraWorkloadValue"]
   module_src_types_infraWorkload_ts --> export_InfraWorkloadValue
   export_InfraWorkloadVolumeRegistry["InfraWorkloadVolumeRegistry"]
@@ -1073,7 +1082,7 @@ graph LR
   export_InternalRestApiDefinition["InternalRestApiDefinition"]
   module_src_data_apis_ts --> export_InternalRestApiDefinition
   export_InternalRestApiDefinition -.-> export_CredentialRef
-  export_InternalRestApiDefinition -.-> export_DataEndpointConfig
+  export_InternalRestApiDefinition -.-> export_DataEndpointRegistry
   export_InternalRestApiDefinition -.-> export_DataSchema
   export_InternalRestApiDefinition -.-> export_SerializableValue
   export_IosBuildArtifact["IosBuildArtifact"]
@@ -1141,6 +1150,10 @@ graph LR
   module_src_collections_ts --> export_isSerializableSet
   export_isSerializableValue["isSerializableValue"]
   module_src_serializable_ts --> export_isSerializableValue
+  export_isStructureDescriptor["isStructureDescriptor"]
+  module_src_structure_isStructureDescriptor_ts --> export_isStructureDescriptor
+  export_isStructureDescriptorDocument["isStructureDescriptorDocument"]
+  module_src_structure_isStructureDescriptorDocument_ts --> export_isStructureDescriptorDocument
   export_JAVASCRIPT_STACK_PRESENTATIONS["JAVASCRIPT_STACK_PRESENTATIONS"]
   module_src_navigator_ts --> export_JAVASCRIPT_STACK_PRESENTATIONS
   export_JAVASCRIPT_TABS_PRESENTATIONS["JAVASCRIPT_TABS_PRESENTATIONS"]
@@ -1187,7 +1200,7 @@ graph LR
   module_src_media_ts --> export_MediaBundledSource
   export_MediaManifest["MediaManifest"]
   module_src_media_ts --> export_MediaManifest
-  export_MediaManifest -.-> export_MediaAsset
+  export_MediaManifest -.-> export_MediaAssetRegistry
   export_MediaStorageAdapter["MediaStorageAdapter"]
   module_src_storage_ts --> export_MediaStorageAdapter
   export_MediaStorageAdapter -.-> export_ImageMetadata
@@ -1790,6 +1803,51 @@ graph LR
   export_StoreListingTargetState -.-> export_StoreListingLocale
   export_StoreListingTargetState -.-> export_StoreListingRemoteAssetSet
   export_StoreListingTargetState -.-> export_StoreListingTarget
+  export_StructureDescriptor["StructureDescriptor"]
+  module_src_structure_types_ts --> export_StructureDescriptor
+  export_StructureDescriptorDefinition["StructureDescriptorDefinition"]
+  module_src_structure_types_ts --> export_StructureDescriptorDefinition
+  export_StructureDescriptorDefinition -.-> export_StructureDescriptor
+  export_StructureDescriptorDocument["StructureDescriptorDocument"]
+  module_src_structure_types_ts --> export_StructureDescriptorDocument
+  export_StructureDescriptorDocument -.-> export_StructureDescriptorRegistry
+  export_StructureDescriptorId["StructureDescriptorId"]
+  module_src_structure_types_ts --> export_StructureDescriptorId
+  export_StructureDescriptorRegistry["StructureDescriptorRegistry"]
+  module_src_structure_types_ts --> export_StructureDescriptorRegistry
+  export_StructureEntityRegistryDescriptor["StructureEntityRegistryDescriptor"]
+  module_src_structure_types_ts --> export_StructureEntityRegistryDescriptor
+  export_StructureEntityRegistryDescriptor -.-> export_StructureDescriptor
+  export_StructureEnumDescriptor["StructureEnumDescriptor"]
+  module_src_structure_types_ts --> export_StructureEnumDescriptor
+  export_StructureEnumDescriptor -.-> export_StructureLiteralValue
+  export_StructureLiteralValue["StructureLiteralValue"]
+  module_src_structure_types_ts --> export_StructureLiteralValue
+  export_StructureObjectDescriptor["StructureObjectDescriptor"]
+  module_src_structure_types_ts --> export_StructureObjectDescriptor
+  export_StructureObjectDescriptor -.-> export_StructureObjectField
+  export_StructureObjectField["StructureObjectField"]
+  module_src_structure_types_ts --> export_StructureObjectField
+  export_StructureObjectField -.-> export_StructureDescriptor
+  export_StructureOrderedListDescriptor["StructureOrderedListDescriptor"]
+  module_src_structure_types_ts --> export_StructureOrderedListDescriptor
+  export_StructureOrderedListDescriptor -.-> export_StructureDescriptor
+  export_StructureReferenceDescriptor["StructureReferenceDescriptor"]
+  module_src_structure_types_ts --> export_StructureReferenceDescriptor
+  export_StructureScalarDescriptor["StructureScalarDescriptor"]
+  module_src_structure_types_ts --> export_StructureScalarDescriptor
+  export_StructureScalarDescriptor -.-> export_StructureScalarType
+  export_StructureScalarType["StructureScalarType"]
+  module_src_structure_types_ts --> export_StructureScalarType
+  export_StructureSetDescriptor["StructureSetDescriptor"]
+  module_src_structure_types_ts --> export_StructureSetDescriptor
+  export_StructureSetDescriptor -.-> export_StructureDescriptor
+  export_StructureUnionDescriptor["StructureUnionDescriptor"]
+  module_src_structure_types_ts --> export_StructureUnionDescriptor
+  export_StructureUnionDescriptor -.-> export_StructureDescriptor
+  export_StructureValueMapDescriptor["StructureValueMapDescriptor"]
+  module_src_structure_types_ts --> export_StructureValueMapDescriptor
+  export_StructureValueMapDescriptor -.-> export_StructureDescriptor
   export_SvgIconSpec["SvgIconSpec"]
   module_src_types_ts --> export_SvgIconSpec
   export_SvgIconSpec -.-> export_MediaAssetReference
@@ -1931,6 +1989,8 @@ graph LR
   export_validateSecretPayload["validateSecretPayload"]
   module_src_secrets_ts --> export_validateSecretPayload
   export_validateSecretPayload -.-> export_SecretStoreResult
+  export_ValueMap["ValueMap"]
+  module_src_collections_ts --> export_ValueMap
   export_VerifyOtpInput["VerifyOtpInput"]
   module_src_auth_ts --> export_VerifyOtpInput
   export_VerifyOtpInput -.-> export_AuthIdentifier
