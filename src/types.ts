@@ -7,7 +7,7 @@ import type {
   ComponentDataBindingRegistry,
   ScreenDataLoaderDefinition,
 } from './bindings';
-import type { EntityRegistry, ValueMap } from './collections';
+import type { EntityRegistry } from './collections';
 import type { DataSourceRegistry } from './data';
 import type { AppDeployManifest } from './deploy';
 import type { InfraManifest } from './infra';
@@ -46,7 +46,7 @@ export interface NavigateAction {
   type: 'navigate';
   payload: {
     route: string;
-    params?: ValueMap<string, number | string>;
+    params?: Record<string, number | string>;
   };
 }
 
@@ -59,7 +59,7 @@ export interface AlertAction {
 
 export interface ConsoleAction {
   type: 'console';
-  payload?: ValueMap<string, unknown>;
+  payload?: Record<string, unknown>;
 }
 
 export interface ToggleDarkModeAction {
@@ -125,7 +125,7 @@ export type ButtonPressEventDto = ComponentEventDto<'button.press', Record<strin
 
 export interface CollectionItemPressPayload {
   readonly itemId: string | number;
-  readonly item: ValueMap<string, ComponentEventPayloadValue>;
+  readonly item: Record<string, ComponentEventPayloadValue>;
 }
 
 export type CollectionItemPressEventDto = ComponentEventDto<
@@ -224,9 +224,9 @@ export interface UiNode {
   id: string;
   type: string;
   alias?: string;
-  props?: ValueMap<string, unknown>;
+  props?: Record<string, unknown>;
   children?: UiNode[];
-  style?: ValueMap<string, number | string>;
+  style?: Record<string, number | string>;
   repeat?: UiNodeRepeatSpec;
 }
 
