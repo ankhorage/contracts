@@ -230,11 +230,14 @@ export interface UiNode {
   repeat?: UiNodeRepeatSpec;
 }
 
-export interface ScreenSpec {
+export interface ScreenMetadataSpec {
   id: string;
   name: string;
   title?: string;
   description?: string;
+}
+
+export interface ScreenSpec extends ScreenMetadataSpec {
   root: UiNode;
   dataLoaders?: readonly ScreenDataLoaderDefinition[];
   requires?: ScreenRequirements;
