@@ -1,3 +1,4 @@
+import type { ValueMap } from '../collections';
 import type { SchemaId } from './ids';
 import type { DataContractValue } from './values';
 
@@ -23,7 +24,7 @@ export interface DataSchema {
   readonly format?: string;
   readonly nullable?: boolean;
   readonly required?: readonly string[];
-  readonly properties?: Readonly<Record<string, DataSchema>>;
+  readonly properties?: ValueMap<string, DataSchema>;
   readonly additionalProperties?: boolean | DataSchema;
   readonly items?: DataSchema;
   readonly allOf?: readonly DataSchema[];
@@ -32,7 +33,7 @@ export interface DataSchema {
   readonly ref?: DataSchemaRef;
 }
 
-export type DataSchemaRegistry = Readonly<Record<SchemaId, DataSchema>>;
+export type DataSchemaRegistry = ValueMap<SchemaId, DataSchema>;
 
 export interface DataSchemaSlot {
   readonly schema?: DataSchema;
