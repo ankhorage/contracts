@@ -92,6 +92,10 @@
     "./repository": {
       "types": "./dist/repository.d.ts",
       "default": "./dist/repository.js"
+    },
+    "./structure": {
+      "types": "./dist/structure/index.d.ts",
+      "default": "./dist/structure/index.js"
     }
   },
   "description": "Serializable app, action, theme, auth, and secret-store contracts for Ankhorage.",
