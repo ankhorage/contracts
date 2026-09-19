@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 22.1.2
+
+### Patch Changes
+
+- bc6d757: Make the structure runtime subpath loadable directly under Node ESM by emitting explicit JavaScript module specifiers.
+
 ## 22.1.1
 
 ### Patch Changes
