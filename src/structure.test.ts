@@ -4,10 +4,27 @@ import { join } from 'node:path';
 import { expect, test } from 'bun:test';
 
 import {
+  type EntityRegistry,
   isStructureDescriptor,
   isStructureDescriptorDocument,
+  type SerializableSet,
   type StructureDescriptorDocument,
+  type ValueMap,
 } from './structure';
+
+test('exports canonical structural collection markers from the structure boundary', () => {
+  const registry = { theme: { id: 'theme' } } satisfies EntityRegistry<
+    string,
+    { readonly id: string },
+    'id'
+  >;
+  const values = { spacing: 8 } satisfies ValueMap<string, number>;
+  const membership = { camera: true } satisfies SerializableSet<'camera' | 'microphone'>;
+
+  expect(registry.theme.id).toBe('theme');
+  expect(values.spacing).toBe(8);
+  expect(membership.camera).toBe(true);
+});
 
 test('accepts scalar, enum and object descriptors', () => {
   expect(isStructureDescriptor({ kind: 'scalar', type: 'string' })).toBe(true);
