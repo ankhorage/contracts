@@ -1,3 +1,4 @@
+import type { ValueMap } from './collections';
 import type { AppDeployTargetId } from './deploy';
 import type { AppEnvironmentId } from './environments';
 import type { SecretRef } from './secrets';
@@ -145,7 +146,7 @@ export interface AuthOAuthProviderConfig {
   label?: string;
   enabled?: boolean;
   scopes?: string[];
-  queryParams?: Record<string, string>;
+  queryParams?: ValueMap<string, string>;
   icon?: IconSpec;
   /** Logical server-side secret reference; raw credentials must never be stored here. */
   credentialsRef?: SecretRef;
@@ -301,7 +302,7 @@ export interface StartOAuthAuthorizationInput {
   provider: AuthOAuthProviderId;
   redirectUri: string;
   scopes?: readonly string[];
-  queryParams?: Readonly<Record<string, string>>;
+  queryParams?: ValueMap<string, string>;
 }
 
 export interface AuthOAuthAuthorizationRequest {
