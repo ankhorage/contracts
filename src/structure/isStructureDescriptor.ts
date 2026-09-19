@@ -155,7 +155,7 @@ function isStructureLiteralValue(value: unknown): value is StructureLiteralValue
   return (
     value === null ||
     typeof value === 'boolean' ||
-    typeof value === 'number' ||
+    (typeof value === 'number' && Number.isFinite(value)) ||
     typeof value === 'string'
   );
 }
