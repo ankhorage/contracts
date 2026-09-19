@@ -7,7 +7,16 @@
     "provider": null,
     "capabilities": [
       "contracts.cli"
-    ]
+    ],
+    "structure": {
+      "output": "src/structure/generated.ts",
+      "roots": {
+        "screen-metadata": {
+          "source": "src/types.ts",
+          "export": "ScreenMetadataSpec"
+        }
+      }
+    }
   },
   "dependencies": {
     "@ankhorage/color-theory": "^0.3.1",
@@ -141,9 +150,10 @@
     "format": "ankhorage-prettier --write .",
     "format:check": "ankhorage-prettier --check .",
     "test": "bun test src",
-    "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.infra-tests.json && bun run build && tsc --noEmit -p tsconfig.deploy-provider-consumer.json",
+    "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.infra-tests.json && bun run build && tsc --noEmit -p tsconfig.deploy-provider-consumer.json && bun run structure:check",
     "version-packages": "ankhorage-changeset version",
-    "knip:check": "ankhorage-knip"
+    "knip:check": "ankhorage-knip",
+    "structure:check": "ankhorage-structure check ."
   },
   "sideEffects": false,
   "type": "module",
