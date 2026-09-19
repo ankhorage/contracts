@@ -1,6 +1,6 @@
 export type { EntityRegistry, SerializableSet, ValueMap } from '../collections';
-export { isStructureDescriptor } from './isStructureDescriptor';
-export { isStructureDescriptorDocument } from './isStructureDescriptorDocument';
+export { isStructureDescriptor } from './isStructureDescriptor.js';
+export { isStructureDescriptorDocument } from './isStructureDescriptorDocument.js';
 export type {
   StructureDescriptor,
   StructureDescriptorDefinition,
@@ -19,4 +19,4 @@ export type {
   StructureSetDescriptor,
   StructureUnionDescriptor,
   StructureValueMapDescriptor,
-} from './types';
+} from './types.js';
