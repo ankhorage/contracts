@@ -1,14 +1,14 @@
 import { isRecord } from '@ankhorage/utility/object';
 
+import type { ValueMap } from './collections';
+
 export type SerializableValue =
   | string
   | number
   | boolean
   | null
   | readonly SerializableValue[]
-  | {
-      readonly [key: string]: SerializableValue;
-    };
+  | ValueMap<string, SerializableValue>;
 
 /*** Validate recursively serializable manifest/config values without accepting functions or host objects. */
 export function isSerializableValue(value: unknown): value is SerializableValue {
