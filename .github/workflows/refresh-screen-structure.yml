@@ -1,0 +1,41 @@
+name: Refresh generated screen structure
+
+on:
+  push:
+    branches:
+      - feat/244-generated-screen-structure
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: feat/244-generated-screen-structure
+          fetch-depth: 0
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: '1.4.2'
+
+      - name: Install updated toolchain
+        run: bun install --ignore-scripts
+
+      - name: Generate structure evidence
+        run: ./node_modules/.bin/ankhorage-structure build .
+
+      - name: Commit generated evidence
+        run: |
+          if git diff --quiet -- bun.lock src/structure/generated.ts; then
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add bun.lock src/structure/generated.ts
+          git commit -m "chore: generate screen structure evidence"
+          git push origin HEAD:feat/244-generated-screen-structure
