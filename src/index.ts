@@ -18,6 +18,7 @@ export * from './secrets';
 export * from './serializable';
 export * from './state';
 export * from './storage';
+export * from './structure';
 export * from './theme';
 export * from './types';
 export * from './ui';

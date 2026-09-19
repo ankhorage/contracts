@@ -7,6 +7,7 @@ import type {
   ComponentDataBindingRegistry,
   ScreenDataLoaderDefinition,
 } from './bindings';
+import type { EntityRegistry } from './collections';
 import type { DataSourceRegistry } from './data';
 import type { AppDeployManifest } from './deploy';
 import type { InfraManifest } from './infra';
@@ -36,7 +37,7 @@ export interface ThemeConfig {
   recipes?: ThemeRecipeOverrides;
 }
 
-export type ThemeRegistry = Readonly<Record<ThemeId, ThemeConfig>>;
+export type ThemeRegistry = EntityRegistry<ThemeId, ThemeConfig, 'id'>;
 
 export type ActionType =
   'navigate' | 'alert' | 'console' | 'toggleDarkMode' | 'setLanguage' | 'search' | 'filter';
@@ -286,7 +287,7 @@ export interface AppManifest {
   state?: AppStateSpec;
   infra: InfraManifest;
   navigator: AppNavigatorManifest;
-  screens: Readonly<Record<string, ScreenSpec>>;
+  screens: EntityRegistry<string, ScreenSpec, 'id'>;
   dataSources?: DataSourceRegistry;
   dataBindings?: ComponentDataBindingRegistry;
   repository?: RepositoryManifest;

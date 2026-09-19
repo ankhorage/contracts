@@ -1,3 +1,4 @@
+import type { EntityRegistry, ValueMap } from './collections';
 import type { ApiId, EndpointId, OperationId } from './data';
 import type { SerializableValue } from './serializable';
 
@@ -77,7 +78,7 @@ export type BindingInputValue =
     }
   | {
       readonly kind: 'object';
-      readonly fields: Readonly<Record<string, BindingInputValue>>;
+      readonly fields: ValueMap<string, BindingInputValue>;
     }
   | {
       readonly kind: 'source';
@@ -85,7 +86,7 @@ export type BindingInputValue =
       readonly transforms?: readonly BindingValueTransform[];
     };
 
-export type BindingInputMap = Readonly<Record<string, BindingInputValue>>;
+export type BindingInputMap = ValueMap<string, BindingInputValue>;
 
 export interface OperationScreenDataLoaderDefinition {
   readonly kind: 'operation';
@@ -123,10 +124,12 @@ export interface EventBinding {
 export interface ComponentDataBinding {
   readonly componentId: ComponentInstanceId;
   readonly componentType?: ComponentTypeId;
-  readonly props?: Readonly<Record<string, PropBinding>>;
-  readonly events?: Readonly<Record<string, readonly EventBinding[]>>;
+  readonly props?: ValueMap<string, PropBinding>;
+  readonly events?: ValueMap<string, readonly EventBinding[]>;
 }
 
-export type ComponentDataBindingRegistry = Readonly<
-  Record<ComponentInstanceId, ComponentDataBinding>
+export type ComponentDataBindingRegistry = EntityRegistry<
+  ComponentInstanceId,
+  ComponentDataBinding,
+  'componentId'
 >;

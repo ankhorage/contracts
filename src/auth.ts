@@ -1,3 +1,4 @@
+import type { ValueMap } from './collections';
 import type { AppDeployTargetId } from './deploy';
 import type { AppEnvironmentId } from './environments';
 import type { SecretRef } from './secrets';
@@ -301,7 +302,7 @@ export interface StartOAuthAuthorizationInput {
   provider: AuthOAuthProviderId;
   redirectUri: string;
   scopes?: readonly string[];
-  queryParams?: Readonly<Record<string, string>>;
+  queryParams?: ValueMap<string, string>;
 }
 
 export interface AuthOAuthAuthorizationRequest {

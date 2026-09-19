@@ -1,6 +1,8 @@
 import { isRecord } from '@ankhorage/utility/object';
 import { isNonEmptyString } from '@ankhorage/utility/string';
 
+import type { EntityRegistry } from './collections';
+
 export const MEDIA_ASSET_KINDS = ['image', 'audio', 'video', 'font', 'file'] as const;
 
 export type MediaAssetKind = (typeof MEDIA_ASSET_KINDS)[number];
@@ -46,7 +48,7 @@ export interface MediaAsset {
   readonly metadata?: MediaAssetMetadata;
 }
 
-export type MediaAssetRegistry = Readonly<Record<string, MediaAsset>>;
+export type MediaAssetRegistry = EntityRegistry<string, MediaAsset, 'id'>;
 
 /*** App-authoring media pool. Runtime/user-generated uploads do not belong here. */
 export interface MediaManifest {

@@ -1,3 +1,4 @@
+import type { EntityRegistry } from '../collections';
 import type { EndpointId, OperationId } from './ids';
 import type { CredentialRef } from './refs';
 import type { DataSchemaSlot } from './schemas';
@@ -56,4 +57,4 @@ export interface DataOperationConfig {
   readonly metadata?: DataContractValue;
 }
 
-export type DataOperationRegistry = Readonly<Record<OperationId, DataOperationConfig>>;
+export type DataOperationRegistry = EntityRegistry<OperationId, DataOperationConfig, 'id'>;
