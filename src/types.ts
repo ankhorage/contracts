@@ -7,7 +7,7 @@ import type {
   ComponentDataBindingRegistry,
   ScreenDataLoaderDefinition,
 } from './bindings';
-import type { EntityRegistry, ValueMap } from './collections';
+import type { EntityRegistry } from './collections';
 import type { DataSourceRegistry } from './data';
 import type { AppDeployManifest } from './deploy';
 import type { InfraManifest } from './infra';
@@ -224,17 +224,20 @@ export interface UiNode {
   id: string;
   type: string;
   alias?: string;
-  props?: ValueMap<string, ManifestValue>;
+  props?: Record<string, unknown>;
   children?: UiNode[];
-  style?: ValueMap<string, number | string>;
+  style?: Record<string, number | string>;
   repeat?: UiNodeRepeatSpec;
 }
 
-export interface ScreenSpec {
+export interface ScreenMetadataSpec {
   id: string;
   name: string;
   title?: string;
   description?: string;
+}
+
+export interface ScreenSpec extends ScreenMetadataSpec {
   root: UiNode;
   dataLoaders?: readonly ScreenDataLoaderDefinition[];
   requires?: ScreenRequirements;
