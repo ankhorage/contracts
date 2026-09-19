@@ -1,6 +1,7 @@
 import type { ColorHarmony } from '@ankhorage/color-theory';
 
 import type { SplashScreenSpec } from './appManifest/splashScreen';
+import type { EntityRegistry, ValueMap } from './collections';
 import type { AuthIdentifierKind, AuthSignUpField } from './auth';
 import type {
   BindingValueSource,
@@ -36,7 +37,7 @@ export interface ThemeConfig {
   recipes?: ThemeRecipeOverrides;
 }
 
-export type ThemeRegistry = Readonly<Record<ThemeId, ThemeConfig>>;
+export type ThemeRegistry = EntityRegistry<ThemeId, ThemeConfig, 'id'>;
 
 export type ActionType =
   'navigate' | 'alert' | 'console' | 'toggleDarkMode' | 'setLanguage' | 'search' | 'filter';
@@ -45,7 +46,7 @@ export interface NavigateAction {
   type: 'navigate';
   payload: {
     route: string;
-    params?: Record<string, number | string>;
+    params?: ValueMap<string, number | string>;
   };
 }
 
@@ -58,7 +59,7 @@ export interface AlertAction {
 
 export interface ConsoleAction {
   type: 'console';
-  payload?: Record<string, unknown>;
+  payload?: ValueMap<string, unknown>;
 }
 
 export interface ToggleDarkModeAction {
@@ -124,7 +125,7 @@ export type ButtonPressEventDto = ComponentEventDto<'button.press', Record<strin
 
 export interface CollectionItemPressPayload {
   readonly itemId: string | number;
-  readonly item: Record<string, ComponentEventPayloadValue>;
+  readonly item: ValueMap<string, ComponentEventPayloadValue>;
 }
 
 export type CollectionItemPressEventDto = ComponentEventDto<
@@ -223,9 +224,9 @@ export interface UiNode {
   id: string;
   type: string;
   alias?: string;
-  props?: Record<string, unknown>;
+  props?: ValueMap<string, unknown>;
   children?: UiNode[];
-  style?: Record<string, number | string>;
+  style?: ValueMap<string, number | string>;
   repeat?: UiNodeRepeatSpec;
 }
 
@@ -286,7 +287,7 @@ export interface AppManifest {
   state?: AppStateSpec;
   infra: InfraManifest;
   navigator: AppNavigatorManifest;
-  screens: Readonly<Record<string, ScreenSpec>>;
+  screens: EntityRegistry<string, ScreenSpec, 'id'>;
   dataSources?: DataSourceRegistry;
   dataBindings?: ComponentDataBindingRegistry;
   repository?: RepositoryManifest;
