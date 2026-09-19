@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - feat/244-generated-screen-structure
+  pull_request:
 
 permissions:
   contents: write
@@ -30,6 +31,7 @@ jobs:
         run: ./node_modules/.bin/ankhorage-structure build .
 
       - name: Commit generated evidence
+        if: github.event_name == 'push'
         run: |
           if git diff --quiet -- bun.lock src/structure/generated.ts; then
             exit 0
