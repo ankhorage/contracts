@@ -1,4 +1,4 @@
-import type { SerializableSet } from '../collections';
+import type { EntityRegistry, SerializableSet, ValueMap } from '../collections';
 import type { InfraControlPlaneCredentialRef, InfraSecretReference } from './infraSecrets';
 
 export interface InfraWorkloadArtifact {
@@ -58,9 +58,9 @@ export interface InfraWorkloadVolumeSpec {
 }
 
 export type InfraWorkloadId = string;
-export type InfraWorkloadPortRegistry = Readonly<Record<string, InfraWorkloadPort>>;
-export type InfraWorkloadFileMap = Readonly<Record<string, InfraWorkloadValue>>;
-export type InfraWorkloadVolumeRegistry = Readonly<Record<string, InfraWorkloadVolumeSpec>>;
+export type InfraWorkloadPortRegistry = EntityRegistry<string, InfraWorkloadPort>;
+export type InfraWorkloadFileMap = ValueMap<string, InfraWorkloadValue>;
+export type InfraWorkloadVolumeRegistry = EntityRegistry<string, InfraWorkloadVolumeSpec, 'id'>;
 
 export interface InfraWorkloadSpec {
   readonly id: InfraWorkloadId;
@@ -68,7 +68,7 @@ export interface InfraWorkloadSpec {
   readonly command?: readonly string[];
   readonly args?: readonly string[];
   readonly ports?: InfraWorkloadPortRegistry;
-  readonly environment?: Readonly<Record<string, InfraWorkloadValue>>;
+  readonly environment?: ValueMap<string, InfraWorkloadValue>;
   readonly files?: InfraWorkloadFileMap;
   readonly health?: InfraWorkloadHealthSpec;
   readonly resources?: InfraWorkloadResourceSpec;
@@ -79,4 +79,4 @@ export interface InfraWorkloadSpec {
   readonly dependsOn?: SerializableSet;
 }
 
-export type InfraWorkloadRegistry = Readonly<Record<InfraWorkloadId, InfraWorkloadSpec>>;
+export type InfraWorkloadRegistry = EntityRegistry<InfraWorkloadId, InfraWorkloadSpec, 'id'>;
