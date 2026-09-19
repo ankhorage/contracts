@@ -5,7 +5,9 @@ export type EntityRegistry<
   TKey extends string,
   TValue,
   TIdentityField extends Extract<keyof TValue, string> = never,
-> = Readonly<Record<TKey, TValue>>;
+> = Readonly<Record<TKey, TValue>> & {
+  readonly [TMarker in never]: TIdentityField;
+};
 
 /** Keyed configuration/property values whose key is part of the value's meaning. */
 export type ValueMap<TKey extends string, TValue> = Readonly<Record<TKey, TValue>>;
