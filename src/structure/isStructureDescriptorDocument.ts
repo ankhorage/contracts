@@ -1,14 +1,14 @@
 import { hasOnlyKeys, isRecord } from '@ankhorage/utility/object';
 import { isNonEmptyString } from '@ankhorage/utility/string';
 
-import { isStructureDescriptor } from './isStructureDescriptor';
+import { isStructureDescriptor } from './isStructureDescriptor.js';
 import type {
   StructureDescriptor,
   StructureDescriptorDefinition,
   StructureDescriptorDocument,
   StructureDescriptorId,
   StructureDescriptorRegistry,
-} from './types';
+} from './types.js';
 
 /*** Validate a complete package structural-descriptor document and all resolvable references. */
 export function isStructureDescriptorDocument(
