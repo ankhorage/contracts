@@ -1,3 +1,4 @@
+export type { EntityRegistry, SerializableSet, ValueMap } from '../collections';
 export { isStructureDescriptor } from './isStructureDescriptor';
 export { isStructureDescriptorDocument } from './isStructureDescriptorDocument';
 export type {
