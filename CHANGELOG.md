@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 22.1.0
+
+### Minor Changes
+
+- ce696c3: Publish canonical structural descriptor contracts and explicit entity-registry/value-map collection semantics for deterministic authoring metadata generation.
+
 ## 22.0.4
 
 ### Patch Changes
