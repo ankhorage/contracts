@@ -1,8 +1,10 @@
+import type { ValueMap } from './collections';
+
 /** Numeric token values authored at theme level. */
-export type ThemeNumericTokenOverrides = Readonly<Record<string, number>>;
+export type ThemeNumericTokenOverrides = ValueMap<string, number>;
 
 /** String token values authored at theme level. */
-export type ThemeStringTokenOverrides = Readonly<Record<string, string>>;
+export type ThemeStringTokenOverrides = ValueMap<string, string>;
 
 /** Partial authored override for one semantic heading recipe. */
 export interface ThemeTypographyHeadingOverrides {
@@ -13,7 +15,7 @@ export interface ThemeTypographyHeadingOverrides {
 
 /** Theme-global typography source overrides. Font installation remains module-owned. */
 export interface ThemeTypographyTokenOverrides {
-  readonly headings?: Readonly<Record<string, ThemeTypographyHeadingOverrides>>;
+  readonly headings?: ValueMap<string, ThemeTypographyHeadingOverrides>;
   readonly sizes?: ThemeNumericTokenOverrides;
   readonly weights?: ThemeStringTokenOverrides;
 }
@@ -36,7 +38,7 @@ export interface ThemeGlobalTokenOverrides {
 export type ThemeRecipeOverrideValue = boolean | string;
 
 /** Persisted values for one component or pattern recipe. */
-export type ThemeRecipeFieldOverrides = Readonly<Record<string, ThemeRecipeOverrideValue>>;
+export type ThemeRecipeFieldOverrides = ValueMap<string, ThemeRecipeOverrideValue>;
 
 /**
  * Generic persisted recipe values.
@@ -45,6 +47,6 @@ export type ThemeRecipeFieldOverrides = Readonly<Record<string, ThemeRecipeOverr
  * relationships. Contracts stores selected values only and does not duplicate that metadata.
  */
 export interface ThemeRecipeOverrides {
-  readonly components?: Readonly<Record<string, ThemeRecipeFieldOverrides>>;
-  readonly patterns?: Readonly<Record<string, ThemeRecipeFieldOverrides>>;
+  readonly components?: ValueMap<string, ThemeRecipeFieldOverrides>;
+  readonly patterns?: ValueMap<string, ThemeRecipeFieldOverrides>;
 }
