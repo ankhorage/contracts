@@ -1,5 +1,5 @@
 import type { AuthFlowConfig, AuthOAuthConfig } from '../auth';
-import type { SerializableSet } from '../collections';
+import type { EntityRegistry, SerializableSet, ValueMap } from '../collections';
 import type { ApiDefinitionRegistry, DataContractValue } from '../data';
 import type { AppEnvironmentId } from '../environments';
 import type { INFRA_ADAPTER_CATALOG, INFRA_RUNTIME_COMPATIBILITY } from '../infra/constants';
@@ -109,7 +109,7 @@ export interface InfraAuthConfigMap {
 export interface InfraAuthzConfigMap {
   readonly cerbos: {
     readonly kind: 'RBAC' | 'ABAC';
-    readonly policies?: Readonly<Record<string, string>>;
+    readonly policies?: ValueMap<string, string>;
   };
 }
 export interface InfraSecretStoreConfigMap {
@@ -167,7 +167,7 @@ export interface InfraModuleSpec {
   readonly config?: DataContractValue;
 }
 
-export type InfraModuleRegistry = Readonly<Record<InfraModuleId, InfraModuleSpec>>;
+export type InfraModuleRegistry = EntityRegistry<InfraModuleId, InfraModuleSpec>;
 
 export interface InfraManifest {
   readonly environments: Readonly<
