@@ -7,7 +7,7 @@ import type {
   ComponentDataBindingRegistry,
   ScreenDataLoaderDefinition,
 } from './bindings';
-import type { EntityRegistry } from './collections';
+import type { EntityRegistry, ValueMap } from './collections';
 import type { DataSourceRegistry } from './data';
 import type { AppDeployManifest } from './deploy';
 import type { InfraManifest } from './infra';
@@ -224,9 +224,9 @@ export interface UiNode {
   id: string;
   type: string;
   alias?: string;
-  props?: Record<string, unknown>;
+  props?: ValueMap<string, ManifestValue>;
   children?: UiNode[];
-  style?: Record<string, number | string>;
+  style?: ValueMap<string, number | string>;
   repeat?: UiNodeRepeatSpec;
 }
 
@@ -239,6 +239,8 @@ export interface ScreenSpec {
   dataLoaders?: readonly ScreenDataLoaderDefinition[];
   requires?: ScreenRequirements;
 }
+
+export type ScreenRegistry = EntityRegistry<string, ScreenSpec, 'id'>;
 
 export interface AuthSignInSpec {
   identifiers: AuthSignInIdentifier[];
@@ -287,7 +289,7 @@ export interface AppManifest {
   state?: AppStateSpec;
   infra: InfraManifest;
   navigator: AppNavigatorManifest;
-  screens: EntityRegistry<string, ScreenSpec, 'id'>;
+  screens: ScreenRegistry;
   dataSources?: DataSourceRegistry;
   dataBindings?: ComponentDataBindingRegistry;
   repository?: RepositoryManifest;
