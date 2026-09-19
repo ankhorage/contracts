@@ -180,9 +180,7 @@ test('proves referenced set members are strings', () => {
 });
 
 test('publishes the dedicated structure subpath', async () => {
-  const packageJson = JSON.parse(
-    await readFile(join(process.cwd(), 'package.json'), 'utf8'),
-  ) as {
+  const packageJson = JSON.parse(await readFile(join(process.cwd(), 'package.json'), 'utf8')) as {
     exports?: Readonly<Record<string, { default?: string; types?: string }>>;
   };
   const exports = new Map(Object.entries(packageJson.exports ?? {}));
