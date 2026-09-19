@@ -1,3 +1,4 @@
+import type { EntityRegistry } from '../collections';
 import type { DataEndpointRegistry } from './endpoints';
 import type { DataSourceId } from './ids';
 import type { CredentialRef, DatabaseAdapterRef } from './refs';
@@ -19,4 +20,4 @@ export interface DatabaseDataSourceConfig {
 }
 
 export type DataSourceConfig = DatabaseDataSourceConfig;
-export type DataSourceRegistry = Readonly<Record<DataSourceId, DataSourceConfig>>;
+export type DataSourceRegistry = EntityRegistry<DataSourceId, DataSourceConfig, 'id'>;
