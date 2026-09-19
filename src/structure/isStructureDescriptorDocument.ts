@@ -6,8 +6,8 @@ import type {
   StructureDescriptor,
   StructureDescriptorDefinition,
   StructureDescriptorDocument,
-  StructureDescriptorRegistry,
   StructureDescriptorId,
+  StructureDescriptorRegistry,
 } from './types';
 
 /*** Validate a complete package structural-descriptor document and all resolvable references. */
@@ -58,8 +58,8 @@ function isDescriptorRegistry(value: unknown): value is StructureDescriptorRegis
   return (
     isRecord(value) &&
     Object.keys(value).length > 0 &&
-    Object.entries(value).every(
-      ([descriptorId, definition]) => isDefinition(definition, descriptorId),
+    Object.entries(value).every(([descriptorId, definition]) =>
+      isDefinition(definition, descriptorId),
     )
   );
 }
