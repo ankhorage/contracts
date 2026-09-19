@@ -1,7 +1,7 @@
 import { isRecord } from '@ankhorage/utility/object';
+import { isNonEmptyString } from '@ankhorage/utility/string';
 
 import type { EntityRegistry } from './collections';
-import { isNonEmptyString } from '@ankhorage/utility/string';
 
 export const MEDIA_ASSET_KINDS = ['image', 'audio', 'video', 'font', 'file'] as const;
 
