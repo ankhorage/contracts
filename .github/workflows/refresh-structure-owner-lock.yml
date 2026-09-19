@@ -1,0 +1,38 @@
+name: Refresh structure owner lock
+
+on:
+  push:
+    branches:
+      - feat/244-screen-metadata-structure-rebase
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: feat/244-screen-metadata-structure-rebase
+          fetch-depth: 0
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: '1.4.2'
+
+      - name: Refresh structure owner dependencies
+        run: bun update @ankhorage/devtools @ankhorage/contracts --lockfile-only --ignore-scripts
+
+      - name: Commit lockfile
+        run: |
+          if git diff --quiet -- bun.lock; then
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add bun.lock
+          git commit -m "chore: refresh structure owner lockfile"
+          git push origin HEAD:feat/244-screen-metadata-structure-rebase
