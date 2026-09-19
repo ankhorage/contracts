@@ -5,6 +5,7 @@ function legacyRuleExceptions(rule, files) {
 }
 
 export default [
+  { ignores: ['src/structure/generated.ts'] },
   ...createConfig({
     files: ['src/**/*.test.ts'],
     project: ['./tsconfig.eslint.json'],

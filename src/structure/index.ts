@@ -1,4 +1,9 @@
 export type { EntityRegistry, SerializableSet, ValueMap } from '../collections';
+export {
+  STRUCTURE_DESCRIPTOR,
+  STRUCTURE_DESCRIPTOR_COMPILER_VERSION,
+  STRUCTURE_DESCRIPTOR_FINGERPRINT,
+} from './generated.js';
 export { isStructureDescriptor } from './isStructureDescriptor.js';
 export { isStructureDescriptorDocument } from './isStructureDescriptorDocument.js';
 export type {
