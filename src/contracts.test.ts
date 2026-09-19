@@ -59,6 +59,15 @@ describe('contracts', () => {
       category: 'contracts',
       provider: null,
       capabilities: ['contracts.cli'],
+      structure: {
+        output: 'src/structure/generated.ts',
+        roots: {
+          'screen-metadata': {
+            source: 'src/types.ts',
+            export: 'ScreenMetadataSpec',
+          },
+        },
+      },
     } as const satisfies AnkhPackageMetadata;
 
     const packageJson = JSON.parse(await readFile(join(process.cwd(), 'package.json'), 'utf8')) as {
