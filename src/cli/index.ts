@@ -25,8 +25,19 @@ export interface AnkhCommandProviderManifest {
   readonly commands: readonly AnkhCommandDescriptor[];
 }
 
+export interface AnkhStructureRootMetadata {
+  readonly source: string;
+  readonly export: string;
+}
+
+export interface AnkhStructureMetadata {
+  readonly output: string;
+  readonly roots: Readonly<Record<string, AnkhStructureRootMetadata>>;
+}
+
 export interface AnkhPackageMetadata {
   readonly category: AnkhCommandCategory;
   readonly provider: AnkhProviderReference | null;
   readonly capabilities: readonly AnkhCapabilityId[];
+  readonly structure?: AnkhStructureMetadata;
 }
