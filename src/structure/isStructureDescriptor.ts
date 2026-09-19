@@ -1,11 +1,7 @@
 import { hasOnlyKeys, isRecord } from '@ankhorage/utility/object';
 import { isNonEmptyString } from '@ankhorage/utility/string';
 
-import type {
-  StructureDescriptor,
-  StructureLiteralValue,
-  StructureScalarType,
-} from './types';
+import type { StructureDescriptor, StructureLiteralValue, StructureScalarType } from './types';
 
 /*** Validate one standalone structural descriptor without resolving external/local references. */
 export function isStructureDescriptor(value: unknown): value is StructureDescriptor {
@@ -22,10 +18,7 @@ function isDescriptor(value: unknown, ancestors: Set<object>): value is Structur
 }
 
 /*** Dispatch descriptor validation by its explicit structural kind. */
-function validateDescriptorKind(
-  value: Record<string, unknown>,
-  ancestors: Set<object>,
-): boolean {
+function validateDescriptorKind(value: Record<string, unknown>, ancestors: Set<object>): boolean {
   switch (value.kind) {
     case 'scalar':
       return isScalarDescriptor(value);
@@ -110,16 +103,12 @@ function isValueMapDescriptor(value: Record<string, unknown>, ancestors: Set<obj
 
 /*** Validate an unordered string-membership descriptor. */
 function isSetDescriptor(value: Record<string, unknown>, ancestors: Set<object>): boolean {
-  return (
-    hasOnlyKeys(value, ['kind', 'member']) && isStringKeyDescriptor(value.member, ancestors)
-  );
+  return hasOnlyKeys(value, ['kind', 'member']) && isStringKeyDescriptor(value.member, ancestors);
 }
 
 /*** Validate a semantically ordered list descriptor. */
 function isOrderedListDescriptor(value: Record<string, unknown>, ancestors: Set<object>): boolean {
-  return (
-    hasOnlyKeys(value, ['kind', 'item']) && isDescriptor(value.item, ancestors)
-  );
+  return hasOnlyKeys(value, ['kind', 'item']) && isDescriptor(value.item, ancestors);
 }
 
 /*** Validate a union descriptor with at least two valid variants. */
