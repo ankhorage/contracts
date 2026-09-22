@@ -2,7 +2,7 @@
 import type { StructureDescriptorDocument } from '@ankhorage/contracts/structure';
 
 export const STRUCTURE_DESCRIPTOR_COMPILER_VERSION = '6.0.3';
-export const STRUCTURE_DESCRIPTOR_FINGERPRINT = 'sha256:d920a086df0dc4710b27ee43b2a82967ea332de32d1ef5f4ebda1010f5f9e027';
+export const STRUCTURE_DESCRIPTOR_FINGERPRINT = 'sha256:be94d5871e866b5cacf464e79b7f80777b2a1c235845f5f0db1336623727dcd1';
 
 export const STRUCTURE_DESCRIPTOR = {
   "protocolVersion": 1,
@@ -10,6 +10,7 @@ export const STRUCTURE_DESCRIPTOR = {
   "packageVersion": "22.6.0",
   "roots": {
     "auth-flow": "AuthFlowConfig",
+    "auth-profile": "AuthProfileSpec",
     "auth-sign-in": "AuthSignInSpec",
     "auth-sign-up": "AuthSignUpSpec",
     "screen-metadata": "ScreenMetadataSpec",
@@ -65,6 +66,67 @@ export const STRUCTURE_DESCRIPTOR = {
             "value": {
               "kind": "scalar",
               "type": "string"
+            },
+            "optional": true
+          }
+        }
+      }
+    },
+    "AuthProfileField": {
+      "id": "AuthProfileField",
+      "descriptor": {
+        "kind": "scalar",
+        "type": "string"
+      }
+    },
+    "AuthProfileSpec": {
+      "id": "AuthProfileSpec",
+      "descriptor": {
+        "kind": "object",
+        "fields": {
+          "createStrategy": {
+            "value": {
+              "kind": "enum",
+              "values": [
+                "api",
+                "app",
+                "trigger"
+              ]
+            },
+            "optional": true
+          },
+          "fields": {
+            "value": {
+              "kind": "ordered-list",
+              "item": {
+                "kind": "ref",
+                "id": "AuthProfileField"
+              }
+            }
+          },
+          "primaryKey": {
+            "value": {
+              "kind": "enum",
+              "values": [
+                "authUserId"
+              ]
+            },
+            "optional": true
+          },
+          "table": {
+            "value": {
+              "kind": "scalar",
+              "type": "string"
+            },
+            "optional": true
+          },
+          "updateStrategy": {
+            "value": {
+              "kind": "enum",
+              "values": [
+                "api",
+                "app"
+              ]
             },
             "optional": true
           }
