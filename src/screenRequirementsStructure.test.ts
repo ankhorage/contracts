@@ -10,43 +10,41 @@ test('publishes ScreenRequirements set semantics from the generated owner docume
       capabilities: {
         value: {
           kind: 'set',
-          member: { kind: 'ref', id: 'AnkhorageCapabilityName' },
+          member: {
+            kind: 'enum',
+            values: [
+              'barcodeScanner',
+              'cameraPreview',
+              'clipboard',
+              'ebookReader',
+              'filePicker',
+              'location',
+              'mediaPicker',
+              'notifications',
+            ],
+          },
         },
         optional: true,
       },
       permissions: {
         value: {
           kind: 'set',
-          member: { kind: 'ref', id: 'AnkhoragePermissionName' },
+          member: {
+            kind: 'enum',
+            values: [
+              'camera',
+              'clipboard',
+              'locationBackground',
+              'locationForeground',
+              'mediaLibrary',
+              'mediaLibraryWrite',
+              'microphone',
+              'notifications',
+            ],
+          },
         },
         optional: true,
       },
     },
-  });
-  expect(STRUCTURE_DESCRIPTOR.descriptors.AnkhoragePermissionName.descriptor).toEqual({
-    kind: 'enum',
-    values: [
-      'camera',
-      'clipboard',
-      'locationBackground',
-      'locationForeground',
-      'mediaLibrary',
-      'mediaLibraryWrite',
-      'microphone',
-      'notifications',
-    ],
-  });
-  expect(STRUCTURE_DESCRIPTOR.descriptors.AnkhorageCapabilityName.descriptor).toEqual({
-    kind: 'enum',
-    values: [
-      'barcodeScanner',
-      'cameraPreview',
-      'clipboard',
-      'ebookReader',
-      'filePicker',
-      'location',
-      'mediaPicker',
-      'notifications',
-    ],
   });
 });
