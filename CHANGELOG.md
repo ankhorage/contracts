@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 22.5.0
+
+### Minor Changes
+
+- a55ea34: Publish the canonical auth sign-in structure root with ordered identifier semantics for Studio authoring.
+
 ## 22.4.0
 
 ### Minor Changes
