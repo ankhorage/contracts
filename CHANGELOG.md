@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 22.5.1
+
+### Patch Changes
+
+- cf891bc: Update Ankhorage dependencies: `@ankhorage/utility`.
+
 ## 22.5.0
 
 ### Minor Changes
