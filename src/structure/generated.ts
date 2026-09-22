@@ -2,17 +2,73 @@
 import type { StructureDescriptorDocument } from '@ankhorage/contracts/structure';
 
 export const STRUCTURE_DESCRIPTOR_COMPILER_VERSION = '6.0.3';
-export const STRUCTURE_DESCRIPTOR_FINGERPRINT = 'sha256:2dffc16ee7d6af514cc25b9372065cb93c8b9ec5a848f5482f579913fed41b74';
+export const STRUCTURE_DESCRIPTOR_FINGERPRINT = 'sha256:6c7d63faf1de59cb1ecdd60c60a3d3c2f501b855796943745858fde61a926198';
 
 export const STRUCTURE_DESCRIPTOR = {
   "protocolVersion": 1,
   "packageName": "@ankhorage/contracts",
   "packageVersion": "22.3.0",
   "roots": {
+    "auth-flow": "AuthFlowConfig",
     "screen-metadata": "ScreenMetadataSpec",
     "screen-requirements": "ScreenRequirements"
   },
   "descriptors": {
+    "AuthFlowConfig": {
+      "id": "AuthFlowConfig",
+      "descriptor": {
+        "kind": "object",
+        "fields": {
+          "forgotPasswordRoute": {
+            "value": {
+              "kind": "scalar",
+              "type": "string"
+            },
+            "optional": true
+          },
+          "otpRoute": {
+            "value": {
+              "kind": "scalar",
+              "type": "string"
+            },
+            "optional": true
+          },
+          "postSignInRoute": {
+            "value": {
+              "kind": "scalar",
+              "type": "string"
+            }
+          },
+          "signInRoute": {
+            "value": {
+              "kind": "scalar",
+              "type": "string"
+            }
+          },
+          "signOutRoute": {
+            "value": {
+              "kind": "scalar",
+              "type": "string"
+            },
+            "optional": true
+          },
+          "signUpRoute": {
+            "value": {
+              "kind": "scalar",
+              "type": "string"
+            },
+            "optional": true
+          },
+          "unauthorizedRoute": {
+            "value": {
+              "kind": "scalar",
+              "type": "string"
+            },
+            "optional": true
+          }
+        }
+      }
+    },
     "ScreenMetadataSpec": {
       "id": "ScreenMetadataSpec",
       "descriptor": {
