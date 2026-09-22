@@ -62,6 +62,10 @@ describe('contracts', () => {
       structure: {
         output: 'src/structure/generated.ts',
         roots: {
+          'auth-flow': {
+            source: 'src/auth.ts',
+            export: 'AuthFlowConfig',
+          },
           'screen-metadata': {
             source: 'src/types.ts',
             export: 'ScreenMetadataSpec',
