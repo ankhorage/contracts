@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 22.4.0
+
+### Minor Changes
+
+- d31c482: Publish the canonical auth-flow structure descriptor root for descriptor-driven Studio route authoring.
+
 ## 22.3.0
 
 ### Minor Changes
