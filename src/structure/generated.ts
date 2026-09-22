@@ -2,7 +2,7 @@
 import type { StructureDescriptorDocument } from '@ankhorage/contracts/structure';
 
 export const STRUCTURE_DESCRIPTOR_COMPILER_VERSION = '6.0.3';
-export const STRUCTURE_DESCRIPTOR_FINGERPRINT = 'sha256:e52876c49fff0589b4d7ca3b47b6fb4d1101f9757858ec16348f6b5eea9cdc72';
+export const STRUCTURE_DESCRIPTOR_FINGERPRINT = 'sha256:db74dd377c1c232f419635a81953cc2da6da0ddcb96705d9fe0a74e2ba4d2751';
 
 export const STRUCTURE_DESCRIPTOR = {
   "protocolVersion": 1,
@@ -11,6 +11,7 @@ export const STRUCTURE_DESCRIPTOR = {
   "roots": {
     "auth-flow": "AuthFlowConfig",
     "auth-sign-in": "AuthSignInSpec",
+    "auth-sign-up": "AuthSignUpSpec",
     "screen-metadata": "ScreenMetadataSpec",
     "screen-requirements": "ScreenRequirements"
   },
@@ -87,6 +88,50 @@ export const STRUCTURE_DESCRIPTOR = {
                 ]
               }
             }
+          }
+        }
+      }
+    },
+    "AuthSignUpField": {
+      "id": "AuthSignUpField",
+      "descriptor": {
+        "kind": "scalar",
+        "type": "string"
+      }
+    },
+    "AuthSignUpSpec": {
+      "id": "AuthSignUpSpec",
+      "descriptor": {
+        "kind": "object",
+        "fields": {
+          "optionalFields": {
+            "value": {
+              "kind": "ordered-list",
+              "item": {
+                "kind": "ref",
+                "id": "AuthSignUpField"
+              }
+            },
+            "optional": true
+          },
+          "requiredFields": {
+            "value": {
+              "kind": "ordered-list",
+              "item": {
+                "kind": "ref",
+                "id": "AuthSignUpField"
+              }
+            }
+          },
+          "signUpPolicy": {
+            "value": {
+              "kind": "enum",
+              "values": [
+                "autoSignIn",
+                "requireVerification"
+              ]
+            },
+            "optional": true
           }
         }
       }

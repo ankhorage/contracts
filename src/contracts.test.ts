@@ -70,6 +70,10 @@ describe('contracts', () => {
             source: 'src/types.ts',
             export: 'AuthSignInSpec',
           },
+          'auth-sign-up': {
+            source: 'src/types.ts',
+            export: 'AuthSignUpSpec',
+          },
           'screen-metadata': {
             source: 'src/types.ts',
             export: 'ScreenMetadataSpec',
