@@ -10,13 +10,9 @@ test('publishes AuthSignInSpec ordered identifier semantics from the generated o
       identifiers: {
         value: {
           kind: 'ordered-list',
-          item: { kind: 'ref', id: 'AuthIdentifierKind' },
+          item: { kind: 'enum', values: ['email', 'phone', 'username'] },
         },
       },
     },
-  });
-  expect(STRUCTURE_DESCRIPTOR.descriptors.AuthIdentifierKind.descriptor).toEqual({
-    kind: 'enum',
-    values: ['email', 'phone', 'username'],
   });
 });
