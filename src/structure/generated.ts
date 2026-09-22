@@ -2,16 +2,49 @@
 import type { StructureDescriptorDocument } from '@ankhorage/contracts/structure';
 
 export const STRUCTURE_DESCRIPTOR_COMPILER_VERSION = '6.0.3';
-export const STRUCTURE_DESCRIPTOR_FINGERPRINT = 'sha256:b0afb6c562efc3e866bcb65467aaa4ba673cd631f09fdbe9cb94f3324e852e66';
+export const STRUCTURE_DESCRIPTOR_FINGERPRINT = 'sha256:8a7ff196412aee460cfda7c9cca08ffb6d055ceca7432b611330b39c7ec81ab3';
 
 export const STRUCTURE_DESCRIPTOR = {
   "protocolVersion": 1,
   "packageName": "@ankhorage/contracts",
   "packageVersion": "22.2.0",
   "roots": {
-    "screen-metadata": "ScreenMetadataSpec"
+    "screen-metadata": "ScreenMetadataSpec",
+    "screen-requirements": "ScreenRequirements"
   },
   "descriptors": {
+    "AnkhorageCapabilityName": {
+      "id": "AnkhorageCapabilityName",
+      "descriptor": {
+        "kind": "enum",
+        "values": [
+          "barcodeScanner",
+          "cameraPreview",
+          "clipboard",
+          "ebookReader",
+          "filePicker",
+          "location",
+          "mediaPicker",
+          "notifications"
+        ]
+      }
+    },
+    "AnkhoragePermissionName": {
+      "id": "AnkhoragePermissionName",
+      "descriptor": {
+        "kind": "enum",
+        "values": [
+          "camera",
+          "clipboard",
+          "locationBackground",
+          "locationForeground",
+          "mediaLibrary",
+          "mediaLibraryWrite",
+          "microphone",
+          "notifications"
+        ]
+      }
+    },
     "ScreenMetadataSpec": {
       "id": "ScreenMetadataSpec",
       "descriptor": {
@@ -40,6 +73,34 @@ export const STRUCTURE_DESCRIPTOR = {
             "value": {
               "kind": "scalar",
               "type": "string"
+            },
+            "optional": true
+          }
+        }
+      }
+    },
+    "ScreenRequirements": {
+      "id": "ScreenRequirements",
+      "descriptor": {
+        "kind": "object",
+        "fields": {
+          "capabilities": {
+            "value": {
+              "kind": "set",
+              "member": {
+                "kind": "ref",
+                "id": "AnkhorageCapabilityName"
+              }
+            },
+            "optional": true
+          },
+          "permissions": {
+            "value": {
+              "kind": "set",
+              "member": {
+                "kind": "ref",
+                "id": "AnkhoragePermissionName"
+              }
             },
             "optional": true
           }
