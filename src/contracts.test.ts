@@ -66,6 +66,10 @@ describe('contracts', () => {
             source: 'src/auth.ts',
             export: 'AuthFlowConfig',
           },
+          'auth-profile': {
+            source: 'src/types.ts',
+            export: 'AuthProfileSpec',
+          },
           'auth-sign-in': {
             source: 'src/types.ts',
             export: 'AuthSignInSpec',
