@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 22.6.0
+
+### Minor Changes
+
+- fbdb926: Publish the canonical auth sign-up structure root, including open-string ordered field lists, for descriptor-driven Studio authoring.
+
 ## 22.5.1
 
 ### Patch Changes
