@@ -14,6 +14,10 @@
         "screen-metadata": {
           "source": "src/types.ts",
           "export": "ScreenMetadataSpec"
+        },
+        "screen-requirements": {
+          "source": "src/requirements.ts",
+          "export": "ScreenRequirements"
         }
       }
     }
