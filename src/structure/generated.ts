@@ -2,12 +2,12 @@
 import type { StructureDescriptorDocument } from '@ankhorage/contracts/structure';
 
 export const STRUCTURE_DESCRIPTOR_COMPILER_VERSION = '6.0.3';
-export const STRUCTURE_DESCRIPTOR_FINGERPRINT = 'sha256:f75492e0533637806b7cac0bc9592e88be1239a46176124cfb6de95aff4285ed';
+export const STRUCTURE_DESCRIPTOR_FINGERPRINT = 'sha256:2dffc16ee7d6af514cc25b9372065cb93c8b9ec5a848f5482f579913fed41b74';
 
 export const STRUCTURE_DESCRIPTOR = {
   "protocolVersion": 1,
   "packageName": "@ankhorage/contracts",
-  "packageVersion": "22.2.0",
+  "packageVersion": "22.3.0",
   "roots": {
     "screen-metadata": "ScreenMetadataSpec",
     "screen-requirements": "ScreenRequirements"

@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 22.3.0
+
+### Minor Changes
+
+- 1125463: Publish the generated ScreenRequirements structure root with canonical set semantics for permissions and capabilities.
+
 ## 22.2.0
 
 ### Minor Changes
