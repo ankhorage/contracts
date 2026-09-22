@@ -2,7 +2,7 @@
 import type { StructureDescriptorDocument } from '@ankhorage/contracts/structure';
 
 export const STRUCTURE_DESCRIPTOR_COMPILER_VERSION = '6.0.3';
-export const STRUCTURE_DESCRIPTOR_FINGERPRINT = 'sha256:f6a99b95cba4bd58a24107d995844df7e9c1713ce87118f4ae16e033c9e24936';
+export const STRUCTURE_DESCRIPTOR_FINGERPRINT = 'sha256:3e5229b8d0d4682a5f160f47f6badbf4a9665990f8129796aa89ecd5dcfa4696';
 
 export const STRUCTURE_DESCRIPTOR = {
   "protocolVersion": 1,
@@ -10,6 +10,7 @@ export const STRUCTURE_DESCRIPTOR = {
   "packageVersion": "22.4.0",
   "roots": {
     "auth-flow": "AuthFlowConfig",
+    "auth-sign-in": "AuthSignInSpec",
     "screen-metadata": "ScreenMetadataSpec",
     "screen-requirements": "ScreenRequirements"
   },
@@ -65,6 +66,34 @@ export const STRUCTURE_DESCRIPTOR = {
               "type": "string"
             },
             "optional": true
+          }
+        }
+      }
+    },
+    "AuthIdentifierKind": {
+      "id": "AuthIdentifierKind",
+      "descriptor": {
+        "kind": "enum",
+        "values": [
+          "email",
+          "phone",
+          "username"
+        ]
+      }
+    },
+    "AuthSignInSpec": {
+      "id": "AuthSignInSpec",
+      "descriptor": {
+        "kind": "object",
+        "fields": {
+          "identifiers": {
+            "value": {
+              "kind": "ordered-list",
+              "item": {
+                "kind": "ref",
+                "id": "AuthIdentifierKind"
+              }
+            }
           }
         }
       }
