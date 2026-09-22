@@ -2,7 +2,7 @@
 import type { StructureDescriptorDocument } from '@ankhorage/contracts/structure';
 
 export const STRUCTURE_DESCRIPTOR_COMPILER_VERSION = '6.0.3';
-export const STRUCTURE_DESCRIPTOR_FINGERPRINT = 'sha256:3e5229b8d0d4682a5f160f47f6badbf4a9665990f8129796aa89ecd5dcfa4696';
+export const STRUCTURE_DESCRIPTOR_FINGERPRINT = 'sha256:f3ed1188a305565c10c9c2a3e5366ab12d3a78263cd636e776488bb11d11c3c5';
 
 export const STRUCTURE_DESCRIPTOR = {
   "protocolVersion": 1,
@@ -70,17 +70,6 @@ export const STRUCTURE_DESCRIPTOR = {
         }
       }
     },
-    "AuthIdentifierKind": {
-      "id": "AuthIdentifierKind",
-      "descriptor": {
-        "kind": "enum",
-        "values": [
-          "email",
-          "phone",
-          "username"
-        ]
-      }
-    },
     "AuthSignInSpec": {
       "id": "AuthSignInSpec",
       "descriptor": {
@@ -90,8 +79,12 @@ export const STRUCTURE_DESCRIPTOR = {
             "value": {
               "kind": "ordered-list",
               "item": {
-                "kind": "ref",
-                "id": "AuthIdentifierKind"
+                "kind": "enum",
+                "values": [
+                  "email",
+                  "phone",
+                  "username"
+                ]
               }
             }
           }
