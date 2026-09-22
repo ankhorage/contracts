@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 22.7.0
+
+### Minor Changes
+
+- 37357e8: Publish the canonical auth profile structure root for descriptor-driven Studio authoring.
+
 ## 22.6.0
 
 ### Minor Changes
