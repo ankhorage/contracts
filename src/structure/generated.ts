@@ -2,7 +2,7 @@
 import type { StructureDescriptorDocument } from '@ankhorage/contracts/structure';
 
 export const STRUCTURE_DESCRIPTOR_COMPILER_VERSION = '6.0.3';
-export const STRUCTURE_DESCRIPTOR_FINGERPRINT = 'sha256:8a7ff196412aee460cfda7c9cca08ffb6d055ceca7432b611330b39c7ec81ab3';
+export const STRUCTURE_DESCRIPTOR_FINGERPRINT = 'sha256:f75492e0533637806b7cac0bc9592e88be1239a46176124cfb6de95aff4285ed';
 
 export const STRUCTURE_DESCRIPTOR = {
   "protocolVersion": 1,
@@ -13,38 +13,6 @@ export const STRUCTURE_DESCRIPTOR = {
     "screen-requirements": "ScreenRequirements"
   },
   "descriptors": {
-    "AnkhorageCapabilityName": {
-      "id": "AnkhorageCapabilityName",
-      "descriptor": {
-        "kind": "enum",
-        "values": [
-          "barcodeScanner",
-          "cameraPreview",
-          "clipboard",
-          "ebookReader",
-          "filePicker",
-          "location",
-          "mediaPicker",
-          "notifications"
-        ]
-      }
-    },
-    "AnkhoragePermissionName": {
-      "id": "AnkhoragePermissionName",
-      "descriptor": {
-        "kind": "enum",
-        "values": [
-          "camera",
-          "clipboard",
-          "locationBackground",
-          "locationForeground",
-          "mediaLibrary",
-          "mediaLibraryWrite",
-          "microphone",
-          "notifications"
-        ]
-      }
-    },
     "ScreenMetadataSpec": {
       "id": "ScreenMetadataSpec",
       "descriptor": {
@@ -88,8 +56,17 @@ export const STRUCTURE_DESCRIPTOR = {
             "value": {
               "kind": "set",
               "member": {
-                "kind": "ref",
-                "id": "AnkhorageCapabilityName"
+                "kind": "enum",
+                "values": [
+                  "barcodeScanner",
+                  "cameraPreview",
+                  "clipboard",
+                  "ebookReader",
+                  "filePicker",
+                  "location",
+                  "mediaPicker",
+                  "notifications"
+                ]
               }
             },
             "optional": true
@@ -98,8 +75,17 @@ export const STRUCTURE_DESCRIPTOR = {
             "value": {
               "kind": "set",
               "member": {
-                "kind": "ref",
-                "id": "AnkhoragePermissionName"
+                "kind": "enum",
+                "values": [
+                  "camera",
+                  "clipboard",
+                  "locationBackground",
+                  "locationForeground",
+                  "mediaLibrary",
+                  "mediaLibraryWrite",
+                  "microphone",
+                  "notifications"
+                ]
               }
             },
             "optional": true
