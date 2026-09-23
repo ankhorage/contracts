@@ -23,22 +23,21 @@ test('publishes ThemeConfig and canonical Theme authoring semantics', () => {
     key: { kind: 'scalar', type: 'string' },
     value: { kind: 'scalar', type: 'number' },
   } as const;
-  const globalTokens =
-    STRUCTURE_DESCRIPTOR.descriptors.ThemeGlobalTokenOverrides.descriptor.fields;
+  const globalTokens = STRUCTURE_DESCRIPTOR.descriptors.ThemeGlobalTokenOverrides.descriptor.fields;
 
-  expect(globalTokens.spacing?.value).toEqual(numericMap);
-  expect(globalTokens.radii?.value).toEqual(numericMap);
-  expect(globalTokens.shadows?.value).toEqual(numericMap);
+  expect(globalTokens.spacing.value).toEqual(numericMap);
+  expect(globalTokens.radii.value).toEqual(numericMap);
+  expect(globalTokens.shadows.value).toEqual(numericMap);
 
   const typography =
     STRUCTURE_DESCRIPTOR.descriptors.ThemeTypographyTokenOverrides.descriptor.fields;
-  expect(typography.sizes?.value).toEqual(numericMap);
-  expect(typography.weights?.value).toEqual({
+  expect(typography.sizes.value).toEqual(numericMap);
+  expect(typography.weights.value).toEqual({
     kind: 'value-map',
     key: { kind: 'scalar', type: 'string' },
     value: { kind: 'scalar', type: 'string' },
   });
-  expect(typography.headings?.value).toEqual({
+  expect(typography.headings.value).toEqual({
     kind: 'value-map',
     key: { kind: 'scalar', type: 'string' },
     value: { kind: 'ref', id: 'ThemeTypographyHeadingOverrides' },
