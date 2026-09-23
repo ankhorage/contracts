@@ -2,7 +2,7 @@
 import type { StructureDescriptorDocument } from '@ankhorage/contracts/structure';
 
 export const STRUCTURE_DESCRIPTOR_COMPILER_VERSION = '6.0.3';
-export const STRUCTURE_DESCRIPTOR_FINGERPRINT = 'sha256:70d08d3048febcf5215150708292d6b49c208da087fda98cc6aa9767ead62656';
+export const STRUCTURE_DESCRIPTOR_FINGERPRINT = 'sha256:d2882eabc38f05f7921e781c529032ba3392c2d74ec8e3ce245c275413e7da49';
 
 export const STRUCTURE_DESCRIPTOR = {
   "protocolVersion": 1,
@@ -14,7 +14,8 @@ export const STRUCTURE_DESCRIPTOR = {
     "auth-sign-in": "AuthSignInSpec",
     "auth-sign-up": "AuthSignUpSpec",
     "screen-metadata": "ScreenMetadataSpec",
-    "screen-requirements": "ScreenRequirements"
+    "screen-requirements": "ScreenRequirements",
+    "theme-config": "ThemeConfig"
   },
   "descriptors": {
     "AuthFlowConfig": {
@@ -271,6 +272,254 @@ export const STRUCTURE_DESCRIPTOR = {
                   "microphone",
                   "notifications"
                 ]
+              }
+            },
+            "optional": true
+          }
+        }
+      }
+    },
+    "ThemeConfig": {
+      "id": "ThemeConfig",
+      "descriptor": {
+        "kind": "object",
+        "fields": {
+          "dark": {
+            "value": {
+              "kind": "ref",
+              "id": "ThemeModeConfig"
+            }
+          },
+          "id": {
+            "value": {
+              "kind": "scalar",
+              "type": "string"
+            }
+          },
+          "light": {
+            "value": {
+              "kind": "ref",
+              "id": "ThemeModeConfig"
+            }
+          },
+          "name": {
+            "value": {
+              "kind": "scalar",
+              "type": "string"
+            }
+          },
+          "recipes": {
+            "value": {
+              "kind": "ref",
+              "id": "ThemeRecipeOverrides"
+            },
+            "optional": true
+          },
+          "tokens": {
+            "value": {
+              "kind": "ref",
+              "id": "ThemeGlobalTokenOverrides"
+            },
+            "optional": true
+          }
+        }
+      }
+    },
+    "ThemeGlobalTokenOverrides": {
+      "id": "ThemeGlobalTokenOverrides",
+      "descriptor": {
+        "kind": "object",
+        "fields": {
+          "radii": {
+            "value": {
+              "kind": "value-map",
+              "key": {
+                "kind": "scalar",
+                "type": "string"
+              },
+              "value": {
+                "kind": "scalar",
+                "type": "number"
+              }
+            },
+            "optional": true
+          },
+          "shadows": {
+            "value": {
+              "kind": "value-map",
+              "key": {
+                "kind": "scalar",
+                "type": "string"
+              },
+              "value": {
+                "kind": "scalar",
+                "type": "number"
+              }
+            },
+            "optional": true
+          },
+          "spacing": {
+            "value": {
+              "kind": "value-map",
+              "key": {
+                "kind": "scalar",
+                "type": "string"
+              },
+              "value": {
+                "kind": "scalar",
+                "type": "number"
+              }
+            },
+            "optional": true
+          },
+          "typography": {
+            "value": {
+              "kind": "ref",
+              "id": "ThemeTypographyTokenOverrides"
+            },
+            "optional": true
+          }
+        }
+      }
+    },
+    "ThemeModeConfig": {
+      "id": "ThemeModeConfig",
+      "descriptor": {
+        "kind": "object",
+        "fields": {
+          "harmony": {
+            "value": {
+              "kind": "enum",
+              "values": [
+                "analogous",
+                "complementary",
+                "monochromatic",
+                "splitComplementary",
+                "square",
+                "tetradic",
+                "triadic"
+              ]
+            }
+          },
+          "primaryColor": {
+            "value": {
+              "kind": "scalar",
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "ThemeRecipeOverrides": {
+      "id": "ThemeRecipeOverrides",
+      "descriptor": {
+        "kind": "object",
+        "fields": {
+          "components": {
+            "value": {
+              "kind": "value-map",
+              "key": {
+                "kind": "scalar",
+                "type": "string"
+              },
+              "value": {
+                "kind": "ref",
+                "packageName": "typescript",
+                "id": "Readonly"
+              }
+            },
+            "optional": true
+          },
+          "patterns": {
+            "value": {
+              "kind": "value-map",
+              "key": {
+                "kind": "scalar",
+                "type": "string"
+              },
+              "value": {
+                "kind": "ref",
+                "packageName": "typescript",
+                "id": "Readonly"
+              }
+            },
+            "optional": true
+          }
+        }
+      }
+    },
+    "ThemeTypographyHeadingOverrides": {
+      "id": "ThemeTypographyHeadingOverrides",
+      "descriptor": {
+        "kind": "object",
+        "fields": {
+          "lineHeight": {
+            "value": {
+              "kind": "scalar",
+              "type": "number"
+            },
+            "optional": true
+          },
+          "size": {
+            "value": {
+              "kind": "scalar",
+              "type": "number"
+            },
+            "optional": true
+          },
+          "weight": {
+            "value": {
+              "kind": "scalar",
+              "type": "string"
+            },
+            "optional": true
+          }
+        }
+      }
+    },
+    "ThemeTypographyTokenOverrides": {
+      "id": "ThemeTypographyTokenOverrides",
+      "descriptor": {
+        "kind": "object",
+        "fields": {
+          "headings": {
+            "value": {
+              "kind": "value-map",
+              "key": {
+                "kind": "scalar",
+                "type": "string"
+              },
+              "value": {
+                "kind": "ref",
+                "id": "ThemeTypographyHeadingOverrides"
+              }
+            },
+            "optional": true
+          },
+          "sizes": {
+            "value": {
+              "kind": "value-map",
+              "key": {
+                "kind": "scalar",
+                "type": "string"
+              },
+              "value": {
+                "kind": "scalar",
+                "type": "number"
+              }
+            },
+            "optional": true
+          },
+          "weights": {
+            "value": {
+              "kind": "value-map",
+              "key": {
+                "kind": "scalar",
+                "type": "string"
+              },
+              "value": {
+                "kind": "scalar",
+                "type": "string"
               }
             },
             "optional": true
