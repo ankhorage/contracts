@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 22.8.1
+
+### Patch Changes
+
+- c591e04: Update Ankhorage dependencies: `@ankhorage/utility`.
+
 ## 22.8.0
 
 ### Minor Changes
