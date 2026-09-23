@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 22.8.0
+
+### Minor Changes
+
+- c8c704f: Publish the canonical ThemeConfig structure root for descriptor-driven Theme authoring.
+
 ## 22.7.0
 
 ### Minor Changes
