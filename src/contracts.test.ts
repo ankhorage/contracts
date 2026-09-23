@@ -86,6 +86,10 @@ describe('contracts', () => {
             source: 'src/requirements.ts',
             export: 'ScreenRequirements',
           },
+          'theme-config': {
+            source: 'src/types.ts',
+            export: 'ThemeConfig',
+          },
         },
       },
     } as const satisfies AnkhPackageMetadata;
