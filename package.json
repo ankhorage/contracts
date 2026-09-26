@@ -44,7 +44,7 @@
   },
   "dependencies": {
     "@ankhorage/color-theory": "^0.3.1",
-    "@ankhorage/utility": "^1.8.1"
+    "@ankhorage/utility": "^1.9.0"
   },
   "devDependencies": {
     "@ankhorage/devtools": "^1.19.10",
