@@ -2,7 +2,7 @@ import { isStringArray } from '@ankhorage/utility/array';
 import { isRecord, readOwnProperty } from '@ankhorage/utility/object';
 import { isOptionalString } from '@ankhorage/utility/string';
 
-import { isManifestValue } from './isManifestValue';
+import { isSerializableValue } from '../serializable';
 
 const DATA_SCHEMA_TYPES = new Set([
   'array',
@@ -51,7 +51,7 @@ export function isAdapterRef(value: unknown): boolean {
     typeof value.kind === 'string' &&
     isOptionalString(value.packageName) &&
     isOptionalString(value.exportName) &&
-    (value.config === undefined || isManifestValue(value.config))
+    (value.config === undefined || isSerializableValue(value.config))
   );
 }
 
@@ -71,14 +71,18 @@ function isDataEndpointConfig(value: unknown): boolean {
       ([operationId, operation]) =>
         isDataOperationConfig(operation) && isRecord(operation) && operation.id === operationId,
     ) &&
-    (value.metadata === undefined || isManifestValue(value.metadata))
+    (value.metadata === undefined || isSerializableValue(value.metadata))
   );
 }
 
 /*** Validate operation protocol, intent, request and response configuration. */
 function isDataOperationConfig(value: unknown): boolean {
+  return isRecord(value) && isDataOperationIdentity(value) && isDataOperationDetails(value);
+}
+
+/*** Validate operation identity, protocol and routing fields. */
+function isDataOperationIdentity(value: Record<string, unknown>): boolean {
   return (
-    isRecord(value) &&
     typeof value.id === 'string' &&
     isOptionalString(value.endpointId) &&
     isOptionalString(value.name) &&
@@ -87,12 +91,18 @@ function isDataOperationConfig(value: unknown): boolean {
     typeof value.intent === 'string' &&
     OPERATION_INTENTS.has(value.intent) &&
     isOptionalString(value.method) &&
-    isOptionalString(value.path) &&
+    isOptionalString(value.path)
+  );
+}
+
+/*** Validate operation request, response and authored metadata. */
+function isDataOperationDetails(value: Record<string, unknown>): boolean {
+  return (
     (value.request === undefined || isDataOperationRequest(value.request)) &&
     (value.response === undefined || isDataOperationResponse(value.response)) &&
     (value.pagination === undefined || isRecord(value.pagination)) &&
     (value.credential === undefined || isCredentialRef(value.credential)) &&
-    (value.metadata === undefined || isManifestValue(value.metadata))
+    (value.metadata === undefined || isSerializableValue(value.metadata))
   );
 }
 
@@ -117,7 +127,7 @@ function isDataOperationParameter(value: unknown): boolean {
     PARAMETER_LOCATIONS.has(value.location) &&
     (value.required === undefined || typeof value.required === 'boolean') &&
     isOptionalString(value.description) &&
-    (value.default === undefined || isManifestValue(value.default))
+    (value.default === undefined || isSerializableValue(value.default))
   );
 }
 
@@ -167,10 +177,10 @@ function isOptionalSchemaScalars(value: Record<string, unknown>): boolean {
     isOptionalString(value.description) &&
     isOptionalString(value.format) &&
     (value.nullable === undefined || typeof value.nullable === 'boolean') &&
-    (value.const === undefined || isManifestValue(value.const)) &&
-    (value.default === undefined || isManifestValue(value.default)) &&
+    (value.const === undefined || isSerializableValue(value.const)) &&
+    (value.default === undefined || isSerializableValue(value.default)) &&
     (value.enum === undefined ||
-      (Array.isArray(value.enum) && value.enum.every(isManifestValue))) &&
+      (Array.isArray(value.enum) && value.enum.every(isSerializableValue))) &&
     (value.ref === undefined || isDataSchemaRef(value.ref))
   );
 }

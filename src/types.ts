@@ -1,6 +1,5 @@
 import type { ColorHarmony } from '@ankhorage/color-theory';
 
-import type { SplashScreenSpec } from './appManifest/splashScreen';
 import type { AuthIdentifierKind, AuthSignUpField } from './auth';
 import type {
   BindingValueSource,
@@ -266,6 +265,19 @@ export interface AppSettings {
     defaultLocale: string;
     locales: string[];
   };
+}
+
+export type SplashScreenResizeMode = 'contain' | 'cover' | 'native';
+
+export interface SplashScreenModeSpec {
+  readonly backgroundColor?: string;
+  readonly image?: MediaAssetReference;
+}
+
+export interface SplashScreenSpec extends SplashScreenModeSpec {
+  readonly imageWidth?: number;
+  readonly resizeMode?: SplashScreenResizeMode;
+  readonly dark?: SplashScreenModeSpec;
 }
 
 export interface AppManifest {

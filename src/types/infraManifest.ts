@@ -2,7 +2,7 @@ import type { AuthFlowConfig, AuthOAuthConfig } from '../auth';
 import type { EntityRegistry, SerializableSet, ValueMap } from '../collections';
 import type { ApiDefinitionRegistry, DataContractValue } from '../data';
 import type { AppEnvironmentId } from '../environments';
-import type { INFRA_ADAPTER_CATALOG, INFRA_RUNTIME_COMPATIBILITY } from '../infra/constants';
+import type { INFRA_ADAPTER_CATALOG, INFRA_RUNTIME_COMPATIBILITY } from '../infraCatalog';
 import type { AuthProfileSpec, AuthScope, AuthSignInSpec, AuthSignUpSpec } from '../types';
 import type { InfraControlPlaneCredentialRef } from './infraSecrets';
 import type { InfraWorkloadRegistry } from './infraWorkload';
