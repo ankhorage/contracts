@@ -1,5 +1,5 @@
 /** Canonical standalone infrastructure contracts, catalog and side-effect-free validation. */
-export { INFRA_ADAPTER_CATALOG, INFRA_RUNTIME_COMPATIBILITY } from './infra/constants';
+export { INFRA_ADAPTER_CATALOG, INFRA_RUNTIME_COMPATIBILITY } from './infraCatalog';
 export { isInfraAdapterDescriptor } from './infra/isInfraAdapterDescriptor';
 export { isInfraAuthSpec } from './infra/isInfraAuthSpec';
 export { isInfraDeploymentSpec } from './infra/isInfraDeploymentSpec';

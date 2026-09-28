@@ -1,7 +1,7 @@
 import type { InfraAdapterDescriptor } from '../types/infraAdapters';
 import type { InfraDiagnostic, InfraResult } from '../types/infraLifecycle';
 import type { InfraEnvironmentSpec } from '../types/infraManifest';
-import { INFRA_ADAPTER_CATALOG } from './constants';
+import { INFRA_ADAPTER_CATALOG } from '../infraCatalog';
 import { isInfraAdapterDescriptor } from './isInfraAdapterDescriptor';
 
 /** Validate supplied installed descriptors without imports or filesystem access; only selected packages matter. */
