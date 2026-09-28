@@ -11,11 +11,7 @@ export default [
     project: ['./tsconfig.eslint.json'],
     tsconfigRootDir: import.meta.dirname,
   }),
-  legacyRuleExceptions('complexity', [
-    'src/appManifest/data.ts',
-    'src/appManifest/dataSources.ts',
-    'src/bindings.test.ts',
-  ]),
+  legacyRuleExceptions('complexity', ['src/appManifest/dataSources.ts', 'src/bindings.test.ts']),
   legacyRuleExceptions('max-lines', [
     'src/auth.ts',
     'src/bindings.test.ts',
@@ -35,8 +31,5 @@ export default [
     'src/state.test.ts',
     'src/ui.test.ts',
   ]),
-  legacyRuleExceptions('security/detect-object-injection', [
-    'src/appManifest/data.ts',
-    'src/appManifest/screens.ts',
-  ]),
+  legacyRuleExceptions('security/detect-object-injection', ['src/appManifest/screens.ts']),
 ];

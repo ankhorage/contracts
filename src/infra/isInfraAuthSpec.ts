@@ -2,7 +2,7 @@ import { isStringArray } from '@ankhorage/utility/array';
 import { isRecordOf } from '@ankhorage/utility/object';
 import { isOptionalString } from '@ankhorage/utility/string';
 
-import { isIconSpec } from '../appManifest/icon';
+import { isIconSpec } from '../icon';
 import { AUTH_OAUTH_PROVIDER_IDS } from '../auth';
 import {
   AUTH_PROFILE_CREATE_STRATEGIES,

@@ -1,7 +1,7 @@
 import { isRecord } from '@ankhorage/utility/object';
 import { isOptionalString } from '@ankhorage/utility/string';
 
-import { isMediaAssetReference } from '../media';
+import { isMediaAssetReference } from './media';
 
 /*** Validate a serializable icon as either a named font glyph or an SVG media reference. */
 export function isIconSpec(value: unknown): boolean {

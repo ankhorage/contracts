@@ -1,9 +1,9 @@
 import { hasOnlyKeys, isRecord } from '@ankhorage/utility/object';
 import { isNonEmptyString, isOptionalString } from '@ankhorage/utility/string';
 
-import type { ApiDefinition, ApiDefinitionRegistry } from '../data';
-import { isCredentialRef, isDataEndpointRegistry, isDataSchemaRegistry } from './data';
-import { isManifestValue } from './isManifestValue';
+import type { ApiDefinition, ApiDefinitionRegistry } from './apis';
+import { isCredentialRef, isDataEndpointRegistry, isDataSchemaRegistry } from './dataValidation';
+import { isSerializableValue } from '../serializable';
 
 const API_BASE_KEYS = [
   'id',
@@ -54,7 +54,7 @@ function isApiBaseDefinition(value: unknown): value is Record<string, unknown> {
     (value.credential === undefined || isCredentialRef(value.credential)) &&
     isDataEndpointRegistry(value.endpoints) &&
     (value.schemas === undefined || isDataSchemaRegistry(value.schemas)) &&
-    (value.metadata === undefined || isManifestValue(value.metadata))
+    (value.metadata === undefined || isSerializableValue(value.metadata))
   );
 }
 

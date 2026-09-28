@@ -1,6 +1,6 @@
 import { isRecord } from '@ankhorage/utility/object';
 
-import { isApiDefinitionRegistry } from '../appManifest/apis';
+import { isApiDefinitionRegistry } from '../data/isApiDefinitionRegistry';
 import { APP_ENVIRONMENT_IDS } from '../environments';
 import { isSerializableValue } from '../serializable';
 import type { InfraManifest, InfraModuleSpec } from '../types/infraManifest';
