@@ -1,5 +1,14 @@
 # @ankhorage/contracts
 
+## 22.8.3
+
+### Patch Changes
+
+- dc17765: Keep repository-only Renovate configuration out of published documentation.
+- b0933b1: Update Ankhorage dependencies: `@ankhorage/paradox`, `@ankhorage/utility`.
+- 43079fc: Update Ankhorage dependencies: `@ankhorage/utility`.
+- d57e66e: Break the AppManifest/Infra source cycle without restructuring unrelated contract modules.
+
 ## 22.8.2
 
 ### Patch Changes
