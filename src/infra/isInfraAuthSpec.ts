@@ -2,8 +2,8 @@ import { isStringArray } from '@ankhorage/utility/array';
 import { isRecordOf } from '@ankhorage/utility/object';
 import { isOptionalString } from '@ankhorage/utility/string';
 
-import { isIconSpec } from '../icon';
 import { AUTH_OAUTH_PROVIDER_IDS } from '../auth';
+import { isIconSpec } from '../icon';
 import {
   AUTH_PROFILE_CREATE_STRATEGIES,
   AUTH_PROFILE_PRIMARY_KEY_STRATEGIES,

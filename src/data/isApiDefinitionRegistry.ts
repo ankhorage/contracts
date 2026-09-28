@@ -1,9 +1,9 @@
 import { hasOnlyKeys, isRecord } from '@ankhorage/utility/object';
 import { isNonEmptyString, isOptionalString } from '@ankhorage/utility/string';
 
+import { isSerializableValue } from '../serializable';
 import type { ApiDefinition, ApiDefinitionRegistry } from './apis';
 import { isCredentialRef, isDataEndpointRegistry, isDataSchemaRegistry } from './dataValidation';
-import { isSerializableValue } from '../serializable';
 
 const API_BASE_KEYS = [
   'id',
