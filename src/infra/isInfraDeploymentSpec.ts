@@ -1,13 +1,13 @@
 import { isRecord } from '@ankhorage/utility/object';
 import { isNonEmptyString } from '@ankhorage/utility/string';
 
+import { INFRA_RUNTIME_COMPATIBILITY } from '../infraCatalog';
 import type {
   InfraComputeSelection,
   InfraDeploymentSpec,
   InfraRuntimeSelection,
 } from '../types/infraManifest';
 import type { InfraShape } from '../types/infraValidation';
-import { INFRA_RUNTIME_COMPATIBILITY } from '../infraCatalog';
 import { infraFields } from './infraFields';
 import { isInfraCredentialRef } from './isInfraCredentialRef';
 import { isInfraShape } from './isInfraShape';

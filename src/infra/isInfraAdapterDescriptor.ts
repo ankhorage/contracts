@@ -1,7 +1,7 @@
 import { isRecord } from '@ankhorage/utility/object';
 
-import type { InfraAdapterDescriptor } from '../types/infraAdapters';
 import { INFRA_ADAPTER_CATALOG } from '../infraCatalog';
+import type { InfraAdapterDescriptor } from '../types/infraAdapters';
 import { isInfraShape } from './isInfraShape';
 
 /*** Installed adapters must match the canonical identity, capabilities, targets and config version exactly. */

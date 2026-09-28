@@ -2,6 +2,7 @@ import { isRecord } from '@ankhorage/utility/object';
 import { isNonEmptyString } from '@ankhorage/utility/string';
 
 import { isSerializableSet } from '../collections';
+import { INFRA_ADAPTER_CATALOG } from '../infraCatalog';
 import type {
   InfraEnvironmentSpec,
   InfraObjectStorageSpec,
@@ -9,7 +10,6 @@ import type {
   InfraScheduledDatabaseBackupSpec,
 } from '../types/infraManifest';
 import type { InfraShape } from '../types/infraValidation';
-import { INFRA_ADAPTER_CATALOG } from '../infraCatalog';
 import { infraFields } from './infraFields';
 import { isInfraAuthSpec } from './isInfraAuthSpec';
 import { isInfraCredentialRef } from './isInfraCredentialRef';
