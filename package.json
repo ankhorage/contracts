@@ -1,6 +1,6 @@
 {
   "name": "@ankhorage/contracts",
-  "version": "22.8.35",
+  "version": "22.8.36",
   "main": "./dist/index.js",
   "ankh": {
     "category": "contracts",
