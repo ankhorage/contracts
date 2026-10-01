@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 22.8.9
+
+### Patch Changes
+
+- cd19ccf: Update dependencies: `@ankhorage/devtools`.
+
 ## 22.8.8
 
 ### Patch Changes
