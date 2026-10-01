@@ -1,5 +1,12 @@
 # @ankhorage/contracts
 
+## 22.8.32
+
+### Patch Changes
+
+- 9f17da9: Update Renovate-managed workflows.
+- 3c1c7aa: Update dependencies: `@ankhorage/devtools`.
+
 ## 22.8.31
 
 ### Patch Changes
