@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 22.8.41
+
+### Patch Changes
+
+- 4f7dc5d: Update dependencies: `@ankhorage/paradox`, `@ankhorage/utility`.
+
 ## 22.8.40
 
 ### Patch Changes
