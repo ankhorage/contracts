@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 22.8.20
+
+### Patch Changes
+
+- f3657b0: Update dependencies: `@ankhorage/utility`.
+
 ## 22.8.19
 
 ### Patch Changes
