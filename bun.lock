@@ -6,7 +6,7 @@
       "name": "@ankhorage/contracts",
       "dependencies": {
         "@ankhorage/color-theory": "^0.3.1",
-        "@ankhorage/utility": "^1.9.11",
+        "@ankhorage/utility": "^1.9.12",
       },
       "devDependencies": {
         "@ankhorage/devtools": "^2.0.31",
