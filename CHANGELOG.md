@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 22.8.21
+
+### Patch Changes
+
+- 32714ef: Update dependencies: `@ankhorage/devtools`.
+
 ## 22.8.20
 
 ### Patch Changes
