@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 22.8.39
+
+### Patch Changes
+
+- faa49cb: Update dependencies: `@ankhorage/devtools`.
+
 ## 22.8.38
 
 ### Patch Changes
