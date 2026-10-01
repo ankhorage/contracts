@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 22.8.38
+
+### Patch Changes
+
+- 1216c62: Update Renovate-managed workflows.
+
 ## 22.8.37
 
 ### Patch Changes
