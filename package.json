@@ -47,7 +47,7 @@
     "@ankhorage/utility": "^1.9.61"
   },
   "devDependencies": {
-    "@ankhorage/devtools": "^2.0.97",
+    "@ankhorage/devtools": "^2.0.98",
     "@ankhorage/paradox": "^0.2.22",
     "@types/bun": "^1.4.2",
     "@types/node": "^26.6.4",
