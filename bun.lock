@@ -6,7 +6,7 @@
       "name": "@ankhorage/contracts",
       "dependencies": {
         "@ankhorage/color-theory": "^0.3.1",
-        "@ankhorage/utility": "^1.9.50",
+        "@ankhorage/utility": "^1.9.52",
       },
       "devDependencies": {
         "@ankhorage/devtools": "^2.0.79",
@@ -32,7 +32,7 @@
 
     "@ankhorage/project-detector": ["@ankhorage/project-detector@0.3.3", "", { "dependencies": { "@ankhorage/utility": "^0.8.0", "minimatch": "^10.2.6", "yaml": "^2.9.1" }, "peerDependencies": { "@ankhorage/ankh": "^0.8.13" }, "optionalPeers": ["@ankhorage/ankh"], "bin": { "project-detector": "dist/cli/runAsync.js" } }, "sha512-GSZbi53L81bdMA5j/VjqEyVBSHDzkJ44MMmZOdiXuF6HZOrwNBZ80PFERidALRArIgRj6qvR3SguLgOzzIvSMg=="],
 
-    "@ankhorage/utility": ["@ankhorage/utility@1.9.50", "", { "peerDependencies": { "fastify": "^5.12.5" }, "optionalPeers": ["fastify"] }, "sha512-EZgSvM2VFz1UpX8qcxHwnBLFCvIKzqtHJhndGIjbIULRYylVlF9U2+7DLEocRKcXpXN+sMwbki1x6Irc6Xo5wg=="],
+    "@ankhorage/utility": ["@ankhorage/utility@1.9.52", "", { "peerDependencies": { "fastify": "^5.12.5" }, "optionalPeers": ["fastify"] }, "sha512-6SCHAXpa0L8spaYBmNxdHSYDcx/1gJz9vlUq4xO8h82HTfx5Mp/3h5cxq4bk9ws7b9esZT2RSEpdq0LzeAGffw=="],
 
     "@babel/code-frame": ["@babel/code-frame@7.29.7", "", { "dependencies": { "@babel/helper-validator-identifier": "^7.29.7", "js-tokens": "^4.0.0", "picocolors": "^1.1.1" } }, "sha512-Aup7aUOfpbAUg2ROOJN6Iw5f9DMBlzu0mIkm/malLQFN/YQgO48wCj0Kxa3sEHJvPVFg7siR+qRInwXd2qhQKw=="],
 
