@@ -44,11 +44,11 @@
   },
   "dependencies": {
     "@ankhorage/color-theory": "^0.3.1",
-    "@ankhorage/utility": "^1.9.54"
+    "@ankhorage/utility": "^1.9.55"
   },
   "devDependencies": {
     "@ankhorage/devtools": "^2.0.85",
-    "@ankhorage/paradox": "^0.2.21",
+    "@ankhorage/paradox": "^0.2.22",
     "@types/bun": "^1.4.2",
     "@types/node": "^26.6.4",
     "typescript": "^6.0.3"
