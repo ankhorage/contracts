@@ -1,5 +1,12 @@
 # @ankhorage/contracts
 
+## 22.8.75
+
+### Patch Changes
+
+- 5a56ea1: Update dependencies: `@ankhorage/devtools`.
+- f80c601: Update dependencies: `@ankhorage/utility`.
+
 ## 22.8.74
 
 ### Patch Changes
