@@ -1,5 +1,12 @@
 # @ankhorage/contracts
 
+## 22.8.55
+
+### Patch Changes
+
+- 6c4fce4: Update Renovate-managed workflows.
+- 9f5792d: Update dependencies: `@ankhorage/paradox`, `@ankhorage/utility`.
+
 ## 22.8.54
 
 ### Patch Changes
