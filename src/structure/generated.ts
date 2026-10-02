@@ -2,12 +2,12 @@
 import type { StructureDescriptorDocument } from '@ankhorage/contracts/structure';
 
 export const STRUCTURE_DESCRIPTOR_COMPILER_VERSION = '6.0.3';
-export const STRUCTURE_DESCRIPTOR_FINGERPRINT = 'sha256:92596643da80dc1ccf39b9d6efd5476df97f1dbbd788cc5c51e9f0e8294a77b0';
+export const STRUCTURE_DESCRIPTOR_FINGERPRINT = 'sha256:6d45aa5c44f7fc614e716205340dc0f36f8b360bcf0b4e5611de4d1d330d6936';
 
 export const STRUCTURE_DESCRIPTOR = {
   "protocolVersion": 1,
   "packageName": "@ankhorage/contracts",
-  "packageVersion": "22.8.76",
+  "packageVersion": "22.8.77",
   "roots": {
     "auth-flow": "AuthFlowConfig",
     "auth-profile": "AuthProfileSpec",
