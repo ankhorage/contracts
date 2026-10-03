@@ -1,5 +1,12 @@
 # @ankhorage/contracts
 
+## 22.8.103
+
+### Patch Changes
+
+- 5843fbe: Publish the canonical internal REST API definition, endpoint, and operation contracts already present
+  on main for framework-neutral API runtimes and transport adapters.
+
 ## 22.8.102
 
 ### Patch Changes
