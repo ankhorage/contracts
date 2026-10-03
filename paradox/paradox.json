@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v22.8.97",
+      "value": "v22.8.98",
       "color": "cb3837"
     },
     {
@@ -70,56 +70,56 @@
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function parseAppManifest has no Paradox description.",
+      "message": "Exported function parseAppManifest has no documentation description.",
       "sourcePath": "src/appManifest/parseAppManifest.ts",
       "line": 11
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function resolveAuthFlow has no Paradox description.",
+      "message": "Exported function resolveAuthFlow has no documentation description.",
       "sourcePath": "src/auth.ts",
       "line": 131
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function parseInfraManifest has no Paradox description.",
+      "message": "Exported function parseInfraManifest has no documentation description.",
       "sourcePath": "src/infra/parseInfraManifest.ts",
       "line": 6
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function validateInfraAdapterSelection has no Paradox description.",
+      "message": "Exported function validateInfraAdapterSelection has no documentation description.",
       "sourcePath": "src/infra/validateInfraAdapterSelection.ts",
       "line": 8
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function normalizeSecretRef has no Paradox description.",
+      "message": "Exported function normalizeSecretRef has no documentation description.",
       "sourcePath": "src/secrets.ts",
       "line": 105
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function normalizeSecretScope has no Paradox description.",
+      "message": "Exported function normalizeSecretScope has no documentation description.",
       "sourcePath": "src/secrets.ts",
       "line": 129
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function validateSecretPayload has no Paradox description.",
+      "message": "Exported function validateSecretPayload has no documentation description.",
       "sourcePath": "src/secrets.ts",
       "line": 146
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function findForbiddenInlineSecretFields has no Paradox description.",
+      "message": "Exported function findForbiddenInlineSecretFields has no documentation description.",
       "sourcePath": "src/secrets.ts",
       "line": 183
     }
