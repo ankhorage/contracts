@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 22.8.100
+
+### Patch Changes
+
+- 18c1820: Update dependencies: `@ankhorage/utility`.
+
 ## 22.8.99
 
 ### Patch Changes
