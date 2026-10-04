@@ -1,18 +1,33 @@
 import { describe, expect, it } from 'bun:test';
 
 import type {
-  AnkhCapabilityId,
   AnkhCommandDescriptor,
   AnkhCommandProviderManifest,
   AnkhPackageMetadata,
+  Capability,
 } from './index';
+
+const INFRA_CAPABILITIES = [
+  {
+    id: 'infra.up',
+    owner: '@ankhorage/infra',
+    access: ['invoke'],
+    label: 'Bring infrastructure up',
+  },
+  {
+    id: 'infra.status',
+    owner: '@ankhorage/infra',
+    access: ['read'],
+    label: 'Read infrastructure status',
+  },
+] as const satisfies readonly Capability[];
 
 describe('cli contracts', () => {
   it('accepts provider package metadata and provider manifests', () => {
     const packageMetadata = {
       category: 'infra',
       provider: './dist/cli/index.js',
-      capabilities: ['infra.up', 'infra.status'],
+      capabilities: INFRA_CAPABILITIES,
     } as const satisfies AnkhPackageMetadata;
 
     const upCommand = {
@@ -27,7 +42,7 @@ describe('cli contracts', () => {
       id: '@ankhorage/infra',
       category: 'infra',
       version: '1.0.0',
-      capabilities: ['infra.up', 'infra.status'],
+      capabilities: INFRA_CAPABILITIES,
       commands: [upCommand],
     } as const satisfies AnkhCommandProviderManifest;
 
@@ -39,10 +54,15 @@ describe('cli contracts', () => {
   });
 
   it('accepts an empty path as a category-root command', () => {
+    const deployCapability = {
+      id: 'deploy.release',
+      owner: '@ankhorage/deploy',
+      access: ['invoke'],
+    } as const satisfies Capability;
     const deployCommand = {
       path: [],
       summary: 'Deploy the authored release',
-      capability: 'deploy.release',
+      capability: deployCapability.id,
       examples: ['ankh deploy'],
     } as const satisfies AnkhCommandDescriptor;
 
@@ -50,7 +70,7 @@ describe('cli contracts', () => {
       id: '@ankhorage/deploy',
       category: 'deploy',
       version: '1.0.0',
-      capabilities: ['deploy.release'],
+      capabilities: [deployCapability],
       commands: [deployCommand],
     } as const satisfies AnkhCommandProviderManifest;
 
@@ -59,10 +79,15 @@ describe('cli contracts', () => {
   });
 
   it('accepts metadata-only packages without a provider module', () => {
+    const capability = {
+      id: 'contracts.cli',
+      owner: '@ankhorage/contracts',
+      access: ['read'],
+    } as const satisfies Capability;
     const packageMetadata = {
       category: 'contracts',
       provider: null,
-      capabilities: ['contracts.cli'],
+      capabilities: [capability],
     } as const satisfies AnkhPackageMetadata;
 
     expect(JSON.parse(JSON.stringify(packageMetadata))).toEqual(packageMetadata);
@@ -70,10 +95,15 @@ describe('cli contracts', () => {
   });
 
   it('keeps command paths relative to the provider category', () => {
+    const capability = {
+      id: 'dev.android.scan',
+      owner: '@ankhorage/dev',
+      access: ['invoke'],
+    } as const satisfies Capability;
     const androidScanCommand = {
       path: ['android', 'scan'],
       summary: 'Scan an Android target',
-      capability: 'dev.android.scan',
+      capability: capability.id,
       examples: ['ankh dev android scan'],
     } as const satisfies AnkhCommandDescriptor;
 
@@ -81,28 +111,12 @@ describe('cli contracts', () => {
       id: '@ankhorage/dev',
       category: 'dev',
       version: '1.0.0',
-      capabilities: ['dev.android.scan'],
+      capabilities: [capability],
       commands: [androidScanCommand],
     } as const satisfies AnkhCommandProviderManifest;
 
     expect(manifest.category).toBe('dev');
     expect(manifest.commands[0].path).toEqual(['android', 'scan']);
     expect(manifest.commands[0].path[0]).not.toBe(manifest.category);
-  });
-
-  it('accepts dot-separated capability ids for discovery metadata', () => {
-    const capabilities = [
-      'infra.up',
-      'templates.list',
-      'board.web.import',
-      'contracts.cli',
-    ] as const satisfies readonly AnkhCapabilityId[];
-
-    expect(capabilities).toEqual([
-      'infra.up',
-      'templates.list',
-      'board.web.import',
-      'contracts.cli',
-    ]);
   });
 });
