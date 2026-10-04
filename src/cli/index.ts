@@ -1,8 +1,8 @@
+import type { Capability } from '../capabilities';
+
 export type AnkhCommandCategory = string;
 
 export type AnkhProviderReference = `./${string}`;
-
-export type AnkhCapabilityId = `${string}.${string}`;
 
 export interface AnkhCommandDescriptor {
   /**
@@ -12,7 +12,7 @@ export interface AnkhCommandDescriptor {
    */
   readonly path: readonly string[];
   readonly summary: string;
-  readonly capability: AnkhCapabilityId;
+  readonly capability: Capability['id'];
   readonly aliases?: readonly string[];
   readonly examples?: readonly string[];
 }
@@ -21,7 +21,7 @@ export interface AnkhCommandProviderManifest {
   readonly id: string;
   readonly category: AnkhCommandCategory;
   readonly version: string;
-  readonly capabilities: readonly AnkhCapabilityId[];
+  readonly capabilities: readonly Capability[];
   readonly commands: readonly AnkhCommandDescriptor[];
 }
 
@@ -38,6 +38,6 @@ export interface AnkhStructureMetadata {
 export interface AnkhPackageMetadata {
   readonly category: AnkhCommandCategory;
   readonly provider: AnkhProviderReference | null;
-  readonly capabilities: readonly AnkhCapabilityId[];
+  readonly capabilities: readonly Capability[];
   readonly structure?: AnkhStructureMetadata;
 }
