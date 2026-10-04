@@ -129,9 +129,13 @@
     "./structure": {
       "types": "./dist/structure/index.d.ts",
       "default": "./dist/structure/index.js"
+    },
+    "./capabilities": {
+      "types": "./dist/capabilities.d.ts",
+      "default": "./dist/capabilities.js"
     }
   },
-  "description": "Serializable app, action, theme, auth, and secret-store contracts for Ankhorage.",
+  "description": "Serializable app, capability, binding, theme, auth, and secret-store contracts for Ankhorage.",
   "keywords": [
     "adapter",
     "ankhorage",
@@ -145,7 +149,8 @@
     "secret-store",
     "secrets",
     "storage",
-    "typescript"
+    "typescript",
+    "capabilities"
   ],
   "files": [
     "dist",
