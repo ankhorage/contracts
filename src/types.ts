@@ -38,66 +38,6 @@ export interface ThemeConfig {
 
 export type ThemeRegistry = EntityRegistry<ThemeId, ThemeConfig, 'id'>;
 
-export type ActionType =
-  'navigate' | 'alert' | 'console' | 'toggleDarkMode' | 'setLanguage' | 'search' | 'filter';
-
-export interface NavigateAction {
-  type: 'navigate';
-  payload: {
-    route: string;
-    params?: Record<string, number | string>;
-  };
-}
-
-export interface AlertAction {
-  type: 'alert';
-  payload?: {
-    message?: string;
-  };
-}
-
-export interface ConsoleAction {
-  type: 'console';
-  payload?: Record<string, unknown>;
-}
-
-export interface ToggleDarkModeAction {
-  type: 'toggleDarkMode';
-  payload?: never;
-}
-
-export interface SetLanguageAction {
-  type: 'setLanguage';
-  payload: {
-    locale: string;
-  };
-}
-
-export interface SearchAction {
-  type: 'search';
-  payload: {
-    query: string;
-    scope?: string;
-  };
-}
-
-export interface FilterAction {
-  type: 'filter';
-  payload: {
-    filterKey: string;
-    filterValue: string;
-  };
-}
-
-export type Action =
-  | AlertAction
-  | ConsoleAction
-  | FilterAction
-  | NavigateAction
-  | SearchAction
-  | SetLanguageAction
-  | ToggleDarkModeAction;
-
 export type ManifestValue = SerializableValue;
 
 export type ComponentEventPayloadValue = ManifestValue;
