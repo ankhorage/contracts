@@ -1,5 +1,12 @@
 # @ankhorage/contracts
 
+## 23.0.0
+
+### Major Changes
+
+- 3dbd28c: Replace the parallel generic action and CLI capability identifier contracts with one portable
+  Capability descriptor for bindable and executable package capabilities.
+
 ## 22.8.103
 
 ### Patch Changes

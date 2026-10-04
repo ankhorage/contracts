@@ -1,49 +1,5 @@
 [
   {
-    "name": "Action",
-    "title": null,
-    "description": null,
-    "isReadme": false,
-    "see": [],
-    "security": [],
-    "kind": "unknown",
-    "modulePath": "src/types.ts",
-    "sourceLocation": {
-      "filePath": "src/types.ts",
-      "line": 92,
-      "column": 1
-    },
-    "exportPaths": [
-      "src/index.ts"
-    ],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "ActionType",
-    "title": null,
-    "description": null,
-    "isReadme": false,
-    "see": [],
-    "security": [],
-    "kind": "unknown",
-    "modulePath": "src/types.ts",
-    "sourceLocation": {
-      "filePath": "src/types.ts",
-      "line": 41,
-      "column": 1
-    },
-    "exportPaths": [
-      "src/index.ts"
-    ],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [],
-    "structuredRows": []
-  },
-  {
     "name": "AdapterId",
     "title": null,
     "description": null,
@@ -190,43 +146,6 @@
         "kind": "property",
         "type": "HeadlessTabsPresentationConfig | undefined",
         "required": false,
-        "description": null
-      }
-    ],
-    "structuredRows": []
-  },
-  {
-    "name": "AlertAction",
-    "title": null,
-    "description": null,
-    "isReadme": false,
-    "see": [],
-    "security": [],
-    "kind": "type",
-    "modulePath": "src/types.ts",
-    "sourceLocation": {
-      "filePath": "src/types.ts",
-      "line": 52,
-      "column": 1
-    },
-    "exportPaths": [
-      "src/index.ts"
-    ],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [
-      {
-        "name": "payload",
-        "kind": "property",
-        "type": "{ message?: string; } | undefined",
-        "required": false,
-        "description": null
-      },
-      {
-        "name": "type",
-        "kind": "property",
-        "type": "\"alert\"",
-        "required": true,
         "description": null
       }
     ],
@@ -928,28 +847,6 @@
     "structuredRows": []
   },
   {
-    "name": "AnkhCapabilityId",
-    "title": null,
-    "description": null,
-    "isReadme": false,
-    "see": [],
-    "security": [],
-    "kind": "unknown",
-    "modulePath": "src/cli/index.ts",
-    "sourceLocation": {
-      "filePath": "src/cli/index.ts",
-      "line": 5,
-      "column": 1
-    },
-    "exportPaths": [
-      "src/index.ts"
-    ],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [],
-    "structuredRows": []
-  },
-  {
     "name": "AnkhCommandCategory",
     "title": null,
     "description": null,
@@ -960,7 +857,7 @@
     "modulePath": "src/cli/index.ts",
     "sourceLocation": {
       "filePath": "src/cli/index.ts",
-      "line": 1,
+      "line": 3,
       "column": 1
     },
     "exportPaths": [
@@ -1047,14 +944,15 @@
       "src/index.ts"
     ],
     "relatedSymbols": [
-      "AnkhCommandDescriptor"
+      "AnkhCommandDescriptor",
+      "Capability"
     ],
     "signatures": [],
     "members": [
       {
         "name": "capabilities",
         "kind": "property",
-        "type": "readonly `${string}.${string}`[]",
+        "type": "readonly Capability[]",
         "required": true,
         "description": null
       },
@@ -1195,14 +1093,15 @@
       "src/index.ts"
     ],
     "relatedSymbols": [
-      "AnkhStructureMetadata"
+      "AnkhStructureMetadata",
+      "Capability"
     ],
     "signatures": [],
     "members": [
       {
         "name": "capabilities",
         "kind": "property",
-        "type": "readonly `${string}.${string}`[]",
+        "type": "readonly Capability[]",
         "required": true,
         "description": null
       },
@@ -1241,7 +1140,7 @@
     "modulePath": "src/cli/index.ts",
     "sourceLocation": {
       "filePath": "src/cli/index.ts",
-      "line": 3,
+      "line": 5,
       "column": 1
     },
     "exportPaths": [
@@ -1542,7 +1441,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 141,
+      "line": 81,
       "column": 14
     },
     "exportPaths": [
@@ -1608,7 +1507,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 166,
+      "line": 106,
       "column": 1
     },
     "exportPaths": [
@@ -1936,7 +1835,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 283,
+      "line": 223,
       "column": 1
     },
     "exportPaths": [
@@ -2124,7 +2023,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 263,
+      "line": 203,
       "column": 1
     },
     "exportPaths": [
@@ -2433,7 +2332,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 190,
+      "line": 130,
       "column": 14
     },
     "exportPaths": [
@@ -2455,7 +2354,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 177,
+      "line": 117,
       "column": 14
     },
     "exportPaths": [
@@ -2477,7 +2376,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 187,
+      "line": 127,
       "column": 14
     },
     "exportPaths": [
@@ -2499,7 +2398,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 193,
+      "line": 133,
       "column": 14
     },
     "exportPaths": [
@@ -2521,7 +2420,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 168,
+      "line": 108,
       "column": 14
     },
     "exportPaths": [
@@ -2543,7 +2442,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 171,
+      "line": 111,
       "column": 14
     },
     "exportPaths": [
@@ -2587,7 +2486,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 174,
+      "line": 114,
       "column": 14
     },
     "exportPaths": [
@@ -3860,7 +3759,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 191,
+      "line": 131,
       "column": 1
     },
     "exportPaths": [
@@ -3882,7 +3781,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 185,
+      "line": 125,
       "column": 1
     },
     "exportPaths": [
@@ -3904,7 +3803,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 188,
+      "line": 128,
       "column": 1
     },
     "exportPaths": [
@@ -3926,7 +3825,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 255,
+      "line": 195,
       "column": 1
     },
     "exportPaths": [
@@ -3986,7 +3885,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 194,
+      "line": 134,
       "column": 1
     },
     "exportPaths": [
@@ -4099,7 +3998,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 169,
+      "line": 109,
       "column": 1
     },
     "exportPaths": [
@@ -4211,7 +4110,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 172,
+      "line": 112,
       "column": 1
     },
     "exportPaths": [
@@ -4233,7 +4132,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 245,
+      "line": 185,
       "column": 1
     },
     "exportPaths": [
@@ -4324,7 +4223,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 175,
+      "line": 115,
       "column": 1
     },
     "exportPaths": [
@@ -4346,7 +4245,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 249,
+      "line": 189,
       "column": 1
     },
     "exportPaths": [
@@ -4859,7 +4758,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 123,
+      "line": 63,
       "column": 1
     },
     "exportPaths": [
@@ -4868,6 +4767,80 @@
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "Capability",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/capabilities.ts",
+    "sourceLocation": {
+      "filePath": "src/capabilities.ts",
+      "line": 10,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "DataSchemaSlot"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "access",
+        "kind": "property",
+        "type": "readonly (\"emit\" | \"invoke\" | \"read\" | \"subscribe\" | \"write\")[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "description",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "`${string}.${string}`",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "input",
+        "kind": "property",
+        "type": "DataSchemaSlot | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "label",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "output",
+        "kind": "property",
+        "type": "DataSchemaSlot | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "owner",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
     "structuredRows": []
   },
   {
@@ -4881,7 +4854,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 130,
+      "line": 70,
       "column": 1
     },
     "exportPaths": [
@@ -4903,7 +4876,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 125,
+      "line": 65,
       "column": 1
     },
     "exportPaths": [
@@ -5057,7 +5030,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 105,
+      "line": 45,
       "column": 1
     },
     "exportPaths": [
@@ -5101,7 +5074,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 135,
+      "line": 75,
       "column": 1
     },
     "exportPaths": [
@@ -5123,7 +5096,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 103,
+      "line": 43,
       "column": 1
     },
     "exportPaths": [
@@ -5213,43 +5186,6 @@
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "ConsoleAction",
-    "title": null,
-    "description": null,
-    "isReadme": false,
-    "see": [],
-    "security": [],
-    "kind": "type",
-    "modulePath": "src/types.ts",
-    "sourceLocation": {
-      "filePath": "src/types.ts",
-      "line": 59,
-      "column": 1
-    },
-    "exportPaths": [
-      "src/index.ts"
-    ],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [
-      {
-        "name": "payload",
-        "kind": "property",
-        "type": "Record<string, unknown> | undefined",
-        "required": false,
-        "description": null
-      },
-      {
-        "name": "type",
-        "kind": "property",
-        "type": "\"console\"",
-        "required": true,
-        "description": null
-      }
-    ],
     "structuredRows": []
   },
   {
@@ -9858,43 +9794,6 @@
     "structuredRows": []
   },
   {
-    "name": "FilterAction",
-    "title": null,
-    "description": null,
-    "isReadme": false,
-    "see": [],
-    "security": [],
-    "kind": "type",
-    "modulePath": "src/types.ts",
-    "sourceLocation": {
-      "filePath": "src/types.ts",
-      "line": 84,
-      "column": 1
-    },
-    "exportPaths": [
-      "src/index.ts"
-    ],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [
-      {
-        "name": "payload",
-        "kind": "property",
-        "type": "{ filterKey: string; filterValue: string; }",
-        "required": true,
-        "description": null
-      },
-      {
-        "name": "type",
-        "kind": "property",
-        "type": "\"filter\"",
-        "required": true,
-        "description": null
-      }
-    ],
-    "structuredRows": []
-  },
-  {
     "name": "findForbiddenInlineSecretFields",
     "title": null,
     "description": null,
@@ -10007,7 +9906,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 116,
+      "line": 56,
       "column": 1
     },
     "exportPaths": [
@@ -10029,7 +9928,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 114,
+      "line": 54,
       "column": 1
     },
     "exportPaths": [
@@ -10198,7 +10097,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 213,
+      "line": 153,
       "column": 1
     },
     "exportPaths": [
@@ -14436,7 +14335,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 184,
+      "line": 124,
       "column": 1
     },
     "exportPaths": [
@@ -14480,7 +14379,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 138,
+      "line": 78,
       "column": 1
     },
     "exportPaths": [
@@ -14524,7 +14423,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 101,
+      "line": 41,
       "column": 1
     },
     "exportPaths": [
@@ -15718,7 +15617,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 201,
+      "line": 141,
       "column": 1
     },
     "exportPaths": [
@@ -15853,43 +15752,6 @@
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "NavigateAction",
-    "title": null,
-    "description": null,
-    "isReadme": false,
-    "see": [],
-    "security": [],
-    "kind": "type",
-    "modulePath": "src/types.ts",
-    "sourceLocation": {
-      "filePath": "src/types.ts",
-      "line": 44,
-      "column": 1
-    },
-    "exportPaths": [
-      "src/index.ts"
-    ],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [
-      {
-        "name": "payload",
-        "kind": "property",
-        "type": "{ route: string; params?: Record<string, number | string>; }",
-        "required": true,
-        "description": null
-      },
-      {
-        "name": "type",
-        "kind": "property",
-        "type": "\"navigate\"",
-        "required": true,
-        "description": null
-      }
-    ],
     "structuredRows": []
   },
   {
@@ -19346,7 +19208,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 232,
+      "line": 172,
       "column": 1
     },
     "exportPaths": [
@@ -19434,7 +19296,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 239,
+      "line": 179,
       "column": 1
     },
     "exportPaths": [
@@ -19494,43 +19356,6 @@
         "kind": "property",
         "type": "string | undefined",
         "required": false,
-        "description": null
-      }
-    ],
-    "structuredRows": []
-  },
-  {
-    "name": "SearchAction",
-    "title": null,
-    "description": null,
-    "isReadme": false,
-    "see": [],
-    "security": [],
-    "kind": "type",
-    "modulePath": "src/types.ts",
-    "sourceLocation": {
-      "filePath": "src/types.ts",
-      "line": 76,
-      "column": 1
-    },
-    "exportPaths": [
-      "src/index.ts"
-    ],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [
-      {
-        "name": "payload",
-        "kind": "property",
-        "type": "{ query: string; scope?: string; }",
-        "required": true,
-        "description": null
-      },
-      {
-        "name": "type",
-        "kind": "property",
-        "type": "\"search\"",
-        "required": true,
         "description": null
       }
     ],
@@ -20256,43 +20081,6 @@
     "structuredRows": []
   },
   {
-    "name": "SetLanguageAction",
-    "title": null,
-    "description": null,
-    "isReadme": false,
-    "see": [],
-    "security": [],
-    "kind": "type",
-    "modulePath": "src/types.ts",
-    "sourceLocation": {
-      "filePath": "src/types.ts",
-      "line": 69,
-      "column": 1
-    },
-    "exportPaths": [
-      "src/index.ts"
-    ],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [
-      {
-        "name": "payload",
-        "kind": "property",
-        "type": "{ locale: string; }",
-        "required": true,
-        "description": null
-      },
-      {
-        "name": "type",
-        "kind": "property",
-        "type": "\"setLanguage\"",
-        "required": true,
-        "description": null
-      }
-    ],
-    "structuredRows": []
-  },
-  {
     "name": "SignInInput",
     "title": null,
     "description": null,
@@ -20499,7 +20287,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 272,
+      "line": 212,
       "column": 1
     },
     "exportPaths": [
@@ -20538,7 +20326,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 270,
+      "line": 210,
       "column": 1
     },
     "exportPaths": [
@@ -20560,7 +20348,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 277,
+      "line": 217,
       "column": 1
     },
     "exportPaths": [
@@ -23755,7 +23543,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 207,
+      "line": 147,
       "column": 1
     },
     "exportPaths": [
@@ -24377,43 +24165,6 @@
         "kind": "property",
         "type": "Readonly<Record<string, string>> | undefined",
         "required": false,
-        "description": null
-      }
-    ],
-    "structuredRows": []
-  },
-  {
-    "name": "ToggleDarkModeAction",
-    "title": null,
-    "description": null,
-    "isReadme": false,
-    "see": [],
-    "security": [],
-    "kind": "type",
-    "modulePath": "src/types.ts",
-    "sourceLocation": {
-      "filePath": "src/types.ts",
-      "line": 64,
-      "column": 1
-    },
-    "exportPaths": [
-      "src/index.ts"
-    ],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [
-      {
-        "name": "payload",
-        "kind": "property",
-        "type": "undefined",
-        "required": false,
-        "description": null
-      },
-      {
-        "name": "type",
-        "kind": "property",
-        "type": "\"toggleDarkMode\"",
-        "required": true,
         "description": null
       }
     ],
@@ -25471,7 +25222,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 222,
+      "line": 162,
       "column": 1
     },
     "exportPaths": [
@@ -25545,7 +25296,7 @@
     "modulePath": "src/types.ts",
     "sourceLocation": {
       "filePath": "src/types.ts",
-      "line": 215,
+      "line": 155,
       "column": 1
     },
     "exportPaths": [

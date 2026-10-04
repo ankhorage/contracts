@@ -1,17 +1,5 @@
 # Public API
 
-## Action
-
-Kind: `unknown`
-Module: `src/types.ts`
-Source: `src/types.ts:92:1`
-
-## ActionType
-
-Kind: `unknown`
-Module: `src/types.ts`
-Source: `src/types.ts:41:1`
-
 ## AdapterId
 
 Kind: `unknown`
@@ -53,19 +41,6 @@ Source: `src/navigator.ts:168:1`
 | implementation | property | `"adaptive" \| undefined` | no |  |
 | native | property | `NativeTabsConfig \| undefined` | no |  |
 | web | property | `HeadlessTabsPresentationConfig \| undefined` | no |  |
-
-## AlertAction
-
-Kind: `type`
-Module: `src/types.ts`
-Source: `src/types.ts:52:1`
-
-### Members
-
-| Name | Kind | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| payload | property | `{ message?: string; } \| undefined` | no |  |
-| type | property | `"alert"` | yes |  |
 
 ## ANDROID_DEPLOYMENT_TRACKS
 
@@ -259,17 +234,11 @@ Kind: `unknown`
 Module: `src/types/deployProvider.ts`
 Source: `src/types/deployProvider.ts:170:1`
 
-## AnkhCapabilityId
-
-Kind: `unknown`
-Module: `src/cli/index.ts`
-Source: `src/cli/index.ts:5:1`
-
 ## AnkhCommandCategory
 
 Kind: `unknown`
 Module: `src/cli/index.ts`
-Source: `src/cli/index.ts:1:1`
+Source: `src/cli/index.ts:3:1`
 
 ## AnkhCommandDescriptor
 
@@ -297,7 +266,7 @@ Source: `src/cli/index.ts:20:1`
 
 | Name | Kind | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| capabilities | property | `readonly `${string}.${string}`[]` | yes |  |
+| capabilities | property | `readonly Capability[]` | yes |  |
 | category | property | `string` | yes |  |
 | commands | property | `readonly AnkhCommandDescriptor[]` | yes |  |
 | id | property | `string` | yes |  |
@@ -337,7 +306,7 @@ Source: `src/cli/index.ts:38:1`
 
 | Name | Kind | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| capabilities | property | `readonly `${string}.${string}`[]` | yes |  |
+| capabilities | property | `readonly Capability[]` | yes |  |
 | category | property | `string` | yes |  |
 | provider | property | ``./${string}` \| null` | yes |  |
 | structure | property | `AnkhStructureMetadata \| undefined` | no |  |
@@ -346,7 +315,7 @@ Source: `src/cli/index.ts:38:1`
 
 Kind: `unknown`
 Module: `src/cli/index.ts`
-Source: `src/cli/index.ts:3:1`
+Source: `src/cli/index.ts:5:1`
 
 ## AnkhStructureMetadata
 
@@ -428,7 +397,7 @@ Source: `src/data/apis.ts:9:1`
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:141:14`
+Source: `src/types.ts:81:14`
 
 ## APP_DEPLOY_TARGET_IDS
 
@@ -446,7 +415,7 @@ Source: `src/environments.ts:2:14`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:166:1`
+Source: `src/types.ts:106:1`
 
 ## AppDeployAndroidTargetConfig
 
@@ -546,7 +515,7 @@ Source: `src/environments.ts:4:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:283:1`
+Source: `src/types.ts:223:1`
 
 ### Members
 
@@ -584,7 +553,7 @@ Source: `src/navigator.ts:265:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:263:1`
+Source: `src/types.ts:203:1`
 
 ### Members
 
@@ -675,37 +644,37 @@ Source: `src/auth.ts:44:14`
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:190:14`
+Source: `src/types.ts:130:14`
 
 ## AUTH_PROFILE_FIELDS
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:177:14`
+Source: `src/types.ts:117:14`
 
 ## AUTH_PROFILE_PRIMARY_KEY_STRATEGIES
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:187:14`
+Source: `src/types.ts:127:14`
 
 ## AUTH_PROFILE_UPDATE_STRATEGIES
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:193:14`
+Source: `src/types.ts:133:14`
 
 ## AUTH_SCOPES
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:168:14`
+Source: `src/types.ts:108:14`
 
 ## AUTH_SIGN_IN_IDENTIFIERS
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:171:14`
+Source: `src/types.ts:111:14`
 
 ## AUTH_SIGN_UP_FIELDS
 
@@ -717,7 +686,7 @@ Source: `src/auth.ts:10:14`
 
 Kind: `value`
 Module: `src/types.ts`
-Source: `src/types.ts:174:14`
+Source: `src/types.ts:114:14`
 
 ## AuthAdapter
 
@@ -1063,25 +1032,25 @@ Source: `src/auth.ts:46:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:191:1`
+Source: `src/types.ts:131:1`
 
 ## AuthProfileField
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:185:1`
+Source: `src/types.ts:125:1`
 
 ## AuthProfilePrimaryKeyStrategy
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:188:1`
+Source: `src/types.ts:128:1`
 
 ## AuthProfileSpec
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:255:1`
+Source: `src/types.ts:195:1`
 
 ### Members
 
@@ -1097,7 +1066,7 @@ Source: `src/types.ts:255:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:194:1`
+Source: `src/types.ts:134:1`
 
 ## AuthProviderConfig
 
@@ -1126,7 +1095,7 @@ Source: `src/auth.ts:198:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:169:1`
+Source: `src/types.ts:109:1`
 
 ## AuthSession
 
@@ -1160,13 +1129,13 @@ Source: `src/auth.ts:135:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:172:1`
+Source: `src/types.ts:112:1`
 
 ## AuthSignInSpec
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:245:1`
+Source: `src/types.ts:185:1`
 
 ### Members
 
@@ -1197,13 +1166,13 @@ Source: `src/auth.ts:18:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:175:1`
+Source: `src/types.ts:115:1`
 
 ## AuthSignUpSpec
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:249:1`
+Source: `src/types.ts:189:1`
 
 ### Members
 
@@ -1351,19 +1320,37 @@ Source: `src/bindings.ts:12:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:123:1`
+Source: `src/types.ts:63:1`
+
+## Capability
+
+Kind: `type`
+Module: `src/capabilities.ts`
+Source: `src/capabilities.ts:10:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| access | property | `readonly ("emit" \| "invoke" \| "read" \| "subscribe" \| "write")[]` | yes |  |
+| description | property | `string \| undefined` | no |  |
+| id | property | ``${string}.${string}`` | yes |  |
+| input | property | `DataSchemaSlot \| undefined` | no |  |
+| label | property | `string \| undefined` | no |  |
+| output | property | `DataSchemaSlot \| undefined` | no |  |
+| owner | property | `string` | yes |  |
 
 ## CollectionItemPressEventDto
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:130:1`
+Source: `src/types.ts:70:1`
 
 ## CollectionItemPressPayload
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:125:1`
+Source: `src/types.ts:65:1`
 
 ### Members
 
@@ -1410,7 +1397,7 @@ Source: `src/bindings.ts:131:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:105:1`
+Source: `src/types.ts:45:1`
 
 ### Members
 
@@ -1424,13 +1411,13 @@ Source: `src/types.ts:105:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:135:1`
+Source: `src/types.ts:75:1`
 
 ## ComponentEventPayloadValue
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:103:1`
+Source: `src/types.ts:43:1`
 
 ## ComponentInstanceId
 
@@ -1456,19 +1443,6 @@ Source: `src/requirements.ts:34:1`
 Kind: `unknown`
 Module: `src/bindings.ts`
 Source: `src/bindings.ts:6:1`
-
-## ConsoleAction
-
-Kind: `type`
-Module: `src/types.ts`
-Source: `src/types.ts:59:1`
-
-### Members
-
-| Name | Kind | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| payload | property | `Record<string, unknown> \| undefined` | no |  |
-| type | property | `"console"` | yes |  |
 
 ## CreateNavigatorPlanOptions
 
@@ -2706,19 +2680,6 @@ Source: `src/data/apis.ts:29:1`
 | protocol | property | `"rest"` | yes |  |
 | schemas | property | `Readonly<Record<string, import("./schemas").DataSchema>> \| undefined` | no |  |
 
-## FilterAction
-
-Kind: `type`
-Module: `src/types.ts`
-Source: `src/types.ts:84:1`
-
-### Members
-
-| Name | Kind | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| payload | property | `{ filterKey: string; filterValue: string; }` | yes |  |
-| type | property | `"filter"` | yes |  |
-
 ## findForbiddenInlineSecretFields
 
 Kind: `function`
@@ -2753,13 +2714,13 @@ Source: `src/secrets.ts:174:14`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:116:1`
+Source: `src/types.ts:56:1`
 
 ## FormSubmitValues
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:114:1`
+Source: `src/types.ts:54:1`
 
 ## GraphQlIntrospectionConfig
 
@@ -2808,7 +2769,7 @@ Source: `src/navigator.ts:149:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:213:1`
+Source: `src/types.ts:153:1`
 
 ## ImageAssetSource
 
@@ -4033,7 +3994,7 @@ Source: `src/auth.ts:45:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:184:1`
+Source: `src/types.ts:124:1`
 
 ## KnownAuthSignUpField
 
@@ -4045,7 +4006,7 @@ Source: `src/auth.ts:17:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:138:1`
+Source: `src/types.ts:78:1`
 
 ## KnownSecretStoreProvider
 
@@ -4057,7 +4018,7 @@ Source: `src/secrets.ts:2:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:101:1`
+Source: `src/types.ts:41:1`
 
 ## MEDIA_ASSET_KINDS
 
@@ -4401,7 +4362,7 @@ Source: `src/types/deployMonetization.ts:60:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:201:1`
+Source: `src/types.ts:141:1`
 
 ### Members
 
@@ -4438,19 +4399,6 @@ Source: `src/navigator.ts:155:1`
 Kind: `unknown`
 Module: `src/navigator.ts`
 Source: `src/navigator.ts:119:1`
-
-## NavigateAction
-
-Kind: `type`
-Module: `src/types.ts`
-Source: `src/types.ts:44:1`
-
-### Members
-
-| Name | Kind | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| payload | property | `{ route: string; params?: Record<string, number \| string>; }` | yes |  |
-| type | property | `"navigate"` | yes |  |
 
 ## NAVIGATOR_PRESETS
 
@@ -5420,7 +5368,7 @@ Source: `src/bindings.ts:98:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:232:1`
+Source: `src/types.ts:172:1`
 
 ### Members
 
@@ -5448,7 +5396,7 @@ Source: `src/requirements.ts:29:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:239:1`
+Source: `src/types.ts:179:1`
 
 ### Members
 
@@ -5461,19 +5409,6 @@ Source: `src/types.ts:239:1`
 | requires | property | `ScreenRequirements \| undefined` | no |  |
 | root | property | `UiNode` | yes |  |
 | title | property | `string \| undefined` | no |  |
-
-## SearchAction
-
-Kind: `type`
-Module: `src/types.ts`
-Source: `src/types.ts:76:1`
-
-### Members
-
-| Name | Kind | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| payload | property | `{ query: string; scope?: string; }` | yes |  |
-| type | property | `"search"` | yes |  |
 
 ## SECRET_STORE_ERROR_CODES
 
@@ -5680,19 +5615,6 @@ Kind: `unknown`
 Module: `src/serializable.ts`
 Source: `src/serializable.ts:3:1`
 
-## SetLanguageAction
-
-Kind: `type`
-Module: `src/types.ts`
-Source: `src/types.ts:69:1`
-
-### Members
-
-| Name | Kind | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| payload | property | `{ locale: string; }` | yes |  |
-| type | property | `"setLanguage"` | yes |  |
-
 ## SignInInput
 
 Kind: `type`
@@ -5755,7 +5677,7 @@ Source: `src/navigator.ts:185:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:272:1`
+Source: `src/types.ts:212:1`
 
 ### Members
 
@@ -5768,13 +5690,13 @@ Source: `src/types.ts:272:1`
 
 Kind: `unknown`
 Module: `src/types.ts`
-Source: `src/types.ts:270:1`
+Source: `src/types.ts:210:1`
 
 ## SplashScreenSpec
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:277:1`
+Source: `src/types.ts:217:1`
 
 ### Members
 
@@ -6681,7 +6603,7 @@ Source: `src/structure/types.ts:36:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:207:1`
+Source: `src/types.ts:147:1`
 
 ### Members
 
@@ -6852,19 +6774,6 @@ Source: `src/theme.ts:17:1`
 | headings | property | `Readonly<Record<string, ThemeTypographyHeadingOverrides>> \| undefined` | no |  |
 | sizes | property | `Readonly<Record<string, number>> \| undefined` | no |  |
 | weights | property | `Readonly<Record<string, string>> \| undefined` | no |  |
-
-## ToggleDarkModeAction
-
-Kind: `type`
-Module: `src/types.ts`
-Source: `src/types.ts:64:1`
-
-### Members
-
-| Name | Kind | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| payload | property | `undefined` | no |  |
-| type | property | `"toggleDarkMode"` | yes |  |
 
 ## UiBindableEventMeta
 
@@ -7164,7 +7073,7 @@ Source: `src/ui.ts:138:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:222:1`
+Source: `src/types.ts:162:1`
 
 ### Members
 
@@ -7182,7 +7091,7 @@ Source: `src/types.ts:222:1`
 
 Kind: `type`
 Module: `src/types.ts`
-Source: `src/types.ts:215:1`
+Source: `src/types.ts:155:1`
 
 ### Members
 

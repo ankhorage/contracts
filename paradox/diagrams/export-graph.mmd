@@ -14,6 +14,7 @@ graph LR
   module_src_appManifest_screens_ts["src/appManifest/screens.ts"]
   module_src_auth_ts["src/auth.ts"]
   module_src_bindings_ts["src/bindings.ts"]
+  module_src_capabilities_ts["src/capabilities.ts"]
   module_src_cli_index_ts["src/cli/index.ts"]
   module_src_collections_ts["src/collections.ts"]
   module_src_data_apis_ts["src/data/apis.ts"]
@@ -82,10 +83,6 @@ graph LR
   module_src_types_infraValidation_ts["src/types/infraValidation.ts"]
   module_src_types_infraWorkload_ts["src/types/infraWorkload.ts"]
   module_src_ui_ts["src/ui.ts"]
-  export_Action["Action"]
-  module_src_types_ts --> export_Action
-  export_ActionType["ActionType"]
-  module_src_types_ts --> export_ActionType
   export_AdapterId["AdapterId"]
   module_src_data_ids_ts --> export_AdapterId
   export_AdapterKind["AdapterKind"]
@@ -98,8 +95,6 @@ graph LR
   module_src_navigator_ts --> export_AdaptiveTabsConfig
   export_AdaptiveTabsConfig -.-> export_HeadlessTabsPresentationConfig
   export_AdaptiveTabsConfig -.-> export_NativeTabsConfig
-  export_AlertAction["AlertAction"]
-  module_src_types_ts --> export_AlertAction
   export_ANDROID_DEPLOYMENT_TRACKS["ANDROID_DEPLOYMENT_TRACKS"]
   module_src_types_deployProvider_ts --> export_ANDROID_DEPLOYMENT_TRACKS
   export_ANDROID_RELEASE_STATUSES["ANDROID_RELEASE_STATUSES"]
@@ -149,8 +144,6 @@ graph LR
   export_AndroidPublishRequest -.-> export_DeploymentSecretResolver
   export_AndroidReleaseStatus["AndroidReleaseStatus"]
   module_src_types_deployProvider_ts --> export_AndroidReleaseStatus
-  export_AnkhCapabilityId["AnkhCapabilityId"]
-  module_src_cli_index_ts --> export_AnkhCapabilityId
   export_AnkhCommandCategory["AnkhCommandCategory"]
   module_src_cli_index_ts --> export_AnkhCommandCategory
   export_AnkhCommandDescriptor["AnkhCommandDescriptor"]
@@ -158,6 +151,7 @@ graph LR
   export_AnkhCommandProviderManifest["AnkhCommandProviderManifest"]
   module_src_cli_index_ts --> export_AnkhCommandProviderManifest
   export_AnkhCommandProviderManifest -.-> export_AnkhCommandDescriptor
+  export_AnkhCommandProviderManifest -.-> export_Capability
   export_ANKHORAGE_CAPABILITY_NAMES["ANKHORAGE_CAPABILITY_NAMES"]
   module_src_requirements_ts --> export_ANKHORAGE_CAPABILITY_NAMES
   export_ANKHORAGE_PERMISSION_NAMES["ANKHORAGE_PERMISSION_NAMES"]
@@ -169,6 +163,7 @@ graph LR
   export_AnkhPackageMetadata["AnkhPackageMetadata"]
   module_src_cli_index_ts --> export_AnkhPackageMetadata
   export_AnkhPackageMetadata -.-> export_AnkhStructureMetadata
+  export_AnkhPackageMetadata -.-> export_Capability
   export_AnkhProviderReference["AnkhProviderReference"]
   module_src_cli_index_ts --> export_AnkhProviderReference
   export_AnkhStructureMetadata["AnkhStructureMetadata"]
@@ -454,6 +449,9 @@ graph LR
   module_src_bindings_ts --> export_BindingValueTransform
   export_ButtonPressEventDto["ButtonPressEventDto"]
   module_src_types_ts --> export_ButtonPressEventDto
+  export_Capability["Capability"]
+  module_src_capabilities_ts --> export_Capability
+  export_Capability -.-> export_DataSchemaSlot
   export_CollectionItemPressEventDto["CollectionItemPressEventDto"]
   module_src_types_ts --> export_CollectionItemPressEventDto
   export_CollectionItemPressPayload["CollectionItemPressPayload"]
@@ -480,8 +478,6 @@ graph LR
   module_src_requirements_ts --> export_ComponentRequirements
   export_ComponentTypeId["ComponentTypeId"]
   module_src_bindings_ts --> export_ComponentTypeId
-  export_ConsoleAction["ConsoleAction"]
-  module_src_types_ts --> export_ConsoleAction
   export_CreateNavigatorPlanOptions["CreateNavigatorPlanOptions"]
   module_src_navigator_planning_ts --> export_CreateNavigatorPlanOptions
   export_CreateNavigatorPlanOptions -.-> export_CustomNavigatorRegistry
@@ -823,8 +819,6 @@ graph LR
   export_ExternalRestApiDefinition -.-> export_DataSchema
   export_ExternalRestApiDefinition -.-> export_OpenApiDocumentRef
   export_ExternalRestApiDefinition -.-> export_SerializableValue
-  export_FilterAction["FilterAction"]
-  module_src_types_ts --> export_FilterAction
   export_findForbiddenInlineSecretFields["findForbiddenInlineSecretFields"]
   module_src_secrets_ts --> export_findForbiddenInlineSecretFields
   export_FIXED_HEADLESS_TABS_PRESENTATIONS["FIXED_HEADLESS_TABS_PRESENTATIONS"]
@@ -1284,8 +1278,6 @@ graph LR
   export_NativeTabsConfig -.-> export_NavigatorScreenReference
   export_NativeTabsMinimizeBehavior["NativeTabsMinimizeBehavior"]
   module_src_navigator_ts --> export_NativeTabsMinimizeBehavior
-  export_NavigateAction["NavigateAction"]
-  module_src_types_ts --> export_NavigateAction
   export_NAVIGATOR_PRESETS["NAVIGATOR_PRESETS"]
   module_src_navigator_ts --> export_NAVIGATOR_PRESETS
   export_NAVIGATOR_TYPES["NAVIGATOR_TYPES"]
@@ -1559,8 +1551,6 @@ graph LR
   export_ScreenSpec -.-> export_OperationScreenDataLoaderDefinition
   export_ScreenSpec -.-> export_ScreenRequirements
   export_ScreenSpec -.-> export_UiNode
-  export_SearchAction["SearchAction"]
-  module_src_types_ts --> export_SearchAction
   export_SECRET_STORE_ERROR_CODES["SECRET_STORE_ERROR_CODES"]
   module_src_secrets_ts --> export_SECRET_STORE_ERROR_CODES
   export_SECRET_STORE_PROVIDERS["SECRET_STORE_PROVIDERS"]
@@ -1617,8 +1607,6 @@ graph LR
   module_src_collections_ts --> export_SerializableSet
   export_SerializableValue["SerializableValue"]
   module_src_serializable_ts --> export_SerializableValue
-  export_SetLanguageAction["SetLanguageAction"]
-  module_src_types_ts --> export_SetLanguageAction
   export_SignInInput["SignInInput"]
   module_src_auth_ts --> export_SignInInput
   export_SignInInput -.-> export_AuthIdentifier
@@ -1908,8 +1896,6 @@ graph LR
   export_ThemeTypographyTokenOverrides["ThemeTypographyTokenOverrides"]
   module_src_theme_ts --> export_ThemeTypographyTokenOverrides
   export_ThemeTypographyTokenOverrides -.-> export_ThemeTypographyHeadingOverrides
-  export_ToggleDarkModeAction["ToggleDarkModeAction"]
-  module_src_types_ts --> export_ToggleDarkModeAction
   export_UiBindableEventMeta["UiBindableEventMeta"]
   module_src_ui_ts --> export_UiBindableEventMeta
   export_UiBindableEventMeta -.-> export_UiBindableEventPayloadMeta
