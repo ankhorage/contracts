@@ -6,7 +6,7 @@
 
 Package: `@ankhorage/contracts`
 
-Serializable app, action, theme, auth, and secret-store contracts for Ankhorage.
+Serializable app, capability, binding, theme, auth, and secret-store contracts for Ankhorage.
 
 ## Current architecture only
 
