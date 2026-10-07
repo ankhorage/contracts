@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 24.0.0
+
+### Major Changes
+
+- 5d0d166: Add required binding kind and source/target role metadata to the portable Capability contract.
+
 ## 23.0.0
 
 ### Major Changes

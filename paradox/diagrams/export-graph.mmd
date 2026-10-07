@@ -451,7 +451,13 @@ graph LR
   module_src_types_ts --> export_ButtonPressEventDto
   export_Capability["Capability"]
   module_src_capabilities_ts --> export_Capability
+  export_Capability -.-> export_CapabilityBindingKind
+  export_Capability -.-> export_CapabilityBindingRole
   export_Capability -.-> export_DataSchemaSlot
+  export_CapabilityBindingKind["CapabilityBindingKind"]
+  module_src_capabilities_ts --> export_CapabilityBindingKind
+  export_CapabilityBindingRole["CapabilityBindingRole"]
+  module_src_capabilities_ts --> export_CapabilityBindingRole
   export_CollectionItemPressEventDto["CollectionItemPressEventDto"]
   module_src_types_ts --> export_CollectionItemPressEventDto
   export_CollectionItemPressPayload["CollectionItemPressPayload"]

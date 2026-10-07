@@ -1056,7 +1056,7 @@ Source: `src/types.ts:195:1`
 
 | Name | Kind | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| createStrategy | property | `"app" \| "trigger" \| "api" \| undefined` | no |  |
+| createStrategy | property | `"app" \| "api" \| "trigger" \| undefined` | no |  |
 | fields | property | `AuthProfileField[]` | yes |  |
 | primaryKey | property | `"authUserId" \| undefined` | no |  |
 | table | property | `string \| undefined` | no |  |
@@ -1326,19 +1326,32 @@ Source: `src/types.ts:63:1`
 
 Kind: `type`
 Module: `src/capabilities.ts`
-Source: `src/capabilities.ts:10:1`
+Source: `src/capabilities.ts:15:1`
 
 ### Members
 
 | Name | Kind | Type | Required | Description |
 | --- | --- | --- | --- | --- |
 | access | property | `readonly ("emit" \| "invoke" \| "read" \| "subscribe" \| "write")[]` | yes |  |
+| binding | property | `{ readonly kind: CapabilityBindingKind; readonly bindableAs: readonly CapabilityBindingRole[]; }` | yes |  |
 | description | property | `string \| undefined` | no |  |
 | id | property | ``${string}.${string}`` | yes |  |
 | input | property | `DataSchemaSlot \| undefined` | no |  |
 | label | property | `string \| undefined` | no |  |
 | output | property | `DataSchemaSlot \| undefined` | no |  |
 | owner | property | `string` | yes |  |
+
+## CapabilityBindingKind
+
+Kind: `unknown`
+Module: `src/capabilities.ts`
+Source: `src/capabilities.ts:3:1`
+
+## CapabilityBindingRole
+
+Kind: `unknown`
+Module: `src/capabilities.ts`
+Source: `src/capabilities.ts:6:1`
 
 ## CollectionItemPressEventDto
 

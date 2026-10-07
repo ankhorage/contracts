@@ -3839,7 +3839,7 @@
       {
         "name": "createStrategy",
         "kind": "property",
-        "type": "\"app\" | \"trigger\" | \"api\" | undefined",
+        "type": "\"app\" | \"api\" | \"trigger\" | undefined",
         "required": false,
         "description": null
       },
@@ -4780,13 +4780,15 @@
     "modulePath": "src/capabilities.ts",
     "sourceLocation": {
       "filePath": "src/capabilities.ts",
-      "line": 10,
+      "line": 15,
       "column": 1
     },
     "exportPaths": [
       "src/index.ts"
     ],
     "relatedSymbols": [
+      "CapabilityBindingKind",
+      "CapabilityBindingRole",
       "DataSchemaSlot"
     ],
     "signatures": [],
@@ -4795,6 +4797,13 @@
         "name": "access",
         "kind": "property",
         "type": "readonly (\"emit\" | \"invoke\" | \"read\" | \"subscribe\" | \"write\")[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "binding",
+        "kind": "property",
+        "type": "{ readonly kind: CapabilityBindingKind; readonly bindableAs: readonly CapabilityBindingRole[]; }",
         "required": true,
         "description": null
       },
@@ -4841,6 +4850,50 @@
         "description": null
       }
     ],
+    "structuredRows": []
+  },
+  {
+    "name": "CapabilityBindingKind",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/capabilities.ts",
+    "sourceLocation": {
+      "filePath": "src/capabilities.ts",
+      "line": 3,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "CapabilityBindingRole",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/capabilities.ts",
+    "sourceLocation": {
+      "filePath": "src/capabilities.ts",
+      "line": 6,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
     "structuredRows": []
   },
   {
