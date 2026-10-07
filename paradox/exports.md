@@ -574,6 +574,21 @@ Source: `src/state.ts:4:1`
 | persistence | property | `false \| undefined` | no |  |
 | provider | property | `"legend"` | yes |  |
 
+## areCapabilitiesEqual
+
+Kind: `function`
+Module: `src/capabilities.ts`
+Source: `src/capabilities.ts:95:1`
+
+Compare capability descriptors independent of object property and unordered collection ordering.
+
+### Signatures
+
+- `(left: Capability, right: Capability) => boolean`
+  - left: `Capability`
+  - right: `Capability`
+  - returns: `boolean`
+
 ## AUTH_IDENTIFIER_KINDS
 
 Kind: `value`
@@ -1326,7 +1341,7 @@ Source: `src/types.ts:63:1`
 
 Kind: `type`
 Module: `src/capabilities.ts`
-Source: `src/capabilities.ts:15:1`
+Source: `src/capabilities.ts:39:1`
 
 ### Members
 
@@ -1341,17 +1356,47 @@ Source: `src/capabilities.ts:15:1`
 | output | property | `DataSchemaSlot \| undefined` | no |  |
 | owner | property | `string` | yes |  |
 
+## CAPABILITY_ACCESS
+
+Kind: `value`
+Module: `src/capabilities.ts`
+Source: `src/capabilities.ts:9:14`
+
+Enumerate the operations a capability exposes to other packages.
+
+## CAPABILITY_BINDING_KINDS
+
+Kind: `value`
+Module: `src/capabilities.ts`
+Source: `src/capabilities.ts:14:14`
+
+Enumerate the portable runtime families supported by capability bindings.
+
+## CAPABILITY_BINDING_ROLES
+
+Kind: `value`
+Module: `src/capabilities.ts`
+Source: `src/capabilities.ts:28:14`
+
+Enumerate the directions in which a capability can participate in a binding.
+
+## CapabilityAccess
+
+Kind: `unknown`
+Module: `src/capabilities.ts`
+Source: `src/capabilities.ts:11:1`
+
 ## CapabilityBindingKind
 
 Kind: `unknown`
 Module: `src/capabilities.ts`
-Source: `src/capabilities.ts:3:1`
+Source: `src/capabilities.ts:25:1`
 
 ## CapabilityBindingRole
 
 Kind: `unknown`
 Module: `src/capabilities.ts`
-Source: `src/capabilities.ts:6:1`
+Source: `src/capabilities.ts:30:1`
 
 ## CollectionItemPressEventDto
 
@@ -3794,6 +3839,62 @@ Validate the complete serialized `AppManifest.navigator` slice.
   - value: `unknown`
   - returns: `boolean`
 
+## isCapability
+
+Kind: `function`
+Module: `src/capabilities.ts`
+Source: `src/capabilities.ts:63:1`
+
+Validate an untrusted value as one complete portable capability descriptor.
+
+### Signatures
+
+- `(value: unknown) => boolean`
+  - value: `unknown`
+  - returns: `boolean`
+
+## isCapabilityId
+
+Kind: `function`
+Module: `src/capabilities.ts`
+Source: `src/capabilities.ts:54:1`
+
+Validate a stable dot-separated identifier for one capability.
+
+### Signatures
+
+- `(value: unknown) => boolean`
+  - value: `unknown`
+  - returns: `boolean`
+
+## isDataSchema
+
+Kind: `function`
+Module: `src/data/dataValidation.ts`
+Source: `src/data/dataValidation.ts:158:1`
+
+Validate supported schema types, constraints and compositions.
+
+### Signatures
+
+- `(value: unknown) => boolean`
+  - value: `unknown`
+  - returns: `boolean`
+
+## isDataSchemaSlot
+
+Kind: `function`
+Module: `src/data/dataValidation.ts`
+Source: `src/data/dataValidation.ts:149:1`
+
+Validate an inline schema or named schema-reference slot.
+
+### Signatures
+
+- `(value: unknown) => boolean`
+  - value: `unknown`
+  - returns: `boolean`
+
 ## isInfraAdapterDescriptor
 
 Kind: `function`
@@ -4830,6 +4931,20 @@ Source: `src/navigator/catalog.ts:16:1`
 Kind: `unknown`
 Module: `src/navigator/catalog.ts`
 Source: `src/navigator/catalog.ts:30:1`
+
+## normalizeCapability
+
+Kind: `function`
+Module: `src/capabilities.ts`
+Source: `src/capabilities.ts:78:1`
+
+Return a capability with access and binding-role collections sorted and deduplicated.
+
+### Signatures
+
+- `(capability: Capability) => Capability`
+  - capability: `Capability`
+  - returns: `Capability`
 
 ## normalizeSecretRef
 

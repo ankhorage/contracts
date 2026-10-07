@@ -1,0 +1,13 @@
+sequenceDiagram
+  participant participant_normalizeCapability as normalizeCapability
+  participant participant_normalizeCapabilityAccess as normalizeCapabilityAccess
+  participant participant_normalizeCapabilityBindingRoles as normalizeCapabilityBindingRoles
+  participant participant_uniqueSortedStrings as uniqueSortedStrings
+  participant_normalizeCapability->>participant_normalizeCapabilityAccess: normalizeCapabilityAccess()
+  participant_normalizeCapabilityAccess->>participant_uniqueSortedStrings: uniqueSortedStrings()
+  participant_uniqueSortedStrings-->>participant_normalizeCapabilityAccess: return
+  participant_normalizeCapabilityAccess-->>participant_normalizeCapability: return
+  participant_normalizeCapability->>participant_normalizeCapabilityBindingRoles: normalizeCapabilityBindingRoles()
+  participant_normalizeCapabilityBindingRoles->>participant_uniqueSortedStrings: uniqueSortedStrings()
+  participant_uniqueSortedStrings-->>participant_normalizeCapabilityBindingRoles: return
+  participant_normalizeCapabilityBindingRoles-->>participant_normalizeCapability: return

@@ -245,6 +245,9 @@ graph LR
   module_src_types_ts --> export_AppSettings
   export_AppStateSpec["AppStateSpec"]
   module_src_state_ts --> export_AppStateSpec
+  export_areCapabilitiesEqual["areCapabilitiesEqual"]
+  module_src_capabilities_ts --> export_areCapabilitiesEqual
+  export_areCapabilitiesEqual -.-> export_Capability
   export_AUTH_IDENTIFIER_KINDS["AUTH_IDENTIFIER_KINDS"]
   module_src_auth_ts --> export_AUTH_IDENTIFIER_KINDS
   export_AUTH_OAUTH_CANCELLATION_REASONS["AUTH_OAUTH_CANCELLATION_REASONS"]
@@ -454,6 +457,14 @@ graph LR
   export_Capability -.-> export_CapabilityBindingKind
   export_Capability -.-> export_CapabilityBindingRole
   export_Capability -.-> export_DataSchemaSlot
+  export_CAPABILITY_ACCESS["CAPABILITY_ACCESS"]
+  module_src_capabilities_ts --> export_CAPABILITY_ACCESS
+  export_CAPABILITY_BINDING_KINDS["CAPABILITY_BINDING_KINDS"]
+  module_src_capabilities_ts --> export_CAPABILITY_BINDING_KINDS
+  export_CAPABILITY_BINDING_ROLES["CAPABILITY_BINDING_ROLES"]
+  module_src_capabilities_ts --> export_CAPABILITY_BINDING_ROLES
+  export_CapabilityAccess["CapabilityAccess"]
+  module_src_capabilities_ts --> export_CapabilityAccess
   export_CapabilityBindingKind["CapabilityBindingKind"]
   module_src_capabilities_ts --> export_CapabilityBindingKind
   export_CapabilityBindingRole["CapabilityBindingRole"]
@@ -1138,6 +1149,14 @@ graph LR
   module_src_appManifest_isAppManifest_ts --> export_isAppManifest
   export_isAppNavigatorManifest["isAppNavigatorManifest"]
   module_src_appManifest_navigator_ts --> export_isAppNavigatorManifest
+  export_isCapability["isCapability"]
+  module_src_capabilities_ts --> export_isCapability
+  export_isCapabilityId["isCapabilityId"]
+  module_src_capabilities_ts --> export_isCapabilityId
+  export_isDataSchema["isDataSchema"]
+  module_src_data_dataValidation_ts --> export_isDataSchema
+  export_isDataSchemaSlot["isDataSchemaSlot"]
+  module_src_data_dataValidation_ts --> export_isDataSchemaSlot
   export_isInfraAdapterDescriptor["isInfraAdapterDescriptor"]
   module_src_infra_isInfraAdapterDescriptor_ts --> export_isInfraAdapterDescriptor
   export_isInfraAuthSpec["isInfraAuthSpec"]
@@ -1401,6 +1420,9 @@ graph LR
   module_src_navigator_catalog_ts --> export_NavigatorVerificationKind
   export_NavigatorVerificationStatus["NavigatorVerificationStatus"]
   module_src_navigator_catalog_ts --> export_NavigatorVerificationStatus
+  export_normalizeCapability["normalizeCapability"]
+  module_src_capabilities_ts --> export_normalizeCapability
+  export_normalizeCapability -.-> export_Capability
   export_normalizeSecretRef["normalizeSecretRef"]
   module_src_secrets_ts --> export_normalizeSecretRef
   export_normalizeSecretRef -.-> export_SecretStoreResult

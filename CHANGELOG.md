@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 24.1.0
+
+### Minor Changes
+
+- c71a377: Add canonical Capability runtime literals, validation, normalization, equality, and reusable DataSchema validation exports.
+
 ## 24.0.0
 
 ### Major Changes

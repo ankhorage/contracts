@@ -70,6 +70,7 @@ graph TD
   module_src_bindings_ts --> module_src_serializable_ts
   module_src_capabilities_ts["src/capabilities.ts"]
   package__ankhorage_contracts -.-> module_src_capabilities_ts
+  module_src_capabilities_ts --> module_src_data_dataValidation_ts
   module_src_capabilities_ts --> module_src_data_schemas_ts
   module_src_cli_index_ts["src/cli/index.ts"]
   package__ankhorage_contracts -.-> module_src_cli_index_ts
@@ -86,6 +87,7 @@ graph TD
   module_src_data_apis_ts --> module_src_data_values_ts
   module_src_data_dataValidation_ts["src/data/dataValidation.ts"]
   package__ankhorage_contracts -.-> module_src_data_dataValidation_ts
+  module_src_data_dataValidation_ts --> module_src_data_schemas_ts
   module_src_data_dataValidation_ts --> module_src_serializable_ts
   module_src_data_diagnostics_ts["src/data/diagnostics.ts"]
   package__ankhorage_contracts -.-> module_src_data_diagnostics_ts

@@ -3,7 +3,7 @@
 
 # @ankhorage/contracts
 
-![license: MIT](././paradox/badges/license.svg) ![npm: v24.0.0](././paradox/badges/npm.svg) ![runtime: bun](././paradox/badges/runtime.svg) ![typescript: strict](././paradox/badges/typescript.svg) ![eslint: checked](././paradox/badges/eslint.svg) ![prettier: checked](././paradox/badges/prettier.svg) ![build: checked](././paradox/badges/build.svg) ![tests: checked](././paradox/badges/tests.svg) ![paradox: warnings](././paradox/badges/docs.svg)
+![license: MIT](././paradox/badges/license.svg) ![npm: v24.1.0](././paradox/badges/npm.svg) ![runtime: bun](././paradox/badges/runtime.svg) ![typescript: strict](././paradox/badges/typescript.svg) ![eslint: checked](././paradox/badges/eslint.svg) ![prettier: checked](././paradox/badges/prettier.svg) ![build: checked](././paradox/badges/build.svg) ![tests: checked](././paradox/badges/tests.svg) ![paradox: warnings](././paradox/badges/docs.svg)
 
 Serializable app, capability, binding, theme, auth, and secret-store contracts for Ankhorage.
 
@@ -15,6 +15,7 @@ Serializable app, capability, binding, theme, auth, and secret-store contracts f
 - [Architecture overview](././paradox/diagrams/architecture-overview.mmd)
 - [Module relationships](././paradox/diagrams/module-relationships.mmd)
 - [Export graph](././paradox/diagrams/export-graph.mmd)
+- [isCapabilityId sequence](././paradox/diagrams/sequences/is-capability-id.mmd)
 - [isInfraAdapterDescriptor sequence](././paradox/diagrams/sequences/is-infra-adapter-descriptor.mmd)
 - [isInfraAuthSpec sequence](././paradox/diagrams/sequences/is-infra-auth-spec.mmd)
 - [isInfraDeploymentSpec sequence](././paradox/diagrams/sequences/is-infra-deployment-spec.mmd)
@@ -25,4 +26,5 @@ Serializable app, capability, binding, theme, auth, and secret-store contracts f
 - [isSerializableSet sequence](././paradox/diagrams/sequences/is-serializable-set.mmd)
 - [isSerializableValue sequence](././paradox/diagrams/sequences/is-serializable-value.mmd)
 - [isStructureDescriptorDocument sequence](././paradox/diagrams/sequences/is-structure-descriptor-document.mmd)
+- [normalizeCapability sequence](././paradox/diagrams/sequences/normalize-capability.mmd)
 - [parseInfraManifest sequence](././paradox/diagrams/sequences/parse-infra-manifest.mmd)
