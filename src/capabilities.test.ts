@@ -153,6 +153,35 @@ describe('Capability runtime API', () => {
   });
 });
 
+describe('Capability canonical projection', () => {
+  it('projects accepted runtime capabilities to their canonical descriptor', () => {
+    const runtimeCapability = {
+      ...CAPABILITIES[3],
+      access: ['invoke', 'invoke'],
+      binding: {
+        kind: 'api',
+        bindableAs: ['target', 'target'],
+        runtimeBindingMetadata: { generatedBy: 'runtime' },
+      },
+      label: undefined,
+      description: undefined,
+      runtimeMetadata: { transport: 'local' },
+    };
+    const canonicalCapability: Capability = {
+      id: 'api.catalog.product.create',
+      owner: '@ankhorage/api',
+      access: ['invoke'],
+      binding: { kind: 'api', bindableAs: ['target'] },
+      input: CAPABILITIES[3].input,
+      output: CAPABILITIES[3].output,
+    };
+
+    expect(isCapability(runtimeCapability)).toBeTrue();
+    expect(normalizeCapability(runtimeCapability)).toEqual(canonicalCapability);
+    expect(areCapabilitiesEqual(runtimeCapability, canonicalCapability)).toBeTrue();
+  });
+});
+
 describe('Capability canonicalization', () => {
   it('normalizes unordered access and binding roles', () => {
     const normalized = normalizeCapability({

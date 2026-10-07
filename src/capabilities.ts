@@ -77,12 +77,17 @@ export function isCapability(value: unknown): value is Capability {
 /*** Return a capability with access and binding-role collections sorted and deduplicated. */
 export function normalizeCapability(capability: Capability): Capability {
   return {
-    ...capability,
+    id: capability.id,
+    owner: capability.owner,
     access: normalizeCapabilityAccess(capability.access),
     binding: {
-      ...capability.binding,
+      kind: capability.binding.kind,
       bindableAs: normalizeCapabilityBindingRoles(capability.binding.bindableAs),
     },
+    ...(capability.label === undefined ? {} : { label: capability.label }),
+    ...(capability.description === undefined ? {} : { description: capability.description }),
+    ...(capability.input === undefined ? {} : { input: capability.input }),
+    ...(capability.output === undefined ? {} : { output: capability.output }),
   };
 }
 
