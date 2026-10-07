@@ -1,4 +1,5 @@
 export * from './apis';
+export { isDataSchema, isDataSchemaSlot } from './dataValidation';
 export * from './diagnostics';
 export * from './endpoints';
 export * from './ids';
