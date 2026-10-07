@@ -3,6 +3,7 @@ import { isRecord, readOwnProperty } from '@ankhorage/utility/object';
 import { isOptionalString } from '@ankhorage/utility/string';
 
 import { isSerializableValue } from '../serializable';
+import type { DataSchema, DataSchemaSlot } from './schemas';
 
 const DATA_SCHEMA_TYPES = new Set([
   'array',
@@ -144,16 +145,17 @@ function isDataOperationResponse(value: unknown): boolean {
   );
 }
 
-/*** Validate inline schema and schema-reference fields. */
-function isDataSchemaSlot(value: Record<string, unknown>): boolean {
+/*** Validate an inline schema or named schema-reference slot. */
+export function isDataSchemaSlot(value: unknown): value is DataSchemaSlot {
   return (
+    isRecord(value) &&
     (value.schema === undefined || isDataSchema(value.schema)) &&
     (value.schemaRef === undefined || isDataSchemaRef(value.schemaRef))
   );
 }
 
 /*** Validate supported schema types, constraints and compositions. */
-function isDataSchema(value: unknown): boolean {
+export function isDataSchema(value: unknown): value is DataSchema {
   if (!isRecord(value) || !isDataSchemaType(value.type)) return false;
   if (!isOptionalSchemaScalars(value)) return false;
   if (!isOptionalSchemaCollections(value)) return false;
