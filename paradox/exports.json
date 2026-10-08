@@ -944,8 +944,7 @@
       "src/index.ts"
     ],
     "relatedSymbols": [
-      "AnkhCommandDescriptor",
-      "Capability"
+      "AnkhCommandDescriptor"
     ],
     "signatures": [],
     "members": [
@@ -1093,8 +1092,7 @@
       "src/index.ts"
     ],
     "relatedSymbols": [
-      "AnkhStructureMetadata",
-      "Capability"
+      "AnkhStructureMetadata"
     ],
     "signatures": [],
     "members": [
@@ -2077,50 +2075,6 @@
         "description": null
       }
     ],
-    "structuredRows": []
-  },
-  {
-    "name": "areCapabilitiesEqual",
-    "title": null,
-    "description": "Compare capability descriptors independent of object property and unordered collection ordering.",
-    "isReadme": false,
-    "see": [],
-    "security": [],
-    "kind": "function",
-    "modulePath": "src/capabilities.ts",
-    "sourceLocation": {
-      "filePath": "src/capabilities.ts",
-      "line": 96,
-      "column": 1
-    },
-    "exportPaths": [
-      "src/index.ts"
-    ],
-    "relatedSymbols": [
-      "Capability"
-    ],
-    "signatures": [
-      {
-        "label": "(left: Capability, right: Capability) => boolean",
-        "parameters": [
-          {
-            "name": "left",
-            "type": "Capability",
-            "required": true,
-            "description": null
-          },
-          {
-            "name": "right",
-            "type": "Capability",
-            "required": true,
-            "description": null
-          }
-        ],
-        "returnType": "boolean",
-        "returnDescription": null
-      }
-    ],
-    "members": [],
     "structuredRows": []
   },
   {
@@ -3883,7 +3837,7 @@
       {
         "name": "createStrategy",
         "kind": "property",
-        "type": "\"app\" | \"api\" | \"trigger\" | undefined",
+        "type": "\"app\" | \"trigger\" | \"api\" | undefined",
         "required": false,
         "description": null
       },
@@ -4803,221 +4757,6 @@
     "sourceLocation": {
       "filePath": "src/types.ts",
       "line": 63,
-      "column": 1
-    },
-    "exportPaths": [
-      "src/index.ts"
-    ],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "Capability",
-    "title": null,
-    "description": null,
-    "isReadme": false,
-    "see": [],
-    "security": [],
-    "kind": "type",
-    "modulePath": "src/capabilities.ts",
-    "sourceLocation": {
-      "filePath": "src/capabilities.ts",
-      "line": 40,
-      "column": 1
-    },
-    "exportPaths": [
-      "src/index.ts"
-    ],
-    "relatedSymbols": [
-      "CapabilityBindingKind",
-      "CapabilityBindingRole",
-      "DataSchemaSlot"
-    ],
-    "signatures": [],
-    "members": [
-      {
-        "name": "access",
-        "kind": "property",
-        "type": "readonly (\"emit\" | \"invoke\" | \"read\" | \"subscribe\" | \"write\")[]",
-        "required": true,
-        "description": null
-      },
-      {
-        "name": "binding",
-        "kind": "property",
-        "type": "{ readonly kind: CapabilityBindingKind; readonly bindableAs: readonly CapabilityBindingRole[]; }",
-        "required": true,
-        "description": null
-      },
-      {
-        "name": "description",
-        "kind": "property",
-        "type": "string | undefined",
-        "required": false,
-        "description": null
-      },
-      {
-        "name": "id",
-        "kind": "property",
-        "type": "`${string}.${string}`",
-        "required": true,
-        "description": null
-      },
-      {
-        "name": "input",
-        "kind": "property",
-        "type": "DataSchemaSlot | undefined",
-        "required": false,
-        "description": null
-      },
-      {
-        "name": "label",
-        "kind": "property",
-        "type": "string | undefined",
-        "required": false,
-        "description": null
-      },
-      {
-        "name": "output",
-        "kind": "property",
-        "type": "DataSchemaSlot | undefined",
-        "required": false,
-        "description": null
-      },
-      {
-        "name": "owner",
-        "kind": "property",
-        "type": "string",
-        "required": true,
-        "description": null
-      }
-    ],
-    "structuredRows": []
-  },
-  {
-    "name": "CAPABILITY_ACCESS",
-    "title": null,
-    "description": "Enumerate the operations a capability exposes to other packages.",
-    "isReadme": false,
-    "see": [],
-    "security": [],
-    "kind": "value",
-    "modulePath": "src/capabilities.ts",
-    "sourceLocation": {
-      "filePath": "src/capabilities.ts",
-      "line": 9,
-      "column": 14
-    },
-    "exportPaths": [
-      "src/index.ts"
-    ],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "CAPABILITY_BINDING_KINDS",
-    "title": null,
-    "description": "Enumerate the portable runtime families supported by capability bindings.",
-    "isReadme": false,
-    "see": [],
-    "security": [],
-    "kind": "value",
-    "modulePath": "src/capabilities.ts",
-    "sourceLocation": {
-      "filePath": "src/capabilities.ts",
-      "line": 14,
-      "column": 14
-    },
-    "exportPaths": [
-      "src/index.ts"
-    ],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "CAPABILITY_BINDING_ROLES",
-    "title": null,
-    "description": "Enumerate the directions in which a capability can participate in a binding.",
-    "isReadme": false,
-    "see": [],
-    "security": [],
-    "kind": "value",
-    "modulePath": "src/capabilities.ts",
-    "sourceLocation": {
-      "filePath": "src/capabilities.ts",
-      "line": 29,
-      "column": 14
-    },
-    "exportPaths": [
-      "src/index.ts"
-    ],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "CapabilityAccess",
-    "title": null,
-    "description": null,
-    "isReadme": false,
-    "see": [],
-    "security": [],
-    "kind": "unknown",
-    "modulePath": "src/capabilities.ts",
-    "sourceLocation": {
-      "filePath": "src/capabilities.ts",
-      "line": 11,
-      "column": 1
-    },
-    "exportPaths": [
-      "src/index.ts"
-    ],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "CapabilityBindingKind",
-    "title": null,
-    "description": null,
-    "isReadme": false,
-    "see": [],
-    "security": [],
-    "kind": "unknown",
-    "modulePath": "src/capabilities.ts",
-    "sourceLocation": {
-      "filePath": "src/capabilities.ts",
-      "line": 26,
-      "column": 1
-    },
-    "exportPaths": [
-      "src/index.ts"
-    ],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "CapabilityBindingRole",
-    "title": null,
-    "description": null,
-    "isReadme": false,
-    "see": [],
-    "security": [],
-    "kind": "unknown",
-    "modulePath": "src/capabilities.ts",
-    "sourceLocation": {
-      "filePath": "src/capabilities.ts",
-      "line": 31,
       "column": 1
     },
     "exportPaths": [
@@ -13923,78 +13662,6 @@
     "structuredRows": []
   },
   {
-    "name": "isCapability",
-    "title": null,
-    "description": "Validate an untrusted value as one complete portable capability descriptor.",
-    "isReadme": false,
-    "see": [],
-    "security": [],
-    "kind": "function",
-    "modulePath": "src/capabilities.ts",
-    "sourceLocation": {
-      "filePath": "src/capabilities.ts",
-      "line": 64,
-      "column": 1
-    },
-    "exportPaths": [
-      "src/index.ts"
-    ],
-    "relatedSymbols": [],
-    "signatures": [
-      {
-        "label": "(value: unknown) => boolean",
-        "parameters": [
-          {
-            "name": "value",
-            "type": "unknown",
-            "required": true,
-            "description": null
-          }
-        ],
-        "returnType": "boolean",
-        "returnDescription": null
-      }
-    ],
-    "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "isCapabilityId",
-    "title": null,
-    "description": "Validate a stable dot-separated identifier for one capability.",
-    "isReadme": false,
-    "see": [],
-    "security": [],
-    "kind": "function",
-    "modulePath": "src/capabilities.ts",
-    "sourceLocation": {
-      "filePath": "src/capabilities.ts",
-      "line": 55,
-      "column": 1
-    },
-    "exportPaths": [
-      "src/index.ts"
-    ],
-    "relatedSymbols": [],
-    "signatures": [
-      {
-        "label": "(value: unknown) => boolean",
-        "parameters": [
-          {
-            "name": "value",
-            "type": "unknown",
-            "required": true,
-            "description": null
-          }
-        ],
-        "returnType": "boolean",
-        "returnDescription": null
-      }
-    ],
-    "members": [],
-    "structuredRows": []
-  },
-  {
     "name": "isDataSchema",
     "title": null,
     "description": "Validate supported schema types, constraints and compositions.",
@@ -17575,44 +17242,6 @@
     ],
     "relatedSymbols": [],
     "signatures": [],
-    "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "normalizeCapability",
-    "title": null,
-    "description": "Return a capability with access and binding-role collections sorted and deduplicated.",
-    "isReadme": false,
-    "see": [],
-    "security": [],
-    "kind": "function",
-    "modulePath": "src/capabilities.ts",
-    "sourceLocation": {
-      "filePath": "src/capabilities.ts",
-      "line": 79,
-      "column": 1
-    },
-    "exportPaths": [
-      "src/index.ts"
-    ],
-    "relatedSymbols": [
-      "Capability"
-    ],
-    "signatures": [
-      {
-        "label": "(capability: Capability) => Capability",
-        "parameters": [
-          {
-            "name": "capability",
-            "type": "Capability",
-            "required": true,
-            "description": null
-          }
-        ],
-        "returnType": "Capability",
-        "returnDescription": null
-      }
-    ],
     "members": [],
     "structuredRows": []
   },

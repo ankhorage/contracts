@@ -574,21 +574,6 @@ Source: `src/state.ts:4:1`
 | persistence | property | `false \| undefined` | no |  |
 | provider | property | `"legend"` | yes |  |
 
-## areCapabilitiesEqual
-
-Kind: `function`
-Module: `src/capabilities.ts`
-Source: `src/capabilities.ts:96:1`
-
-Compare capability descriptors independent of object property and unordered collection ordering.
-
-### Signatures
-
-- `(left: Capability, right: Capability) => boolean`
-  - left: `Capability`
-  - right: `Capability`
-  - returns: `boolean`
-
 ## AUTH_IDENTIFIER_KINDS
 
 Kind: `value`
@@ -1071,7 +1056,7 @@ Source: `src/types.ts:195:1`
 
 | Name | Kind | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| createStrategy | property | `"app" \| "api" \| "trigger" \| undefined` | no |  |
+| createStrategy | property | `"app" \| "trigger" \| "api" \| undefined` | no |  |
 | fields | property | `AuthProfileField[]` | yes |  |
 | primaryKey | property | `"authUserId" \| undefined` | no |  |
 | table | property | `string \| undefined` | no |  |
@@ -1336,67 +1321,6 @@ Source: `src/bindings.ts:12:1`
 Kind: `unknown`
 Module: `src/types.ts`
 Source: `src/types.ts:63:1`
-
-## Capability
-
-Kind: `type`
-Module: `src/capabilities.ts`
-Source: `src/capabilities.ts:40:1`
-
-### Members
-
-| Name | Kind | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| access | property | `readonly ("emit" \| "invoke" \| "read" \| "subscribe" \| "write")[]` | yes |  |
-| binding | property | `{ readonly kind: CapabilityBindingKind; readonly bindableAs: readonly CapabilityBindingRole[]; }` | yes |  |
-| description | property | `string \| undefined` | no |  |
-| id | property | ``${string}.${string}`` | yes |  |
-| input | property | `DataSchemaSlot \| undefined` | no |  |
-| label | property | `string \| undefined` | no |  |
-| output | property | `DataSchemaSlot \| undefined` | no |  |
-| owner | property | `string` | yes |  |
-
-## CAPABILITY_ACCESS
-
-Kind: `value`
-Module: `src/capabilities.ts`
-Source: `src/capabilities.ts:9:14`
-
-Enumerate the operations a capability exposes to other packages.
-
-## CAPABILITY_BINDING_KINDS
-
-Kind: `value`
-Module: `src/capabilities.ts`
-Source: `src/capabilities.ts:14:14`
-
-Enumerate the portable runtime families supported by capability bindings.
-
-## CAPABILITY_BINDING_ROLES
-
-Kind: `value`
-Module: `src/capabilities.ts`
-Source: `src/capabilities.ts:29:14`
-
-Enumerate the directions in which a capability can participate in a binding.
-
-## CapabilityAccess
-
-Kind: `unknown`
-Module: `src/capabilities.ts`
-Source: `src/capabilities.ts:11:1`
-
-## CapabilityBindingKind
-
-Kind: `unknown`
-Module: `src/capabilities.ts`
-Source: `src/capabilities.ts:26:1`
-
-## CapabilityBindingRole
-
-Kind: `unknown`
-Module: `src/capabilities.ts`
-Source: `src/capabilities.ts:31:1`
 
 ## CollectionItemPressEventDto
 
@@ -3839,34 +3763,6 @@ Validate the complete serialized `AppManifest.navigator` slice.
   - value: `unknown`
   - returns: `boolean`
 
-## isCapability
-
-Kind: `function`
-Module: `src/capabilities.ts`
-Source: `src/capabilities.ts:64:1`
-
-Validate an untrusted value as one complete portable capability descriptor.
-
-### Signatures
-
-- `(value: unknown) => boolean`
-  - value: `unknown`
-  - returns: `boolean`
-
-## isCapabilityId
-
-Kind: `function`
-Module: `src/capabilities.ts`
-Source: `src/capabilities.ts:55:1`
-
-Validate a stable dot-separated identifier for one capability.
-
-### Signatures
-
-- `(value: unknown) => boolean`
-  - value: `unknown`
-  - returns: `boolean`
-
 ## isDataSchema
 
 Kind: `function`
@@ -4931,20 +4827,6 @@ Source: `src/navigator/catalog.ts:16:1`
 Kind: `unknown`
 Module: `src/navigator/catalog.ts`
 Source: `src/navigator/catalog.ts:30:1`
-
-## normalizeCapability
-
-Kind: `function`
-Module: `src/capabilities.ts`
-Source: `src/capabilities.ts:79:1`
-
-Return a capability with access and binding-role collections sorted and deduplicated.
-
-### Signatures
-
-- `(capability: Capability) => Capability`
-  - capability: `Capability`
-  - returns: `Capability`
 
 ## normalizeSecretRef
 

@@ -187,11 +187,6 @@
       <small>1 function</small>
     </button>
   </li><li>
-    <button class="nav-button" type="button" data-target="src/capabilities.ts">
-      src/capabilities.ts
-      <small>14 functions</small>
-    </button>
-  </li><li>
     <button class="nav-button" type="button" data-target="src/collections.ts">
       src/collections.ts
       <small>1 function</small>
@@ -306,7 +301,7 @@
     <section class="panel">
       <h2>Package overview</h2>
       <div class="summary">
-        <div><strong>664</strong><span class="muted">public exports</span></div>
+        <div><strong>653</strong><span class="muted">public exports</span></div>
         <div><strong>0</strong><span class="muted">components</span></div>
         <div><strong>84</strong><span class="muted">modules</span></div>
         <div><strong>1</strong><span class="muted">entrypoints</span></div>
@@ -430,15 +425,15 @@
     <p class="muted">Referenced module</p>
     <p><strong>Dependencies:</strong> <code>src/collections.ts</code>, <code>src/data/index.ts</code>, <code>src/serializable.ts</code></p>
     <p><strong>Exports:</strong> <code>BindingCondition</code>, <code>BindingConditionOperator</code>, <code>BindingDataPath</code>, <code>BindingFallback</code>, <code>BindingInputMap</code>, <code>BindingInputValue</code>, <code>BindingLifecycleBehavior</code>, <code>BindingLifecycleState</code>, <code>BindingOperationRef</code>, <code>BindingValue</code>, <code>BindingValueExpression</code>, <code>BindingValueSource</code>, <code>BindingValueTransform</code>, <code>ComponentDataBinding</code>, <code>ComponentDataBindingRegistry</code>, <code>ComponentInstanceId</code>, <code>ComponentTypeId</code>, <code>EventBinding</code>, <code>EventBindingTarget</code>, <code>OperationScreenDataLoaderDefinition</code>, <code>PropBinding</code>, <code>ScreenDataLoaderDefinition</code></p>
-  </article><article class="item" data-search="src/capabilities.ts src/data/dataValidation.ts src/data/schemas.ts areCapabilitiesEqual Capability CAPABILITY_ACCESS CAPABILITY_BINDING_KINDS CAPABILITY_BINDING_ROLES CapabilityAccess CapabilityBindingKind CapabilityBindingRole isCapability isCapabilityId normalizeCapability">
-    <h3>src/capabilities.ts</h3>
+  </article><article class="item" data-search="src/capability.ts src/data/schemas.ts Capability CapabilityAccess CapabilityBindingKind CapabilityBindingRole">
+    <h3>src/capability.ts</h3>
     <p class="muted">Referenced module</p>
-    <p><strong>Dependencies:</strong> <code>src/data/dataValidation.ts</code>, <code>src/data/schemas.ts</code></p>
-    <p><strong>Exports:</strong> <code>areCapabilitiesEqual</code>, <code>Capability</code>, <code>CAPABILITY_ACCESS</code>, <code>CAPABILITY_BINDING_KINDS</code>, <code>CAPABILITY_BINDING_ROLES</code>, <code>CapabilityAccess</code>, <code>CapabilityBindingKind</code>, <code>CapabilityBindingRole</code>, <code>isCapability</code>, <code>isCapabilityId</code>, <code>normalizeCapability</code></p>
-  </article><article class="item" data-search="src/cli/index.ts src/capabilities.ts AnkhCommandCategory AnkhCommandDescriptor AnkhCommandProviderManifest AnkhPackageMetadata AnkhProviderReference AnkhStructureMetadata AnkhStructureRootMetadata">
+    <p><strong>Dependencies:</strong> <code>src/data/schemas.ts</code></p>
+    <p><strong>Exports:</strong> <code>Capability</code>, <code>CapabilityAccess</code>, <code>CapabilityBindingKind</code>, <code>CapabilityBindingRole</code></p>
+  </article><article class="item" data-search="src/cli/index.ts src/capability.ts AnkhCommandCategory AnkhCommandDescriptor AnkhCommandProviderManifest AnkhPackageMetadata AnkhProviderReference AnkhStructureMetadata AnkhStructureRootMetadata">
     <h3>src/cli/index.ts</h3>
     <p class="muted">Referenced module</p>
-    <p><strong>Dependencies:</strong> <code>src/capabilities.ts</code></p>
+    <p><strong>Dependencies:</strong> <code>src/capability.ts</code></p>
     <p><strong>Exports:</strong> <code>AnkhCommandCategory</code>, <code>AnkhCommandDescriptor</code>, <code>AnkhCommandProviderManifest</code>, <code>AnkhPackageMetadata</code>, <code>AnkhProviderReference</code>, <code>AnkhStructureMetadata</code>, <code>AnkhStructureRootMetadata</code></p>
   </article><article class="item" data-search="src/collections.ts EntityRegistry isSerializableSet SerializableSet ValueMap">
     <h3>src/collections.ts</h3>
@@ -530,11 +525,11 @@
     <p class="muted">Referenced module</p>
     <p><strong>Dependencies:</strong> <code>src/media.ts</code></p>
     <p><strong>Exports:</strong> <code>isIconSpec</code></p>
-  </article><article class="item" data-search="src/index.ts AdapterId AdapterKind AdapterRef AdaptiveTabsConfig ANDROID_DEPLOYMENT_TRACKS ANDROID_RELEASE_STATUSES AndroidBuildArtifact AndroidBuildInspection AndroidBuildInspectionRequest AndroidBuildRequest AndroidDeploymentBuilder AndroidDeploymentIntent AndroidDeploymentPublication AndroidDeploymentPublisher AndroidDeploymentTrack AndroidPublishInspection AndroidPublishInspectionRequest AndroidPublishRequest AndroidReleaseStatus AnkhCommandCategory AnkhCommandDescriptor AnkhCommandProviderManifest ANKHORAGE_CAPABILITY_NAMES ANKHORAGE_PERMISSION_NAMES AnkhorageCapabilityName AnkhoragePermissionName AnkhPackageMetadata AnkhProviderReference AnkhStructureMetadata AnkhStructureRootMetadata ApiBaseDefinition ApiDefinition ApiDefinitionRegistry ApiId ApiOrigin ApiProtocol APP_CATEGORIES APP_DEPLOY_TARGET_IDS APP_ENVIRONMENT_IDS AppCategory AppDeployAndroidTargetConfig AppDeployIosTargetConfig AppDeployManifest AppDeployProviderSelection AppDeployTargetId AppDeployTargets AppDeployWebTargetConfig AppEnvironmentId AppManifest AppManifestParseResult AppNavigatorManifest AppSettings AppStateSpec areCapabilitiesEqual AUTH_IDENTIFIER_KINDS AUTH_OAUTH_CANCELLATION_REASONS AUTH_OAUTH_ERROR_CODES AUTH_OAUTH_ERROR_STAGES AUTH_OAUTH_PROVIDER_IDS AUTH_OAUTH_SETUP_CALLBACK_ROLES AUTH_OAUTH_SETUP_FIELD_PERSISTENCE_KINDS AUTH_OAUTH_SETUP_FIELD_SENSITIVITIES AUTH_OAUTH_TRANSPORT_CANCELLATION_REASONS AUTH_OAUTH_TRANSPORT_ERROR_CODES AUTH_OAUTH_TRANSPORT_IDS AUTH_PROFILE_CREATE_STRATEGIES AUTH_PROFILE_FIELDS AUTH_PROFILE_PRIMARY_KEY_STRATEGIES AUTH_PROFILE_UPDATE_STRATEGIES AUTH_SCOPES AUTH_SIGN_IN_IDENTIFIERS AUTH_SIGN_UP_FIELDS AUTH_SIGN_UP_POLICIES AuthAdapter AuthAdapterCapabilities AuthAdapterError AuthFlowConfig AuthIdentifier AuthIdentifierKind AuthOAuthAdapter AuthOAuthAuthorizationRequest AuthOAuthAuthorizationResponse AuthOAuthCancellationReason AuthOAuthCapabilities AuthOAuthCompletionResult AuthOAuthConfig AuthOAuthError AuthOAuthErrorCode AuthOAuthErrorStage AuthOAuthProviderConfig AuthOAuthProviderId AuthOAuthSetupCallbackRequirement AuthOAuthSetupCallbackRole AuthOAuthSetupCapabilities AuthOAuthSetupFieldPersistence AuthOAuthSetupFieldRequirement AuthOAuthSetupFieldSensitivity AuthOAuthSetupPlan AuthOAuthSetupRequirement AuthOAuthStartResult AuthOAuthTransportCancellationReason AuthOAuthTransportError AuthOAuthTransportErrorCode AuthOAuthTransportId AuthProfileCreateStrategy AuthProfileField AuthProfilePrimaryKeyStrategy AuthProfileSpec AuthProfileUpdateStrategy AuthProviderConfig AuthResult AuthScope AuthSession AuthSignInConfig AuthSignInIdentifier AuthSignInSpec AuthSignUpConfig AuthSignUpField AuthSignUpPolicy AuthSignUpSpec AuthUser BindingCondition BindingConditionOperator BindingDataPath BindingFallback BindingInputMap BindingInputValue BindingLifecycleBehavior BindingLifecycleState BindingOperationRef BindingValue BindingValueExpression BindingValueSource BindingValueTransform ButtonPressEventDto Capability CAPABILITY_ACCESS CAPABILITY_BINDING_KINDS CAPABILITY_BINDING_ROLES CapabilityAccess CapabilityBindingKind CapabilityBindingRole CollectionItemPressEventDto CollectionItemPressPayload CompleteOAuthAuthorizationInput ComponentDataBinding ComponentDataBindingRegistry ComponentEventDto ComponentEventDtoKind ComponentEventPayloadValue ComponentInstanceId ComponentRequirements ComponentTypeId CreateNavigatorPlanOptions CredentialId CredentialKind CredentialRef CustomNavigatorConfigIssue CustomNavigatorNode CustomNavigatorRegistration CustomNavigatorRegistry DatabaseAdapterRef DatabaseDataSourceConfig DataContractValue DataDiagnosticCode DataDiagnosticSeverity DataEndpointConfig DataEndpointKind DataEndpointRegistry DataOperationConfig DataOperationIntent DataOperationMethod DataOperationPagination DataOperationParameter DataOperationParameterLocation DataOperationProtocol DataOperationRegistry DataOperationRequest DataOperationResponse DataPath DataSchema DataSchemaPrimitiveType DataSchemaProperty DataSchemaRef DataSchemaRegistry DataSchemaSlot DataSourceConfig DataSourceDiagnostic DataSourceDiagnosticResult DataSourceId DataSourceKind DataSourceRegistry DbAdapter DbAdapterCapabilities DbAdapterError DbAdminAdapter DbAdminAdapterCapabilities DbAdminResult DbChangeEvent DbChangeKind DbChangeListener DbCollectionDefinition DbCollectionReference DbCollectionSubscriptionInput DbDeleteInput DbFieldDefinition DbFieldType DbFilter DbFilterOperator DbFindByIdInput DbInsertInput DbPage DbRealtimeAdapter DbRecord DbRecordSubscriptionInput DbResult DbSelectInput DbSort DbSortDirection DbSubscription DbSuccess DbTableInput DbUpdateInput DEFAULT_AUTH_FLOW DEPLOYMENT_CAPABILITIES DEPLOYMENT_PROVIDER_CAPABILITY_IDS DeploymentAuthenticationRequiredAction DeploymentAuthenticationState DeploymentAutomatedProvisioningRequirement DeploymentCapability DeploymentCredentialReference DeploymentFailure DeploymentManualAction DeploymentMonetizationAdapter DeploymentProviderCapabilityDescriptor DeploymentProviderCapabilityId DeploymentProviderCapabilityState DeploymentProviderDescriptor DeploymentProviderRegistration DeploymentProviderResult DeploymentProviderSetupAdapter DeploymentProviderSetupContext DeploymentProviderSetupInspection DeploymentProvisioningRequirement DeploymentReleaseAdapter DeploymentRequiredAction DeploymentSecretMaterial DeploymentSecretResolver DeploymentStoreIdentity DeploymentStoreListingAdapter DRAWER_POSITIONS DRAWER_TYPES DrawerNavigatorNode DrawerNavigatorOptions DrawerPosition DrawerType EndpointId EntityRegistry EventBinding EventBindingTarget ExpoRouterNavigatorModule ExternalGraphQlApiDefinition ExternalRestApiDefinition findForbiddenInlineSecretFields FIXED_HEADLESS_TABS_PRESENTATIONS FixedHeadlessTabsPresentation FORBIDDEN_INLINE_SECRET_FIELDS FormSubmitEventDto FormSubmitValues GraphQlIntrospectionConfig HEADLESS_TABS_PRESENTATIONS HeadlessTabsConfig HeadlessTabsPresentation HeadlessTabsPresentationConfig HeadlessTabsWebConfig IconSpec ImageAssetSource ImageMetadata INFRA_ADAPTER_CATALOG INFRA_RUNTIME_COMPATIBILITY InfraAdapterDescriptor InfraAdapterId InfraAuthConfigMap InfraAuthSpec InfraAuthzConfigMap InfraAuthzSpec InfraCapability InfraComputeAdapter InfraComputeConfigMap InfraComputeProviderId InfraComputeSelection InfraComputeSnapshot InfraComputeTarget InfraControlPlaneCredentialRef InfraCredentialPort InfraDatabaseConfigMap InfraDatabaseSpec InfraDeploymentSpec InfraDestroyRequest InfraDiagnostic InfraEnvironmentSpec InfraExecutionContext InfraGeneratedArtifact InfraLedger InfraManifest InfraModuleId InfraModuleRegistry InfraModuleSpec InfraNetworkingSpec InfraNetworkingTlsSpec InfraObjectStorageConfigMap InfraObjectStorageSpec InfraOutput InfraOwnedResource InfraPlan InfraPlanAction InfraProviderFor InfraReconcileResult InfraResourceIdentity InfraResourceStatus InfraResult InfraRuntimeAdapter InfraRuntimeConfigMap InfraRuntimeDesiredState InfraRuntimeProviderId InfraRuntimeSelection InfraS3PersistenceTarget InfraScheduledDatabaseBackupSpec InfraSecretReference InfraSecretStoreConfigMap InfraSecretStoreSpec InfraServiceAdapter InfraStatus InfraWorkloadArtifact InfraWorkloadFileMap InfraWorkloadHealthSpec InfraWorkloadId InfraWorkloadPort InfraWorkloadPortRegistry InfraWorkloadRegistry InfraWorkloadResourceSpec InfraWorkloadScalarValue InfraWorkloadSpec InfraWorkloadValue InfraWorkloadVolumeRegistry InfraWorkloadVolumeSpec InternalRestApiDefinition IosBuildArtifact IosBuildInspection IosBuildInspectionRequest IosBuildRequest IosDeploymentBuilder IosDeploymentIntent IosDeploymentPublication IosDeploymentPublisher IosPublishInspection IosPublishInspectionRequest IosPublishRequest isAppDeployManifest isAppManifest isAppNavigatorManifest isCapability isCapabilityId isDataSchema isDataSchemaSlot isInfraAdapterDescriptor isInfraAuthSpec isInfraDeploymentSpec isInfraEnvironmentSpec isInfraManifest isInfraWorkloadSpec isMediaAssetReference isSerializableSet isSerializableValue isStructureDescriptor isStructureDescriptorDocument JAVASCRIPT_STACK_PRESENTATIONS JAVASCRIPT_TABS_PRESENTATIONS JavaScriptStackPresentation JavaScriptStackScreenOptions JavaScriptTabsConfig JavaScriptTabsPresentation KnownAuthOAuthProviderId KnownAuthOAuthTransportId KnownAuthProfileField KnownAuthSignUpField KnownComponentEventDto KnownSecretStoreProvider ManifestValue MEDIA_ASSET_KINDS MediaAsset MediaAssetKind MediaAssetMetadata MediaAssetReference MediaAssetRegistry MediaAssetSource MediaBundledSource MediaManifest MediaStorageAdapter MediaStorageSource MediaUrlSource MonetizationAdapterContext MonetizationBasePrice MonetizationDesiredState MonetizationDiagnostic MonetizationLocalization MonetizationObservedProduct MonetizationPlan MonetizationPlanStep MonetizationProduct MonetizationProductKind MonetizationSubscription MonetizationSubscriptionPeriod MonetizationSyncRequest MonetizationTargetState NamedIconSpec NATIVE_TABS_MINIMIZE_BEHAVIORS NativeTabsConfig NativeTabsMinimizeBehavior NAVIGATOR_PRESETS NAVIGATOR_TYPES NavigatorAdapterId NavigatorAdapterPlan NavigatorApiStability NavigatorCapabilityDescriptor NavigatorCapabilityId NavigatorCapabilityRequirement NavigatorCapabilityTarget NavigatorCapabilityVerification NavigatorCatalog NavigatorDefaults NavigatorDependencyRequirement NavigatorDiagnostic NavigatorGeneratedFile NavigatorGenerationBindings NavigatorGenerationOptions NavigatorGenerationResult NavigatorImplementation NavigatorNode NavigatorNodePlan NavigatorPlan NavigatorPlatformConfig NavigatorPlatforms NavigatorPresentation NavigatorPreset NavigatorPresetDescriptor NavigatorResponsiveSize NavigatorRoutePlan NavigatorRuntimePlatform NavigatorScreenModule NavigatorScreenReference NavigatorSupportStatus NavigatorType NavigatorValidationContext NavigatorVerificationKind NavigatorVerificationStatus normalizeCapability normalizeSecretRef normalizeSecretScope OpenApiDocumentRef OperationId OperationScreenDataLoaderDefinition parseAppManifest parseInfraManifest PasswordResetInput PropBinding ReleaseAdapterContext ReleaseControlExecutionResult ReleaseControlRequest ReleaseDesiredState ReleaseDiagnostic ReleaseInspectionRequest ReleaseLifecycleControl ReleaseMutationResult ReleaseNote ReleaseObservedAndroidState ReleaseObservedIosState ReleaseObservedNativeState ReleaseObservedState ReleaseObservedTargetState ReleaseObservedWebState ReleasePlan ReleasePlanStatus ReleasePlanStep ReleaseRollout ReleaseRolloutMode ReleaseStepExecutionRequest ReleaseStepOperation ReleaseStepRetry ReleaseTarget ReleaseTargetRollout RepositoryManifest resolveAuthFlow ResolvedHeadlessTabsPresentation ResolvedTabsImplementation ResolvedTabsPresentation ResponsiveTabsPresentation RouteDefinition RuntimeCallback RuntimeCallbackArgs RuntimeCallbackMap RuntimeNodePropsResolver RuntimeResolveNodePropsArgs SchemaId ScreenDataLoaderDefinition ScreenMetadataSpec ScreenRequirements ScreenSpec SECRET_STORE_ERROR_CODES SECRET_STORE_PROVIDERS SecretCreateInput SecretGetMetadataInput SecretListInput SecretMetadata SecretPayload SecretRef SecretRemoveInput SecretReplaceInput SecretResolveInput SecretScope SecretStoreAdapter SecretStoreError SecretStoreErrorCode SecretStoreOkResult SecretStoreProvider SecretStoreResult SerializableSet SerializableValue SignInInput SignOutInput SignUpInput SlotNavigatorNode SplashScreenModeSpec SplashScreenResizeMode SplashScreenSpec SplitViewNavigatorNode STACK_IMPLEMENTATIONS STACK_PRESENTATIONS StackHeaderOptions StackImplementation StackImplementationConfig StackNavigatorNode StackPresentation StackScreenOptions StartOAuthAuthorizationInput StateAdapter StateAdapterCapabilities StateAdapterError StateListener StatePath StatePrimitive StateResult StateSnapshot StateSubscription StateSuccess StateValue StorageAdapter StorageAdapterError StorageAssetReference StorageImageAssetSource StorageListAdapter StorageListInput StorageListResult StorageObjectMetadata StorageOkResult StoragePublicUrlInput StoragePublicUrlResult StorageRemoveInput StorageResolveAdapter StorageResolvedAccess StorageResolvedAsset StorageResolveInput StorageResolveResult StorageResult StorageUploadInput StorageUploadResult StoreListingAdapterContext StoreListingAsset StoreListingAssetMediaType StoreListingAssetReader StoreListingAssetSet StoreListingDesiredState StoreListingDiagnostic StoreListingField StoreListingLocale StoreListingPlan StoreListingPlanOperation StoreListingPlanStep StoreListingRemoteAssetSet StoreListingSyncRequest StoreListingTarget StoreListingTargetState STRUCTURE_DESCRIPTOR STRUCTURE_DESCRIPTOR_COMPILER_VERSION STRUCTURE_DESCRIPTOR_FINGERPRINT StructureDescriptor StructureDescriptorDefinition StructureDescriptorDocument StructureDescriptorId StructureDescriptorRegistry StructureEntityRegistryDescriptor StructureEnumDescriptor StructureLiteralValue StructureObjectDescriptor StructureObjectField StructureOrderedListDescriptor StructureReferenceDescriptor StructureScalarDescriptor StructureScalarType StructureSetDescriptor StructureUnionDescriptor StructureValueMapDescriptor SvgIconSpec TabsImplementationConfig TabsNavigatorConfig TabsNavigatorNode TabsNavigatorPlan ThemeConfig ThemeGlobalTokenOverrides ThemeId ThemeModeConfig ThemeNumericTokenOverrides ThemeRecipeFieldOverrides ThemeRecipeOverrides ThemeRecipeOverrideValue ThemeRegistry ThemeStringTokenOverrides ThemeTypographyHeadingOverrides ThemeTypographyTokenOverrides UiBindableEventMeta UiBindableEventPayloadMeta UiBindablePropMeta UiBindableValueFieldMeta UiBindableValueMeta UiBindableValueType UiComponentBindingMeta UiComponentBlueprint UiComponentBlueprintIcon UiComponentCategory UiComponentEventMeta UiComponentEventPayloadFieldMeta UiComponentEventPayloadFieldType UiComponentEventPayloadKind UiComponentI18nFieldMeta UiComponentI18nMeta UiComponentMeta UiComponentMetaRegistry UiComponentPackageManifest UiComponentPropArrayItemSchema UiComponentPropSchema UiComponentPropType UiComponentPropValue UiComponentSlotMeta UiNode UiNodeRepeatSpec UrlImageAssetSource validateInfraAdapterSelection validateSecretPayload ValueMap VerifyOtpInput WebDeploymentPublication WebDeploymentPublisher WebDeploymentPublishIntent WebDeploymentPublishRequest">
+  </article><article class="item" data-search="src/index.ts AdapterId AdapterKind AdapterRef AdaptiveTabsConfig ANDROID_DEPLOYMENT_TRACKS ANDROID_RELEASE_STATUSES AndroidBuildArtifact AndroidBuildInspection AndroidBuildInspectionRequest AndroidBuildRequest AndroidDeploymentBuilder AndroidDeploymentIntent AndroidDeploymentPublication AndroidDeploymentPublisher AndroidDeploymentTrack AndroidPublishInspection AndroidPublishInspectionRequest AndroidPublishRequest AndroidReleaseStatus AnkhCommandCategory AnkhCommandDescriptor AnkhCommandProviderManifest ANKHORAGE_CAPABILITY_NAMES ANKHORAGE_PERMISSION_NAMES AnkhorageCapabilityName AnkhoragePermissionName AnkhPackageMetadata AnkhProviderReference AnkhStructureMetadata AnkhStructureRootMetadata ApiBaseDefinition ApiDefinition ApiDefinitionRegistry ApiId ApiOrigin ApiProtocol APP_CATEGORIES APP_DEPLOY_TARGET_IDS APP_ENVIRONMENT_IDS AppCategory AppDeployAndroidTargetConfig AppDeployIosTargetConfig AppDeployManifest AppDeployProviderSelection AppDeployTargetId AppDeployTargets AppDeployWebTargetConfig AppEnvironmentId AppManifest AppManifestParseResult AppNavigatorManifest AppSettings AppStateSpec AUTH_IDENTIFIER_KINDS AUTH_OAUTH_CANCELLATION_REASONS AUTH_OAUTH_ERROR_CODES AUTH_OAUTH_ERROR_STAGES AUTH_OAUTH_PROVIDER_IDS AUTH_OAUTH_SETUP_CALLBACK_ROLES AUTH_OAUTH_SETUP_FIELD_PERSISTENCE_KINDS AUTH_OAUTH_SETUP_FIELD_SENSITIVITIES AUTH_OAUTH_TRANSPORT_CANCELLATION_REASONS AUTH_OAUTH_TRANSPORT_ERROR_CODES AUTH_OAUTH_TRANSPORT_IDS AUTH_PROFILE_CREATE_STRATEGIES AUTH_PROFILE_FIELDS AUTH_PROFILE_PRIMARY_KEY_STRATEGIES AUTH_PROFILE_UPDATE_STRATEGIES AUTH_SCOPES AUTH_SIGN_IN_IDENTIFIERS AUTH_SIGN_UP_FIELDS AUTH_SIGN_UP_POLICIES AuthAdapter AuthAdapterCapabilities AuthAdapterError AuthFlowConfig AuthIdentifier AuthIdentifierKind AuthOAuthAdapter AuthOAuthAuthorizationRequest AuthOAuthAuthorizationResponse AuthOAuthCancellationReason AuthOAuthCapabilities AuthOAuthCompletionResult AuthOAuthConfig AuthOAuthError AuthOAuthErrorCode AuthOAuthErrorStage AuthOAuthProviderConfig AuthOAuthProviderId AuthOAuthSetupCallbackRequirement AuthOAuthSetupCallbackRole AuthOAuthSetupCapabilities AuthOAuthSetupFieldPersistence AuthOAuthSetupFieldRequirement AuthOAuthSetupFieldSensitivity AuthOAuthSetupPlan AuthOAuthSetupRequirement AuthOAuthStartResult AuthOAuthTransportCancellationReason AuthOAuthTransportError AuthOAuthTransportErrorCode AuthOAuthTransportId AuthProfileCreateStrategy AuthProfileField AuthProfilePrimaryKeyStrategy AuthProfileSpec AuthProfileUpdateStrategy AuthProviderConfig AuthResult AuthScope AuthSession AuthSignInConfig AuthSignInIdentifier AuthSignInSpec AuthSignUpConfig AuthSignUpField AuthSignUpPolicy AuthSignUpSpec AuthUser BindingCondition BindingConditionOperator BindingDataPath BindingFallback BindingInputMap BindingInputValue BindingLifecycleBehavior BindingLifecycleState BindingOperationRef BindingValue BindingValueExpression BindingValueSource BindingValueTransform ButtonPressEventDto CollectionItemPressEventDto CollectionItemPressPayload CompleteOAuthAuthorizationInput ComponentDataBinding ComponentDataBindingRegistry ComponentEventDto ComponentEventDtoKind ComponentEventPayloadValue ComponentInstanceId ComponentRequirements ComponentTypeId CreateNavigatorPlanOptions CredentialId CredentialKind CredentialRef CustomNavigatorConfigIssue CustomNavigatorNode CustomNavigatorRegistration CustomNavigatorRegistry DatabaseAdapterRef DatabaseDataSourceConfig DataContractValue DataDiagnosticCode DataDiagnosticSeverity DataEndpointConfig DataEndpointKind DataEndpointRegistry DataOperationConfig DataOperationIntent DataOperationMethod DataOperationPagination DataOperationParameter DataOperationParameterLocation DataOperationProtocol DataOperationRegistry DataOperationRequest DataOperationResponse DataPath DataSchema DataSchemaPrimitiveType DataSchemaProperty DataSchemaRef DataSchemaRegistry DataSchemaSlot DataSourceConfig DataSourceDiagnostic DataSourceDiagnosticResult DataSourceId DataSourceKind DataSourceRegistry DbAdapter DbAdapterCapabilities DbAdapterError DbAdminAdapter DbAdminAdapterCapabilities DbAdminResult DbChangeEvent DbChangeKind DbChangeListener DbCollectionDefinition DbCollectionReference DbCollectionSubscriptionInput DbDeleteInput DbFieldDefinition DbFieldType DbFilter DbFilterOperator DbFindByIdInput DbInsertInput DbPage DbRealtimeAdapter DbRecord DbRecordSubscriptionInput DbResult DbSelectInput DbSort DbSortDirection DbSubscription DbSuccess DbTableInput DbUpdateInput DEFAULT_AUTH_FLOW DEPLOYMENT_CAPABILITIES DEPLOYMENT_PROVIDER_CAPABILITY_IDS DeploymentAuthenticationRequiredAction DeploymentAuthenticationState DeploymentAutomatedProvisioningRequirement DeploymentCapability DeploymentCredentialReference DeploymentFailure DeploymentManualAction DeploymentMonetizationAdapter DeploymentProviderCapabilityDescriptor DeploymentProviderCapabilityId DeploymentProviderCapabilityState DeploymentProviderDescriptor DeploymentProviderRegistration DeploymentProviderResult DeploymentProviderSetupAdapter DeploymentProviderSetupContext DeploymentProviderSetupInspection DeploymentProvisioningRequirement DeploymentReleaseAdapter DeploymentRequiredAction DeploymentSecretMaterial DeploymentSecretResolver DeploymentStoreIdentity DeploymentStoreListingAdapter DRAWER_POSITIONS DRAWER_TYPES DrawerNavigatorNode DrawerNavigatorOptions DrawerPosition DrawerType EndpointId EntityRegistry EventBinding EventBindingTarget ExpoRouterNavigatorModule ExternalGraphQlApiDefinition ExternalRestApiDefinition findForbiddenInlineSecretFields FIXED_HEADLESS_TABS_PRESENTATIONS FixedHeadlessTabsPresentation FORBIDDEN_INLINE_SECRET_FIELDS FormSubmitEventDto FormSubmitValues GraphQlIntrospectionConfig HEADLESS_TABS_PRESENTATIONS HeadlessTabsConfig HeadlessTabsPresentation HeadlessTabsPresentationConfig HeadlessTabsWebConfig IconSpec ImageAssetSource ImageMetadata INFRA_ADAPTER_CATALOG INFRA_RUNTIME_COMPATIBILITY InfraAdapterDescriptor InfraAdapterId InfraAuthConfigMap InfraAuthSpec InfraAuthzConfigMap InfraAuthzSpec InfraCapability InfraComputeAdapter InfraComputeConfigMap InfraComputeProviderId InfraComputeSelection InfraComputeSnapshot InfraComputeTarget InfraControlPlaneCredentialRef InfraCredentialPort InfraDatabaseConfigMap InfraDatabaseSpec InfraDeploymentSpec InfraDestroyRequest InfraDiagnostic InfraEnvironmentSpec InfraExecutionContext InfraGeneratedArtifact InfraLedger InfraManifest InfraModuleId InfraModuleRegistry InfraModuleSpec InfraNetworkingSpec InfraNetworkingTlsSpec InfraObjectStorageConfigMap InfraObjectStorageSpec InfraOutput InfraOwnedResource InfraPlan InfraPlanAction InfraProviderFor InfraReconcileResult InfraResourceIdentity InfraResourceStatus InfraResult InfraRuntimeAdapter InfraRuntimeConfigMap InfraRuntimeDesiredState InfraRuntimeProviderId InfraRuntimeSelection InfraS3PersistenceTarget InfraScheduledDatabaseBackupSpec InfraSecretReference InfraSecretStoreConfigMap InfraSecretStoreSpec InfraServiceAdapter InfraStatus InfraWorkloadArtifact InfraWorkloadFileMap InfraWorkloadHealthSpec InfraWorkloadId InfraWorkloadPort InfraWorkloadPortRegistry InfraWorkloadRegistry InfraWorkloadResourceSpec InfraWorkloadScalarValue InfraWorkloadSpec InfraWorkloadValue InfraWorkloadVolumeRegistry InfraWorkloadVolumeSpec InternalRestApiDefinition IosBuildArtifact IosBuildInspection IosBuildInspectionRequest IosBuildRequest IosDeploymentBuilder IosDeploymentIntent IosDeploymentPublication IosDeploymentPublisher IosPublishInspection IosPublishInspectionRequest IosPublishRequest isAppDeployManifest isAppManifest isAppNavigatorManifest isDataSchema isDataSchemaSlot isInfraAdapterDescriptor isInfraAuthSpec isInfraDeploymentSpec isInfraEnvironmentSpec isInfraManifest isInfraWorkloadSpec isMediaAssetReference isSerializableSet isSerializableValue isStructureDescriptor isStructureDescriptorDocument JAVASCRIPT_STACK_PRESENTATIONS JAVASCRIPT_TABS_PRESENTATIONS JavaScriptStackPresentation JavaScriptStackScreenOptions JavaScriptTabsConfig JavaScriptTabsPresentation KnownAuthOAuthProviderId KnownAuthOAuthTransportId KnownAuthProfileField KnownAuthSignUpField KnownComponentEventDto KnownSecretStoreProvider ManifestValue MEDIA_ASSET_KINDS MediaAsset MediaAssetKind MediaAssetMetadata MediaAssetReference MediaAssetRegistry MediaAssetSource MediaBundledSource MediaManifest MediaStorageAdapter MediaStorageSource MediaUrlSource MonetizationAdapterContext MonetizationBasePrice MonetizationDesiredState MonetizationDiagnostic MonetizationLocalization MonetizationObservedProduct MonetizationPlan MonetizationPlanStep MonetizationProduct MonetizationProductKind MonetizationSubscription MonetizationSubscriptionPeriod MonetizationSyncRequest MonetizationTargetState NamedIconSpec NATIVE_TABS_MINIMIZE_BEHAVIORS NativeTabsConfig NativeTabsMinimizeBehavior NAVIGATOR_PRESETS NAVIGATOR_TYPES NavigatorAdapterId NavigatorAdapterPlan NavigatorApiStability NavigatorCapabilityDescriptor NavigatorCapabilityId NavigatorCapabilityRequirement NavigatorCapabilityTarget NavigatorCapabilityVerification NavigatorCatalog NavigatorDefaults NavigatorDependencyRequirement NavigatorDiagnostic NavigatorGeneratedFile NavigatorGenerationBindings NavigatorGenerationOptions NavigatorGenerationResult NavigatorImplementation NavigatorNode NavigatorNodePlan NavigatorPlan NavigatorPlatformConfig NavigatorPlatforms NavigatorPresentation NavigatorPreset NavigatorPresetDescriptor NavigatorResponsiveSize NavigatorRoutePlan NavigatorRuntimePlatform NavigatorScreenModule NavigatorScreenReference NavigatorSupportStatus NavigatorType NavigatorValidationContext NavigatorVerificationKind NavigatorVerificationStatus normalizeSecretRef normalizeSecretScope OpenApiDocumentRef OperationId OperationScreenDataLoaderDefinition parseAppManifest parseInfraManifest PasswordResetInput PropBinding ReleaseAdapterContext ReleaseControlExecutionResult ReleaseControlRequest ReleaseDesiredState ReleaseDiagnostic ReleaseInspectionRequest ReleaseLifecycleControl ReleaseMutationResult ReleaseNote ReleaseObservedAndroidState ReleaseObservedIosState ReleaseObservedNativeState ReleaseObservedState ReleaseObservedTargetState ReleaseObservedWebState ReleasePlan ReleasePlanStatus ReleasePlanStep ReleaseRollout ReleaseRolloutMode ReleaseStepExecutionRequest ReleaseStepOperation ReleaseStepRetry ReleaseTarget ReleaseTargetRollout RepositoryManifest resolveAuthFlow ResolvedHeadlessTabsPresentation ResolvedTabsImplementation ResolvedTabsPresentation ResponsiveTabsPresentation RouteDefinition RuntimeCallback RuntimeCallbackArgs RuntimeCallbackMap RuntimeNodePropsResolver RuntimeResolveNodePropsArgs SchemaId ScreenDataLoaderDefinition ScreenMetadataSpec ScreenRequirements ScreenSpec SECRET_STORE_ERROR_CODES SECRET_STORE_PROVIDERS SecretCreateInput SecretGetMetadataInput SecretListInput SecretMetadata SecretPayload SecretRef SecretRemoveInput SecretReplaceInput SecretResolveInput SecretScope SecretStoreAdapter SecretStoreError SecretStoreErrorCode SecretStoreOkResult SecretStoreProvider SecretStoreResult SerializableSet SerializableValue SignInInput SignOutInput SignUpInput SlotNavigatorNode SplashScreenModeSpec SplashScreenResizeMode SplashScreenSpec SplitViewNavigatorNode STACK_IMPLEMENTATIONS STACK_PRESENTATIONS StackHeaderOptions StackImplementation StackImplementationConfig StackNavigatorNode StackPresentation StackScreenOptions StartOAuthAuthorizationInput StateAdapter StateAdapterCapabilities StateAdapterError StateListener StatePath StatePrimitive StateResult StateSnapshot StateSubscription StateSuccess StateValue StorageAdapter StorageAdapterError StorageAssetReference StorageImageAssetSource StorageListAdapter StorageListInput StorageListResult StorageObjectMetadata StorageOkResult StoragePublicUrlInput StoragePublicUrlResult StorageRemoveInput StorageResolveAdapter StorageResolvedAccess StorageResolvedAsset StorageResolveInput StorageResolveResult StorageResult StorageUploadInput StorageUploadResult StoreListingAdapterContext StoreListingAsset StoreListingAssetMediaType StoreListingAssetReader StoreListingAssetSet StoreListingDesiredState StoreListingDiagnostic StoreListingField StoreListingLocale StoreListingPlan StoreListingPlanOperation StoreListingPlanStep StoreListingRemoteAssetSet StoreListingSyncRequest StoreListingTarget StoreListingTargetState STRUCTURE_DESCRIPTOR STRUCTURE_DESCRIPTOR_COMPILER_VERSION STRUCTURE_DESCRIPTOR_FINGERPRINT StructureDescriptor StructureDescriptorDefinition StructureDescriptorDocument StructureDescriptorId StructureDescriptorRegistry StructureEntityRegistryDescriptor StructureEnumDescriptor StructureLiteralValue StructureObjectDescriptor StructureObjectField StructureOrderedListDescriptor StructureReferenceDescriptor StructureScalarDescriptor StructureScalarType StructureSetDescriptor StructureUnionDescriptor StructureValueMapDescriptor SvgIconSpec TabsImplementationConfig TabsNavigatorConfig TabsNavigatorNode TabsNavigatorPlan ThemeConfig ThemeGlobalTokenOverrides ThemeId ThemeModeConfig ThemeNumericTokenOverrides ThemeRecipeFieldOverrides ThemeRecipeOverrides ThemeRecipeOverrideValue ThemeRegistry ThemeStringTokenOverrides ThemeTypographyHeadingOverrides ThemeTypographyTokenOverrides UiBindableEventMeta UiBindableEventPayloadMeta UiBindablePropMeta UiBindableValueFieldMeta UiBindableValueMeta UiBindableValueType UiComponentBindingMeta UiComponentBlueprint UiComponentBlueprintIcon UiComponentCategory UiComponentEventMeta UiComponentEventPayloadFieldMeta UiComponentEventPayloadFieldType UiComponentEventPayloadKind UiComponentI18nFieldMeta UiComponentI18nMeta UiComponentMeta UiComponentMetaRegistry UiComponentPackageManifest UiComponentPropArrayItemSchema UiComponentPropSchema UiComponentPropType UiComponentPropValue UiComponentSlotMeta UiNode UiNodeRepeatSpec UrlImageAssetSource validateInfraAdapterSelection validateSecretPayload ValueMap VerifyOtpInput WebDeploymentPublication WebDeploymentPublisher WebDeploymentPublishIntent WebDeploymentPublishRequest">
     <h3>src/index.ts</h3>
     <p class="muted">Configured entrypoint</p>
     <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
-    <p><strong>Exports:</strong> <code>AdapterId</code>, <code>AdapterKind</code>, <code>AdapterRef</code>, <code>AdaptiveTabsConfig</code>, <code>ANDROID_DEPLOYMENT_TRACKS</code>, <code>ANDROID_RELEASE_STATUSES</code>, <code>AndroidBuildArtifact</code>, <code>AndroidBuildInspection</code>, <code>AndroidBuildInspectionRequest</code>, <code>AndroidBuildRequest</code>, <code>AndroidDeploymentBuilder</code>, <code>AndroidDeploymentIntent</code>, <code>AndroidDeploymentPublication</code>, <code>AndroidDeploymentPublisher</code>, <code>AndroidDeploymentTrack</code>, <code>AndroidPublishInspection</code>, <code>AndroidPublishInspectionRequest</code>, <code>AndroidPublishRequest</code>, <code>AndroidReleaseStatus</code>, <code>AnkhCommandCategory</code>, <code>AnkhCommandDescriptor</code>, <code>AnkhCommandProviderManifest</code>, <code>ANKHORAGE_CAPABILITY_NAMES</code>, <code>ANKHORAGE_PERMISSION_NAMES</code>, <code>AnkhorageCapabilityName</code>, <code>AnkhoragePermissionName</code>, <code>AnkhPackageMetadata</code>, <code>AnkhProviderReference</code>, <code>AnkhStructureMetadata</code>, <code>AnkhStructureRootMetadata</code>, <code>ApiBaseDefinition</code>, <code>ApiDefinition</code>, <code>ApiDefinitionRegistry</code>, <code>ApiId</code>, <code>ApiOrigin</code>, <code>ApiProtocol</code>, <code>APP_CATEGORIES</code>, <code>APP_DEPLOY_TARGET_IDS</code>, <code>APP_ENVIRONMENT_IDS</code>, <code>AppCategory</code>, <code>AppDeployAndroidTargetConfig</code>, <code>AppDeployIosTargetConfig</code>, <code>AppDeployManifest</code>, <code>AppDeployProviderSelection</code>, <code>AppDeployTargetId</code>, <code>AppDeployTargets</code>, <code>AppDeployWebTargetConfig</code>, <code>AppEnvironmentId</code>, <code>AppManifest</code>, <code>AppManifestParseResult</code>, <code>AppNavigatorManifest</code>, <code>AppSettings</code>, <code>AppStateSpec</code>, <code>areCapabilitiesEqual</code>, <code>AUTH_IDENTIFIER_KINDS</code>, <code>AUTH_OAUTH_CANCELLATION_REASONS</code>, <code>AUTH_OAUTH_ERROR_CODES</code>, <code>AUTH_OAUTH_ERROR_STAGES</code>, <code>AUTH_OAUTH_PROVIDER_IDS</code>, <code>AUTH_OAUTH_SETUP_CALLBACK_ROLES</code>, <code>AUTH_OAUTH_SETUP_FIELD_PERSISTENCE_KINDS</code>, <code>AUTH_OAUTH_SETUP_FIELD_SENSITIVITIES</code>, <code>AUTH_OAUTH_TRANSPORT_CANCELLATION_REASONS</code>, <code>AUTH_OAUTH_TRANSPORT_ERROR_CODES</code>, <code>AUTH_OAUTH_TRANSPORT_IDS</code>, <code>AUTH_PROFILE_CREATE_STRATEGIES</code>, <code>AUTH_PROFILE_FIELDS</code>, <code>AUTH_PROFILE_PRIMARY_KEY_STRATEGIES</code>, <code>AUTH_PROFILE_UPDATE_STRATEGIES</code>, <code>AUTH_SCOPES</code>, <code>AUTH_SIGN_IN_IDENTIFIERS</code>, <code>AUTH_SIGN_UP_FIELDS</code>, <code>AUTH_SIGN_UP_POLICIES</code>, <code>AuthAdapter</code>, <code>AuthAdapterCapabilities</code>, <code>AuthAdapterError</code>, <code>AuthFlowConfig</code>, <code>AuthIdentifier</code>, <code>AuthIdentifierKind</code>, <code>AuthOAuthAdapter</code>, <code>AuthOAuthAuthorizationRequest</code>, <code>AuthOAuthAuthorizationResponse</code>, <code>AuthOAuthCancellationReason</code>, <code>AuthOAuthCapabilities</code>, <code>AuthOAuthCompletionResult</code>, <code>AuthOAuthConfig</code>, <code>AuthOAuthError</code>, <code>AuthOAuthErrorCode</code>, <code>AuthOAuthErrorStage</code>, <code>AuthOAuthProviderConfig</code>, <code>AuthOAuthProviderId</code>, <code>AuthOAuthSetupCallbackRequirement</code>, <code>AuthOAuthSetupCallbackRole</code>, <code>AuthOAuthSetupCapabilities</code>, <code>AuthOAuthSetupFieldPersistence</code>, <code>AuthOAuthSetupFieldRequirement</code>, <code>AuthOAuthSetupFieldSensitivity</code>, <code>AuthOAuthSetupPlan</code>, <code>AuthOAuthSetupRequirement</code>, <code>AuthOAuthStartResult</code>, <code>AuthOAuthTransportCancellationReason</code>, <code>AuthOAuthTransportError</code>, <code>AuthOAuthTransportErrorCode</code>, <code>AuthOAuthTransportId</code>, <code>AuthProfileCreateStrategy</code>, <code>AuthProfileField</code>, <code>AuthProfilePrimaryKeyStrategy</code>, <code>AuthProfileSpec</code>, <code>AuthProfileUpdateStrategy</code>, <code>AuthProviderConfig</code>, <code>AuthResult</code>, <code>AuthScope</code>, <code>AuthSession</code>, <code>AuthSignInConfig</code>, <code>AuthSignInIdentifier</code>, <code>AuthSignInSpec</code>, <code>AuthSignUpConfig</code>, <code>AuthSignUpField</code>, <code>AuthSignUpPolicy</code>, <code>AuthSignUpSpec</code>, <code>AuthUser</code>, <code>BindingCondition</code>, <code>BindingConditionOperator</code>, <code>BindingDataPath</code>, <code>BindingFallback</code>, <code>BindingInputMap</code>, <code>BindingInputValue</code>, <code>BindingLifecycleBehavior</code>, <code>BindingLifecycleState</code>, <code>BindingOperationRef</code>, <code>BindingValue</code>, <code>BindingValueExpression</code>, <code>BindingValueSource</code>, <code>BindingValueTransform</code>, <code>ButtonPressEventDto</code>, <code>Capability</code>, <code>CAPABILITY_ACCESS</code>, <code>CAPABILITY_BINDING_KINDS</code>, <code>CAPABILITY_BINDING_ROLES</code>, <code>CapabilityAccess</code>, <code>CapabilityBindingKind</code>, <code>CapabilityBindingRole</code>, <code>CollectionItemPressEventDto</code>, <code>CollectionItemPressPayload</code>, <code>CompleteOAuthAuthorizationInput</code>, <code>ComponentDataBinding</code>, <code>ComponentDataBindingRegistry</code>, <code>ComponentEventDto</code>, <code>ComponentEventDtoKind</code>, <code>ComponentEventPayloadValue</code>, <code>ComponentInstanceId</code>, <code>ComponentRequirements</code>, <code>ComponentTypeId</code>, <code>CreateNavigatorPlanOptions</code>, <code>CredentialId</code>, <code>CredentialKind</code>, <code>CredentialRef</code>, <code>CustomNavigatorConfigIssue</code>, <code>CustomNavigatorNode</code>, <code>CustomNavigatorRegistration</code>, <code>CustomNavigatorRegistry</code>, <code>DatabaseAdapterRef</code>, <code>DatabaseDataSourceConfig</code>, <code>DataContractValue</code>, <code>DataDiagnosticCode</code>, <code>DataDiagnosticSeverity</code>, <code>DataEndpointConfig</code>, <code>DataEndpointKind</code>, <code>DataEndpointRegistry</code>, <code>DataOperationConfig</code>, <code>DataOperationIntent</code>, <code>DataOperationMethod</code>, <code>DataOperationPagination</code>, <code>DataOperationParameter</code>, <code>DataOperationParameterLocation</code>, <code>DataOperationProtocol</code>, <code>DataOperationRegistry</code>, <code>DataOperationRequest</code>, <code>DataOperationResponse</code>, <code>DataPath</code>, <code>DataSchema</code>, <code>DataSchemaPrimitiveType</code>, <code>DataSchemaProperty</code>, <code>DataSchemaRef</code>, <code>DataSchemaRegistry</code>, <code>DataSchemaSlot</code>, <code>DataSourceConfig</code>, <code>DataSourceDiagnostic</code>, <code>DataSourceDiagnosticResult</code>, <code>DataSourceId</code>, <code>DataSourceKind</code>, <code>DataSourceRegistry</code>, <code>DbAdapter</code>, <code>DbAdapterCapabilities</code>, <code>DbAdapterError</code>, <code>DbAdminAdapter</code>, <code>DbAdminAdapterCapabilities</code>, <code>DbAdminResult</code>, <code>DbChangeEvent</code>, <code>DbChangeKind</code>, <code>DbChangeListener</code>, <code>DbCollectionDefinition</code>, <code>DbCollectionReference</code>, <code>DbCollectionSubscriptionInput</code>, <code>DbDeleteInput</code>, <code>DbFieldDefinition</code>, <code>DbFieldType</code>, <code>DbFilter</code>, <code>DbFilterOperator</code>, <code>DbFindByIdInput</code>, <code>DbInsertInput</code>, <code>DbPage</code>, <code>DbRealtimeAdapter</code>, <code>DbRecord</code>, <code>DbRecordSubscriptionInput</code>, <code>DbResult</code>, <code>DbSelectInput</code>, <code>DbSort</code>, <code>DbSortDirection</code>, <code>DbSubscription</code>, <code>DbSuccess</code>, <code>DbTableInput</code>, <code>DbUpdateInput</code>, <code>DEFAULT_AUTH_FLOW</code>, <code>DEPLOYMENT_CAPABILITIES</code>, <code>DEPLOYMENT_PROVIDER_CAPABILITY_IDS</code>, <code>DeploymentAuthenticationRequiredAction</code>, <code>DeploymentAuthenticationState</code>, <code>DeploymentAutomatedProvisioningRequirement</code>, <code>DeploymentCapability</code>, <code>DeploymentCredentialReference</code>, <code>DeploymentFailure</code>, <code>DeploymentManualAction</code>, <code>DeploymentMonetizationAdapter</code>, <code>DeploymentProviderCapabilityDescriptor</code>, <code>DeploymentProviderCapabilityId</code>, <code>DeploymentProviderCapabilityState</code>, <code>DeploymentProviderDescriptor</code>, <code>DeploymentProviderRegistration</code>, <code>DeploymentProviderResult</code>, <code>DeploymentProviderSetupAdapter</code>, <code>DeploymentProviderSetupContext</code>, <code>DeploymentProviderSetupInspection</code>, <code>DeploymentProvisioningRequirement</code>, <code>DeploymentReleaseAdapter</code>, <code>DeploymentRequiredAction</code>, <code>DeploymentSecretMaterial</code>, <code>DeploymentSecretResolver</code>, <code>DeploymentStoreIdentity</code>, <code>DeploymentStoreListingAdapter</code>, <code>DRAWER_POSITIONS</code>, <code>DRAWER_TYPES</code>, <code>DrawerNavigatorNode</code>, <code>DrawerNavigatorOptions</code>, <code>DrawerPosition</code>, <code>DrawerType</code>, <code>EndpointId</code>, <code>EntityRegistry</code>, <code>EventBinding</code>, <code>EventBindingTarget</code>, <code>ExpoRouterNavigatorModule</code>, <code>ExternalGraphQlApiDefinition</code>, <code>ExternalRestApiDefinition</code>, <code>findForbiddenInlineSecretFields</code>, <code>FIXED_HEADLESS_TABS_PRESENTATIONS</code>, <code>FixedHeadlessTabsPresentation</code>, <code>FORBIDDEN_INLINE_SECRET_FIELDS</code>, <code>FormSubmitEventDto</code>, <code>FormSubmitValues</code>, <code>GraphQlIntrospectionConfig</code>, <code>HEADLESS_TABS_PRESENTATIONS</code>, <code>HeadlessTabsConfig</code>, <code>HeadlessTabsPresentation</code>, <code>HeadlessTabsPresentationConfig</code>, <code>HeadlessTabsWebConfig</code>, <code>IconSpec</code>, <code>ImageAssetSource</code>, <code>ImageMetadata</code>, <code>INFRA_ADAPTER_CATALOG</code>, <code>INFRA_RUNTIME_COMPATIBILITY</code>, <code>InfraAdapterDescriptor</code>, <code>InfraAdapterId</code>, <code>InfraAuthConfigMap</code>, <code>InfraAuthSpec</code>, <code>InfraAuthzConfigMap</code>, <code>InfraAuthzSpec</code>, <code>InfraCapability</code>, <code>InfraComputeAdapter</code>, <code>InfraComputeConfigMap</code>, <code>InfraComputeProviderId</code>, <code>InfraComputeSelection</code>, <code>InfraComputeSnapshot</code>, <code>InfraComputeTarget</code>, <code>InfraControlPlaneCredentialRef</code>, <code>InfraCredentialPort</code>, <code>InfraDatabaseConfigMap</code>, <code>InfraDatabaseSpec</code>, <code>InfraDeploymentSpec</code>, <code>InfraDestroyRequest</code>, <code>InfraDiagnostic</code>, <code>InfraEnvironmentSpec</code>, <code>InfraExecutionContext</code>, <code>InfraGeneratedArtifact</code>, <code>InfraLedger</code>, <code>InfraManifest</code>, <code>InfraModuleId</code>, <code>InfraModuleRegistry</code>, <code>InfraModuleSpec</code>, <code>InfraNetworkingSpec</code>, <code>InfraNetworkingTlsSpec</code>, <code>InfraObjectStorageConfigMap</code>, <code>InfraObjectStorageSpec</code>, <code>InfraOutput</code>, <code>InfraOwnedResource</code>, <code>InfraPlan</code>, <code>InfraPlanAction</code>, <code>InfraProviderFor</code>, <code>InfraReconcileResult</code>, <code>InfraResourceIdentity</code>, <code>InfraResourceStatus</code>, <code>InfraResult</code>, <code>InfraRuntimeAdapter</code>, <code>InfraRuntimeConfigMap</code>, <code>InfraRuntimeDesiredState</code>, <code>InfraRuntimeProviderId</code>, <code>InfraRuntimeSelection</code>, <code>InfraS3PersistenceTarget</code>, <code>InfraScheduledDatabaseBackupSpec</code>, <code>InfraSecretReference</code>, <code>InfraSecretStoreConfigMap</code>, <code>InfraSecretStoreSpec</code>, <code>InfraServiceAdapter</code>, <code>InfraStatus</code>, <code>InfraWorkloadArtifact</code>, <code>InfraWorkloadFileMap</code>, <code>InfraWorkloadHealthSpec</code>, <code>InfraWorkloadId</code>, <code>InfraWorkloadPort</code>, <code>InfraWorkloadPortRegistry</code>, <code>InfraWorkloadRegistry</code>, <code>InfraWorkloadResourceSpec</code>, <code>InfraWorkloadScalarValue</code>, <code>InfraWorkloadSpec</code>, <code>InfraWorkloadValue</code>, <code>InfraWorkloadVolumeRegistry</code>, <code>InfraWorkloadVolumeSpec</code>, <code>InternalRestApiDefinition</code>, <code>IosBuildArtifact</code>, <code>IosBuildInspection</code>, <code>IosBuildInspectionRequest</code>, <code>IosBuildRequest</code>, <code>IosDeploymentBuilder</code>, <code>IosDeploymentIntent</code>, <code>IosDeploymentPublication</code>, <code>IosDeploymentPublisher</code>, <code>IosPublishInspection</code>, <code>IosPublishInspectionRequest</code>, <code>IosPublishRequest</code>, <code>isAppDeployManifest</code>, <code>isAppManifest</code>, <code>isAppNavigatorManifest</code>, <code>isCapability</code>, <code>isCapabilityId</code>, <code>isDataSchema</code>, <code>isDataSchemaSlot</code>, <code>isInfraAdapterDescriptor</code>, <code>isInfraAuthSpec</code>, <code>isInfraDeploymentSpec</code>, <code>isInfraEnvironmentSpec</code>, <code>isInfraManifest</code>, <code>isInfraWorkloadSpec</code>, <code>isMediaAssetReference</code>, <code>isSerializableSet</code>, <code>isSerializableValue</code>, <code>isStructureDescriptor</code>, <code>isStructureDescriptorDocument</code>, <code>JAVASCRIPT_STACK_PRESENTATIONS</code>, <code>JAVASCRIPT_TABS_PRESENTATIONS</code>, <code>JavaScriptStackPresentation</code>, <code>JavaScriptStackScreenOptions</code>, <code>JavaScriptTabsConfig</code>, <code>JavaScriptTabsPresentation</code>, <code>KnownAuthOAuthProviderId</code>, <code>KnownAuthOAuthTransportId</code>, <code>KnownAuthProfileField</code>, <code>KnownAuthSignUpField</code>, <code>KnownComponentEventDto</code>, <code>KnownSecretStoreProvider</code>, <code>ManifestValue</code>, <code>MEDIA_ASSET_KINDS</code>, <code>MediaAsset</code>, <code>MediaAssetKind</code>, <code>MediaAssetMetadata</code>, <code>MediaAssetReference</code>, <code>MediaAssetRegistry</code>, <code>MediaAssetSource</code>, <code>MediaBundledSource</code>, <code>MediaManifest</code>, <code>MediaStorageAdapter</code>, <code>MediaStorageSource</code>, <code>MediaUrlSource</code>, <code>MonetizationAdapterContext</code>, <code>MonetizationBasePrice</code>, <code>MonetizationDesiredState</code>, <code>MonetizationDiagnostic</code>, <code>MonetizationLocalization</code>, <code>MonetizationObservedProduct</code>, <code>MonetizationPlan</code>, <code>MonetizationPlanStep</code>, <code>MonetizationProduct</code>, <code>MonetizationProductKind</code>, <code>MonetizationSubscription</code>, <code>MonetizationSubscriptionPeriod</code>, <code>MonetizationSyncRequest</code>, <code>MonetizationTargetState</code>, <code>NamedIconSpec</code>, <code>NATIVE_TABS_MINIMIZE_BEHAVIORS</code>, <code>NativeTabsConfig</code>, <code>NativeTabsMinimizeBehavior</code>, <code>NAVIGATOR_PRESETS</code>, <code>NAVIGATOR_TYPES</code>, <code>NavigatorAdapterId</code>, <code>NavigatorAdapterPlan</code>, <code>NavigatorApiStability</code>, <code>NavigatorCapabilityDescriptor</code>, <code>NavigatorCapabilityId</code>, <code>NavigatorCapabilityRequirement</code>, <code>NavigatorCapabilityTarget</code>, <code>NavigatorCapabilityVerification</code>, <code>NavigatorCatalog</code>, <code>NavigatorDefaults</code>, <code>NavigatorDependencyRequirement</code>, <code>NavigatorDiagnostic</code>, <code>NavigatorGeneratedFile</code>, <code>NavigatorGenerationBindings</code>, <code>NavigatorGenerationOptions</code>, <code>NavigatorGenerationResult</code>, <code>NavigatorImplementation</code>, <code>NavigatorNode</code>, <code>NavigatorNodePlan</code>, <code>NavigatorPlan</code>, <code>NavigatorPlatformConfig</code>, <code>NavigatorPlatforms</code>, <code>NavigatorPresentation</code>, <code>NavigatorPreset</code>, <code>NavigatorPresetDescriptor</code>, <code>NavigatorResponsiveSize</code>, <code>NavigatorRoutePlan</code>, <code>NavigatorRuntimePlatform</code>, <code>NavigatorScreenModule</code>, <code>NavigatorScreenReference</code>, <code>NavigatorSupportStatus</code>, <code>NavigatorType</code>, <code>NavigatorValidationContext</code>, <code>NavigatorVerificationKind</code>, <code>NavigatorVerificationStatus</code>, <code>normalizeCapability</code>, <code>normalizeSecretRef</code>, <code>normalizeSecretScope</code>, <code>OpenApiDocumentRef</code>, <code>OperationId</code>, <code>OperationScreenDataLoaderDefinition</code>, <code>parseAppManifest</code>, <code>parseInfraManifest</code>, <code>PasswordResetInput</code>, <code>PropBinding</code>, <code>ReleaseAdapterContext</code>, <code>ReleaseControlExecutionResult</code>, <code>ReleaseControlRequest</code>, <code>ReleaseDesiredState</code>, <code>ReleaseDiagnostic</code>, <code>ReleaseInspectionRequest</code>, <code>ReleaseLifecycleControl</code>, <code>ReleaseMutationResult</code>, <code>ReleaseNote</code>, <code>ReleaseObservedAndroidState</code>, <code>ReleaseObservedIosState</code>, <code>ReleaseObservedNativeState</code>, <code>ReleaseObservedState</code>, <code>ReleaseObservedTargetState</code>, <code>ReleaseObservedWebState</code>, <code>ReleasePlan</code>, <code>ReleasePlanStatus</code>, <code>ReleasePlanStep</code>, <code>ReleaseRollout</code>, <code>ReleaseRolloutMode</code>, <code>ReleaseStepExecutionRequest</code>, <code>ReleaseStepOperation</code>, <code>ReleaseStepRetry</code>, <code>ReleaseTarget</code>, <code>ReleaseTargetRollout</code>, <code>RepositoryManifest</code>, <code>resolveAuthFlow</code>, <code>ResolvedHeadlessTabsPresentation</code>, <code>ResolvedTabsImplementation</code>, <code>ResolvedTabsPresentation</code>, <code>ResponsiveTabsPresentation</code>, <code>RouteDefinition</code>, <code>RuntimeCallback</code>, <code>RuntimeCallbackArgs</code>, <code>RuntimeCallbackMap</code>, <code>RuntimeNodePropsResolver</code>, <code>RuntimeResolveNodePropsArgs</code>, <code>SchemaId</code>, <code>ScreenDataLoaderDefinition</code>, <code>ScreenMetadataSpec</code>, <code>ScreenRequirements</code>, <code>ScreenSpec</code>, <code>SECRET_STORE_ERROR_CODES</code>, <code>SECRET_STORE_PROVIDERS</code>, <code>SecretCreateInput</code>, <code>SecretGetMetadataInput</code>, <code>SecretListInput</code>, <code>SecretMetadata</code>, <code>SecretPayload</code>, <code>SecretRef</code>, <code>SecretRemoveInput</code>, <code>SecretReplaceInput</code>, <code>SecretResolveInput</code>, <code>SecretScope</code>, <code>SecretStoreAdapter</code>, <code>SecretStoreError</code>, <code>SecretStoreErrorCode</code>, <code>SecretStoreOkResult</code>, <code>SecretStoreProvider</code>, <code>SecretStoreResult</code>, <code>SerializableSet</code>, <code>SerializableValue</code>, <code>SignInInput</code>, <code>SignOutInput</code>, <code>SignUpInput</code>, <code>SlotNavigatorNode</code>, <code>SplashScreenModeSpec</code>, <code>SplashScreenResizeMode</code>, <code>SplashScreenSpec</code>, <code>SplitViewNavigatorNode</code>, <code>STACK_IMPLEMENTATIONS</code>, <code>STACK_PRESENTATIONS</code>, <code>StackHeaderOptions</code>, <code>StackImplementation</code>, <code>StackImplementationConfig</code>, <code>StackNavigatorNode</code>, <code>StackPresentation</code>, <code>StackScreenOptions</code>, <code>StartOAuthAuthorizationInput</code>, <code>StateAdapter</code>, <code>StateAdapterCapabilities</code>, <code>StateAdapterError</code>, <code>StateListener</code>, <code>StatePath</code>, <code>StatePrimitive</code>, <code>StateResult</code>, <code>StateSnapshot</code>, <code>StateSubscription</code>, <code>StateSuccess</code>, <code>StateValue</code>, <code>StorageAdapter</code>, <code>StorageAdapterError</code>, <code>StorageAssetReference</code>, <code>StorageImageAssetSource</code>, <code>StorageListAdapter</code>, <code>StorageListInput</code>, <code>StorageListResult</code>, <code>StorageObjectMetadata</code>, <code>StorageOkResult</code>, <code>StoragePublicUrlInput</code>, <code>StoragePublicUrlResult</code>, <code>StorageRemoveInput</code>, <code>StorageResolveAdapter</code>, <code>StorageResolvedAccess</code>, <code>StorageResolvedAsset</code>, <code>StorageResolveInput</code>, <code>StorageResolveResult</code>, <code>StorageResult</code>, <code>StorageUploadInput</code>, <code>StorageUploadResult</code>, <code>StoreListingAdapterContext</code>, <code>StoreListingAsset</code>, <code>StoreListingAssetMediaType</code>, <code>StoreListingAssetReader</code>, <code>StoreListingAssetSet</code>, <code>StoreListingDesiredState</code>, <code>StoreListingDiagnostic</code>, <code>StoreListingField</code>, <code>StoreListingLocale</code>, <code>StoreListingPlan</code>, <code>StoreListingPlanOperation</code>, <code>StoreListingPlanStep</code>, <code>StoreListingRemoteAssetSet</code>, <code>StoreListingSyncRequest</code>, <code>StoreListingTarget</code>, <code>StoreListingTargetState</code>, <code>STRUCTURE_DESCRIPTOR</code>, <code>STRUCTURE_DESCRIPTOR_COMPILER_VERSION</code>, <code>STRUCTURE_DESCRIPTOR_FINGERPRINT</code>, <code>StructureDescriptor</code>, <code>StructureDescriptorDefinition</code>, <code>StructureDescriptorDocument</code>, <code>StructureDescriptorId</code>, <code>StructureDescriptorRegistry</code>, <code>StructureEntityRegistryDescriptor</code>, <code>StructureEnumDescriptor</code>, <code>StructureLiteralValue</code>, <code>StructureObjectDescriptor</code>, <code>StructureObjectField</code>, <code>StructureOrderedListDescriptor</code>, <code>StructureReferenceDescriptor</code>, <code>StructureScalarDescriptor</code>, <code>StructureScalarType</code>, <code>StructureSetDescriptor</code>, <code>StructureUnionDescriptor</code>, <code>StructureValueMapDescriptor</code>, <code>SvgIconSpec</code>, <code>TabsImplementationConfig</code>, <code>TabsNavigatorConfig</code>, <code>TabsNavigatorNode</code>, <code>TabsNavigatorPlan</code>, <code>ThemeConfig</code>, <code>ThemeGlobalTokenOverrides</code>, <code>ThemeId</code>, <code>ThemeModeConfig</code>, <code>ThemeNumericTokenOverrides</code>, <code>ThemeRecipeFieldOverrides</code>, <code>ThemeRecipeOverrides</code>, <code>ThemeRecipeOverrideValue</code>, <code>ThemeRegistry</code>, <code>ThemeStringTokenOverrides</code>, <code>ThemeTypographyHeadingOverrides</code>, <code>ThemeTypographyTokenOverrides</code>, <code>UiBindableEventMeta</code>, <code>UiBindableEventPayloadMeta</code>, <code>UiBindablePropMeta</code>, <code>UiBindableValueFieldMeta</code>, <code>UiBindableValueMeta</code>, <code>UiBindableValueType</code>, <code>UiComponentBindingMeta</code>, <code>UiComponentBlueprint</code>, <code>UiComponentBlueprintIcon</code>, <code>UiComponentCategory</code>, <code>UiComponentEventMeta</code>, <code>UiComponentEventPayloadFieldMeta</code>, <code>UiComponentEventPayloadFieldType</code>, <code>UiComponentEventPayloadKind</code>, <code>UiComponentI18nFieldMeta</code>, <code>UiComponentI18nMeta</code>, <code>UiComponentMeta</code>, <code>UiComponentMetaRegistry</code>, <code>UiComponentPackageManifest</code>, <code>UiComponentPropArrayItemSchema</code>, <code>UiComponentPropSchema</code>, <code>UiComponentPropType</code>, <code>UiComponentPropValue</code>, <code>UiComponentSlotMeta</code>, <code>UiNode</code>, <code>UiNodeRepeatSpec</code>, <code>UrlImageAssetSource</code>, <code>validateInfraAdapterSelection</code>, <code>validateSecretPayload</code>, <code>ValueMap</code>, <code>VerifyOtpInput</code>, <code>WebDeploymentPublication</code>, <code>WebDeploymentPublisher</code>, <code>WebDeploymentPublishIntent</code>, <code>WebDeploymentPublishRequest</code></p>
+    <p><strong>Exports:</strong> <code>AdapterId</code>, <code>AdapterKind</code>, <code>AdapterRef</code>, <code>AdaptiveTabsConfig</code>, <code>ANDROID_DEPLOYMENT_TRACKS</code>, <code>ANDROID_RELEASE_STATUSES</code>, <code>AndroidBuildArtifact</code>, <code>AndroidBuildInspection</code>, <code>AndroidBuildInspectionRequest</code>, <code>AndroidBuildRequest</code>, <code>AndroidDeploymentBuilder</code>, <code>AndroidDeploymentIntent</code>, <code>AndroidDeploymentPublication</code>, <code>AndroidDeploymentPublisher</code>, <code>AndroidDeploymentTrack</code>, <code>AndroidPublishInspection</code>, <code>AndroidPublishInspectionRequest</code>, <code>AndroidPublishRequest</code>, <code>AndroidReleaseStatus</code>, <code>AnkhCommandCategory</code>, <code>AnkhCommandDescriptor</code>, <code>AnkhCommandProviderManifest</code>, <code>ANKHORAGE_CAPABILITY_NAMES</code>, <code>ANKHORAGE_PERMISSION_NAMES</code>, <code>AnkhorageCapabilityName</code>, <code>AnkhoragePermissionName</code>, <code>AnkhPackageMetadata</code>, <code>AnkhProviderReference</code>, <code>AnkhStructureMetadata</code>, <code>AnkhStructureRootMetadata</code>, <code>ApiBaseDefinition</code>, <code>ApiDefinition</code>, <code>ApiDefinitionRegistry</code>, <code>ApiId</code>, <code>ApiOrigin</code>, <code>ApiProtocol</code>, <code>APP_CATEGORIES</code>, <code>APP_DEPLOY_TARGET_IDS</code>, <code>APP_ENVIRONMENT_IDS</code>, <code>AppCategory</code>, <code>AppDeployAndroidTargetConfig</code>, <code>AppDeployIosTargetConfig</code>, <code>AppDeployManifest</code>, <code>AppDeployProviderSelection</code>, <code>AppDeployTargetId</code>, <code>AppDeployTargets</code>, <code>AppDeployWebTargetConfig</code>, <code>AppEnvironmentId</code>, <code>AppManifest</code>, <code>AppManifestParseResult</code>, <code>AppNavigatorManifest</code>, <code>AppSettings</code>, <code>AppStateSpec</code>, <code>AUTH_IDENTIFIER_KINDS</code>, <code>AUTH_OAUTH_CANCELLATION_REASONS</code>, <code>AUTH_OAUTH_ERROR_CODES</code>, <code>AUTH_OAUTH_ERROR_STAGES</code>, <code>AUTH_OAUTH_PROVIDER_IDS</code>, <code>AUTH_OAUTH_SETUP_CALLBACK_ROLES</code>, <code>AUTH_OAUTH_SETUP_FIELD_PERSISTENCE_KINDS</code>, <code>AUTH_OAUTH_SETUP_FIELD_SENSITIVITIES</code>, <code>AUTH_OAUTH_TRANSPORT_CANCELLATION_REASONS</code>, <code>AUTH_OAUTH_TRANSPORT_ERROR_CODES</code>, <code>AUTH_OAUTH_TRANSPORT_IDS</code>, <code>AUTH_PROFILE_CREATE_STRATEGIES</code>, <code>AUTH_PROFILE_FIELDS</code>, <code>AUTH_PROFILE_PRIMARY_KEY_STRATEGIES</code>, <code>AUTH_PROFILE_UPDATE_STRATEGIES</code>, <code>AUTH_SCOPES</code>, <code>AUTH_SIGN_IN_IDENTIFIERS</code>, <code>AUTH_SIGN_UP_FIELDS</code>, <code>AUTH_SIGN_UP_POLICIES</code>, <code>AuthAdapter</code>, <code>AuthAdapterCapabilities</code>, <code>AuthAdapterError</code>, <code>AuthFlowConfig</code>, <code>AuthIdentifier</code>, <code>AuthIdentifierKind</code>, <code>AuthOAuthAdapter</code>, <code>AuthOAuthAuthorizationRequest</code>, <code>AuthOAuthAuthorizationResponse</code>, <code>AuthOAuthCancellationReason</code>, <code>AuthOAuthCapabilities</code>, <code>AuthOAuthCompletionResult</code>, <code>AuthOAuthConfig</code>, <code>AuthOAuthError</code>, <code>AuthOAuthErrorCode</code>, <code>AuthOAuthErrorStage</code>, <code>AuthOAuthProviderConfig</code>, <code>AuthOAuthProviderId</code>, <code>AuthOAuthSetupCallbackRequirement</code>, <code>AuthOAuthSetupCallbackRole</code>, <code>AuthOAuthSetupCapabilities</code>, <code>AuthOAuthSetupFieldPersistence</code>, <code>AuthOAuthSetupFieldRequirement</code>, <code>AuthOAuthSetupFieldSensitivity</code>, <code>AuthOAuthSetupPlan</code>, <code>AuthOAuthSetupRequirement</code>, <code>AuthOAuthStartResult</code>, <code>AuthOAuthTransportCancellationReason</code>, <code>AuthOAuthTransportError</code>, <code>AuthOAuthTransportErrorCode</code>, <code>AuthOAuthTransportId</code>, <code>AuthProfileCreateStrategy</code>, <code>AuthProfileField</code>, <code>AuthProfilePrimaryKeyStrategy</code>, <code>AuthProfileSpec</code>, <code>AuthProfileUpdateStrategy</code>, <code>AuthProviderConfig</code>, <code>AuthResult</code>, <code>AuthScope</code>, <code>AuthSession</code>, <code>AuthSignInConfig</code>, <code>AuthSignInIdentifier</code>, <code>AuthSignInSpec</code>, <code>AuthSignUpConfig</code>, <code>AuthSignUpField</code>, <code>AuthSignUpPolicy</code>, <code>AuthSignUpSpec</code>, <code>AuthUser</code>, <code>BindingCondition</code>, <code>BindingConditionOperator</code>, <code>BindingDataPath</code>, <code>BindingFallback</code>, <code>BindingInputMap</code>, <code>BindingInputValue</code>, <code>BindingLifecycleBehavior</code>, <code>BindingLifecycleState</code>, <code>BindingOperationRef</code>, <code>BindingValue</code>, <code>BindingValueExpression</code>, <code>BindingValueSource</code>, <code>BindingValueTransform</code>, <code>ButtonPressEventDto</code>, <code>CollectionItemPressEventDto</code>, <code>CollectionItemPressPayload</code>, <code>CompleteOAuthAuthorizationInput</code>, <code>ComponentDataBinding</code>, <code>ComponentDataBindingRegistry</code>, <code>ComponentEventDto</code>, <code>ComponentEventDtoKind</code>, <code>ComponentEventPayloadValue</code>, <code>ComponentInstanceId</code>, <code>ComponentRequirements</code>, <code>ComponentTypeId</code>, <code>CreateNavigatorPlanOptions</code>, <code>CredentialId</code>, <code>CredentialKind</code>, <code>CredentialRef</code>, <code>CustomNavigatorConfigIssue</code>, <code>CustomNavigatorNode</code>, <code>CustomNavigatorRegistration</code>, <code>CustomNavigatorRegistry</code>, <code>DatabaseAdapterRef</code>, <code>DatabaseDataSourceConfig</code>, <code>DataContractValue</code>, <code>DataDiagnosticCode</code>, <code>DataDiagnosticSeverity</code>, <code>DataEndpointConfig</code>, <code>DataEndpointKind</code>, <code>DataEndpointRegistry</code>, <code>DataOperationConfig</code>, <code>DataOperationIntent</code>, <code>DataOperationMethod</code>, <code>DataOperationPagination</code>, <code>DataOperationParameter</code>, <code>DataOperationParameterLocation</code>, <code>DataOperationProtocol</code>, <code>DataOperationRegistry</code>, <code>DataOperationRequest</code>, <code>DataOperationResponse</code>, <code>DataPath</code>, <code>DataSchema</code>, <code>DataSchemaPrimitiveType</code>, <code>DataSchemaProperty</code>, <code>DataSchemaRef</code>, <code>DataSchemaRegistry</code>, <code>DataSchemaSlot</code>, <code>DataSourceConfig</code>, <code>DataSourceDiagnostic</code>, <code>DataSourceDiagnosticResult</code>, <code>DataSourceId</code>, <code>DataSourceKind</code>, <code>DataSourceRegistry</code>, <code>DbAdapter</code>, <code>DbAdapterCapabilities</code>, <code>DbAdapterError</code>, <code>DbAdminAdapter</code>, <code>DbAdminAdapterCapabilities</code>, <code>DbAdminResult</code>, <code>DbChangeEvent</code>, <code>DbChangeKind</code>, <code>DbChangeListener</code>, <code>DbCollectionDefinition</code>, <code>DbCollectionReference</code>, <code>DbCollectionSubscriptionInput</code>, <code>DbDeleteInput</code>, <code>DbFieldDefinition</code>, <code>DbFieldType</code>, <code>DbFilter</code>, <code>DbFilterOperator</code>, <code>DbFindByIdInput</code>, <code>DbInsertInput</code>, <code>DbPage</code>, <code>DbRealtimeAdapter</code>, <code>DbRecord</code>, <code>DbRecordSubscriptionInput</code>, <code>DbResult</code>, <code>DbSelectInput</code>, <code>DbSort</code>, <code>DbSortDirection</code>, <code>DbSubscription</code>, <code>DbSuccess</code>, <code>DbTableInput</code>, <code>DbUpdateInput</code>, <code>DEFAULT_AUTH_FLOW</code>, <code>DEPLOYMENT_CAPABILITIES</code>, <code>DEPLOYMENT_PROVIDER_CAPABILITY_IDS</code>, <code>DeploymentAuthenticationRequiredAction</code>, <code>DeploymentAuthenticationState</code>, <code>DeploymentAutomatedProvisioningRequirement</code>, <code>DeploymentCapability</code>, <code>DeploymentCredentialReference</code>, <code>DeploymentFailure</code>, <code>DeploymentManualAction</code>, <code>DeploymentMonetizationAdapter</code>, <code>DeploymentProviderCapabilityDescriptor</code>, <code>DeploymentProviderCapabilityId</code>, <code>DeploymentProviderCapabilityState</code>, <code>DeploymentProviderDescriptor</code>, <code>DeploymentProviderRegistration</code>, <code>DeploymentProviderResult</code>, <code>DeploymentProviderSetupAdapter</code>, <code>DeploymentProviderSetupContext</code>, <code>DeploymentProviderSetupInspection</code>, <code>DeploymentProvisioningRequirement</code>, <code>DeploymentReleaseAdapter</code>, <code>DeploymentRequiredAction</code>, <code>DeploymentSecretMaterial</code>, <code>DeploymentSecretResolver</code>, <code>DeploymentStoreIdentity</code>, <code>DeploymentStoreListingAdapter</code>, <code>DRAWER_POSITIONS</code>, <code>DRAWER_TYPES</code>, <code>DrawerNavigatorNode</code>, <code>DrawerNavigatorOptions</code>, <code>DrawerPosition</code>, <code>DrawerType</code>, <code>EndpointId</code>, <code>EntityRegistry</code>, <code>EventBinding</code>, <code>EventBindingTarget</code>, <code>ExpoRouterNavigatorModule</code>, <code>ExternalGraphQlApiDefinition</code>, <code>ExternalRestApiDefinition</code>, <code>findForbiddenInlineSecretFields</code>, <code>FIXED_HEADLESS_TABS_PRESENTATIONS</code>, <code>FixedHeadlessTabsPresentation</code>, <code>FORBIDDEN_INLINE_SECRET_FIELDS</code>, <code>FormSubmitEventDto</code>, <code>FormSubmitValues</code>, <code>GraphQlIntrospectionConfig</code>, <code>HEADLESS_TABS_PRESENTATIONS</code>, <code>HeadlessTabsConfig</code>, <code>HeadlessTabsPresentation</code>, <code>HeadlessTabsPresentationConfig</code>, <code>HeadlessTabsWebConfig</code>, <code>IconSpec</code>, <code>ImageAssetSource</code>, <code>ImageMetadata</code>, <code>INFRA_ADAPTER_CATALOG</code>, <code>INFRA_RUNTIME_COMPATIBILITY</code>, <code>InfraAdapterDescriptor</code>, <code>InfraAdapterId</code>, <code>InfraAuthConfigMap</code>, <code>InfraAuthSpec</code>, <code>InfraAuthzConfigMap</code>, <code>InfraAuthzSpec</code>, <code>InfraCapability</code>, <code>InfraComputeAdapter</code>, <code>InfraComputeConfigMap</code>, <code>InfraComputeProviderId</code>, <code>InfraComputeSelection</code>, <code>InfraComputeSnapshot</code>, <code>InfraComputeTarget</code>, <code>InfraControlPlaneCredentialRef</code>, <code>InfraCredentialPort</code>, <code>InfraDatabaseConfigMap</code>, <code>InfraDatabaseSpec</code>, <code>InfraDeploymentSpec</code>, <code>InfraDestroyRequest</code>, <code>InfraDiagnostic</code>, <code>InfraEnvironmentSpec</code>, <code>InfraExecutionContext</code>, <code>InfraGeneratedArtifact</code>, <code>InfraLedger</code>, <code>InfraManifest</code>, <code>InfraModuleId</code>, <code>InfraModuleRegistry</code>, <code>InfraModuleSpec</code>, <code>InfraNetworkingSpec</code>, <code>InfraNetworkingTlsSpec</code>, <code>InfraObjectStorageConfigMap</code>, <code>InfraObjectStorageSpec</code>, <code>InfraOutput</code>, <code>InfraOwnedResource</code>, <code>InfraPlan</code>, <code>InfraPlanAction</code>, <code>InfraProviderFor</code>, <code>InfraReconcileResult</code>, <code>InfraResourceIdentity</code>, <code>InfraResourceStatus</code>, <code>InfraResult</code>, <code>InfraRuntimeAdapter</code>, <code>InfraRuntimeConfigMap</code>, <code>InfraRuntimeDesiredState</code>, <code>InfraRuntimeProviderId</code>, <code>InfraRuntimeSelection</code>, <code>InfraS3PersistenceTarget</code>, <code>InfraScheduledDatabaseBackupSpec</code>, <code>InfraSecretReference</code>, <code>InfraSecretStoreConfigMap</code>, <code>InfraSecretStoreSpec</code>, <code>InfraServiceAdapter</code>, <code>InfraStatus</code>, <code>InfraWorkloadArtifact</code>, <code>InfraWorkloadFileMap</code>, <code>InfraWorkloadHealthSpec</code>, <code>InfraWorkloadId</code>, <code>InfraWorkloadPort</code>, <code>InfraWorkloadPortRegistry</code>, <code>InfraWorkloadRegistry</code>, <code>InfraWorkloadResourceSpec</code>, <code>InfraWorkloadScalarValue</code>, <code>InfraWorkloadSpec</code>, <code>InfraWorkloadValue</code>, <code>InfraWorkloadVolumeRegistry</code>, <code>InfraWorkloadVolumeSpec</code>, <code>InternalRestApiDefinition</code>, <code>IosBuildArtifact</code>, <code>IosBuildInspection</code>, <code>IosBuildInspectionRequest</code>, <code>IosBuildRequest</code>, <code>IosDeploymentBuilder</code>, <code>IosDeploymentIntent</code>, <code>IosDeploymentPublication</code>, <code>IosDeploymentPublisher</code>, <code>IosPublishInspection</code>, <code>IosPublishInspectionRequest</code>, <code>IosPublishRequest</code>, <code>isAppDeployManifest</code>, <code>isAppManifest</code>, <code>isAppNavigatorManifest</code>, <code>isDataSchema</code>, <code>isDataSchemaSlot</code>, <code>isInfraAdapterDescriptor</code>, <code>isInfraAuthSpec</code>, <code>isInfraDeploymentSpec</code>, <code>isInfraEnvironmentSpec</code>, <code>isInfraManifest</code>, <code>isInfraWorkloadSpec</code>, <code>isMediaAssetReference</code>, <code>isSerializableSet</code>, <code>isSerializableValue</code>, <code>isStructureDescriptor</code>, <code>isStructureDescriptorDocument</code>, <code>JAVASCRIPT_STACK_PRESENTATIONS</code>, <code>JAVASCRIPT_TABS_PRESENTATIONS</code>, <code>JavaScriptStackPresentation</code>, <code>JavaScriptStackScreenOptions</code>, <code>JavaScriptTabsConfig</code>, <code>JavaScriptTabsPresentation</code>, <code>KnownAuthOAuthProviderId</code>, <code>KnownAuthOAuthTransportId</code>, <code>KnownAuthProfileField</code>, <code>KnownAuthSignUpField</code>, <code>KnownComponentEventDto</code>, <code>KnownSecretStoreProvider</code>, <code>ManifestValue</code>, <code>MEDIA_ASSET_KINDS</code>, <code>MediaAsset</code>, <code>MediaAssetKind</code>, <code>MediaAssetMetadata</code>, <code>MediaAssetReference</code>, <code>MediaAssetRegistry</code>, <code>MediaAssetSource</code>, <code>MediaBundledSource</code>, <code>MediaManifest</code>, <code>MediaStorageAdapter</code>, <code>MediaStorageSource</code>, <code>MediaUrlSource</code>, <code>MonetizationAdapterContext</code>, <code>MonetizationBasePrice</code>, <code>MonetizationDesiredState</code>, <code>MonetizationDiagnostic</code>, <code>MonetizationLocalization</code>, <code>MonetizationObservedProduct</code>, <code>MonetizationPlan</code>, <code>MonetizationPlanStep</code>, <code>MonetizationProduct</code>, <code>MonetizationProductKind</code>, <code>MonetizationSubscription</code>, <code>MonetizationSubscriptionPeriod</code>, <code>MonetizationSyncRequest</code>, <code>MonetizationTargetState</code>, <code>NamedIconSpec</code>, <code>NATIVE_TABS_MINIMIZE_BEHAVIORS</code>, <code>NativeTabsConfig</code>, <code>NativeTabsMinimizeBehavior</code>, <code>NAVIGATOR_PRESETS</code>, <code>NAVIGATOR_TYPES</code>, <code>NavigatorAdapterId</code>, <code>NavigatorAdapterPlan</code>, <code>NavigatorApiStability</code>, <code>NavigatorCapabilityDescriptor</code>, <code>NavigatorCapabilityId</code>, <code>NavigatorCapabilityRequirement</code>, <code>NavigatorCapabilityTarget</code>, <code>NavigatorCapabilityVerification</code>, <code>NavigatorCatalog</code>, <code>NavigatorDefaults</code>, <code>NavigatorDependencyRequirement</code>, <code>NavigatorDiagnostic</code>, <code>NavigatorGeneratedFile</code>, <code>NavigatorGenerationBindings</code>, <code>NavigatorGenerationOptions</code>, <code>NavigatorGenerationResult</code>, <code>NavigatorImplementation</code>, <code>NavigatorNode</code>, <code>NavigatorNodePlan</code>, <code>NavigatorPlan</code>, <code>NavigatorPlatformConfig</code>, <code>NavigatorPlatforms</code>, <code>NavigatorPresentation</code>, <code>NavigatorPreset</code>, <code>NavigatorPresetDescriptor</code>, <code>NavigatorResponsiveSize</code>, <code>NavigatorRoutePlan</code>, <code>NavigatorRuntimePlatform</code>, <code>NavigatorScreenModule</code>, <code>NavigatorScreenReference</code>, <code>NavigatorSupportStatus</code>, <code>NavigatorType</code>, <code>NavigatorValidationContext</code>, <code>NavigatorVerificationKind</code>, <code>NavigatorVerificationStatus</code>, <code>normalizeSecretRef</code>, <code>normalizeSecretScope</code>, <code>OpenApiDocumentRef</code>, <code>OperationId</code>, <code>OperationScreenDataLoaderDefinition</code>, <code>parseAppManifest</code>, <code>parseInfraManifest</code>, <code>PasswordResetInput</code>, <code>PropBinding</code>, <code>ReleaseAdapterContext</code>, <code>ReleaseControlExecutionResult</code>, <code>ReleaseControlRequest</code>, <code>ReleaseDesiredState</code>, <code>ReleaseDiagnostic</code>, <code>ReleaseInspectionRequest</code>, <code>ReleaseLifecycleControl</code>, <code>ReleaseMutationResult</code>, <code>ReleaseNote</code>, <code>ReleaseObservedAndroidState</code>, <code>ReleaseObservedIosState</code>, <code>ReleaseObservedNativeState</code>, <code>ReleaseObservedState</code>, <code>ReleaseObservedTargetState</code>, <code>ReleaseObservedWebState</code>, <code>ReleasePlan</code>, <code>ReleasePlanStatus</code>, <code>ReleasePlanStep</code>, <code>ReleaseRollout</code>, <code>ReleaseRolloutMode</code>, <code>ReleaseStepExecutionRequest</code>, <code>ReleaseStepOperation</code>, <code>ReleaseStepRetry</code>, <code>ReleaseTarget</code>, <code>ReleaseTargetRollout</code>, <code>RepositoryManifest</code>, <code>resolveAuthFlow</code>, <code>ResolvedHeadlessTabsPresentation</code>, <code>ResolvedTabsImplementation</code>, <code>ResolvedTabsPresentation</code>, <code>ResponsiveTabsPresentation</code>, <code>RouteDefinition</code>, <code>RuntimeCallback</code>, <code>RuntimeCallbackArgs</code>, <code>RuntimeCallbackMap</code>, <code>RuntimeNodePropsResolver</code>, <code>RuntimeResolveNodePropsArgs</code>, <code>SchemaId</code>, <code>ScreenDataLoaderDefinition</code>, <code>ScreenMetadataSpec</code>, <code>ScreenRequirements</code>, <code>ScreenSpec</code>, <code>SECRET_STORE_ERROR_CODES</code>, <code>SECRET_STORE_PROVIDERS</code>, <code>SecretCreateInput</code>, <code>SecretGetMetadataInput</code>, <code>SecretListInput</code>, <code>SecretMetadata</code>, <code>SecretPayload</code>, <code>SecretRef</code>, <code>SecretRemoveInput</code>, <code>SecretReplaceInput</code>, <code>SecretResolveInput</code>, <code>SecretScope</code>, <code>SecretStoreAdapter</code>, <code>SecretStoreError</code>, <code>SecretStoreErrorCode</code>, <code>SecretStoreOkResult</code>, <code>SecretStoreProvider</code>, <code>SecretStoreResult</code>, <code>SerializableSet</code>, <code>SerializableValue</code>, <code>SignInInput</code>, <code>SignOutInput</code>, <code>SignUpInput</code>, <code>SlotNavigatorNode</code>, <code>SplashScreenModeSpec</code>, <code>SplashScreenResizeMode</code>, <code>SplashScreenSpec</code>, <code>SplitViewNavigatorNode</code>, <code>STACK_IMPLEMENTATIONS</code>, <code>STACK_PRESENTATIONS</code>, <code>StackHeaderOptions</code>, <code>StackImplementation</code>, <code>StackImplementationConfig</code>, <code>StackNavigatorNode</code>, <code>StackPresentation</code>, <code>StackScreenOptions</code>, <code>StartOAuthAuthorizationInput</code>, <code>StateAdapter</code>, <code>StateAdapterCapabilities</code>, <code>StateAdapterError</code>, <code>StateListener</code>, <code>StatePath</code>, <code>StatePrimitive</code>, <code>StateResult</code>, <code>StateSnapshot</code>, <code>StateSubscription</code>, <code>StateSuccess</code>, <code>StateValue</code>, <code>StorageAdapter</code>, <code>StorageAdapterError</code>, <code>StorageAssetReference</code>, <code>StorageImageAssetSource</code>, <code>StorageListAdapter</code>, <code>StorageListInput</code>, <code>StorageListResult</code>, <code>StorageObjectMetadata</code>, <code>StorageOkResult</code>, <code>StoragePublicUrlInput</code>, <code>StoragePublicUrlResult</code>, <code>StorageRemoveInput</code>, <code>StorageResolveAdapter</code>, <code>StorageResolvedAccess</code>, <code>StorageResolvedAsset</code>, <code>StorageResolveInput</code>, <code>StorageResolveResult</code>, <code>StorageResult</code>, <code>StorageUploadInput</code>, <code>StorageUploadResult</code>, <code>StoreListingAdapterContext</code>, <code>StoreListingAsset</code>, <code>StoreListingAssetMediaType</code>, <code>StoreListingAssetReader</code>, <code>StoreListingAssetSet</code>, <code>StoreListingDesiredState</code>, <code>StoreListingDiagnostic</code>, <code>StoreListingField</code>, <code>StoreListingLocale</code>, <code>StoreListingPlan</code>, <code>StoreListingPlanOperation</code>, <code>StoreListingPlanStep</code>, <code>StoreListingRemoteAssetSet</code>, <code>StoreListingSyncRequest</code>, <code>StoreListingTarget</code>, <code>StoreListingTargetState</code>, <code>STRUCTURE_DESCRIPTOR</code>, <code>STRUCTURE_DESCRIPTOR_COMPILER_VERSION</code>, <code>STRUCTURE_DESCRIPTOR_FINGERPRINT</code>, <code>StructureDescriptor</code>, <code>StructureDescriptorDefinition</code>, <code>StructureDescriptorDocument</code>, <code>StructureDescriptorId</code>, <code>StructureDescriptorRegistry</code>, <code>StructureEntityRegistryDescriptor</code>, <code>StructureEnumDescriptor</code>, <code>StructureLiteralValue</code>, <code>StructureObjectDescriptor</code>, <code>StructureObjectField</code>, <code>StructureOrderedListDescriptor</code>, <code>StructureReferenceDescriptor</code>, <code>StructureScalarDescriptor</code>, <code>StructureScalarType</code>, <code>StructureSetDescriptor</code>, <code>StructureUnionDescriptor</code>, <code>StructureValueMapDescriptor</code>, <code>SvgIconSpec</code>, <code>TabsImplementationConfig</code>, <code>TabsNavigatorConfig</code>, <code>TabsNavigatorNode</code>, <code>TabsNavigatorPlan</code>, <code>ThemeConfig</code>, <code>ThemeGlobalTokenOverrides</code>, <code>ThemeId</code>, <code>ThemeModeConfig</code>, <code>ThemeNumericTokenOverrides</code>, <code>ThemeRecipeFieldOverrides</code>, <code>ThemeRecipeOverrides</code>, <code>ThemeRecipeOverrideValue</code>, <code>ThemeRegistry</code>, <code>ThemeStringTokenOverrides</code>, <code>ThemeTypographyHeadingOverrides</code>, <code>ThemeTypographyTokenOverrides</code>, <code>UiBindableEventMeta</code>, <code>UiBindableEventPayloadMeta</code>, <code>UiBindablePropMeta</code>, <code>UiBindableValueFieldMeta</code>, <code>UiBindableValueMeta</code>, <code>UiBindableValueType</code>, <code>UiComponentBindingMeta</code>, <code>UiComponentBlueprint</code>, <code>UiComponentBlueprintIcon</code>, <code>UiComponentCategory</code>, <code>UiComponentEventMeta</code>, <code>UiComponentEventPayloadFieldMeta</code>, <code>UiComponentEventPayloadFieldType</code>, <code>UiComponentEventPayloadKind</code>, <code>UiComponentI18nFieldMeta</code>, <code>UiComponentI18nMeta</code>, <code>UiComponentMeta</code>, <code>UiComponentMetaRegistry</code>, <code>UiComponentPackageManifest</code>, <code>UiComponentPropArrayItemSchema</code>, <code>UiComponentPropSchema</code>, <code>UiComponentPropType</code>, <code>UiComponentPropValue</code>, <code>UiComponentSlotMeta</code>, <code>UiNode</code>, <code>UiNodeRepeatSpec</code>, <code>UrlImageAssetSource</code>, <code>validateInfraAdapterSelection</code>, <code>validateSecretPayload</code>, <code>ValueMap</code>, <code>VerifyOtpInput</code>, <code>WebDeploymentPublication</code>, <code>WebDeploymentPublisher</code>, <code>WebDeploymentPublishIntent</code>, <code>WebDeploymentPublishRequest</code></p>
   </article><article class="item" data-search="src/infra.ts INFRA_ADAPTER_CATALOG INFRA_RUNTIME_COMPATIBILITY InfraAdapterDescriptor InfraAdapterId InfraAuthConfigMap InfraAuthSpec InfraAuthzConfigMap InfraAuthzSpec InfraCapability InfraComputeAdapter InfraComputeConfigMap InfraComputeProviderId InfraComputeSelection InfraComputeSnapshot InfraComputeTarget InfraControlPlaneCredentialRef InfraCredentialPort InfraDatabaseConfigMap InfraDatabaseSpec InfraDeploymentSpec InfraDestroyRequest InfraDiagnostic InfraEnvironmentSpec InfraExecutionContext InfraGeneratedArtifact InfraLedger InfraManifest InfraModuleId InfraModuleRegistry InfraModuleSpec InfraNetworkingSpec InfraNetworkingTlsSpec InfraObjectStorageConfigMap InfraObjectStorageSpec InfraOutput InfraOwnedResource InfraPlan InfraPlanAction InfraProviderFor InfraReconcileResult InfraResourceIdentity InfraResourceStatus InfraResult InfraRuntimeAdapter InfraRuntimeConfigMap InfraRuntimeDesiredState InfraRuntimeProviderId InfraRuntimeSelection InfraS3PersistenceTarget InfraScheduledDatabaseBackupSpec InfraSecretReference InfraSecretStoreConfigMap InfraSecretStoreSpec InfraServiceAdapter InfraStatus InfraWorkloadArtifact InfraWorkloadFileMap InfraWorkloadHealthSpec InfraWorkloadId InfraWorkloadPort InfraWorkloadPortRegistry InfraWorkloadRegistry InfraWorkloadResourceSpec InfraWorkloadScalarValue InfraWorkloadSpec InfraWorkloadValue InfraWorkloadVolumeRegistry InfraWorkloadVolumeSpec isInfraAdapterDescriptor isInfraAuthSpec isInfraDeploymentSpec isInfraEnvironmentSpec isInfraManifest isInfraWorkloadSpec parseInfraManifest validateInfraAdapterSelection">
     <h3>src/infra.ts</h3>
     <p class="muted">Referenced module</p>
@@ -2833,238 +2828,6 @@
   </article>
             </section>
             <section>
-              <h3>src/capabilities.ts</h3>
-              <article class="item" id="symbol-arecapabilitiesequal" data-search="areCapabilitiesEqual  function src/capabilities.ts Compare capability descriptors independent of object property and unordered collection ordering. Capability (left: Capability, right: Capability) =&gt; boolean">
-    <h4>areCapabilitiesEqual</h4>
-    
-    <p class="muted">function • <code>src/capabilities.ts:96:1</code></p>
-    <p>Compare capability descriptors independent of object property and unordered collection ordering.</p>
-    
-    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
-    <div><strong>Related symbols:</strong> <ul class="chips"><li class="chip">Capability</li></ul></div>
-    <div>
-        <h5>Signature</h5>
-        <pre>(left: Capability, right: Capability) =&gt; boolean</pre>
-        <table>
-                <thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
-                <tbody>
-                  <tr>
-                        <td><code>left</code></td>
-                        <td><code>Capability</code></td>
-                        <td>yes</td>
-                        <td></td>
-                      </tr><tr>
-                        <td><code>right</code></td>
-                        <td><code>Capability</code></td>
-                        <td>yes</td>
-                        <td></td>
-                      </tr>
-                </tbody>
-              </table>
-        <p><strong>Returns:</strong> <code>boolean</code></p>
-      </div>
-    
-  </article><article class="item" id="symbol-capability" data-search="Capability  type src/capabilities.ts  CapabilityBindingKind CapabilityBindingRole DataSchemaSlot">
-    <h4>Capability</h4>
-    
-    <p class="muted">type • <code>src/capabilities.ts:40:1</code></p>
-    
-    
-    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
-    <div><strong>Related symbols:</strong> <ul class="chips"><li class="chip">CapabilityBindingKind</li><li class="chip">CapabilityBindingRole</li><li class="chip">DataSchemaSlot</li></ul></div>
-    
-    <table>
-    <thead><tr><th>Member</th><th>Kind</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
-    <tbody>
-      <tr>
-            <td><code>access</code></td>
-            <td>property</td>
-            <td><code>readonly (&quot;emit&quot; | &quot;invoke&quot; | &quot;read&quot; | &quot;subscribe&quot; | &quot;write&quot;)[]</code></td>
-            <td>yes</td>
-            <td></td>
-          </tr><tr>
-            <td><code>binding</code></td>
-            <td>property</td>
-            <td><code>{ readonly kind: CapabilityBindingKind; readonly bindableAs: readonly CapabilityBindingRole[]; }</code></td>
-            <td>yes</td>
-            <td></td>
-          </tr><tr>
-            <td><code>description</code></td>
-            <td>property</td>
-            <td><code>string | undefined</code></td>
-            <td>no</td>
-            <td></td>
-          </tr><tr>
-            <td><code>id</code></td>
-            <td>property</td>
-            <td><code>`${string}.${string}`</code></td>
-            <td>yes</td>
-            <td></td>
-          </tr><tr>
-            <td><code>input</code></td>
-            <td>property</td>
-            <td><code>DataSchemaSlot | undefined</code></td>
-            <td>no</td>
-            <td></td>
-          </tr><tr>
-            <td><code>label</code></td>
-            <td>property</td>
-            <td><code>string | undefined</code></td>
-            <td>no</td>
-            <td></td>
-          </tr><tr>
-            <td><code>output</code></td>
-            <td>property</td>
-            <td><code>DataSchemaSlot | undefined</code></td>
-            <td>no</td>
-            <td></td>
-          </tr><tr>
-            <td><code>owner</code></td>
-            <td>property</td>
-            <td><code>string</code></td>
-            <td>yes</td>
-            <td></td>
-          </tr>
-    </tbody>
-  </table>
-  </article><article class="item" id="symbol-capability-access" data-search="CAPABILITY_ACCESS  value src/capabilities.ts Enumerate the operations a capability exposes to other packages.">
-    <h4>CAPABILITY_ACCESS</h4>
-    
-    <p class="muted">value • <code>src/capabilities.ts:9:14</code></p>
-    <p>Enumerate the operations a capability exposes to other packages.</p>
-    
-    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
-    <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
-    
-    
-  </article><article class="item" id="symbol-capability-binding-kinds" data-search="CAPABILITY_BINDING_KINDS  value src/capabilities.ts Enumerate the portable runtime families supported by capability bindings.">
-    <h4>CAPABILITY_BINDING_KINDS</h4>
-    
-    <p class="muted">value • <code>src/capabilities.ts:14:14</code></p>
-    <p>Enumerate the portable runtime families supported by capability bindings.</p>
-    
-    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
-    <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
-    
-    
-  </article><article class="item" id="symbol-capability-binding-roles" data-search="CAPABILITY_BINDING_ROLES  value src/capabilities.ts Enumerate the directions in which a capability can participate in a binding.">
-    <h4>CAPABILITY_BINDING_ROLES</h4>
-    
-    <p class="muted">value • <code>src/capabilities.ts:29:14</code></p>
-    <p>Enumerate the directions in which a capability can participate in a binding.</p>
-    
-    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
-    <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
-    
-    
-  </article><article class="item" id="symbol-capabilityaccess" data-search="CapabilityAccess  unknown src/capabilities.ts ">
-    <h4>CapabilityAccess</h4>
-    
-    <p class="muted">unknown • <code>src/capabilities.ts:11:1</code></p>
-    
-    
-    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
-    <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
-    
-    
-  </article><article class="item" id="symbol-capabilitybindingkind" data-search="CapabilityBindingKind  unknown src/capabilities.ts ">
-    <h4>CapabilityBindingKind</h4>
-    
-    <p class="muted">unknown • <code>src/capabilities.ts:26:1</code></p>
-    
-    
-    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
-    <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
-    
-    
-  </article><article class="item" id="symbol-capabilitybindingrole" data-search="CapabilityBindingRole  unknown src/capabilities.ts ">
-    <h4>CapabilityBindingRole</h4>
-    
-    <p class="muted">unknown • <code>src/capabilities.ts:31:1</code></p>
-    
-    
-    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
-    <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
-    
-    
-  </article><article class="item" id="symbol-iscapability" data-search="isCapability  function src/capabilities.ts Validate an untrusted value as one complete portable capability descriptor. (value: unknown) =&gt; boolean">
-    <h4>isCapability</h4>
-    
-    <p class="muted">function • <code>src/capabilities.ts:64:1</code></p>
-    <p>Validate an untrusted value as one complete portable capability descriptor.</p>
-    
-    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
-    <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
-    <div>
-        <h5>Signature</h5>
-        <pre>(value: unknown) =&gt; boolean</pre>
-        <table>
-                <thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
-                <tbody>
-                  <tr>
-                        <td><code>value</code></td>
-                        <td><code>unknown</code></td>
-                        <td>yes</td>
-                        <td></td>
-                      </tr>
-                </tbody>
-              </table>
-        <p><strong>Returns:</strong> <code>boolean</code></p>
-      </div>
-    
-  </article><article class="item" id="symbol-iscapabilityid" data-search="isCapabilityId  function src/capabilities.ts Validate a stable dot-separated identifier for one capability. (value: unknown) =&gt; boolean">
-    <h4>isCapabilityId</h4>
-    
-    <p class="muted">function • <code>src/capabilities.ts:55:1</code></p>
-    <p>Validate a stable dot-separated identifier for one capability.</p>
-    
-    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
-    <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
-    <div>
-        <h5>Signature</h5>
-        <pre>(value: unknown) =&gt; boolean</pre>
-        <table>
-                <thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
-                <tbody>
-                  <tr>
-                        <td><code>value</code></td>
-                        <td><code>unknown</code></td>
-                        <td>yes</td>
-                        <td></td>
-                      </tr>
-                </tbody>
-              </table>
-        <p><strong>Returns:</strong> <code>boolean</code></p>
-      </div>
-    
-  </article><article class="item" id="symbol-normalizecapability" data-search="normalizeCapability  function src/capabilities.ts Return a capability with access and binding-role collections sorted and deduplicated. Capability (capability: Capability) =&gt; Capability">
-    <h4>normalizeCapability</h4>
-    
-    <p class="muted">function • <code>src/capabilities.ts:79:1</code></p>
-    <p>Return a capability with access and binding-role collections sorted and deduplicated.</p>
-    
-    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
-    <div><strong>Related symbols:</strong> <ul class="chips"><li class="chip">Capability</li></ul></div>
-    <div>
-        <h5>Signature</h5>
-        <pre>(capability: Capability) =&gt; Capability</pre>
-        <table>
-                <thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
-                <tbody>
-                  <tr>
-                        <td><code>capability</code></td>
-                        <td><code>Capability</code></td>
-                        <td>yes</td>
-                        <td></td>
-                      </tr>
-                </tbody>
-              </table>
-        <p><strong>Returns:</strong> <code>Capability</code></p>
-      </div>
-    
-  </article>
-            </section>
-            <section>
               <h3>src/cli/index.ts</h3>
               <article class="item" id="symbol-ankhcommandcategory" data-search="AnkhCommandCategory  unknown src/cli/index.ts ">
     <h4>AnkhCommandCategory</h4>
@@ -3121,14 +2884,14 @@
           </tr>
     </tbody>
   </table>
-  </article><article class="item" id="symbol-ankhcommandprovidermanifest" data-search="AnkhCommandProviderManifest  type src/cli/index.ts  AnkhCommandDescriptor Capability">
+  </article><article class="item" id="symbol-ankhcommandprovidermanifest" data-search="AnkhCommandProviderManifest  type src/cli/index.ts  AnkhCommandDescriptor">
     <h4>AnkhCommandProviderManifest</h4>
     
     <p class="muted">type • <code>src/cli/index.ts:20:1</code></p>
     
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
-    <div><strong>Related symbols:</strong> <ul class="chips"><li class="chip">AnkhCommandDescriptor</li><li class="chip">Capability</li></ul></div>
+    <div><strong>Related symbols:</strong> <ul class="chips"><li class="chip">AnkhCommandDescriptor</li></ul></div>
     
     <table>
     <thead><tr><th>Member</th><th>Kind</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
@@ -3166,14 +2929,14 @@
           </tr>
     </tbody>
   </table>
-  </article><article class="item" id="symbol-ankhpackagemetadata" data-search="AnkhPackageMetadata  type src/cli/index.ts  AnkhStructureMetadata Capability">
+  </article><article class="item" id="symbol-ankhpackagemetadata" data-search="AnkhPackageMetadata  type src/cli/index.ts  AnkhStructureMetadata">
     <h4>AnkhPackageMetadata</h4>
     
     <p class="muted">type • <code>src/cli/index.ts:38:1</code></p>
     
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
-    <div><strong>Related symbols:</strong> <ul class="chips"><li class="chip">AnkhStructureMetadata</li><li class="chip">Capability</li></ul></div>
+    <div><strong>Related symbols:</strong> <ul class="chips"><li class="chip">AnkhStructureMetadata</li></ul></div>
     
     <table>
     <thead><tr><th>Member</th><th>Kind</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
@@ -11450,7 +11213,7 @@
       <tr>
             <td><code>createStrategy</code></td>
             <td>property</td>
-            <td><code>&quot;app&quot; | &quot;api&quot; | &quot;trigger&quot; | undefined</code></td>
+            <td><code>&quot;app&quot; | &quot;trigger&quot; | &quot;api&quot; | undefined</code></td>
             <td>no</td>
             <td></td>
           </tr><tr>
@@ -18416,13 +18179,12 @@
   module_src_bindings_ts --&gt; module_src_collections_ts
   module_src_bindings_ts --&gt; module_src_data_index_ts
   module_src_bindings_ts --&gt; module_src_serializable_ts
-  module_src_capabilities_ts[&quot;src/capabilities.ts&quot;]
-  package__ankhorage_contracts -.-&gt; module_src_capabilities_ts
-  module_src_capabilities_ts --&gt; module_src_data_dataValidation_ts
-  module_src_capabilities_ts --&gt; module_src_data_schemas_ts
+  module_src_capability_ts[&quot;src/capability.ts&quot;]
+  package__ankhorage_contracts -.-&gt; module_src_capability_ts
+  module_src_capability_ts --&gt; module_src_data_schemas_ts
   module_src_cli_index_ts[&quot;src/cli/index.ts&quot;]
   package__ankhorage_contracts -.-&gt; module_src_cli_index_ts
-  module_src_cli_index_ts --&gt; module_src_capabilities_ts
+  module_src_cli_index_ts --&gt; module_src_capability_ts
   module_src_collections_ts[&quot;src/collections.ts&quot;]
   package__ankhorage_contracts -.-&gt; module_src_collections_ts
   module_src_data_apis_ts[&quot;src/data/apis.ts&quot;]
@@ -18785,13 +18547,12 @@
   module_src_bindings_ts --&gt; module_src_collections_ts
   module_src_bindings_ts --&gt; module_src_data_index_ts
   module_src_bindings_ts --&gt; module_src_serializable_ts
-  module_src_capabilities_ts[&quot;src/capabilities.ts&quot;]
-  package__ankhorage_contracts -.-&gt; module_src_capabilities_ts
-  module_src_capabilities_ts --&gt; module_src_data_dataValidation_ts
-  module_src_capabilities_ts --&gt; module_src_data_schemas_ts
+  module_src_capability_ts[&quot;src/capability.ts&quot;]
+  package__ankhorage_contracts -.-&gt; module_src_capability_ts
+  module_src_capability_ts --&gt; module_src_data_schemas_ts
   module_src_cli_index_ts[&quot;src/cli/index.ts&quot;]
   package__ankhorage_contracts -.-&gt; module_src_cli_index_ts
-  module_src_cli_index_ts --&gt; module_src_capabilities_ts
+  module_src_cli_index_ts --&gt; module_src_capability_ts
   module_src_collections_ts[&quot;src/collections.ts&quot;]
   package__ankhorage_contracts -.-&gt; module_src_collections_ts
   module_src_data_apis_ts[&quot;src/data/apis.ts&quot;]
@@ -19102,7 +18863,7 @@
   module_src_appManifest_screens_ts[&quot;src/appManifest/screens.ts&quot;]
   module_src_auth_ts[&quot;src/auth.ts&quot;]
   module_src_bindings_ts[&quot;src/bindings.ts&quot;]
-  module_src_capabilities_ts[&quot;src/capabilities.ts&quot;]
+  module_src_capability_ts[&quot;src/capability.ts&quot;]
   module_src_cli_index_ts[&quot;src/cli/index.ts&quot;]
   module_src_collections_ts[&quot;src/collections.ts&quot;]
   module_src_data_apis_ts[&quot;src/data/apis.ts&quot;]
@@ -19207,9 +18968,8 @@
   module_src_bindings_ts --&gt; module_src_collections_ts
   module_src_bindings_ts --&gt; module_src_data_index_ts
   module_src_bindings_ts --&gt; module_src_serializable_ts
-  module_src_capabilities_ts --&gt; module_src_data_dataValidation_ts
-  module_src_capabilities_ts --&gt; module_src_data_schemas_ts
-  module_src_cli_index_ts --&gt; module_src_capabilities_ts
+  module_src_capability_ts --&gt; module_src_data_schemas_ts
+  module_src_cli_index_ts --&gt; module_src_capability_ts
   module_src_data_apis_ts --&gt; module_src_collections_ts
   module_src_data_apis_ts --&gt; module_src_data_endpoints_ts
   module_src_data_apis_ts --&gt; module_src_data_ids_ts
@@ -19385,7 +19145,7 @@
   module_src_appManifest_screens_ts[&quot;src/appManifest/screens.ts&quot;]
   module_src_auth_ts[&quot;src/auth.ts&quot;]
   module_src_bindings_ts[&quot;src/bindings.ts&quot;]
-  module_src_capabilities_ts[&quot;src/capabilities.ts&quot;]
+  module_src_capability_ts[&quot;src/capability.ts&quot;]
   module_src_cli_index_ts[&quot;src/cli/index.ts&quot;]
   module_src_collections_ts[&quot;src/collections.ts&quot;]
   module_src_data_apis_ts[&quot;src/data/apis.ts&quot;]
@@ -19490,9 +19250,8 @@
   module_src_bindings_ts --&gt; module_src_collections_ts
   module_src_bindings_ts --&gt; module_src_data_index_ts
   module_src_bindings_ts --&gt; module_src_serializable_ts
-  module_src_capabilities_ts --&gt; module_src_data_dataValidation_ts
-  module_src_capabilities_ts --&gt; module_src_data_schemas_ts
-  module_src_cli_index_ts --&gt; module_src_capabilities_ts
+  module_src_capability_ts --&gt; module_src_data_schemas_ts
+  module_src_cli_index_ts --&gt; module_src_capability_ts
   module_src_data_apis_ts --&gt; module_src_collections_ts
   module_src_data_apis_ts --&gt; module_src_data_endpoints_ts
   module_src_data_apis_ts --&gt; module_src_data_ids_ts
@@ -19670,7 +19429,7 @@
   module_src_appManifest_screens_ts[&quot;src/appManifest/screens.ts&quot;]
   module_src_auth_ts[&quot;src/auth.ts&quot;]
   module_src_bindings_ts[&quot;src/bindings.ts&quot;]
-  module_src_capabilities_ts[&quot;src/capabilities.ts&quot;]
+  module_src_capability_ts[&quot;src/capability.ts&quot;]
   module_src_cli_index_ts[&quot;src/cli/index.ts&quot;]
   module_src_collections_ts[&quot;src/collections.ts&quot;]
   module_src_data_apis_ts[&quot;src/data/apis.ts&quot;]
@@ -19807,7 +19566,6 @@
   export_AnkhCommandProviderManifest[&quot;AnkhCommandProviderManifest&quot;]
   module_src_cli_index_ts --&gt; export_AnkhCommandProviderManifest
   export_AnkhCommandProviderManifest -.-&gt; export_AnkhCommandDescriptor
-  export_AnkhCommandProviderManifest -.-&gt; export_Capability
   export_ANKHORAGE_CAPABILITY_NAMES[&quot;ANKHORAGE_CAPABILITY_NAMES&quot;]
   module_src_requirements_ts --&gt; export_ANKHORAGE_CAPABILITY_NAMES
   export_ANKHORAGE_PERMISSION_NAMES[&quot;ANKHORAGE_PERMISSION_NAMES&quot;]
@@ -19819,7 +19577,6 @@
   export_AnkhPackageMetadata[&quot;AnkhPackageMetadata&quot;]
   module_src_cli_index_ts --&gt; export_AnkhPackageMetadata
   export_AnkhPackageMetadata -.-&gt; export_AnkhStructureMetadata
-  export_AnkhPackageMetadata -.-&gt; export_Capability
   export_AnkhProviderReference[&quot;AnkhProviderReference&quot;]
   module_src_cli_index_ts --&gt; export_AnkhProviderReference
   export_AnkhStructureMetadata[&quot;AnkhStructureMetadata&quot;]
@@ -19901,9 +19658,6 @@
   module_src_types_ts --&gt; export_AppSettings
   export_AppStateSpec[&quot;AppStateSpec&quot;]
   module_src_state_ts --&gt; export_AppStateSpec
-  export_areCapabilitiesEqual[&quot;areCapabilitiesEqual&quot;]
-  module_src_capabilities_ts --&gt; export_areCapabilitiesEqual
-  export_areCapabilitiesEqual -.-&gt; export_Capability
   export_AUTH_IDENTIFIER_KINDS[&quot;AUTH_IDENTIFIER_KINDS&quot;]
   module_src_auth_ts --&gt; export_AUTH_IDENTIFIER_KINDS
   export_AUTH_OAUTH_CANCELLATION_REASONS[&quot;AUTH_OAUTH_CANCELLATION_REASONS&quot;]
@@ -20108,23 +19862,6 @@
   module_src_bindings_ts --&gt; export_BindingValueTransform
   export_ButtonPressEventDto[&quot;ButtonPressEventDto&quot;]
   module_src_types_ts --&gt; export_ButtonPressEventDto
-  export_Capability[&quot;Capability&quot;]
-  module_src_capabilities_ts --&gt; export_Capability
-  export_Capability -.-&gt; export_CapabilityBindingKind
-  export_Capability -.-&gt; export_CapabilityBindingRole
-  export_Capability -.-&gt; export_DataSchemaSlot
-  export_CAPABILITY_ACCESS[&quot;CAPABILITY_ACCESS&quot;]
-  module_src_capabilities_ts --&gt; export_CAPABILITY_ACCESS
-  export_CAPABILITY_BINDING_KINDS[&quot;CAPABILITY_BINDING_KINDS&quot;]
-  module_src_capabilities_ts --&gt; export_CAPABILITY_BINDING_KINDS
-  export_CAPABILITY_BINDING_ROLES[&quot;CAPABILITY_BINDING_ROLES&quot;]
-  module_src_capabilities_ts --&gt; export_CAPABILITY_BINDING_ROLES
-  export_CapabilityAccess[&quot;CapabilityAccess&quot;]
-  module_src_capabilities_ts --&gt; export_CapabilityAccess
-  export_CapabilityBindingKind[&quot;CapabilityBindingKind&quot;]
-  module_src_capabilities_ts --&gt; export_CapabilityBindingKind
-  export_CapabilityBindingRole[&quot;CapabilityBindingRole&quot;]
-  module_src_capabilities_ts --&gt; export_CapabilityBindingRole
   export_CollectionItemPressEventDto[&quot;CollectionItemPressEventDto&quot;]
   module_src_types_ts --&gt; export_CollectionItemPressEventDto
   export_CollectionItemPressPayload[&quot;CollectionItemPressPayload&quot;]
@@ -20805,10 +20542,6 @@
   module_src_appManifest_isAppManifest_ts --&gt; export_isAppManifest
   export_isAppNavigatorManifest[&quot;isAppNavigatorManifest&quot;]
   module_src_appManifest_navigator_ts --&gt; export_isAppNavigatorManifest
-  export_isCapability[&quot;isCapability&quot;]
-  module_src_capabilities_ts --&gt; export_isCapability
-  export_isCapabilityId[&quot;isCapabilityId&quot;]
-  module_src_capabilities_ts --&gt; export_isCapabilityId
   export_isDataSchema[&quot;isDataSchema&quot;]
   module_src_data_dataValidation_ts --&gt; export_isDataSchema
   export_isDataSchemaSlot[&quot;isDataSchemaSlot&quot;]
@@ -21076,9 +20809,6 @@
   module_src_navigator_catalog_ts --&gt; export_NavigatorVerificationKind
   export_NavigatorVerificationStatus[&quot;NavigatorVerificationStatus&quot;]
   module_src_navigator_catalog_ts --&gt; export_NavigatorVerificationStatus
-  export_normalizeCapability[&quot;normalizeCapability&quot;]
-  module_src_capabilities_ts --&gt; export_normalizeCapability
-  export_normalizeCapability -.-&gt; export_Capability
   export_normalizeSecretRef[&quot;normalizeSecretRef&quot;]
   module_src_secrets_ts --&gt; export_normalizeSecretRef
   export_normalizeSecretRef -.-&gt; export_SecretStoreResult
@@ -21711,7 +21441,7 @@
   module_src_appManifest_screens_ts[&quot;src/appManifest/screens.ts&quot;]
   module_src_auth_ts[&quot;src/auth.ts&quot;]
   module_src_bindings_ts[&quot;src/bindings.ts&quot;]
-  module_src_capabilities_ts[&quot;src/capabilities.ts&quot;]
+  module_src_capability_ts[&quot;src/capability.ts&quot;]
   module_src_cli_index_ts[&quot;src/cli/index.ts&quot;]
   module_src_collections_ts[&quot;src/collections.ts&quot;]
   module_src_data_apis_ts[&quot;src/data/apis.ts&quot;]
@@ -21848,7 +21578,6 @@
   export_AnkhCommandProviderManifest[&quot;AnkhCommandProviderManifest&quot;]
   module_src_cli_index_ts --&gt; export_AnkhCommandProviderManifest
   export_AnkhCommandProviderManifest -.-&gt; export_AnkhCommandDescriptor
-  export_AnkhCommandProviderManifest -.-&gt; export_Capability
   export_ANKHORAGE_CAPABILITY_NAMES[&quot;ANKHORAGE_CAPABILITY_NAMES&quot;]
   module_src_requirements_ts --&gt; export_ANKHORAGE_CAPABILITY_NAMES
   export_ANKHORAGE_PERMISSION_NAMES[&quot;ANKHORAGE_PERMISSION_NAMES&quot;]
@@ -21860,7 +21589,6 @@
   export_AnkhPackageMetadata[&quot;AnkhPackageMetadata&quot;]
   module_src_cli_index_ts --&gt; export_AnkhPackageMetadata
   export_AnkhPackageMetadata -.-&gt; export_AnkhStructureMetadata
-  export_AnkhPackageMetadata -.-&gt; export_Capability
   export_AnkhProviderReference[&quot;AnkhProviderReference&quot;]
   module_src_cli_index_ts --&gt; export_AnkhProviderReference
   export_AnkhStructureMetadata[&quot;AnkhStructureMetadata&quot;]
@@ -21942,9 +21670,6 @@
   module_src_types_ts --&gt; export_AppSettings
   export_AppStateSpec[&quot;AppStateSpec&quot;]
   module_src_state_ts --&gt; export_AppStateSpec
-  export_areCapabilitiesEqual[&quot;areCapabilitiesEqual&quot;]
-  module_src_capabilities_ts --&gt; export_areCapabilitiesEqual
-  export_areCapabilitiesEqual -.-&gt; export_Capability
   export_AUTH_IDENTIFIER_KINDS[&quot;AUTH_IDENTIFIER_KINDS&quot;]
   module_src_auth_ts --&gt; export_AUTH_IDENTIFIER_KINDS
   export_AUTH_OAUTH_CANCELLATION_REASONS[&quot;AUTH_OAUTH_CANCELLATION_REASONS&quot;]
@@ -22149,23 +21874,6 @@
   module_src_bindings_ts --&gt; export_BindingValueTransform
   export_ButtonPressEventDto[&quot;ButtonPressEventDto&quot;]
   module_src_types_ts --&gt; export_ButtonPressEventDto
-  export_Capability[&quot;Capability&quot;]
-  module_src_capabilities_ts --&gt; export_Capability
-  export_Capability -.-&gt; export_CapabilityBindingKind
-  export_Capability -.-&gt; export_CapabilityBindingRole
-  export_Capability -.-&gt; export_DataSchemaSlot
-  export_CAPABILITY_ACCESS[&quot;CAPABILITY_ACCESS&quot;]
-  module_src_capabilities_ts --&gt; export_CAPABILITY_ACCESS
-  export_CAPABILITY_BINDING_KINDS[&quot;CAPABILITY_BINDING_KINDS&quot;]
-  module_src_capabilities_ts --&gt; export_CAPABILITY_BINDING_KINDS
-  export_CAPABILITY_BINDING_ROLES[&quot;CAPABILITY_BINDING_ROLES&quot;]
-  module_src_capabilities_ts --&gt; export_CAPABILITY_BINDING_ROLES
-  export_CapabilityAccess[&quot;CapabilityAccess&quot;]
-  module_src_capabilities_ts --&gt; export_CapabilityAccess
-  export_CapabilityBindingKind[&quot;CapabilityBindingKind&quot;]
-  module_src_capabilities_ts --&gt; export_CapabilityBindingKind
-  export_CapabilityBindingRole[&quot;CapabilityBindingRole&quot;]
-  module_src_capabilities_ts --&gt; export_CapabilityBindingRole
   export_CollectionItemPressEventDto[&quot;CollectionItemPressEventDto&quot;]
   module_src_types_ts --&gt; export_CollectionItemPressEventDto
   export_CollectionItemPressPayload[&quot;CollectionItemPressPayload&quot;]
@@ -22846,10 +22554,6 @@
   module_src_appManifest_isAppManifest_ts --&gt; export_isAppManifest
   export_isAppNavigatorManifest[&quot;isAppNavigatorManifest&quot;]
   module_src_appManifest_navigator_ts --&gt; export_isAppNavigatorManifest
-  export_isCapability[&quot;isCapability&quot;]
-  module_src_capabilities_ts --&gt; export_isCapability
-  export_isCapabilityId[&quot;isCapabilityId&quot;]
-  module_src_capabilities_ts --&gt; export_isCapabilityId
   export_isDataSchema[&quot;isDataSchema&quot;]
   module_src_data_dataValidation_ts --&gt; export_isDataSchema
   export_isDataSchemaSlot[&quot;isDataSchemaSlot&quot;]
@@ -23117,9 +22821,6 @@
   module_src_navigator_catalog_ts --&gt; export_NavigatorVerificationKind
   export_NavigatorVerificationStatus[&quot;NavigatorVerificationStatus&quot;]
   module_src_navigator_catalog_ts --&gt; export_NavigatorVerificationStatus
-  export_normalizeCapability[&quot;normalizeCapability&quot;]
-  module_src_capabilities_ts --&gt; export_normalizeCapability
-  export_normalizeCapability -.-&gt; export_Capability
   export_normalizeSecretRef[&quot;normalizeSecretRef&quot;]
   module_src_secrets_ts --&gt; export_normalizeSecretRef
   export_normalizeSecretRef -.-&gt; export_SecretStoreResult
@@ -23733,24 +23434,6 @@
   export_WebDeploymentPublishRequest -.-&gt; export_DeploymentCredentialReference
   export_WebDeploymentPublishRequest -.-&gt; export_DeploymentSecretResolver
   export_WebDeploymentPublishRequest -.-&gt; export_WebDeploymentPublishIntent
-</pre>
-    </details>
-  </article><article class="item" data-search="isCapabilityId sequence diagrams/sequences/is-capability-id.mmd">
-    <h3>isCapabilityId sequence</h3>
-    <p class="muted"><code>diagrams/sequences/is-capability-id.mmd</code></p>
-    <div class="mermaid">sequenceDiagram
-  participant participant_isCapabilityId as isCapabilityId
-  participant participant_isNonEmptyString as isNonEmptyString
-  participant_isCapabilityId-&gt;&gt;participant_isNonEmptyString: isNonEmptyString()
-  participant_isNonEmptyString--&gt;&gt;participant_isCapabilityId: return
-</div>
-    <details>
-      <summary>View Mermaid source</summary>
-      <pre>sequenceDiagram
-  participant participant_isCapabilityId as isCapabilityId
-  participant participant_isNonEmptyString as isNonEmptyString
-  participant_isCapabilityId-&gt;&gt;participant_isNonEmptyString: isNonEmptyString()
-  participant_isNonEmptyString--&gt;&gt;participant_isCapabilityId: return
 </pre>
     </details>
   </article><article class="item" data-search="isInfraAdapterDescriptor sequence diagrams/sequences/is-infra-adapter-descriptor.mmd">
@@ -24095,40 +23778,6 @@
   participant_hasResolvableRoots--&gt;&gt;participant_isStructureDescriptorDocument: return
   participant_isStructureDescriptorDocument-&gt;&gt;participant_isDescriptorGraphValid: isDescriptorGraphValid()
   participant_isDescriptorGraphValid--&gt;&gt;participant_isStructureDescriptorDocument: return
-</pre>
-    </details>
-  </article><article class="item" data-search="normalizeCapability sequence diagrams/sequences/normalize-capability.mmd">
-    <h3>normalizeCapability sequence</h3>
-    <p class="muted"><code>diagrams/sequences/normalize-capability.mmd</code></p>
-    <div class="mermaid">sequenceDiagram
-  participant participant_normalizeCapability as normalizeCapability
-  participant participant_normalizeCapabilityAccess as normalizeCapabilityAccess
-  participant participant_normalizeCapabilityBindingRoles as normalizeCapabilityBindingRoles
-  participant participant_uniqueSortedStrings as uniqueSortedStrings
-  participant_normalizeCapability-&gt;&gt;participant_normalizeCapabilityAccess: normalizeCapabilityAccess()
-  participant_normalizeCapabilityAccess-&gt;&gt;participant_uniqueSortedStrings: uniqueSortedStrings()
-  participant_uniqueSortedStrings--&gt;&gt;participant_normalizeCapabilityAccess: return
-  participant_normalizeCapabilityAccess--&gt;&gt;participant_normalizeCapability: return
-  participant_normalizeCapability-&gt;&gt;participant_normalizeCapabilityBindingRoles: normalizeCapabilityBindingRoles()
-  participant_normalizeCapabilityBindingRoles-&gt;&gt;participant_uniqueSortedStrings: uniqueSortedStrings()
-  participant_uniqueSortedStrings--&gt;&gt;participant_normalizeCapabilityBindingRoles: return
-  participant_normalizeCapabilityBindingRoles--&gt;&gt;participant_normalizeCapability: return
-</div>
-    <details>
-      <summary>View Mermaid source</summary>
-      <pre>sequenceDiagram
-  participant participant_normalizeCapability as normalizeCapability
-  participant participant_normalizeCapabilityAccess as normalizeCapabilityAccess
-  participant participant_normalizeCapabilityBindingRoles as normalizeCapabilityBindingRoles
-  participant participant_uniqueSortedStrings as uniqueSortedStrings
-  participant_normalizeCapability-&gt;&gt;participant_normalizeCapabilityAccess: normalizeCapabilityAccess()
-  participant_normalizeCapabilityAccess-&gt;&gt;participant_uniqueSortedStrings: uniqueSortedStrings()
-  participant_uniqueSortedStrings--&gt;&gt;participant_normalizeCapabilityAccess: return
-  participant_normalizeCapabilityAccess--&gt;&gt;participant_normalizeCapability: return
-  participant_normalizeCapability-&gt;&gt;participant_normalizeCapabilityBindingRoles: normalizeCapabilityBindingRoles()
-  participant_normalizeCapabilityBindingRoles-&gt;&gt;participant_uniqueSortedStrings: uniqueSortedStrings()
-  participant_uniqueSortedStrings--&gt;&gt;participant_normalizeCapabilityBindingRoles: return
-  participant_normalizeCapabilityBindingRoles--&gt;&gt;participant_normalizeCapability: return
 </pre>
     </details>
   </article><article class="item" data-search="parseInfraManifest sequence diagrams/sequences/parse-infra-manifest.mmd">
@@ -24657,81 +24306,6 @@
     <h3>resolveAuthFlow</h3>
     <p class="muted"><code>src/auth.ts:131:1</code></p>
     <p class="empty">No description available.</p>
-    
-  </article>
-    </section>
-  </section><section id="view-src-capabilities-ts" class="view" data-view="src/capabilities.ts" hidden>
-    <section class="panel">
-      <h2>src/capabilities.ts</h2>
-      <article class="item" data-search="isCapabilityId src/capabilities.ts Validate a stable dot-separated identifier for one capability.">
-    <h3>isCapabilityId</h3>
-    <p class="muted"><code>src/capabilities.ts:55:1</code></p>
-    <p>Validate a stable dot-separated identifier for one capability.</p>
-    
-  </article><article class="item" data-search="isCapability src/capabilities.ts Validate an untrusted value as one complete portable capability descriptor.">
-    <h3>isCapability</h3>
-    <p class="muted"><code>src/capabilities.ts:64:1</code></p>
-    <p>Validate an untrusted value as one complete portable capability descriptor.</p>
-    
-  </article><article class="item" data-search="normalizeCapability src/capabilities.ts Return a capability with access and binding-role collections sorted and deduplicated.">
-    <h3>normalizeCapability</h3>
-    <p class="muted"><code>src/capabilities.ts:79:1</code></p>
-    <p>Return a capability with access and binding-role collections sorted and deduplicated.</p>
-    
-  </article><article class="item" data-search="areCapabilitiesEqual src/capabilities.ts Compare capability descriptors independent of object property and unordered collection ordering.">
-    <h3>areCapabilitiesEqual</h3>
-    <p class="muted"><code>src/capabilities.ts:96:1</code></p>
-    <p>Compare capability descriptors independent of object property and unordered collection ordering.</p>
-    
-  </article><article class="item" data-search="isCapabilityAccessList src/capabilities.ts Validate a non-empty collection of supported capability access operations.">
-    <h3>isCapabilityAccessList</h3>
-    <p class="muted"><code>src/capabilities.ts:101:1</code></p>
-    <p>Validate a non-empty collection of supported capability access operations.</p>
-    
-  </article><article class="item" data-search="isCapabilityBinding src/capabilities.ts Validate a portable capability binding descriptor.">
-    <h3>isCapabilityBinding</h3>
-    <p class="muted"><code>src/capabilities.ts:108:1</code></p>
-    <p>Validate a portable capability binding descriptor.</p>
-    
-  </article><article class="item" data-search="isCapabilityAccess src/capabilities.ts Validate one supported capability access operation.">
-    <h3>isCapabilityAccess</h3>
-    <p class="muted"><code>src/capabilities.ts:118:1</code></p>
-    <p>Validate one supported capability access operation.</p>
-    
-  </article><article class="item" data-search="isCapabilityBindingKind src/capabilities.ts Validate one supported capability binding family.">
-    <h3>isCapabilityBindingKind</h3>
-    <p class="muted"><code>src/capabilities.ts:123:1</code></p>
-    <p>Validate one supported capability binding family.</p>
-    
-  </article><article class="item" data-search="isCapabilityBindingRole src/capabilities.ts Validate one supported capability binding direction.">
-    <h3>isCapabilityBindingRole</h3>
-    <p class="muted"><code>src/capabilities.ts:131:1</code></p>
-    <p>Validate one supported capability binding direction.</p>
-    
-  </article><article class="item" data-search="normalizeCapabilityAccess src/capabilities.ts Sort and deduplicate supported access operations using the canonical Utility collection helper.">
-    <h3>normalizeCapabilityAccess</h3>
-    <p class="muted"><code>src/capabilities.ts:139:1</code></p>
-    <p>Sort and deduplicate supported access operations using the canonical Utility collection helper.</p>
-    
-  </article><article class="item" data-search="normalizeCapabilityBindingRoles src/capabilities.ts Sort and deduplicate supported binding directions using the canonical Utility collection helper.">
-    <h3>normalizeCapabilityBindingRoles</h3>
-    <p class="muted"><code>src/capabilities.ts:146:1</code></p>
-    <p>Sort and deduplicate supported binding directions using the canonical Utility collection helper.</p>
-    
-  </article><article class="item" data-search="areCapabilityValuesEqual src/capabilities.ts Compare the serializable values contained by two normalized capability descriptors.">
-    <h3>areCapabilityValuesEqual</h3>
-    <p class="muted"><code>src/capabilities.ts:153:1</code></p>
-    <p>Compare the serializable values contained by two normalized capability descriptors.</p>
-    
-  </article><article class="item" data-search="areCapabilityArraysEqual src/capabilities.ts Compare two serializable arrays in their authored order.">
-    <h3>areCapabilityArraysEqual</h3>
-    <p class="muted"><code>src/capabilities.ts:161:1</code></p>
-    <p>Compare two serializable arrays in their authored order.</p>
-    
-  </article><article class="item" data-search="areCapabilityRecordsEqual src/capabilities.ts Compare two serializable records independent of their authored property order.">
-    <h3>areCapabilityRecordsEqual</h3>
-    <p class="muted"><code>src/capabilities.ts:171:1</code></p>
-    <p>Compare two serializable records independent of their authored property order.</p>
     
   </article>
     </section>

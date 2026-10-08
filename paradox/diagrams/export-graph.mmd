@@ -14,7 +14,7 @@ graph LR
   module_src_appManifest_screens_ts["src/appManifest/screens.ts"]
   module_src_auth_ts["src/auth.ts"]
   module_src_bindings_ts["src/bindings.ts"]
-  module_src_capabilities_ts["src/capabilities.ts"]
+  module_src_capability_ts["src/capability.ts"]
   module_src_cli_index_ts["src/cli/index.ts"]
   module_src_collections_ts["src/collections.ts"]
   module_src_data_apis_ts["src/data/apis.ts"]
@@ -151,7 +151,6 @@ graph LR
   export_AnkhCommandProviderManifest["AnkhCommandProviderManifest"]
   module_src_cli_index_ts --> export_AnkhCommandProviderManifest
   export_AnkhCommandProviderManifest -.-> export_AnkhCommandDescriptor
-  export_AnkhCommandProviderManifest -.-> export_Capability
   export_ANKHORAGE_CAPABILITY_NAMES["ANKHORAGE_CAPABILITY_NAMES"]
   module_src_requirements_ts --> export_ANKHORAGE_CAPABILITY_NAMES
   export_ANKHORAGE_PERMISSION_NAMES["ANKHORAGE_PERMISSION_NAMES"]
@@ -163,7 +162,6 @@ graph LR
   export_AnkhPackageMetadata["AnkhPackageMetadata"]
   module_src_cli_index_ts --> export_AnkhPackageMetadata
   export_AnkhPackageMetadata -.-> export_AnkhStructureMetadata
-  export_AnkhPackageMetadata -.-> export_Capability
   export_AnkhProviderReference["AnkhProviderReference"]
   module_src_cli_index_ts --> export_AnkhProviderReference
   export_AnkhStructureMetadata["AnkhStructureMetadata"]
@@ -245,9 +243,6 @@ graph LR
   module_src_types_ts --> export_AppSettings
   export_AppStateSpec["AppStateSpec"]
   module_src_state_ts --> export_AppStateSpec
-  export_areCapabilitiesEqual["areCapabilitiesEqual"]
-  module_src_capabilities_ts --> export_areCapabilitiesEqual
-  export_areCapabilitiesEqual -.-> export_Capability
   export_AUTH_IDENTIFIER_KINDS["AUTH_IDENTIFIER_KINDS"]
   module_src_auth_ts --> export_AUTH_IDENTIFIER_KINDS
   export_AUTH_OAUTH_CANCELLATION_REASONS["AUTH_OAUTH_CANCELLATION_REASONS"]
@@ -452,23 +447,6 @@ graph LR
   module_src_bindings_ts --> export_BindingValueTransform
   export_ButtonPressEventDto["ButtonPressEventDto"]
   module_src_types_ts --> export_ButtonPressEventDto
-  export_Capability["Capability"]
-  module_src_capabilities_ts --> export_Capability
-  export_Capability -.-> export_CapabilityBindingKind
-  export_Capability -.-> export_CapabilityBindingRole
-  export_Capability -.-> export_DataSchemaSlot
-  export_CAPABILITY_ACCESS["CAPABILITY_ACCESS"]
-  module_src_capabilities_ts --> export_CAPABILITY_ACCESS
-  export_CAPABILITY_BINDING_KINDS["CAPABILITY_BINDING_KINDS"]
-  module_src_capabilities_ts --> export_CAPABILITY_BINDING_KINDS
-  export_CAPABILITY_BINDING_ROLES["CAPABILITY_BINDING_ROLES"]
-  module_src_capabilities_ts --> export_CAPABILITY_BINDING_ROLES
-  export_CapabilityAccess["CapabilityAccess"]
-  module_src_capabilities_ts --> export_CapabilityAccess
-  export_CapabilityBindingKind["CapabilityBindingKind"]
-  module_src_capabilities_ts --> export_CapabilityBindingKind
-  export_CapabilityBindingRole["CapabilityBindingRole"]
-  module_src_capabilities_ts --> export_CapabilityBindingRole
   export_CollectionItemPressEventDto["CollectionItemPressEventDto"]
   module_src_types_ts --> export_CollectionItemPressEventDto
   export_CollectionItemPressPayload["CollectionItemPressPayload"]
@@ -1149,10 +1127,6 @@ graph LR
   module_src_appManifest_isAppManifest_ts --> export_isAppManifest
   export_isAppNavigatorManifest["isAppNavigatorManifest"]
   module_src_appManifest_navigator_ts --> export_isAppNavigatorManifest
-  export_isCapability["isCapability"]
-  module_src_capabilities_ts --> export_isCapability
-  export_isCapabilityId["isCapabilityId"]
-  module_src_capabilities_ts --> export_isCapabilityId
   export_isDataSchema["isDataSchema"]
   module_src_data_dataValidation_ts --> export_isDataSchema
   export_isDataSchemaSlot["isDataSchemaSlot"]
@@ -1420,9 +1394,6 @@ graph LR
   module_src_navigator_catalog_ts --> export_NavigatorVerificationKind
   export_NavigatorVerificationStatus["NavigatorVerificationStatus"]
   module_src_navigator_catalog_ts --> export_NavigatorVerificationStatus
-  export_normalizeCapability["normalizeCapability"]
-  module_src_capabilities_ts --> export_normalizeCapability
-  export_normalizeCapability -.-> export_Capability
   export_normalizeSecretRef["normalizeSecretRef"]
   module_src_secrets_ts --> export_normalizeSecretRef
   export_normalizeSecretRef -.-> export_SecretStoreResult

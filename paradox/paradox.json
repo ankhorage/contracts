@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v24.2.1",
+      "value": "v25.0.0",
       "color": "cb3837"
     },
     {
@@ -397,31 +397,23 @@
       ]
     },
     {
-      "path": "src/capabilities.ts",
+      "path": "src/capability.ts",
       "isEntrypoint": false,
       "dependencies": [
-        "src/data/dataValidation.ts",
         "src/data/schemas.ts"
       ],
       "exports": [
-        "areCapabilitiesEqual",
         "Capability",
-        "CAPABILITY_ACCESS",
-        "CAPABILITY_BINDING_KINDS",
-        "CAPABILITY_BINDING_ROLES",
         "CapabilityAccess",
         "CapabilityBindingKind",
-        "CapabilityBindingRole",
-        "isCapability",
-        "isCapabilityId",
-        "normalizeCapability"
+        "CapabilityBindingRole"
       ]
     },
     {
       "path": "src/cli/index.ts",
       "isEntrypoint": false,
       "dependencies": [
-        "src/capabilities.ts"
+        "src/capability.ts"
       ],
       "exports": [
         "AnkhCommandCategory",
@@ -932,7 +924,6 @@
         "AppNavigatorManifest",
         "AppSettings",
         "AppStateSpec",
-        "areCapabilitiesEqual",
         "AUTH_IDENTIFIER_KINDS",
         "AUTH_OAUTH_CANCELLATION_REASONS",
         "AUTH_OAUTH_ERROR_CODES",
@@ -1014,13 +1005,6 @@
         "BindingValueSource",
         "BindingValueTransform",
         "ButtonPressEventDto",
-        "Capability",
-        "CAPABILITY_ACCESS",
-        "CAPABILITY_BINDING_KINDS",
-        "CAPABILITY_BINDING_ROLES",
-        "CapabilityAccess",
-        "CapabilityBindingKind",
-        "CapabilityBindingRole",
         "CollectionItemPressEventDto",
         "CollectionItemPressPayload",
         "CompleteOAuthAuthorizationInput",
@@ -1240,8 +1224,6 @@
         "isAppDeployManifest",
         "isAppManifest",
         "isAppNavigatorManifest",
-        "isCapability",
-        "isCapabilityId",
         "isDataSchema",
         "isDataSchemaSlot",
         "isInfraAdapterDescriptor",
@@ -1335,7 +1317,6 @@
         "NavigatorValidationContext",
         "NavigatorVerificationKind",
         "NavigatorVerificationStatus",
-        "normalizeCapability",
         "normalizeSecretRef",
         "normalizeSecretScope",
         "OpenApiDocumentRef",
@@ -3592,8 +3573,7 @@
         "src/index.ts"
       ],
       "relatedSymbols": [
-        "AnkhCommandDescriptor",
-        "Capability"
+        "AnkhCommandDescriptor"
       ],
       "signatures": [],
       "members": [
@@ -3741,8 +3721,7 @@
         "src/index.ts"
       ],
       "relatedSymbols": [
-        "AnkhStructureMetadata",
-        "Capability"
+        "AnkhStructureMetadata"
       ],
       "signatures": [],
       "members": [
@@ -4725,50 +4704,6 @@
           "description": null
         }
       ],
-      "structuredRows": []
-    },
-    {
-      "name": "areCapabilitiesEqual",
-      "title": null,
-      "description": "Compare capability descriptors independent of object property and unordered collection ordering.",
-      "isReadme": false,
-      "see": [],
-      "security": [],
-      "kind": "function",
-      "modulePath": "src/capabilities.ts",
-      "sourceLocation": {
-        "filePath": "src/capabilities.ts",
-        "line": 96,
-        "column": 1
-      },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "Capability"
-      ],
-      "signatures": [
-        {
-          "label": "(left: Capability, right: Capability) => boolean",
-          "parameters": [
-            {
-              "name": "left",
-              "type": "Capability",
-              "required": true,
-              "description": null
-            },
-            {
-              "name": "right",
-              "type": "Capability",
-              "required": true,
-              "description": null
-            }
-          ],
-          "returnType": "boolean",
-          "returnDescription": null
-        }
-      ],
-      "members": [],
       "structuredRows": []
     },
     {
@@ -6531,7 +6466,7 @@
         {
           "name": "createStrategy",
           "kind": "property",
-          "type": "\"app\" | \"api\" | \"trigger\" | undefined",
+          "type": "\"app\" | \"trigger\" | \"api\" | undefined",
           "required": false,
           "description": null
         },
@@ -7451,221 +7386,6 @@
       "sourceLocation": {
         "filePath": "src/types.ts",
         "line": 63,
-        "column": 1
-      },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [],
-      "signatures": [],
-      "members": [],
-      "structuredRows": []
-    },
-    {
-      "name": "Capability",
-      "title": null,
-      "description": null,
-      "isReadme": false,
-      "see": [],
-      "security": [],
-      "kind": "type",
-      "modulePath": "src/capabilities.ts",
-      "sourceLocation": {
-        "filePath": "src/capabilities.ts",
-        "line": 40,
-        "column": 1
-      },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "CapabilityBindingKind",
-        "CapabilityBindingRole",
-        "DataSchemaSlot"
-      ],
-      "signatures": [],
-      "members": [
-        {
-          "name": "access",
-          "kind": "property",
-          "type": "readonly (\"emit\" | \"invoke\" | \"read\" | \"subscribe\" | \"write\")[]",
-          "required": true,
-          "description": null
-        },
-        {
-          "name": "binding",
-          "kind": "property",
-          "type": "{ readonly kind: CapabilityBindingKind; readonly bindableAs: readonly CapabilityBindingRole[]; }",
-          "required": true,
-          "description": null
-        },
-        {
-          "name": "description",
-          "kind": "property",
-          "type": "string | undefined",
-          "required": false,
-          "description": null
-        },
-        {
-          "name": "id",
-          "kind": "property",
-          "type": "`${string}.${string}`",
-          "required": true,
-          "description": null
-        },
-        {
-          "name": "input",
-          "kind": "property",
-          "type": "DataSchemaSlot | undefined",
-          "required": false,
-          "description": null
-        },
-        {
-          "name": "label",
-          "kind": "property",
-          "type": "string | undefined",
-          "required": false,
-          "description": null
-        },
-        {
-          "name": "output",
-          "kind": "property",
-          "type": "DataSchemaSlot | undefined",
-          "required": false,
-          "description": null
-        },
-        {
-          "name": "owner",
-          "kind": "property",
-          "type": "string",
-          "required": true,
-          "description": null
-        }
-      ],
-      "structuredRows": []
-    },
-    {
-      "name": "CAPABILITY_ACCESS",
-      "title": null,
-      "description": "Enumerate the operations a capability exposes to other packages.",
-      "isReadme": false,
-      "see": [],
-      "security": [],
-      "kind": "value",
-      "modulePath": "src/capabilities.ts",
-      "sourceLocation": {
-        "filePath": "src/capabilities.ts",
-        "line": 9,
-        "column": 14
-      },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [],
-      "signatures": [],
-      "members": [],
-      "structuredRows": []
-    },
-    {
-      "name": "CAPABILITY_BINDING_KINDS",
-      "title": null,
-      "description": "Enumerate the portable runtime families supported by capability bindings.",
-      "isReadme": false,
-      "see": [],
-      "security": [],
-      "kind": "value",
-      "modulePath": "src/capabilities.ts",
-      "sourceLocation": {
-        "filePath": "src/capabilities.ts",
-        "line": 14,
-        "column": 14
-      },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [],
-      "signatures": [],
-      "members": [],
-      "structuredRows": []
-    },
-    {
-      "name": "CAPABILITY_BINDING_ROLES",
-      "title": null,
-      "description": "Enumerate the directions in which a capability can participate in a binding.",
-      "isReadme": false,
-      "see": [],
-      "security": [],
-      "kind": "value",
-      "modulePath": "src/capabilities.ts",
-      "sourceLocation": {
-        "filePath": "src/capabilities.ts",
-        "line": 29,
-        "column": 14
-      },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [],
-      "signatures": [],
-      "members": [],
-      "structuredRows": []
-    },
-    {
-      "name": "CapabilityAccess",
-      "title": null,
-      "description": null,
-      "isReadme": false,
-      "see": [],
-      "security": [],
-      "kind": "unknown",
-      "modulePath": "src/capabilities.ts",
-      "sourceLocation": {
-        "filePath": "src/capabilities.ts",
-        "line": 11,
-        "column": 1
-      },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [],
-      "signatures": [],
-      "members": [],
-      "structuredRows": []
-    },
-    {
-      "name": "CapabilityBindingKind",
-      "title": null,
-      "description": null,
-      "isReadme": false,
-      "see": [],
-      "security": [],
-      "kind": "unknown",
-      "modulePath": "src/capabilities.ts",
-      "sourceLocation": {
-        "filePath": "src/capabilities.ts",
-        "line": 26,
-        "column": 1
-      },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [],
-      "signatures": [],
-      "members": [],
-      "structuredRows": []
-    },
-    {
-      "name": "CapabilityBindingRole",
-      "title": null,
-      "description": null,
-      "isReadme": false,
-      "see": [],
-      "security": [],
-      "kind": "unknown",
-      "modulePath": "src/capabilities.ts",
-      "sourceLocation": {
-        "filePath": "src/capabilities.ts",
-        "line": 31,
         "column": 1
       },
       "exportPaths": [
@@ -16571,78 +16291,6 @@
       "structuredRows": []
     },
     {
-      "name": "isCapability",
-      "title": null,
-      "description": "Validate an untrusted value as one complete portable capability descriptor.",
-      "isReadme": false,
-      "see": [],
-      "security": [],
-      "kind": "function",
-      "modulePath": "src/capabilities.ts",
-      "sourceLocation": {
-        "filePath": "src/capabilities.ts",
-        "line": 64,
-        "column": 1
-      },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [],
-      "signatures": [
-        {
-          "label": "(value: unknown) => boolean",
-          "parameters": [
-            {
-              "name": "value",
-              "type": "unknown",
-              "required": true,
-              "description": null
-            }
-          ],
-          "returnType": "boolean",
-          "returnDescription": null
-        }
-      ],
-      "members": [],
-      "structuredRows": []
-    },
-    {
-      "name": "isCapabilityId",
-      "title": null,
-      "description": "Validate a stable dot-separated identifier for one capability.",
-      "isReadme": false,
-      "see": [],
-      "security": [],
-      "kind": "function",
-      "modulePath": "src/capabilities.ts",
-      "sourceLocation": {
-        "filePath": "src/capabilities.ts",
-        "line": 55,
-        "column": 1
-      },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [],
-      "signatures": [
-        {
-          "label": "(value: unknown) => boolean",
-          "parameters": [
-            {
-              "name": "value",
-              "type": "unknown",
-              "required": true,
-              "description": null
-            }
-          ],
-          "returnType": "boolean",
-          "returnDescription": null
-        }
-      ],
-      "members": [],
-      "structuredRows": []
-    },
-    {
       "name": "isDataSchema",
       "title": null,
       "description": "Validate supported schema types, constraints and compositions.",
@@ -20223,44 +19871,6 @@
       ],
       "relatedSymbols": [],
       "signatures": [],
-      "members": [],
-      "structuredRows": []
-    },
-    {
-      "name": "normalizeCapability",
-      "title": null,
-      "description": "Return a capability with access and binding-role collections sorted and deduplicated.",
-      "isReadme": false,
-      "see": [],
-      "security": [],
-      "kind": "function",
-      "modulePath": "src/capabilities.ts",
-      "sourceLocation": {
-        "filePath": "src/capabilities.ts",
-        "line": 79,
-        "column": 1
-      },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "Capability"
-      ],
-      "signatures": [
-        {
-          "label": "(capability: Capability) => Capability",
-          "parameters": [
-            {
-              "name": "capability",
-              "type": "Capability",
-              "required": true,
-              "description": null
-            }
-          ],
-          "returnType": "Capability",
-          "returnDescription": null
-        }
-      ],
       "members": [],
       "structuredRows": []
     },
@@ -29749,160 +29359,6 @@
       }
     },
     {
-      "name": "isCapabilityId",
-      "description": "Validate a stable dot-separated identifier for one capability.",
-      "see": [],
-      "security": [],
-      "sourceLocation": {
-        "filePath": "src/capabilities.ts",
-        "line": 55,
-        "column": 1
-      }
-    },
-    {
-      "name": "isCapability",
-      "description": "Validate an untrusted value as one complete portable capability descriptor.",
-      "see": [],
-      "security": [],
-      "sourceLocation": {
-        "filePath": "src/capabilities.ts",
-        "line": 64,
-        "column": 1
-      }
-    },
-    {
-      "name": "normalizeCapability",
-      "description": "Return a capability with access and binding-role collections sorted and deduplicated.",
-      "see": [],
-      "security": [],
-      "sourceLocation": {
-        "filePath": "src/capabilities.ts",
-        "line": 79,
-        "column": 1
-      }
-    },
-    {
-      "name": "areCapabilitiesEqual",
-      "description": "Compare capability descriptors independent of object property and unordered collection ordering.",
-      "see": [],
-      "security": [],
-      "sourceLocation": {
-        "filePath": "src/capabilities.ts",
-        "line": 96,
-        "column": 1
-      }
-    },
-    {
-      "name": "isCapabilityAccessList",
-      "description": "Validate a non-empty collection of supported capability access operations.",
-      "see": [],
-      "security": [],
-      "sourceLocation": {
-        "filePath": "src/capabilities.ts",
-        "line": 101,
-        "column": 1
-      }
-    },
-    {
-      "name": "isCapabilityBinding",
-      "description": "Validate a portable capability binding descriptor.",
-      "see": [],
-      "security": [],
-      "sourceLocation": {
-        "filePath": "src/capabilities.ts",
-        "line": 108,
-        "column": 1
-      }
-    },
-    {
-      "name": "isCapabilityAccess",
-      "description": "Validate one supported capability access operation.",
-      "see": [],
-      "security": [],
-      "sourceLocation": {
-        "filePath": "src/capabilities.ts",
-        "line": 118,
-        "column": 1
-      }
-    },
-    {
-      "name": "isCapabilityBindingKind",
-      "description": "Validate one supported capability binding family.",
-      "see": [],
-      "security": [],
-      "sourceLocation": {
-        "filePath": "src/capabilities.ts",
-        "line": 123,
-        "column": 1
-      }
-    },
-    {
-      "name": "isCapabilityBindingRole",
-      "description": "Validate one supported capability binding direction.",
-      "see": [],
-      "security": [],
-      "sourceLocation": {
-        "filePath": "src/capabilities.ts",
-        "line": 131,
-        "column": 1
-      }
-    },
-    {
-      "name": "normalizeCapabilityAccess",
-      "description": "Sort and deduplicate supported access operations using the canonical Utility collection helper.",
-      "see": [],
-      "security": [],
-      "sourceLocation": {
-        "filePath": "src/capabilities.ts",
-        "line": 139,
-        "column": 1
-      }
-    },
-    {
-      "name": "normalizeCapabilityBindingRoles",
-      "description": "Sort and deduplicate supported binding directions using the canonical Utility collection helper.",
-      "see": [],
-      "security": [],
-      "sourceLocation": {
-        "filePath": "src/capabilities.ts",
-        "line": 146,
-        "column": 1
-      }
-    },
-    {
-      "name": "areCapabilityValuesEqual",
-      "description": "Compare the serializable values contained by two normalized capability descriptors.",
-      "see": [],
-      "security": [],
-      "sourceLocation": {
-        "filePath": "src/capabilities.ts",
-        "line": 153,
-        "column": 1
-      }
-    },
-    {
-      "name": "areCapabilityArraysEqual",
-      "description": "Compare two serializable arrays in their authored order.",
-      "see": [],
-      "security": [],
-      "sourceLocation": {
-        "filePath": "src/capabilities.ts",
-        "line": 161,
-        "column": 1
-      }
-    },
-    {
-      "name": "areCapabilityRecordsEqual",
-      "description": "Compare two serializable records independent of their authored property order.",
-      "see": [],
-      "security": [],
-      "sourceLocation": {
-        "filePath": "src/capabilities.ts",
-        "line": 171,
-        "column": 1
-      }
-    },
-    {
       "name": "isSerializableSet",
       "description": "Validate the canonical JSON-safe representation for unordered string membership.",
       "see": [],
@@ -31017,14 +30473,6 @@
   "sequenceScenarios": [
     {
       "kind": "export",
-      "name": "areCapabilitiesEqual",
-      "sourcePath": "src/capabilities.ts",
-      "symbolName": "areCapabilitiesEqual",
-      "description": "Compare capability descriptors independent of object property and unordered collection ordering.",
-      "isReadme": false
-    },
-    {
-      "kind": "export",
       "name": "findForbiddenInlineSecretFields",
       "sourcePath": "src/secrets.ts",
       "symbolName": "findForbiddenInlineSecretFields",
@@ -31053,22 +30501,6 @@
       "sourcePath": "src/appManifest/navigator.ts",
       "symbolName": "isAppNavigatorManifest",
       "description": "Validate the complete serialized `AppManifest.navigator` slice.",
-      "isReadme": false
-    },
-    {
-      "kind": "export",
-      "name": "isCapability",
-      "sourcePath": "src/capabilities.ts",
-      "symbolName": "isCapability",
-      "description": "Validate an untrusted value as one complete portable capability descriptor.",
-      "isReadme": false
-    },
-    {
-      "kind": "export",
-      "name": "isCapabilityId",
-      "sourcePath": "src/capabilities.ts",
-      "symbolName": "isCapabilityId",
-      "description": "Validate a stable dot-separated identifier for one capability.",
       "isReadme": false
     },
     {
@@ -31173,14 +30605,6 @@
       "sourcePath": "src/structure/isStructureDescriptorDocument.ts",
       "symbolName": "isStructureDescriptorDocument",
       "description": "Validate a complete package structural-descriptor document and all resolvable references.",
-      "isReadme": false
-    },
-    {
-      "kind": "export",
-      "name": "normalizeCapability",
-      "sourcePath": "src/capabilities.ts",
-      "symbolName": "normalizeCapability",
-      "description": "Return a capability with access and binding-role collections sorted and deduplicated.",
       "isReadme": false
     },
     {
@@ -31303,14 +30727,9 @@
         "sourcePath": "src/bindings.ts"
       },
       {
-        "fromPath": "src/capabilities.ts",
-        "toPath": "src/data/dataValidation.ts",
-        "sourcePath": "src/capabilities.ts"
-      },
-      {
-        "fromPath": "src/capabilities.ts",
+        "fromPath": "src/capability.ts",
         "toPath": "src/data/schemas.ts",
-        "sourcePath": "src/capabilities.ts"
+        "sourcePath": "src/capability.ts"
       },
       {
         "fromPath": "src/deploy.ts",
@@ -31355,11 +30774,6 @@
       {
         "fromPath": "src/index.ts",
         "toPath": "src/bindings.ts",
-        "sourcePath": "src/index.ts"
-      },
-      {
-        "fromPath": "src/index.ts",
-        "toPath": "src/capabilities.ts",
         "sourcePath": "src/index.ts"
       },
       {
@@ -31824,7 +31238,7 @@
       },
       {
         "fromPath": "src/cli/index.ts",
-        "toPath": "src/capabilities.ts",
+        "toPath": "src/capability.ts",
         "sourcePath": "src/cli/index.ts"
       },
       {
@@ -32569,138 +31983,6 @@
       }
     ],
     "calls": [
-      {
-        "fromSymbol": "isCapabilityId",
-        "toSymbol": "isNonEmptyString",
-        "callExpression": "isNonEmptyString",
-        "sourcePath": "src/capabilities.ts"
-      },
-      {
-        "fromSymbol": "isCapability",
-        "toSymbol": "isRecord",
-        "callExpression": "isRecord",
-        "sourcePath": "src/capabilities.ts"
-      },
-      {
-        "fromSymbol": "isCapability",
-        "toSymbol": "isCapabilityId",
-        "callExpression": "isCapabilityId",
-        "sourcePath": "src/capabilities.ts"
-      },
-      {
-        "fromSymbol": "isCapability",
-        "toSymbol": "isNonEmptyString",
-        "callExpression": "isNonEmptyString",
-        "sourcePath": "src/capabilities.ts"
-      },
-      {
-        "fromSymbol": "isCapability",
-        "toSymbol": "isCapabilityAccessList",
-        "callExpression": "isCapabilityAccessList",
-        "sourcePath": "src/capabilities.ts"
-      },
-      {
-        "fromSymbol": "isCapability",
-        "toSymbol": "isCapabilityBinding",
-        "callExpression": "isCapabilityBinding",
-        "sourcePath": "src/capabilities.ts"
-      },
-      {
-        "fromSymbol": "isCapability",
-        "toSymbol": "isOptionalString",
-        "callExpression": "isOptionalString",
-        "sourcePath": "src/capabilities.ts"
-      },
-      {
-        "fromSymbol": "isCapability",
-        "toSymbol": "isDataSchemaSlot",
-        "callExpression": "isDataSchemaSlot",
-        "sourcePath": "src/capabilities.ts"
-      },
-      {
-        "fromSymbol": "normalizeCapability",
-        "toSymbol": "normalizeCapabilityAccess",
-        "callExpression": "normalizeCapabilityAccess",
-        "sourcePath": "src/capabilities.ts"
-      },
-      {
-        "fromSymbol": "normalizeCapability",
-        "toSymbol": "normalizeCapabilityBindingRoles",
-        "callExpression": "normalizeCapabilityBindingRoles",
-        "sourcePath": "src/capabilities.ts"
-      },
-      {
-        "fromSymbol": "areCapabilitiesEqual",
-        "toSymbol": "areCapabilityValuesEqual",
-        "callExpression": "areCapabilityValuesEqual",
-        "sourcePath": "src/capabilities.ts"
-      },
-      {
-        "fromSymbol": "areCapabilitiesEqual",
-        "toSymbol": "normalizeCapability",
-        "callExpression": "normalizeCapability",
-        "sourcePath": "src/capabilities.ts"
-      },
-      {
-        "fromSymbol": "src/capabilities.ts",
-        "toSymbol": "isCapabilityAccess",
-        "callExpression": "isCapabilityAccess",
-        "sourcePath": "src/capabilities.ts"
-      },
-      {
-        "fromSymbol": "isCapabilityBinding",
-        "toSymbol": "isRecord",
-        "callExpression": "isRecord",
-        "sourcePath": "src/capabilities.ts"
-      },
-      {
-        "fromSymbol": "isCapabilityBinding",
-        "toSymbol": "isCapabilityBindingKind",
-        "callExpression": "isCapabilityBindingKind",
-        "sourcePath": "src/capabilities.ts"
-      },
-      {
-        "fromSymbol": "src/capabilities.ts",
-        "toSymbol": "isCapabilityBindingRole",
-        "callExpression": "isCapabilityBindingRole",
-        "sourcePath": "src/capabilities.ts"
-      },
-      {
-        "fromSymbol": "normalizeCapabilityAccess",
-        "toSymbol": "uniqueSortedStrings",
-        "callExpression": "uniqueSortedStrings",
-        "sourcePath": "src/capabilities.ts"
-      },
-      {
-        "fromSymbol": "normalizeCapabilityBindingRoles",
-        "toSymbol": "uniqueSortedStrings",
-        "callExpression": "uniqueSortedStrings",
-        "sourcePath": "src/capabilities.ts"
-      },
-      {
-        "fromSymbol": "areCapabilityValuesEqual",
-        "toSymbol": "areCapabilityArraysEqual",
-        "callExpression": "areCapabilityArraysEqual",
-        "sourcePath": "src/capabilities.ts"
-      },
-      {
-        "fromSymbol": "areCapabilityValuesEqual",
-        "toSymbol": "isRecord",
-        "callExpression": "isRecord",
-        "sourcePath": "src/capabilities.ts"
-      },
-      {
-        "fromSymbol": "areCapabilityValuesEqual",
-        "toSymbol": "areCapabilityRecordsEqual",
-        "callExpression": "areCapabilityRecordsEqual",
-        "sourcePath": "src/capabilities.ts"
-      },
-      {
-        "fromSymbol": "src/capabilities.ts",
-        "toSymbol": "areCapabilityValuesEqual",
-        "callExpression": "areCapabilityValuesEqual",
-        "sourcePath": "src/capabilities.ts"
-      },
       {
         "fromSymbol": "isSerializableSet",
         "toSymbol": "isRecord",
@@ -35899,31 +35181,6 @@
         "fromSymbol": "ComponentDataBinding",
         "toType": "Readonly",
         "sourcePath": "src/bindings.ts"
-      },
-      {
-        "fromSymbol": "normalizeCapability",
-        "toType": "Capability",
-        "sourcePath": "src/capabilities.ts"
-      },
-      {
-        "fromSymbol": "areCapabilitiesEqual",
-        "toType": "Capability",
-        "sourcePath": "src/capabilities.ts"
-      },
-      {
-        "fromSymbol": "Capability",
-        "toType": "CapabilityBindingKind",
-        "sourcePath": "src/capabilities.ts"
-      },
-      {
-        "fromSymbol": "Capability",
-        "toType": "CapabilityBindingRole",
-        "sourcePath": "src/capabilities.ts"
-      },
-      {
-        "fromSymbol": "Capability",
-        "toType": "DataSchemaSlot",
-        "sourcePath": "src/capabilities.ts"
       },
       {
         "fromSymbol": "AnkhCommandProviderManifest",
