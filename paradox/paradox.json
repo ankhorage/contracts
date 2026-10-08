@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v24.1.0",
+      "value": "v24.2.0",
       "color": "cb3837"
     },
     {
@@ -4738,7 +4738,7 @@
       "modulePath": "src/capabilities.ts",
       "sourceLocation": {
         "filePath": "src/capabilities.ts",
-        "line": 95,
+        "line": 96,
         "column": 1
       },
       "exportPaths": [
@@ -7472,7 +7472,7 @@
       "modulePath": "src/capabilities.ts",
       "sourceLocation": {
         "filePath": "src/capabilities.ts",
-        "line": 39,
+        "line": 40,
         "column": 1
       },
       "exportPaths": [
@@ -7599,7 +7599,7 @@
       "modulePath": "src/capabilities.ts",
       "sourceLocation": {
         "filePath": "src/capabilities.ts",
-        "line": 28,
+        "line": 29,
         "column": 14
       },
       "exportPaths": [
@@ -7643,7 +7643,7 @@
       "modulePath": "src/capabilities.ts",
       "sourceLocation": {
         "filePath": "src/capabilities.ts",
-        "line": 25,
+        "line": 26,
         "column": 1
       },
       "exportPaths": [
@@ -7665,7 +7665,7 @@
       "modulePath": "src/capabilities.ts",
       "sourceLocation": {
         "filePath": "src/capabilities.ts",
-        "line": 30,
+        "line": 31,
         "column": 1
       },
       "exportPaths": [
@@ -16581,7 +16581,7 @@
       "modulePath": "src/capabilities.ts",
       "sourceLocation": {
         "filePath": "src/capabilities.ts",
-        "line": 63,
+        "line": 64,
         "column": 1
       },
       "exportPaths": [
@@ -16617,7 +16617,7 @@
       "modulePath": "src/capabilities.ts",
       "sourceLocation": {
         "filePath": "src/capabilities.ts",
-        "line": 54,
+        "line": 55,
         "column": 1
       },
       "exportPaths": [
@@ -20237,7 +20237,7 @@
       "modulePath": "src/capabilities.ts",
       "sourceLocation": {
         "filePath": "src/capabilities.ts",
-        "line": 78,
+        "line": 79,
         "column": 1
       },
       "exportPaths": [
@@ -29755,7 +29755,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/capabilities.ts",
-        "line": 54,
+        "line": 55,
         "column": 1
       }
     },
@@ -29766,7 +29766,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/capabilities.ts",
-        "line": 63,
+        "line": 64,
         "column": 1
       }
     },
@@ -29777,7 +29777,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/capabilities.ts",
-        "line": 78,
+        "line": 79,
         "column": 1
       }
     },
@@ -29788,7 +29788,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/capabilities.ts",
-        "line": 95,
+        "line": 96,
         "column": 1
       }
     },
@@ -29799,7 +29799,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/capabilities.ts",
-        "line": 100,
+        "line": 101,
         "column": 1
       }
     },
@@ -29810,7 +29810,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/capabilities.ts",
-        "line": 107,
+        "line": 108,
         "column": 1
       }
     },
@@ -29821,7 +29821,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/capabilities.ts",
-        "line": 117,
+        "line": 118,
         "column": 1
       }
     },
@@ -29832,7 +29832,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/capabilities.ts",
-        "line": 122,
+        "line": 123,
         "column": 1
       }
     },
@@ -29843,7 +29843,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/capabilities.ts",
-        "line": 130,
+        "line": 131,
         "column": 1
       }
     },
@@ -29854,7 +29854,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/capabilities.ts",
-        "line": 138,
+        "line": 139,
         "column": 1
       }
     },
@@ -29865,7 +29865,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/capabilities.ts",
-        "line": 145,
+        "line": 146,
         "column": 1
       }
     },
@@ -29876,7 +29876,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/capabilities.ts",
-        "line": 152,
+        "line": 153,
         "column": 1
       }
     },
@@ -29887,7 +29887,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/capabilities.ts",
-        "line": 160,
+        "line": 161,
         "column": 1
       }
     },
@@ -29898,7 +29898,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/capabilities.ts",
-        "line": 170,
+        "line": 171,
         "column": 1
       }
     },

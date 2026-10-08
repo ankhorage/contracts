@@ -578,7 +578,7 @@ Source: `src/state.ts:4:1`
 
 Kind: `function`
 Module: `src/capabilities.ts`
-Source: `src/capabilities.ts:95:1`
+Source: `src/capabilities.ts:96:1`
 
 Compare capability descriptors independent of object property and unordered collection ordering.
 
@@ -1341,7 +1341,7 @@ Source: `src/types.ts:63:1`
 
 Kind: `type`
 Module: `src/capabilities.ts`
-Source: `src/capabilities.ts:39:1`
+Source: `src/capabilities.ts:40:1`
 
 ### Members
 
@@ -1376,7 +1376,7 @@ Enumerate the portable runtime families supported by capability bindings.
 
 Kind: `value`
 Module: `src/capabilities.ts`
-Source: `src/capabilities.ts:28:14`
+Source: `src/capabilities.ts:29:14`
 
 Enumerate the directions in which a capability can participate in a binding.
 
@@ -1390,13 +1390,13 @@ Source: `src/capabilities.ts:11:1`
 
 Kind: `unknown`
 Module: `src/capabilities.ts`
-Source: `src/capabilities.ts:25:1`
+Source: `src/capabilities.ts:26:1`
 
 ## CapabilityBindingRole
 
 Kind: `unknown`
 Module: `src/capabilities.ts`
-Source: `src/capabilities.ts:30:1`
+Source: `src/capabilities.ts:31:1`
 
 ## CollectionItemPressEventDto
 
@@ -3843,7 +3843,7 @@ Validate the complete serialized `AppManifest.navigator` slice.
 
 Kind: `function`
 Module: `src/capabilities.ts`
-Source: `src/capabilities.ts:63:1`
+Source: `src/capabilities.ts:64:1`
 
 Validate an untrusted value as one complete portable capability descriptor.
 
@@ -3857,7 +3857,7 @@ Validate an untrusted value as one complete portable capability descriptor.
 
 Kind: `function`
 Module: `src/capabilities.ts`
-Source: `src/capabilities.ts:54:1`
+Source: `src/capabilities.ts:55:1`
 
 Validate a stable dot-separated identifier for one capability.
 
@@ -4936,7 +4936,7 @@ Source: `src/navigator/catalog.ts:30:1`
 
 Kind: `function`
 Module: `src/capabilities.ts`
-Source: `src/capabilities.ts:78:1`
+Source: `src/capabilities.ts:79:1`
 
 Return a capability with access and binding-role collections sorted and deduplicated.
 

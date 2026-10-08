@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 24.2.0
+
+### Minor Changes
+
+- 9fd3cb7: Add the portable `storage` capability binding family for trusted-only storage descriptors.
+
 ## 24.1.0
 
 ### Minor Changes
