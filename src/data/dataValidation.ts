@@ -2,8 +2,8 @@ import { isStringArray } from '@ankhorage/utility/array';
 import { isRecord, readOwnProperty } from '@ankhorage/utility/object';
 import { isOptionalString } from '@ankhorage/utility/string';
 
-import { isSerializableValue } from '../serializable';
-import type { DataSchema, DataSchemaSlot } from './schemas';
+import { isSerializableValue } from '../serializable.js';
+import type { DataSchema, DataSchemaSlot } from './schemas.js';
 
 const DATA_SCHEMA_TYPES = new Set([
   'array',
