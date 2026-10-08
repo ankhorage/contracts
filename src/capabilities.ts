@@ -20,6 +20,7 @@ export const CAPABILITY_BINDING_KINDS = [
   'event',
   'permission',
   'state',
+  'storage',
 ] as const;
 
 export type CapabilityBindingKind = (typeof CAPABILITY_BINDING_KINDS)[number];
