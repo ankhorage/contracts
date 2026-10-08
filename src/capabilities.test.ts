@@ -93,6 +93,13 @@ const CAPABILITIES = [
       },
     },
   },
+  {
+    id: 'storage.upload',
+    owner: '@ankhorage/storage',
+    access: ['invoke'],
+    binding: { kind: 'storage', bindableAs: [] },
+    label: 'Upload storage object',
+  },
 ] as const satisfies readonly Capability[];
 
 describe('Capability serialization', () => {
@@ -113,6 +120,7 @@ describe('Capability runtime API', () => {
       'event',
       'permission',
       'state',
+      'storage',
     ]);
     expect(CAPABILITY_BINDING_ROLES).toEqual(['source', 'target']);
   });
@@ -136,6 +144,7 @@ describe('Capability runtime API', () => {
 
   it('validates complete capability descriptors through the shared schema validators', () => {
     expect(isCapability(CAPABILITIES[3])).toBeTrue();
+    expect(isCapability(CAPABILITIES[6])).toBeTrue();
     expect(
       isCapability({
         ...CAPABILITIES[3],
@@ -192,6 +201,16 @@ describe('Capability canonicalization', () => {
 
     expect(normalized.access).toEqual(['read', 'subscribe', 'write']);
     expect(normalized.binding.bindableAs).toEqual(['source', 'target']);
+  });
+
+  it('preserves trusted-only storage capabilities without a generic UI binding role', () => {
+    const normalized = normalizeCapability({
+      ...CAPABILITIES[6],
+      access: ['invoke', 'invoke'],
+    });
+
+    expect(normalized).toEqual(CAPABILITIES[6]);
+    expect(normalized.binding.bindableAs).toEqual([]);
   });
 
   it('compares normalized capability descriptors semantically', () => {
