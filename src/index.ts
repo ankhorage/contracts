@@ -1,7 +1,6 @@
 export * from './appManifest';
 export * from './auth';
 export * from './bindings';
-export * from './capabilities';
 export * from './cli';
 export * from './collections';
 export * from './data';

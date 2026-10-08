@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'bun:test';
 
+import type { Capability } from './capability';
 import type {
   AnkhCommandDescriptor,
   AnkhCommandProviderManifest,
   AnkhPackageMetadata,
-  Capability,
 } from './index';
 
 const INFRA_CAPABILITIES = [

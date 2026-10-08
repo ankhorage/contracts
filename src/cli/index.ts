@@ -1,4 +1,4 @@
-import type { Capability } from '../capabilities';
+import type { Capability } from '../capability';
 
 export type AnkhCommandCategory = string;
 

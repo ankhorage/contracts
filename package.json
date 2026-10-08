@@ -130,9 +130,9 @@
       "types": "./dist/structure/index.d.ts",
       "default": "./dist/structure/index.js"
     },
-    "./capabilities": {
-      "types": "./dist/capabilities.d.ts",
-      "default": "./dist/capabilities.js"
+    "./capability": {
+      "types": "./dist/capability.d.ts",
+      "default": "./dist/capability.js"
     }
   },
   "description": "Serializable app, capability, binding, theme, auth, and secret-store contracts for Ankhorage.",
