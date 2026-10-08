@@ -54,11 +54,10 @@ async function collectTypeScriptFiles(directory: string): Promise<string[]> {
 }
 
 describe('contracts', () => {
-  it('exports the cli subpath for Ankh discovery contracts', async () => {
+  it('exports the cli subpath and structure metadata for Ankh discovery contracts', async () => {
     const expectedAnkhMetadata = {
       category: 'contracts',
       provider: null,
-      capabilities: ['contracts.cli'],
       structure: {
         output: 'src/structure/generated.ts',
         roots: {
