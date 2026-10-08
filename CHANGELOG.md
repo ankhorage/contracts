@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 24.2.1
+
+### Patch Changes
+
+- cbd383d: Make the published capabilities runtime entrypoint and its schema-validation dependency chain importable under native Node ESM.
+
 ## 24.2.0
 
 ### Minor Changes
