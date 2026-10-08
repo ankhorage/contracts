@@ -162,6 +162,23 @@ describe('Capability runtime API', () => {
   });
 });
 
+describe('Capability packed Node ESM boundary', () => {
+  it('imports the built public capabilities entrypoint with Node ESM resolution', async () => {
+    const subprocess = Bun.spawn(['node', '-e', "import('./dist/capabilities.js')"], {
+      cwd: process.cwd(),
+      stderr: 'pipe',
+      stdout: 'pipe',
+    });
+    const [exitCode, stderr] = await Promise.all([
+      subprocess.exited,
+      new Response(subprocess.stderr).text(),
+    ]);
+
+    expect(stderr).toBe('');
+    expect(exitCode).toBe(0);
+  });
+});
+
 describe('Capability canonical projection', () => {
   it('projects accepted runtime capabilities to their canonical descriptor', () => {
     const runtimeCapability = {
