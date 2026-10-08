@@ -2,8 +2,8 @@ import { uniqueSortedStrings } from '@ankhorage/utility/array';
 import { isRecord } from '@ankhorage/utility/object';
 import { isNonEmptyString, isOptionalString } from '@ankhorage/utility/string';
 
-import { isDataSchemaSlot } from './data/dataValidation';
-import type { DataSchemaSlot } from './data/schemas';
+import { isDataSchemaSlot } from './data/dataValidation.js';
+import type { DataSchemaSlot } from './data/schemas.js';
 
 /*** Enumerate the operations a capability exposes to other packages. */
 export const CAPABILITY_ACCESS = ['emit', 'invoke', 'read', 'subscribe', 'write'] as const;
