@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 25.0.1
+
+### Patch Changes
+
+- 3e37fdc: Remove stale `contracts.cli` discovery metadata from the Contracts package.
+
 ## 25.0.0
 
 ### Major Changes
