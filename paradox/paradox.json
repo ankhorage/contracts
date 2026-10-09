@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v25.0.1",
+      "value": "v25.1.0",
       "color": "cb3837"
     },
     {
@@ -79,7 +79,7 @@
       "severity": "warning",
       "message": "Exported function resolveAuthFlow has no documentation description.",
       "sourcePath": "src/auth.ts",
-      "line": 131
+      "line": 132
     },
     {
       "ruleId": "documentation.public-function.description",
@@ -293,24 +293,40 @@
       "isEntrypoint": false,
       "dependencies": [
         "src/collections.ts",
+        "src/data/schemas.ts",
         "src/deploy.ts",
         "src/environments.ts",
         "src/secrets.ts",
         "src/types.ts"
       ],
       "exports": [
+        "AUTH_ADAPTER_ERROR_SCHEMA",
+        "AUTH_EMPTY_INPUT_SCHEMA",
+        "AUTH_ERROR_RESULT_SCHEMA",
         "AUTH_IDENTIFIER_KINDS",
+        "AUTH_IDENTIFIER_SCHEMA",
+        "AUTH_NULLABLE_SESSION_RESULT_SCHEMA",
+        "AUTH_OAUTH_AUTHORIZATION_REQUEST_SCHEMA",
+        "AUTH_OAUTH_AUTHORIZATION_RESPONSE_SCHEMA",
         "AUTH_OAUTH_CANCELLATION_REASONS",
+        "AUTH_OAUTH_COMPLETION_RESULT_SCHEMA",
         "AUTH_OAUTH_ERROR_CODES",
+        "AUTH_OAUTH_ERROR_SCHEMA",
         "AUTH_OAUTH_ERROR_STAGES",
         "AUTH_OAUTH_PROVIDER_IDS",
         "AUTH_OAUTH_SETUP_CALLBACK_ROLES",
         "AUTH_OAUTH_SETUP_FIELD_PERSISTENCE_KINDS",
         "AUTH_OAUTH_SETUP_FIELD_SENSITIVITIES",
+        "AUTH_OAUTH_START_RESULT_SCHEMA",
         "AUTH_OAUTH_TRANSPORT_CANCELLATION_REASONS",
         "AUTH_OAUTH_TRANSPORT_ERROR_CODES",
         "AUTH_OAUTH_TRANSPORT_IDS",
+        "AUTH_SESSION_RESULT_SCHEMA",
+        "AUTH_SESSION_SCHEMA",
         "AUTH_SIGN_UP_FIELDS",
+        "AUTH_SUCCESS_SCHEMA",
+        "AUTH_USER_SCHEMA",
+        "AUTH_VOID_RESULT_SCHEMA",
         "AuthAdapter",
         "AuthAdapterCapabilities",
         "AuthAdapterError",
@@ -349,17 +365,26 @@
         "AuthSignUpConfig",
         "AuthSignUpField",
         "AuthUser",
+        "COMPLETE_OAUTH_AUTHORIZATION_INPUT_SCHEMA",
         "CompleteOAuthAuthorizationInput",
         "DEFAULT_AUTH_FLOW",
         "KnownAuthOAuthProviderId",
         "KnownAuthOAuthTransportId",
         "KnownAuthSignUpField",
+        "PASSWORD_RESET_INPUT_SCHEMA",
         "PasswordResetInput",
         "resolveAuthFlow",
+        "SIGN_IN_INPUT_SCHEMA",
+        "SIGN_IN_RESULT_SCHEMA",
+        "SIGN_OUT_INPUT_SCHEMA",
+        "SIGN_UP_INPUT_SCHEMA",
+        "SIGN_UP_RESULT_SCHEMA",
         "SignInInput",
         "SignOutInput",
         "SignUpInput",
+        "START_OAUTH_AUTHORIZATION_INPUT_SCHEMA",
         "StartOAuthAuthorizationInput",
+        "VERIFY_OTP_INPUT_SCHEMA",
         "VerifyOtpInput"
       ]
     },
@@ -924,14 +949,24 @@
         "AppNavigatorManifest",
         "AppSettings",
         "AppStateSpec",
+        "AUTH_ADAPTER_ERROR_SCHEMA",
+        "AUTH_EMPTY_INPUT_SCHEMA",
+        "AUTH_ERROR_RESULT_SCHEMA",
         "AUTH_IDENTIFIER_KINDS",
+        "AUTH_IDENTIFIER_SCHEMA",
+        "AUTH_NULLABLE_SESSION_RESULT_SCHEMA",
+        "AUTH_OAUTH_AUTHORIZATION_REQUEST_SCHEMA",
+        "AUTH_OAUTH_AUTHORIZATION_RESPONSE_SCHEMA",
         "AUTH_OAUTH_CANCELLATION_REASONS",
+        "AUTH_OAUTH_COMPLETION_RESULT_SCHEMA",
         "AUTH_OAUTH_ERROR_CODES",
+        "AUTH_OAUTH_ERROR_SCHEMA",
         "AUTH_OAUTH_ERROR_STAGES",
         "AUTH_OAUTH_PROVIDER_IDS",
         "AUTH_OAUTH_SETUP_CALLBACK_ROLES",
         "AUTH_OAUTH_SETUP_FIELD_PERSISTENCE_KINDS",
         "AUTH_OAUTH_SETUP_FIELD_SENSITIVITIES",
+        "AUTH_OAUTH_START_RESULT_SCHEMA",
         "AUTH_OAUTH_TRANSPORT_CANCELLATION_REASONS",
         "AUTH_OAUTH_TRANSPORT_ERROR_CODES",
         "AUTH_OAUTH_TRANSPORT_IDS",
@@ -940,9 +975,14 @@
         "AUTH_PROFILE_PRIMARY_KEY_STRATEGIES",
         "AUTH_PROFILE_UPDATE_STRATEGIES",
         "AUTH_SCOPES",
+        "AUTH_SESSION_RESULT_SCHEMA",
+        "AUTH_SESSION_SCHEMA",
         "AUTH_SIGN_IN_IDENTIFIERS",
         "AUTH_SIGN_UP_FIELDS",
         "AUTH_SIGN_UP_POLICIES",
+        "AUTH_SUCCESS_SCHEMA",
+        "AUTH_USER_SCHEMA",
+        "AUTH_VOID_RESULT_SCHEMA",
         "AuthAdapter",
         "AuthAdapterCapabilities",
         "AuthAdapterError",
@@ -1007,6 +1047,7 @@
         "ButtonPressEventDto",
         "CollectionItemPressEventDto",
         "CollectionItemPressPayload",
+        "COMPLETE_OAUTH_AUTHORIZATION_INPUT_SCHEMA",
         "CompleteOAuthAuthorizationInput",
         "ComponentDataBinding",
         "ComponentDataBindingRegistry",
@@ -1324,6 +1365,7 @@
         "OperationScreenDataLoaderDefinition",
         "parseAppManifest",
         "parseInfraManifest",
+        "PASSWORD_RESET_INPUT_SCHEMA",
         "PasswordResetInput",
         "PropBinding",
         "ReleaseAdapterContext",
@@ -1388,6 +1430,11 @@
         "SecretStoreResult",
         "SerializableSet",
         "SerializableValue",
+        "SIGN_IN_INPUT_SCHEMA",
+        "SIGN_IN_RESULT_SCHEMA",
+        "SIGN_OUT_INPUT_SCHEMA",
+        "SIGN_UP_INPUT_SCHEMA",
+        "SIGN_UP_RESULT_SCHEMA",
         "SignInInput",
         "SignOutInput",
         "SignUpInput",
@@ -1404,6 +1451,7 @@
         "StackNavigatorNode",
         "StackPresentation",
         "StackScreenOptions",
+        "START_OAUTH_AUTHORIZATION_INPUT_SCHEMA",
         "StartOAuthAuthorizationInput",
         "StateAdapter",
         "StateAdapterCapabilities",
@@ -1519,6 +1567,7 @@
         "validateInfraAdapterSelection",
         "validateSecretPayload",
         "ValueMap",
+        "VERIFY_OTP_INPUT_SCHEMA",
         "VerifyOtpInput",
         "WebDeploymentPublication",
         "WebDeploymentPublisher",
@@ -4707,6 +4756,72 @@
       "structuredRows": []
     },
     {
+      "name": "AUTH_ADAPTER_ERROR_SCHEMA",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "value",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 282,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "AUTH_EMPTY_INPUT_SCHEMA",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "value",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 510,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "AUTH_ERROR_RESULT_SCHEMA",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "value",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 347,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
       "name": "AUTH_IDENTIFIER_KINDS",
       "title": null,
       "description": null,
@@ -4717,7 +4832,95 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 7,
+        "line": 8,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "AUTH_IDENTIFIER_SCHEMA",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "value",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 247,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "AUTH_NULLABLE_SESSION_RESULT_SCHEMA",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "value",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 393,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "AUTH_OAUTH_AUTHORIZATION_REQUEST_SCHEMA",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "value",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 525,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "AUTH_OAUTH_AUTHORIZATION_RESPONSE_SCHEMA",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "value",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 570,
         "column": 14
       },
       "exportPaths": [
@@ -4739,7 +4942,29 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 283,
+        "line": 449,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "AUTH_OAUTH_COMPLETION_RESULT_SCHEMA",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "value",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 613,
         "column": 14
       },
       "exportPaths": [
@@ -4761,7 +4986,29 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 250,
+        "line": 416,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "AUTH_OAUTH_ERROR_SCHEMA",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "value",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 536,
         "column": 14
       },
       "exportPaths": [
@@ -4783,7 +5030,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 240,
+        "line": 406,
         "column": 14
       },
       "exportPaths": [
@@ -4805,7 +5052,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 20,
+        "line": 21,
         "column": 14
       },
       "exportPaths": [
@@ -4827,7 +5074,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 58,
+        "line": 59,
         "column": 14
       },
       "exportPaths": [
@@ -4849,7 +5096,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 48,
+        "line": 49,
         "column": 14
       },
       "exportPaths": [
@@ -4871,7 +5118,29 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 55,
+        "line": 56,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "AUTH_OAUTH_START_RESULT_SCHEMA",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "value",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 549,
         "column": 14
       },
       "exportPaths": [
@@ -4893,7 +5162,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 276,
+        "line": 442,
         "column": 14
       },
       "exportPaths": [
@@ -4915,7 +5184,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 289,
+        "line": 455,
         "column": 14
       },
       "exportPaths": [
@@ -4937,7 +5206,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 44,
+        "line": 45,
         "column": 14
       },
       "exportPaths": [
@@ -5059,6 +5328,50 @@
       "structuredRows": []
     },
     {
+      "name": "AUTH_SESSION_RESULT_SCHEMA",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "value",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 383,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "AUTH_SESSION_SCHEMA",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "value",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 270,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
       "name": "AUTH_SIGN_IN_IDENTIFIERS",
       "title": null,
       "description": null,
@@ -5091,7 +5404,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 10,
+        "line": 11,
         "column": 14
       },
       "exportPaths": [
@@ -5125,6 +5438,72 @@
       "structuredRows": []
     },
     {
+      "name": "AUTH_SUCCESS_SCHEMA",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "value",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 341,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "AUTH_USER_SCHEMA",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "value",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 256,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "AUTH_VOID_RESULT_SCHEMA",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "value",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 379,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
       "name": "AuthAdapter",
       "title": null,
       "description": null,
@@ -5135,7 +5514,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 383,
+        "line": 686,
         "column": 1
       },
       "exportPaths": [
@@ -5232,7 +5611,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 375,
+        "line": 678,
         "column": 1
       },
       "exportPaths": [
@@ -5290,7 +5669,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 192,
+        "line": 193,
         "column": 1
       },
       "exportPaths": [
@@ -5334,7 +5713,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 112,
+        "line": 113,
         "column": 1
       },
       "exportPaths": [
@@ -5406,7 +5785,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 107,
+        "line": 108,
         "column": 1
       },
       "exportPaths": [
@@ -5443,7 +5822,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 8,
+        "line": 9,
         "column": 1
       },
       "exportPaths": [
@@ -5465,7 +5844,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 368,
+        "line": 671,
         "column": 1
       },
       "exportPaths": [
@@ -5515,7 +5894,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 308,
+        "line": 474,
         "column": 1
       },
       "exportPaths": [
@@ -5568,7 +5947,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 325,
+        "line": 491,
         "column": 1
       },
       "exportPaths": [
@@ -5590,7 +5969,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 287,
+        "line": 453,
         "column": 1
       },
       "exportPaths": [
@@ -5612,7 +5991,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 363,
+        "line": 666,
         "column": 1
       },
       "exportPaths": [
@@ -5644,7 +6023,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 344,
+        "line": 647,
         "column": 1
       },
       "exportPaths": [
@@ -5666,7 +6045,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 155,
+        "line": 156,
         "column": 1
       },
       "exportPaths": [
@@ -5712,7 +6091,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 269,
+        "line": 435,
         "column": 1
       },
       "exportPaths": [
@@ -5779,7 +6158,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 267,
+        "line": 433,
         "column": 1
       },
       "exportPaths": [
@@ -5801,7 +6180,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 248,
+        "line": 414,
         "column": 1
       },
       "exportPaths": [
@@ -5823,7 +6202,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 144,
+        "line": 145,
         "column": 1
       },
       "exportPaths": [
@@ -5898,7 +6277,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 42,
+        "line": 43,
         "column": 1
       },
       "exportPaths": [
@@ -5920,7 +6299,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 74,
+        "line": 75,
         "column": 1
       },
       "exportPaths": [
@@ -5985,7 +6364,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 59,
+        "line": 60,
         "column": 1
       },
       "exportPaths": [
@@ -6007,7 +6386,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 102,
+        "line": 103,
         "column": 1
       },
       "exportPaths": [
@@ -6047,7 +6426,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 52,
+        "line": 53,
         "column": 1
       },
       "exportPaths": [
@@ -6069,7 +6448,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 61,
+        "line": 62,
         "column": 1
       },
       "exportPaths": [
@@ -6148,7 +6527,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 56,
+        "line": 57,
         "column": 1
       },
       "exportPaths": [
@@ -6170,7 +6549,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 92,
+        "line": 93,
         "column": 1
       },
       "exportPaths": [
@@ -6232,7 +6611,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 84,
+        "line": 85,
         "column": 1
       },
       "exportPaths": [
@@ -6254,7 +6633,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 315,
+        "line": 481,
         "column": 1
       },
       "exportPaths": [
@@ -6276,7 +6655,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 280,
+        "line": 446,
         "column": 1
       },
       "exportPaths": [
@@ -6298,7 +6677,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 295,
+        "line": 461,
         "column": 1
       },
       "exportPaths": [
@@ -6342,7 +6721,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 293,
+        "line": 459,
         "column": 1
       },
       "exportPaths": [
@@ -6364,7 +6743,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 46,
+        "line": 47,
         "column": 1
       },
       "exportPaths": [
@@ -6534,7 +6913,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 161,
+        "line": 162,
         "column": 1
       },
       "exportPaths": [
@@ -6603,7 +6982,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 198,
+        "line": 199,
         "column": 1
       },
       "exportPaths": [
@@ -6647,7 +7026,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 184,
+        "line": 185,
         "column": 1
       },
       "exportPaths": [
@@ -6707,7 +7086,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 135,
+        "line": 136,
         "column": 1
       },
       "exportPaths": [
@@ -6789,7 +7168,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 139,
+        "line": 140,
         "column": 1
       },
       "exportPaths": [
@@ -6828,7 +7207,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 18,
+        "line": 19,
         "column": 1
       },
       "exportPaths": [
@@ -6918,7 +7297,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 174,
+        "line": 175,
         "column": 1
       },
       "exportPaths": [
@@ -7458,6 +7837,28 @@
       "structuredRows": []
     },
     {
+      "name": "COMPLETE_OAUTH_AUTHORIZATION_INPUT_SCHEMA",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "value",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 604,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
       "name": "CompleteOAuthAuthorizationInput",
       "title": null,
       "description": null,
@@ -7468,7 +7869,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 339,
+        "line": 505,
         "column": 1
       },
       "exportPaths": [
@@ -10724,7 +11125,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 122,
+        "line": 123,
         "column": 14
       },
       "exportPaths": [
@@ -16916,7 +17317,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 41,
+        "line": 42,
         "column": 1
       },
       "exportPaths": [
@@ -16938,7 +17339,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 45,
+        "line": 46,
         "column": 1
       },
       "exportPaths": [
@@ -16982,7 +17383,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 17,
+        "line": 18,
         "column": 1
       },
       "exportPaths": [
@@ -20149,6 +20550,28 @@
       "structuredRows": []
     },
     {
+      "name": "PASSWORD_RESET_INPUT_SCHEMA",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "value",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 321,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
       "name": "PasswordResetInput",
       "title": null,
       "description": null,
@@ -20159,7 +20582,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 228,
+        "line": 229,
         "column": 1
       },
       "exportPaths": [
@@ -21383,7 +21806,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 131,
+        "line": 132,
         "column": 1
       },
       "exportPaths": [
@@ -22706,6 +23129,116 @@
       "structuredRows": []
     },
     {
+      "name": "SIGN_IN_INPUT_SCHEMA",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "value",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 292,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "SIGN_IN_RESULT_SCHEMA",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "value",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 356,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "SIGN_OUT_INPUT_SCHEMA",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "value",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 316,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "SIGN_UP_INPUT_SCHEMA",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "value",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 304,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "SIGN_UP_RESULT_SCHEMA",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "value",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 366,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
       "name": "SignInInput",
       "title": null,
       "description": null,
@@ -22716,7 +23249,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 208,
+        "line": 209,
         "column": 1
       },
       "exportPaths": [
@@ -22776,7 +23309,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 224,
+        "line": 225,
         "column": 1
       },
       "exportPaths": [
@@ -22806,7 +23339,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 216,
+        "line": 217,
         "column": 1
       },
       "exportPaths": [
@@ -23298,6 +23831,28 @@
       "structuredRows": []
     },
     {
+      "name": "START_OAUTH_AUTHORIZATION_INPUT_SCHEMA",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "value",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 514,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
       "name": "StartOAuthAuthorizationInput",
       "title": null,
       "description": null,
@@ -23308,7 +23863,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 301,
+        "line": 467,
         "column": 1
       },
       "exportPaths": [
@@ -28145,6 +28700,28 @@
       "structuredRows": []
     },
     {
+      "name": "VERIFY_OTP_INPUT_SCHEMA",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "value",
+      "modulePath": "src/auth.ts",
+      "sourceLocation": {
+        "filePath": "src/auth.ts",
+        "line": 330,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
       "name": "VerifyOtpInput",
       "title": null,
       "description": null,
@@ -28155,7 +28732,7 @@
       "modulePath": "src/auth.ts",
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 233,
+        "line": 234,
         "column": 1
       },
       "exportPaths": [
@@ -29354,7 +29931,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/auth.ts",
-        "line": 131,
+        "line": 132,
         "column": 1
       }
     },
@@ -30689,6 +31266,11 @@
       {
         "fromPath": "src/auth.ts",
         "toPath": "src/collections.ts",
+        "sourcePath": "src/auth.ts"
+      },
+      {
+        "fromPath": "src/auth.ts",
+        "toPath": "src/data/schemas.ts",
         "sourcePath": "src/auth.ts"
       },
       {

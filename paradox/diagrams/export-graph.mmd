@@ -243,12 +243,30 @@ graph LR
   module_src_types_ts --> export_AppSettings
   export_AppStateSpec["AppStateSpec"]
   module_src_state_ts --> export_AppStateSpec
+  export_AUTH_ADAPTER_ERROR_SCHEMA["AUTH_ADAPTER_ERROR_SCHEMA"]
+  module_src_auth_ts --> export_AUTH_ADAPTER_ERROR_SCHEMA
+  export_AUTH_EMPTY_INPUT_SCHEMA["AUTH_EMPTY_INPUT_SCHEMA"]
+  module_src_auth_ts --> export_AUTH_EMPTY_INPUT_SCHEMA
+  export_AUTH_ERROR_RESULT_SCHEMA["AUTH_ERROR_RESULT_SCHEMA"]
+  module_src_auth_ts --> export_AUTH_ERROR_RESULT_SCHEMA
   export_AUTH_IDENTIFIER_KINDS["AUTH_IDENTIFIER_KINDS"]
   module_src_auth_ts --> export_AUTH_IDENTIFIER_KINDS
+  export_AUTH_IDENTIFIER_SCHEMA["AUTH_IDENTIFIER_SCHEMA"]
+  module_src_auth_ts --> export_AUTH_IDENTIFIER_SCHEMA
+  export_AUTH_NULLABLE_SESSION_RESULT_SCHEMA["AUTH_NULLABLE_SESSION_RESULT_SCHEMA"]
+  module_src_auth_ts --> export_AUTH_NULLABLE_SESSION_RESULT_SCHEMA
+  export_AUTH_OAUTH_AUTHORIZATION_REQUEST_SCHEMA["AUTH_OAUTH_AUTHORIZATION_REQUEST_SCHEMA"]
+  module_src_auth_ts --> export_AUTH_OAUTH_AUTHORIZATION_REQUEST_SCHEMA
+  export_AUTH_OAUTH_AUTHORIZATION_RESPONSE_SCHEMA["AUTH_OAUTH_AUTHORIZATION_RESPONSE_SCHEMA"]
+  module_src_auth_ts --> export_AUTH_OAUTH_AUTHORIZATION_RESPONSE_SCHEMA
   export_AUTH_OAUTH_CANCELLATION_REASONS["AUTH_OAUTH_CANCELLATION_REASONS"]
   module_src_auth_ts --> export_AUTH_OAUTH_CANCELLATION_REASONS
+  export_AUTH_OAUTH_COMPLETION_RESULT_SCHEMA["AUTH_OAUTH_COMPLETION_RESULT_SCHEMA"]
+  module_src_auth_ts --> export_AUTH_OAUTH_COMPLETION_RESULT_SCHEMA
   export_AUTH_OAUTH_ERROR_CODES["AUTH_OAUTH_ERROR_CODES"]
   module_src_auth_ts --> export_AUTH_OAUTH_ERROR_CODES
+  export_AUTH_OAUTH_ERROR_SCHEMA["AUTH_OAUTH_ERROR_SCHEMA"]
+  module_src_auth_ts --> export_AUTH_OAUTH_ERROR_SCHEMA
   export_AUTH_OAUTH_ERROR_STAGES["AUTH_OAUTH_ERROR_STAGES"]
   module_src_auth_ts --> export_AUTH_OAUTH_ERROR_STAGES
   export_AUTH_OAUTH_PROVIDER_IDS["AUTH_OAUTH_PROVIDER_IDS"]
@@ -259,6 +277,8 @@ graph LR
   module_src_auth_ts --> export_AUTH_OAUTH_SETUP_FIELD_PERSISTENCE_KINDS
   export_AUTH_OAUTH_SETUP_FIELD_SENSITIVITIES["AUTH_OAUTH_SETUP_FIELD_SENSITIVITIES"]
   module_src_auth_ts --> export_AUTH_OAUTH_SETUP_FIELD_SENSITIVITIES
+  export_AUTH_OAUTH_START_RESULT_SCHEMA["AUTH_OAUTH_START_RESULT_SCHEMA"]
+  module_src_auth_ts --> export_AUTH_OAUTH_START_RESULT_SCHEMA
   export_AUTH_OAUTH_TRANSPORT_CANCELLATION_REASONS["AUTH_OAUTH_TRANSPORT_CANCELLATION_REASONS"]
   module_src_auth_ts --> export_AUTH_OAUTH_TRANSPORT_CANCELLATION_REASONS
   export_AUTH_OAUTH_TRANSPORT_ERROR_CODES["AUTH_OAUTH_TRANSPORT_ERROR_CODES"]
@@ -275,12 +295,22 @@ graph LR
   module_src_types_ts --> export_AUTH_PROFILE_UPDATE_STRATEGIES
   export_AUTH_SCOPES["AUTH_SCOPES"]
   module_src_types_ts --> export_AUTH_SCOPES
+  export_AUTH_SESSION_RESULT_SCHEMA["AUTH_SESSION_RESULT_SCHEMA"]
+  module_src_auth_ts --> export_AUTH_SESSION_RESULT_SCHEMA
+  export_AUTH_SESSION_SCHEMA["AUTH_SESSION_SCHEMA"]
+  module_src_auth_ts --> export_AUTH_SESSION_SCHEMA
   export_AUTH_SIGN_IN_IDENTIFIERS["AUTH_SIGN_IN_IDENTIFIERS"]
   module_src_types_ts --> export_AUTH_SIGN_IN_IDENTIFIERS
   export_AUTH_SIGN_UP_FIELDS["AUTH_SIGN_UP_FIELDS"]
   module_src_auth_ts --> export_AUTH_SIGN_UP_FIELDS
   export_AUTH_SIGN_UP_POLICIES["AUTH_SIGN_UP_POLICIES"]
   module_src_types_ts --> export_AUTH_SIGN_UP_POLICIES
+  export_AUTH_SUCCESS_SCHEMA["AUTH_SUCCESS_SCHEMA"]
+  module_src_auth_ts --> export_AUTH_SUCCESS_SCHEMA
+  export_AUTH_USER_SCHEMA["AUTH_USER_SCHEMA"]
+  module_src_auth_ts --> export_AUTH_USER_SCHEMA
+  export_AUTH_VOID_RESULT_SCHEMA["AUTH_VOID_RESULT_SCHEMA"]
+  module_src_auth_ts --> export_AUTH_VOID_RESULT_SCHEMA
   export_AuthAdapter["AuthAdapter"]
   module_src_auth_ts --> export_AuthAdapter
   export_AuthAdapter -.-> export_AuthAdapterCapabilities
@@ -452,6 +482,8 @@ graph LR
   export_CollectionItemPressPayload["CollectionItemPressPayload"]
   module_src_types_ts --> export_CollectionItemPressPayload
   export_CollectionItemPressPayload -.-> export_SerializableValue
+  export_COMPLETE_OAUTH_AUTHORIZATION_INPUT_SCHEMA["COMPLETE_OAUTH_AUTHORIZATION_INPUT_SCHEMA"]
+  module_src_auth_ts --> export_COMPLETE_OAUTH_AUTHORIZATION_INPUT_SCHEMA
   export_CompleteOAuthAuthorizationInput["CompleteOAuthAuthorizationInput"]
   module_src_auth_ts --> export_CompleteOAuthAuthorizationInput
   export_CompleteOAuthAuthorizationInput -.-> export_AuthOAuthAuthorizationResponse
@@ -1416,6 +1448,8 @@ graph LR
   module_src_infra_parseInfraManifest_ts --> export_parseInfraManifest
   export_parseInfraManifest -.-> export_InfraManifest
   export_parseInfraManifest -.-> export_InfraResult
+  export_PASSWORD_RESET_INPUT_SCHEMA["PASSWORD_RESET_INPUT_SCHEMA"]
+  module_src_auth_ts --> export_PASSWORD_RESET_INPUT_SCHEMA
   export_PasswordResetInput["PasswordResetInput"]
   module_src_auth_ts --> export_PasswordResetInput
   export_PasswordResetInput -.-> export_AuthIdentifier
@@ -1606,6 +1640,16 @@ graph LR
   module_src_collections_ts --> export_SerializableSet
   export_SerializableValue["SerializableValue"]
   module_src_serializable_ts --> export_SerializableValue
+  export_SIGN_IN_INPUT_SCHEMA["SIGN_IN_INPUT_SCHEMA"]
+  module_src_auth_ts --> export_SIGN_IN_INPUT_SCHEMA
+  export_SIGN_IN_RESULT_SCHEMA["SIGN_IN_RESULT_SCHEMA"]
+  module_src_auth_ts --> export_SIGN_IN_RESULT_SCHEMA
+  export_SIGN_OUT_INPUT_SCHEMA["SIGN_OUT_INPUT_SCHEMA"]
+  module_src_auth_ts --> export_SIGN_OUT_INPUT_SCHEMA
+  export_SIGN_UP_INPUT_SCHEMA["SIGN_UP_INPUT_SCHEMA"]
+  module_src_auth_ts --> export_SIGN_UP_INPUT_SCHEMA
+  export_SIGN_UP_RESULT_SCHEMA["SIGN_UP_RESULT_SCHEMA"]
+  module_src_auth_ts --> export_SIGN_UP_RESULT_SCHEMA
   export_SignInInput["SignInInput"]
   module_src_auth_ts --> export_SignInInput
   export_SignInInput -.-> export_AuthIdentifier
@@ -1647,6 +1691,8 @@ graph LR
   module_src_navigator_ts --> export_StackPresentation
   export_StackScreenOptions["StackScreenOptions"]
   module_src_navigator_ts --> export_StackScreenOptions
+  export_START_OAUTH_AUTHORIZATION_INPUT_SCHEMA["START_OAUTH_AUTHORIZATION_INPUT_SCHEMA"]
+  module_src_auth_ts --> export_START_OAUTH_AUTHORIZATION_INPUT_SCHEMA
   export_StartOAuthAuthorizationInput["StartOAuthAuthorizationInput"]
   module_src_auth_ts --> export_StartOAuthAuthorizationInput
   export_StartOAuthAuthorizationInput -.-> export_AuthOAuthProviderId
@@ -1990,6 +2036,8 @@ graph LR
   export_validateSecretPayload -.-> export_SecretStoreResult
   export_ValueMap["ValueMap"]
   module_src_collections_ts --> export_ValueMap
+  export_VERIFY_OTP_INPUT_SCHEMA["VERIFY_OTP_INPUT_SCHEMA"]
+  module_src_auth_ts --> export_VERIFY_OTP_INPUT_SCHEMA
   export_VerifyOtpInput["VerifyOtpInput"]
   module_src_auth_ts --> export_VerifyOtpInput
   export_VerifyOtpInput -.-> export_AuthIdentifier

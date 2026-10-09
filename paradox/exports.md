@@ -574,71 +574,131 @@ Source: `src/state.ts:4:1`
 | persistence | property | `false \| undefined` | no |  |
 | provider | property | `"legend"` | yes |  |
 
+## AUTH_ADAPTER_ERROR_SCHEMA
+
+Kind: `value`
+Module: `src/auth.ts`
+Source: `src/auth.ts:282:14`
+
+## AUTH_EMPTY_INPUT_SCHEMA
+
+Kind: `value`
+Module: `src/auth.ts`
+Source: `src/auth.ts:510:14`
+
+## AUTH_ERROR_RESULT_SCHEMA
+
+Kind: `value`
+Module: `src/auth.ts`
+Source: `src/auth.ts:347:14`
+
 ## AUTH_IDENTIFIER_KINDS
 
 Kind: `value`
 Module: `src/auth.ts`
-Source: `src/auth.ts:7:14`
+Source: `src/auth.ts:8:14`
+
+## AUTH_IDENTIFIER_SCHEMA
+
+Kind: `value`
+Module: `src/auth.ts`
+Source: `src/auth.ts:247:14`
+
+## AUTH_NULLABLE_SESSION_RESULT_SCHEMA
+
+Kind: `value`
+Module: `src/auth.ts`
+Source: `src/auth.ts:393:14`
+
+## AUTH_OAUTH_AUTHORIZATION_REQUEST_SCHEMA
+
+Kind: `value`
+Module: `src/auth.ts`
+Source: `src/auth.ts:525:14`
+
+## AUTH_OAUTH_AUTHORIZATION_RESPONSE_SCHEMA
+
+Kind: `value`
+Module: `src/auth.ts`
+Source: `src/auth.ts:570:14`
 
 ## AUTH_OAUTH_CANCELLATION_REASONS
 
 Kind: `value`
 Module: `src/auth.ts`
-Source: `src/auth.ts:283:14`
+Source: `src/auth.ts:449:14`
+
+## AUTH_OAUTH_COMPLETION_RESULT_SCHEMA
+
+Kind: `value`
+Module: `src/auth.ts`
+Source: `src/auth.ts:613:14`
 
 ## AUTH_OAUTH_ERROR_CODES
 
 Kind: `value`
 Module: `src/auth.ts`
-Source: `src/auth.ts:250:14`
+Source: `src/auth.ts:416:14`
+
+## AUTH_OAUTH_ERROR_SCHEMA
+
+Kind: `value`
+Module: `src/auth.ts`
+Source: `src/auth.ts:536:14`
 
 ## AUTH_OAUTH_ERROR_STAGES
 
 Kind: `value`
 Module: `src/auth.ts`
-Source: `src/auth.ts:240:14`
+Source: `src/auth.ts:406:14`
 
 ## AUTH_OAUTH_PROVIDER_IDS
 
 Kind: `value`
 Module: `src/auth.ts`
-Source: `src/auth.ts:20:14`
+Source: `src/auth.ts:21:14`
 
 ## AUTH_OAUTH_SETUP_CALLBACK_ROLES
 
 Kind: `value`
 Module: `src/auth.ts`
-Source: `src/auth.ts:58:14`
+Source: `src/auth.ts:59:14`
 
 ## AUTH_OAUTH_SETUP_FIELD_PERSISTENCE_KINDS
 
 Kind: `value`
 Module: `src/auth.ts`
-Source: `src/auth.ts:48:14`
+Source: `src/auth.ts:49:14`
 
 ## AUTH_OAUTH_SETUP_FIELD_SENSITIVITIES
 
 Kind: `value`
 Module: `src/auth.ts`
-Source: `src/auth.ts:55:14`
+Source: `src/auth.ts:56:14`
+
+## AUTH_OAUTH_START_RESULT_SCHEMA
+
+Kind: `value`
+Module: `src/auth.ts`
+Source: `src/auth.ts:549:14`
 
 ## AUTH_OAUTH_TRANSPORT_CANCELLATION_REASONS
 
 Kind: `value`
 Module: `src/auth.ts`
-Source: `src/auth.ts:276:14`
+Source: `src/auth.ts:442:14`
 
 ## AUTH_OAUTH_TRANSPORT_ERROR_CODES
 
 Kind: `value`
 Module: `src/auth.ts`
-Source: `src/auth.ts:289:14`
+Source: `src/auth.ts:455:14`
 
 ## AUTH_OAUTH_TRANSPORT_IDS
 
 Kind: `value`
 Module: `src/auth.ts`
-Source: `src/auth.ts:44:14`
+Source: `src/auth.ts:45:14`
 
 ## AUTH_PROFILE_CREATE_STRATEGIES
 
@@ -670,6 +730,18 @@ Kind: `value`
 Module: `src/types.ts`
 Source: `src/types.ts:108:14`
 
+## AUTH_SESSION_RESULT_SCHEMA
+
+Kind: `value`
+Module: `src/auth.ts`
+Source: `src/auth.ts:383:14`
+
+## AUTH_SESSION_SCHEMA
+
+Kind: `value`
+Module: `src/auth.ts`
+Source: `src/auth.ts:270:14`
+
 ## AUTH_SIGN_IN_IDENTIFIERS
 
 Kind: `value`
@@ -680,7 +752,7 @@ Source: `src/types.ts:111:14`
 
 Kind: `value`
 Module: `src/auth.ts`
-Source: `src/auth.ts:10:14`
+Source: `src/auth.ts:11:14`
 
 ## AUTH_SIGN_UP_POLICIES
 
@@ -688,11 +760,29 @@ Kind: `value`
 Module: `src/types.ts`
 Source: `src/types.ts:114:14`
 
+## AUTH_SUCCESS_SCHEMA
+
+Kind: `value`
+Module: `src/auth.ts`
+Source: `src/auth.ts:341:14`
+
+## AUTH_USER_SCHEMA
+
+Kind: `value`
+Module: `src/auth.ts`
+Source: `src/auth.ts:256:14`
+
+## AUTH_VOID_RESULT_SCHEMA
+
+Kind: `value`
+Module: `src/auth.ts`
+Source: `src/auth.ts:379:14`
+
 ## AuthAdapter
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:383:1`
+Source: `src/auth.ts:686:1`
 
 ### Members
 
@@ -712,7 +802,7 @@ Source: `src/auth.ts:383:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:375:1`
+Source: `src/auth.ts:678:1`
 
 ### Members
 
@@ -728,7 +818,7 @@ Source: `src/auth.ts:375:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:192:1`
+Source: `src/auth.ts:193:1`
 
 ### Members
 
@@ -742,7 +832,7 @@ Source: `src/auth.ts:192:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:112:1`
+Source: `src/auth.ts:113:1`
 
 ### Members
 
@@ -760,7 +850,7 @@ Source: `src/auth.ts:112:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:107:1`
+Source: `src/auth.ts:108:1`
 
 ### Members
 
@@ -773,13 +863,13 @@ Source: `src/auth.ts:107:1`
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:8:1`
+Source: `src/auth.ts:9:1`
 
 ## AuthOAuthAdapter
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:368:1`
+Source: `src/auth.ts:671:1`
 
 ### Members
 
@@ -793,7 +883,7 @@ Source: `src/auth.ts:368:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:308:1`
+Source: `src/auth.ts:474:1`
 
 ### Members
 
@@ -808,19 +898,19 @@ Source: `src/auth.ts:308:1`
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:325:1`
+Source: `src/auth.ts:491:1`
 
 ## AuthOAuthCancellationReason
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:287:1`
+Source: `src/auth.ts:453:1`
 
 ## AuthOAuthCapabilities
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:363:1`
+Source: `src/auth.ts:666:1`
 
 ### Members
 
@@ -832,13 +922,13 @@ Source: `src/auth.ts:363:1`
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:344:1`
+Source: `src/auth.ts:647:1`
 
 ## AuthOAuthConfig
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:155:1`
+Source: `src/auth.ts:156:1`
 
 ### Members
 
@@ -852,7 +942,7 @@ Source: `src/auth.ts:155:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:269:1`
+Source: `src/auth.ts:435:1`
 
 ### Members
 
@@ -869,19 +959,19 @@ Source: `src/auth.ts:269:1`
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:267:1`
+Source: `src/auth.ts:433:1`
 
 ## AuthOAuthErrorStage
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:248:1`
+Source: `src/auth.ts:414:1`
 
 ## AuthOAuthProviderConfig
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:144:1`
+Source: `src/auth.ts:145:1`
 
 ### Members
 
@@ -899,13 +989,13 @@ Source: `src/auth.ts:144:1`
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:42:1`
+Source: `src/auth.ts:43:1`
 
 ## AuthOAuthSetupCallbackRequirement
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:74:1`
+Source: `src/auth.ts:75:1`
 
 ### Members
 
@@ -922,13 +1012,13 @@ Source: `src/auth.ts:74:1`
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:59:1`
+Source: `src/auth.ts:60:1`
 
 ## AuthOAuthSetupCapabilities
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:102:1`
+Source: `src/auth.ts:103:1`
 
 ### Members
 
@@ -941,13 +1031,13 @@ Source: `src/auth.ts:102:1`
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:52:1`
+Source: `src/auth.ts:53:1`
 
 ## AuthOAuthSetupFieldRequirement
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:61:1`
+Source: `src/auth.ts:62:1`
 
 ### Members
 
@@ -966,13 +1056,13 @@ Source: `src/auth.ts:61:1`
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:56:1`
+Source: `src/auth.ts:57:1`
 
 ## AuthOAuthSetupPlan
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:92:1`
+Source: `src/auth.ts:93:1`
 
 ### Members
 
@@ -988,25 +1078,25 @@ Source: `src/auth.ts:92:1`
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:84:1`
+Source: `src/auth.ts:85:1`
 
 ## AuthOAuthStartResult
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:315:1`
+Source: `src/auth.ts:481:1`
 
 ## AuthOAuthTransportCancellationReason
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:280:1`
+Source: `src/auth.ts:446:1`
 
 ## AuthOAuthTransportError
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:295:1`
+Source: `src/auth.ts:461:1`
 
 ### Members
 
@@ -1020,13 +1110,13 @@ Source: `src/auth.ts:295:1`
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:293:1`
+Source: `src/auth.ts:459:1`
 
 ## AuthOAuthTransportId
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:46:1`
+Source: `src/auth.ts:47:1`
 
 ## AuthProfileCreateStrategy
 
@@ -1072,7 +1162,7 @@ Source: `src/types.ts:134:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:161:1`
+Source: `src/auth.ts:162:1`
 
 ### Members
 
@@ -1089,7 +1179,7 @@ Source: `src/auth.ts:161:1`
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:198:1`
+Source: `src/auth.ts:199:1`
 
 ## AuthScope
 
@@ -1101,7 +1191,7 @@ Source: `src/types.ts:109:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:184:1`
+Source: `src/auth.ts:185:1`
 
 ### Members
 
@@ -1117,7 +1207,7 @@ Source: `src/auth.ts:184:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:135:1`
+Source: `src/auth.ts:136:1`
 
 ### Members
 
@@ -1147,7 +1237,7 @@ Source: `src/types.ts:185:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:139:1`
+Source: `src/auth.ts:140:1`
 
 ### Members
 
@@ -1160,7 +1250,7 @@ Source: `src/auth.ts:139:1`
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:18:1`
+Source: `src/auth.ts:19:1`
 
 ## AuthSignUpPolicy
 
@@ -1186,7 +1276,7 @@ Source: `src/types.ts:189:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:174:1`
+Source: `src/auth.ts:175:1`
 
 ### Members
 
@@ -1341,11 +1431,17 @@ Source: `src/types.ts:65:1`
 | item | property | `Record<string, SerializableValue>` | yes |  |
 | itemId | property | `string \| number` | yes |  |
 
+## COMPLETE_OAUTH_AUTHORIZATION_INPUT_SCHEMA
+
+Kind: `value`
+Module: `src/auth.ts`
+Source: `src/auth.ts:604:14`
+
 ## CompleteOAuthAuthorizationInput
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:339:1`
+Source: `src/auth.ts:505:1`
 
 ### Members
 
@@ -2230,7 +2326,7 @@ Source: `src/db.ts:68:1`
 
 Kind: `value`
 Module: `src/auth.ts`
-Source: `src/auth.ts:122:14`
+Source: `src/auth.ts:123:14`
 
 ## DEPLOYMENT_CAPABILITIES
 
@@ -3992,13 +4088,13 @@ Source: `src/navigator.ts:111:1`
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:41:1`
+Source: `src/auth.ts:42:1`
 
 ## KnownAuthOAuthTransportId
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:45:1`
+Source: `src/auth.ts:46:1`
 
 ## KnownAuthProfileField
 
@@ -4010,7 +4106,7 @@ Source: `src/types.ts:124:1`
 
 Kind: `unknown`
 Module: `src/auth.ts`
-Source: `src/auth.ts:17:1`
+Source: `src/auth.ts:18:1`
 
 ## KnownComponentEventDto
 
@@ -4911,11 +5007,17 @@ Source: `src/infra/parseInfraManifest.ts:6:1`
   - value: `unknown`
   - returns: `InfraResult<InfraManifest>`
 
+## PASSWORD_RESET_INPUT_SCHEMA
+
+Kind: `value`
+Module: `src/auth.ts`
+Source: `src/auth.ts:321:14`
+
 ## PasswordResetInput
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:228:1`
+Source: `src/auth.ts:229:1`
 
 ### Members
 
@@ -5250,7 +5352,7 @@ Source: `src/repository.ts:1:1`
 
 Kind: `function`
 Module: `src/auth.ts`
-Source: `src/auth.ts:131:1`
+Source: `src/auth.ts:132:1`
 
 ### Signatures
 
@@ -5625,11 +5727,41 @@ Kind: `unknown`
 Module: `src/serializable.ts`
 Source: `src/serializable.ts:3:1`
 
+## SIGN_IN_INPUT_SCHEMA
+
+Kind: `value`
+Module: `src/auth.ts`
+Source: `src/auth.ts:292:14`
+
+## SIGN_IN_RESULT_SCHEMA
+
+Kind: `value`
+Module: `src/auth.ts`
+Source: `src/auth.ts:356:14`
+
+## SIGN_OUT_INPUT_SCHEMA
+
+Kind: `value`
+Module: `src/auth.ts`
+Source: `src/auth.ts:316:14`
+
+## SIGN_UP_INPUT_SCHEMA
+
+Kind: `value`
+Module: `src/auth.ts`
+Source: `src/auth.ts:304:14`
+
+## SIGN_UP_RESULT_SCHEMA
+
+Kind: `value`
+Module: `src/auth.ts`
+Source: `src/auth.ts:366:14`
+
 ## SignInInput
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:208:1`
+Source: `src/auth.ts:209:1`
 
 ### Members
 
@@ -5645,7 +5777,7 @@ Source: `src/auth.ts:208:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:224:1`
+Source: `src/auth.ts:225:1`
 
 ### Members
 
@@ -5657,7 +5789,7 @@ Source: `src/auth.ts:224:1`
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:216:1`
+Source: `src/auth.ts:217:1`
 
 ### Members
 
@@ -5792,11 +5924,17 @@ Kind: `unknown`
 Module: `src/navigator.ts`
 Source: `src/navigator.ts:53:1`
 
+## START_OAUTH_AUTHORIZATION_INPUT_SCHEMA
+
+Kind: `value`
+Module: `src/auth.ts`
+Source: `src/auth.ts:514:14`
+
 ## StartOAuthAuthorizationInput
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:301:1`
+Source: `src/auth.ts:467:1`
 
 ### Members
 
@@ -7161,11 +7299,17 @@ Kind: `unknown`
 Module: `src/collections.ts`
 Source: `src/collections.ts:11:1`
 
+## VERIFY_OTP_INPUT_SCHEMA
+
+Kind: `value`
+Module: `src/auth.ts`
+Source: `src/auth.ts:330:14`
+
 ## VerifyOtpInput
 
 Kind: `type`
 Module: `src/auth.ts`
-Source: `src/auth.ts:233:1`
+Source: `src/auth.ts:234:1`
 
 ### Members
 

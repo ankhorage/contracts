@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 25.1.0
+
+### Minor Changes
+
+- 5acd8d2: Add portable auth and session capability schema sources.
+
 ## 25.0.1
 
 ### Patch Changes
