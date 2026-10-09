@@ -5,9 +5,6 @@
   "ankh": {
     "category": "contracts",
     "provider": null,
-    "capabilities": [
-      "contracts.cli"
-    ],
     "structure": {
       "output": "src/structure/generated.ts",
       "roots": {
@@ -47,7 +44,7 @@
     "@ankhorage/utility": "^1.9.85"
   },
   "devDependencies": {
-    "@ankhorage/devtools": "^2.1.19",
+    "@ankhorage/devtools": "^2.3.7",
     "@ankhorage/paradox": "^0.3.1",
     "@types/bun": "^1.4.2",
     "@types/node": "^26.6.4",
