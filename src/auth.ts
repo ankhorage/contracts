@@ -1,4 +1,5 @@
 import type { ValueMap } from './collections';
+import type { DataSchema } from './data/schemas';
 import type { AppDeployTargetId } from './deploy';
 import type { AppEnvironmentId } from './environments';
 import type { SecretRef } from './secrets';
@@ -237,6 +238,171 @@ export interface VerifyOtpInput {
   metadata?: Record<string, unknown>;
 }
 
+/**
+ * Portable schema sources for the provider-neutral auth/session values and operation payloads.
+ *
+ * They describe the existing serializable contracts only. Auth execution, capability catalogs,
+ * adapter ports, and provider-specific configuration remain outside Contracts.
+ */
+export const AUTH_IDENTIFIER_SCHEMA = {
+  type: 'object',
+  required: ['kind', 'value'],
+  properties: {
+    kind: { type: 'string', enum: AUTH_IDENTIFIER_KINDS },
+    value: { type: 'string' },
+  },
+} as const satisfies DataSchema;
+
+export const AUTH_USER_SCHEMA = {
+  type: 'object',
+  required: ['id'],
+  properties: {
+    id: { type: 'string' },
+    email: { type: 'string' },
+    phone: { type: 'string' },
+    username: { type: 'string' },
+    displayName: { type: 'string' },
+    avatarUrl: { type: 'string' },
+    metadata: { type: 'object', additionalProperties: {} },
+  },
+} as const satisfies DataSchema;
+
+export const AUTH_SESSION_SCHEMA = {
+  type: 'object',
+  required: ['accessToken', 'user'],
+  properties: {
+    accessToken: { type: 'string' },
+    refreshToken: { type: 'string' },
+    expiresAt: { type: 'number' },
+    tokenType: { type: 'string' },
+    user: AUTH_USER_SCHEMA,
+  },
+} as const satisfies DataSchema;
+
+export const AUTH_ADAPTER_ERROR_SCHEMA = {
+  type: 'object',
+  required: ['code', 'message'],
+  properties: {
+    code: { type: 'string' },
+    message: { type: 'string' },
+    cause: {},
+  },
+} as const satisfies DataSchema;
+
+export const SIGN_IN_INPUT_SCHEMA = {
+  type: 'object',
+  required: ['identifier'],
+  properties: {
+    identifier: AUTH_IDENTIFIER_SCHEMA,
+    password: { type: 'string' },
+    otp: { type: 'string' },
+    redirectTo: { type: 'string' },
+    metadata: { type: 'object', additionalProperties: {} },
+  },
+} as const satisfies DataSchema;
+
+export const SIGN_UP_INPUT_SCHEMA = {
+  type: 'object',
+  required: ['identifier'],
+  properties: {
+    identifier: AUTH_IDENTIFIER_SCHEMA,
+    password: { type: 'string' },
+    profile: { type: 'object', additionalProperties: {} },
+    redirectTo: { type: 'string' },
+    metadata: { type: 'object', additionalProperties: {} },
+  },
+} as const satisfies DataSchema;
+
+export const SIGN_OUT_INPUT_SCHEMA = {
+  type: 'object',
+  properties: { allDevices: { type: 'boolean' } },
+} as const satisfies DataSchema;
+
+export const PASSWORD_RESET_INPUT_SCHEMA = {
+  type: 'object',
+  required: ['identifier'],
+  properties: {
+    identifier: AUTH_IDENTIFIER_SCHEMA,
+    redirectTo: { type: 'string' },
+  },
+} as const satisfies DataSchema;
+
+export const VERIFY_OTP_INPUT_SCHEMA = {
+  type: 'object',
+  required: ['identifier', 'token'],
+  properties: {
+    identifier: AUTH_IDENTIFIER_SCHEMA,
+    token: { type: 'string' },
+    redirectTo: { type: 'string' },
+    metadata: { type: 'object', additionalProperties: {} },
+  },
+} as const satisfies DataSchema;
+
+export const AUTH_SUCCESS_SCHEMA = {
+  type: 'object',
+  required: ['ok'],
+  properties: { ok: { const: true } },
+} as const satisfies DataSchema;
+
+export const AUTH_ERROR_RESULT_SCHEMA = {
+  type: 'object',
+  required: ['ok', 'error'],
+  properties: {
+    ok: { const: false },
+    error: AUTH_ADAPTER_ERROR_SCHEMA,
+  },
+} as const satisfies DataSchema;
+
+export const SIGN_IN_RESULT_SCHEMA = {
+  oneOf: [
+    {
+      ...AUTH_SUCCESS_SCHEMA,
+      properties: { ...AUTH_SUCCESS_SCHEMA.properties, data: AUTH_SESSION_SCHEMA },
+    },
+    AUTH_ERROR_RESULT_SCHEMA,
+  ],
+} as const satisfies DataSchema;
+
+export const SIGN_UP_RESULT_SCHEMA = {
+  oneOf: [
+    {
+      ...AUTH_SUCCESS_SCHEMA,
+      properties: {
+        ...AUTH_SUCCESS_SCHEMA.properties,
+        data: { oneOf: [AUTH_SESSION_SCHEMA, AUTH_USER_SCHEMA] },
+      },
+    },
+    AUTH_ERROR_RESULT_SCHEMA,
+  ],
+} as const satisfies DataSchema;
+
+export const AUTH_VOID_RESULT_SCHEMA = {
+  oneOf: [AUTH_SUCCESS_SCHEMA, AUTH_ERROR_RESULT_SCHEMA],
+} as const satisfies DataSchema;
+
+export const AUTH_SESSION_RESULT_SCHEMA = {
+  oneOf: [
+    {
+      ...AUTH_SUCCESS_SCHEMA,
+      properties: { ...AUTH_SUCCESS_SCHEMA.properties, data: AUTH_SESSION_SCHEMA },
+    },
+    AUTH_ERROR_RESULT_SCHEMA,
+  ],
+} as const satisfies DataSchema;
+
+export const AUTH_NULLABLE_SESSION_RESULT_SCHEMA = {
+  oneOf: [
+    {
+      ...AUTH_SUCCESS_SCHEMA,
+      properties: {
+        ...AUTH_SUCCESS_SCHEMA.properties,
+        data: { oneOf: [AUTH_SESSION_SCHEMA, { type: 'null' }] },
+      },
+    },
+    AUTH_ERROR_RESULT_SCHEMA,
+  ],
+} as const satisfies DataSchema;
+
 export const AUTH_OAUTH_ERROR_STAGES = [
   'start',
   'transport',
@@ -340,6 +506,143 @@ export interface CompleteOAuthAuthorizationInput {
   attemptId: string;
   response: AuthOAuthAuthorizationResponse;
 }
+
+export const AUTH_EMPTY_INPUT_SCHEMA = {
+  type: 'object',
+} as const satisfies DataSchema;
+
+export const START_OAUTH_AUTHORIZATION_INPUT_SCHEMA = {
+  type: 'object',
+  required: ['provider', 'redirectUri'],
+  properties: {
+    provider: { type: 'string' },
+    redirectUri: { type: 'string' },
+    scopes: { type: 'array', items: { type: 'string' } },
+    queryParams: { type: 'object', additionalProperties: { type: 'string' } },
+  },
+} as const satisfies DataSchema;
+
+export const AUTH_OAUTH_AUTHORIZATION_REQUEST_SCHEMA = {
+  type: 'object',
+  required: ['attemptId', 'provider', 'authorizationUrl', 'redirectUri'],
+  properties: {
+    attemptId: { type: 'string' },
+    provider: { type: 'string' },
+    authorizationUrl: { type: 'string' },
+    redirectUri: { type: 'string' },
+  },
+} as const satisfies DataSchema;
+
+export const AUTH_OAUTH_ERROR_SCHEMA = {
+  type: 'object',
+  required: ['code', 'message', 'stage', 'recoverable'],
+  properties: {
+    code: { type: 'string', enum: AUTH_OAUTH_ERROR_CODES },
+    message: { type: 'string' },
+    cause: {},
+    stage: { type: 'string', enum: AUTH_OAUTH_ERROR_STAGES },
+    provider: { type: 'string' },
+    recoverable: { type: 'boolean' },
+  },
+} as const satisfies DataSchema;
+
+export const AUTH_OAUTH_START_RESULT_SCHEMA = {
+  oneOf: [
+    {
+      type: 'object',
+      required: ['ok', 'data'],
+      properties: {
+        ok: { const: true },
+        data: AUTH_OAUTH_AUTHORIZATION_REQUEST_SCHEMA,
+      },
+    },
+    {
+      type: 'object',
+      required: ['ok', 'error'],
+      properties: {
+        ok: { const: false },
+        error: AUTH_OAUTH_ERROR_SCHEMA,
+      },
+    },
+  ],
+} as const satisfies DataSchema;
+
+export const AUTH_OAUTH_AUTHORIZATION_RESPONSE_SCHEMA = {
+  oneOf: [
+    {
+      type: 'object',
+      required: ['type', 'url'],
+      properties: { type: { const: 'callback' }, url: { type: 'string' } },
+    },
+    {
+      type: 'object',
+      required: ['type', 'reason'],
+      properties: {
+        type: { const: 'cancelled' },
+        reason: { type: 'string', enum: AUTH_OAUTH_TRANSPORT_CANCELLATION_REASONS },
+      },
+    },
+    {
+      type: 'object',
+      required: ['type', 'error'],
+      properties: {
+        type: { const: 'error' },
+        error: {
+          type: 'object',
+          required: ['code', 'message'],
+          properties: {
+            code: { type: 'string', enum: AUTH_OAUTH_TRANSPORT_ERROR_CODES },
+            message: { type: 'string' },
+            cause: {},
+          },
+        },
+      },
+    },
+  ],
+} as const satisfies DataSchema;
+
+export const COMPLETE_OAUTH_AUTHORIZATION_INPUT_SCHEMA = {
+  type: 'object',
+  required: ['attemptId', 'response'],
+  properties: {
+    attemptId: { type: 'string' },
+    response: AUTH_OAUTH_AUTHORIZATION_RESPONSE_SCHEMA,
+  },
+} as const satisfies DataSchema;
+
+export const AUTH_OAUTH_COMPLETION_RESULT_SCHEMA = {
+  oneOf: [
+    {
+      type: 'object',
+      required: ['ok', 'status', 'provider', 'session'],
+      properties: {
+        ok: { const: true },
+        status: { const: 'authenticated' },
+        provider: { type: 'string' },
+        session: AUTH_SESSION_SCHEMA,
+      },
+    },
+    {
+      type: 'object',
+      required: ['ok', 'status', 'provider', 'reason'],
+      properties: {
+        ok: { const: false },
+        status: { const: 'cancelled' },
+        provider: { type: 'string' },
+        reason: { type: 'string', enum: AUTH_OAUTH_CANCELLATION_REASONS },
+      },
+    },
+    {
+      type: 'object',
+      required: ['ok', 'status', 'error'],
+      properties: {
+        ok: { const: false },
+        status: { const: 'error' },
+        error: AUTH_OAUTH_ERROR_SCHEMA,
+      },
+    },
+  ],
+} as const satisfies DataSchema;
 
 export type AuthOAuthCompletionResult =
   | {
