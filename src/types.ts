@@ -2,7 +2,7 @@ import type { ColorHarmony } from '@ankhorage/color-theory';
 
 import type { AuthIdentifierKind, AuthSignUpField } from './auth';
 import type {
-  BindingValueSource,
+  BindingExpression,
   ComponentDataBindingRegistry,
   ScreenDataLoaderDefinition,
 } from './bindings';
@@ -153,7 +153,7 @@ export interface SvgIconSpec extends IconPresentationSpec {
 export type IconSpec = NamedIconSpec | SvgIconSpec;
 
 export interface UiNodeRepeatSpec {
-  source: BindingValueSource;
+  source: BindingExpression;
   itemAlias?: string;
   keyPath?: string;
   empty?: readonly UiNode[];

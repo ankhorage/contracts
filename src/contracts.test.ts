@@ -219,7 +219,7 @@ describe('contracts', () => {
     expect(theme.recipes?.patterns?.Panel?.padding).toBe('xl');
   });
 
-  it('accepts screens with operation data loaders and repeat empty-state nodes', () => {
+  it('accepts screens with capability loaders and repeat empty-state nodes', () => {
     const manifest: Pick<AppManifest, 'screens'> = {
       screens: {
         products: {
@@ -230,12 +230,8 @@ describe('contracts', () => {
             type: 'Grid',
             repeat: {
               source: {
-                kind: 'operation',
-                operation: {
-                  dataSourceId: 'nutrition-api',
-                  endpointId: 'products',
-                  operationId: 'nutrition.products.list',
-                },
+                capability: 'api.nutrition.productsList',
+                result: 'products',
                 path: 'products',
               },
               empty: [
@@ -252,20 +248,12 @@ describe('contracts', () => {
           },
           dataLoaders: [
             {
-              kind: 'operation',
-              id: 'product-detail',
-              operation: {
-                dataSourceId: 'nutrition-api',
-                endpointId: 'products',
-                operationId: 'nutrition.products.getById',
-              },
+              capability: 'api.nutrition.productsGetById',
+              result: 'product',
               input: {
                 id: {
-                  kind: 'source',
-                  source: {
-                    kind: 'context',
-                    path: 'route.params.id',
-                  },
+                  capability: 'context.route',
+                  path: 'params.id',
                 },
               },
             },
@@ -275,7 +263,9 @@ describe('contracts', () => {
     };
 
     expect(JSON.parse(JSON.stringify(manifest))).toEqual(manifest);
-    expect(manifest.screens.products?.dataLoaders?.[0]?.kind).toBe('operation');
+    expect(manifest.screens.products?.dataLoaders?.[0]?.capability).toBe(
+      'api.nutrition.productsGetById',
+    );
     expect(manifest.screens.products?.root.repeat?.empty?.[0]?.type).toBe('Notice');
   });
 

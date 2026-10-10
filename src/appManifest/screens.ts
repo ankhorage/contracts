@@ -6,7 +6,7 @@ import { isSerializableSet } from '../collections';
 import { isMediaAssetReference } from '../media';
 import { ANKHORAGE_CAPABILITY_NAMES, ANKHORAGE_PERMISSION_NAMES } from '../requirements';
 import { APP_CATEGORIES, type ThemeRegistry } from '../types';
-import { isBindingValueSource, isScreenDataLoaderDefinition } from './bindings';
+import { isBindingExpression, isScreenDataLoaderDefinition } from './bindings';
 
 export { isAppNavigatorManifest } from './navigator';
 
@@ -101,7 +101,7 @@ function isUiNode(value: unknown): boolean {
 function isUiNodeRepeatSpec(value: unknown): boolean {
   return (
     isRecord(value) &&
-    isBindingValueSource(value.source) &&
+    isBindingExpression(value.source) &&
     isOptionalString(value.itemAlias) &&
     isOptionalString(value.keyPath) &&
     (value.empty === undefined || (Array.isArray(value.empty) && value.empty.every(isUiNode)))

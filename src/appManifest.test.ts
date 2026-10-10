@@ -110,15 +110,14 @@ function createManifest(): Record<string, unknown> {
             {
               id: 'title',
               type: 'Text',
-              repeat: { source: { kind: 'state', path: 'items' }, itemAlias: 'item' },
+              repeat: { source: { capability: 'state.items' }, itemAlias: 'item' },
             },
           ],
         },
         dataLoaders: [
           {
-            kind: 'operation',
-            id: 'load-products',
-            operation: { apiId: 'nutrition', endpointId: 'products', operationId: 'products.list' },
+            capability: 'api.nutrition.productsList',
+            result: 'products',
           },
         ],
         requires: {
@@ -138,9 +137,9 @@ function createManifest(): Record<string, unknown> {
     dataBindings: {
       title: {
         componentId: 'title',
-        props: { text: { source: { kind: 'state', path: 'title' } } },
+        props: { text: { value: { capability: 'state.title' } } },
         events: {
-          press: [{ target: { kind: 'action', type: 'console' } }],
+          press: [{ target: { capability: 'console.log' } }],
         },
       },
     },
@@ -291,11 +290,11 @@ describe('AppManifest runtime parsing', () => {
     expect(isAppManifest(manifest)).toBe(false);
   });
 
-  it('rejects invalid data-binding source kinds', () => {
+  it('rejects invalid data-binding expression shapes', () => {
     const manifest = createManifest();
     const bindings = manifest.dataBindings as Record<string, Record<string, unknown>>;
     const props = bindings.title?.props as Record<string, Record<string, unknown>>;
-    props.text = { source: { kind: 'provider-specific', path: 'title' } };
+    props.text = { value: { kind: 'provider-specific', path: 'title' } };
 
     expect(isAppManifest(manifest)).toBe(false);
   });

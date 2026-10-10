@@ -14,29 +14,14 @@ export function isComponentDataBindingRegistry(value: unknown): boolean {
   );
 }
 
-/*** Validate literal, operation and path-based binding sources. */
-export function isBindingValueSource(value: unknown): boolean {
-  return (
-    isRecord(value) &&
-    typeof value.kind === 'string' &&
-    ['context', 'event', 'literal', 'operation', 'state'].includes(value.kind) &&
-    (value.kind === 'literal'
-      ? isManifestValue(value.value)
-      : value.kind === 'operation'
-        ? isBindingOperationRef(value.operation) && isOptionalString(value.path)
-        : typeof value.path === 'string')
-  );
+/*** Validate a readable capability reference or a recursive binding expression. */
+export function isBindingExpression(value: unknown): boolean {
+  return isBindingCapabilityReference(value) || isBindingExpressionNode(value);
 }
 
-/*** Validate a screen operation loader and its optional input mapping. */
+/*** Validate a screen loader as one portable capability invocation. */
 export function isScreenDataLoaderDefinition(value: unknown): boolean {
-  return (
-    isRecord(value) &&
-    value.kind === 'operation' &&
-    isOptionalString(value.id) &&
-    isBindingOperationRef(value.operation) &&
-    (value.input === undefined || isBindingInputMap(value.input))
-  );
+  return isBindingInvocation(value);
 }
 
 /*** Validate component identity and its property and event bindings. */
@@ -55,104 +40,93 @@ function isComponentDataBinding(value: unknown): boolean {
   );
 }
 
-/*** Validate a property binding with optional transforms and fallback behavior. */
+/*** Validate a property expression and its lifecycle-specific render behavior. */
 function isPropBinding(value: unknown): boolean {
   return (
     isRecord(value) &&
-    isBindingValueSource(value.source) &&
-    (value.fallback === undefined || isBindingFallback(value.fallback)) &&
+    isBindingExpression(value.value) &&
     (value.loading === undefined || isBindingLifecycleBehavior(value.loading)) &&
     (value.error === undefined || isBindingLifecycleBehavior(value.error)) &&
-    (value.empty === undefined || isBindingLifecycleBehavior(value.empty)) &&
-    isOptionalBindingTransforms(value.transforms)
+    (value.empty === undefined || isBindingLifecycleBehavior(value.empty))
   );
 }
 
-/*** Validate an event binding and its declared target. */
+/*** Validate an event binding and its one canonical invocation target. */
 function isEventBinding(value: unknown): boolean {
   return (
     isRecord(value) &&
-    isEventBindingTarget(value.target) &&
-    (value.input === undefined || isBindingInputMap(value.input)) &&
+    isBindingInvocation(value.target) &&
     (value.when === undefined || isBindingCondition(value.when))
   );
 }
 
-/*** Validate the selected operation or action event target. */
-function isEventBindingTarget(value: unknown): boolean {
+/*** Validate a serializable capability invocation and optional result slot. */
+function isBindingInvocation(value: unknown): boolean {
   return (
-    isRecord(value) &&
-    ((value.kind === 'action' && typeof value.type === 'string') ||
-      (value.kind === 'operation' && isBindingOperationRef(value.operation)))
+    isBindingCapabilityReference(value) &&
+    (value.input === undefined || isBindingInputMap(value.input))
   );
 }
 
-/*** Validate a binding condition and its source value. */
+/*** Validate a capability identity with optional output path or cached-result slot. */
+function isBindingCapabilityReference(value: unknown): value is Record<string, unknown> {
+  return (
+    isRecord(value) &&
+    typeof value.capability === 'string' &&
+    value.capability.includes('.') &&
+    isOptionalString(value.path) &&
+    isOptionalString(value.result)
+  );
+}
+
+/*** Validate array, fallback, literal, object and transform expression forms. */
+function isBindingExpressionNode(value: unknown): boolean {
+  return (
+    isRecord(value) &&
+    ((value.kind === 'array' &&
+      Array.isArray(value.items) &&
+      value.items.every(isBindingExpression)) ||
+      (value.kind === 'fallback' &&
+        isBindingExpression(value.value) &&
+        isBindingExpression(value.fallback)) ||
+      (value.kind === 'literal' && isManifestValue(value.value)) ||
+      (value.kind === 'object' && isBindingInputMap(value.fields)) ||
+      (value.kind === 'transform' &&
+        isBindingExpression(value.value) &&
+        isBindingTransforms(value.transforms)))
+  );
+}
+
+/*** Validate a condition expressed through the same recursive binding vocabulary. */
 function isBindingCondition(value: unknown): boolean {
   return (
     isRecord(value) &&
-    isBindingValueSource(value.source) &&
+    isBindingExpression(value.source) &&
     ['eq', 'exists', 'neq', 'notExists'].includes(String(value.operator)) &&
-    (value.value === undefined || isManifestValue(value.value))
+    (value.value === undefined || isBindingExpression(value.value))
   );
 }
 
-/*** Validate API and operation identities with an optional endpoint reference. */
-function isBindingOperationRef(value: unknown): boolean {
-  return (
-    isRecord(value) &&
-    typeof value.apiId === 'string' &&
-    typeof value.operationId === 'string' &&
-    isOptionalString(value.endpointId)
-  );
-}
-
-/*** Validate authored binding fallback values. */
-function isBindingFallback(value: unknown): boolean {
-  return (
-    isRecord(value) &&
-    (value.value === undefined || isManifestValue(value.value)) &&
-    (value.source === undefined || isBindingValueSource(value.source))
-  );
-}
-
-/*** Validate loading, empty and error binding behavior. */
+/*** Validate a lifecycle state and its optional bound display expression. */
 function isBindingLifecycleBehavior(value: unknown): boolean {
   return (
     isRecord(value) &&
     typeof value.state === 'string' &&
     ['empty', 'error', 'loading'].includes(value.state) &&
-    (value.fallback === undefined || isBindingFallback(value.fallback)) &&
+    (value.value === undefined || isBindingExpression(value.value)) &&
     isOptionalString(value.message)
   );
 }
 
-/*** Validate optional ordered binding transformations. */
-function isOptionalBindingTransforms(value: unknown): boolean {
-  return (
-    value === undefined ||
-    (Array.isArray(value) &&
-      value.every((transform) => ['lowercase', 'trim', 'uppercase'].includes(String(transform))))
-  );
-}
-
-/*** Validate every value in an operation input mapping. */
+/*** Validate every recursively authored invocation input expression. */
 function isBindingInputMap(value: unknown): boolean {
-  return isRecord(value) && Object.values(value).every(isBindingInputValue);
+  return isRecord(value) && Object.values(value).every(isBindingExpression);
 }
 
-/*** Validate recursive array, object, literal and source operation inputs. */
-function isBindingInputValue(value: unknown): boolean {
+/*** Validate ordered expression transforms. */
+function isBindingTransforms(value: unknown): boolean {
   return (
-    isRecord(value) &&
-    typeof value.kind === 'string' &&
-    ((value.kind === 'array' &&
-      Array.isArray(value.items) &&
-      value.items.every(isBindingInputValue)) ||
-      (value.kind === 'literal' && isManifestValue(value.value)) ||
-      (value.kind === 'object' && isBindingInputMap(value.fields)) ||
-      (value.kind === 'source' &&
-        isBindingValueSource(value.source) &&
-        isOptionalBindingTransforms(value.transforms)))
+    Array.isArray(value) &&
+    value.every((transform) => ['lowercase', 'trim', 'uppercase'].includes(String(transform)))
   );
 }
