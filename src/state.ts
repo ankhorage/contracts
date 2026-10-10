@@ -21,6 +21,7 @@ export interface StateAdapterCapabilities {
 export interface StateAdapterError {
   readonly code: string;
   readonly message: string;
+  readonly cause?: unknown;
 }
 
 export type StateSuccess<TValue = void> = [TValue] extends [void]

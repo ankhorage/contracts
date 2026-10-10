@@ -193,14 +193,14 @@ export interface AuthSession {
 export interface AuthAdapterError {
   code: string;
   message: string;
+  cause?: unknown;
 }
 
-export type AuthOkResult<TData> = [TData] extends [void]
-  ? { ok: true; data?: undefined }
-  : { ok: true; data: TData };
-
 export type AuthResult<TData = void> =
-  | AuthOkResult<TData>
+  | {
+      ok: true;
+      data?: TData;
+    }
   | {
       ok: false;
       error: AuthAdapterError;
@@ -285,6 +285,7 @@ export const AUTH_ADAPTER_ERROR_SCHEMA = {
   properties: {
     code: { type: 'string' },
     message: { type: 'string' },
+    cause: {},
   },
 } as const satisfies DataSchema;
 
@@ -356,7 +357,6 @@ export const SIGN_IN_RESULT_SCHEMA = {
   oneOf: [
     {
       ...AUTH_SUCCESS_SCHEMA,
-      required: ['ok', 'data'],
       properties: { ...AUTH_SUCCESS_SCHEMA.properties, data: AUTH_SESSION_SCHEMA },
     },
     AUTH_ERROR_RESULT_SCHEMA,
@@ -367,7 +367,6 @@ export const SIGN_UP_RESULT_SCHEMA = {
   oneOf: [
     {
       ...AUTH_SUCCESS_SCHEMA,
-      required: ['ok', 'data'],
       properties: {
         ...AUTH_SUCCESS_SCHEMA.properties,
         data: { oneOf: [AUTH_SESSION_SCHEMA, AUTH_USER_SCHEMA] },
@@ -385,7 +384,6 @@ export const AUTH_SESSION_RESULT_SCHEMA = {
   oneOf: [
     {
       ...AUTH_SUCCESS_SCHEMA,
-      required: ['ok', 'data'],
       properties: { ...AUTH_SUCCESS_SCHEMA.properties, data: AUTH_SESSION_SCHEMA },
     },
     AUTH_ERROR_RESULT_SCHEMA,
@@ -396,7 +394,6 @@ export const AUTH_NULLABLE_SESSION_RESULT_SCHEMA = {
   oneOf: [
     {
       ...AUTH_SUCCESS_SCHEMA,
-      required: ['ok', 'data'],
       properties: {
         ...AUTH_SUCCESS_SCHEMA.properties,
         data: { oneOf: [AUTH_SESSION_SCHEMA, { type: 'null' }] },
@@ -464,6 +461,7 @@ export type AuthOAuthTransportErrorCode = (typeof AUTH_OAUTH_TRANSPORT_ERROR_COD
 export interface AuthOAuthTransportError {
   code: AuthOAuthTransportErrorCode;
   message: string;
+  cause?: unknown;
 }
 
 export interface StartOAuthAuthorizationInput {
@@ -541,6 +539,7 @@ export const AUTH_OAUTH_ERROR_SCHEMA = {
   properties: {
     code: { type: 'string', enum: AUTH_OAUTH_ERROR_CODES },
     message: { type: 'string' },
+    cause: {},
     stage: { type: 'string', enum: AUTH_OAUTH_ERROR_STAGES },
     provider: { type: 'string' },
     recoverable: { type: 'boolean' },
@@ -594,6 +593,7 @@ export const AUTH_OAUTH_AUTHORIZATION_RESPONSE_SCHEMA = {
           properties: {
             code: { type: 'string', enum: AUTH_OAUTH_TRANSPORT_ERROR_CODES },
             message: { type: 'string' },
+            cause: {},
           },
         },
       },

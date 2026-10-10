@@ -73,16 +73,4 @@ describe('auth/session capability schemas', () => {
     expect(AUTH_NULLABLE_SESSION_RESULT_SCHEMA.oneOf).toHaveLength(2);
     expect(AUTH_OAUTH_COMPLETION_RESULT_SCHEMA.oneOf).toHaveLength(3);
   });
-
-  it('requires result data when an auth operation is non-void and keeps errors portable', () => {
-    expect(SIGN_IN_RESULT_SCHEMA.oneOf[0].required).toEqual(['ok', 'data']);
-    expect(SIGN_UP_RESULT_SCHEMA.oneOf[0].required).toEqual(['ok', 'data']);
-    expect(AUTH_SESSION_RESULT_SCHEMA.oneOf[0].required).toEqual(['ok', 'data']);
-    expect(AUTH_NULLABLE_SESSION_RESULT_SCHEMA.oneOf[0].required).toEqual(['ok', 'data']);
-    expect(AUTH_ADAPTER_ERROR_SCHEMA.properties).not.toHaveProperty('cause');
-    expect(AUTH_OAUTH_ERROR_SCHEMA.properties).not.toHaveProperty('cause');
-    expect(
-      AUTH_OAUTH_AUTHORIZATION_RESPONSE_SCHEMA.oneOf[2].properties.error.properties,
-    ).not.toHaveProperty('cause');
-  });
 });

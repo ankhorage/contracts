@@ -3,6 +3,7 @@ import type { DataSchema } from './data/schemas.js';
 export interface StorageAdapterError {
   code: string;
   message: string;
+  cause?: unknown;
 }
 
 export type StorageOkResult<TData> = [TData] extends [void]
