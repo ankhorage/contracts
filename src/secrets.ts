@@ -36,7 +36,6 @@ export type SecretStoreErrorCode = (typeof SECRET_STORE_ERROR_CODES)[number];
 export interface SecretStoreError {
   code: SecretStoreErrorCode;
   message: string;
-  cause?: unknown;
 }
 
 export type SecretStoreOkResult<TData> = [TData] extends [void]

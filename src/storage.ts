@@ -3,7 +3,6 @@ import type { DataSchema } from './data/schemas.js';
 export interface StorageAdapterError {
   code: string;
   message: string;
-  cause?: unknown;
 }
 
 export type StorageOkResult<TData> = [TData] extends [void]
@@ -286,7 +285,6 @@ export const STORAGE_ADAPTER_ERROR_SCHEMA = {
   properties: {
     code: { type: 'string' },
     message: { type: 'string' },
-    cause: {},
   },
 } as const satisfies DataSchema;
 
@@ -313,6 +311,7 @@ export const STORAGE_UPLOAD_OPERATION_RESULT_SCHEMA = {
   oneOf: [
     {
       ...STORAGE_SUCCESS_SCHEMA,
+      required: ['ok', 'data'],
       properties: { ...STORAGE_SUCCESS_SCHEMA.properties, data: STORAGE_UPLOAD_RESULT_SCHEMA },
     },
     STORAGE_ERROR_RESULT_SCHEMA,
@@ -323,6 +322,7 @@ export const STORAGE_PUBLIC_URL_OPERATION_RESULT_SCHEMA = {
   oneOf: [
     {
       ...STORAGE_SUCCESS_SCHEMA,
+      required: ['ok', 'data'],
       properties: { ...STORAGE_SUCCESS_SCHEMA.properties, data: STORAGE_PUBLIC_URL_RESULT_SCHEMA },
     },
     STORAGE_ERROR_RESULT_SCHEMA,
@@ -333,6 +333,7 @@ export const STORAGE_LIST_OPERATION_RESULT_SCHEMA = {
   oneOf: [
     {
       ...STORAGE_SUCCESS_SCHEMA,
+      required: ['ok', 'data'],
       properties: { ...STORAGE_SUCCESS_SCHEMA.properties, data: STORAGE_LIST_RESULT_SCHEMA },
     },
     STORAGE_ERROR_RESULT_SCHEMA,
@@ -343,6 +344,7 @@ export const STORAGE_RESOLVE_OPERATION_RESULT_SCHEMA = {
   oneOf: [
     {
       ...STORAGE_SUCCESS_SCHEMA,
+      required: ['ok', 'data'],
       properties: { ...STORAGE_SUCCESS_SCHEMA.properties, data: STORAGE_RESOLVE_RESULT_SCHEMA },
     },
     STORAGE_ERROR_RESULT_SCHEMA,

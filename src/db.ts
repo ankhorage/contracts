@@ -3,7 +3,6 @@ export type DbRecord = Record<string, unknown>;
 export interface DbAdapterError {
   readonly code: string;
   readonly message: string;
-  readonly cause?: unknown;
 }
 
 export type DbSuccess<TData = void> = [TData] extends [void]

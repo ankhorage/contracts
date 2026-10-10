@@ -75,4 +75,12 @@ describe('storage capability schemas', () => {
       enum: ['public', 'signed'],
     });
   });
+
+  it('requires result data for non-void operations and keeps errors portable', () => {
+    expect(STORAGE_UPLOAD_OPERATION_RESULT_SCHEMA.oneOf[0].required).toEqual(['ok', 'data']);
+    expect(STORAGE_PUBLIC_URL_OPERATION_RESULT_SCHEMA.oneOf[0].required).toEqual(['ok', 'data']);
+    expect(STORAGE_LIST_OPERATION_RESULT_SCHEMA.oneOf[0].required).toEqual(['ok', 'data']);
+    expect(STORAGE_RESOLVE_OPERATION_RESULT_SCHEMA.oneOf[0].required).toEqual(['ok', 'data']);
+    expect(STORAGE_ADAPTER_ERROR_SCHEMA.properties).not.toHaveProperty('cause');
+  });
 });
