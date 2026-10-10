@@ -2853,13 +2853,13 @@ Source: `src/types.ts:153:1`
 
 Kind: `unknown`
 Module: `src/storage.ts`
-Source: `src/storage.ts:131:1`
+Source: `src/storage.ts:133:1`
 
 ## ImageMetadata
 
 Kind: `type`
 Module: `src/storage.ts`
-Source: `src/storage.ts:102:1`
+Source: `src/storage.ts:104:1`
 
 ### Members
 
@@ -4231,7 +4231,7 @@ App-authoring media pool. Runtime/user-generated uploads do not belong here.
 
 Kind: `type`
 Module: `src/storage.ts`
-Source: `src/storage.ts:155:1`
+Source: `src/storage.ts:157:1`
 
 ### Members
 
@@ -6050,11 +6050,143 @@ Kind: `unknown`
 Module: `src/state.ts`
 Source: `src/state.ts:11:1`
 
+## STORAGE_ADAPTER_ERROR_SCHEMA
+
+Kind: `value`
+Module: `src/storage.ts`
+Source: `src/storage.ts:283:14`
+
+## STORAGE_ASSET_REFERENCE_SCHEMA
+
+Kind: `value`
+Module: `src/storage.ts`
+Source: `src/storage.ts:182:14`
+
+## STORAGE_BYTES_SCHEMA
+
+Kind: `value`
+Module: `src/storage.ts`
+Source: `src/storage.ts:167:14`
+
+## STORAGE_ERROR_RESULT_SCHEMA
+
+Kind: `value`
+Module: `src/storage.ts`
+Source: `src/storage.ts:298:14`
+
+## STORAGE_IDENTITY_SCHEMA
+
+Kind: `value`
+Module: `src/storage.ts`
+Source: `src/storage.ts:172:14`
+
+## STORAGE_LIST_INPUT_SCHEMA
+
+Kind: `value`
+Module: `src/storage.ts`
+Source: `src/storage.ts:236:14`
+
+## STORAGE_LIST_OPERATION_RESULT_SCHEMA
+
+Kind: `value`
+Module: `src/storage.ts`
+Source: `src/storage.ts:333:14`
+
+## STORAGE_LIST_RESULT_SCHEMA
+
+Kind: `value`
+Module: `src/storage.ts`
+Source: `src/storage.ts:248:14`
+
+## STORAGE_OBJECT_METADATA_SCHEMA
+
+Kind: `value`
+Module: `src/storage.ts`
+Source: `src/storage.ts:190:14`
+
+## STORAGE_PUBLIC_URL_INPUT_SCHEMA
+
+Kind: `value`
+Module: `src/storage.ts`
+Source: `src/storage.ts:225:14`
+
+## STORAGE_PUBLIC_URL_OPERATION_RESULT_SCHEMA
+
+Kind: `value`
+Module: `src/storage.ts`
+Source: `src/storage.ts:322:14`
+
+## STORAGE_PUBLIC_URL_RESULT_SCHEMA
+
+Kind: `value`
+Module: `src/storage.ts`
+Source: `src/storage.ts:230:14`
+
+## STORAGE_REMOVE_INPUT_SCHEMA
+
+Kind: `value`
+Module: `src/storage.ts`
+Source: `src/storage.ts:220:14`
+
+## STORAGE_RESOLVE_INPUT_SCHEMA
+
+Kind: `value`
+Module: `src/storage.ts`
+Source: `src/storage.ts:257:14`
+
+## STORAGE_RESOLVE_OPERATION_RESULT_SCHEMA
+
+Kind: `value`
+Module: `src/storage.ts`
+Source: `src/storage.ts:344:14`
+
+## STORAGE_RESOLVE_RESULT_SCHEMA
+
+Kind: `value`
+Module: `src/storage.ts`
+Source: `src/storage.ts:277:14`
+
+## STORAGE_RESOLVED_ASSET_SCHEMA
+
+Kind: `value`
+Module: `src/storage.ts`
+Source: `src/storage.ts:266:14`
+
+## STORAGE_SUCCESS_SCHEMA
+
+Kind: `value`
+Module: `src/storage.ts`
+Source: `src/storage.ts:292:14`
+
+## STORAGE_UPLOAD_INPUT_SCHEMA
+
+Kind: `value`
+Module: `src/storage.ts`
+Source: `src/storage.ts:202:14`
+
+## STORAGE_UPLOAD_OPERATION_RESULT_SCHEMA
+
+Kind: `value`
+Module: `src/storage.ts`
+Source: `src/storage.ts:311:14`
+
+## STORAGE_UPLOAD_RESULT_SCHEMA
+
+Kind: `value`
+Module: `src/storage.ts`
+Source: `src/storage.ts:214:14`
+
+## STORAGE_VOID_RESULT_SCHEMA
+
+Kind: `value`
+Module: `src/storage.ts`
+Source: `src/storage.ts:307:14`
+
 ## StorageAdapter
 
 Kind: `type`
 Module: `src/storage.ts`
-Source: `src/storage.ts:133:1`
+Source: `src/storage.ts:135:1`
 
 ### Members
 
@@ -6069,7 +6201,7 @@ Source: `src/storage.ts:133:1`
 
 Kind: `type`
 Module: `src/storage.ts`
-Source: `src/storage.ts:1:1`
+Source: `src/storage.ts:3:1`
 
 ### Members
 
@@ -6083,7 +6215,7 @@ Source: `src/storage.ts:1:1`
 
 Kind: `type`
 Module: `src/storage.ts`
-Source: `src/storage.ts:18:1`
+Source: `src/storage.ts:20:1`
 
 ### Members
 
@@ -6098,7 +6230,7 @@ Source: `src/storage.ts:18:1`
 
 Kind: `type`
 Module: `src/storage.ts`
-Source: `src/storage.ts:108:1`
+Source: `src/storage.ts:110:1`
 
 ### Members
 
@@ -6119,7 +6251,7 @@ Source: `src/storage.ts:108:1`
 
 Kind: `type`
 Module: `src/storage.ts`
-Source: `src/storage.ts:140:1`
+Source: `src/storage.ts:142:1`
 
 ### Members
 
@@ -6131,7 +6263,7 @@ Source: `src/storage.ts:140:1`
 
 Kind: `type`
 Module: `src/storage.ts`
-Source: `src/storage.ts:66:1`
+Source: `src/storage.ts:68:1`
 
 ### Members
 
@@ -6147,7 +6279,7 @@ Source: `src/storage.ts:66:1`
 
 Kind: `type`
 Module: `src/storage.ts`
-Source: `src/storage.ts:74:1`
+Source: `src/storage.ts:76:1`
 
 ### Members
 
@@ -6160,7 +6292,7 @@ Source: `src/storage.ts:74:1`
 
 Kind: `type`
 Module: `src/storage.ts`
-Source: `src/storage.ts:55:1`
+Source: `src/storage.ts:57:1`
 
 ### Members
 
@@ -6179,13 +6311,13 @@ Source: `src/storage.ts:55:1`
 
 Kind: `unknown`
 Module: `src/storage.ts`
-Source: `src/storage.ts:7:1`
+Source: `src/storage.ts:9:1`
 
 ## StoragePublicUrlInput
 
 Kind: `type`
 Module: `src/storage.ts`
-Source: `src/storage.ts:45:1`
+Source: `src/storage.ts:47:1`
 
 ### Members
 
@@ -6199,7 +6331,7 @@ Source: `src/storage.ts:45:1`
 
 Kind: `type`
 Module: `src/storage.ts`
-Source: `src/storage.ts:51:1`
+Source: `src/storage.ts:53:1`
 
 ### Members
 
@@ -6211,7 +6343,7 @@ Source: `src/storage.ts:51:1`
 
 Kind: `type`
 Module: `src/storage.ts`
-Source: `src/storage.ts:39:1`
+Source: `src/storage.ts:41:1`
 
 ### Members
 
@@ -6225,7 +6357,7 @@ Source: `src/storage.ts:39:1`
 
 Kind: `type`
 Module: `src/storage.ts`
-Source: `src/storage.ts:144:1`
+Source: `src/storage.ts:146:1`
 
 ### Members
 
@@ -6237,13 +6369,13 @@ Source: `src/storage.ts:144:1`
 
 Kind: `unknown`
 Module: `src/storage.ts`
-Source: `src/storage.ts:79:1`
+Source: `src/storage.ts:81:1`
 
 ## StorageResolvedAsset
 
 Kind: `type`
 Module: `src/storage.ts`
-Source: `src/storage.ts:89:1`
+Source: `src/storage.ts:91:1`
 
 ### Members
 
@@ -6260,7 +6392,7 @@ Source: `src/storage.ts:89:1`
 
 Kind: `type`
 Module: `src/storage.ts`
-Source: `src/storage.ts:81:1`
+Source: `src/storage.ts:83:1`
 
 ### Members
 
@@ -6276,7 +6408,7 @@ Source: `src/storage.ts:81:1`
 
 Kind: `type`
 Module: `src/storage.ts`
-Source: `src/storage.ts:98:1`
+Source: `src/storage.ts:100:1`
 
 ### Members
 
@@ -6288,13 +6420,13 @@ Source: `src/storage.ts:98:1`
 
 Kind: `unknown`
 Module: `src/storage.ts`
-Source: `src/storage.ts:11:1`
+Source: `src/storage.ts:13:1`
 
 ## StorageUploadInput
 
 Kind: `type`
 Module: `src/storage.ts`
-Source: `src/storage.ts:25:1`
+Source: `src/storage.ts:27:1`
 
 ### Members
 
@@ -6312,7 +6444,7 @@ Source: `src/storage.ts:25:1`
 
 Kind: `type`
 Module: `src/storage.ts`
-Source: `src/storage.ts:35:1`
+Source: `src/storage.ts:37:1`
 
 ### Members
 
@@ -7254,7 +7386,7 @@ Source: `src/types.ts:155:1`
 
 Kind: `type`
 Module: `src/storage.ts`
-Source: `src/storage.ts:121:1`
+Source: `src/storage.ts:123:1`
 
 ### Members
 

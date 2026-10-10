@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 25.2.0
+
+### Minor Changes
+
+- c5aa105: Add portable storage capability schema sources with Base64 upload-byte serialization.
+
 ## 25.1.0
 
 ### Minor Changes

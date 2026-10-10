@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v25.1.0",
+      "value": "v25.2.0",
       "color": "cb3837"
     },
     {
@@ -1464,6 +1464,28 @@
         "StateSubscription",
         "StateSuccess",
         "StateValue",
+        "STORAGE_ADAPTER_ERROR_SCHEMA",
+        "STORAGE_ASSET_REFERENCE_SCHEMA",
+        "STORAGE_BYTES_SCHEMA",
+        "STORAGE_ERROR_RESULT_SCHEMA",
+        "STORAGE_IDENTITY_SCHEMA",
+        "STORAGE_LIST_INPUT_SCHEMA",
+        "STORAGE_LIST_OPERATION_RESULT_SCHEMA",
+        "STORAGE_LIST_RESULT_SCHEMA",
+        "STORAGE_OBJECT_METADATA_SCHEMA",
+        "STORAGE_PUBLIC_URL_INPUT_SCHEMA",
+        "STORAGE_PUBLIC_URL_OPERATION_RESULT_SCHEMA",
+        "STORAGE_PUBLIC_URL_RESULT_SCHEMA",
+        "STORAGE_REMOVE_INPUT_SCHEMA",
+        "STORAGE_RESOLVE_INPUT_SCHEMA",
+        "STORAGE_RESOLVE_OPERATION_RESULT_SCHEMA",
+        "STORAGE_RESOLVE_RESULT_SCHEMA",
+        "STORAGE_RESOLVED_ASSET_SCHEMA",
+        "STORAGE_SUCCESS_SCHEMA",
+        "STORAGE_UPLOAD_INPUT_SCHEMA",
+        "STORAGE_UPLOAD_OPERATION_RESULT_SCHEMA",
+        "STORAGE_UPLOAD_RESULT_SCHEMA",
+        "STORAGE_VOID_RESULT_SCHEMA",
         "StorageAdapter",
         "StorageAdapterError",
         "StorageAssetReference",
@@ -2133,11 +2155,35 @@
     {
       "path": "src/storage.ts",
       "isEntrypoint": false,
-      "dependencies": [],
+      "dependencies": [
+        "src/data/schemas.ts"
+      ],
       "exports": [
         "ImageAssetSource",
         "ImageMetadata",
         "MediaStorageAdapter",
+        "STORAGE_ADAPTER_ERROR_SCHEMA",
+        "STORAGE_ASSET_REFERENCE_SCHEMA",
+        "STORAGE_BYTES_SCHEMA",
+        "STORAGE_ERROR_RESULT_SCHEMA",
+        "STORAGE_IDENTITY_SCHEMA",
+        "STORAGE_LIST_INPUT_SCHEMA",
+        "STORAGE_LIST_OPERATION_RESULT_SCHEMA",
+        "STORAGE_LIST_RESULT_SCHEMA",
+        "STORAGE_OBJECT_METADATA_SCHEMA",
+        "STORAGE_PUBLIC_URL_INPUT_SCHEMA",
+        "STORAGE_PUBLIC_URL_OPERATION_RESULT_SCHEMA",
+        "STORAGE_PUBLIC_URL_RESULT_SCHEMA",
+        "STORAGE_REMOVE_INPUT_SCHEMA",
+        "STORAGE_RESOLVE_INPUT_SCHEMA",
+        "STORAGE_RESOLVE_OPERATION_RESULT_SCHEMA",
+        "STORAGE_RESOLVE_RESULT_SCHEMA",
+        "STORAGE_RESOLVED_ASSET_SCHEMA",
+        "STORAGE_SUCCESS_SCHEMA",
+        "STORAGE_UPLOAD_INPUT_SCHEMA",
+        "STORAGE_UPLOAD_OPERATION_RESULT_SCHEMA",
+        "STORAGE_UPLOAD_RESULT_SCHEMA",
+        "STORAGE_VOID_RESULT_SCHEMA",
         "StorageAdapter",
         "StorageAdapterError",
         "StorageAssetReference",
@@ -13073,7 +13119,7 @@
       "modulePath": "src/storage.ts",
       "sourceLocation": {
         "filePath": "src/storage.ts",
-        "line": 131,
+        "line": 133,
         "column": 1
       },
       "exportPaths": [
@@ -13095,7 +13141,7 @@
       "modulePath": "src/storage.ts",
       "sourceLocation": {
         "filePath": "src/storage.ts",
-        "line": 102,
+        "line": 104,
         "column": 1
       },
       "exportPaths": [
@@ -17791,7 +17837,7 @@
       "modulePath": "src/storage.ts",
       "sourceLocation": {
         "filePath": "src/storage.ts",
-        "line": 155,
+        "line": 157,
         "column": 1
       },
       "exportPaths": [
@@ -24261,6 +24307,490 @@
       "structuredRows": []
     },
     {
+      "name": "STORAGE_ADAPTER_ERROR_SCHEMA",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "value",
+      "modulePath": "src/storage.ts",
+      "sourceLocation": {
+        "filePath": "src/storage.ts",
+        "line": 283,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "STORAGE_ASSET_REFERENCE_SCHEMA",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "value",
+      "modulePath": "src/storage.ts",
+      "sourceLocation": {
+        "filePath": "src/storage.ts",
+        "line": 182,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "STORAGE_BYTES_SCHEMA",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "value",
+      "modulePath": "src/storage.ts",
+      "sourceLocation": {
+        "filePath": "src/storage.ts",
+        "line": 167,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "STORAGE_ERROR_RESULT_SCHEMA",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "value",
+      "modulePath": "src/storage.ts",
+      "sourceLocation": {
+        "filePath": "src/storage.ts",
+        "line": 298,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "STORAGE_IDENTITY_SCHEMA",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "value",
+      "modulePath": "src/storage.ts",
+      "sourceLocation": {
+        "filePath": "src/storage.ts",
+        "line": 172,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "STORAGE_LIST_INPUT_SCHEMA",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "value",
+      "modulePath": "src/storage.ts",
+      "sourceLocation": {
+        "filePath": "src/storage.ts",
+        "line": 236,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "STORAGE_LIST_OPERATION_RESULT_SCHEMA",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "value",
+      "modulePath": "src/storage.ts",
+      "sourceLocation": {
+        "filePath": "src/storage.ts",
+        "line": 333,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "STORAGE_LIST_RESULT_SCHEMA",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "value",
+      "modulePath": "src/storage.ts",
+      "sourceLocation": {
+        "filePath": "src/storage.ts",
+        "line": 248,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "STORAGE_OBJECT_METADATA_SCHEMA",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "value",
+      "modulePath": "src/storage.ts",
+      "sourceLocation": {
+        "filePath": "src/storage.ts",
+        "line": 190,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "STORAGE_PUBLIC_URL_INPUT_SCHEMA",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "value",
+      "modulePath": "src/storage.ts",
+      "sourceLocation": {
+        "filePath": "src/storage.ts",
+        "line": 225,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "STORAGE_PUBLIC_URL_OPERATION_RESULT_SCHEMA",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "value",
+      "modulePath": "src/storage.ts",
+      "sourceLocation": {
+        "filePath": "src/storage.ts",
+        "line": 322,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "STORAGE_PUBLIC_URL_RESULT_SCHEMA",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "value",
+      "modulePath": "src/storage.ts",
+      "sourceLocation": {
+        "filePath": "src/storage.ts",
+        "line": 230,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "STORAGE_REMOVE_INPUT_SCHEMA",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "value",
+      "modulePath": "src/storage.ts",
+      "sourceLocation": {
+        "filePath": "src/storage.ts",
+        "line": 220,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "STORAGE_RESOLVE_INPUT_SCHEMA",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "value",
+      "modulePath": "src/storage.ts",
+      "sourceLocation": {
+        "filePath": "src/storage.ts",
+        "line": 257,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "STORAGE_RESOLVE_OPERATION_RESULT_SCHEMA",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "value",
+      "modulePath": "src/storage.ts",
+      "sourceLocation": {
+        "filePath": "src/storage.ts",
+        "line": 344,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "STORAGE_RESOLVE_RESULT_SCHEMA",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "value",
+      "modulePath": "src/storage.ts",
+      "sourceLocation": {
+        "filePath": "src/storage.ts",
+        "line": 277,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "STORAGE_RESOLVED_ASSET_SCHEMA",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "value",
+      "modulePath": "src/storage.ts",
+      "sourceLocation": {
+        "filePath": "src/storage.ts",
+        "line": 266,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "STORAGE_SUCCESS_SCHEMA",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "value",
+      "modulePath": "src/storage.ts",
+      "sourceLocation": {
+        "filePath": "src/storage.ts",
+        "line": 292,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "STORAGE_UPLOAD_INPUT_SCHEMA",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "value",
+      "modulePath": "src/storage.ts",
+      "sourceLocation": {
+        "filePath": "src/storage.ts",
+        "line": 202,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "STORAGE_UPLOAD_OPERATION_RESULT_SCHEMA",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "value",
+      "modulePath": "src/storage.ts",
+      "sourceLocation": {
+        "filePath": "src/storage.ts",
+        "line": 311,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "STORAGE_UPLOAD_RESULT_SCHEMA",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "value",
+      "modulePath": "src/storage.ts",
+      "sourceLocation": {
+        "filePath": "src/storage.ts",
+        "line": 214,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "STORAGE_VOID_RESULT_SCHEMA",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "value",
+      "modulePath": "src/storage.ts",
+      "sourceLocation": {
+        "filePath": "src/storage.ts",
+        "line": 307,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
       "name": "StorageAdapter",
       "title": null,
       "description": null,
@@ -24271,7 +24801,7 @@
       "modulePath": "src/storage.ts",
       "sourceLocation": {
         "filePath": "src/storage.ts",
-        "line": 133,
+        "line": 135,
         "column": 1
       },
       "exportPaths": [
@@ -24331,7 +24861,7 @@
       "modulePath": "src/storage.ts",
       "sourceLocation": {
         "filePath": "src/storage.ts",
-        "line": 1,
+        "line": 3,
         "column": 1
       },
       "exportPaths": [
@@ -24375,7 +24905,7 @@
       "modulePath": "src/storage.ts",
       "sourceLocation": {
         "filePath": "src/storage.ts",
-        "line": 18,
+        "line": 20,
         "column": 1
       },
       "exportPaths": [
@@ -24426,7 +24956,7 @@
       "modulePath": "src/storage.ts",
       "sourceLocation": {
         "filePath": "src/storage.ts",
-        "line": 108,
+        "line": 110,
         "column": 1
       },
       "exportPaths": [
@@ -24521,7 +25051,7 @@
       "modulePath": "src/storage.ts",
       "sourceLocation": {
         "filePath": "src/storage.ts",
-        "line": 140,
+        "line": 142,
         "column": 1
       },
       "exportPaths": [
@@ -24555,7 +25085,7 @@
       "modulePath": "src/storage.ts",
       "sourceLocation": {
         "filePath": "src/storage.ts",
-        "line": 66,
+        "line": 68,
         "column": 1
       },
       "exportPaths": [
@@ -24613,7 +25143,7 @@
       "modulePath": "src/storage.ts",
       "sourceLocation": {
         "filePath": "src/storage.ts",
-        "line": 74,
+        "line": 76,
         "column": 1
       },
       "exportPaths": [
@@ -24652,7 +25182,7 @@
       "modulePath": "src/storage.ts",
       "sourceLocation": {
         "filePath": "src/storage.ts",
-        "line": 55,
+        "line": 57,
         "column": 1
       },
       "exportPaths": [
@@ -24731,7 +25261,7 @@
       "modulePath": "src/storage.ts",
       "sourceLocation": {
         "filePath": "src/storage.ts",
-        "line": 7,
+        "line": 9,
         "column": 1
       },
       "exportPaths": [
@@ -24753,7 +25283,7 @@
       "modulePath": "src/storage.ts",
       "sourceLocation": {
         "filePath": "src/storage.ts",
-        "line": 45,
+        "line": 47,
         "column": 1
       },
       "exportPaths": [
@@ -24797,7 +25327,7 @@
       "modulePath": "src/storage.ts",
       "sourceLocation": {
         "filePath": "src/storage.ts",
-        "line": 51,
+        "line": 53,
         "column": 1
       },
       "exportPaths": [
@@ -24827,7 +25357,7 @@
       "modulePath": "src/storage.ts",
       "sourceLocation": {
         "filePath": "src/storage.ts",
-        "line": 39,
+        "line": 41,
         "column": 1
       },
       "exportPaths": [
@@ -24871,7 +25401,7 @@
       "modulePath": "src/storage.ts",
       "sourceLocation": {
         "filePath": "src/storage.ts",
-        "line": 144,
+        "line": 146,
         "column": 1
       },
       "exportPaths": [
@@ -24905,7 +25435,7 @@
       "modulePath": "src/storage.ts",
       "sourceLocation": {
         "filePath": "src/storage.ts",
-        "line": 79,
+        "line": 81,
         "column": 1
       },
       "exportPaths": [
@@ -24927,7 +25457,7 @@
       "modulePath": "src/storage.ts",
       "sourceLocation": {
         "filePath": "src/storage.ts",
-        "line": 89,
+        "line": 91,
         "column": 1
       },
       "exportPaths": [
@@ -24994,7 +25524,7 @@
       "modulePath": "src/storage.ts",
       "sourceLocation": {
         "filePath": "src/storage.ts",
-        "line": 81,
+        "line": 83,
         "column": 1
       },
       "exportPaths": [
@@ -25054,7 +25584,7 @@
       "modulePath": "src/storage.ts",
       "sourceLocation": {
         "filePath": "src/storage.ts",
-        "line": 98,
+        "line": 100,
         "column": 1
       },
       "exportPaths": [
@@ -25086,7 +25616,7 @@
       "modulePath": "src/storage.ts",
       "sourceLocation": {
         "filePath": "src/storage.ts",
-        "line": 11,
+        "line": 13,
         "column": 1
       },
       "exportPaths": [
@@ -25108,7 +25638,7 @@
       "modulePath": "src/storage.ts",
       "sourceLocation": {
         "filePath": "src/storage.ts",
-        "line": 25,
+        "line": 27,
         "column": 1
       },
       "exportPaths": [
@@ -25180,7 +25710,7 @@
       "modulePath": "src/storage.ts",
       "sourceLocation": {
         "filePath": "src/storage.ts",
-        "line": 35,
+        "line": 37,
         "column": 1
       },
       "exportPaths": [
@@ -28530,7 +29060,7 @@
       "modulePath": "src/storage.ts",
       "sourceLocation": {
         "filePath": "src/storage.ts",
-        "line": 121,
+        "line": 123,
         "column": 1
       },
       "exportPaths": [
@@ -31592,6 +32122,11 @@
         "fromPath": "src/state.ts",
         "toPath": "src/serializable.ts",
         "sourcePath": "src/state.ts"
+      },
+      {
+        "fromPath": "src/storage.ts",
+        "toPath": "src/data/schemas.ts",
+        "sourcePath": "src/storage.ts"
       },
       {
         "fromPath": "src/theme.ts",

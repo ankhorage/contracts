@@ -272,6 +272,7 @@ graph TD
   module_src_state_ts --> module_src_serializable_ts
   module_src_storage_ts["src/storage.ts"]
   package__ankhorage_contracts -.-> module_src_storage_ts
+  module_src_storage_ts --> module_src_data_schemas_ts
   module_src_structure_generated_ts["src/structure/generated.ts"]
   package__ankhorage_contracts -.-> module_src_structure_generated_ts
   module_src_structure_generated_ts --> module_src_structure_index_ts
