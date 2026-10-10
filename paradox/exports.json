@@ -4681,6 +4681,50 @@
     "structuredRows": []
   },
   {
+    "name": "BindingCapabilityReference",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/bindings.ts",
+    "sourceLocation": {
+      "filePath": "src/bindings.ts",
+      "line": 12,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "capability",
+        "kind": "property",
+        "type": "`${string}.${string}`",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "path",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "result",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
     "name": "BindingCondition",
     "title": null,
     "description": null,
@@ -4691,7 +4735,7 @@
     "modulePath": "src/bindings.ts",
     "sourceLocation": {
       "filePath": "src/bindings.ts",
-      "line": 102,
+      "line": 47,
       "column": 1
     },
     "exportPaths": [
@@ -4699,8 +4743,7 @@
     ],
     "relatedSymbols": [
       "BindingConditionOperator",
-      "BindingValueSource",
-      "SerializableValue"
+      "BindingExpression"
     ],
     "signatures": [],
     "members": [
@@ -4714,14 +4757,14 @@
       {
         "name": "source",
         "kind": "property",
-        "type": "BindingValueSource",
+        "type": "BindingExpression",
         "required": true,
         "description": null
       },
       {
         "name": "value",
         "kind": "property",
-        "type": "SerializableValue | undefined",
+        "type": "BindingExpression | undefined",
         "required": false,
         "description": null
       }
@@ -4739,7 +4782,7 @@
     "modulePath": "src/bindings.ts",
     "sourceLocation": {
       "filePath": "src/bindings.ts",
-      "line": 100,
+      "line": 44,
       "column": 1
     },
     "exportPaths": [
@@ -4761,7 +4804,7 @@
     "modulePath": "src/bindings.ts",
     "sourceLocation": {
       "filePath": "src/bindings.ts",
-      "line": 10,
+      "line": 8,
       "column": 1
     },
     "exportPaths": [
@@ -4773,43 +4816,25 @@
     "structuredRows": []
   },
   {
-    "name": "BindingFallback",
+    "name": "BindingExpression",
     "title": null,
     "description": null,
     "isReadme": false,
     "see": [],
     "security": [],
-    "kind": "type",
+    "kind": "unknown",
     "modulePath": "src/bindings.ts",
     "sourceLocation": {
       "filePath": "src/bindings.ts",
-      "line": 48,
+      "line": 26,
       "column": 1
     },
     "exportPaths": [
       "src/index.ts"
     ],
-    "relatedSymbols": [
-      "BindingValueSource",
-      "SerializableValue"
-    ],
+    "relatedSymbols": [],
     "signatures": [],
-    "members": [
-      {
-        "name": "source",
-        "kind": "property",
-        "type": "BindingValueSource | undefined",
-        "required": false,
-        "description": null
-      },
-      {
-        "name": "value",
-        "kind": "property",
-        "type": "SerializableValue | undefined",
-        "required": false,
-        "description": null
-      }
-    ],
+    "members": [],
     "structuredRows": []
   },
   {
@@ -4823,7 +4848,7 @@
     "modulePath": "src/bindings.ts",
     "sourceLocation": {
       "filePath": "src/bindings.ts",
-      "line": 89,
+      "line": 43,
       "column": 1
     },
     "exportPaths": [
@@ -4845,7 +4870,7 @@
     "modulePath": "src/bindings.ts",
     "sourceLocation": {
       "filePath": "src/bindings.ts",
-      "line": 70,
+      "line": 42,
       "column": 1
     },
     "exportPaths": [
@@ -4854,6 +4879,52 @@
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "BindingInvocation",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/bindings.ts",
+    "sourceLocation": {
+      "filePath": "src/bindings.ts",
+      "line": 19,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "BindingExpression"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "capability",
+        "kind": "property",
+        "type": "`${string}.${string}`",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "input",
+        "kind": "property",
+        "type": "Readonly<Record<string, BindingExpression>> | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "result",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
     "structuredRows": []
   },
   {
@@ -4867,25 +4938,18 @@
     "modulePath": "src/bindings.ts",
     "sourceLocation": {
       "filePath": "src/bindings.ts",
-      "line": 55,
+      "line": 54,
       "column": 1
     },
     "exportPaths": [
       "src/index.ts"
     ],
     "relatedSymbols": [
-      "BindingFallback",
+      "BindingExpression",
       "BindingLifecycleState"
     ],
     "signatures": [],
     "members": [
-      {
-        "name": "fallback",
-        "kind": "property",
-        "type": "BindingFallback | undefined",
-        "required": false,
-        "description": null
-      },
       {
         "name": "message",
         "kind": "property",
@@ -4898,6 +4962,13 @@
         "kind": "property",
         "type": "BindingLifecycleState",
         "required": true,
+        "description": null
+      },
+      {
+        "name": "value",
+        "kind": "property",
+        "type": "BindingExpression | undefined",
+        "required": false,
         "description": null
       }
     ],
@@ -4914,7 +4985,7 @@
     "modulePath": "src/bindings.ts",
     "sourceLocation": {
       "filePath": "src/bindings.ts",
-      "line": 53,
+      "line": 60,
       "column": 1
     },
     "exportPaths": [
@@ -4923,50 +4994,6 @@
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "BindingOperationRef",
-    "title": null,
-    "description": null,
-    "isReadme": false,
-    "see": [],
-    "security": [],
-    "kind": "type",
-    "modulePath": "src/bindings.ts",
-    "sourceLocation": {
-      "filePath": "src/bindings.ts",
-      "line": 14,
-      "column": 1
-    },
-    "exportPaths": [
-      "src/index.ts"
-    ],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [
-      {
-        "name": "apiId",
-        "kind": "property",
-        "type": "string",
-        "required": true,
-        "description": null
-      },
-      {
-        "name": "endpointId",
-        "kind": "property",
-        "type": "string | undefined",
-        "required": false,
-        "description": null
-      },
-      {
-        "name": "operationId",
-        "kind": "property",
-        "type": "string",
-        "required": true,
-        "description": null
-      }
-    ],
     "structuredRows": []
   },
   {
@@ -4980,69 +5007,7 @@
     "modulePath": "src/bindings.ts",
     "sourceLocation": {
       "filePath": "src/bindings.ts",
-      "line": 8,
-      "column": 1
-    },
-    "exportPaths": [
-      "src/index.ts"
-    ],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "BindingValueExpression",
-    "title": null,
-    "description": null,
-    "isReadme": false,
-    "see": [],
-    "security": [],
-    "kind": "type",
-    "modulePath": "src/bindings.ts",
-    "sourceLocation": {
-      "filePath": "src/bindings.ts",
-      "line": 43,
-      "column": 1
-    },
-    "exportPaths": [
-      "src/index.ts"
-    ],
-    "relatedSymbols": [
-      "BindingValueSource",
-      "BindingValueTransform"
-    ],
-    "signatures": [],
-    "members": [
-      {
-        "name": "source",
-        "kind": "property",
-        "type": "BindingValueSource",
-        "required": true,
-        "description": null
-      },
-      {
-        "name": "transforms",
-        "kind": "property",
-        "type": "readonly BindingValueTransform[] | undefined",
-        "required": false,
-        "description": null
-      }
-    ],
-    "structuredRows": []
-  },
-  {
-    "name": "BindingValueSource",
-    "title": null,
-    "description": null,
-    "isReadme": false,
-    "see": [],
-    "security": [],
-    "kind": "unknown",
-    "modulePath": "src/bindings.ts",
-    "sourceLocation": {
-      "filePath": "src/bindings.ts",
-      "line": 20,
+      "line": 7,
       "column": 1
     },
     "exportPaths": [
@@ -5064,7 +5029,7 @@
     "modulePath": "src/bindings.ts",
     "sourceLocation": {
       "filePath": "src/bindings.ts",
-      "line": 12,
+      "line": 9,
       "column": 1
     },
     "exportPaths": [
@@ -5230,7 +5195,7 @@
     "modulePath": "src/bindings.ts",
     "sourceLocation": {
       "filePath": "src/bindings.ts",
-      "line": 124,
+      "line": 77,
       "column": 1
     },
     "exportPaths": [
@@ -5284,7 +5249,7 @@
     "modulePath": "src/bindings.ts",
     "sourceLocation": {
       "filePath": "src/bindings.ts",
-      "line": 131,
+      "line": 84,
       "column": 1
     },
     "exportPaths": [
@@ -9776,7 +9741,7 @@
     "modulePath": "src/bindings.ts",
     "sourceLocation": {
       "filePath": "src/bindings.ts",
-      "line": 118,
+      "line": 72,
       "column": 1
     },
     "exportPaths": [
@@ -9784,22 +9749,14 @@
     ],
     "relatedSymbols": [
       "BindingCondition",
-      "BindingInputValue",
-      "EventBindingTarget"
+      "BindingInvocation"
     ],
     "signatures": [],
     "members": [
       {
-        "name": "input",
-        "kind": "property",
-        "type": "Readonly<Record<string, BindingInputValue>> | undefined",
-        "required": false,
-        "description": null
-      },
-      {
         "name": "target",
         "kind": "property",
-        "type": "EventBindingTarget",
+        "type": "BindingInvocation",
         "required": true,
         "description": null
       },
@@ -9811,28 +9768,6 @@
         "description": null
       }
     ],
-    "structuredRows": []
-  },
-  {
-    "name": "EventBindingTarget",
-    "title": null,
-    "description": null,
-    "isReadme": false,
-    "see": [],
-    "security": [],
-    "kind": "unknown",
-    "modulePath": "src/bindings.ts",
-    "sourceLocation": {
-      "filePath": "src/bindings.ts",
-      "line": 108,
-      "column": 1
-    },
-    "exportPaths": [
-      "src/index.ts"
-    ],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [],
     "structuredRows": []
   },
   {
@@ -17741,60 +17676,6 @@
     "structuredRows": []
   },
   {
-    "name": "OperationScreenDataLoaderDefinition",
-    "title": null,
-    "description": null,
-    "isReadme": false,
-    "see": [],
-    "security": [],
-    "kind": "type",
-    "modulePath": "src/bindings.ts",
-    "sourceLocation": {
-      "filePath": "src/bindings.ts",
-      "line": 91,
-      "column": 1
-    },
-    "exportPaths": [
-      "src/index.ts"
-    ],
-    "relatedSymbols": [
-      "BindingInputValue",
-      "BindingOperationRef"
-    ],
-    "signatures": [],
-    "members": [
-      {
-        "name": "id",
-        "kind": "property",
-        "type": "string | undefined",
-        "required": false,
-        "description": null
-      },
-      {
-        "name": "input",
-        "kind": "property",
-        "type": "Readonly<Record<string, BindingInputValue>> | undefined",
-        "required": false,
-        "description": null
-      },
-      {
-        "name": "kind",
-        "kind": "property",
-        "type": "\"operation\"",
-        "required": true,
-        "description": null
-      },
-      {
-        "name": "operation",
-        "kind": "property",
-        "type": "BindingOperationRef",
-        "required": true,
-        "description": null
-      }
-    ],
-    "structuredRows": []
-  },
-  {
     "name": "parseAppManifest",
     "title": null,
     "description": null,
@@ -17943,17 +17824,15 @@
     "modulePath": "src/bindings.ts",
     "sourceLocation": {
       "filePath": "src/bindings.ts",
-      "line": 61,
+      "line": 62,
       "column": 1
     },
     "exportPaths": [
       "src/index.ts"
     ],
     "relatedSymbols": [
-      "BindingFallback",
-      "BindingLifecycleBehavior",
-      "BindingValueSource",
-      "BindingValueTransform"
+      "BindingExpression",
+      "BindingLifecycleBehavior"
     ],
     "signatures": [],
     "members": [
@@ -17972,13 +17851,6 @@
         "description": null
       },
       {
-        "name": "fallback",
-        "kind": "property",
-        "type": "BindingFallback | undefined",
-        "required": false,
-        "description": null
-      },
-      {
         "name": "loading",
         "kind": "property",
         "type": "BindingLifecycleBehavior | undefined",
@@ -17986,17 +17858,10 @@
         "description": null
       },
       {
-        "name": "source",
+        "name": "value",
         "kind": "property",
-        "type": "BindingValueSource",
+        "type": "BindingExpression",
         "required": true,
-        "description": null
-      },
-      {
-        "name": "transforms",
-        "kind": "property",
-        "type": "readonly BindingValueTransform[] | undefined",
-        "required": false,
         "description": null
       }
     ],
@@ -19556,7 +19421,7 @@
     "modulePath": "src/bindings.ts",
     "sourceLocation": {
       "filePath": "src/bindings.ts",
-      "line": 98,
+      "line": 70,
       "column": 1
     },
     "exportPaths": [
@@ -19673,7 +19538,7 @@
       "src/index.ts"
     ],
     "relatedSymbols": [
-      "OperationScreenDataLoaderDefinition",
+      "BindingInvocation",
       "ScreenRequirements",
       "UiNode"
     ],
@@ -19682,7 +19547,7 @@
       {
         "name": "dataLoaders",
         "kind": "property",
-        "type": "readonly import(\"./bindings\").OperationScreenDataLoaderDefinition[] | undefined",
+        "type": "readonly import(\"./bindings\").BindingInvocation[] | undefined",
         "required": false,
         "description": null
       },
@@ -26289,7 +26154,7 @@
       "src/index.ts"
     ],
     "relatedSymbols": [
-      "BindingValueSource",
+      "BindingExpression",
       "UiNode"
     ],
     "signatures": [],
@@ -26318,7 +26183,7 @@
       {
         "name": "source",
         "kind": "property",
-        "type": "BindingValueSource",
+        "type": "BindingExpression",
         "required": true,
         "description": null
       }

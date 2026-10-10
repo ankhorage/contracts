@@ -1290,121 +1290,109 @@ Source: `src/auth.ts:175:1`
 | phone | property | `string \| undefined` | no |  |
 | username | property | `string \| undefined` | no |  |
 
+## BindingCapabilityReference
+
+Kind: `type`
+Module: `src/bindings.ts`
+Source: `src/bindings.ts:12:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| capability | property | ``${string}.${string}`` | yes |  |
+| path | property | `string \| undefined` | no |  |
+| result | property | `string \| undefined` | no |  |
+
 ## BindingCondition
 
 Kind: `type`
 Module: `src/bindings.ts`
-Source: `src/bindings.ts:102:1`
+Source: `src/bindings.ts:47:1`
 
 ### Members
 
 | Name | Kind | Type | Required | Description |
 | --- | --- | --- | --- | --- |
 | operator | property | `BindingConditionOperator` | yes |  |
-| source | property | `BindingValueSource` | yes |  |
-| value | property | `SerializableValue \| undefined` | no |  |
+| source | property | `BindingExpression` | yes |  |
+| value | property | `BindingExpression \| undefined` | no |  |
 
 ## BindingConditionOperator
 
 Kind: `unknown`
 Module: `src/bindings.ts`
-Source: `src/bindings.ts:100:1`
+Source: `src/bindings.ts:44:1`
 
 ## BindingDataPath
 
 Kind: `unknown`
 Module: `src/bindings.ts`
-Source: `src/bindings.ts:10:1`
+Source: `src/bindings.ts:8:1`
 
-## BindingFallback
+## BindingExpression
 
-Kind: `type`
+Kind: `unknown`
 Module: `src/bindings.ts`
-Source: `src/bindings.ts:48:1`
-
-### Members
-
-| Name | Kind | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| source | property | `BindingValueSource \| undefined` | no |  |
-| value | property | `SerializableValue \| undefined` | no |  |
+Source: `src/bindings.ts:26:1`
 
 ## BindingInputMap
 
 Kind: `unknown`
 Module: `src/bindings.ts`
-Source: `src/bindings.ts:89:1`
+Source: `src/bindings.ts:43:1`
 
 ## BindingInputValue
 
 Kind: `unknown`
 Module: `src/bindings.ts`
-Source: `src/bindings.ts:70:1`
+Source: `src/bindings.ts:42:1`
+
+## BindingInvocation
+
+Kind: `type`
+Module: `src/bindings.ts`
+Source: `src/bindings.ts:19:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| capability | property | ``${string}.${string}`` | yes |  |
+| input | property | `Readonly<Record<string, BindingExpression>> \| undefined` | no |  |
+| result | property | `string \| undefined` | no |  |
 
 ## BindingLifecycleBehavior
 
 Kind: `type`
 Module: `src/bindings.ts`
-Source: `src/bindings.ts:55:1`
+Source: `src/bindings.ts:54:1`
 
 ### Members
 
 | Name | Kind | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| fallback | property | `BindingFallback \| undefined` | no |  |
 | message | property | `string \| undefined` | no |  |
 | state | property | `BindingLifecycleState` | yes |  |
+| value | property | `BindingExpression \| undefined` | no |  |
 
 ## BindingLifecycleState
 
 Kind: `unknown`
 Module: `src/bindings.ts`
-Source: `src/bindings.ts:53:1`
-
-## BindingOperationRef
-
-Kind: `type`
-Module: `src/bindings.ts`
-Source: `src/bindings.ts:14:1`
-
-### Members
-
-| Name | Kind | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| apiId | property | `string` | yes |  |
-| endpointId | property | `string \| undefined` | no |  |
-| operationId | property | `string` | yes |  |
+Source: `src/bindings.ts:60:1`
 
 ## BindingValue
 
 Kind: `unknown`
 Module: `src/bindings.ts`
-Source: `src/bindings.ts:8:1`
-
-## BindingValueExpression
-
-Kind: `type`
-Module: `src/bindings.ts`
-Source: `src/bindings.ts:43:1`
-
-### Members
-
-| Name | Kind | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| source | property | `BindingValueSource` | yes |  |
-| transforms | property | `readonly BindingValueTransform[] \| undefined` | no |  |
-
-## BindingValueSource
-
-Kind: `unknown`
-Module: `src/bindings.ts`
-Source: `src/bindings.ts:20:1`
+Source: `src/bindings.ts:7:1`
 
 ## BindingValueTransform
 
 Kind: `unknown`
 Module: `src/bindings.ts`
-Source: `src/bindings.ts:12:1`
+Source: `src/bindings.ts:9:1`
 
 ## ButtonPressEventDto
 
@@ -1454,7 +1442,7 @@ Source: `src/auth.ts:505:1`
 
 Kind: `type`
 Module: `src/bindings.ts`
-Source: `src/bindings.ts:124:1`
+Source: `src/bindings.ts:77:1`
 
 ### Members
 
@@ -1469,7 +1457,7 @@ Source: `src/bindings.ts:124:1`
 
 Kind: `unknown`
 Module: `src/bindings.ts`
-Source: `src/bindings.ts:131:1`
+Source: `src/bindings.ts:84:1`
 
 ## ComponentEventDto
 
@@ -2692,21 +2680,14 @@ Source: `src/collections.ts:4:1`
 
 Kind: `type`
 Module: `src/bindings.ts`
-Source: `src/bindings.ts:118:1`
+Source: `src/bindings.ts:72:1`
 
 ### Members
 
 | Name | Kind | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| input | property | `Readonly<Record<string, BindingInputValue>> \| undefined` | no |  |
-| target | property | `EventBindingTarget` | yes |  |
+| target | property | `BindingInvocation` | yes |  |
 | when | property | `BindingCondition \| undefined` | no |  |
-
-## EventBindingTarget
-
-Kind: `unknown`
-Module: `src/bindings.ts`
-Source: `src/bindings.ts:108:1`
 
 ## ExpoRouterNavigatorModule
 
@@ -4968,21 +4949,6 @@ Kind: `unknown`
 Module: `src/data/ids.ts`
 Source: `src/data/ids.ts:4:1`
 
-## OperationScreenDataLoaderDefinition
-
-Kind: `type`
-Module: `src/bindings.ts`
-Source: `src/bindings.ts:91:1`
-
-### Members
-
-| Name | Kind | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| id | property | `string \| undefined` | no |  |
-| input | property | `Readonly<Record<string, BindingInputValue>> \| undefined` | no |  |
-| kind | property | `"operation"` | yes |  |
-| operation | property | `BindingOperationRef` | yes |  |
-
 ## parseAppManifest
 
 Kind: `function`
@@ -5030,7 +4996,7 @@ Source: `src/auth.ts:229:1`
 
 Kind: `type`
 Module: `src/bindings.ts`
-Source: `src/bindings.ts:61:1`
+Source: `src/bindings.ts:62:1`
 
 ### Members
 
@@ -5038,10 +5004,8 @@ Source: `src/bindings.ts:61:1`
 | --- | --- | --- | --- | --- |
 | empty | property | `BindingLifecycleBehavior \| undefined` | no |  |
 | error | property | `BindingLifecycleBehavior \| undefined` | no |  |
-| fallback | property | `BindingFallback \| undefined` | no |  |
 | loading | property | `BindingLifecycleBehavior \| undefined` | no |  |
-| source | property | `BindingValueSource` | yes |  |
-| transforms | property | `readonly BindingValueTransform[] \| undefined` | no |  |
+| value | property | `BindingExpression` | yes |  |
 
 ## ReleaseAdapterContext
 
@@ -5474,7 +5438,7 @@ Source: `src/data/ids.ts:5:1`
 
 Kind: `unknown`
 Module: `src/bindings.ts`
-Source: `src/bindings.ts:98:1`
+Source: `src/bindings.ts:70:1`
 
 ## ScreenMetadataSpec
 
@@ -5514,7 +5478,7 @@ Source: `src/types.ts:179:1`
 
 | Name | Kind | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| dataLoaders | property | `readonly import("./bindings").OperationScreenDataLoaderDefinition[] \| undefined` | no |  |
+| dataLoaders | property | `readonly import("./bindings").BindingInvocation[] \| undefined` | no |  |
 | description | property | `string \| undefined` | no |  |
 | id | property | `string` | yes |  |
 | name | property | `string` | yes |  |
@@ -7380,7 +7344,7 @@ Source: `src/types.ts:155:1`
 | empty | property | `readonly UiNode[] \| undefined` | no |  |
 | itemAlias | property | `string \| undefined` | no |  |
 | keyPath | property | `string \| undefined` | no |  |
-| source | property | `BindingValueSource` | yes |  |
+| source | property | `BindingExpression` | yes |  |
 
 ## UrlImageAssetSource
 

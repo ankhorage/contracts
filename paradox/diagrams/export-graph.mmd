@@ -440,39 +440,33 @@ graph LR
   export_AuthSignUpSpec -.-> export_AuthSignUpField
   export_AuthUser["AuthUser"]
   module_src_auth_ts --> export_AuthUser
+  export_BindingCapabilityReference["BindingCapabilityReference"]
+  module_src_bindings_ts --> export_BindingCapabilityReference
   export_BindingCondition["BindingCondition"]
   module_src_bindings_ts --> export_BindingCondition
   export_BindingCondition -.-> export_BindingConditionOperator
-  export_BindingCondition -.-> export_BindingValueSource
-  export_BindingCondition -.-> export_SerializableValue
+  export_BindingCondition -.-> export_BindingExpression
   export_BindingConditionOperator["BindingConditionOperator"]
   module_src_bindings_ts --> export_BindingConditionOperator
   export_BindingDataPath["BindingDataPath"]
   module_src_bindings_ts --> export_BindingDataPath
-  export_BindingFallback["BindingFallback"]
-  module_src_bindings_ts --> export_BindingFallback
-  export_BindingFallback -.-> export_BindingValueSource
-  export_BindingFallback -.-> export_SerializableValue
+  export_BindingExpression["BindingExpression"]
+  module_src_bindings_ts --> export_BindingExpression
   export_BindingInputMap["BindingInputMap"]
   module_src_bindings_ts --> export_BindingInputMap
   export_BindingInputValue["BindingInputValue"]
   module_src_bindings_ts --> export_BindingInputValue
+  export_BindingInvocation["BindingInvocation"]
+  module_src_bindings_ts --> export_BindingInvocation
+  export_BindingInvocation -.-> export_BindingExpression
   export_BindingLifecycleBehavior["BindingLifecycleBehavior"]
   module_src_bindings_ts --> export_BindingLifecycleBehavior
-  export_BindingLifecycleBehavior -.-> export_BindingFallback
+  export_BindingLifecycleBehavior -.-> export_BindingExpression
   export_BindingLifecycleBehavior -.-> export_BindingLifecycleState
   export_BindingLifecycleState["BindingLifecycleState"]
   module_src_bindings_ts --> export_BindingLifecycleState
-  export_BindingOperationRef["BindingOperationRef"]
-  module_src_bindings_ts --> export_BindingOperationRef
   export_BindingValue["BindingValue"]
   module_src_bindings_ts --> export_BindingValue
-  export_BindingValueExpression["BindingValueExpression"]
-  module_src_bindings_ts --> export_BindingValueExpression
-  export_BindingValueExpression -.-> export_BindingValueSource
-  export_BindingValueExpression -.-> export_BindingValueTransform
-  export_BindingValueSource["BindingValueSource"]
-  module_src_bindings_ts --> export_BindingValueSource
   export_BindingValueTransform["BindingValueTransform"]
   module_src_bindings_ts --> export_BindingValueTransform
   export_ButtonPressEventDto["ButtonPressEventDto"]
@@ -826,10 +820,7 @@ graph LR
   export_EventBinding["EventBinding"]
   module_src_bindings_ts --> export_EventBinding
   export_EventBinding -.-> export_BindingCondition
-  export_EventBinding -.-> export_BindingInputValue
-  export_EventBinding -.-> export_EventBindingTarget
-  export_EventBindingTarget["EventBindingTarget"]
-  module_src_bindings_ts --> export_EventBindingTarget
+  export_EventBinding -.-> export_BindingInvocation
   export_ExpoRouterNavigatorModule["ExpoRouterNavigatorModule"]
   module_src_navigator_planning_ts --> export_ExpoRouterNavigatorModule
   export_ExternalGraphQlApiDefinition["ExternalGraphQlApiDefinition"]
@@ -1437,10 +1428,6 @@ graph LR
   module_src_data_apis_ts --> export_OpenApiDocumentRef
   export_OperationId["OperationId"]
   module_src_data_ids_ts --> export_OperationId
-  export_OperationScreenDataLoaderDefinition["OperationScreenDataLoaderDefinition"]
-  module_src_bindings_ts --> export_OperationScreenDataLoaderDefinition
-  export_OperationScreenDataLoaderDefinition -.-> export_BindingInputValue
-  export_OperationScreenDataLoaderDefinition -.-> export_BindingOperationRef
   export_parseAppManifest["parseAppManifest"]
   module_src_appManifest_parseAppManifest_ts --> export_parseAppManifest
   export_parseAppManifest -.-> export_AppManifestParseResult
@@ -1455,10 +1442,8 @@ graph LR
   export_PasswordResetInput -.-> export_AuthIdentifier
   export_PropBinding["PropBinding"]
   module_src_bindings_ts --> export_PropBinding
-  export_PropBinding -.-> export_BindingFallback
+  export_PropBinding -.-> export_BindingExpression
   export_PropBinding -.-> export_BindingLifecycleBehavior
-  export_PropBinding -.-> export_BindingValueSource
-  export_PropBinding -.-> export_BindingValueTransform
   export_ReleaseAdapterContext["ReleaseAdapterContext"]
   module_src_types_deployRelease_ts --> export_ReleaseAdapterContext
   export_ReleaseAdapterContext -.-> export_DeploymentCredentialReference
@@ -1581,7 +1566,7 @@ graph LR
   module_src_requirements_ts --> export_ScreenRequirements
   export_ScreenSpec["ScreenSpec"]
   module_src_types_ts --> export_ScreenSpec
-  export_ScreenSpec -.-> export_OperationScreenDataLoaderDefinition
+  export_ScreenSpec -.-> export_BindingInvocation
   export_ScreenSpec -.-> export_ScreenRequirements
   export_ScreenSpec -.-> export_UiNode
   export_SECRET_STORE_ERROR_CODES["SECRET_STORE_ERROR_CODES"]
@@ -2065,7 +2050,7 @@ graph LR
   export_UiNode -.-> export_UiNodeRepeatSpec
   export_UiNodeRepeatSpec["UiNodeRepeatSpec"]
   module_src_types_ts --> export_UiNodeRepeatSpec
-  export_UiNodeRepeatSpec -.-> export_BindingValueSource
+  export_UiNodeRepeatSpec -.-> export_BindingExpression
   export_UiNodeRepeatSpec -.-> export_UiNode
   export_UrlImageAssetSource["UrlImageAssetSource"]
   module_src_storage_ts --> export_UrlImageAssetSource

@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v25.2.0",
+      "value": "v26.0.0",
       "color": "cb3837"
     },
     {
@@ -149,7 +149,7 @@
         "src/appManifest/isManifestValue.ts"
       ],
       "exports": [
-        "isBindingValueSource",
+        "isBindingExpression",
         "isComponentDataBindingRegistry",
         "isScreenDataLoaderDefinition"
       ]
@@ -392,31 +392,28 @@
       "path": "src/bindings.ts",
       "isEntrypoint": false,
       "dependencies": [
+        "src/capability.ts",
         "src/collections.ts",
-        "src/data/index.ts",
         "src/serializable.ts"
       ],
       "exports": [
+        "BindingCapabilityReference",
         "BindingCondition",
         "BindingConditionOperator",
         "BindingDataPath",
-        "BindingFallback",
+        "BindingExpression",
         "BindingInputMap",
         "BindingInputValue",
+        "BindingInvocation",
         "BindingLifecycleBehavior",
         "BindingLifecycleState",
-        "BindingOperationRef",
         "BindingValue",
-        "BindingValueExpression",
-        "BindingValueSource",
         "BindingValueTransform",
         "ComponentDataBinding",
         "ComponentDataBindingRegistry",
         "ComponentInstanceId",
         "ComponentTypeId",
         "EventBinding",
-        "EventBindingTarget",
-        "OperationScreenDataLoaderDefinition",
         "PropBinding",
         "ScreenDataLoaderDefinition"
       ]
@@ -1031,18 +1028,17 @@
         "AuthSignUpPolicy",
         "AuthSignUpSpec",
         "AuthUser",
+        "BindingCapabilityReference",
         "BindingCondition",
         "BindingConditionOperator",
         "BindingDataPath",
-        "BindingFallback",
+        "BindingExpression",
         "BindingInputMap",
         "BindingInputValue",
+        "BindingInvocation",
         "BindingLifecycleBehavior",
         "BindingLifecycleState",
-        "BindingOperationRef",
         "BindingValue",
-        "BindingValueExpression",
-        "BindingValueSource",
         "BindingValueTransform",
         "ButtonPressEventDto",
         "CollectionItemPressEventDto",
@@ -1163,7 +1159,6 @@
         "EndpointId",
         "EntityRegistry",
         "EventBinding",
-        "EventBindingTarget",
         "ExpoRouterNavigatorModule",
         "ExternalGraphQlApiDefinition",
         "ExternalRestApiDefinition",
@@ -1362,7 +1357,6 @@
         "normalizeSecretScope",
         "OpenApiDocumentRef",
         "OperationId",
-        "OperationScreenDataLoaderDefinition",
         "parseAppManifest",
         "parseInfraManifest",
         "PASSWORD_RESET_INPUT_SCHEMA",
@@ -7405,6 +7399,50 @@
       "structuredRows": []
     },
     {
+      "name": "BindingCapabilityReference",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/bindings.ts",
+      "sourceLocation": {
+        "filePath": "src/bindings.ts",
+        "line": 12,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "capability",
+          "kind": "property",
+          "type": "`${string}.${string}`",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "path",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "result",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
       "name": "BindingCondition",
       "title": null,
       "description": null,
@@ -7415,7 +7453,7 @@
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 102,
+        "line": 47,
         "column": 1
       },
       "exportPaths": [
@@ -7423,8 +7461,7 @@
       ],
       "relatedSymbols": [
         "BindingConditionOperator",
-        "BindingValueSource",
-        "SerializableValue"
+        "BindingExpression"
       ],
       "signatures": [],
       "members": [
@@ -7438,14 +7475,14 @@
         {
           "name": "source",
           "kind": "property",
-          "type": "BindingValueSource",
+          "type": "BindingExpression",
           "required": true,
           "description": null
         },
         {
           "name": "value",
           "kind": "property",
-          "type": "SerializableValue | undefined",
+          "type": "BindingExpression | undefined",
           "required": false,
           "description": null
         }
@@ -7463,7 +7500,7 @@
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 100,
+        "line": 44,
         "column": 1
       },
       "exportPaths": [
@@ -7485,7 +7522,7 @@
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 10,
+        "line": 8,
         "column": 1
       },
       "exportPaths": [
@@ -7497,43 +7534,25 @@
       "structuredRows": []
     },
     {
-      "name": "BindingFallback",
+      "name": "BindingExpression",
       "title": null,
       "description": null,
       "isReadme": false,
       "see": [],
       "security": [],
-      "kind": "type",
+      "kind": "unknown",
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 48,
+        "line": 26,
         "column": 1
       },
       "exportPaths": [
         "src/index.ts"
       ],
-      "relatedSymbols": [
-        "BindingValueSource",
-        "SerializableValue"
-      ],
+      "relatedSymbols": [],
       "signatures": [],
-      "members": [
-        {
-          "name": "source",
-          "kind": "property",
-          "type": "BindingValueSource | undefined",
-          "required": false,
-          "description": null
-        },
-        {
-          "name": "value",
-          "kind": "property",
-          "type": "SerializableValue | undefined",
-          "required": false,
-          "description": null
-        }
-      ],
+      "members": [],
       "structuredRows": []
     },
     {
@@ -7547,7 +7566,7 @@
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 89,
+        "line": 43,
         "column": 1
       },
       "exportPaths": [
@@ -7569,7 +7588,7 @@
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 70,
+        "line": 42,
         "column": 1
       },
       "exportPaths": [
@@ -7578,6 +7597,52 @@
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "BindingInvocation",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/bindings.ts",
+      "sourceLocation": {
+        "filePath": "src/bindings.ts",
+        "line": 19,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "BindingExpression"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "capability",
+          "kind": "property",
+          "type": "`${string}.${string}`",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "input",
+          "kind": "property",
+          "type": "Readonly<Record<string, BindingExpression>> | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "result",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
       "structuredRows": []
     },
     {
@@ -7591,25 +7656,18 @@
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 55,
+        "line": 54,
         "column": 1
       },
       "exportPaths": [
         "src/index.ts"
       ],
       "relatedSymbols": [
-        "BindingFallback",
+        "BindingExpression",
         "BindingLifecycleState"
       ],
       "signatures": [],
       "members": [
-        {
-          "name": "fallback",
-          "kind": "property",
-          "type": "BindingFallback | undefined",
-          "required": false,
-          "description": null
-        },
         {
           "name": "message",
           "kind": "property",
@@ -7622,6 +7680,13 @@
           "kind": "property",
           "type": "BindingLifecycleState",
           "required": true,
+          "description": null
+        },
+        {
+          "name": "value",
+          "kind": "property",
+          "type": "BindingExpression | undefined",
+          "required": false,
           "description": null
         }
       ],
@@ -7638,7 +7703,7 @@
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 53,
+        "line": 60,
         "column": 1
       },
       "exportPaths": [
@@ -7647,50 +7712,6 @@
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
-      "structuredRows": []
-    },
-    {
-      "name": "BindingOperationRef",
-      "title": null,
-      "description": null,
-      "isReadme": false,
-      "see": [],
-      "security": [],
-      "kind": "type",
-      "modulePath": "src/bindings.ts",
-      "sourceLocation": {
-        "filePath": "src/bindings.ts",
-        "line": 14,
-        "column": 1
-      },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [],
-      "signatures": [],
-      "members": [
-        {
-          "name": "apiId",
-          "kind": "property",
-          "type": "string",
-          "required": true,
-          "description": null
-        },
-        {
-          "name": "endpointId",
-          "kind": "property",
-          "type": "string | undefined",
-          "required": false,
-          "description": null
-        },
-        {
-          "name": "operationId",
-          "kind": "property",
-          "type": "string",
-          "required": true,
-          "description": null
-        }
-      ],
       "structuredRows": []
     },
     {
@@ -7704,69 +7725,7 @@
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 8,
-        "column": 1
-      },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [],
-      "signatures": [],
-      "members": [],
-      "structuredRows": []
-    },
-    {
-      "name": "BindingValueExpression",
-      "title": null,
-      "description": null,
-      "isReadme": false,
-      "see": [],
-      "security": [],
-      "kind": "type",
-      "modulePath": "src/bindings.ts",
-      "sourceLocation": {
-        "filePath": "src/bindings.ts",
-        "line": 43,
-        "column": 1
-      },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "BindingValueSource",
-        "BindingValueTransform"
-      ],
-      "signatures": [],
-      "members": [
-        {
-          "name": "source",
-          "kind": "property",
-          "type": "BindingValueSource",
-          "required": true,
-          "description": null
-        },
-        {
-          "name": "transforms",
-          "kind": "property",
-          "type": "readonly BindingValueTransform[] | undefined",
-          "required": false,
-          "description": null
-        }
-      ],
-      "structuredRows": []
-    },
-    {
-      "name": "BindingValueSource",
-      "title": null,
-      "description": null,
-      "isReadme": false,
-      "see": [],
-      "security": [],
-      "kind": "unknown",
-      "modulePath": "src/bindings.ts",
-      "sourceLocation": {
-        "filePath": "src/bindings.ts",
-        "line": 20,
+        "line": 7,
         "column": 1
       },
       "exportPaths": [
@@ -7788,7 +7747,7 @@
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 12,
+        "line": 9,
         "column": 1
       },
       "exportPaths": [
@@ -7954,7 +7913,7 @@
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 124,
+        "line": 77,
         "column": 1
       },
       "exportPaths": [
@@ -8008,7 +7967,7 @@
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 131,
+        "line": 84,
         "column": 1
       },
       "exportPaths": [
@@ -12500,7 +12459,7 @@
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 118,
+        "line": 72,
         "column": 1
       },
       "exportPaths": [
@@ -12508,22 +12467,14 @@
       ],
       "relatedSymbols": [
         "BindingCondition",
-        "BindingInputValue",
-        "EventBindingTarget"
+        "BindingInvocation"
       ],
       "signatures": [],
       "members": [
         {
-          "name": "input",
-          "kind": "property",
-          "type": "Readonly<Record<string, BindingInputValue>> | undefined",
-          "required": false,
-          "description": null
-        },
-        {
           "name": "target",
           "kind": "property",
-          "type": "EventBindingTarget",
+          "type": "BindingInvocation",
           "required": true,
           "description": null
         },
@@ -12535,28 +12486,6 @@
           "description": null
         }
       ],
-      "structuredRows": []
-    },
-    {
-      "name": "EventBindingTarget",
-      "title": null,
-      "description": null,
-      "isReadme": false,
-      "see": [],
-      "security": [],
-      "kind": "unknown",
-      "modulePath": "src/bindings.ts",
-      "sourceLocation": {
-        "filePath": "src/bindings.ts",
-        "line": 108,
-        "column": 1
-      },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [],
-      "signatures": [],
-      "members": [],
       "structuredRows": []
     },
     {
@@ -20465,60 +20394,6 @@
       "structuredRows": []
     },
     {
-      "name": "OperationScreenDataLoaderDefinition",
-      "title": null,
-      "description": null,
-      "isReadme": false,
-      "see": [],
-      "security": [],
-      "kind": "type",
-      "modulePath": "src/bindings.ts",
-      "sourceLocation": {
-        "filePath": "src/bindings.ts",
-        "line": 91,
-        "column": 1
-      },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "BindingInputValue",
-        "BindingOperationRef"
-      ],
-      "signatures": [],
-      "members": [
-        {
-          "name": "id",
-          "kind": "property",
-          "type": "string | undefined",
-          "required": false,
-          "description": null
-        },
-        {
-          "name": "input",
-          "kind": "property",
-          "type": "Readonly<Record<string, BindingInputValue>> | undefined",
-          "required": false,
-          "description": null
-        },
-        {
-          "name": "kind",
-          "kind": "property",
-          "type": "\"operation\"",
-          "required": true,
-          "description": null
-        },
-        {
-          "name": "operation",
-          "kind": "property",
-          "type": "BindingOperationRef",
-          "required": true,
-          "description": null
-        }
-      ],
-      "structuredRows": []
-    },
-    {
       "name": "parseAppManifest",
       "title": null,
       "description": null,
@@ -20667,17 +20542,15 @@
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 61,
+        "line": 62,
         "column": 1
       },
       "exportPaths": [
         "src/index.ts"
       ],
       "relatedSymbols": [
-        "BindingFallback",
-        "BindingLifecycleBehavior",
-        "BindingValueSource",
-        "BindingValueTransform"
+        "BindingExpression",
+        "BindingLifecycleBehavior"
       ],
       "signatures": [],
       "members": [
@@ -20696,13 +20569,6 @@
           "description": null
         },
         {
-          "name": "fallback",
-          "kind": "property",
-          "type": "BindingFallback | undefined",
-          "required": false,
-          "description": null
-        },
-        {
           "name": "loading",
           "kind": "property",
           "type": "BindingLifecycleBehavior | undefined",
@@ -20710,17 +20576,10 @@
           "description": null
         },
         {
-          "name": "source",
+          "name": "value",
           "kind": "property",
-          "type": "BindingValueSource",
+          "type": "BindingExpression",
           "required": true,
-          "description": null
-        },
-        {
-          "name": "transforms",
-          "kind": "property",
-          "type": "readonly BindingValueTransform[] | undefined",
-          "required": false,
           "description": null
         }
       ],
@@ -22280,7 +22139,7 @@
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 98,
+        "line": 70,
         "column": 1
       },
       "exportPaths": [
@@ -22397,7 +22256,7 @@
         "src/index.ts"
       ],
       "relatedSymbols": [
-        "OperationScreenDataLoaderDefinition",
+        "BindingInvocation",
         "ScreenRequirements",
         "UiNode"
       ],
@@ -22406,7 +22265,7 @@
         {
           "name": "dataLoaders",
           "kind": "property",
-          "type": "readonly import(\"./bindings\").OperationScreenDataLoaderDefinition[] | undefined",
+          "type": "readonly import(\"./bindings\").BindingInvocation[] | undefined",
           "required": false,
           "description": null
         },
@@ -29013,7 +28872,7 @@
         "src/index.ts"
       ],
       "relatedSymbols": [
-        "BindingValueSource",
+        "BindingExpression",
         "UiNode"
       ],
       "signatures": [],
@@ -29042,7 +28901,7 @@
         {
           "name": "source",
           "kind": "property",
-          "type": "BindingValueSource",
+          "type": "BindingExpression",
           "required": true,
           "description": null
         }
@@ -29531,8 +29390,8 @@
       }
     },
     {
-      "name": "isBindingValueSource",
-      "description": "Validate literal, operation and path-based binding sources.",
+      "name": "isBindingExpression",
+      "description": "Validate a readable capability reference or a recursive binding expression.",
       "see": [],
       "security": [],
       "sourceLocation": {
@@ -29543,12 +29402,12 @@
     },
     {
       "name": "isScreenDataLoaderDefinition",
-      "description": "Validate a screen operation loader and its optional input mapping.",
+      "description": "Validate a screen loader as one portable capability invocation.",
       "see": [],
       "security": [],
       "sourceLocation": {
         "filePath": "src/appManifest/bindings.ts",
-        "line": 32,
+        "line": 23,
         "column": 1
       }
     },
@@ -29559,24 +29418,46 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/appManifest/bindings.ts",
-        "line": 43,
+        "line": 28,
         "column": 1
       }
     },
     {
       "name": "isPropBinding",
-      "description": "Validate a property binding with optional transforms and fallback behavior.",
+      "description": "Validate a property expression and its lifecycle-specific render behavior.",
       "see": [],
       "security": [],
       "sourceLocation": {
         "filePath": "src/appManifest/bindings.ts",
-        "line": 59,
+        "line": 44,
         "column": 1
       }
     },
     {
       "name": "isEventBinding",
-      "description": "Validate an event binding and its declared target.",
+      "description": "Validate an event binding and its one canonical invocation target.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/appManifest/bindings.ts",
+        "line": 55,
+        "column": 1
+      }
+    },
+    {
+      "name": "isBindingInvocation",
+      "description": "Validate a serializable capability invocation and optional result slot.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/appManifest/bindings.ts",
+        "line": 64,
+        "column": 1
+      }
+    },
+    {
+      "name": "isBindingCapabilityReference",
+      "description": "Validate a capability identity with optional output path or cached-result slot.",
       "see": [],
       "security": [],
       "sourceLocation": {
@@ -29586,30 +29467,19 @@
       }
     },
     {
-      "name": "isEventBindingTarget",
-      "description": "Validate the selected operation or action event target.",
+      "name": "isBindingExpressionNode",
+      "description": "Validate array, fallback, literal, object and transform expression forms.",
       "see": [],
       "security": [],
       "sourceLocation": {
         "filePath": "src/appManifest/bindings.ts",
-        "line": 82,
+        "line": 83,
         "column": 1
       }
     },
     {
       "name": "isBindingCondition",
-      "description": "Validate a binding condition and its source value.",
-      "see": [],
-      "security": [],
-      "sourceLocation": {
-        "filePath": "src/appManifest/bindings.ts",
-        "line": 91,
-        "column": 1
-      }
-    },
-    {
-      "name": "isBindingOperationRef",
-      "description": "Validate API and operation identities with an optional endpoint reference.",
+      "description": "Validate a condition expressed through the same recursive binding vocabulary.",
       "see": [],
       "security": [],
       "sourceLocation": {
@@ -29619,8 +29489,8 @@
       }
     },
     {
-      "name": "isBindingFallback",
-      "description": "Validate authored binding fallback values.",
+      "name": "isBindingLifecycleBehavior",
+      "description": "Validate a lifecycle state and its optional bound display expression.",
       "see": [],
       "security": [],
       "sourceLocation": {
@@ -29630,46 +29500,24 @@
       }
     },
     {
-      "name": "isBindingLifecycleBehavior",
-      "description": "Validate loading, empty and error binding behavior.",
-      "see": [],
-      "security": [],
-      "sourceLocation": {
-        "filePath": "src/appManifest/bindings.ts",
-        "line": 120,
-        "column": 1
-      }
-    },
-    {
-      "name": "isOptionalBindingTransforms",
-      "description": "Validate optional ordered binding transformations.",
-      "see": [],
-      "security": [],
-      "sourceLocation": {
-        "filePath": "src/appManifest/bindings.ts",
-        "line": 131,
-        "column": 1
-      }
-    },
-    {
       "name": "isBindingInputMap",
-      "description": "Validate every value in an operation input mapping.",
+      "description": "Validate every recursively authored invocation input expression.",
       "see": [],
       "security": [],
       "sourceLocation": {
         "filePath": "src/appManifest/bindings.ts",
-        "line": 140,
+        "line": 122,
         "column": 1
       }
     },
     {
-      "name": "isBindingInputValue",
-      "description": "Validate recursive array, object, literal and source operation inputs.",
+      "name": "isBindingTransforms",
+      "description": "Validate ordered expression transforms.",
       "see": [],
       "security": [],
       "sourceLocation": {
         "filePath": "src/appManifest/bindings.ts",
-        "line": 145,
+        "line": 127,
         "column": 1
       }
     },
@@ -31825,12 +31673,12 @@
       },
       {
         "fromPath": "src/bindings.ts",
-        "toPath": "src/collections.ts",
+        "toPath": "src/capability.ts",
         "sourcePath": "src/bindings.ts"
       },
       {
         "fromPath": "src/bindings.ts",
-        "toPath": "src/data/index.ts",
+        "toPath": "src/collections.ts",
         "sourcePath": "src/bindings.ts"
       },
       {
@@ -33161,51 +33009,21 @@
         "sourcePath": "src/appManifest/bindings.ts"
       },
       {
-        "fromSymbol": "isBindingValueSource",
-        "toSymbol": "isRecord",
-        "callExpression": "isRecord",
+        "fromSymbol": "isBindingExpression",
+        "toSymbol": "isBindingCapabilityReference",
+        "callExpression": "isBindingCapabilityReference",
         "sourcePath": "src/appManifest/bindings.ts"
       },
       {
-        "fromSymbol": "isBindingValueSource",
-        "toSymbol": "isManifestValue",
-        "callExpression": "isManifestValue",
-        "sourcePath": "src/appManifest/bindings.ts"
-      },
-      {
-        "fromSymbol": "isBindingValueSource",
-        "toSymbol": "isBindingOperationRef",
-        "callExpression": "isBindingOperationRef",
-        "sourcePath": "src/appManifest/bindings.ts"
-      },
-      {
-        "fromSymbol": "isBindingValueSource",
-        "toSymbol": "isOptionalString",
-        "callExpression": "isOptionalString",
+        "fromSymbol": "isBindingExpression",
+        "toSymbol": "isBindingExpressionNode",
+        "callExpression": "isBindingExpressionNode",
         "sourcePath": "src/appManifest/bindings.ts"
       },
       {
         "fromSymbol": "isScreenDataLoaderDefinition",
-        "toSymbol": "isRecord",
-        "callExpression": "isRecord",
-        "sourcePath": "src/appManifest/bindings.ts"
-      },
-      {
-        "fromSymbol": "isScreenDataLoaderDefinition",
-        "toSymbol": "isOptionalString",
-        "callExpression": "isOptionalString",
-        "sourcePath": "src/appManifest/bindings.ts"
-      },
-      {
-        "fromSymbol": "isScreenDataLoaderDefinition",
-        "toSymbol": "isBindingOperationRef",
-        "callExpression": "isBindingOperationRef",
-        "sourcePath": "src/appManifest/bindings.ts"
-      },
-      {
-        "fromSymbol": "isScreenDataLoaderDefinition",
-        "toSymbol": "isBindingInputMap",
-        "callExpression": "isBindingInputMap",
+        "toSymbol": "isBindingInvocation",
+        "callExpression": "isBindingInvocation",
         "sourcePath": "src/appManifest/bindings.ts"
       },
       {
@@ -33228,14 +33046,8 @@
       },
       {
         "fromSymbol": "isPropBinding",
-        "toSymbol": "isBindingValueSource",
-        "callExpression": "isBindingValueSource",
-        "sourcePath": "src/appManifest/bindings.ts"
-      },
-      {
-        "fromSymbol": "isPropBinding",
-        "toSymbol": "isBindingFallback",
-        "callExpression": "isBindingFallback",
+        "toSymbol": "isBindingExpression",
+        "callExpression": "isBindingExpression",
         "sourcePath": "src/appManifest/bindings.ts"
       },
       {
@@ -33245,12 +33057,6 @@
         "sourcePath": "src/appManifest/bindings.ts"
       },
       {
-        "fromSymbol": "isPropBinding",
-        "toSymbol": "isOptionalBindingTransforms",
-        "callExpression": "isOptionalBindingTransforms",
-        "sourcePath": "src/appManifest/bindings.ts"
-      },
-      {
         "fromSymbol": "isEventBinding",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
@@ -33258,14 +33064,8 @@
       },
       {
         "fromSymbol": "isEventBinding",
-        "toSymbol": "isEventBindingTarget",
-        "callExpression": "isEventBindingTarget",
-        "sourcePath": "src/appManifest/bindings.ts"
-      },
-      {
-        "fromSymbol": "isEventBinding",
-        "toSymbol": "isBindingInputMap",
-        "callExpression": "isBindingInputMap",
+        "toSymbol": "isBindingInvocation",
+        "callExpression": "isBindingInvocation",
         "sourcePath": "src/appManifest/bindings.ts"
       },
       {
@@ -33275,63 +33075,69 @@
         "sourcePath": "src/appManifest/bindings.ts"
       },
       {
-        "fromSymbol": "isEventBindingTarget",
+        "fromSymbol": "isBindingInvocation",
+        "toSymbol": "isBindingCapabilityReference",
+        "callExpression": "isBindingCapabilityReference",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isBindingInvocation",
+        "toSymbol": "isBindingInputMap",
+        "callExpression": "isBindingInputMap",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isBindingCapabilityReference",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
         "sourcePath": "src/appManifest/bindings.ts"
       },
       {
-        "fromSymbol": "isEventBindingTarget",
-        "toSymbol": "isBindingOperationRef",
-        "callExpression": "isBindingOperationRef",
-        "sourcePath": "src/appManifest/bindings.ts"
-      },
-      {
-        "fromSymbol": "isBindingCondition",
-        "toSymbol": "isRecord",
-        "callExpression": "isRecord",
-        "sourcePath": "src/appManifest/bindings.ts"
-      },
-      {
-        "fromSymbol": "isBindingCondition",
-        "toSymbol": "isBindingValueSource",
-        "callExpression": "isBindingValueSource",
-        "sourcePath": "src/appManifest/bindings.ts"
-      },
-      {
-        "fromSymbol": "isBindingCondition",
-        "toSymbol": "isManifestValue",
-        "callExpression": "isManifestValue",
-        "sourcePath": "src/appManifest/bindings.ts"
-      },
-      {
-        "fromSymbol": "isBindingOperationRef",
-        "toSymbol": "isRecord",
-        "callExpression": "isRecord",
-        "sourcePath": "src/appManifest/bindings.ts"
-      },
-      {
-        "fromSymbol": "isBindingOperationRef",
+        "fromSymbol": "isBindingCapabilityReference",
         "toSymbol": "isOptionalString",
         "callExpression": "isOptionalString",
         "sourcePath": "src/appManifest/bindings.ts"
       },
       {
-        "fromSymbol": "isBindingFallback",
+        "fromSymbol": "isBindingExpressionNode",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
         "sourcePath": "src/appManifest/bindings.ts"
       },
       {
-        "fromSymbol": "isBindingFallback",
+        "fromSymbol": "isBindingExpressionNode",
+        "toSymbol": "isBindingExpression",
+        "callExpression": "isBindingExpression",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isBindingExpressionNode",
         "toSymbol": "isManifestValue",
         "callExpression": "isManifestValue",
         "sourcePath": "src/appManifest/bindings.ts"
       },
       {
-        "fromSymbol": "isBindingFallback",
-        "toSymbol": "isBindingValueSource",
-        "callExpression": "isBindingValueSource",
+        "fromSymbol": "isBindingExpressionNode",
+        "toSymbol": "isBindingInputMap",
+        "callExpression": "isBindingInputMap",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isBindingExpressionNode",
+        "toSymbol": "isBindingTransforms",
+        "callExpression": "isBindingTransforms",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isBindingCondition",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isBindingCondition",
+        "toSymbol": "isBindingExpression",
+        "callExpression": "isBindingExpression",
         "sourcePath": "src/appManifest/bindings.ts"
       },
       {
@@ -33342,8 +33148,8 @@
       },
       {
         "fromSymbol": "isBindingLifecycleBehavior",
-        "toSymbol": "isBindingFallback",
-        "callExpression": "isBindingFallback",
+        "toSymbol": "isBindingExpression",
+        "callExpression": "isBindingExpression",
         "sourcePath": "src/appManifest/bindings.ts"
       },
       {
@@ -33356,36 +33162,6 @@
         "fromSymbol": "isBindingInputMap",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
-        "sourcePath": "src/appManifest/bindings.ts"
-      },
-      {
-        "fromSymbol": "isBindingInputValue",
-        "toSymbol": "isRecord",
-        "callExpression": "isRecord",
-        "sourcePath": "src/appManifest/bindings.ts"
-      },
-      {
-        "fromSymbol": "isBindingInputValue",
-        "toSymbol": "isManifestValue",
-        "callExpression": "isManifestValue",
-        "sourcePath": "src/appManifest/bindings.ts"
-      },
-      {
-        "fromSymbol": "isBindingInputValue",
-        "toSymbol": "isBindingInputMap",
-        "callExpression": "isBindingInputMap",
-        "sourcePath": "src/appManifest/bindings.ts"
-      },
-      {
-        "fromSymbol": "isBindingInputValue",
-        "toSymbol": "isBindingValueSource",
-        "callExpression": "isBindingValueSource",
-        "sourcePath": "src/appManifest/bindings.ts"
-      },
-      {
-        "fromSymbol": "isBindingInputValue",
-        "toSymbol": "isOptionalBindingTransforms",
-        "callExpression": "isOptionalBindingTransforms",
         "sourcePath": "src/appManifest/bindings.ts"
       },
       {
@@ -34470,8 +34246,8 @@
       },
       {
         "fromSymbol": "isUiNodeRepeatSpec",
-        "toSymbol": "isBindingValueSource",
-        "callExpression": "isBindingValueSource",
+        "toSymbol": "isBindingExpression",
+        "callExpression": "isBindingExpression",
         "sourcePath": "src/appManifest/screens.ts"
       },
       {
@@ -36185,67 +35961,12 @@
         "sourcePath": "src/auth.ts"
       },
       {
-        "fromSymbol": "BindingValueExpression",
-        "toType": "BindingValueSource",
+        "fromSymbol": "BindingInvocation",
+        "toType": "BindingExpression",
         "sourcePath": "src/bindings.ts"
       },
       {
-        "fromSymbol": "BindingValueExpression",
-        "toType": "BindingValueTransform",
-        "sourcePath": "src/bindings.ts"
-      },
-      {
-        "fromSymbol": "BindingFallback",
-        "toType": "BindingValueSource",
-        "sourcePath": "src/bindings.ts"
-      },
-      {
-        "fromSymbol": "BindingFallback",
-        "toType": "SerializableValue",
-        "sourcePath": "src/bindings.ts"
-      },
-      {
-        "fromSymbol": "BindingLifecycleBehavior",
-        "toType": "BindingFallback",
-        "sourcePath": "src/bindings.ts"
-      },
-      {
-        "fromSymbol": "BindingLifecycleBehavior",
-        "toType": "BindingLifecycleState",
-        "sourcePath": "src/bindings.ts"
-      },
-      {
-        "fromSymbol": "PropBinding",
-        "toType": "BindingFallback",
-        "sourcePath": "src/bindings.ts"
-      },
-      {
-        "fromSymbol": "PropBinding",
-        "toType": "BindingLifecycleBehavior",
-        "sourcePath": "src/bindings.ts"
-      },
-      {
-        "fromSymbol": "PropBinding",
-        "toType": "BindingValueSource",
-        "sourcePath": "src/bindings.ts"
-      },
-      {
-        "fromSymbol": "PropBinding",
-        "toType": "BindingValueTransform",
-        "sourcePath": "src/bindings.ts"
-      },
-      {
-        "fromSymbol": "OperationScreenDataLoaderDefinition",
-        "toType": "BindingInputValue",
-        "sourcePath": "src/bindings.ts"
-      },
-      {
-        "fromSymbol": "OperationScreenDataLoaderDefinition",
-        "toType": "BindingOperationRef",
-        "sourcePath": "src/bindings.ts"
-      },
-      {
-        "fromSymbol": "OperationScreenDataLoaderDefinition",
+        "fromSymbol": "BindingInvocation",
         "toType": "Readonly",
         "sourcePath": "src/bindings.ts"
       },
@@ -36256,12 +35977,27 @@
       },
       {
         "fromSymbol": "BindingCondition",
-        "toType": "BindingValueSource",
+        "toType": "BindingExpression",
         "sourcePath": "src/bindings.ts"
       },
       {
-        "fromSymbol": "BindingCondition",
-        "toType": "SerializableValue",
+        "fromSymbol": "BindingLifecycleBehavior",
+        "toType": "BindingExpression",
+        "sourcePath": "src/bindings.ts"
+      },
+      {
+        "fromSymbol": "BindingLifecycleBehavior",
+        "toType": "BindingLifecycleState",
+        "sourcePath": "src/bindings.ts"
+      },
+      {
+        "fromSymbol": "PropBinding",
+        "toType": "BindingExpression",
+        "sourcePath": "src/bindings.ts"
+      },
+      {
+        "fromSymbol": "PropBinding",
+        "toType": "BindingLifecycleBehavior",
         "sourcePath": "src/bindings.ts"
       },
       {
@@ -36271,17 +36007,7 @@
       },
       {
         "fromSymbol": "EventBinding",
-        "toType": "BindingInputValue",
-        "sourcePath": "src/bindings.ts"
-      },
-      {
-        "fromSymbol": "EventBinding",
-        "toType": "EventBindingTarget",
-        "sourcePath": "src/bindings.ts"
-      },
-      {
-        "fromSymbol": "EventBinding",
-        "toType": "Readonly",
+        "toType": "BindingInvocation",
         "sourcePath": "src/bindings.ts"
       },
       {
@@ -39101,7 +38827,7 @@
       },
       {
         "fromSymbol": "UiNodeRepeatSpec",
-        "toType": "BindingValueSource",
+        "toType": "BindingExpression",
         "sourcePath": "src/types.ts"
       },
       {
@@ -39116,7 +38842,7 @@
       },
       {
         "fromSymbol": "ScreenSpec",
-        "toType": "OperationScreenDataLoaderDefinition",
+        "toType": "BindingInvocation",
         "sourcePath": "src/types.ts"
       },
       {

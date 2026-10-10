@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 26.0.0
+
+### Major Changes
+
+- 74eb129: Replace action and operation binding targets with portable capability invocations and unify readable values as recursive capability binding expressions.
+
 ## 25.2.0
 
 ### Minor Changes

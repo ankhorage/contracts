@@ -66,8 +66,8 @@ graph TD
   module_src_auth_ts --> module_src_types_ts
   module_src_bindings_ts["src/bindings.ts"]
   package__ankhorage_contracts -.-> module_src_bindings_ts
+  module_src_bindings_ts --> module_src_capability_ts
   module_src_bindings_ts --> module_src_collections_ts
-  module_src_bindings_ts --> module_src_data_index_ts
   module_src_bindings_ts --> module_src_serializable_ts
   module_src_capability_ts["src/capability.ts"]
   package__ankhorage_contracts -.-> module_src_capability_ts
