@@ -1,0 +1,86 @@
+import { describe, expect, it } from 'bun:test';
+
+import { isDataSchema } from './data';
+import {
+  STORAGE_ADAPTER_ERROR_SCHEMA,
+  STORAGE_ASSET_REFERENCE_SCHEMA,
+  STORAGE_BYTES_SCHEMA,
+  STORAGE_ERROR_RESULT_SCHEMA,
+  STORAGE_IDENTITY_SCHEMA,
+  STORAGE_LIST_INPUT_SCHEMA,
+  STORAGE_LIST_OPERATION_RESULT_SCHEMA,
+  STORAGE_LIST_RESULT_SCHEMA,
+  STORAGE_OBJECT_METADATA_SCHEMA,
+  STORAGE_PUBLIC_URL_INPUT_SCHEMA,
+  STORAGE_PUBLIC_URL_OPERATION_RESULT_SCHEMA,
+  STORAGE_PUBLIC_URL_RESULT_SCHEMA,
+  STORAGE_REMOVE_INPUT_SCHEMA,
+  STORAGE_RESOLVE_INPUT_SCHEMA,
+  STORAGE_RESOLVE_OPERATION_RESULT_SCHEMA,
+  STORAGE_RESOLVE_RESULT_SCHEMA,
+  STORAGE_RESOLVED_ASSET_SCHEMA,
+  STORAGE_SUCCESS_SCHEMA,
+  STORAGE_UPLOAD_INPUT_SCHEMA,
+  STORAGE_UPLOAD_OPERATION_RESULT_SCHEMA,
+  STORAGE_UPLOAD_RESULT_SCHEMA,
+  STORAGE_VOID_RESULT_SCHEMA,
+} from './storage';
+
+const STORAGE_SCHEMAS = [
+  STORAGE_BYTES_SCHEMA,
+  STORAGE_IDENTITY_SCHEMA,
+  STORAGE_ASSET_REFERENCE_SCHEMA,
+  STORAGE_OBJECT_METADATA_SCHEMA,
+  STORAGE_UPLOAD_INPUT_SCHEMA,
+  STORAGE_UPLOAD_RESULT_SCHEMA,
+  STORAGE_REMOVE_INPUT_SCHEMA,
+  STORAGE_PUBLIC_URL_INPUT_SCHEMA,
+  STORAGE_PUBLIC_URL_RESULT_SCHEMA,
+  STORAGE_LIST_INPUT_SCHEMA,
+  STORAGE_LIST_RESULT_SCHEMA,
+  STORAGE_RESOLVE_INPUT_SCHEMA,
+  STORAGE_RESOLVED_ASSET_SCHEMA,
+  STORAGE_RESOLVE_RESULT_SCHEMA,
+  STORAGE_ADAPTER_ERROR_SCHEMA,
+  STORAGE_SUCCESS_SCHEMA,
+  STORAGE_ERROR_RESULT_SCHEMA,
+  STORAGE_VOID_RESULT_SCHEMA,
+  STORAGE_UPLOAD_OPERATION_RESULT_SCHEMA,
+  STORAGE_PUBLIC_URL_OPERATION_RESULT_SCHEMA,
+  STORAGE_LIST_OPERATION_RESULT_SCHEMA,
+  STORAGE_RESOLVE_OPERATION_RESULT_SCHEMA,
+] as const;
+
+describe('storage capability schemas', () => {
+  it('publishes valid, serializable schema sources for every storage operation and value', () => {
+    expect(STORAGE_SCHEMAS.every(isDataSchema)).toBe(true);
+    expect(JSON.parse(JSON.stringify(STORAGE_SCHEMAS))).toEqual(STORAGE_SCHEMAS);
+  });
+
+  it('serializes upload bytes as standard Base64 without changing the adapter input contract', () => {
+    expect(STORAGE_UPLOAD_INPUT_SCHEMA.required).toEqual(['bucket', 'path', 'body']);
+    expect(STORAGE_UPLOAD_INPUT_SCHEMA.properties.body).toEqual({
+      type: 'string',
+      format: 'base64',
+    });
+  });
+
+  it('keeps public and signed resolution under the existing access selection', () => {
+    expect(STORAGE_RESOLVE_INPUT_SCHEMA.properties.access).toEqual({
+      type: 'string',
+      enum: ['public', 'signed'],
+    });
+    expect(STORAGE_RESOLVED_ASSET_SCHEMA.properties.access).toEqual({
+      type: 'string',
+      enum: ['public', 'signed'],
+    });
+  });
+
+  it('requires result data for non-void operations and keeps errors portable', () => {
+    expect(STORAGE_UPLOAD_OPERATION_RESULT_SCHEMA.oneOf[0].required).toEqual(['ok', 'data']);
+    expect(STORAGE_PUBLIC_URL_OPERATION_RESULT_SCHEMA.oneOf[0].required).toEqual(['ok', 'data']);
+    expect(STORAGE_LIST_OPERATION_RESULT_SCHEMA.oneOf[0].required).toEqual(['ok', 'data']);
+    expect(STORAGE_RESOLVE_OPERATION_RESULT_SCHEMA.oneOf[0].required).toEqual(['ok', 'data']);
+    expect(STORAGE_ADAPTER_ERROR_SCHEMA.properties).not.toHaveProperty('cause');
+  });
+});

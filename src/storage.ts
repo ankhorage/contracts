@@ -1,3 +1,5 @@
+import type { DataSchema } from './data/schemas.js';
+
 export interface StorageAdapterError {
   code: string;
   message: string;
@@ -154,3 +156,198 @@ export interface StorageResolveAdapter {
  */
 export interface MediaStorageAdapter
   extends StorageAdapter, StorageListAdapter, StorageResolveAdapter {}
+
+/**
+ * Portable schema sources for provider-neutral storage values and operations.
+ *
+ * Upload bytes use a standard Base64 string. The source `StorageUploadInput` remains a
+ * `Uint8Array` at the adapter boundary; catalogs serialize its `body` with this schema and
+ * reconstruct the bytes before invoking an adapter.
+ */
+export const STORAGE_BYTES_SCHEMA = {
+  type: 'string',
+  format: 'base64',
+} as const satisfies DataSchema;
+
+export const STORAGE_IDENTITY_SCHEMA = {
+  type: 'object',
+  required: ['bucket', 'path'],
+  properties: {
+    storageId: { type: 'string' },
+    bucket: { type: 'string' },
+    path: { type: 'string' },
+  },
+} as const satisfies DataSchema;
+
+export const STORAGE_ASSET_REFERENCE_SCHEMA = {
+  ...STORAGE_IDENTITY_SCHEMA,
+  properties: {
+    ...STORAGE_IDENTITY_SCHEMA.properties,
+    publicUrl: { type: 'string' },
+  },
+} as const satisfies DataSchema;
+
+export const STORAGE_OBJECT_METADATA_SCHEMA = {
+  ...STORAGE_IDENTITY_SCHEMA,
+  properties: {
+    ...STORAGE_IDENTITY_SCHEMA.properties,
+    contentType: { type: 'string' },
+    sizeBytes: { type: 'integer' },
+    createdAt: { type: 'string' },
+    updatedAt: { type: 'string' },
+    etag: { type: 'string' },
+  },
+} as const satisfies DataSchema;
+
+export const STORAGE_UPLOAD_INPUT_SCHEMA = {
+  ...STORAGE_IDENTITY_SCHEMA,
+  required: ['bucket', 'path', 'body'],
+  properties: {
+    ...STORAGE_IDENTITY_SCHEMA.properties,
+    body: STORAGE_BYTES_SCHEMA,
+    contentType: { type: 'string' },
+    cacheControl: { type: 'string' },
+    upsert: { type: 'boolean' },
+  },
+} as const satisfies DataSchema;
+
+export const STORAGE_UPLOAD_RESULT_SCHEMA = {
+  type: 'object',
+  required: ['asset'],
+  properties: { asset: STORAGE_ASSET_REFERENCE_SCHEMA },
+} as const satisfies DataSchema;
+
+export const STORAGE_REMOVE_INPUT_SCHEMA = {
+  ...STORAGE_IDENTITY_SCHEMA,
+  description: 'Identifies the stored object to remove.',
+} as const satisfies DataSchema;
+
+export const STORAGE_PUBLIC_URL_INPUT_SCHEMA = {
+  ...STORAGE_IDENTITY_SCHEMA,
+  description: 'Identifies the stored object whose public URL is requested.',
+} as const satisfies DataSchema;
+
+export const STORAGE_PUBLIC_URL_RESULT_SCHEMA = {
+  type: 'object',
+  required: ['publicUrl'],
+  properties: { publicUrl: { type: 'string' } },
+} as const satisfies DataSchema;
+
+export const STORAGE_LIST_INPUT_SCHEMA = {
+  type: 'object',
+  required: ['bucket'],
+  properties: {
+    storageId: { type: 'string' },
+    bucket: { type: 'string' },
+    prefix: { type: 'string' },
+    cursor: { type: 'string' },
+    limit: { type: 'integer' },
+  },
+} as const satisfies DataSchema;
+
+export const STORAGE_LIST_RESULT_SCHEMA = {
+  type: 'object',
+  required: ['objects'],
+  properties: {
+    objects: { type: 'array', items: STORAGE_OBJECT_METADATA_SCHEMA },
+    nextCursor: { type: 'string' },
+  },
+} as const satisfies DataSchema;
+
+export const STORAGE_RESOLVE_INPUT_SCHEMA = {
+  ...STORAGE_IDENTITY_SCHEMA,
+  properties: {
+    ...STORAGE_IDENTITY_SCHEMA.properties,
+    access: { type: 'string', enum: ['public', 'signed'] },
+    expiresInSeconds: { type: 'integer' },
+  },
+} as const satisfies DataSchema;
+
+export const STORAGE_RESOLVED_ASSET_SCHEMA = {
+  ...STORAGE_IDENTITY_SCHEMA,
+  required: ['bucket', 'path', 'url', 'access'],
+  properties: {
+    ...STORAGE_IDENTITY_SCHEMA.properties,
+    url: { type: 'string' },
+    access: { type: 'string', enum: ['public', 'signed'] },
+    expiresAt: { type: 'string' },
+  },
+} as const satisfies DataSchema;
+
+export const STORAGE_RESOLVE_RESULT_SCHEMA = {
+  type: 'object',
+  required: ['asset'],
+  properties: { asset: STORAGE_RESOLVED_ASSET_SCHEMA },
+} as const satisfies DataSchema;
+
+export const STORAGE_ADAPTER_ERROR_SCHEMA = {
+  type: 'object',
+  required: ['code', 'message'],
+  properties: {
+    code: { type: 'string' },
+    message: { type: 'string' },
+  },
+} as const satisfies DataSchema;
+
+export const STORAGE_SUCCESS_SCHEMA = {
+  type: 'object',
+  required: ['ok'],
+  properties: { ok: { const: true } },
+} as const satisfies DataSchema;
+
+export const STORAGE_ERROR_RESULT_SCHEMA = {
+  type: 'object',
+  required: ['ok', 'error'],
+  properties: {
+    ok: { const: false },
+    error: STORAGE_ADAPTER_ERROR_SCHEMA,
+  },
+} as const satisfies DataSchema;
+
+export const STORAGE_VOID_RESULT_SCHEMA = {
+  oneOf: [STORAGE_SUCCESS_SCHEMA, STORAGE_ERROR_RESULT_SCHEMA],
+} as const satisfies DataSchema;
+
+export const STORAGE_UPLOAD_OPERATION_RESULT_SCHEMA = {
+  oneOf: [
+    {
+      ...STORAGE_SUCCESS_SCHEMA,
+      required: ['ok', 'data'],
+      properties: { ...STORAGE_SUCCESS_SCHEMA.properties, data: STORAGE_UPLOAD_RESULT_SCHEMA },
+    },
+    STORAGE_ERROR_RESULT_SCHEMA,
+  ],
+} as const satisfies DataSchema;
+
+export const STORAGE_PUBLIC_URL_OPERATION_RESULT_SCHEMA = {
+  oneOf: [
+    {
+      ...STORAGE_SUCCESS_SCHEMA,
+      required: ['ok', 'data'],
+      properties: { ...STORAGE_SUCCESS_SCHEMA.properties, data: STORAGE_PUBLIC_URL_RESULT_SCHEMA },
+    },
+    STORAGE_ERROR_RESULT_SCHEMA,
+  ],
+} as const satisfies DataSchema;
+
+export const STORAGE_LIST_OPERATION_RESULT_SCHEMA = {
+  oneOf: [
+    {
+      ...STORAGE_SUCCESS_SCHEMA,
+      required: ['ok', 'data'],
+      properties: { ...STORAGE_SUCCESS_SCHEMA.properties, data: STORAGE_LIST_RESULT_SCHEMA },
+    },
+    STORAGE_ERROR_RESULT_SCHEMA,
+  ],
+} as const satisfies DataSchema;
+
+export const STORAGE_RESOLVE_OPERATION_RESULT_SCHEMA = {
+  oneOf: [
+    {
+      ...STORAGE_SUCCESS_SCHEMA,
+      required: ['ok', 'data'],
+      properties: { ...STORAGE_SUCCESS_SCHEMA.properties, data: STORAGE_RESOLVE_RESULT_SCHEMA },
+    },
+    STORAGE_ERROR_RESULT_SCHEMA,
+  ],
+} as const satisfies DataSchema;
