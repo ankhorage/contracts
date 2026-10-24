@@ -74,7 +74,7 @@ function isRouteDefinition(value: unknown): boolean {
   return (
     isRecord(value) &&
     typeof value.name === 'string' &&
-    [value.path, value.label, value.screenId].every(isOptionalString) &&
+    [value.path, value.expoRouterPath, value.label, value.screenId].every(isOptionalString) &&
     (value.icon === undefined || isIconSpec(value.icon)) &&
     (value.showInPrimaryNavigation === undefined ||
       typeof value.showInPrimaryNavigation === 'boolean') &&
