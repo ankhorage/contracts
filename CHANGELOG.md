@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 26.0.2
+
+### Patch Changes
+
+- 7d83df6: Update dependencies: `@ankhorage/utility`.
+
 ## 26.0.1
 
 ### Patch Changes
