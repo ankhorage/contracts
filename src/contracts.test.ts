@@ -144,6 +144,7 @@ describe('contracts', () => {
     const visibleRoute: RouteDefinition = {
       name: 'home',
       path: '/',
+      expoRouterPath: 'index',
       screenId: 'home-screen',
     };
     const hiddenRoute: RouteDefinition = {
@@ -159,6 +160,7 @@ describe('contracts', () => {
     });
     expect(visibleRoute.showInPrimaryNavigation).toBeUndefined();
     expect(hiddenRoute.showInPrimaryNavigation).toBe(false);
+    expect(visibleRoute.expoRouterPath).toBe('index');
   });
 
   it('accepts the current serialized theme config shape', () => {

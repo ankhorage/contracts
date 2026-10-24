@@ -227,8 +227,17 @@ export type NavigatorNode =
   | TabsNavigatorNode;
 
 export interface RouteDefinition {
+  /** Stable semantic identity used by manifest policy and initial-route selection. */
   name: string;
+  /** Canonical public URL used for links and navigation actions. */
   path?: string;
+  /**
+   * Expo Router module path relative to its owning navigator.
+   *
+   * This preserves groups, index routes, and dynamic or catch-all segments when their filesystem
+   * identity differs from both the semantic name and the public URL.
+   */
+  expoRouterPath?: string;
   label?: string;
   icon?: IconSpec;
   /** Hide this route from primary Tabs/Drawer presentation without making it unnavigable. */
