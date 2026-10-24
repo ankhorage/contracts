@@ -547,7 +547,7 @@ Source: `src/types/appManifest.ts:3:1`
 
 Kind: `unknown`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:265:1`
+Source: `src/navigator.ts:274:1`
 
 ## AppSettings
 
@@ -4612,7 +4612,7 @@ Source: `src/navigator/catalog.ts:76:1`
 
 Kind: `type`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:243:1`
+Source: `src/navigator.ts:252:1`
 
 ### Members
 
@@ -4762,7 +4762,7 @@ Source: `src/navigator/planning.ts:117:1`
 
 Kind: `type`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:248:1`
+Source: `src/navigator.ts:257:1`
 
 ### Members
 
@@ -4775,7 +4775,7 @@ Source: `src/navigator.ts:248:1`
 
 Kind: `type`
 Module: `src/navigator.ts`
-Source: `src/navigator.ts:253:1`
+Source: `src/navigator.ts:262:1`
 
 ### Members
 
@@ -4827,6 +4827,7 @@ Source: `src/navigator/planning.ts:128:1`
 
 | Name | Kind | Type | Required | Description |
 | --- | --- | --- | --- | --- |
+| expoRouterPath | property | `string \| undefined` | no |  |
 | guards | property | `readonly string[]` | yes |  |
 | icon | property | `import("..").IconSpec \| undefined` | no |  |
 | label | property | `string \| undefined` | no |  |
@@ -4841,7 +4842,7 @@ Source: `src/navigator/planning.ts:128:1`
 
 Kind: `unknown`
 Module: `src/navigator/planning.ts`
-Source: `src/navigator/planning.ts:140:1`
+Source: `src/navigator/planning.ts:141:1`
 
 ## NavigatorScreenModule
 
@@ -4872,7 +4873,7 @@ Source: `src/navigator.ts:151:1`
 
 Kind: `unknown`
 Module: `src/navigator/planning.ts`
-Source: `src/navigator/planning.ts:142:1`
+Source: `src/navigator/planning.ts:143:1`
 
 ## NavigatorType
 
@@ -4884,7 +4885,7 @@ Source: `src/navigator.ts:7:1`
 
 Kind: `type`
 Module: `src/navigator/planning.ts`
-Source: `src/navigator/planning.ts:144:1`
+Source: `src/navigator/planning.ts:145:1`
 
 ### Members
 
@@ -5373,6 +5374,7 @@ Source: `src/navigator.ts:229:1`
 
 | Name | Kind | Type | Required | Description |
 | --- | --- | --- | --- | --- |
+| expoRouterPath | property | `string \| undefined` | no |  |
 | guards | property | `string[] \| undefined` | no |  |
 | icon | property | `IconSpec \| undefined` | no |  |
 | label | property | `string \| undefined` | no |  |

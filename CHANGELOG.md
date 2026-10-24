@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 26.1.0
+
+### Minor Changes
+
+- ced3803: Declare the optional Expo Router route-module identity separately from semantic route names and public URLs.
+
 ## 26.0.2
 
 ### Patch Changes

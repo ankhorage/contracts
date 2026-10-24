@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v26.0.2",
+      "value": "v26.1.0",
       "color": "cb3837"
     },
     {
@@ -4717,7 +4717,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 265,
+        "line": 274,
         "column": 1
       },
       "exportPaths": [
@@ -19210,7 +19210,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 243,
+        "line": 252,
         "column": 1
       },
       "exportPaths": [
@@ -19759,7 +19759,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 248,
+        "line": 257,
         "column": 1
       },
       "exportPaths": [
@@ -19799,7 +19799,7 @@
       "modulePath": "src/navigator.ts",
       "sourceLocation": {
         "filePath": "src/navigator.ts",
-        "line": 253,
+        "line": 262,
         "column": 1
       },
       "exportPaths": [
@@ -19969,6 +19969,13 @@
       "signatures": [],
       "members": [
         {
+          "name": "expoRouterPath",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
           "name": "guards",
           "kind": "property",
           "type": "readonly string[]",
@@ -20045,7 +20052,7 @@
       "modulePath": "src/navigator/planning.ts",
       "sourceLocation": {
         "filePath": "src/navigator/planning.ts",
-        "line": 140,
+        "line": 141,
         "column": 1
       },
       "exportPaths": [
@@ -20134,7 +20141,7 @@
       "modulePath": "src/navigator/planning.ts",
       "sourceLocation": {
         "filePath": "src/navigator/planning.ts",
-        "line": 142,
+        "line": 143,
         "column": 1
       },
       "exportPaths": [
@@ -20178,7 +20185,7 @@
       "modulePath": "src/navigator/planning.ts",
       "sourceLocation": {
         "filePath": "src/navigator/planning.ts",
-        "line": 144,
+        "line": 145,
         "column": 1
       },
       "exportPaths": [
@@ -21889,6 +21896,13 @@
       ],
       "signatures": [],
       "members": [
+        {
+          "name": "expoRouterPath",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
         {
           "name": "guards",
           "kind": "property",
