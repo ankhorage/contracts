@@ -128,6 +128,7 @@ export type NavigatorResponsiveSize = 'compact' | 'medium' | 'expanded';
 export interface NavigatorRoutePlan {
   name: string;
   path?: string;
+  expoRouterPath?: string;
   label?: string;
   icon?: RouteDefinition['icon'];
   showInPrimaryNavigation?: boolean;

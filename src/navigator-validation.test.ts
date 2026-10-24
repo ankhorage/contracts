@@ -38,6 +38,33 @@ describe('app navigator manifest type discrimination', () => {
   });
 });
 
+describe('app navigator manifest Expo Router route paths', () => {
+  it('accepts serializable group, index, dynamic, and catch-all module paths', () => {
+    const manifest = {
+      type: 'stack',
+      routes: [
+        { name: 'home', path: '/', expoRouterPath: '(tabs)/index' },
+        { name: 'article', path: '/articles/42', expoRouterPath: 'articles/[id]' },
+        { name: 'catch-all', path: '/docs/a/b', expoRouterPath: 'docs/[...slug]' },
+      ],
+    };
+
+    expect(isAppNavigatorManifest(manifest)).toBe(true);
+    expect(JSON.parse(JSON.stringify(manifest))).toEqual(manifest);
+  });
+
+  it('rejects non-string Expo Router module paths', () => {
+    for (const expoRouterPath of [null, 42, true, [], {}]) {
+      expect(
+        isAppNavigatorManifest({
+          type: 'stack',
+          routes: [{ name: 'home', expoRouterPath }],
+        }),
+      ).toBe(false);
+    }
+  });
+});
+
 describe('app navigator manifest stack validation', () => {
   it('rejects the removed untyped options bag and unsupported stack branch fields', () => {
     expect(isAppNavigatorManifest({ type: 'slot', options: { arbitrary: true }, routes: [] })).toBe(

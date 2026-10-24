@@ -26,6 +26,7 @@ import {
   type InfraAuthSpec,
   type InfraManifest,
   NAVIGATOR_TYPES,
+  type NavigatorRoutePlan,
   type RouteDefinition,
   type StoragePublicUrlResult,
   type StorageResult,
@@ -161,6 +162,22 @@ describe('contracts', () => {
     expect(visibleRoute.showInPrimaryNavigation).toBeUndefined();
     expect(hiddenRoute.showInPrimaryNavigation).toBe(false);
     expect(visibleRoute.expoRouterPath).toBe('index');
+  });
+
+  it('keeps semantic, public, and Expo Router route identities separate in navigator plans', () => {
+    const route: NavigatorRoutePlan = {
+      name: 'article',
+      path: '/articles/42',
+      expoRouterPath: '(content)/articles/[id]',
+      guards: [],
+    };
+
+    expect(route).toEqual({
+      name: 'article',
+      path: '/articles/42',
+      expoRouterPath: '(content)/articles/[id]',
+      guards: [],
+    });
   });
 
   it('accepts the current serialized theme config shape', () => {
