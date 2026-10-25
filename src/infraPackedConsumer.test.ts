@@ -7,7 +7,7 @@ import { describe, expect, it } from 'bun:test';
 const packageRoot = process.cwd();
 const temporaryCacheDirectory = join(tmpdir(), 'contracts-infra-consumer-cache');
 
-const runCommand = (command: readonly string[], cwd: string): string => {
+const runCommand = (command: string[], cwd: string): string => {
   const result = Bun.spawnSync(command, {
     cwd,
     env: {
