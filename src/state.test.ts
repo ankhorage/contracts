@@ -6,6 +6,7 @@ import type {
   StatePath,
   StateResult,
   StateSubscription,
+  StateUpdate,
   StateValue,
 } from './state';
 
@@ -75,6 +76,17 @@ function createFakeStateAdapter(): StateAdapter {
       emit(path, value);
       return { ok: true };
     },
+    update(path, update) {
+      const existing = values.get(pathToKey(path));
+      if (existing !== undefined && !isStateValueArray(existing)) {
+        return createError('invalid_update', 'State update cannot be applied to this value.');
+      }
+
+      const next = [...(existing ?? []), update.value];
+      values.set(pathToKey(path), next);
+      emit(path, next);
+      return { ok: true, data: next };
+    },
     subscribe(path, listener) {
       const key = pathToKey(path);
       const pathListeners = listeners.get(key) ?? new Set<StateListener>();
@@ -98,6 +110,10 @@ function createFakeStateAdapter(): StateAdapter {
       return { ok: true };
     },
   };
+}
+
+function isStateValueArray(value: StateValue): value is readonly StateValue[] {
+  return Array.isArray(value) && value.every(isStateValue);
 }
 
 describe('StateAdapter', () => {
@@ -133,6 +149,17 @@ describe('StateAdapter', () => {
     adapter.set('collections.posts', value);
 
     expect(adapter.get('collections.posts')).toEqual({ ok: true, data: value });
+  });
+
+  it('describes serializable append updates for atomic adapter execution', () => {
+    const adapter = createFakeStateAdapter();
+    const update = { kind: 'append', value: { title: 'Lunch' } } satisfies StateUpdate;
+
+    expect(adapter.update?.('day.meals', update)).toEqual({
+      ok: true,
+      data: [{ title: 'Lunch' }],
+    });
+    expect(JSON.parse(JSON.stringify(update))).toEqual(update);
   });
 
   it('notifies subscribers when a value changes', () => {
