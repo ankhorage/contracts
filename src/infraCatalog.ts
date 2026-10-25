@@ -9,7 +9,7 @@ export const INFRA_RUNTIME_COMPATIBILITY = {
 export const INFRA_ADAPTER_CATALOG = {
   local: {
     id: 'local',
-    package: '@ankhorage/local',
+    package: '@ankhorage/infra-local',
     kind: 'compute',
     configVersion: 1,
     capabilities: ['compute'],
@@ -18,7 +18,7 @@ export const INFRA_ADAPTER_CATALOG = {
   },
   hetzner: {
     id: 'hetzner',
-    package: '@ankhorage/hetzner',
+    package: '@ankhorage/infra-hetzner',
     kind: 'compute',
     configVersion: 1,
     capabilities: ['compute'],
@@ -27,7 +27,7 @@ export const INFRA_ADAPTER_CATALOG = {
   },
   minikube: {
     id: 'minikube',
-    package: '@ankhorage/minikube',
+    package: '@ankhorage/infra-minikube',
     kind: 'runtime',
     configVersion: 1,
     capabilities: ['runtime', 'workloads', 'networking'],
@@ -36,7 +36,7 @@ export const INFRA_ADAPTER_CATALOG = {
   },
   k3s: {
     id: 'k3s',
-    package: '@ankhorage/k3s',
+    package: '@ankhorage/infra-k3s',
     kind: 'runtime',
     configVersion: 1,
     capabilities: ['runtime', 'workloads', 'networking'],
@@ -45,7 +45,7 @@ export const INFRA_ADAPTER_CATALOG = {
   },
   'docker-compose': {
     id: 'docker-compose',
-    package: '@ankhorage/docker-compose',
+    package: '@ankhorage/infra-docker-compose',
     kind: 'runtime',
     configVersion: 1,
     capabilities: ['runtime', 'workloads', 'networking'],
@@ -54,7 +54,7 @@ export const INFRA_ADAPTER_CATALOG = {
   },
   supabase: {
     id: 'supabase',
-    package: '@ankhorage/supabase',
+    package: '@ankhorage/infra-supabase',
     kind: 'service',
     configVersion: 1,
     capabilities: ['database', 'auth', 'objectStorage'],
@@ -63,7 +63,7 @@ export const INFRA_ADAPTER_CATALOG = {
   },
   cerbos: {
     id: 'cerbos',
-    package: '@ankhorage/cerbos',
+    package: '@ankhorage/infra-cerbos',
     kind: 'service',
     configVersion: 1,
     capabilities: ['authz'],
@@ -72,7 +72,7 @@ export const INFRA_ADAPTER_CATALOG = {
   },
   r2: {
     id: 'r2',
-    package: '@ankhorage/r2',
+    package: '@ankhorage/infra-r2',
     kind: 'service',
     configVersion: 1,
     capabilities: ['objectStorage'],
