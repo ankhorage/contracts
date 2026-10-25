@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v26.2.1",
+      "value": "v26.2.2",
       "color": "cb3837"
     },
     {
@@ -2791,7 +2791,7 @@
         {
           "name": "config",
           "kind": "property",
-          "type": "import(\"..\").SerializableValue | undefined",
+          "type": "import(\"../serializable.js\").SerializableValue | undefined",
           "required": false,
           "description": null
         },
@@ -4005,7 +4005,7 @@
         {
           "name": "metadata",
           "kind": "property",
-          "type": "import(\"..\").SerializableValue | undefined",
+          "type": "import(\"../serializable.js\").SerializableValue | undefined",
           "required": false,
           "description": null
         },
@@ -4033,7 +4033,7 @@
         {
           "name": "schemas",
           "kind": "property",
-          "type": "Readonly<Record<string, import(\"./schemas\").DataSchema>> | undefined",
+          "type": "Readonly<Record<string, import(\"./schemas.js\").DataSchema>> | undefined",
           "required": false,
           "description": null
         }
@@ -8373,7 +8373,7 @@
         {
           "name": "config",
           "kind": "property",
-          "type": "Readonly<Record<string, import(\"./serializable\").SerializableValue>> | undefined",
+          "type": "Readonly<Record<string, import(\"./serializable.js\").SerializableValue>> | undefined",
           "required": false,
           "description": null
         },
@@ -8539,7 +8539,7 @@
         {
           "name": "config",
           "kind": "property",
-          "type": "import(\"..\").SerializableValue | undefined",
+          "type": "import(\"../serializable.js\").SerializableValue | undefined",
           "required": false,
           "description": null
         },
@@ -8645,7 +8645,7 @@
         {
           "name": "metadata",
           "kind": "property",
-          "type": "import(\"..\").SerializableValue | undefined",
+          "type": "import(\"../serializable.js\").SerializableValue | undefined",
           "required": false,
           "description": null
         },
@@ -8659,7 +8659,7 @@
         {
           "name": "schemas",
           "kind": "property",
-          "type": "Readonly<Record<string, import(\"./schemas\").DataSchema>> | undefined",
+          "type": "Readonly<Record<string, import(\"./schemas.js\").DataSchema>> | undefined",
           "required": false,
           "description": null
         }
@@ -8795,7 +8795,7 @@
         {
           "name": "metadata",
           "kind": "property",
-          "type": "import(\"..\").SerializableValue | undefined",
+          "type": "import(\"../serializable.js\").SerializableValue | undefined",
           "required": false,
           "description": null
         },
@@ -8934,7 +8934,7 @@
         {
           "name": "metadata",
           "kind": "property",
-          "type": "import(\"..\").SerializableValue | undefined",
+          "type": "import(\"../serializable.js\").SerializableValue | undefined",
           "required": false,
           "description": null
         },
@@ -9127,7 +9127,7 @@
         {
           "name": "default",
           "kind": "property",
-          "type": "import(\"..\").SerializableValue | undefined",
+          "type": "import(\"../serializable.js\").SerializableValue | undefined",
           "required": false,
           "description": null
         },
@@ -9428,14 +9428,14 @@
         {
           "name": "const",
           "kind": "property",
-          "type": "import(\"..\").SerializableValue | undefined",
+          "type": "import(\"../serializable.js\").SerializableValue | undefined",
           "required": false,
           "description": null
         },
         {
           "name": "default",
           "kind": "property",
-          "type": "import(\"..\").SerializableValue | undefined",
+          "type": "import(\"../serializable.js\").SerializableValue | undefined",
           "required": false,
           "description": null
         },
@@ -9449,7 +9449,7 @@
         {
           "name": "enum",
           "kind": "property",
-          "type": "readonly import(\"..\").SerializableValue[] | undefined",
+          "type": "readonly import(\"../serializable.js\").SerializableValue[] | undefined",
           "required": false,
           "description": null
         },
@@ -12585,7 +12585,7 @@
         {
           "name": "metadata",
           "kind": "property",
-          "type": "import(\"..\").SerializableValue | undefined",
+          "type": "import(\"../serializable.js\").SerializableValue | undefined",
           "required": false,
           "description": null
         },
@@ -12613,7 +12613,7 @@
         {
           "name": "schemas",
           "kind": "property",
-          "type": "Readonly<Record<string, import(\"./schemas\").DataSchema>> | undefined",
+          "type": "Readonly<Record<string, import(\"./schemas.js\").DataSchema>> | undefined",
           "required": false,
           "description": null
         }
@@ -12684,7 +12684,7 @@
         {
           "name": "metadata",
           "kind": "property",
-          "type": "import(\"..\").SerializableValue | undefined",
+          "type": "import(\"../serializable.js\").SerializableValue | undefined",
           "required": false,
           "description": null
         },
@@ -12719,7 +12719,7 @@
         {
           "name": "schemas",
           "kind": "property",
-          "type": "Readonly<Record<string, import(\"./schemas\").DataSchema>> | undefined",
+          "type": "Readonly<Record<string, import(\"./schemas.js\").DataSchema>> | undefined",
           "required": false,
           "description": null
         }
@@ -14256,7 +14256,7 @@
         {
           "name": "config",
           "kind": "property",
-          "type": "import(\"..\").SerializableValue | undefined",
+          "type": "import(\"../serializable.js\").SerializableValue | undefined",
           "required": false,
           "description": null
         }
@@ -15920,7 +15920,7 @@
         {
           "name": "metadata",
           "kind": "property",
-          "type": "import(\"..\").SerializableValue | undefined",
+          "type": "import(\"../serializable.js\").SerializableValue | undefined",
           "required": false,
           "description": null
         },
@@ -15948,7 +15948,7 @@
         {
           "name": "schemas",
           "kind": "property",
-          "type": "Readonly<Record<string, import(\"./schemas\").DataSchema>> | undefined",
+          "type": "Readonly<Record<string, import(\"./schemas.js\").DataSchema>> | undefined",
           "required": false,
           "description": null
         }
@@ -19989,7 +19989,7 @@
         {
           "name": "icon",
           "kind": "property",
-          "type": "import(\"..\").IconSpec | undefined",
+          "type": "import(\"../types.js\").IconSpec | undefined",
           "required": false,
           "description": null
         },
@@ -22283,7 +22283,7 @@
         {
           "name": "dataLoaders",
           "kind": "property",
-          "type": "readonly import(\"./bindings\").BindingInvocation[] | undefined",
+          "type": "readonly import(\"./bindings.js\").BindingInvocation[] | undefined",
           "required": false,
           "description": null
         },

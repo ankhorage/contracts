@@ -22,7 +22,7 @@ Source: `src/data/refs.ts:15:1`
 
 | Name | Kind | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| config | property | `import("..").SerializableValue \| undefined` | no |  |
+| config | property | `import("../serializable.js").SerializableValue \| undefined` | no |  |
 | exportName | property | `string \| undefined` | no |  |
 | id | property | `string` | yes |  |
 | kind | property | `AdapterKind` | yes |  |
@@ -357,11 +357,11 @@ Source: `src/data/apis.ts:11:1`
 | description | property | `string \| undefined` | no |  |
 | endpoints | property | `DataEndpointRegistry` | yes |  |
 | id | property | `string` | yes |  |
-| metadata | property | `import("..").SerializableValue \| undefined` | no |  |
+| metadata | property | `import("../serializable.js").SerializableValue \| undefined` | no |  |
 | name | property | `string \| undefined` | no |  |
 | origin | property | `ApiOrigin` | yes |  |
 | protocol | property | `ApiProtocol` | yes |  |
-| schemas | property | `Readonly<Record<string, import("./schemas").DataSchema>> \| undefined` | no |  |
+| schemas | property | `Readonly<Record<string, import("./schemas.js").DataSchema>> \| undefined` | no |  |
 
 ## ApiDefinition
 
@@ -1576,7 +1576,7 @@ Source: `src/navigator.ts:215:1`
 
 | Name | Kind | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| config | property | `Readonly<Record<string, import("./serializable").SerializableValue>> \| undefined` | no |  |
+| config | property | `Readonly<Record<string, import("./serializable.js").SerializableValue>> \| undefined` | no |  |
 | initialRouteName | property | `string \| undefined` | no |  |
 | navigatorId | property | `string` | yes |  |
 | routes | property | `RouteDefinition[]` | yes |  |
@@ -1617,7 +1617,7 @@ Source: `src/data/refs.ts:23:1`
 
 | Name | Kind | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| config | property | `import("..").SerializableValue \| undefined` | no |  |
+| config | property | `import("../serializable.js").SerializableValue \| undefined` | no |  |
 | exportName | property | `string \| undefined` | no |  |
 | id | property | `string` | yes |  |
 | kind | property | `"database"` | yes |  |
@@ -1639,9 +1639,9 @@ Source: `src/data/sources.ts:10:1`
 | endpoints | property | `DataEndpointRegistry` | yes |  |
 | id | property | `string` | yes |  |
 | kind | property | `"database"` | yes |  |
-| metadata | property | `import("..").SerializableValue \| undefined` | no |  |
+| metadata | property | `import("../serializable.js").SerializableValue \| undefined` | no |  |
 | name | property | `string \| undefined` | no |  |
-| schemas | property | `Readonly<Record<string, import("./schemas").DataSchema>> \| undefined` | no |  |
+| schemas | property | `Readonly<Record<string, import("./schemas.js").DataSchema>> \| undefined` | no |  |
 
 ## DataContractValue
 
@@ -1676,7 +1676,7 @@ Source: `src/data/endpoints.ts:9:1`
 | description | property | `string \| undefined` | no |  |
 | id | property | `string` | yes |  |
 | kind | property | `DataEndpointKind` | yes |  |
-| metadata | property | `import("..").SerializableValue \| undefined` | no |  |
+| metadata | property | `import("../serializable.js").SerializableValue \| undefined` | no |  |
 | name | property | `string \| undefined` | no |  |
 | operations | property | `DataOperationRegistry` | yes |  |
 | path | property | `string \| undefined` | no |  |
@@ -1708,7 +1708,7 @@ Source: `src/data/operations.ts:44:1`
 | endpointId | property | `string \| undefined` | no |  |
 | id | property | `string` | yes |  |
 | intent | property | `DataOperationIntent` | yes |  |
-| metadata | property | `import("..").SerializableValue \| undefined` | no |  |
+| metadata | property | `import("../serializable.js").SerializableValue \| undefined` | no |  |
 | method | property | `DataOperationMethod \| undefined` | no |  |
 | name | property | `string \| undefined` | no |  |
 | pagination | property | `DataOperationPagination \| undefined` | no |  |
@@ -1756,7 +1756,7 @@ Source: `src/data/operations.ts:16:1`
 
 | Name | Kind | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| default | property | `import("..").SerializableValue \| undefined` | no |  |
+| default | property | `import("../serializable.js").SerializableValue \| undefined` | no |  |
 | description | property | `string \| undefined` | no |  |
 | location | property | `DataOperationParameterLocation` | yes |  |
 | name | property | `string` | yes |  |
@@ -1832,10 +1832,10 @@ Source: `src/data/schemas.ts:17:1`
 | additionalProperties | property | `boolean \| DataSchema \| undefined` | no |  |
 | allOf | property | `readonly DataSchema[] \| undefined` | no |  |
 | anyOf | property | `readonly DataSchema[] \| undefined` | no |  |
-| const | property | `import("..").SerializableValue \| undefined` | no |  |
-| default | property | `import("..").SerializableValue \| undefined` | no |  |
+| const | property | `import("../serializable.js").SerializableValue \| undefined` | no |  |
+| default | property | `import("../serializable.js").SerializableValue \| undefined` | no |  |
 | description | property | `string \| undefined` | no |  |
-| enum | property | `readonly import("..").SerializableValue[] \| undefined` | no |  |
+| enum | property | `readonly import("../serializable.js").SerializableValue[] \| undefined` | no |  |
 | format | property | `string \| undefined` | no |  |
 | items | property | `DataSchema \| undefined` | no |  |
 | nullable | property | `boolean \| undefined` | no |  |
@@ -2711,11 +2711,11 @@ Source: `src/data/apis.ts:41:1`
 | endpointUrl | property | `string` | yes |  |
 | id | property | `string` | yes |  |
 | introspection | property | `GraphQlIntrospectionConfig \| undefined` | no |  |
-| metadata | property | `import("..").SerializableValue \| undefined` | no |  |
+| metadata | property | `import("../serializable.js").SerializableValue \| undefined` | no |  |
 | name | property | `string \| undefined` | no |  |
 | origin | property | `"external"` | yes |  |
 | protocol | property | `"graphql"` | yes |  |
-| schemas | property | `Readonly<Record<string, import("./schemas").DataSchema>> \| undefined` | no |  |
+| schemas | property | `Readonly<Record<string, import("./schemas.js").DataSchema>> \| undefined` | no |  |
 
 ## ExternalRestApiDefinition
 
@@ -2732,12 +2732,12 @@ Source: `src/data/apis.ts:29:1`
 | description | property | `string \| undefined` | no |  |
 | endpoints | property | `DataEndpointRegistry` | yes |  |
 | id | property | `string` | yes |  |
-| metadata | property | `import("..").SerializableValue \| undefined` | no |  |
+| metadata | property | `import("../serializable.js").SerializableValue \| undefined` | no |  |
 | name | property | `string \| undefined` | no |  |
 | openApi | property | `OpenApiDocumentRef \| undefined` | no |  |
 | origin | property | `"external"` | yes |  |
 | protocol | property | `"rest"` | yes |  |
-| schemas | property | `Readonly<Record<string, import("./schemas").DataSchema>> \| undefined` | no |  |
+| schemas | property | `Readonly<Record<string, import("./schemas.js").DataSchema>> \| undefined` | no |  |
 
 ## findForbiddenInlineSecretFields
 
@@ -3167,7 +3167,7 @@ Source: `src/types/infraManifest.ts:166:1`
 
 | Name | Kind | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| config | property | `import("..").SerializableValue \| undefined` | no |  |
+| config | property | `import("../serializable.js").SerializableValue \| undefined` | no |  |
 
 ## InfraNetworkingSpec
 
@@ -3624,11 +3624,11 @@ Source: `src/data/apis.ts:55:1`
 | description | property | `string \| undefined` | no |  |
 | endpoints | property | `DataEndpointRegistry` | yes |  |
 | id | property | `string` | yes |  |
-| metadata | property | `import("..").SerializableValue \| undefined` | no |  |
+| metadata | property | `import("../serializable.js").SerializableValue \| undefined` | no |  |
 | name | property | `string \| undefined` | no |  |
 | origin | property | `"internal"` | yes |  |
 | protocol | property | `"rest"` | yes |  |
-| schemas | property | `Readonly<Record<string, import("./schemas").DataSchema>> \| undefined` | no |  |
+| schemas | property | `Readonly<Record<string, import("./schemas.js").DataSchema>> \| undefined` | no |  |
 
 ## IosBuildArtifact
 
@@ -4829,7 +4829,7 @@ Source: `src/navigator/planning.ts:128:1`
 | --- | --- | --- | --- | --- |
 | expoRouterPath | property | `string \| undefined` | no |  |
 | guards | property | `readonly string[]` | yes |  |
-| icon | property | `import("..").IconSpec \| undefined` | no |  |
+| icon | property | `import("../types.js").IconSpec \| undefined` | no |  |
 | label | property | `string \| undefined` | no |  |
 | name | property | `string` | yes |  |
 | navigator | property | `NavigatorNodePlan \| undefined` | no |  |
@@ -5480,7 +5480,7 @@ Source: `src/types.ts:179:1`
 
 | Name | Kind | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| dataLoaders | property | `readonly import("./bindings").BindingInvocation[] \| undefined` | no |  |
+| dataLoaders | property | `readonly import("./bindings.js").BindingInvocation[] \| undefined` | no |  |
 | description | property | `string \| undefined` | no |  |
 | id | property | `string` | yes |  |
 | name | property | `string` | yes |  |

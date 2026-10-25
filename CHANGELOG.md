@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 26.2.2
+
+### Patch Changes
+
+- be64e00: Fix native Node ESM resolution for published package entrypoints.
+
 ## 26.2.1
 
 ### Patch Changes
