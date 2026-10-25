@@ -250,7 +250,7 @@ describe('adapter package discovery contracts', () => {
     ).toBe(true);
     const result = validateInfraAdapterSelection(local, [INFRA_ADAPTER_CATALOG.local]);
     expect(result.ok).toBe(false);
-    expect(result.diagnostics[0]?.message).toContain('@ankhorage/minikube');
+    expect(result.diagnostics[0]?.message).toContain('@ankhorage/infra-minikube');
     expect(result.diagnostics[0]?.code).toBe('adapter_unavailable');
   });
 
