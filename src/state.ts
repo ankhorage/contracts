@@ -12,6 +12,15 @@ export type StateValue = SerializableValue;
 
 export type StatePath = string | readonly string[];
 
+/** A portable state transition that appends one serializable value to an array. */
+export interface StateAppendUpdate {
+  readonly kind: 'append';
+  readonly value: StateValue;
+}
+
+/** A portable state transition applied atomically by a StateAdapter. */
+export type StateUpdate = StateAppendUpdate;
+
 export interface StateAdapterCapabilities {
   readonly subscriptions: boolean;
   readonly computed: boolean;
@@ -58,6 +67,10 @@ export interface StateAdapter {
 
   get<TValue extends StateValue = StateValue>(path: StatePath): StateResult<TValue | undefined>;
   set<TValue extends StateValue = StateValue>(path: StatePath, value: TValue): StateResult;
+  update?<TValue extends StateValue = StateValue>(
+    path: StatePath,
+    update: StateUpdate,
+  ): StateResult<TValue>;
   subscribe<TValue extends StateValue = StateValue>(
     path: StatePath,
     listener: StateListener<TValue>,

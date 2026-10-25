@@ -127,6 +127,8 @@ function isBindingInputMap(value: unknown): boolean {
 function isBindingTransforms(value: unknown): boolean {
   return (
     Array.isArray(value) &&
-    value.every((transform) => ['lowercase', 'trim', 'uppercase'].includes(String(transform)))
+    value.every((transform) =>
+      ['length', 'lowercase', 'trim', 'uppercase'].includes(String(transform)),
+    )
   );
 }

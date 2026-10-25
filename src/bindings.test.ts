@@ -86,7 +86,7 @@ describe('capability binding contracts', () => {
               value: {
                 kind: 'transform',
                 value: { capability: 'state.profile', path: 'displayName' },
-                transforms: ['trim'],
+                transforms: ['trim', 'length'],
               },
               fallback: { kind: 'literal', value: 'Guest' },
             },

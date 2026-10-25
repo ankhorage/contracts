@@ -6,7 +6,7 @@ export type ComponentInstanceId = string;
 export type ComponentTypeId = string;
 export type BindingValue = SerializableValue;
 export type BindingDataPath = string;
-export type BindingValueTransform = 'lowercase' | 'trim' | 'uppercase';
+export type BindingValueTransform = 'length' | 'lowercase' | 'trim' | 'uppercase';
 
 /** A portable reference to a readable capability value or a cached invocation result. */
 export interface BindingCapabilityReference {
