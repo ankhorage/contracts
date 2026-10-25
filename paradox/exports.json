@@ -21117,7 +21117,7 @@
     "modulePath": "src/state.ts",
     "sourceLocation": {
       "filePath": "src/state.ts",
-      "line": 56,
+      "line": 65,
       "column": 1
     },
     "exportPaths": [
@@ -21130,6 +21130,7 @@
       "StatePath",
       "StateResult",
       "StateSubscription",
+      "StateUpdate",
       "StateValue"
     ],
     "signatures": [],
@@ -21168,6 +21169,13 @@
         "type": "<TValue extends StateValue = SerializableValue>(path: StatePath, listener: StateListener<TValue>) => StateResult<StateSubscription>",
         "required": true,
         "description": null
+      },
+      {
+        "name": "update",
+        "kind": "method",
+        "type": "(<TValue extends StateValue = SerializableValue>(path: StatePath, update: StateUpdate) => StateResult<TValue>) | undefined",
+        "required": false,
+        "description": null
       }
     ],
     "structuredRows": []
@@ -21183,7 +21191,7 @@
     "modulePath": "src/state.ts",
     "sourceLocation": {
       "filePath": "src/state.ts",
-      "line": 15,
+      "line": 24,
       "column": 1
     },
     "exportPaths": [
@@ -21227,7 +21235,7 @@
     "modulePath": "src/state.ts",
     "sourceLocation": {
       "filePath": "src/state.ts",
-      "line": 21,
+      "line": 30,
       "column": 1
     },
     "exportPaths": [
@@ -21261,6 +21269,45 @@
     "structuredRows": []
   },
   {
+    "name": "StateAppendUpdate",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/state.ts",
+    "sourceLocation": {
+      "filePath": "src/state.ts",
+      "line": 16,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "SerializableValue"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "kind",
+        "kind": "property",
+        "type": "\"append\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "value",
+        "kind": "property",
+        "type": "SerializableValue",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
     "name": "StateListener",
     "title": null,
     "description": null,
@@ -21271,7 +21318,7 @@
     "modulePath": "src/state.ts",
     "sourceLocation": {
       "filePath": "src/state.ts",
-      "line": 48,
+      "line": 57,
       "column": 1
     },
     "exportPaths": [
@@ -21337,7 +21384,7 @@
     "modulePath": "src/state.ts",
     "sourceLocation": {
       "filePath": "src/state.ts",
-      "line": 36,
+      "line": 45,
       "column": 1
     },
     "exportPaths": [
@@ -21359,7 +21406,7 @@
     "modulePath": "src/state.ts",
     "sourceLocation": {
       "filePath": "src/state.ts",
-      "line": 43,
+      "line": 52,
       "column": 1
     },
     "exportPaths": [
@@ -21398,7 +21445,7 @@
     "modulePath": "src/state.ts",
     "sourceLocation": {
       "filePath": "src/state.ts",
-      "line": 52,
+      "line": 61,
       "column": 1
     },
     "exportPaths": [
@@ -21428,7 +21475,29 @@
     "modulePath": "src/state.ts",
     "sourceLocation": {
       "filePath": "src/state.ts",
-      "line": 27,
+      "line": 36,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "StateUpdate",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/state.ts",
+    "sourceLocation": {
+      "filePath": "src/state.ts",
+      "line": 22,
       "column": 1
     },
     "exportPaths": [

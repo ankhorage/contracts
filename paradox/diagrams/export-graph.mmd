@@ -1689,11 +1689,15 @@ graph LR
   export_StateAdapter -.-> export_StatePath
   export_StateAdapter -.-> export_StateResult
   export_StateAdapter -.-> export_StateSubscription
+  export_StateAdapter -.-> export_StateUpdate
   export_StateAdapter -.-> export_StateValue
   export_StateAdapterCapabilities["StateAdapterCapabilities"]
   module_src_state_ts --> export_StateAdapterCapabilities
   export_StateAdapterError["StateAdapterError"]
   module_src_state_ts --> export_StateAdapterError
+  export_StateAppendUpdate["StateAppendUpdate"]
+  module_src_state_ts --> export_StateAppendUpdate
+  export_StateAppendUpdate -.-> export_SerializableValue
   export_StateListener["StateListener"]
   module_src_state_ts --> export_StateListener
   export_StatePath["StatePath"]
@@ -1709,6 +1713,8 @@ graph LR
   module_src_state_ts --> export_StateSubscription
   export_StateSuccess["StateSuccess"]
   module_src_state_ts --> export_StateSuccess
+  export_StateUpdate["StateUpdate"]
+  module_src_state_ts --> export_StateUpdate
   export_StateValue["StateValue"]
   module_src_state_ts --> export_StateValue
   export_STORAGE_ADAPTER_ERROR_SCHEMA["STORAGE_ADAPTER_ERROR_SCHEMA"]

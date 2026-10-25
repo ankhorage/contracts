@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 26.2.0
+
+### Minor Changes
+
+- e1d625b: Add serializable atomic StateAdapter append updates and array-length binding transforms.
+
 ## 26.1.0
 
 ### Minor Changes

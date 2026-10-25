@@ -5915,7 +5915,7 @@ Source: `src/auth.ts:467:1`
 
 Kind: `type`
 Module: `src/state.ts`
-Source: `src/state.ts:56:1`
+Source: `src/state.ts:65:1`
 
 ### Members
 
@@ -5926,12 +5926,13 @@ Source: `src/state.ts:56:1`
 | get | method | `<TValue extends StateValue = SerializableValue>(path: StatePath) => StateResult<TValue \| undefined>` | yes |  |
 | set | method | `<TValue extends StateValue = SerializableValue>(path: StatePath, value: TValue) => StateResult` | yes |  |
 | subscribe | method | `<TValue extends StateValue = SerializableValue>(path: StatePath, listener: StateListener<TValue>) => StateResult<StateSubscription>` | yes |  |
+| update | method | `(<TValue extends StateValue = SerializableValue>(path: StatePath, update: StateUpdate) => StateResult<TValue>) \| undefined` | no |  |
 
 ## StateAdapterCapabilities
 
 Kind: `type`
 Module: `src/state.ts`
-Source: `src/state.ts:15:1`
+Source: `src/state.ts:24:1`
 
 ### Members
 
@@ -5945,7 +5946,7 @@ Source: `src/state.ts:15:1`
 
 Kind: `type`
 Module: `src/state.ts`
-Source: `src/state.ts:21:1`
+Source: `src/state.ts:30:1`
 
 ### Members
 
@@ -5955,11 +5956,24 @@ Source: `src/state.ts:21:1`
 | code | property | `string` | yes |  |
 | message | property | `string` | yes |  |
 
+## StateAppendUpdate
+
+Kind: `type`
+Module: `src/state.ts`
+Source: `src/state.ts:16:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| kind | property | `"append"` | yes |  |
+| value | property | `SerializableValue` | yes |  |
+
 ## StateListener
 
 Kind: `unknown`
 Module: `src/state.ts`
-Source: `src/state.ts:48:1`
+Source: `src/state.ts:57:1`
 
 ## StatePath
 
@@ -5977,13 +5991,13 @@ Source: `src/state.ts:9:1`
 
 Kind: `unknown`
 Module: `src/state.ts`
-Source: `src/state.ts:36:1`
+Source: `src/state.ts:45:1`
 
 ## StateSnapshot
 
 Kind: `type`
 Module: `src/state.ts`
-Source: `src/state.ts:43:1`
+Source: `src/state.ts:52:1`
 
 ### Members
 
@@ -5996,7 +6010,7 @@ Source: `src/state.ts:43:1`
 
 Kind: `type`
 Module: `src/state.ts`
-Source: `src/state.ts:52:1`
+Source: `src/state.ts:61:1`
 
 ### Members
 
@@ -6008,7 +6022,13 @@ Source: `src/state.ts:52:1`
 
 Kind: `unknown`
 Module: `src/state.ts`
-Source: `src/state.ts:27:1`
+Source: `src/state.ts:36:1`
+
+## StateUpdate
+
+Kind: `unknown`
+Module: `src/state.ts`
+Source: `src/state.ts:22:1`
 
 ## StateValue
 
