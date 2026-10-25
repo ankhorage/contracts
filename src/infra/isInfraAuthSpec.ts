@@ -2,8 +2,8 @@ import { isStringArray } from '@ankhorage/utility/array';
 import { isRecordOf } from '@ankhorage/utility/object';
 import { isOptionalString } from '@ankhorage/utility/string';
 
-import { AUTH_OAUTH_PROVIDER_IDS } from '../auth';
-import { isIconSpec } from '../icon';
+import { AUTH_OAUTH_PROVIDER_IDS } from '../auth.js';
+import { isIconSpec } from '../icon.js';
 import {
   AUTH_PROFILE_CREATE_STRATEGIES,
   AUTH_PROFILE_PRIMARY_KEY_STRATEGIES,
@@ -11,10 +11,10 @@ import {
   AUTH_SCOPES,
   AUTH_SIGN_IN_IDENTIFIERS,
   AUTH_SIGN_UP_POLICIES,
-} from '../types';
-import type { InfraAuthSpec } from '../types/infraManifest';
-import type { InfraShape } from '../types/infraValidation';
-import { isInfraShape } from './isInfraShape';
+} from '../types.js';
+import type { InfraAuthSpec } from '../types/infraManifest.js';
+import type { InfraShape } from '../types/infraValidation.js';
+import { isInfraShape } from './isInfraShape.js';
 
 /*** Preserve application auth configuration while rejecting nested authorization and unknown providers. */
 export function isInfraAuthSpec(value: unknown): value is InfraAuthSpec {

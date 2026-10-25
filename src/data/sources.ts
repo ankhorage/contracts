@@ -1,9 +1,9 @@
-import type { EntityRegistry } from '../collections';
-import type { DataEndpointRegistry } from './endpoints';
-import type { DataSourceId } from './ids';
-import type { CredentialRef, DatabaseAdapterRef } from './refs';
-import type { DataSchemaRegistry } from './schemas';
-import type { DataContractValue } from './values';
+import type { EntityRegistry } from '../collections.js';
+import type { DataEndpointRegistry } from './endpoints.js';
+import type { DataSourceId } from './ids.js';
+import type { CredentialRef, DatabaseAdapterRef } from './refs.js';
+import type { DataSchemaRegistry } from './schemas.js';
+import type { DataContractValue } from './values.js';
 
 export type DataSourceKind = 'database';
 

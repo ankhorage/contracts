@@ -7,7 +7,7 @@ import {
   type MediaAssetMetadata,
   type MediaAssetSource,
   type MediaManifest,
-} from '../media';
+} from '../media.js';
 
 const MEDIA_ASSET_KIND_SET = new Set<string>(MEDIA_ASSET_KINDS);
 

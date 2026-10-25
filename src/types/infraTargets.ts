@@ -1,4 +1,4 @@
-import type { InfraControlPlaneCredentialRef } from './infraSecrets';
+import type { InfraControlPlaneCredentialRef } from './infraSecrets.js';
 
 /** Portable runtime target state contains credential identity only, never resolved values. */
 export type InfraComputeTarget = {

@@ -2,13 +2,13 @@ import { COLOR_HARMONIES } from '@ankhorage/color-theory';
 import { isRecord } from '@ankhorage/utility/object';
 import { isOptionalString } from '@ankhorage/utility/string';
 
-import { isSerializableSet } from '../collections';
-import { isMediaAssetReference } from '../media';
-import { ANKHORAGE_CAPABILITY_NAMES, ANKHORAGE_PERMISSION_NAMES } from '../requirements';
-import { APP_CATEGORIES, type ThemeRegistry } from '../types';
-import { isBindingExpression, isScreenDataLoaderDefinition } from './bindings';
+import { isSerializableSet } from '../collections.js';
+import { isMediaAssetReference } from '../media.js';
+import { ANKHORAGE_CAPABILITY_NAMES, ANKHORAGE_PERMISSION_NAMES } from '../requirements.js';
+import { APP_CATEGORIES, type ThemeRegistry } from '../types.js';
+import { isBindingExpression, isScreenDataLoaderDefinition } from './bindings.js';
 
-export { isAppNavigatorManifest } from './navigator';
+export { isAppNavigatorManifest } from './navigator.js';
 
 const APP_CATEGORY_SET = new Set<string>(APP_CATEGORIES);
 const COLOR_HARMONY_SET = new Set<string>(COLOR_HARMONIES);

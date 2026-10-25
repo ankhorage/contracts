@@ -1,5 +1,5 @@
-import type { AppEnvironmentId } from '../environments';
-import type { INFRA_ADAPTER_CATALOG } from '../infraCatalog';
+import type { AppEnvironmentId } from '../environments.js';
+import type { INFRA_ADAPTER_CATALOG } from '../infraCatalog.js';
 import type {
   InfraDestroyRequest,
   InfraGeneratedArtifact,
@@ -9,7 +9,7 @@ import type {
   InfraPlanAction,
   InfraResourceStatus,
   InfraResult,
-} from './infraLifecycle';
+} from './infraLifecycle.js';
 import type {
   InfraAdapterId,
   InfraComputeProviderId,
@@ -17,10 +17,10 @@ import type {
   InfraEnvironmentSpec,
   InfraRuntimeProviderId,
   InfraRuntimeSelection,
-} from './infraManifest';
-import type { InfraControlPlaneCredentialRef, InfraSecretReference } from './infraSecrets';
-import type { InfraComputeTarget } from './infraTargets';
-import type { InfraWorkloadSpec } from './infraWorkload';
+} from './infraManifest.js';
+import type { InfraControlPlaneCredentialRef, InfraSecretReference } from './infraSecrets.js';
+import type { InfraComputeTarget } from './infraTargets.js';
+import type { InfraWorkloadSpec } from './infraWorkload.js';
 
 /** Package exports must match this exact catalog entry; optional operations are advertised explicitly. */
 export type InfraAdapterDescriptor<P extends InfraAdapterId = InfraAdapterId> = {

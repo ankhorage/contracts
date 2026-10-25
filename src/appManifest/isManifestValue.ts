@@ -1,4 +1,4 @@
-import { isSerializableValue } from '../serializable';
+import { isSerializableValue } from '../serializable.js';
 
 /*** Validate authored values through the canonical serializable-value contract. */
 export function isManifestValue(value: unknown): boolean {

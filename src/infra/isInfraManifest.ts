@@ -1,12 +1,12 @@
 import { isRecord } from '@ankhorage/utility/object';
 
-import { isApiDefinitionRegistry } from '../data/isApiDefinitionRegistry';
-import { APP_ENVIRONMENT_IDS } from '../environments';
-import { isSerializableValue } from '../serializable';
-import type { InfraManifest, InfraModuleSpec } from '../types/infraManifest';
-import type { InfraShape } from '../types/infraValidation';
-import { isInfraEnvironmentSpec } from './isInfraEnvironmentSpec';
-import { isInfraShape } from './isInfraShape';
+import { isApiDefinitionRegistry } from '../data/isApiDefinitionRegistry.js';
+import { APP_ENVIRONMENT_IDS } from '../environments.js';
+import { isSerializableValue } from '../serializable.js';
+import type { InfraManifest, InfraModuleSpec } from '../types/infraManifest.js';
+import type { InfraShape } from '../types/infraValidation.js';
+import { isInfraEnvironmentSpec } from './isInfraEnvironmentSpec.js';
+import { isInfraShape } from './isInfraShape.js';
 
 /*** Validate standalone infrastructure without AppManifest, Deploy or provider package side effects. */
 export function isInfraManifest(value: unknown): value is InfraManifest {

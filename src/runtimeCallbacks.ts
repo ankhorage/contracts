@@ -1,4 +1,4 @@
-import type { UiNode } from './types';
+import type { UiNode } from './types.js';
 
 export interface RuntimeResolveNodePropsArgs {
   readonly node: UiNode;

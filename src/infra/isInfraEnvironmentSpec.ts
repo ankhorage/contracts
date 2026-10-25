@@ -1,21 +1,21 @@
 import { isRecord } from '@ankhorage/utility/object';
 import { isNonEmptyString } from '@ankhorage/utility/string';
 
-import { isSerializableSet } from '../collections';
-import { INFRA_ADAPTER_CATALOG } from '../infraCatalog';
+import { isSerializableSet } from '../collections.js';
+import { INFRA_ADAPTER_CATALOG } from '../infraCatalog.js';
 import type {
   InfraEnvironmentSpec,
   InfraObjectStorageSpec,
   InfraS3PersistenceTarget,
   InfraScheduledDatabaseBackupSpec,
-} from '../types/infraManifest';
-import type { InfraShape } from '../types/infraValidation';
-import { infraFields } from './infraFields';
-import { isInfraAuthSpec } from './isInfraAuthSpec';
-import { isInfraCredentialRef } from './isInfraCredentialRef';
-import { isInfraDeploymentSpec } from './isInfraDeploymentSpec';
-import { isInfraShape } from './isInfraShape';
-import { isInfraWorkloadSpec } from './isInfraWorkloadSpec';
+} from '../types/infraManifest.js';
+import type { InfraShape } from '../types/infraValidation.js';
+import { infraFields } from './infraFields.js';
+import { isInfraAuthSpec } from './isInfraAuthSpec.js';
+import { isInfraCredentialRef } from './isInfraCredentialRef.js';
+import { isInfraDeploymentSpec } from './isInfraDeploymentSpec.js';
+import { isInfraShape } from './isInfraShape.js';
+import { isInfraWorkloadSpec } from './isInfraWorkloadSpec.js';
 
 /*** Validate sibling capabilities and their required relationships within one environment. */
 export function isInfraEnvironmentSpec(value: unknown): value is InfraEnvironmentSpec {

@@ -1,21 +1,21 @@
 import { isStringArray } from '@ankhorage/utility/array';
 import { isRecord } from '@ankhorage/utility/object';
 
-import { isInfraManifest } from '../infra/isInfraManifest';
-import type { AppManifest } from '../types';
-import { isComponentDataBindingRegistry } from './bindings';
-import { APP_MANIFEST_KEY_POLICY } from './constants';
-import { isDataSourceRegistry } from './dataSources';
-import { isAppDeployManifest } from './deploy';
-import { isAppStateSpec } from './isAppStateSpec';
-import { isMediaManifest } from './media';
+import { isInfraManifest } from '../infra/isInfraManifest.js';
+import type { AppManifest } from '../types.js';
+import { isComponentDataBindingRegistry } from './bindings.js';
+import { APP_MANIFEST_KEY_POLICY } from './constants.js';
+import { isDataSourceRegistry } from './dataSources.js';
+import { isAppDeployManifest } from './deploy.js';
+import { isAppStateSpec } from './isAppStateSpec.js';
+import { isMediaManifest } from './media.js';
 import {
   isAppNavigatorManifest,
   isManifestMetadata,
   isScreenRegistry,
   isSplashScreenSpec,
   isThemeRegistry,
-} from './screens';
+} from './screens.js';
 
 /*** Return whether an unknown value satisfies the canonical AppManifest shape. */
 export function isAppManifest(value: unknown): value is AppManifest {

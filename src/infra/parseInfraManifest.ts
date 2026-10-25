@@ -1,6 +1,6 @@
-import type { InfraResult } from '../types/infraLifecycle';
-import type { InfraManifest } from '../types/infraManifest';
-import { isInfraManifest } from './isInfraManifest';
+import type { InfraResult } from '../types/infraLifecycle.js';
+import type { InfraManifest } from '../types/infraManifest.js';
+import { isInfraManifest } from './isInfraManifest.js';
 
 /** Parse unknown infrastructure input; package availability and credentials are separate validation stages. */
 export function parseInfraManifest(value: unknown): InfraResult<InfraManifest> {

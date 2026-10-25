@@ -1,7 +1,7 @@
-import type { AppEnvironmentId } from '../environments';
-import type { InfraAdapterId } from './infraManifest';
-import type { InfraSecretReference } from './infraSecrets';
-import type { InfraComputeTarget } from './infraTargets';
+import type { AppEnvironmentId } from '../environments.js';
+import type { InfraAdapterId } from './infraManifest.js';
+import type { InfraSecretReference } from './infraSecrets.js';
+import type { InfraComputeTarget } from './infraTargets.js';
 
 /** Identity must be verified before mutation; unowned resources must never be pruned. */
 export interface InfraResourceIdentity {

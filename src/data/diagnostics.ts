@@ -1,4 +1,4 @@
-import type { ApiId, DataSourceId, EndpointId, OperationId } from './ids';
+import type { ApiId, DataSourceId, EndpointId, OperationId } from './ids.js';
 
 export type DataDiagnosticSeverity = 'error' | 'info' | 'warning';
 

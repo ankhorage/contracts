@@ -1,4 +1,4 @@
-import type { SerializableValue } from './serializable';
+import type { SerializableValue } from './serializable.js';
 
 /** Legend currently implements in-memory state only; unsupported persistence cannot be selected. */
 export interface AppStateSpec {

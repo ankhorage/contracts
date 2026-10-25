@@ -1,6 +1,6 @@
-import type { ValueMap } from '../collections';
-import type { SchemaId } from './ids';
-import type { DataContractValue } from './values';
+import type { ValueMap } from '../collections.js';
+import type { SchemaId } from './ids.js';
+import type { DataContractValue } from './values.js';
 
 export type DataSchemaPrimitiveType =
   'array' | 'boolean' | 'integer' | 'null' | 'number' | 'object' | 'string';

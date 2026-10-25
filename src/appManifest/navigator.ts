@@ -2,15 +2,15 @@ import { isStringArray } from '@ankhorage/utility/array';
 import { hasOnlyKeys, isRecord } from '@ankhorage/utility/object';
 import { isOptionalString } from '@ankhorage/utility/string';
 
-import { isIconSpec } from '../icon';
-import { type AppNavigatorManifest, NAVIGATOR_PRESETS, NAVIGATOR_TYPES } from '../navigator';
+import { isIconSpec } from '../icon.js';
+import { type AppNavigatorManifest, NAVIGATOR_PRESETS, NAVIGATOR_TYPES } from '../navigator.js';
 import {
   isDrawerNavigatorOptions,
   isNavigatorScreenReference,
   isStackImplementationConfig,
   isStackScreenOptions,
   isTabsImplementationConfig,
-} from './navigatorOptions';
+} from './navigatorOptions.js';
 
 /*** Validate the complete serialized `AppManifest.navigator` slice. */
 export function isAppNavigatorManifest(value: unknown): value is AppNavigatorManifest {

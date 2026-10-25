@@ -1,7 +1,7 @@
 import { isRecord } from '@ankhorage/utility/object';
 
-import { infraFields } from './infraFields';
-import { isInfraShape } from './isInfraShape';
+import { infraFields } from './infraFields.js';
+import { isInfraShape } from './isInfraShape.js';
 
 /*** Validate runtime-neutral readiness probes and bounded numeric parameters. */
 export function isInfraWorkloadHealth(value: unknown): boolean {

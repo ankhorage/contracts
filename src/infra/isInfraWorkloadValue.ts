@@ -1,10 +1,10 @@
 import { isRecord } from '@ankhorage/utility/object';
 import { isNonEmptyString } from '@ankhorage/utility/string';
 
-import { APP_ENVIRONMENT_IDS } from '../environments';
-import type { InfraWorkloadScalarValue } from '../types/infraWorkload';
-import { isInfraCredentialRef } from './isInfraCredentialRef';
-import { isInfraShape } from './isInfraShape';
+import { APP_ENVIRONMENT_IDS } from '../environments.js';
+import type { InfraWorkloadScalarValue } from '../types/infraWorkload.js';
+import { isInfraCredentialRef } from './isInfraCredentialRef.js';
+import { isInfraShape } from './isInfraShape.js';
 
 /*** Workload values explicitly distinguish public literals, output dependencies and secret references. */
 export function isInfraWorkloadValue(value: unknown): boolean {
