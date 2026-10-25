@@ -10,7 +10,7 @@ import {
   JAVASCRIPT_TABS_PRESENTATIONS,
   NATIVE_TABS_MINIMIZE_BEHAVIORS,
   STACK_PRESENTATIONS,
-} from '../navigator';
+} from '../navigator.js';
 
 /*** Validate stable native, JavaScript, or alpha Experimental Stack desired state. */
 export function isStackImplementationConfig(value: Record<string, unknown>): boolean {

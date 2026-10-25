@@ -6,8 +6,8 @@ import {
   isCredentialRef,
   isDataEndpointRegistry,
   isDataSchemaRegistry,
-} from '../data/dataValidation';
-import { isManifestValue } from './isManifestValue';
+} from '../data/dataValidation.js';
+import { isManifestValue } from './isManifestValue.js';
 
 const DATABASE_SOURCE_KEYS = [
   'id',

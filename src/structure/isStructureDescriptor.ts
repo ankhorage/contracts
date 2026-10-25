@@ -1,7 +1,7 @@
 import { hasOnlyKeys, isRecord } from '@ankhorage/utility/object';
 import { isNonEmptyString } from '@ankhorage/utility/string';
 
-import type { StructureDescriptor, StructureLiteralValue, StructureScalarType } from './types';
+import type { StructureDescriptor, StructureLiteralValue, StructureScalarType } from './types.js';
 
 /*** Validate one standalone structural descriptor without resolving external/local references. */
 export function isStructureDescriptor(value: unknown): value is StructureDescriptor {

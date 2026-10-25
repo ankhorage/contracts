@@ -1,5 +1,5 @@
-import type { AppManifestParseResult } from '../types/appManifest';
-import { isAppManifest } from './isAppManifest';
+import type { AppManifestParseResult } from '../types/appManifest.js';
+import { isAppManifest } from './isAppManifest.js';
 
 /**
  * Parse unknown JSON-compatible input at the canonical AppManifest boundary.

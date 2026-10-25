@@ -1,5 +1,5 @@
-import type { MediaAssetKind } from './media';
-import type { ComponentEventDtoKind } from './types';
+import type { MediaAssetKind } from './media.js';
+import type { ComponentEventDtoKind } from './types.js';
 
 export type UiComponentCategory = 'component' | 'foundation' | 'layout' | 'pattern';
 

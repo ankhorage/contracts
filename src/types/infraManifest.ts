@@ -1,11 +1,11 @@
-import type { AuthFlowConfig, AuthOAuthConfig } from '../auth';
-import type { EntityRegistry, SerializableSet, ValueMap } from '../collections';
-import type { ApiDefinitionRegistry, DataContractValue } from '../data';
-import type { AppEnvironmentId } from '../environments';
-import type { INFRA_ADAPTER_CATALOG, INFRA_RUNTIME_COMPATIBILITY } from '../infraCatalog';
-import type { AuthProfileSpec, AuthScope, AuthSignInSpec, AuthSignUpSpec } from '../types';
-import type { InfraControlPlaneCredentialRef } from './infraSecrets';
-import type { InfraWorkloadRegistry } from './infraWorkload';
+import type { AuthFlowConfig, AuthOAuthConfig } from '../auth.js';
+import type { EntityRegistry, SerializableSet, ValueMap } from '../collections.js';
+import type { ApiDefinitionRegistry, DataContractValue } from '../data/index.js';
+import type { AppEnvironmentId } from '../environments.js';
+import type { INFRA_ADAPTER_CATALOG, INFRA_RUNTIME_COMPATIBILITY } from '../infraCatalog.js';
+import type { AuthProfileSpec, AuthScope, AuthSignInSpec, AuthSignUpSpec } from '../types.js';
+import type { InfraControlPlaneCredentialRef } from './infraSecrets.js';
+import type { InfraWorkloadRegistry } from './infraWorkload.js';
 
 export type InfraAdapterId = keyof typeof INFRA_ADAPTER_CATALOG;
 export type InfraCapability =

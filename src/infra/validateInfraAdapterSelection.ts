@@ -1,8 +1,8 @@
-import { INFRA_ADAPTER_CATALOG } from '../infraCatalog';
-import type { InfraAdapterDescriptor } from '../types/infraAdapters';
-import type { InfraDiagnostic, InfraResult } from '../types/infraLifecycle';
-import type { InfraEnvironmentSpec } from '../types/infraManifest';
-import { isInfraAdapterDescriptor } from './isInfraAdapterDescriptor';
+import { INFRA_ADAPTER_CATALOG } from '../infraCatalog.js';
+import type { InfraAdapterDescriptor } from '../types/infraAdapters.js';
+import type { InfraDiagnostic, InfraResult } from '../types/infraLifecycle.js';
+import type { InfraEnvironmentSpec } from '../types/infraManifest.js';
+import { isInfraAdapterDescriptor } from './isInfraAdapterDescriptor.js';
 
 /** Validate supplied installed descriptors without imports or filesystem access; only selected packages matter. */
 export function validateInfraAdapterSelection(

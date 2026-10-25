@@ -1,4 +1,4 @@
-import type { AppEnvironmentId } from '../environments';
+import type { AppEnvironmentId } from '../environments.js';
 
 /** Bootstrap credentials cannot depend on the managed secret store being provisioned. */
 export interface InfraControlPlaneCredentialRef {

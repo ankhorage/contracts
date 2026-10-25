@@ -5,9 +5,9 @@ import type {
   RouteDefinition,
   StackImplementation,
   StackScreenOptions,
-} from '../navigator';
-import type { CustomNavigatorRegistry } from './extensions';
-import type { NavigatorDependencyRequirement } from './generation';
+} from '../navigator.js';
+import type { CustomNavigatorRegistry } from './extensions.js';
+import type { NavigatorDependencyRequirement } from './generation.js';
 
 export interface ResolvedHeadlessTabsPresentation {
   presentation: ResolvedTabsPresentation;

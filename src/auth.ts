@@ -1,9 +1,9 @@
-import type { ValueMap } from './collections';
-import type { DataSchema } from './data/schemas';
-import type { AppDeployTargetId } from './deploy';
-import type { AppEnvironmentId } from './environments';
-import type { SecretRef } from './secrets';
-import type { IconSpec } from './types';
+import type { ValueMap } from './collections.js';
+import type { DataSchema } from './data/schemas.js';
+import type { AppDeployTargetId } from './deploy.js';
+import type { AppEnvironmentId } from './environments.js';
+import type { SecretRef } from './secrets.js';
+import type { IconSpec } from './types.js';
 
 export const AUTH_IDENTIFIER_KINDS = ['email', 'phone', 'username'] as const;
 export type AuthIdentifierKind = (typeof AUTH_IDENTIFIER_KINDS)[number];

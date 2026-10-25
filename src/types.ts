@@ -1,22 +1,22 @@
 import type { ColorHarmony } from '@ankhorage/color-theory';
 
-import type { AuthIdentifierKind, AuthSignUpField } from './auth';
+import type { AuthIdentifierKind, AuthSignUpField } from './auth.js';
 import type {
   BindingExpression,
   ComponentDataBindingRegistry,
   ScreenDataLoaderDefinition,
-} from './bindings';
-import type { EntityRegistry } from './collections';
-import type { DataSourceRegistry } from './data';
-import type { AppDeployManifest } from './deploy';
-import type { InfraManifest } from './infra';
-import type { MediaAssetReference, MediaManifest } from './media';
-import type { AppNavigatorManifest } from './navigator';
-import type { RepositoryManifest } from './repository';
-import type { ScreenRequirements } from './requirements';
-import type { SerializableValue } from './serializable';
-import type { AppStateSpec } from './state';
-import type { ThemeGlobalTokenOverrides, ThemeRecipeOverrides } from './theme';
+} from './bindings.js';
+import type { EntityRegistry } from './collections.js';
+import type { DataSourceRegistry } from './data/index.js';
+import type { AppDeployManifest } from './deploy.js';
+import type { InfraManifest } from './infra.js';
+import type { MediaAssetReference, MediaManifest } from './media.js';
+import type { AppNavigatorManifest } from './navigator.js';
+import type { RepositoryManifest } from './repository.js';
+import type { ScreenRequirements } from './requirements.js';
+import type { SerializableValue } from './serializable.js';
+import type { AppStateSpec } from './state.js';
+import type { ThemeGlobalTokenOverrides, ThemeRecipeOverrides } from './theme.js';
 
 export interface ThemeModeConfig {
   primaryColor: string;

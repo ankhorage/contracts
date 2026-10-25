@@ -1,4 +1,4 @@
-import type { SerializableSet } from './collections';
+import type { SerializableSet } from './collections.js';
 
 export const ANKHORAGE_PERMISSION_NAMES = [
   'camera',

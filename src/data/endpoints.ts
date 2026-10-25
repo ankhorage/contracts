@@ -1,8 +1,8 @@
-import type { EntityRegistry } from '../collections';
-import type { EndpointId } from './ids';
-import type { DataOperationRegistry } from './operations';
-import type { CredentialRef } from './refs';
-import type { DataContractValue } from './values';
+import type { EntityRegistry } from '../collections.js';
+import type { EndpointId } from './ids.js';
+import type { DataOperationRegistry } from './operations.js';
+import type { CredentialRef } from './refs.js';
+import type { DataContractValue } from './values.js';
 
 export type DataEndpointKind = 'database' | 'graphql' | 'http' | (string & {});
 

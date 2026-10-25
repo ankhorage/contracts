@@ -1,5 +1,5 @@
-import type { AdapterId, CredentialId } from './ids';
-import type { DataContractValue } from './values';
+import type { AdapterId, CredentialId } from './ids.js';
+import type { DataContractValue } from './values.js';
 
 export type CredentialKind = 'apiKey' | 'basic' | 'bearer' | 'custom' | 'oauth2';
 

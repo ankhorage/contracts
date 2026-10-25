@@ -1,8 +1,8 @@
-import type { EntityRegistry } from '../collections';
-import type { EndpointId, OperationId } from './ids';
-import type { CredentialRef } from './refs';
-import type { DataSchemaSlot } from './schemas';
-import type { DataContractValue } from './values';
+import type { EntityRegistry } from '../collections.js';
+import type { EndpointId, OperationId } from './ids.js';
+import type { CredentialRef } from './refs.js';
+import type { DataSchemaSlot } from './schemas.js';
+import type { DataContractValue } from './values.js';
 
 export type DataOperationIntent = 'action' | 'create' | 'delete' | 'read' | 'update';
 

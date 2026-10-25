@@ -1,4 +1,4 @@
-export type { EntityRegistry, SerializableSet, ValueMap } from '../collections';
+export type { EntityRegistry, SerializableSet, ValueMap } from '../collections.js';
 export {
   STRUCTURE_DESCRIPTOR,
   STRUCTURE_DESCRIPTOR_COMPILER_VERSION,

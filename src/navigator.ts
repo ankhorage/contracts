@@ -1,7 +1,7 @@
-import type { ValueMap } from './collections';
-import type { IconSpec, ManifestValue } from './types';
+import type { ValueMap } from './collections.js';
+import type { IconSpec, ManifestValue } from './types.js';
 
-export { isAppNavigatorManifest } from './appManifest/navigator';
+export { isAppNavigatorManifest } from './appManifest/navigator.js';
 
 export const NAVIGATOR_TYPES = ['slot', 'stack', 'tabs', 'drawer', 'split-view', 'custom'] as const;
 export type NavigatorType = (typeof NAVIGATOR_TYPES)[number];
@@ -288,12 +288,12 @@ export type {
   NavigatorPresetDescriptor,
   NavigatorVerificationKind,
   NavigatorVerificationStatus,
-} from './navigator/catalog';
+} from './navigator/catalog.js';
 export type {
   CustomNavigatorConfigIssue,
   CustomNavigatorRegistration,
   CustomNavigatorRegistry,
-} from './navigator/extensions';
+} from './navigator/extensions.js';
 export type {
   NavigatorDependencyRequirement,
   NavigatorGeneratedFile,
@@ -301,7 +301,7 @@ export type {
   NavigatorGenerationOptions,
   NavigatorGenerationResult,
   NavigatorScreenModule,
-} from './navigator/generation';
+} from './navigator/generation.js';
 export type {
   CreateNavigatorPlanOptions,
   ExpoRouterNavigatorModule,
@@ -321,4 +321,4 @@ export type {
   ResolvedTabsImplementation,
   ResolvedTabsPresentation,
   TabsNavigatorPlan,
-} from './navigator/planning';
+} from './navigator/planning.js';

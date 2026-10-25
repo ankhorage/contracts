@@ -1,4 +1,4 @@
-import type { AppManifest } from '../types';
+import type { AppManifest } from '../types.js';
 
 export type AppManifestParseResult =
   | { readonly ok: true; readonly manifest: AppManifest }

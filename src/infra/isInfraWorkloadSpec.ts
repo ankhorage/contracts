@@ -2,13 +2,13 @@ import { isStringArray } from '@ankhorage/utility/array';
 import { isRecord } from '@ankhorage/utility/object';
 import { isNonEmptyString } from '@ankhorage/utility/string';
 
-import { isSerializableSet } from '../collections';
-import type { InfraShape } from '../types/infraValidation';
-import type { InfraWorkloadSpec } from '../types/infraWorkload';
-import { infraFields } from './infraFields';
-import { isInfraShape } from './isInfraShape';
-import { isInfraWorkloadHealth } from './isInfraWorkloadHealth';
-import { isInfraWorkloadValue } from './isInfraWorkloadValue';
+import { isSerializableSet } from '../collections.js';
+import type { InfraShape } from '../types/infraValidation.js';
+import type { InfraWorkloadSpec } from '../types/infraWorkload.js';
+import { infraFields } from './infraFields.js';
+import { isInfraShape } from './isInfraShape.js';
+import { isInfraWorkloadHealth } from './isInfraWorkloadHealth.js';
+import { isInfraWorkloadValue } from './isInfraWorkloadValue.js';
 
 /*** Validate the portable desired workload; runtime-specific fields and plaintext secret objects fail. */
 export function isInfraWorkloadSpec(value: unknown): value is InfraWorkloadSpec {

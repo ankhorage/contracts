@@ -1,7 +1,7 @@
 import { isRecord } from '@ankhorage/utility/object';
 import { isOptionalString } from '@ankhorage/utility/string';
 
-import { isManifestValue } from './isManifestValue';
+import { isManifestValue } from './isManifestValue.js';
 
 /*** Validate every component binding in the authored registry. */
 export function isComponentDataBindingRegistry(value: unknown): boolean {

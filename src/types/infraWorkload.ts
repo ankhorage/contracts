@@ -1,5 +1,5 @@
-import type { EntityRegistry, SerializableSet, ValueMap } from '../collections';
-import type { InfraControlPlaneCredentialRef, InfraSecretReference } from './infraSecrets';
+import type { EntityRegistry, SerializableSet, ValueMap } from '../collections.js';
+import type { InfraControlPlaneCredentialRef, InfraSecretReference } from './infraSecrets.js';
 
 export interface InfraWorkloadArtifact {
   readonly kind: 'image';

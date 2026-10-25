@@ -3,7 +3,7 @@ import type {
   NavigatorDiagnostic,
   NavigatorPlan,
   NavigatorSupportStatus,
-} from './planning';
+} from './planning.js';
 
 export interface NavigatorGeneratedFile {
   path: string;

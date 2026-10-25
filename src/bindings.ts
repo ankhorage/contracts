@@ -1,6 +1,6 @@
-import type { Capability } from './capability';
-import type { EntityRegistry, ValueMap } from './collections';
-import type { SerializableValue } from './serializable';
+import type { Capability } from './capability.js';
+import type { EntityRegistry, ValueMap } from './collections.js';
+import type { SerializableValue } from './serializable.js';
 
 export type ComponentInstanceId = string;
 export type ComponentTypeId = string;

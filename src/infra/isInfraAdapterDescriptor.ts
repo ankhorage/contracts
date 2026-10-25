@@ -1,8 +1,8 @@
 import { isRecord } from '@ankhorage/utility/object';
 
-import { INFRA_ADAPTER_CATALOG } from '../infraCatalog';
-import type { InfraAdapterDescriptor } from '../types/infraAdapters';
-import { isInfraShape } from './isInfraShape';
+import { INFRA_ADAPTER_CATALOG } from '../infraCatalog.js';
+import type { InfraAdapterDescriptor } from '../types/infraAdapters.js';
+import { isInfraShape } from './isInfraShape.js';
 
 /*** Installed adapters must match the canonical identity, capabilities, targets and config version exactly. */
 export function isInfraAdapterDescriptor(value: unknown): value is InfraAdapterDescriptor {

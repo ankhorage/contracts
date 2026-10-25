@@ -1,4 +1,4 @@
-import type { EntityRegistry, ValueMap } from '../collections';
+import type { EntityRegistry, ValueMap } from '../collections.js';
 
 export type StructureDescriptorId = string;
 

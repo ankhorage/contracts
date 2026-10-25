@@ -1,6 +1,6 @@
 import { isRecord } from '@ankhorage/utility/object';
 
-import type { AppStateSpec } from '../state';
+import type { AppStateSpec } from '../state.js';
 
 /*** Application state cannot claim persistence unsupported by the selected Legend adapter. */
 export function isAppStateSpec(value: unknown): value is AppStateSpec {

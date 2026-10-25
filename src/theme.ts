@@ -1,4 +1,4 @@
-import type { ValueMap } from './collections';
+import type { ValueMap } from './collections.js';
 
 /** Numeric token values authored at theme level. */
 export type ThemeNumericTokenOverrides = ValueMap<string, number>;

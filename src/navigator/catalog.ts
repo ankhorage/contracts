@@ -4,14 +4,14 @@ import type {
   NavigatorPreset,
   NavigatorType,
   StackPresentation,
-} from '../navigator';
-import type { NavigatorDependencyRequirement } from './generation';
+} from '../navigator.js';
+import type { NavigatorDependencyRequirement } from './generation.js';
 import type {
   NavigatorApiStability,
   NavigatorCapabilityId,
   NavigatorRuntimePlatform,
   NavigatorSupportStatus,
-} from './planning';
+} from './planning.js';
 
 export type NavigatorVerificationKind =
   | 'structural'

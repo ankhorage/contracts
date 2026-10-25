@@ -1,16 +1,16 @@
 import { isRecord } from '@ankhorage/utility/object';
 import { isNonEmptyString } from '@ankhorage/utility/string';
 
-import { INFRA_RUNTIME_COMPATIBILITY } from '../infraCatalog';
+import { INFRA_RUNTIME_COMPATIBILITY } from '../infraCatalog.js';
 import type {
   InfraComputeSelection,
   InfraDeploymentSpec,
   InfraRuntimeSelection,
-} from '../types/infraManifest';
-import type { InfraShape } from '../types/infraValidation';
-import { infraFields } from './infraFields';
-import { isInfraCredentialRef } from './isInfraCredentialRef';
-import { isInfraShape } from './isInfraShape';
+} from '../types/infraManifest.js';
+import type { InfraShape } from '../types/infraValidation.js';
+import { infraFields } from './infraFields.js';
+import { isInfraCredentialRef } from './isInfraCredentialRef.js';
+import { isInfraShape } from './isInfraShape.js';
 
 /*** Validate provider-specific config and the exact same compatibility map used by TypeScript. */
 export function isInfraDeploymentSpec(value: unknown): value is InfraDeploymentSpec {
