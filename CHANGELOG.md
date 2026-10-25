@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 26.2.1
+
+### Patch Changes
+
+- 132c230: Update canonical Infra adapter package identities to the published `@ankhorage/infra-*` packages while preserving provider IDs.
+
 ## 26.2.0
 
 ### Minor Changes
