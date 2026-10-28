@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 26.3.0
+
+### Minor Changes
+
+- 00b6b21: Add provider-neutral, serializable Ads contracts at `@ankhorage/contracts/ads`.
+
 ## 26.2.2
 
 ### Patch Changes

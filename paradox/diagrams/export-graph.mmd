@@ -1,4 +1,5 @@
 graph LR
+  module_src_ads_ts["src/ads.ts"]
   module_src_appManifest_ts["src/appManifest.ts"]
   module_src_appManifest_bindings_ts["src/appManifest/bindings.ts"]
   module_src_appManifest_constants_ts["src/appManifest/constants.ts"]
@@ -70,6 +71,7 @@ graph LR
   module_src_structure_types_ts["src/structure/types.ts"]
   module_src_theme_ts["src/theme.ts"]
   module_src_types_ts["src/types.ts"]
+  module_src_types_ads_ts["src/types/ads.ts"]
   module_src_types_appManifest_ts["src/types/appManifest.ts"]
   module_src_types_deployMonetization_ts["src/types/deployMonetization.ts"]
   module_src_types_deployProvider_ts["src/types/deployProvider.ts"]
@@ -95,6 +97,60 @@ graph LR
   module_src_navigator_ts --> export_AdaptiveTabsConfig
   export_AdaptiveTabsConfig -.-> export_HeadlessTabsPresentationConfig
   export_AdaptiveTabsConfig -.-> export_NativeTabsConfig
+  export_AdsAccount["AdsAccount"]
+  module_src_types_ads_ts --> export_AdsAccount
+  export_AdsAccount -.-> export_AdsProviderExtension
+  export_AdsAccount -.-> export_AdsResourceStatus
+  export_AdsAd["AdsAd"]
+  module_src_types_ads_ts --> export_AdsAd
+  export_AdsAd -.-> export_AdsProviderExtension
+  export_AdsAd -.-> export_AdsResourceStatus
+  export_AdsAdGroup["AdsAdGroup"]
+  module_src_types_ads_ts --> export_AdsAdGroup
+  export_AdsAdGroup -.-> export_AdsProviderExtension
+  export_AdsAdGroup -.-> export_AdsResourceStatus
+  export_AdsCampaign["AdsCampaign"]
+  module_src_types_ads_ts --> export_AdsCampaign
+  export_AdsCampaign -.-> export_AdsProviderExtension
+  export_AdsCampaign -.-> export_AdsResourceStatus
+  export_AdsChangeDescriptor["AdsChangeDescriptor"]
+  module_src_types_ads_ts --> export_AdsChangeDescriptor
+  export_AdsChangeDescriptor -.-> export_AdsChangeStage
+  export_AdsChangeDescriptor -.-> export_AdsProviderExtension
+  export_AdsChangeDescriptor -.-> export_AdsResourceKind
+  export_AdsChangeDescriptor -.-> export_AdsValue
+  export_AdsChangeStage["AdsChangeStage"]
+  module_src_types_ads_ts --> export_AdsChangeStage
+  export_AdsConversionSummary["AdsConversionSummary"]
+  module_src_types_ads_ts --> export_AdsConversionSummary
+  export_AdsConversionSummary -.-> export_AdsMoney
+  export_AdsCurrencyCode["AdsCurrencyCode"]
+  module_src_types_ads_ts --> export_AdsCurrencyCode
+  export_AdsError["AdsError"]
+  module_src_types_ads_ts --> export_AdsError
+  export_AdsError -.-> export_AdsProviderExtension
+  export_AdsFailureResult["AdsFailureResult"]
+  module_src_types_ads_ts --> export_AdsFailureResult
+  export_AdsFailureResult -.-> export_AdsError
+  export_AdsMoney["AdsMoney"]
+  module_src_types_ads_ts --> export_AdsMoney
+  export_AdsPerformanceSummary["AdsPerformanceSummary"]
+  module_src_types_ads_ts --> export_AdsPerformanceSummary
+  export_AdsPerformanceSummary -.-> export_AdsConversionSummary
+  export_AdsPerformanceSummary -.-> export_AdsMoney
+  export_AdsProviderExtension["AdsProviderExtension"]
+  module_src_types_ads_ts --> export_AdsProviderExtension
+  export_AdsProviderExtension -.-> export_AdsValue
+  export_AdsResourceKind["AdsResourceKind"]
+  module_src_types_ads_ts --> export_AdsResourceKind
+  export_AdsResourceStatus["AdsResourceStatus"]
+  module_src_types_ads_ts --> export_AdsResourceStatus
+  export_AdsResult["AdsResult"]
+  module_src_types_ads_ts --> export_AdsResult
+  export_AdsSuccessResult["AdsSuccessResult"]
+  module_src_types_ads_ts --> export_AdsSuccessResult
+  export_AdsValue["AdsValue"]
+  module_src_types_ads_ts --> export_AdsValue
   export_ANDROID_DEPLOYMENT_TRACKS["ANDROID_DEPLOYMENT_TRACKS"]
   module_src_types_deployProvider_ts --> export_ANDROID_DEPLOYMENT_TRACKS
   export_ANDROID_RELEASE_STATUSES["ANDROID_RELEASE_STATUSES"]

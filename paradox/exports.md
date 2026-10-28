@@ -42,6 +42,220 @@ Source: `src/navigator.ts:168:1`
 | native | property | `NativeTabsConfig \| undefined` | no |  |
 | web | property | `HeadlessTabsPresentationConfig \| undefined` | no |  |
 
+## AdsAccount
+
+Kind: `type`
+Module: `src/types/ads.ts`
+Source: `src/types/ads.ts:31:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| currencyCode | property | `Uppercase<string> \| undefined` | no |  |
+| displayName | property | `string \| undefined` | no |  |
+| extensions | property | `readonly AdsProviderExtension[] \| undefined` | no |  |
+| id | property | `string` | yes |  |
+| status | property | `AdsResourceStatus \| undefined` | no |  |
+
+## AdsAd
+
+Kind: `type`
+Module: `src/types/ads.ts`
+Source: `src/types/ads.ts:59:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| accountId | property | `string` | yes |  |
+| adGroupId | property | `string \| undefined` | no |  |
+| campaignId | property | `string` | yes |  |
+| extensions | property | `readonly AdsProviderExtension[] \| undefined` | no |  |
+| id | property | `string` | yes |  |
+| status | property | `AdsResourceStatus` | yes |  |
+
+## AdsAdGroup
+
+Kind: `type`
+Module: `src/types/ads.ts`
+Source: `src/types/ads.ts:49:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| accountId | property | `string` | yes |  |
+| campaignId | property | `string` | yes |  |
+| extensions | property | `readonly AdsProviderExtension[] \| undefined` | no |  |
+| id | property | `string` | yes |  |
+| name | property | `string` | yes |  |
+| status | property | `AdsResourceStatus` | yes |  |
+
+## AdsCampaign
+
+Kind: `type`
+Module: `src/types/ads.ts`
+Source: `src/types/ads.ts:40:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| accountId | property | `string` | yes |  |
+| extensions | property | `readonly AdsProviderExtension[] \| undefined` | no |  |
+| id | property | `string` | yes |  |
+| name | property | `string` | yes |  |
+| status | property | `AdsResourceStatus` | yes |  |
+
+## AdsChangeDescriptor
+
+Kind: `type`
+Module: `src/types/ads.ts`
+Source: `src/types/ads.ts:112:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| extensions | property | `readonly AdsProviderExtension[] \| undefined` | no |  |
+| id | property | `string` | yes |  |
+| operation | property | `"create" \| "update" \| "delete"` | yes |  |
+| resource | property | `{ readonly kind: AdsResourceKind; readonly accountId: string; readonly resourceId?: string; readonly campaignId?: string; readonly adGroupId?: string; }` | yes |  |
+| stage | property | `AdsChangeStage` | yes |  |
+| values | property | `Readonly<Record<string, AdsValue>>` | yes |  |
+
+## AdsChangeStage
+
+Kind: `unknown`
+Module: `src/types/ads.ts`
+Source: `src/types/ads.ts:109:1`
+
+## AdsConversionSummary
+
+Kind: `type`
+Module: `src/types/ads.ts`
+Source: `src/types/ads.ts:69:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| count | property | `number` | yes |  |
+| value | property | `AdsMoney \| undefined` | no |  |
+
+## AdsCurrencyCode
+
+Kind: `unknown`
+Module: `src/types/ads.ts`
+Source: `src/types/ads.ts:9:1`
+
+## AdsError
+
+Kind: `type`
+Module: `src/types/ads.ts`
+Source: `src/types/ads.ts:83:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| code | property | `string` | yes |  |
+| extensions | property | `readonly AdsProviderExtension[] \| undefined` | no |  |
+| message | property | `string` | yes |  |
+| path | property | `readonly string[] \| undefined` | no |  |
+
+## AdsFailureResult
+
+Kind: `type`
+Module: `src/types/ads.ts`
+Source: `src/types/ads.ts:97:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| errors | property | `readonly AdsError[]` | yes |  |
+| ok | property | `false` | yes |  |
+
+## AdsMoney
+
+Kind: `type`
+Module: `src/types/ads.ts`
+Source: `src/types/ads.ts:12:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| amountMicros | property | `string` | yes |  |
+| currencyCode | property | `Uppercase<string>` | yes |  |
+
+## AdsPerformanceSummary
+
+Kind: `type`
+Module: `src/types/ads.ts`
+Source: `src/types/ads.ts:75:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| clicks | property | `number \| undefined` | no |  |
+| conversions | property | `AdsConversionSummary \| undefined` | no |  |
+| cost | property | `AdsMoney \| undefined` | no |  |
+| impressions | property | `number \| undefined` | no |  |
+
+## AdsProviderExtension
+
+Kind: `type`
+Module: `src/types/ads.ts`
+Source: `src/types/ads.ts:25:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| provider | property | `string` | yes |  |
+| values | property | `Readonly<Record<string, AdsValue>>` | yes |  |
+
+## AdsResourceKind
+
+Kind: `unknown`
+Module: `src/types/ads.ts`
+Source: `src/types/ads.ts:106:1`
+
+## AdsResourceStatus
+
+Kind: `unknown`
+Module: `src/types/ads.ts`
+Source: `src/types/ads.ts:18:1`
+
+## AdsResult
+
+Kind: `unknown`
+Module: `src/types/ads.ts`
+Source: `src/types/ads.ts:103:1`
+
+## AdsSuccessResult
+
+Kind: `type`
+Module: `src/types/ads.ts`
+Source: `src/types/ads.ts:91:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| ok | property | `true` | yes |  |
+| value | property | `T` | yes |  |
+
+## AdsValue
+
+Kind: `unknown`
+Module: `src/types/ads.ts`
+Source: `src/types/ads.ts:21:1`
+
 ## ANDROID_DEPLOYMENT_TRACKS
 
 Kind: `value`
@@ -1740,7 +1954,7 @@ Source: `src/data/operations.ts:35:1`
 | Name | Kind | Type | Required | Description |
 | --- | --- | --- | --- | --- |
 | cursorPath | property | `string \| undefined` | no |  |
-| kind | property | `(string & {}) \| "cursor" \| "limit-offset" \| "page" \| "unknown"` | yes |  |
+| kind | property | `"unknown" \| (string & {}) \| "cursor" \| "limit-offset" \| "page"` | yes |  |
 | limitParameter | property | `string \| undefined` | no |  |
 | offsetParameter | property | `string \| undefined` | no |  |
 | pageParameter | property | `string \| undefined` | no |  |
@@ -2462,7 +2676,7 @@ Source: `src/types/deployProvider.ts:93:1`
 
 | Name | Kind | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| capability | property | `"provision" \| "prepare" \| "build" \| "publish" \| "verify"` | yes |  |
+| capability | property | `"prepare" \| "provision" \| "build" \| "publish" \| "verify"` | yes |  |
 | reason | property | `string \| undefined` | no |  |
 | status | property | `"available" \| "unavailable"` | yes |  |
 
@@ -3264,7 +3478,7 @@ Source: `src/types/infraLifecycle.ts:35:1`
 | dependsOn | property | `readonly InfraResourceIdentity[]` | yes |  |
 | detail | property | `string` | yes |  |
 | impact | property | `"none" \| "interrupts-service" \| "deletes-data"` | yes |  |
-| operation | property | `"create" \| "delete" \| "update" \| "retain" \| "noop"` | yes |  |
+| operation | property | `"create" \| "update" \| "delete" \| "retain" \| "noop"` | yes |  |
 | owner | property | `InfraResourceIdentity` | yes |  |
 
 ## InfraProviderFor

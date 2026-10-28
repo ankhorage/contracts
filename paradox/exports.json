@@ -152,6 +152,764 @@
     "structuredRows": []
   },
   {
+    "name": "AdsAccount",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/ads.ts",
+    "sourceLocation": {
+      "filePath": "src/types/ads.ts",
+      "line": 31,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "AdsProviderExtension",
+      "AdsResourceStatus"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "currencyCode",
+        "kind": "property",
+        "type": "Uppercase<string> | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "displayName",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "extensions",
+        "kind": "property",
+        "type": "readonly AdsProviderExtension[] | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "status",
+        "kind": "property",
+        "type": "AdsResourceStatus | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "AdsAd",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/ads.ts",
+    "sourceLocation": {
+      "filePath": "src/types/ads.ts",
+      "line": 59,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "AdsProviderExtension",
+      "AdsResourceStatus"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "accountId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "adGroupId",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "campaignId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "extensions",
+        "kind": "property",
+        "type": "readonly AdsProviderExtension[] | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "status",
+        "kind": "property",
+        "type": "AdsResourceStatus",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "AdsAdGroup",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/ads.ts",
+    "sourceLocation": {
+      "filePath": "src/types/ads.ts",
+      "line": 49,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "AdsProviderExtension",
+      "AdsResourceStatus"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "accountId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "campaignId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "extensions",
+        "kind": "property",
+        "type": "readonly AdsProviderExtension[] | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "name",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "status",
+        "kind": "property",
+        "type": "AdsResourceStatus",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "AdsCampaign",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/ads.ts",
+    "sourceLocation": {
+      "filePath": "src/types/ads.ts",
+      "line": 40,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "AdsProviderExtension",
+      "AdsResourceStatus"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "accountId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "extensions",
+        "kind": "property",
+        "type": "readonly AdsProviderExtension[] | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "name",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "status",
+        "kind": "property",
+        "type": "AdsResourceStatus",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "AdsChangeDescriptor",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/ads.ts",
+    "sourceLocation": {
+      "filePath": "src/types/ads.ts",
+      "line": 112,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "AdsChangeStage",
+      "AdsProviderExtension",
+      "AdsResourceKind",
+      "AdsValue"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "extensions",
+        "kind": "property",
+        "type": "readonly AdsProviderExtension[] | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "operation",
+        "kind": "property",
+        "type": "\"create\" | \"update\" | \"delete\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "resource",
+        "kind": "property",
+        "type": "{ readonly kind: AdsResourceKind; readonly accountId: string; readonly resourceId?: string; readonly campaignId?: string; readonly adGroupId?: string; }",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "stage",
+        "kind": "property",
+        "type": "AdsChangeStage",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "values",
+        "kind": "property",
+        "type": "Readonly<Record<string, AdsValue>>",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "AdsChangeStage",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/types/ads.ts",
+    "sourceLocation": {
+      "filePath": "src/types/ads.ts",
+      "line": 109,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "AdsConversionSummary",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/ads.ts",
+    "sourceLocation": {
+      "filePath": "src/types/ads.ts",
+      "line": 69,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "AdsMoney"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "count",
+        "kind": "property",
+        "type": "number",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "value",
+        "kind": "property",
+        "type": "AdsMoney | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "AdsCurrencyCode",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/types/ads.ts",
+    "sourceLocation": {
+      "filePath": "src/types/ads.ts",
+      "line": 9,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "AdsError",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/ads.ts",
+    "sourceLocation": {
+      "filePath": "src/types/ads.ts",
+      "line": 83,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "AdsProviderExtension"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "code",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "extensions",
+        "kind": "property",
+        "type": "readonly AdsProviderExtension[] | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "message",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "path",
+        "kind": "property",
+        "type": "readonly string[] | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "AdsFailureResult",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/ads.ts",
+    "sourceLocation": {
+      "filePath": "src/types/ads.ts",
+      "line": 97,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "AdsError"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "errors",
+        "kind": "property",
+        "type": "readonly AdsError[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "ok",
+        "kind": "property",
+        "type": "false",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "AdsMoney",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/ads.ts",
+    "sourceLocation": {
+      "filePath": "src/types/ads.ts",
+      "line": 12,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "amountMicros",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "currencyCode",
+        "kind": "property",
+        "type": "Uppercase<string>",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "AdsPerformanceSummary",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/ads.ts",
+    "sourceLocation": {
+      "filePath": "src/types/ads.ts",
+      "line": 75,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "AdsConversionSummary",
+      "AdsMoney"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "clicks",
+        "kind": "property",
+        "type": "number | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "conversions",
+        "kind": "property",
+        "type": "AdsConversionSummary | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "cost",
+        "kind": "property",
+        "type": "AdsMoney | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "impressions",
+        "kind": "property",
+        "type": "number | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "AdsProviderExtension",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/ads.ts",
+    "sourceLocation": {
+      "filePath": "src/types/ads.ts",
+      "line": 25,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "AdsValue"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "provider",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "values",
+        "kind": "property",
+        "type": "Readonly<Record<string, AdsValue>>",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "AdsResourceKind",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/types/ads.ts",
+    "sourceLocation": {
+      "filePath": "src/types/ads.ts",
+      "line": 106,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "AdsResourceStatus",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/types/ads.ts",
+    "sourceLocation": {
+      "filePath": "src/types/ads.ts",
+      "line": 18,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "AdsResult",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/types/ads.ts",
+    "sourceLocation": {
+      "filePath": "src/types/ads.ts",
+      "line": 103,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "AdsSuccessResult",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/ads.ts",
+    "sourceLocation": {
+      "filePath": "src/types/ads.ts",
+      "line": 91,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "ok",
+        "kind": "property",
+        "type": "true",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "value",
+        "kind": "property",
+        "type": "T",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "AdsValue",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/types/ads.ts",
+    "sourceLocation": {
+      "filePath": "src/types/ads.ts",
+      "line": 21,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
     "name": "ANDROID_DEPLOYMENT_TRACKS",
     "title": null,
     "description": null,
@@ -6342,7 +7100,7 @@
       {
         "name": "kind",
         "kind": "property",
-        "type": "(string & {}) | \"cursor\" | \"limit-offset\" | \"page\" | \"unknown\"",
+        "type": "\"unknown\" | (string & {}) | \"cursor\" | \"limit-offset\" | \"page\"",
         "required": true,
         "description": null
       },
@@ -8925,7 +9683,7 @@
       {
         "name": "capability",
         "kind": "property",
-        "type": "\"provision\" | \"prepare\" | \"build\" | \"publish\" | \"verify\"",
+        "type": "\"prepare\" | \"provision\" | \"build\" | \"publish\" | \"verify\"",
         "required": true,
         "description": null
       },
@@ -11861,7 +12619,7 @@
       {
         "name": "operation",
         "kind": "property",
-        "type": "\"create\" | \"delete\" | \"update\" | \"retain\" | \"noop\"",
+        "type": "\"create\" | \"update\" | \"delete\" | \"retain\" | \"noop\"",
         "required": true,
         "description": null
       },
