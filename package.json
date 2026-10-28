@@ -55,6 +55,10 @@
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
     },
+    "./ads": {
+      "types": "./dist/ads.d.ts",
+      "default": "./dist/ads.js"
+    },
     "./infra": {
       "types": "./dist/infra.d.ts",
       "default": "./dist/infra.js"

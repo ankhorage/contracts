@@ -1,3 +1,4 @@
+export * from './ads.js';
 export * from './appManifest.js';
 export * from './auth.js';
 export * from './bindings.js';
