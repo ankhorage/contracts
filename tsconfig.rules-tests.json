@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "rootDir": "."
+  },
+  "include": ["src/rules.test.ts", "test/rules/**/*.ts"],
+  "exclude": ["dist", "node_modules"]
+}

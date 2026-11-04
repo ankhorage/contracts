@@ -14,6 +14,7 @@ export * from './media.js';
 export * from './navigator.js';
 export * from './repository.js';
 export * from './requirements.js';
+export * from './rules.js';
 export * from './runtimeCallbacks.js';
 export * from './secrets.js';
 export * from './serializable.js';
