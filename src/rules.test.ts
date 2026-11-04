@@ -6,7 +6,12 @@ import {
   phpRuleResultFixture,
   typescriptRuleResultFixture,
 } from '../test/rules/ruleResultFixtures.js';
-import type { FactEnvelope, GraphProjection, RuleResultDiagnostic, RuleResultDto } from './rules.js';
+import type {
+  FactEnvelope,
+  GraphProjection,
+  RuleResultDiagnostic,
+  RuleResultDto,
+} from './rules.js';
 
 it('keeps PHP and TypeScript complete wire result fixtures identical and serializable', () => {
   expect(phpRuleResult).toEqual(typescriptRuleResult);
