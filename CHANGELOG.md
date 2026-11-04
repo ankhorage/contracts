@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 26.4.0
+
+### Minor Changes
+
+- d6162e6: Add versioned portable Rules fact, evidence, result, scope, and graph projection contracts.
+
 ## 26.3.0
 
 ### Minor Changes

@@ -59,6 +59,7 @@ graph LR
   module_src_navigator_planning_ts["src/navigator/planning.ts"]
   module_src_repository_ts["src/repository.ts"]
   module_src_requirements_ts["src/requirements.ts"]
+  module_src_rules_ts["src/rules.ts"]
   module_src_runtimeCallbacks_ts["src/runtimeCallbacks.ts"]
   module_src_secrets_ts["src/secrets.ts"]
   module_src_serializable_ts["src/serializable.ts"]
@@ -84,6 +85,7 @@ graph LR
   module_src_types_infraTargets_ts["src/types/infraTargets.ts"]
   module_src_types_infraValidation_ts["src/types/infraValidation.ts"]
   module_src_types_infraWorkload_ts["src/types/infraWorkload.ts"]
+  module_src_types_rules_ts["src/types/rules.ts"]
   module_src_ui_ts["src/ui.ts"]
   module_src_appManifest_bindings_ts --> module_src_appManifest_isManifestValue_ts
   module_src_appManifest_constants_ts --> module_src_types_ts
@@ -279,5 +281,6 @@ graph LR
   module_src_types_infraTargets_ts --> module_src_types_infraSecrets_ts
   module_src_types_infraWorkload_ts --> module_src_collections_ts
   module_src_types_infraWorkload_ts --> module_src_types_infraSecrets_ts
+  module_src_types_rules_ts --> module_src_serializable_ts
   module_src_ui_ts --> module_src_media_ts
   module_src_ui_ts --> module_src_types_ts

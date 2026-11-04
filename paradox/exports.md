@@ -1504,6 +1504,48 @@ Source: `src/auth.ts:175:1`
 | phone | property | `string \| undefined` | no |  |
 | username | property | `string \| undefined` | no |  |
 
+## AvailableFactEnvelope
+
+Kind: `type`
+Module: `src/types/rules.ts`
+Source: `src/types/rules.ts:41:1`
+
+A fact whose serializable value was available to the producing adapter.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| contentHash | property | `string` | yes |  |
+| id | property | `string` | yes |  |
+| kind | property | `string` | yes |  |
+| provenance | property | `RulesProvenance` | yes |  |
+| schemaVersion | property | `1` | yes |  |
+| scope | property | `Scope` | yes |  |
+| status | property | `"available"` | yes |  |
+| value | property | `SerializableValue` | yes |  |
+
+## AvailableRuleEvidence
+
+Kind: `type`
+Module: `src/types/rules.ts`
+Source: `src/types/rules.ts:68:1`
+
+Evidence whose serializable observations are available to consumers.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| contentHash | property | `string` | yes |  |
+| factIds | property | `readonly string[]` | yes |  |
+| id | property | `string` | yes |  |
+| kind | property | `string` | yes |  |
+| provenance | property | `RulesProvenance` | yes |  |
+| schemaVersion | property | `1` | yes |  |
+| status | property | `"available"` | yes |  |
+| value | property | `SerializableValue` | yes |  |
+
 ## BindingCapabilityReference
 
 Kind: `type`
@@ -2953,6 +2995,14 @@ Source: `src/data/apis.ts:29:1`
 | protocol | property | `"rest"` | yes |  |
 | schemas | property | `Readonly<Record<string, import("./schemas.js").DataSchema>> \| undefined` | no |  |
 
+## FactEnvelope
+
+Kind: `unknown`
+Module: `src/types/rules.ts`
+Source: `src/types/rules.ts:38:1`
+
+A versioned portable fact with content integrity, provenance, and explicit availability.
+
 ## findForbiddenInlineSecretFields
 
 Kind: `function`
@@ -2994,6 +3044,54 @@ Source: `src/types.ts:56:1`
 Kind: `unknown`
 Module: `src/types.ts`
 Source: `src/types.ts:54:1`
+
+## GraphProjection
+
+Kind: `type`
+Module: `src/types/rules.ts`
+Source: `src/types/rules.ts:166:1`
+
+A serializable Rules DAG projection for consumers such as graph visualizations.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| edges | property | `readonly GraphProjectionEdge[]` | yes |  |
+| nodes | property | `readonly GraphProjectionNode[]` | yes |  |
+| projectionHash | property | `string` | yes |  |
+| schemaVersion | property | `1` | yes |  |
+| scope | property | `Scope` | yes |  |
+
+## GraphProjectionEdge
+
+Kind: `type`
+Module: `src/types/rules.ts`
+Source: `src/types/rules.ts:175:1`
+
+One directed dependency edge in a portable Rules graph projection.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| fromNodeId | property | `string` | yes |  |
+| toNodeId | property | `string` | yes |  |
+
+## GraphProjectionNode
+
+Kind: `type`
+Module: `src/types/rules.ts`
+Source: `src/types/rules.ts:181:1`
+
+One evaluated rule node in a portable Rules graph projection.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| id | property | `string` | yes |  |
+| result | property | `RuleResultDto` | yes |  |
 
 ## GraphQlIntrospectionConfig
 
@@ -4467,6 +4565,63 @@ Source: `src/media.ts:18:1`
 | kind | property | `"url"` | yes |  |
 | url | property | `string` | yes | Stable remote URL. Transient/local URL schemes are not canonical media sources. |
 
+## MissingData
+
+Kind: `type`
+Module: `src/types/rules.ts`
+Source: `src/types/rules.ts:32:1`
+
+An explicit reason that a fact or evidence value could not be supplied.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| code | property | `string` | yes |  |
+| message | property | `string` | yes |  |
+
+## MissingFactEnvelope
+
+Kind: `type`
+Module: `src/types/rules.ts`
+Source: `src/types/rules.ts:53:1`
+
+A fact whose required value was unavailable without fabricating a replacement.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| contentHash | property | `string` | yes |  |
+| id | property | `string` | yes |  |
+| kind | property | `string` | yes |  |
+| missing | property | `MissingData` | yes |  |
+| provenance | property | `RulesProvenance` | yes |  |
+| schemaVersion | property | `1` | yes |  |
+| scope | property | `Scope` | yes |  |
+| status | property | `"missing"` | yes |  |
+
+## MissingRuleEvidence
+
+Kind: `type`
+Module: `src/types/rules.ts`
+Source: `src/types/rules.ts:80:1`
+
+Evidence that remains explicitly unavailable to prevent implicit passing.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| contentHash | property | `string` | yes |  |
+| factIds | property | `readonly string[]` | yes |  |
+| id | property | `string` | yes |  |
+| kind | property | `string` | yes |  |
+| missing | property | `MissingData` | yes |  |
+| provenance | property | `RulesProvenance` | yes |  |
+| schemaVersion | property | `1` | yes |  |
+| status | property | `"missing"` | yes |  |
+
 ## MonetizationAdapterContext
 
 Kind: `type`
@@ -5599,6 +5754,153 @@ Source: `src/navigator.ts:229:1`
 | showInPrimaryNavigation | property | `boolean \| undefined` | no |  |
 | stackOptions | property | `StackScreenOptions \| undefined` | no |  |
 
+## RuleEvidence
+
+Kind: `unknown`
+Module: `src/types/rules.ts`
+Source: `src/types/rules.ts:65:1`
+
+Evidence retained by a rule result, including explicit unavailable evidence.
+
+## RuleFinding
+
+Kind: `type`
+Module: `src/types/rules.ts`
+Source: `src/types/rules.ts:114:1`
+
+One serializable finding emitted by a published Rules evaluation.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| evidence | property | `SerializableValue` | yes |  |
+| message | property | `string` | yes |  |
+| ruleId | property | `string` | yes |  |
+| severity | property | `RuleFindingSeverity` | yes |  |
+| sourceLocation | property | `RuleFindingSourceLocation \| undefined` | no |  |
+| subjects | property | `readonly RuleFindingSubject[]` | yes |  |
+
+## RuleFindingSeverity
+
+Kind: `unknown`
+Module: `src/types/rules.ts`
+Source: `src/types/rules.ts:124:1`
+
+The canonical impact levels emitted by the published Rules evaluator.
+
+## RuleFindingSourceLocation
+
+Kind: `type`
+Module: `src/types/rules.ts`
+Source: `src/types/rules.ts:105:1`
+
+An optional source location retained with a portable rule finding.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| column | property | `number \| undefined` | no |  |
+| endColumn | property | `number \| undefined` | no |  |
+| endLine | property | `number \| undefined` | no |  |
+| line | property | `number` | yes |  |
+| path | property | `string` | yes |  |
+
+## RuleFindingSubject
+
+Kind: `type`
+Module: `src/types/rules.ts`
+Source: `src/types/rules.ts:98:1`
+
+One subject affected by a rule finding, preserved independently of a presentation consumer.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| id | property | `string` | yes |  |
+| kind | property | `string` | yes |  |
+| path | property | `string \| undefined` | no |  |
+
+## RuleIdentity
+
+Kind: `type`
+Module: `src/types/rules.ts`
+Source: `src/types/rules.ts:92:1`
+
+The stable, versioned identity of a provider-owned rule.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| id | property | `string` | yes |  |
+| version | property | `string` | yes |  |
+
+## RuleResultDiagnostic
+
+Kind: `type`
+Module: `src/types/rules.ts`
+Source: `src/types/rules.ts:127:1`
+
+A serializable evaluator diagnostic retained with a versioned wire result.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| code | property | `"invalid-config" \| "ambiguous-rule-id" \| "cycle" \| "dependency-error" \| "dependency-incomplete" \| "dependency-scope-mismatch" \| "disabled-dependency" \| "invalid-options" \| "missing-capability" \| "missing-dependency" \| "rule-error" \| "unknown-rule" \| "unresolved-dependencies"` | yes |  |
+| message | property | `string` | yes |  |
+| ruleId | property | `string \| undefined` | no |  |
+
+## RuleResultDto
+
+Kind: `type`
+Module: `src/types/rules.ts`
+Source: `src/types/rules.ts:152:1`
+
+The versioned, serializable wire form of one `@ankhorage/rules` evaluation result.
+
+This mirrors the published engine result while adding only wire metadata. Engine-native types,
+evaluation, validation, and mappings belong to the consuming adapter, not Contracts.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| diagnostics | property | `readonly RuleResultDiagnostic[]` | yes |  |
+| findings | property | `readonly RuleFinding[]` | yes |  |
+| resultHash | property | `string` | yes |  |
+| rule | property | `RuleIdentity` | yes |  |
+| schemaVersion | property | `1` | yes |  |
+| scope | property | `Scope` | yes |  |
+| status | property | `RuleResultStatus` | yes |  |
+
+## RuleResultStatus
+
+Kind: `unknown`
+Module: `src/types/rules.ts`
+Source: `src/types/rules.ts:163:1`
+
+The canonical status set for a portable rule result.
+
+## RulesProvenance
+
+Kind: `type`
+Module: `src/types/rules.ts`
+Source: `src/types/rules.ts:19:1`
+
+The producer and source revision from which portable Rules data was observed.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| collectedAt | property | `string` | yes |  |
+| producer | property | `{ readonly id: string; readonly version: string; }` | yes |  |
+| source | property | `{ readonly id: string; readonly revision: string \| null; }` | yes |  |
+
 ## RuntimeCallback
 
 Kind: `unknown`
@@ -5649,6 +5951,22 @@ Source: `src/runtimeCallbacks.ts:3:1`
 Kind: `unknown`
 Module: `src/data/ids.ts`
 Source: `src/data/ids.ts:5:1`
+
+## Scope
+
+Kind: `type`
+Module: `src/types/rules.ts`
+Source: `src/types/rules.ts:12:1`
+
+The exact semantic scope of a fact or rule evaluation.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| id | property | `string` | yes |  |
+| kind | property | `string` | yes |  |
+| target | property | `TargetIdentity` | yes |  |
 
 ## ScreenDataLoaderDefinition
 
@@ -7132,6 +7450,23 @@ Source: `src/navigator/planning.ts:27:1`
 | presentation | property | `ResolvedTabsPresentation \| undefined` | no |  |
 | presentations | property | `Readonly<Record<NavigatorResponsiveSize, ResolvedTabsPresentation>> \| undefined` | no |  |
 | stability | property | `NavigatorApiStability` | yes |  |
+
+## TargetIdentity
+
+Kind: `type`
+Module: `src/types/rules.ts`
+Source: `src/types/rules.ts:4:1`
+
+A tenant, project, and semantic target partitioning one Rules evaluation.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| kind | property | `string` | yes |  |
+| projectId | property | `string` | yes |  |
+| targetId | property | `string` | yes |  |
+| tenantId | property | `string` | yes |  |
 
 ## ThemeConfig
 

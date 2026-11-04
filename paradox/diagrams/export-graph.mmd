@@ -59,6 +59,7 @@ graph LR
   module_src_navigator_planning_ts["src/navigator/planning.ts"]
   module_src_repository_ts["src/repository.ts"]
   module_src_requirements_ts["src/requirements.ts"]
+  module_src_rules_ts["src/rules.ts"]
   module_src_runtimeCallbacks_ts["src/runtimeCallbacks.ts"]
   module_src_secrets_ts["src/secrets.ts"]
   module_src_serializable_ts["src/serializable.ts"]
@@ -84,6 +85,7 @@ graph LR
   module_src_types_infraTargets_ts["src/types/infraTargets.ts"]
   module_src_types_infraValidation_ts["src/types/infraValidation.ts"]
   module_src_types_infraWorkload_ts["src/types/infraWorkload.ts"]
+  module_src_types_rules_ts["src/types/rules.ts"]
   module_src_ui_ts["src/ui.ts"]
   export_AdapterId["AdapterId"]
   module_src_data_ids_ts --> export_AdapterId
@@ -496,6 +498,15 @@ graph LR
   export_AuthSignUpSpec -.-> export_AuthSignUpField
   export_AuthUser["AuthUser"]
   module_src_auth_ts --> export_AuthUser
+  export_AvailableFactEnvelope["AvailableFactEnvelope"]
+  module_src_types_rules_ts --> export_AvailableFactEnvelope
+  export_AvailableFactEnvelope -.-> export_RulesProvenance
+  export_AvailableFactEnvelope -.-> export_Scope
+  export_AvailableFactEnvelope -.-> export_SerializableValue
+  export_AvailableRuleEvidence["AvailableRuleEvidence"]
+  module_src_types_rules_ts --> export_AvailableRuleEvidence
+  export_AvailableRuleEvidence -.-> export_RulesProvenance
+  export_AvailableRuleEvidence -.-> export_SerializableValue
   export_BindingCapabilityReference["BindingCapabilityReference"]
   module_src_bindings_ts --> export_BindingCapabilityReference
   export_BindingCondition["BindingCondition"]
@@ -893,6 +904,8 @@ graph LR
   export_ExternalRestApiDefinition -.-> export_DataSchema
   export_ExternalRestApiDefinition -.-> export_OpenApiDocumentRef
   export_ExternalRestApiDefinition -.-> export_SerializableValue
+  export_FactEnvelope["FactEnvelope"]
+  module_src_types_rules_ts --> export_FactEnvelope
   export_findForbiddenInlineSecretFields["findForbiddenInlineSecretFields"]
   module_src_secrets_ts --> export_findForbiddenInlineSecretFields
   export_FIXED_HEADLESS_TABS_PRESENTATIONS["FIXED_HEADLESS_TABS_PRESENTATIONS"]
@@ -905,6 +918,16 @@ graph LR
   module_src_types_ts --> export_FormSubmitEventDto
   export_FormSubmitValues["FormSubmitValues"]
   module_src_types_ts --> export_FormSubmitValues
+  export_GraphProjection["GraphProjection"]
+  module_src_types_rules_ts --> export_GraphProjection
+  export_GraphProjection -.-> export_GraphProjectionEdge
+  export_GraphProjection -.-> export_GraphProjectionNode
+  export_GraphProjection -.-> export_Scope
+  export_GraphProjectionEdge["GraphProjectionEdge"]
+  module_src_types_rules_ts --> export_GraphProjectionEdge
+  export_GraphProjectionNode["GraphProjectionNode"]
+  module_src_types_rules_ts --> export_GraphProjectionNode
+  export_GraphProjectionNode -.-> export_RuleResultDto
   export_GraphQlIntrospectionConfig["GraphQlIntrospectionConfig"]
   module_src_data_apis_ts --> export_GraphQlIntrospectionConfig
   export_HEADLESS_TABS_PRESENTATIONS["HEADLESS_TABS_PRESENTATIONS"]
@@ -1297,6 +1320,17 @@ graph LR
   module_src_media_ts --> export_MediaStorageSource
   export_MediaUrlSource["MediaUrlSource"]
   module_src_media_ts --> export_MediaUrlSource
+  export_MissingData["MissingData"]
+  module_src_types_rules_ts --> export_MissingData
+  export_MissingFactEnvelope["MissingFactEnvelope"]
+  module_src_types_rules_ts --> export_MissingFactEnvelope
+  export_MissingFactEnvelope -.-> export_MissingData
+  export_MissingFactEnvelope -.-> export_RulesProvenance
+  export_MissingFactEnvelope -.-> export_Scope
+  export_MissingRuleEvidence["MissingRuleEvidence"]
+  module_src_types_rules_ts --> export_MissingRuleEvidence
+  export_MissingRuleEvidence -.-> export_MissingData
+  export_MissingRuleEvidence -.-> export_RulesProvenance
   export_MonetizationAdapterContext["MonetizationAdapterContext"]
   module_src_types_deployMonetization_ts --> export_MonetizationAdapterContext
   export_MonetizationAdapterContext -.-> export_DeploymentCredentialReference
@@ -1600,6 +1634,35 @@ graph LR
   export_RouteDefinition -.-> export_IconSpec
   export_RouteDefinition -.-> export_NavigatorNode
   export_RouteDefinition -.-> export_StackScreenOptions
+  export_RuleEvidence["RuleEvidence"]
+  module_src_types_rules_ts --> export_RuleEvidence
+  export_RuleFinding["RuleFinding"]
+  module_src_types_rules_ts --> export_RuleFinding
+  export_RuleFinding -.-> export_RuleFindingSeverity
+  export_RuleFinding -.-> export_RuleFindingSourceLocation
+  export_RuleFinding -.-> export_RuleFindingSubject
+  export_RuleFinding -.-> export_SerializableValue
+  export_RuleFindingSeverity["RuleFindingSeverity"]
+  module_src_types_rules_ts --> export_RuleFindingSeverity
+  export_RuleFindingSourceLocation["RuleFindingSourceLocation"]
+  module_src_types_rules_ts --> export_RuleFindingSourceLocation
+  export_RuleFindingSubject["RuleFindingSubject"]
+  module_src_types_rules_ts --> export_RuleFindingSubject
+  export_RuleIdentity["RuleIdentity"]
+  module_src_types_rules_ts --> export_RuleIdentity
+  export_RuleResultDiagnostic["RuleResultDiagnostic"]
+  module_src_types_rules_ts --> export_RuleResultDiagnostic
+  export_RuleResultDto["RuleResultDto"]
+  module_src_types_rules_ts --> export_RuleResultDto
+  export_RuleResultDto -.-> export_RuleFinding
+  export_RuleResultDto -.-> export_RuleIdentity
+  export_RuleResultDto -.-> export_RuleResultDiagnostic
+  export_RuleResultDto -.-> export_RuleResultStatus
+  export_RuleResultDto -.-> export_Scope
+  export_RuleResultStatus["RuleResultStatus"]
+  module_src_types_rules_ts --> export_RuleResultStatus
+  export_RulesProvenance["RulesProvenance"]
+  module_src_types_rules_ts --> export_RulesProvenance
   export_RuntimeCallback["RuntimeCallback"]
   module_src_runtimeCallbacks_ts --> export_RuntimeCallback
   export_RuntimeCallbackArgs["RuntimeCallbackArgs"]
@@ -1614,6 +1677,9 @@ graph LR
   export_RuntimeResolveNodePropsArgs -.-> export_UiNode
   export_SchemaId["SchemaId"]
   module_src_data_ids_ts --> export_SchemaId
+  export_Scope["Scope"]
+  module_src_types_rules_ts --> export_Scope
+  export_Scope -.-> export_TargetIdentity
   export_ScreenDataLoaderDefinition["ScreenDataLoaderDefinition"]
   module_src_bindings_ts --> export_ScreenDataLoaderDefinition
   export_ScreenMetadataSpec["ScreenMetadataSpec"]
@@ -2002,6 +2068,8 @@ graph LR
   export_TabsNavigatorPlan -.-> export_NavigatorResponsiveSize
   export_TabsNavigatorPlan -.-> export_ResolvedTabsImplementation
   export_TabsNavigatorPlan -.-> export_ResolvedTabsPresentation
+  export_TargetIdentity["TargetIdentity"]
+  module_src_types_rules_ts --> export_TargetIdentity
   export_ThemeConfig["ThemeConfig"]
   module_src_types_ts --> export_ThemeConfig
   export_ThemeConfig -.-> export_ThemeGlobalTokenOverrides

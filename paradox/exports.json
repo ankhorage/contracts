@@ -5439,6 +5439,171 @@
     "structuredRows": []
   },
   {
+    "name": "AvailableFactEnvelope",
+    "title": null,
+    "description": "A fact whose serializable value was available to the producing adapter.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/rules.ts",
+    "sourceLocation": {
+      "filePath": "src/types/rules.ts",
+      "line": 41,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "RulesProvenance",
+      "Scope",
+      "SerializableValue"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "contentHash",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "kind",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "provenance",
+        "kind": "property",
+        "type": "RulesProvenance",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "schemaVersion",
+        "kind": "property",
+        "type": "1",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "scope",
+        "kind": "property",
+        "type": "Scope",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "status",
+        "kind": "property",
+        "type": "\"available\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "value",
+        "kind": "property",
+        "type": "SerializableValue",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "AvailableRuleEvidence",
+    "title": null,
+    "description": "Evidence whose serializable observations are available to consumers.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/rules.ts",
+    "sourceLocation": {
+      "filePath": "src/types/rules.ts",
+      "line": 68,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "RulesProvenance",
+      "SerializableValue"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "contentHash",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "factIds",
+        "kind": "property",
+        "type": "readonly string[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "kind",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "provenance",
+        "kind": "property",
+        "type": "RulesProvenance",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "schemaVersion",
+        "kind": "property",
+        "type": "1",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "status",
+        "kind": "property",
+        "type": "\"available\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "value",
+        "kind": "property",
+        "type": "SerializableValue",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
     "name": "BindingCapabilityReference",
     "title": null,
     "description": null,
@@ -10763,6 +10928,28 @@
     "structuredRows": []
   },
   {
+    "name": "FactEnvelope",
+    "title": null,
+    "description": "A versioned portable fact with content integrity, provenance, and explicit availability.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/types/rules.ts",
+    "sourceLocation": {
+      "filePath": "src/types/rules.ts",
+      "line": 38,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
     "name": "findForbiddenInlineSecretFields",
     "title": null,
     "description": null,
@@ -10906,6 +11093,144 @@
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "GraphProjection",
+    "title": null,
+    "description": "A serializable Rules DAG projection for consumers such as graph visualizations.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/rules.ts",
+    "sourceLocation": {
+      "filePath": "src/types/rules.ts",
+      "line": 166,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "GraphProjectionEdge",
+      "GraphProjectionNode",
+      "Scope"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "edges",
+        "kind": "property",
+        "type": "readonly GraphProjectionEdge[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "nodes",
+        "kind": "property",
+        "type": "readonly GraphProjectionNode[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "projectionHash",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "schemaVersion",
+        "kind": "property",
+        "type": "1",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "scope",
+        "kind": "property",
+        "type": "Scope",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "GraphProjectionEdge",
+    "title": null,
+    "description": "One directed dependency edge in a portable Rules graph projection.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/rules.ts",
+    "sourceLocation": {
+      "filePath": "src/types/rules.ts",
+      "line": 175,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "fromNodeId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "toNodeId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "GraphProjectionNode",
+    "title": null,
+    "description": "One evaluated rule node in a portable Rules graph projection.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/rules.ts",
+    "sourceLocation": {
+      "filePath": "src/types/rules.ts",
+      "line": 181,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "RuleResultDto"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "result",
+        "kind": "property",
+        "type": "RuleResultDto",
+        "required": true,
+        "description": null
+      }
+    ],
     "structuredRows": []
   },
   {
@@ -15962,6 +16287,208 @@
     "structuredRows": []
   },
   {
+    "name": "MissingData",
+    "title": null,
+    "description": "An explicit reason that a fact or evidence value could not be supplied.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/rules.ts",
+    "sourceLocation": {
+      "filePath": "src/types/rules.ts",
+      "line": 32,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "code",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "message",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "MissingFactEnvelope",
+    "title": null,
+    "description": "A fact whose required value was unavailable without fabricating a replacement.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/rules.ts",
+    "sourceLocation": {
+      "filePath": "src/types/rules.ts",
+      "line": 53,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "MissingData",
+      "RulesProvenance",
+      "Scope"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "contentHash",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "kind",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "missing",
+        "kind": "property",
+        "type": "MissingData",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "provenance",
+        "kind": "property",
+        "type": "RulesProvenance",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "schemaVersion",
+        "kind": "property",
+        "type": "1",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "scope",
+        "kind": "property",
+        "type": "Scope",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "status",
+        "kind": "property",
+        "type": "\"missing\"",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "MissingRuleEvidence",
+    "title": null,
+    "description": "Evidence that remains explicitly unavailable to prevent implicit passing.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/rules.ts",
+    "sourceLocation": {
+      "filePath": "src/types/rules.ts",
+      "line": 80,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "MissingData",
+      "RulesProvenance"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "contentHash",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "factIds",
+        "kind": "property",
+        "type": "readonly string[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "kind",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "missing",
+        "kind": "property",
+        "type": "MissingData",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "provenance",
+        "kind": "property",
+        "type": "RulesProvenance",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "schemaVersion",
+        "kind": "property",
+        "type": "1",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "status",
+        "kind": "property",
+        "type": "\"missing\"",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
     "name": "MonetizationAdapterContext",
     "title": null,
     "description": null,
@@ -20010,6 +20537,447 @@
     "structuredRows": []
   },
   {
+    "name": "RuleEvidence",
+    "title": null,
+    "description": "Evidence retained by a rule result, including explicit unavailable evidence.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/types/rules.ts",
+    "sourceLocation": {
+      "filePath": "src/types/rules.ts",
+      "line": 65,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "RuleFinding",
+    "title": null,
+    "description": "One serializable finding emitted by a published Rules evaluation.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/rules.ts",
+    "sourceLocation": {
+      "filePath": "src/types/rules.ts",
+      "line": 114,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "RuleFindingSeverity",
+      "RuleFindingSourceLocation",
+      "RuleFindingSubject",
+      "SerializableValue"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "evidence",
+        "kind": "property",
+        "type": "SerializableValue",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "message",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "ruleId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "severity",
+        "kind": "property",
+        "type": "RuleFindingSeverity",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "sourceLocation",
+        "kind": "property",
+        "type": "RuleFindingSourceLocation | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "subjects",
+        "kind": "property",
+        "type": "readonly RuleFindingSubject[]",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "RuleFindingSeverity",
+    "title": null,
+    "description": "The canonical impact levels emitted by the published Rules evaluator.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/types/rules.ts",
+    "sourceLocation": {
+      "filePath": "src/types/rules.ts",
+      "line": 124,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "RuleFindingSourceLocation",
+    "title": null,
+    "description": "An optional source location retained with a portable rule finding.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/rules.ts",
+    "sourceLocation": {
+      "filePath": "src/types/rules.ts",
+      "line": 105,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "column",
+        "kind": "property",
+        "type": "number | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "endColumn",
+        "kind": "property",
+        "type": "number | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "endLine",
+        "kind": "property",
+        "type": "number | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "line",
+        "kind": "property",
+        "type": "number",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "path",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "RuleFindingSubject",
+    "title": null,
+    "description": "One subject affected by a rule finding, preserved independently of a presentation consumer.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/rules.ts",
+    "sourceLocation": {
+      "filePath": "src/types/rules.ts",
+      "line": 98,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "kind",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "path",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "RuleIdentity",
+    "title": null,
+    "description": "The stable, versioned identity of a provider-owned rule.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/rules.ts",
+    "sourceLocation": {
+      "filePath": "src/types/rules.ts",
+      "line": 92,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "version",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "RuleResultDiagnostic",
+    "title": null,
+    "description": "A serializable evaluator diagnostic retained with a versioned wire result.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/rules.ts",
+    "sourceLocation": {
+      "filePath": "src/types/rules.ts",
+      "line": 127,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "code",
+        "kind": "property",
+        "type": "\"invalid-config\" | \"ambiguous-rule-id\" | \"cycle\" | \"dependency-error\" | \"dependency-incomplete\" | \"dependency-scope-mismatch\" | \"disabled-dependency\" | \"invalid-options\" | \"missing-capability\" | \"missing-dependency\" | \"rule-error\" | \"unknown-rule\" | \"unresolved-dependencies\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "message",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "ruleId",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "RuleResultDto",
+    "title": null,
+    "description": "The versioned, serializable wire form of one `@ankhorage/rules` evaluation result.\n\nThis mirrors the published engine result while adding only wire metadata. Engine-native types,\nevaluation, validation, and mappings belong to the consuming adapter, not Contracts.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/rules.ts",
+    "sourceLocation": {
+      "filePath": "src/types/rules.ts",
+      "line": 152,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "RuleFinding",
+      "RuleIdentity",
+      "RuleResultDiagnostic",
+      "RuleResultStatus",
+      "Scope"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "diagnostics",
+        "kind": "property",
+        "type": "readonly RuleResultDiagnostic[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "findings",
+        "kind": "property",
+        "type": "readonly RuleFinding[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "resultHash",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "rule",
+        "kind": "property",
+        "type": "RuleIdentity",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "schemaVersion",
+        "kind": "property",
+        "type": "1",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "scope",
+        "kind": "property",
+        "type": "Scope",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "status",
+        "kind": "property",
+        "type": "RuleResultStatus",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "RuleResultStatus",
+    "title": null,
+    "description": "The canonical status set for a portable rule result.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/types/rules.ts",
+    "sourceLocation": {
+      "filePath": "src/types/rules.ts",
+      "line": 163,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "RulesProvenance",
+    "title": null,
+    "description": "The producer and source revision from which portable Rules data was observed.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/rules.ts",
+    "sourceLocation": {
+      "filePath": "src/types/rules.ts",
+      "line": 19,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "collectedAt",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "producer",
+        "kind": "property",
+        "type": "{ readonly id: string; readonly version: string; }",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "source",
+        "kind": "property",
+        "type": "{ readonly id: string; readonly revision: string | null; }",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
     "name": "RuntimeCallback",
     "title": null,
     "description": null,
@@ -20180,6 +21148,52 @@
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "Scope",
+    "title": null,
+    "description": "The exact semantic scope of a fact or rule evaluation.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/rules.ts",
+    "sourceLocation": {
+      "filePath": "src/types/rules.ts",
+      "line": 12,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "TargetIdentity"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "kind",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "target",
+        "kind": "property",
+        "type": "TargetIdentity",
+        "required": true,
+        "description": null
+      }
+    ],
     "structuredRows": []
   },
   {
@@ -25436,6 +26450,57 @@
         "name": "stability",
         "kind": "property",
         "type": "NavigatorApiStability",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "TargetIdentity",
+    "title": null,
+    "description": "A tenant, project, and semantic target partitioning one Rules evaluation.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/rules.ts",
+    "sourceLocation": {
+      "filePath": "src/types/rules.ts",
+      "line": 4,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "kind",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "projectId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "targetId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "tenantId",
+        "kind": "property",
+        "type": "string",
         "required": true,
         "description": null
       }
