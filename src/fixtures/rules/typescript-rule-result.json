@@ -1,33 +1,25 @@
 {
-  "diagnostics": [],
-  "evidence": [
+  "diagnostics": [
     {
-      "contentHash": "sha256:evidence-4e01",
-      "factIds": ["painted-area"],
-      "id": "color-ratio",
-      "kind": "measurement",
-      "provenance": {
-        "collectedAt": "2026-11-04T10:15:00.000Z",
-        "producer": { "id": "ankhorage.wordpress", "version": "1.0.0" },
-        "source": { "id": "https://example.test/", "revision": "abc123" }
-      },
-      "schemaVersion": 1,
-      "status": "available",
-      "value": { "accent": 0.1, "base": 0.6, "secondary": 0.3 }
-    },
+      "code": "missing-capability",
+      "message": "Rule requires unavailable viewport capture capability.",
+      "ruleId": "design.color.usage-distribution"
+    }
+  ],
+  "findings": [
     {
-      "contentHash": "sha256:evidence-4e02",
-      "factIds": ["viewport-sample"],
-      "id": "mobile-sample",
-      "kind": "measurement",
-      "missing": { "code": "missing-capability", "message": "Viewport capture is unavailable." },
-      "provenance": {
-        "collectedAt": "2026-11-04T10:15:00.000Z",
-        "producer": { "id": "ankhorage.wordpress", "version": "1.0.0" },
-        "source": { "id": "https://example.test/", "revision": "abc123" }
+      "evidence": {
+        "missing": {
+          "code": "missing-capability",
+          "message": "Viewport capture is unavailable."
+        },
+        "status": "missing"
       },
-      "schemaVersion": 1,
-      "status": "missing"
+      "message": "Cannot evaluate the viewport color distribution without a viewport sample.",
+      "ruleId": "design.color.usage-distribution",
+      "severity": "warning",
+      "sourceLocation": { "line": 1, "path": "https://example.test/" },
+      "subjects": [{ "id": "page:home:desktop", "kind": "page" }]
     }
   ],
   "resultHash": "sha256:result-4e01",

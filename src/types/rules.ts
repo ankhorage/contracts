@@ -94,21 +94,67 @@ export interface RuleIdentity {
   readonly version: string;
 }
 
-/*** The deterministic state of an evaluated rule, separate from policy decisions. */
-export interface RuleResult {
+/*** One subject affected by a rule finding, preserved independently of a presentation consumer. */
+export interface RuleFindingSubject {
+  readonly id: string;
+  readonly kind: string;
+  readonly path?: string;
+}
+
+/*** An optional source location retained with a portable rule finding. */
+export interface RuleFindingSourceLocation {
+  readonly column?: number;
+  readonly endColumn?: number;
+  readonly endLine?: number;
+  readonly line: number;
+  readonly path: string;
+}
+
+/*** One serializable finding emitted by a published Rules evaluation. */
+export interface RuleFinding {
+  readonly evidence: SerializableValue;
+  readonly message: string;
+  readonly ruleId: string;
+  readonly severity: RuleFindingSeverity;
+  readonly sourceLocation?: RuleFindingSourceLocation;
+  readonly subjects: readonly RuleFindingSubject[];
+}
+
+/*** The canonical impact levels emitted by the published Rules evaluator. */
+export type RuleFindingSeverity = 'error' | 'info' | 'warning';
+
+/*** A serializable evaluator diagnostic retained with a versioned wire result. */
+export interface RuleResultDiagnostic {
+  readonly code:
+    | 'ambiguous-rule-id'
+    | 'cycle'
+    | 'dependency-error'
+    | 'dependency-incomplete'
+    | 'dependency-scope-mismatch'
+    | 'disabled-dependency'
+    | 'invalid-options'
+    | 'missing-capability'
+    | 'missing-dependency'
+    | 'rule-error'
+    | 'unresolved-dependencies';
+  readonly message: string;
+  readonly ruleId?: string;
+}
+
+/***
+ * The versioned, serializable wire form of one `@ankhorage/rules` evaluation result.
+ *
+ * This mirrors the published engine result while adding only wire metadata. Engine-native types,
+ * evaluation, validation, and mappings belong to the consuming adapter, not Contracts.
+ */
+export interface RuleResultDto {
   readonly diagnostics: readonly RuleResultDiagnostic[];
-  readonly evidence: readonly RuleEvidence[];
+  readonly findings: readonly RuleFinding[];
   readonly resultHash: string;
   readonly rule: RuleIdentity;
   readonly schemaVersion: 1;
   readonly scope: Scope;
   readonly status: RuleResultStatus;
-}
-
-/*** A serializable evaluator diagnostic associated with one rule result. */
-export interface RuleResultDiagnostic {
-  readonly code: string;
-  readonly message: string;
 }
 
 /*** The canonical status set for a portable rule result. */
@@ -132,5 +178,5 @@ export interface GraphProjectionEdge {
 /*** One evaluated rule node in a portable Rules graph projection. */
 export interface GraphProjectionNode {
   readonly id: string;
-  readonly result: RuleResult;
+  readonly result: RuleResultDto;
 }

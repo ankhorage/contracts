@@ -1,17 +1,33 @@
 import { expect, it } from 'bun:test';
 
 import phpRuleResult from './fixtures/rules/php-rule-result.json' with { type: 'json' };
+import {
+  phpRuleResultFixture,
+  typescriptRuleResultFixture,
+} from './fixtures/rules/ruleResultFixtures.js';
 import typescriptRuleResult from './fixtures/rules/typescript-rule-result.json' with { type: 'json' };
-import type { FactEnvelope, GraphProjection, RuleResult } from './rules.js';
+import type { FactEnvelope, GraphProjection, RuleResultDto } from './rules.js';
 
-it('keeps PHP and TypeScript rule-result fixtures identical and serializable', () => {
+it('keeps PHP and TypeScript complete wire result fixtures identical and serializable', () => {
   expect(phpRuleResult).toEqual(typescriptRuleResult);
-  expect(JSON.parse(JSON.stringify(phpRuleResult))).toEqual(typescriptRuleResult);
-  expect(phpRuleResult.status).toBe('INCOMPLETE');
-  expect(phpRuleResult.evidence.map((evidence) => evidence.status)).toEqual([
-    'available',
-    'missing',
+  expect(phpRuleResult).toEqual(phpRuleResultFixture);
+  expect(typescriptRuleResult).toEqual(typescriptRuleResultFixture);
+  expect(JSON.parse(JSON.stringify(phpRuleResultFixture))).toEqual(typescriptRuleResultFixture);
+});
+
+it('keeps missing data explicit in diagnostics, findings, and the incomplete result status', () => {
+  expect(phpRuleResultFixture.status).toBe('INCOMPLETE');
+  expect(phpRuleResultFixture.diagnostics).toEqual([
+    {
+      code: 'missing-capability',
+      message: 'Rule requires unavailable viewport capture capability.',
+      ruleId: 'design.color.usage-distribution',
+    },
   ]);
+  expect(phpRuleResultFixture.findings[0]?.evidence).toEqual({
+    missing: { code: 'missing-capability', message: 'Viewport capture is unavailable.' },
+    status: 'missing',
+  });
 });
 
 it('keeps available and missing facts explicit in a graph-ready rule result', () => {
@@ -39,9 +55,9 @@ it('keeps available and missing facts explicit in a graph-ready rule result', ()
     scope: availableFact.scope,
     status: 'missing',
   };
-  const result: RuleResult = {
+  const result: RuleResultDto = {
     diagnostics: [],
-    evidence: [],
+    findings: [],
     resultHash: 'sha256:result-4e01',
     rule: { id: 'design.color.usage-distribution', version: '1.0.0' },
     schemaVersion: 1,
