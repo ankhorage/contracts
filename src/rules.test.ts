@@ -6,7 +6,7 @@ import {
   phpRuleResultFixture,
   typescriptRuleResultFixture,
 } from '../test/rules/ruleResultFixtures.js';
-import type { FactEnvelope, GraphProjection, RuleResultDto } from './rules.js';
+import type { FactEnvelope, GraphProjection, RuleResultDiagnostic, RuleResultDto } from './rules.js';
 
 it('keeps PHP and TypeScript complete wire result fixtures identical and serializable', () => {
   expect(phpRuleResult).toEqual(typescriptRuleResult);
@@ -28,6 +28,15 @@ it('keeps missing data explicit in diagnostics, findings, and the incomplete res
     missing: { code: 'missing-capability', message: 'Viewport capture is unavailable.' },
     status: 'missing',
   });
+});
+
+it('accepts published invalid configuration and unknown rule diagnostic codes', () => {
+  const diagnostics: readonly RuleResultDiagnostic[] = [
+    { code: 'invalid-config', message: 'rules.json must contain an object.' },
+    { code: 'unknown-rule', message: 'rules.json configures an unknown rule.' },
+  ];
+
+  expect(diagnostics.map(({ code }) => code)).toEqual(['invalid-config', 'unknown-rule']);
 });
 
 it('keeps available and missing facts explicit in a graph-ready rule result', () => {

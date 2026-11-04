@@ -132,10 +132,12 @@ export interface RuleResultDiagnostic {
     | 'dependency-incomplete'
     | 'dependency-scope-mismatch'
     | 'disabled-dependency'
+    | 'invalid-config'
     | 'invalid-options'
     | 'missing-capability'
     | 'missing-dependency'
     | 'rule-error'
+    | 'unknown-rule'
     | 'unresolved-dependencies';
   readonly message: string;
   readonly ruleId?: string;
