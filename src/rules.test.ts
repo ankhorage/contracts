@@ -1,11 +1,11 @@
 import { expect, it } from 'bun:test';
 
-import phpRuleResult from './fixtures/rules/php-rule-result.json' with { type: 'json' };
+import phpRuleResult from '../test/rules/fixtures/php-rule-result.json' with { type: 'json' };
+import typescriptRuleResult from '../test/rules/fixtures/typescript-rule-result.json' with { type: 'json' };
 import {
   phpRuleResultFixture,
   typescriptRuleResultFixture,
-} from './fixtures/rules/ruleResultFixtures.js';
-import typescriptRuleResult from './fixtures/rules/typescript-rule-result.json' with { type: 'json' };
+} from '../test/rules/ruleResultFixtures.js';
 import type { FactEnvelope, GraphProjection, RuleResultDto } from './rules.js';
 
 it('keeps PHP and TypeScript complete wire result fixtures identical and serializable', () => {

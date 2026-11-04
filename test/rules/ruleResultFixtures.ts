@@ -1,4 +1,4 @@
-import type { RuleResultDto } from '../../rules.js';
+import type { RuleResultDto } from '../../src/rules.js';
 
 export const phpRuleResultFixture = {
   diagnostics: [
