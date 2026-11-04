@@ -127,6 +127,10 @@
       "types": "./dist/repository.d.ts",
       "default": "./dist/repository.js"
     },
+    "./rules": {
+      "types": "./dist/rules.d.ts",
+      "default": "./dist/rules.js"
+    },
     "./structure": {
       "types": "./dist/structure/index.d.ts",
       "default": "./dist/structure/index.js"
