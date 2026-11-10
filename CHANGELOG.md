@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 26.5.0
+
+### Minor Changes
+
+- 57a702a: Add the portable `number` binding transform for finite numeric presentation values.
+
 ## 26.4.0
 
 ### Minor Changes
