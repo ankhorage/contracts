@@ -114,6 +114,26 @@ describe('capability binding contracts', () => {
     expect(isComponentDataBindingRegistry(bindings)).toBe(true);
   });
 
+  it('accepts the portable finite-number transform', () => {
+    const bindings: ComponentDataBindingRegistry = {
+      board: {
+        componentId: 'board',
+        props: {
+          columns: {
+            value: {
+              kind: 'transform',
+              value: { capability: 'state.board', path: 'columns' },
+              transforms: ['number'],
+            },
+          },
+        },
+      },
+    };
+
+    assertSerializable(bindings);
+    expect(isComponentDataBindingRegistry(bindings)).toBe(true);
+  });
+
   it('uses the same invocation shape for screen loaders', () => {
     const loader: ScreenDataLoaderDefinition = {
       capability: 'api.products.getById',
