@@ -128,7 +128,7 @@ function isBindingTransforms(value: unknown): boolean {
   return (
     Array.isArray(value) &&
     value.every((transform) =>
-      ['length', 'lowercase', 'trim', 'uppercase'].includes(String(transform)),
+      ['length', 'lowercase', 'number', 'trim', 'uppercase'].includes(String(transform)),
     )
   );
 }
