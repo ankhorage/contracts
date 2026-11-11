@@ -4,10 +4,10 @@ import phpObservation from '../test/website/fixtures/php-observation.json' with 
 import phpRecognition from '../test/website/fixtures/php-recognition.json' with { type: 'json' };
 import typescriptObservation from '../test/website/fixtures/typescript-observation.json' with { type: 'json' };
 import typescriptRecognition from '../test/website/fixtures/typescript-recognition.json' with { type: 'json' };
-import {
-  websiteObservationFixture,
-  websiteRecognitionFixture,
-} from '../test/website/websiteFixtures.js';
+import type { WebsiteObservationDocument, WebsiteRecognitionDocument } from './website.js';
+
+const websiteObservationFixture = typescriptObservation as unknown as WebsiteObservationDocument;
+const websiteRecognitionFixture = typescriptRecognition as unknown as WebsiteRecognitionDocument;
 
 it('keeps TypeScript and PHP website observation fixtures identical and serializable', () => {
   expect(typescriptObservation).toEqual(phpObservation);
@@ -18,7 +18,7 @@ it('keeps TypeScript and PHP website observation fixtures identical and serializ
 
 it('keeps TypeScript and PHP website recognition fixtures identical and serializable', () => {
   expect(typescriptRecognition).toEqual(phpRecognition);
-  expect(typescriptRecognition.pages[0]?.root.children).toHaveLength(3);
+  expect(typescriptRecognition.pages[0]?.root.children).toHaveLength(4);
   expect(JSON.parse(JSON.stringify(websiteRecognitionFixture))).toEqual(websiteRecognitionFixture);
 });
 
@@ -29,4 +29,11 @@ it('retains the visible unresolved node and the styled inline text run', () => {
   expect(
     websiteRecognitionFixture.pages[0]?.nodes.find((node) => node.status === 'unresolved'),
   ).toMatchObject({ sourceRefs: ['home:visible-unresolved'] });
+  expect(websiteRecognitionFixture.pages[0]?.root.children?.at(-1)).toMatchObject({
+    id: 'home:visible-unresolved',
+  });
+  expect(websiteRecognitionFixture.pages[0]?.root.children?.[0]?.children?.[1]).toMatchObject({
+    id: 'home:rich-text',
+    type: 'RichText',
+  });
 });

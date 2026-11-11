@@ -27,9 +27,21 @@
         "id": "home:grid",
         "type": "Grid",
         "children": [
-          { "id": "home:card:1", "type": "Card" },
+          {
+            "id": "home:card:1",
+            "type": "Card",
+            "children": [
+              { "id": "home:heading", "type": "Heading", "props": { "children": "Welcome" } },
+              {
+                "id": "home:rich-text",
+                "type": "RichText",
+                "props": { "children": "red styled text", "color": "red.500" }
+              }
+            ]
+          },
           { "id": "home:card:2", "type": "Card" },
-          { "id": "home:card:3", "type": "Card" }
+          { "id": "home:card:3", "type": "Card" },
+          { "id": "home:visible-unresolved", "type": "Unknown" }
         ]
       },
       "nodes": [
@@ -55,6 +67,27 @@
             "reason": "Visible source node has no canonical component mapping.",
             "sourceRefs": ["home:visible-unresolved"]
           }
+        },
+        {
+          "id": "home:rich-text",
+          "componentType": "RichText",
+          "sourceRefs": ["home:hero:span"],
+          "confidence": 0.96,
+          "props": [
+            {
+              "name": "children",
+              "value": "red styled text",
+              "originalValues": ["red styled text"]
+            },
+            {
+              "name": "color",
+              "value": "red.500",
+              "originalValues": ["rgb(217, 51, 58)"]
+            }
+          ],
+          "responsive": [],
+          "status": "recognized",
+          "unresolved": null
         }
       ]
     },
