@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "documentId": "recognition:example.test:fixture",
+  "observedDocumentId": "crawl:example.test:fixture",
+  "recognizedAt": "2026-11-11T16:31:00.000Z",
+  "source": {
+    "crawlerId": "ankhorage.website-scraper",
+    "crawlerVersion": "1.0.0",
+    "crawlId": "crawl-fixture",
+    "revision": "sha256:source-fixture"
+  },
+  "site": { "id": "example.test", "url": "https://example.test/" },
+  "navigation": [
+    {
+      "id": "nav:about",
+      "label": "About",
+      "url": "https://example.test/about",
+      "sourceRef": "home:nav:about"
+    }
+  ],
+  "pages": [
+    {
+      "id": "home",
+      "url": "https://example.test/",
+      "path": "/",
+      "root": {
+        "id": "home:grid",
+        "type": "Grid",
+        "children": [
+          { "id": "home:card:1", "type": "Card" },
+          { "id": "home:card:2", "type": "Card" },
+          { "id": "home:card:3", "type": "Card" }
+        ]
+      },
+      "nodes": [
+        {
+          "id": "home:grid",
+          "componentType": "Grid",
+          "sourceRefs": ["home:grid"],
+          "confidence": 1,
+          "props": [],
+          "responsive": [],
+          "status": "recognized",
+          "unresolved": null
+        },
+        {
+          "id": "home:visible-unresolved",
+          "componentType": "Unknown",
+          "sourceRefs": ["home:visible-unresolved"],
+          "confidence": 0,
+          "props": [],
+          "responsive": [],
+          "status": "unresolved",
+          "unresolved": {
+            "reason": "Visible source node has no canonical component mapping.",
+            "sourceRefs": ["home:visible-unresolved"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "about",
+      "url": "https://example.test/about",
+      "path": "/about",
+      "root": { "id": "about:main", "type": "Grid" },
+      "nodes": []
+    }
+  ],
+  "designTokens": [
+    {
+      "id": "color:red.500",
+      "kind": "color",
+      "value": "#D9333A",
+      "originalValues": ["rgb(217, 51, 58)"],
+      "sourceRefs": ["home:hero:span"]
+    }
+  ],
+  "media": [
+    {
+      "id": "asset:hero",
+      "sourceRefs": ["home:card:1"],
+      "originalUrl": "https://example.test/hero.jpg",
+      "asset": null
+    }
+  ]
+}
