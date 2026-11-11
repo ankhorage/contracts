@@ -374,3 +374,8 @@ graph TD
   package__ankhorage_contracts -.-> module_src_ui_ts
   module_src_ui_ts --> module_src_media_ts
   module_src_ui_ts --> module_src_types_ts
+  module_src_website_ts["src/website.ts"]
+  package__ankhorage_contracts -.-> module_src_website_ts
+  module_src_website_ts --> module_src_media_ts
+  module_src_website_ts --> module_src_serializable_ts
+  module_src_website_ts --> module_src_types_ts

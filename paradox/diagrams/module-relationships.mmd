@@ -87,6 +87,7 @@ graph LR
   module_src_types_infraWorkload_ts["src/types/infraWorkload.ts"]
   module_src_types_rules_ts["src/types/rules.ts"]
   module_src_ui_ts["src/ui.ts"]
+  module_src_website_ts["src/website.ts"]
   module_src_appManifest_bindings_ts --> module_src_appManifest_isManifestValue_ts
   module_src_appManifest_constants_ts --> module_src_types_ts
   module_src_appManifest_dataSources_ts --> module_src_appManifest_isManifestValue_ts
@@ -284,3 +285,6 @@ graph LR
   module_src_types_rules_ts --> module_src_serializable_ts
   module_src_ui_ts --> module_src_media_ts
   module_src_ui_ts --> module_src_types_ts
+  module_src_website_ts --> module_src_media_ts
+  module_src_website_ts --> module_src_serializable_ts
+  module_src_website_ts --> module_src_types_ts

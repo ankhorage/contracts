@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 26.6.0
+
+### Minor Changes
+
+- d3ef62e: Add versioned portable website observation and recognition contracts.
+
 ## 26.5.0
 
 ### Minor Changes

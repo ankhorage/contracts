@@ -28562,5 +28562,1900 @@
       }
     ],
     "structuredRows": []
+  },
+  {
+    "name": "WebsiteAsset",
+    "title": null,
+    "description": "A reusable media asset discovered during the crawl.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/website.ts",
+    "sourceLocation": {
+      "filePath": "src/website.ts",
+      "line": 210,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "contentType",
+        "kind": "property",
+        "type": "string | null",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "kind",
+        "kind": "property",
+        "type": "\"image\" | \"audio\" | \"video\" | \"document\" | \"embed\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "sourceRefs",
+        "kind": "property",
+        "type": "readonly string[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "url",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "WebsiteAvailability",
+    "title": null,
+    "description": "Whether a source value was available without fabricating a replacement.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/website.ts",
+    "sourceLocation": {
+      "filePath": "src/website.ts",
+      "line": 117,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "WebsiteMissingValue"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "missing",
+        "kind": "property",
+        "type": "WebsiteMissingValue | null",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "status",
+        "kind": "property",
+        "type": "\"available\" | \"missing\"",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "WebsiteBoundingRect",
+    "title": null,
+    "description": "A bounding rectangle measured in CSS pixels.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/website.ts",
+    "sourceLocation": {
+      "filePath": "src/website.ts",
+      "line": 129,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "height",
+        "kind": "property",
+        "type": "number",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "width",
+        "kind": "property",
+        "type": "number",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "x",
+        "kind": "property",
+        "type": "number",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "y",
+        "kind": "property",
+        "type": "number",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "WebsiteBoxEdges",
+    "title": null,
+    "description": "The four computed edges of a CSS box value.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/website.ts",
+    "sourceLocation": {
+      "filePath": "src/website.ts",
+      "line": 195,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "bottom",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "left",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "right",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "top",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "WebsiteComputedCss",
+    "title": null,
+    "description": "Computed visual CSS values needed to describe, not assess, a rendered website.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/website.ts",
+    "sourceLocation": {
+      "filePath": "src/website.ts",
+      "line": 137,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "WebsiteBoxEdges"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "alignContent",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "alignItems",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "alignSelf",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "backgroundColor",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "backgroundImage",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "backgroundPosition",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "backgroundRepeat",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "backgroundSize",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "borderColor",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "borderRadius",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "borderWidth",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "boxShadow",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "color",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "display",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "flexBasis",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "flexDirection",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "flexGrow",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "flexShrink",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "flexWrap",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "fontFamily",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "fontSize",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "fontStyle",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "fontWeight",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "gap",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "gridAutoColumns",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "gridAutoFlow",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "gridAutoRows",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "gridColumn",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "gridColumnEnd",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "gridColumnStart",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "gridRow",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "gridRowEnd",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "gridRowStart",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "gridTemplateColumns",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "gridTemplateRows",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "justifyContent",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "justifyItems",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "justifySelf",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "letterSpacing",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "lineHeight",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "margin",
+        "kind": "property",
+        "type": "WebsiteBoxEdges",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "opacity",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "order",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "overflow",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "overflowX",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "overflowY",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "padding",
+        "kind": "property",
+        "type": "WebsiteBoxEdges",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "placeContent",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "placeItems",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "placeSelf",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "position",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "textAlign",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "textDecoration",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "visibility",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "WebsiteDesignToken",
+    "title": null,
+    "description": "A normalized design token with its exact source values retained.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/website.ts",
+    "sourceLocation": {
+      "filePath": "src/website.ts",
+      "line": 273,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "SerializableValue"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "kind",
+        "kind": "property",
+        "type": "\"color\" | \"radius\" | \"shadow\" | \"spacing\" | \"typography\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "originalValues",
+        "kind": "property",
+        "type": "readonly SerializableValue[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "sourceRefs",
+        "kind": "property",
+        "type": "readonly string[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "value",
+        "kind": "property",
+        "type": "SerializableValue",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "WebsiteDomNode",
+    "title": null,
+    "description": "A portable DOM identity with safe semantic attributes only.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/website.ts",
+    "sourceLocation": {
+      "filePath": "src/website.ts",
+      "line": 76,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "attributes",
+        "kind": "property",
+        "type": "Readonly<Record<string, string>>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "childIndex",
+        "kind": "property",
+        "type": "number",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "tagName",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "WebsiteLink",
+    "title": null,
+    "description": "A source-linked hyperlink observed on a DOM node.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/website.ts",
+    "sourceLocation": {
+      "filePath": "src/website.ts",
+      "line": 91,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "label",
+        "kind": "property",
+        "type": "string | null",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "sourceRef",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "url",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "WebsiteMediaReference",
+    "title": null,
+    "description": "An image, video, audio, or embedded media reference observed on a DOM node.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/website.ts",
+    "sourceLocation": {
+      "filePath": "src/website.ts",
+      "line": 98,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "alt",
+        "kind": "property",
+        "type": "string | null",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "assetId",
+        "kind": "property",
+        "type": "string | null",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "kind",
+        "kind": "property",
+        "type": "\"image\" | \"audio\" | \"video\" | \"document\" | \"embed\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "sourceRef",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "url",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "WebsiteMissingValue",
+    "title": null,
+    "description": "The explicit reason a website source value could not be observed.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/website.ts",
+    "sourceLocation": {
+      "filePath": "src/website.ts",
+      "line": 123,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "code",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "message",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "WebsiteNavigationItem",
+    "title": null,
+    "description": "One ordered, source-linked navigation target observed on a page.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/website.ts",
+    "sourceLocation": {
+      "filePath": "src/website.ts",
+      "line": 42,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "label",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "sourceRef",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "url",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "WebsiteNodeObservation",
+    "title": null,
+    "description": "One viewport/state-specific visual observation of a DOM node.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/website.ts",
+    "sourceLocation": {
+      "filePath": "src/website.ts",
+      "line": 107,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "WebsiteAvailability",
+      "WebsiteBoundingRect",
+      "WebsiteComputedCss",
+      "WebsiteObservationProvenance"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "availability",
+        "kind": "property",
+        "type": "WebsiteAvailability",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "css",
+        "kind": "property",
+        "type": "WebsiteComputedCss | null",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "provenance",
+        "kind": "property",
+        "type": "WebsiteObservationProvenance",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "rect",
+        "kind": "property",
+        "type": "WebsiteBoundingRect | null",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "stateId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "viewportId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "WebsiteObservationDocument",
+    "title": null,
+    "description": "A versioned, portable capture of the observable state of one website.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/website.ts",
+    "sourceLocation": {
+      "filePath": "src/website.ts",
+      "line": 6,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "WebsitePageObservation",
+      "WebsiteSite",
+      "WebsiteSource"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "collectedAt",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "documentId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "pages",
+        "kind": "property",
+        "type": "readonly WebsitePageObservation[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "schemaVersion",
+        "kind": "property",
+        "type": "1",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "site",
+        "kind": "property",
+        "type": "WebsiteSite",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "source",
+        "kind": "property",
+        "type": "WebsiteSource",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "WebsiteObservationProvenance",
+    "title": null,
+    "description": "How an observation was obtained from the source page.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/website.ts",
+    "sourceLocation": {
+      "filePath": "src/website.ts",
+      "line": 203,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "capturedAt",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "method",
+        "kind": "property",
+        "type": "\"browser\" | \"html\" | \"network\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "sourceUrl",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "WebsiteObservedNode",
+    "title": null,
+    "description": "A stable DOM node and every source-linked observation collected for it.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/website.ts",
+    "sourceLocation": {
+      "filePath": "src/website.ts",
+      "line": 64,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "WebsiteDomNode",
+      "WebsiteLink",
+      "WebsiteMediaReference",
+      "WebsiteNodeObservation",
+      "WebsiteTextRun"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "ancestorSourceRefs",
+        "kind": "property",
+        "type": "readonly string[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "dom",
+        "kind": "property",
+        "type": "WebsiteDomNode",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "links",
+        "kind": "property",
+        "type": "readonly WebsiteLink[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "media",
+        "kind": "property",
+        "type": "readonly WebsiteMediaReference[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "observations",
+        "kind": "property",
+        "type": "readonly WebsiteNodeObservation[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "parentSourceRef",
+        "kind": "property",
+        "type": "string | null",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "sourceRef",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "textRuns",
+        "kind": "property",
+        "type": "readonly WebsiteTextRun[]",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "WebsitePageObservation",
+    "title": null,
+    "description": "One observed page, including its ordered navigation and captured render states.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/website.ts",
+    "sourceLocation": {
+      "filePath": "src/website.ts",
+      "line": 30,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "WebsiteAsset",
+      "WebsiteNavigationItem",
+      "WebsiteObservedNode",
+      "WebsiteState",
+      "WebsiteViewport"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "assets",
+        "kind": "property",
+        "type": "readonly WebsiteAsset[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "navigation",
+        "kind": "property",
+        "type": "readonly WebsiteNavigationItem[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "nodes",
+        "kind": "property",
+        "type": "readonly WebsiteObservedNode[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "path",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "states",
+        "kind": "property",
+        "type": "readonly WebsiteState[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "url",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "viewports",
+        "kind": "property",
+        "type": "readonly WebsiteViewport[]",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "WebsitePageRecognition",
+    "title": null,
+    "description": "A recognized page with its canonical UiNode tree and retained source mapping.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/website.ts",
+    "sourceLocation": {
+      "filePath": "src/website.ts",
+      "line": 233,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "UiNode",
+      "WebsiteRecognizedNode"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "nodes",
+        "kind": "property",
+        "type": "readonly WebsiteRecognizedNode[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "path",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "root",
+        "kind": "property",
+        "type": "UiNode",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "url",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "WebsiteRecognitionDocument",
+    "title": null,
+    "description": "A versioned canonical component recognition derived from website observations.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/website.ts",
+    "sourceLocation": {
+      "filePath": "src/website.ts",
+      "line": 219,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "WebsiteDesignToken",
+      "WebsiteNavigationItem",
+      "WebsitePageRecognition",
+      "WebsiteRecognizedMedia",
+      "WebsiteSite",
+      "WebsiteSource"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "designTokens",
+        "kind": "property",
+        "type": "readonly WebsiteDesignToken[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "documentId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "media",
+        "kind": "property",
+        "type": "readonly WebsiteRecognizedMedia[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "navigation",
+        "kind": "property",
+        "type": "readonly WebsiteNavigationItem[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "observedDocumentId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "pages",
+        "kind": "property",
+        "type": "readonly WebsitePageRecognition[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "recognizedAt",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "schemaVersion",
+        "kind": "property",
+        "type": "1",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "site",
+        "kind": "property",
+        "type": "WebsiteSite",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "source",
+        "kind": "property",
+        "type": "WebsiteSource",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "WebsiteRecognizedMedia",
+    "title": null,
+    "description": "A recognized portable media reference, optionally compatible with an app media asset.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/website.ts",
+    "sourceLocation": {
+      "filePath": "src/website.ts",
+      "line": 282,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "MediaAssetReference"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "asset",
+        "kind": "property",
+        "type": "MediaAssetReference | null",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "originalUrl",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "sourceRefs",
+        "kind": "property",
+        "type": "readonly string[]",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "WebsiteRecognizedNode",
+    "title": null,
+    "description": "A source-linked canonical UiNode mapping; component shape remains owned by UiNode.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/website.ts",
+    "sourceLocation": {
+      "filePath": "src/website.ts",
+      "line": 242,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "WebsiteRecognizedProp",
+      "WebsiteResponsiveVariant",
+      "WebsiteUnresolvedNode"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "componentType",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "confidence",
+        "kind": "property",
+        "type": "number",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "props",
+        "kind": "property",
+        "type": "readonly WebsiteRecognizedProp[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "responsive",
+        "kind": "property",
+        "type": "readonly WebsiteResponsiveVariant[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "sourceRefs",
+        "kind": "property",
+        "type": "readonly string[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "status",
+        "kind": "property",
+        "type": "\"recognized\" | \"unresolved\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "unresolved",
+        "kind": "property",
+        "type": "WebsiteUnresolvedNode | null",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "WebsiteRecognizedProp",
+    "title": null,
+    "description": "A normalized UiNode property and the exact serializable values observed before normalization.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/website.ts",
+    "sourceLocation": {
+      "filePath": "src/website.ts",
+      "line": 254,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "SerializableValue"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "name",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "originalValues",
+        "kind": "property",
+        "type": "readonly SerializableValue[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "value",
+        "kind": "property",
+        "type": "SerializableValue",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "WebsiteResponsiveVariant",
+    "title": null,
+    "description": "A viewport-specific UiNode property override retained by the recognition.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/website.ts",
+    "sourceLocation": {
+      "filePath": "src/website.ts",
+      "line": 261,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "WebsiteRecognizedProp"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "props",
+        "kind": "property",
+        "type": "readonly WebsiteRecognizedProp[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "viewportId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "WebsiteSite",
+    "title": null,
+    "description": "A site identity and its canonical entry URL.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/website.ts",
+    "sourceLocation": {
+      "filePath": "src/website.ts",
+      "line": 24,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "url",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "WebsiteSource",
+    "title": null,
+    "description": "The scraper identity and immutable crawl revision that produced a website document.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/website.ts",
+    "sourceLocation": {
+      "filePath": "src/website.ts",
+      "line": 16,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "crawlerId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "crawlerVersion",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "crawlId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "revision",
+        "kind": "property",
+        "type": "string | null",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "WebsiteState",
+    "title": null,
+    "description": "A named rendered state, such as default, hover, or expanded.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/website.ts",
+    "sourceLocation": {
+      "filePath": "src/website.ts",
+      "line": 58,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "name",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "WebsiteTextRun",
+    "title": null,
+    "description": "A text run retained separately from its DOM node so inline styled spans are not lost.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/website.ts",
+    "sourceLocation": {
+      "filePath": "src/website.ts",
+      "line": 83,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "end",
+        "kind": "property",
+        "type": "number",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "sourceRef",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "start",
+        "kind": "property",
+        "type": "number",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "text",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "WebsiteUnresolvedNode",
+    "title": null,
+    "description": "A visible source node that could not be mapped without silently discarding it.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/website.ts",
+    "sourceLocation": {
+      "filePath": "src/website.ts",
+      "line": 267,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "reason",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "sourceRefs",
+        "kind": "property",
+        "type": "readonly string[]",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "WebsiteViewport",
+    "title": null,
+    "description": "A rendered viewport used while observing responsive website state.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/website.ts",
+    "sourceLocation": {
+      "filePath": "src/website.ts",
+      "line": 50,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "devicePixelRatio",
+        "kind": "property",
+        "type": "number",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "height",
+        "kind": "property",
+        "type": "number",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "width",
+        "kind": "property",
+        "type": "number",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
   }
 ]

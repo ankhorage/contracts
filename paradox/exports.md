@@ -8046,3 +8046,539 @@ Source: `src/types/deployProvider.ts:151:1`
 | projectRoot | property | `string` | yes |  |
 | resolveSecret | property | `DeploymentSecretResolver` | yes |  |
 | revision | property | `string` | yes |  |
+
+## WebsiteAsset
+
+Kind: `type`
+Module: `src/website.ts`
+Source: `src/website.ts:210:1`
+
+A reusable media asset discovered during the crawl.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| contentType | property | `string \| null` | yes |  |
+| id | property | `string` | yes |  |
+| kind | property | `"image" \| "audio" \| "video" \| "document" \| "embed"` | yes |  |
+| sourceRefs | property | `readonly string[]` | yes |  |
+| url | property | `string` | yes |  |
+
+## WebsiteAvailability
+
+Kind: `type`
+Module: `src/website.ts`
+Source: `src/website.ts:117:1`
+
+Whether a source value was available without fabricating a replacement.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| missing | property | `WebsiteMissingValue \| null` | yes |  |
+| status | property | `"available" \| "missing"` | yes |  |
+
+## WebsiteBoundingRect
+
+Kind: `type`
+Module: `src/website.ts`
+Source: `src/website.ts:129:1`
+
+A bounding rectangle measured in CSS pixels.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| height | property | `number` | yes |  |
+| width | property | `number` | yes |  |
+| x | property | `number` | yes |  |
+| y | property | `number` | yes |  |
+
+## WebsiteBoxEdges
+
+Kind: `type`
+Module: `src/website.ts`
+Source: `src/website.ts:195:1`
+
+The four computed edges of a CSS box value.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| bottom | property | `string` | yes |  |
+| left | property | `string` | yes |  |
+| right | property | `string` | yes |  |
+| top | property | `string` | yes |  |
+
+## WebsiteComputedCss
+
+Kind: `type`
+Module: `src/website.ts`
+Source: `src/website.ts:137:1`
+
+Computed visual CSS values needed to describe, not assess, a rendered website.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| alignContent | property | `string` | yes |  |
+| alignItems | property | `string` | yes |  |
+| alignSelf | property | `string` | yes |  |
+| backgroundColor | property | `string` | yes |  |
+| backgroundImage | property | `string` | yes |  |
+| backgroundPosition | property | `string` | yes |  |
+| backgroundRepeat | property | `string` | yes |  |
+| backgroundSize | property | `string` | yes |  |
+| borderColor | property | `string` | yes |  |
+| borderRadius | property | `string` | yes |  |
+| borderWidth | property | `string` | yes |  |
+| boxShadow | property | `string` | yes |  |
+| color | property | `string` | yes |  |
+| display | property | `string` | yes |  |
+| flexBasis | property | `string` | yes |  |
+| flexDirection | property | `string` | yes |  |
+| flexGrow | property | `string` | yes |  |
+| flexShrink | property | `string` | yes |  |
+| flexWrap | property | `string` | yes |  |
+| fontFamily | property | `string` | yes |  |
+| fontSize | property | `string` | yes |  |
+| fontStyle | property | `string` | yes |  |
+| fontWeight | property | `string` | yes |  |
+| gap | property | `string` | yes |  |
+| gridAutoColumns | property | `string` | yes |  |
+| gridAutoFlow | property | `string` | yes |  |
+| gridAutoRows | property | `string` | yes |  |
+| gridColumn | property | `string` | yes |  |
+| gridColumnEnd | property | `string` | yes |  |
+| gridColumnStart | property | `string` | yes |  |
+| gridRow | property | `string` | yes |  |
+| gridRowEnd | property | `string` | yes |  |
+| gridRowStart | property | `string` | yes |  |
+| gridTemplateColumns | property | `string` | yes |  |
+| gridTemplateRows | property | `string` | yes |  |
+| justifyContent | property | `string` | yes |  |
+| justifyItems | property | `string` | yes |  |
+| justifySelf | property | `string` | yes |  |
+| letterSpacing | property | `string` | yes |  |
+| lineHeight | property | `string` | yes |  |
+| margin | property | `WebsiteBoxEdges` | yes |  |
+| opacity | property | `string` | yes |  |
+| order | property | `string` | yes |  |
+| overflow | property | `string` | yes |  |
+| overflowX | property | `string` | yes |  |
+| overflowY | property | `string` | yes |  |
+| padding | property | `WebsiteBoxEdges` | yes |  |
+| placeContent | property | `string` | yes |  |
+| placeItems | property | `string` | yes |  |
+| placeSelf | property | `string` | yes |  |
+| position | property | `string` | yes |  |
+| textAlign | property | `string` | yes |  |
+| textDecoration | property | `string` | yes |  |
+| visibility | property | `string` | yes |  |
+
+## WebsiteDesignToken
+
+Kind: `type`
+Module: `src/website.ts`
+Source: `src/website.ts:273:1`
+
+A normalized design token with its exact source values retained.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| id | property | `string` | yes |  |
+| kind | property | `"color" \| "radius" \| "shadow" \| "spacing" \| "typography"` | yes |  |
+| originalValues | property | `readonly SerializableValue[]` | yes |  |
+| sourceRefs | property | `readonly string[]` | yes |  |
+| value | property | `SerializableValue` | yes |  |
+
+## WebsiteDomNode
+
+Kind: `type`
+Module: `src/website.ts`
+Source: `src/website.ts:76:1`
+
+A portable DOM identity with safe semantic attributes only.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| attributes | property | `Readonly<Record<string, string>>` | yes |  |
+| childIndex | property | `number` | yes |  |
+| tagName | property | `string` | yes |  |
+
+## WebsiteLink
+
+Kind: `type`
+Module: `src/website.ts`
+Source: `src/website.ts:91:1`
+
+A source-linked hyperlink observed on a DOM node.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| label | property | `string \| null` | yes |  |
+| sourceRef | property | `string` | yes |  |
+| url | property | `string` | yes |  |
+
+## WebsiteMediaReference
+
+Kind: `type`
+Module: `src/website.ts`
+Source: `src/website.ts:98:1`
+
+An image, video, audio, or embedded media reference observed on a DOM node.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| alt | property | `string \| null` | yes |  |
+| assetId | property | `string \| null` | yes |  |
+| kind | property | `"image" \| "audio" \| "video" \| "document" \| "embed"` | yes |  |
+| sourceRef | property | `string` | yes |  |
+| url | property | `string` | yes |  |
+
+## WebsiteMissingValue
+
+Kind: `type`
+Module: `src/website.ts`
+Source: `src/website.ts:123:1`
+
+The explicit reason a website source value could not be observed.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| code | property | `string` | yes |  |
+| message | property | `string` | yes |  |
+
+## WebsiteNavigationItem
+
+Kind: `type`
+Module: `src/website.ts`
+Source: `src/website.ts:42:1`
+
+One ordered, source-linked navigation target observed on a page.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| id | property | `string` | yes |  |
+| label | property | `string` | yes |  |
+| sourceRef | property | `string` | yes |  |
+| url | property | `string` | yes |  |
+
+## WebsiteNodeObservation
+
+Kind: `type`
+Module: `src/website.ts`
+Source: `src/website.ts:107:1`
+
+One viewport/state-specific visual observation of a DOM node.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| availability | property | `WebsiteAvailability` | yes |  |
+| css | property | `WebsiteComputedCss \| null` | yes |  |
+| provenance | property | `WebsiteObservationProvenance` | yes |  |
+| rect | property | `WebsiteBoundingRect \| null` | yes |  |
+| stateId | property | `string` | yes |  |
+| viewportId | property | `string` | yes |  |
+
+## WebsiteObservationDocument
+
+Kind: `type`
+Module: `src/website.ts`
+Source: `src/website.ts:6:1`
+
+A versioned, portable capture of the observable state of one website.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| collectedAt | property | `string` | yes |  |
+| documentId | property | `string` | yes |  |
+| pages | property | `readonly WebsitePageObservation[]` | yes |  |
+| schemaVersion | property | `1` | yes |  |
+| site | property | `WebsiteSite` | yes |  |
+| source | property | `WebsiteSource` | yes |  |
+
+## WebsiteObservationProvenance
+
+Kind: `type`
+Module: `src/website.ts`
+Source: `src/website.ts:203:1`
+
+How an observation was obtained from the source page.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| capturedAt | property | `string` | yes |  |
+| method | property | `"browser" \| "html" \| "network"` | yes |  |
+| sourceUrl | property | `string` | yes |  |
+
+## WebsiteObservedNode
+
+Kind: `type`
+Module: `src/website.ts`
+Source: `src/website.ts:64:1`
+
+A stable DOM node and every source-linked observation collected for it.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| ancestorSourceRefs | property | `readonly string[]` | yes |  |
+| dom | property | `WebsiteDomNode` | yes |  |
+| links | property | `readonly WebsiteLink[]` | yes |  |
+| media | property | `readonly WebsiteMediaReference[]` | yes |  |
+| observations | property | `readonly WebsiteNodeObservation[]` | yes |  |
+| parentSourceRef | property | `string \| null` | yes |  |
+| sourceRef | property | `string` | yes |  |
+| textRuns | property | `readonly WebsiteTextRun[]` | yes |  |
+
+## WebsitePageObservation
+
+Kind: `type`
+Module: `src/website.ts`
+Source: `src/website.ts:30:1`
+
+One observed page, including its ordered navigation and captured render states.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| assets | property | `readonly WebsiteAsset[]` | yes |  |
+| id | property | `string` | yes |  |
+| navigation | property | `readonly WebsiteNavigationItem[]` | yes |  |
+| nodes | property | `readonly WebsiteObservedNode[]` | yes |  |
+| path | property | `string` | yes |  |
+| states | property | `readonly WebsiteState[]` | yes |  |
+| url | property | `string` | yes |  |
+| viewports | property | `readonly WebsiteViewport[]` | yes |  |
+
+## WebsitePageRecognition
+
+Kind: `type`
+Module: `src/website.ts`
+Source: `src/website.ts:233:1`
+
+A recognized page with its canonical UiNode tree and retained source mapping.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| id | property | `string` | yes |  |
+| nodes | property | `readonly WebsiteRecognizedNode[]` | yes |  |
+| path | property | `string` | yes |  |
+| root | property | `UiNode` | yes |  |
+| url | property | `string` | yes |  |
+
+## WebsiteRecognitionDocument
+
+Kind: `type`
+Module: `src/website.ts`
+Source: `src/website.ts:219:1`
+
+A versioned canonical component recognition derived from website observations.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| designTokens | property | `readonly WebsiteDesignToken[]` | yes |  |
+| documentId | property | `string` | yes |  |
+| media | property | `readonly WebsiteRecognizedMedia[]` | yes |  |
+| navigation | property | `readonly WebsiteNavigationItem[]` | yes |  |
+| observedDocumentId | property | `string` | yes |  |
+| pages | property | `readonly WebsitePageRecognition[]` | yes |  |
+| recognizedAt | property | `string` | yes |  |
+| schemaVersion | property | `1` | yes |  |
+| site | property | `WebsiteSite` | yes |  |
+| source | property | `WebsiteSource` | yes |  |
+
+## WebsiteRecognizedMedia
+
+Kind: `type`
+Module: `src/website.ts`
+Source: `src/website.ts:282:1`
+
+A recognized portable media reference, optionally compatible with an app media asset.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| asset | property | `MediaAssetReference \| null` | yes |  |
+| id | property | `string` | yes |  |
+| originalUrl | property | `string` | yes |  |
+| sourceRefs | property | `readonly string[]` | yes |  |
+
+## WebsiteRecognizedNode
+
+Kind: `type`
+Module: `src/website.ts`
+Source: `src/website.ts:242:1`
+
+A source-linked canonical UiNode mapping; component shape remains owned by UiNode.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| componentType | property | `string` | yes |  |
+| confidence | property | `number` | yes |  |
+| id | property | `string` | yes |  |
+| props | property | `readonly WebsiteRecognizedProp[]` | yes |  |
+| responsive | property | `readonly WebsiteResponsiveVariant[]` | yes |  |
+| sourceRefs | property | `readonly string[]` | yes |  |
+| status | property | `"recognized" \| "unresolved"` | yes |  |
+| unresolved | property | `WebsiteUnresolvedNode \| null` | yes |  |
+
+## WebsiteRecognizedProp
+
+Kind: `type`
+Module: `src/website.ts`
+Source: `src/website.ts:254:1`
+
+A normalized UiNode property and the exact serializable values observed before normalization.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| name | property | `string` | yes |  |
+| originalValues | property | `readonly SerializableValue[]` | yes |  |
+| value | property | `SerializableValue` | yes |  |
+
+## WebsiteResponsiveVariant
+
+Kind: `type`
+Module: `src/website.ts`
+Source: `src/website.ts:261:1`
+
+A viewport-specific UiNode property override retained by the recognition.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| props | property | `readonly WebsiteRecognizedProp[]` | yes |  |
+| viewportId | property | `string` | yes |  |
+
+## WebsiteSite
+
+Kind: `type`
+Module: `src/website.ts`
+Source: `src/website.ts:24:1`
+
+A site identity and its canonical entry URL.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| id | property | `string` | yes |  |
+| url | property | `string` | yes |  |
+
+## WebsiteSource
+
+Kind: `type`
+Module: `src/website.ts`
+Source: `src/website.ts:16:1`
+
+The scraper identity and immutable crawl revision that produced a website document.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| crawlerId | property | `string` | yes |  |
+| crawlerVersion | property | `string` | yes |  |
+| crawlId | property | `string` | yes |  |
+| revision | property | `string \| null` | yes |  |
+
+## WebsiteState
+
+Kind: `type`
+Module: `src/website.ts`
+Source: `src/website.ts:58:1`
+
+A named rendered state, such as default, hover, or expanded.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| id | property | `string` | yes |  |
+| name | property | `string` | yes |  |
+
+## WebsiteTextRun
+
+Kind: `type`
+Module: `src/website.ts`
+Source: `src/website.ts:83:1`
+
+A text run retained separately from its DOM node so inline styled spans are not lost.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| end | property | `number` | yes |  |
+| sourceRef | property | `string` | yes |  |
+| start | property | `number` | yes |  |
+| text | property | `string` | yes |  |
+
+## WebsiteUnresolvedNode
+
+Kind: `type`
+Module: `src/website.ts`
+Source: `src/website.ts:267:1`
+
+A visible source node that could not be mapped without silently discarding it.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| reason | property | `string` | yes |  |
+| sourceRefs | property | `readonly string[]` | yes |  |
+
+## WebsiteViewport
+
+Kind: `type`
+Module: `src/website.ts`
+Source: `src/website.ts:50:1`
+
+A rendered viewport used while observing responsive website state.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| devicePixelRatio | property | `number` | yes |  |
+| height | property | `number` | yes |  |
+| id | property | `string` | yes |  |
+| width | property | `number` | yes |  |

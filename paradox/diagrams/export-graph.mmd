@@ -87,6 +87,7 @@ graph LR
   module_src_types_infraWorkload_ts["src/types/infraWorkload.ts"]
   module_src_types_rules_ts["src/types/rules.ts"]
   module_src_ui_ts["src/ui.ts"]
+  module_src_website_ts["src/website.ts"]
   export_AdapterId["AdapterId"]
   module_src_data_ids_ts --> export_AdapterId
   export_AdapterKind["AdapterKind"]
@@ -2214,3 +2215,93 @@ graph LR
   export_WebDeploymentPublishRequest -.-> export_DeploymentCredentialReference
   export_WebDeploymentPublishRequest -.-> export_DeploymentSecretResolver
   export_WebDeploymentPublishRequest -.-> export_WebDeploymentPublishIntent
+  export_WebsiteAsset["WebsiteAsset"]
+  module_src_website_ts --> export_WebsiteAsset
+  export_WebsiteAvailability["WebsiteAvailability"]
+  module_src_website_ts --> export_WebsiteAvailability
+  export_WebsiteAvailability -.-> export_WebsiteMissingValue
+  export_WebsiteBoundingRect["WebsiteBoundingRect"]
+  module_src_website_ts --> export_WebsiteBoundingRect
+  export_WebsiteBoxEdges["WebsiteBoxEdges"]
+  module_src_website_ts --> export_WebsiteBoxEdges
+  export_WebsiteComputedCss["WebsiteComputedCss"]
+  module_src_website_ts --> export_WebsiteComputedCss
+  export_WebsiteComputedCss -.-> export_WebsiteBoxEdges
+  export_WebsiteDesignToken["WebsiteDesignToken"]
+  module_src_website_ts --> export_WebsiteDesignToken
+  export_WebsiteDesignToken -.-> export_SerializableValue
+  export_WebsiteDomNode["WebsiteDomNode"]
+  module_src_website_ts --> export_WebsiteDomNode
+  export_WebsiteLink["WebsiteLink"]
+  module_src_website_ts --> export_WebsiteLink
+  export_WebsiteMediaReference["WebsiteMediaReference"]
+  module_src_website_ts --> export_WebsiteMediaReference
+  export_WebsiteMissingValue["WebsiteMissingValue"]
+  module_src_website_ts --> export_WebsiteMissingValue
+  export_WebsiteNavigationItem["WebsiteNavigationItem"]
+  module_src_website_ts --> export_WebsiteNavigationItem
+  export_WebsiteNodeObservation["WebsiteNodeObservation"]
+  module_src_website_ts --> export_WebsiteNodeObservation
+  export_WebsiteNodeObservation -.-> export_WebsiteAvailability
+  export_WebsiteNodeObservation -.-> export_WebsiteBoundingRect
+  export_WebsiteNodeObservation -.-> export_WebsiteComputedCss
+  export_WebsiteNodeObservation -.-> export_WebsiteObservationProvenance
+  export_WebsiteObservationDocument["WebsiteObservationDocument"]
+  module_src_website_ts --> export_WebsiteObservationDocument
+  export_WebsiteObservationDocument -.-> export_WebsitePageObservation
+  export_WebsiteObservationDocument -.-> export_WebsiteSite
+  export_WebsiteObservationDocument -.-> export_WebsiteSource
+  export_WebsiteObservationProvenance["WebsiteObservationProvenance"]
+  module_src_website_ts --> export_WebsiteObservationProvenance
+  export_WebsiteObservedNode["WebsiteObservedNode"]
+  module_src_website_ts --> export_WebsiteObservedNode
+  export_WebsiteObservedNode -.-> export_WebsiteDomNode
+  export_WebsiteObservedNode -.-> export_WebsiteLink
+  export_WebsiteObservedNode -.-> export_WebsiteMediaReference
+  export_WebsiteObservedNode -.-> export_WebsiteNodeObservation
+  export_WebsiteObservedNode -.-> export_WebsiteTextRun
+  export_WebsitePageObservation["WebsitePageObservation"]
+  module_src_website_ts --> export_WebsitePageObservation
+  export_WebsitePageObservation -.-> export_WebsiteAsset
+  export_WebsitePageObservation -.-> export_WebsiteNavigationItem
+  export_WebsitePageObservation -.-> export_WebsiteObservedNode
+  export_WebsitePageObservation -.-> export_WebsiteState
+  export_WebsitePageObservation -.-> export_WebsiteViewport
+  export_WebsitePageRecognition["WebsitePageRecognition"]
+  module_src_website_ts --> export_WebsitePageRecognition
+  export_WebsitePageRecognition -.-> export_UiNode
+  export_WebsitePageRecognition -.-> export_WebsiteRecognizedNode
+  export_WebsiteRecognitionDocument["WebsiteRecognitionDocument"]
+  module_src_website_ts --> export_WebsiteRecognitionDocument
+  export_WebsiteRecognitionDocument -.-> export_WebsiteDesignToken
+  export_WebsiteRecognitionDocument -.-> export_WebsiteNavigationItem
+  export_WebsiteRecognitionDocument -.-> export_WebsitePageRecognition
+  export_WebsiteRecognitionDocument -.-> export_WebsiteRecognizedMedia
+  export_WebsiteRecognitionDocument -.-> export_WebsiteSite
+  export_WebsiteRecognitionDocument -.-> export_WebsiteSource
+  export_WebsiteRecognizedMedia["WebsiteRecognizedMedia"]
+  module_src_website_ts --> export_WebsiteRecognizedMedia
+  export_WebsiteRecognizedMedia -.-> export_MediaAssetReference
+  export_WebsiteRecognizedNode["WebsiteRecognizedNode"]
+  module_src_website_ts --> export_WebsiteRecognizedNode
+  export_WebsiteRecognizedNode -.-> export_WebsiteRecognizedProp
+  export_WebsiteRecognizedNode -.-> export_WebsiteResponsiveVariant
+  export_WebsiteRecognizedNode -.-> export_WebsiteUnresolvedNode
+  export_WebsiteRecognizedProp["WebsiteRecognizedProp"]
+  module_src_website_ts --> export_WebsiteRecognizedProp
+  export_WebsiteRecognizedProp -.-> export_SerializableValue
+  export_WebsiteResponsiveVariant["WebsiteResponsiveVariant"]
+  module_src_website_ts --> export_WebsiteResponsiveVariant
+  export_WebsiteResponsiveVariant -.-> export_WebsiteRecognizedProp
+  export_WebsiteSite["WebsiteSite"]
+  module_src_website_ts --> export_WebsiteSite
+  export_WebsiteSource["WebsiteSource"]
+  module_src_website_ts --> export_WebsiteSource
+  export_WebsiteState["WebsiteState"]
+  module_src_website_ts --> export_WebsiteState
+  export_WebsiteTextRun["WebsiteTextRun"]
+  module_src_website_ts --> export_WebsiteTextRun
+  export_WebsiteUnresolvedNode["WebsiteUnresolvedNode"]
+  module_src_website_ts --> export_WebsiteUnresolvedNode
+  export_WebsiteViewport["WebsiteViewport"]
+  module_src_website_ts --> export_WebsiteViewport
