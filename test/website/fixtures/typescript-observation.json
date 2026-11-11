@@ -1,0 +1,139 @@
+{
+  "schemaVersion": 1,
+  "documentId": "crawl:example.test:fixture",
+  "collectedAt": "2026-11-11T16:30:00.000Z",
+  "source": {
+    "crawlerId": "ankhorage.website-scraper",
+    "crawlerVersion": "1.0.0",
+    "crawlId": "crawl-fixture",
+    "revision": "sha256:source-fixture"
+  },
+  "site": { "id": "example.test", "url": "https://example.test/" },
+  "pages": [
+    {
+      "id": "home",
+      "url": "https://example.test/",
+      "path": "/",
+      "navigation": [
+        {
+          "id": "nav:about",
+          "label": "About",
+          "url": "https://example.test/about",
+          "sourceRef": "home:nav:about"
+        }
+      ],
+      "viewports": [
+        { "id": "mobile", "width": 390, "height": 844, "devicePixelRatio": 3 },
+        { "id": "tablet", "width": 768, "height": 1024, "devicePixelRatio": 2 },
+        { "id": "desktop", "width": 1440, "height": 900, "devicePixelRatio": 1 }
+      ],
+      "states": [{ "id": "default", "name": "default" }],
+      "nodes": [
+        {
+          "sourceRef": "home:hero:span",
+          "parentSourceRef": "home:card:1",
+          "ancestorSourceRefs": ["home:grid", "home:card:1"],
+          "dom": { "tagName": "span", "childIndex": 0, "attributes": { "class": "highlight" } },
+          "textRuns": [
+            {
+              "sourceRef": "home:hero:span:text:0",
+              "text": "red styled text",
+              "start": 0,
+              "end": 15
+            }
+          ],
+          "links": [],
+          "media": [],
+          "observations": [
+            {
+              "viewportId": "desktop",
+              "stateId": "default",
+              "availability": { "status": "available", "missing": null },
+              "rect": { "x": 0, "y": 0, "width": 120, "height": 24 },
+              "css": {
+                "display": "inline",
+                "position": "static",
+                "visibility": "visible",
+                "color": "rgb(217, 51, 58)",
+                "backgroundColor": "rgba(0, 0, 0, 0)",
+                "borderColor": "rgb(0, 0, 0)",
+                "borderRadius": "0px",
+                "borderWidth": "0px",
+                "boxShadow": "none",
+                "fontFamily": "Inter",
+                "fontSize": "16px",
+                "fontStyle": "normal",
+                "fontWeight": "400",
+                "letterSpacing": "0px",
+                "lineHeight": "24px",
+                "textAlign": "start",
+                "textDecoration": "none",
+                "opacity": "1",
+                "overflow": "visible",
+                "overflowX": "visible",
+                "overflowY": "visible",
+                "backgroundImage": "none",
+                "backgroundPosition": "0% 0%",
+                "backgroundRepeat": "repeat",
+                "backgroundSize": "auto",
+                "margin": { "top": "0px", "right": "0px", "bottom": "0px", "left": "0px" },
+                "padding": { "top": "0px", "right": "0px", "bottom": "0px", "left": "0px" },
+                "alignContent": "normal",
+                "alignItems": "normal",
+                "alignSelf": "auto",
+                "gap": "normal",
+                "flexDirection": "row",
+                "flexBasis": "auto",
+                "flexGrow": "0",
+                "flexShrink": "1",
+                "flexWrap": "nowrap",
+                "justifyContent": "normal",
+                "justifyItems": "normal",
+                "justifySelf": "auto",
+                "order": "0",
+                "placeContent": "normal",
+                "placeItems": "normal",
+                "placeSelf": "auto",
+                "gridAutoColumns": "auto",
+                "gridAutoFlow": "row",
+                "gridAutoRows": "auto",
+                "gridColumn": "auto",
+                "gridColumnEnd": "auto",
+                "gridColumnStart": "auto",
+                "gridRow": "auto",
+                "gridRowEnd": "auto",
+                "gridRowStart": "auto",
+                "gridTemplateColumns": "none",
+                "gridTemplateRows": "none"
+              },
+              "provenance": {
+                "sourceUrl": "https://example.test/",
+                "capturedAt": "2026-11-11T16:30:00.000Z",
+                "method": "browser"
+              }
+            }
+          ]
+        }
+      ],
+      "assets": [
+        {
+          "id": "asset:hero",
+          "url": "https://example.test/hero.jpg",
+          "kind": "image",
+          "contentType": "image/jpeg",
+          "sourceRefs": ["home:card:1"]
+        }
+      ]
+    },
+    {
+      "id": "about",
+      "url": "https://example.test/about",
+      "path": "/about",
+      "navigation": [],
+      "viewports": [],
+      "states": [],
+      "nodes": [],
+      "assets": []
+    }
+  ]
+}

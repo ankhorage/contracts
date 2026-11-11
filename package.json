@@ -115,6 +115,10 @@
       "types": "./dist/ui.d.ts",
       "default": "./dist/ui.js"
     },
+    "./website": {
+      "types": "./dist/website.d.ts",
+      "default": "./dist/website.js"
+    },
     "./media": {
       "types": "./dist/media.d.ts",
       "default": "./dist/media.js"
