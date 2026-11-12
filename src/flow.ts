@@ -42,11 +42,12 @@ export type FlowDataRef = FlowArtifactRef | FlowInlineDataRef;
 
 /*** A secret-store reference that deliberately excludes secret material.
  *
- * @security Credential configuration must use this reference. Flow consumers must validate
- * provider configuration at their boundary, reject inline credentials, and redact secrets from
- * errors and traces. This portable DTO cannot determine which arbitrary provider fields are
- * credentials, so it provides no runtime validation and makes no static guarantee for untyped
- * JSON.
+ * @security flow.test.ts#accepts secret references but excludes inline secret material from their contract
+ *
+ * Credential configuration must use this reference. Flow consumers must validate provider
+ * configuration at their boundary, reject inline credentials, and redact secrets from errors and
+ * traces. This portable DTO cannot determine which arbitrary provider fields are credentials, so
+ * it provides no runtime validation and makes no static guarantee for untyped JSON.
  */
 export interface FlowSecretRef {
   readonly kind: 'secret';
