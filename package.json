@@ -142,6 +142,10 @@
     "./capability": {
       "types": "./dist/capability.d.ts",
       "default": "./dist/capability.js"
+    },
+    "./flow": {
+      "types": "./dist/flow.d.ts",
+      "default": "./dist/flow.js"
     }
   },
   "description": "Serializable app, capability, binding, theme, auth, and secret-store contracts for Ankhorage.",
