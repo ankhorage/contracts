@@ -11,6 +11,59 @@ import type {
   FlowSecretRef,
 } from './flow.js';
 
+type JsonRecord = Readonly<Record<string, unknown>>;
+
+const isRecord = (value: unknown): value is JsonRecord =>
+  typeof value === 'object' && value !== null && !Array.isArray(value);
+
+const isString = (value: unknown): value is string => typeof value === 'string';
+
+const isFlowFixture = (value: unknown): value is FlowDefinition => {
+  if (
+    !isRecord(value) ||
+    !isString(value.id) ||
+    !Number.isInteger(value.version) ||
+    !isString(value.title)
+  ) {
+    return false;
+  }
+
+  return (
+    Array.isArray(value.nodes) &&
+    value.nodes.every(
+      (node) =>
+        isRecord(node) &&
+        isString(node.id) &&
+        isRecord(node.capability) &&
+        isString(node.capability.providerId) &&
+        isString(node.capability.capabilityId) &&
+        Array.isArray(node.ports) &&
+        node.ports.every(
+          (port) =>
+            isRecord(port) &&
+            isString(port.id) &&
+            (port.direction === 'input' || port.direction === 'output'),
+        ),
+    ) &&
+    Array.isArray(value.edges) &&
+    value.edges.every(
+      (edge) =>
+        isRecord(edge) &&
+        isString(edge.id) &&
+        isRecord(edge.source) &&
+        isString(edge.source.nodeId) &&
+        isString(edge.source.portId) &&
+        isRecord(edge.target) &&
+        isString(edge.target.nodeId) &&
+        isString(edge.target.portId),
+    ) &&
+    Array.isArray(value.triggers) &&
+    value.triggers.every(
+      (trigger) => isRecord(trigger) && isString(trigger.id) && isString(trigger.kind),
+    )
+  );
+};
+
 const definition = {
   id: 'social-publish',
   version: 3,
@@ -76,9 +129,30 @@ const approval = {
 describe('Flow contract serialization', () => {
   it('round-trips a standalone versioned workflow fixture', () => {
     const fixturePath = join(process.cwd(), 'test/flow/fixtures/versioned-workflow.json');
-    const fixture = JSON.parse(readFileSync(fixturePath, 'utf8')) as FlowDefinition;
+    const fixture = JSON.parse(readFileSync(fixturePath, 'utf8')) as unknown;
 
+    expect(isFlowFixture(fixture)).toBe(true);
     expect(JSON.parse(JSON.stringify(fixture))).toEqual(fixture);
+  });
+
+  it('rejects malformed fixture structure independently of JSON serialization', () => {
+    const malformedFixture = {
+      id: 'missing-port-direction',
+      version: 1,
+      title: 'Malformed fixture',
+      nodes: [
+        {
+          id: 'compose',
+          capability: { providerId: '@ankhorage/flow/social', capabilityId: 'post.compose' },
+          ports: [{ id: 'post', direction: 'sideways' }],
+        },
+      ],
+      edges: [],
+      triggers: [],
+    };
+
+    expect(isFlowFixture(malformedFixture)).toBe(false);
+    expect(JSON.parse(JSON.stringify(malformedFixture))).toEqual(malformedFixture);
   });
 
   it('round-trips a versioned graph, run snapshot, and approval without runtime values', () => {
