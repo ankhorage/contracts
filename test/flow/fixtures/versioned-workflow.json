@@ -1,0 +1,46 @@
+{
+  "id": "social-publish",
+  "version": 3,
+  "title": "Publish approved social media",
+  "nodes": [
+    {
+      "id": "compose",
+      "capability": {
+        "providerId": "@ankhorage/flow/social",
+        "capabilityId": "post.compose"
+      },
+      "config": {
+        "audience": { "kind": "inline", "value": { "segment": "subscribers" } },
+        "credential": { "kind": "secret", "ref": "flow/social/publisher" }
+      },
+      "ports": [
+        { "id": "draft", "direction": "input", "required": true },
+        { "id": "post", "direction": "output" }
+      ]
+    },
+    {
+      "id": "notify",
+      "capability": {
+        "providerId": "@ankhorage/flow/social",
+        "capabilityId": "notification.send"
+      },
+      "ports": [{ "id": "post", "direction": "input", "required": true }]
+    }
+  ],
+  "edges": [
+    {
+      "id": "notify-published",
+      "source": { "nodeId": "compose", "portId": "post" },
+      "target": { "nodeId": "notify", "portId": "post" },
+      "condition": { "kind": "value", "path": "/status", "equals": "published" }
+    }
+  ],
+  "triggers": [
+    {
+      "id": "weekday-morning",
+      "kind": "schedule",
+      "cron": "0 9 * * 1-5",
+      "timezone": "Europe/Zurich"
+    }
+  ]
+}

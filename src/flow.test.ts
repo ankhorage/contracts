@@ -1,8 +1,12 @@
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
+
 import { describe, expect, it } from 'bun:test';
 
 import type {
   FlowApprovalRequest,
   FlowDefinition,
+  FlowNodeConfig,
   FlowRunSnapshot,
   FlowSecretRef,
 } from './flow.js';
@@ -63,13 +67,20 @@ const run = {
 const approval = {
   id: 'approval-7',
   runId: run.id,
-  stepId: 'step-compose',
+  step: { id: 'step-compose', nodeId: 'compose', attempt: 1, runId: run.id },
   status: 'pending',
   requestedAt: '2026-11-12T09:01:00.000Z',
   context: { kind: 'artifact', artifactId: 'artifact-post' },
 } as const satisfies FlowApprovalRequest;
 
-describe('Flow contracts', () => {
+describe('Flow contract serialization', () => {
+  it('round-trips a standalone versioned workflow fixture', () => {
+    const fixturePath = join(process.cwd(), 'test/flow/fixtures/versioned-workflow.json');
+    const fixture = JSON.parse(readFileSync(fixturePath, 'utf8')) as FlowDefinition;
+
+    expect(JSON.parse(JSON.stringify(fixture))).toEqual(fixture);
+  });
+
   it('round-trips a versioned graph, run snapshot, and approval without runtime values', () => {
     expect(JSON.parse(JSON.stringify({ definition, run, approval }))).toEqual({
       definition,
@@ -77,7 +88,9 @@ describe('Flow contracts', () => {
       approval,
     });
   });
+});
 
+describe('Flow contract boundaries', () => {
   it('accepts secret references but excludes inline secret material from their contract', () => {
     const secret = {
       kind: 'secret',
@@ -92,6 +105,26 @@ describe('Flow contracts', () => {
       value: 'secret',
     };
     expect(inlineSecret).toBeDefined();
+
+    // @ts-expect-error Node configuration requires an explicit data or secret reference.
+    const plaintextCredential: FlowNodeConfig = { credential: 'api-key' };
+    expect(plaintextCredential).toBeDefined();
+  });
+
+  it('requires a JSON Pointer whenever a condition compares a port value', () => {
+    // @ts-expect-error Value conditions must name an RFC 6901 JSON Pointer, including '' for root.
+    const implicitRootComparison: FlowDefinition = {
+      ...definition,
+      edges: [
+        {
+          id: 'implicit-root',
+          source: { nodeId: 'compose', portId: 'post' },
+          target: { nodeId: 'notify', portId: 'post' },
+          condition: { kind: 'value', equals: 'published' },
+        },
+      ],
+    };
+    expect(implicitRootComparison).toBeDefined();
   });
 
   it('keeps node ports directional and edge endpoints precise', () => {
