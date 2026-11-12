@@ -34,6 +34,7 @@ graph LR
   module_src_deploy_ts["src/deploy.ts"]
   module_src_deployProvider_ts["src/deployProvider.ts"]
   module_src_environments_ts["src/environments.ts"]
+  module_src_flow_ts["src/flow.ts"]
   module_src_icon_ts["src/icon.ts"]
   module_src_index_ts["src/index.ts"]
   module_src_infra_ts["src/infra.ts"]
@@ -913,6 +914,99 @@ graph LR
   module_src_navigator_ts --> export_FIXED_HEADLESS_TABS_PRESENTATIONS
   export_FixedHeadlessTabsPresentation["FixedHeadlessTabsPresentation"]
   module_src_navigator_ts --> export_FixedHeadlessTabsPresentation
+  export_FlowApprovalRequest["FlowApprovalRequest"]
+  module_src_flow_ts --> export_FlowApprovalRequest
+  export_FlowApprovalRequest -.-> export_FlowApprovalStatus
+  export_FlowApprovalRequest -.-> export_FlowDataRef
+  export_FlowApprovalRequest -.-> export_FlowStepRef
+  export_FlowApprovalStatus["FlowApprovalStatus"]
+  module_src_flow_ts --> export_FlowApprovalStatus
+  export_FlowArtifactId["FlowArtifactId"]
+  module_src_flow_ts --> export_FlowArtifactId
+  export_FlowArtifactRef["FlowArtifactRef"]
+  module_src_flow_ts --> export_FlowArtifactRef
+  export_FlowDataRef["FlowDataRef"]
+  module_src_flow_ts --> export_FlowDataRef
+  export_FlowDefinition["FlowDefinition"]
+  module_src_flow_ts --> export_FlowDefinition
+  export_FlowDefinition -.-> export_FlowEdge
+  export_FlowDefinition -.-> export_FlowNode
+  export_FlowDefinition -.-> export_FlowTrigger
+  export_FlowDefinitionRef["FlowDefinitionRef"]
+  module_src_flow_ts --> export_FlowDefinitionRef
+  export_FlowEdge["FlowEdge"]
+  module_src_flow_ts --> export_FlowEdge
+  export_FlowEdge -.-> export_FlowEdgeCondition
+  export_FlowEdge -.-> export_FlowNodeId
+  export_FlowEdge -.-> export_FlowPortId
+  export_FlowEdgeCondition["FlowEdgeCondition"]
+  module_src_flow_ts --> export_FlowEdgeCondition
+  export_FlowEdgeId["FlowEdgeId"]
+  module_src_flow_ts --> export_FlowEdgeId
+  export_FlowError["FlowError"]
+  module_src_flow_ts --> export_FlowError
+  export_FlowError -.-> export_FlowDataRef
+  export_FlowExecutionStatus["FlowExecutionStatus"]
+  module_src_flow_ts --> export_FlowExecutionStatus
+  export_FlowId["FlowId"]
+  module_src_flow_ts --> export_FlowId
+  export_FlowInlineDataRef["FlowInlineDataRef"]
+  module_src_flow_ts --> export_FlowInlineDataRef
+  export_FlowInlineDataRef -.-> export_SerializableValue
+  export_FlowNode["FlowNode"]
+  module_src_flow_ts --> export_FlowNode
+  export_FlowNode -.-> export_FlowNodeConfigValue
+  export_FlowNode -.-> export_FlowPortDescriptor
+  export_FlowNode -.-> export_FlowProviderCapabilityRef
+  export_FlowNodeConfig["FlowNodeConfig"]
+  module_src_flow_ts --> export_FlowNodeConfig
+  export_FlowNodeConfigValue["FlowNodeConfigValue"]
+  module_src_flow_ts --> export_FlowNodeConfigValue
+  export_FlowNodeId["FlowNodeId"]
+  module_src_flow_ts --> export_FlowNodeId
+  export_FlowPortDescriptor["FlowPortDescriptor"]
+  module_src_flow_ts --> export_FlowPortDescriptor
+  export_FlowPortDescriptor -.-> export_DataSchemaSlot
+  export_FlowPortId["FlowPortId"]
+  module_src_flow_ts --> export_FlowPortId
+  export_FlowProviderCapabilityId["FlowProviderCapabilityId"]
+  module_src_flow_ts --> export_FlowProviderCapabilityId
+  export_FlowProviderCapabilityRef["FlowProviderCapabilityRef"]
+  module_src_flow_ts --> export_FlowProviderCapabilityRef
+  export_FlowRunId["FlowRunId"]
+  module_src_flow_ts --> export_FlowRunId
+  export_FlowRunRef["FlowRunRef"]
+  module_src_flow_ts --> export_FlowRunRef
+  export_FlowRunRef -.-> export_FlowDefinitionRef
+  export_FlowRunSnapshot["FlowRunSnapshot"]
+  module_src_flow_ts --> export_FlowRunSnapshot
+  export_FlowRunSnapshot -.-> export_FlowDataRef
+  export_FlowRunSnapshot -.-> export_FlowDefinitionRef
+  export_FlowRunSnapshot -.-> export_FlowError
+  export_FlowRunSnapshot -.-> export_FlowExecutionStatus
+  export_FlowRunSnapshot -.-> export_FlowRunTrigger
+  export_FlowRunSnapshot -.-> export_FlowStepSnapshot
+  export_FlowRunSnapshot -.-> export_FlowTraceEvent
+  export_FlowRunTrigger["FlowRunTrigger"]
+  module_src_flow_ts --> export_FlowRunTrigger
+  export_FlowRunTrigger -.-> export_FlowDataRef
+  export_FlowSecretRef["FlowSecretRef"]
+  module_src_flow_ts --> export_FlowSecretRef
+  export_FlowStepId["FlowStepId"]
+  module_src_flow_ts --> export_FlowStepId
+  export_FlowStepRef["FlowStepRef"]
+  module_src_flow_ts --> export_FlowStepRef
+  export_FlowStepSnapshot["FlowStepSnapshot"]
+  module_src_flow_ts --> export_FlowStepSnapshot
+  export_FlowStepSnapshot -.-> export_FlowDataRef
+  export_FlowStepSnapshot -.-> export_FlowError
+  export_FlowStepSnapshot -.-> export_FlowExecutionStatus
+  export_FlowStepSnapshot -.-> export_FlowTraceEvent
+  export_FlowTraceEvent["FlowTraceEvent"]
+  module_src_flow_ts --> export_FlowTraceEvent
+  export_FlowTraceEvent -.-> export_SerializableValue
+  export_FlowTrigger["FlowTrigger"]
+  module_src_flow_ts --> export_FlowTrigger
   export_FORBIDDEN_INLINE_SECRET_FIELDS["FORBIDDEN_INLINE_SECRET_FIELDS"]
   module_src_secrets_ts --> export_FORBIDDEN_INLINE_SECRET_FIELDS
   export_FormSubmitEventDto["FormSubmitEventDto"]

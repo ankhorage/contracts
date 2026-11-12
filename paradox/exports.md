@@ -3027,6 +3027,425 @@ Kind: `unknown`
 Module: `src/navigator.ts`
 Source: `src/navigator.ts:101:1`
 
+## FlowApprovalRequest
+
+Kind: `type`
+Module: `src/flow.ts`
+Source: `src/flow.ts:242:1`
+
+A serializable human-approval request associated with one durable run.
+
+An approval starts `pending` and transitions exactly once to `approved`, `rejected`, `expired`,
+or `cancelled`; those states are terminal. A step approval identifies its exact attempt so a
+later retry cannot resolve an earlier request. Consumers validate timestamps and transitions.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| context | property | `FlowDataRef \| undefined` | no |  |
+| expiresAt | property | `string \| undefined` | no |  |
+| id | property | `string` | yes |  |
+| message | property | `string \| undefined` | no |  |
+| requestedAt | property | `string` | yes |  |
+| requestedBy | property | `string \| undefined` | no |  |
+| resolvedAt | property | `string \| undefined` | no |  |
+| resolvedBy | property | `string \| undefined` | no |  |
+| runId | property | `string` | yes |  |
+| status | property | `FlowApprovalStatus` | yes |  |
+| step | property | `FlowStepRef \| undefined` | no |  |
+
+## FlowApprovalStatus
+
+Kind: `unknown`
+Module: `src/flow.ts`
+Source: `src/flow.ts:234:1`
+
+## FlowArtifactId
+
+Kind: `unknown`
+Module: `src/flow.ts`
+Source: `src/flow.ts:11:1`
+
+## FlowArtifactRef
+
+Kind: `type`
+Module: `src/flow.ts`
+Source: `src/flow.ts:21:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| artifactId | property | `string` | yes |  |
+| byteLength | property | `number \| undefined` | no |  |
+| checksum | property | `string \| undefined` | no |  |
+| kind | property | `"artifact"` | yes |  |
+| mediaType | property | `string \| undefined` | no |  |
+
+## FlowDataRef
+
+Kind: `unknown`
+Module: `src/flow.ts`
+Source: `src/flow.ts:41:1`
+
+## FlowDefinition
+
+Kind: `type`
+Module: `src/flow.ts`
+Source: `src/flow.ts:132:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| description | property | `string \| undefined` | no |  |
+| edges | property | `readonly FlowEdge[]` | yes |  |
+| id | property | `string` | yes |  |
+| nodes | property | `readonly FlowNode[]` | yes |  |
+| title | property | `string` | yes |  |
+| triggers | property | `readonly FlowTrigger[]` | yes |  |
+| version | property | `number` | yes |  |
+
+## FlowDefinitionRef
+
+Kind: `type`
+Module: `src/flow.ts`
+Source: `src/flow.ts:143:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| id | property | `string` | yes |  |
+| version | property | `number` | yes |  |
+
+## FlowEdge
+
+Kind: `type`
+Module: `src/flow.ts`
+Source: `src/flow.ts:99:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| condition | property | `FlowEdgeCondition \| undefined` | no |  |
+| id | property | `string` | yes |  |
+| source | property | `{ readonly nodeId: FlowNodeId; readonly portId: FlowPortId; }` | yes |  |
+| target | property | `{ readonly nodeId: FlowNodeId; readonly portId: FlowPortId; }` | yes |  |
+
+## FlowEdgeCondition
+
+Kind: `unknown`
+Module: `src/flow.ts`
+Source: `src/flow.ts:93:1`
+
+A condition declared on an edge without embedding executable expressions.
+
+A `value` condition evaluates `path` as an RFC 6901 JSON Pointer against the source port's
+JSON value; the empty string denotes the complete value. Missing-pointer evaluation does not
+match. `equals` uses JSON structural equality: values have the same type and recursive array
+order and object member/value pairs, independent of object member order. Engines must not use
+coercion, locale comparison, or executable expressions.
+
+## FlowEdgeId
+
+Kind: `unknown`
+Module: `src/flow.ts`
+Source: `src/flow.ts:8:1`
+
+## FlowError
+
+Kind: `type`
+Module: `src/flow.ts`
+Source: `src/flow.ts:158:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| code | property | `string` | yes |  |
+| details | property | `FlowDataRef \| undefined` | no |  |
+| message | property | `string` | yes |  |
+| retryable | property | `boolean` | yes |  |
+
+## FlowExecutionStatus
+
+Kind: `unknown`
+Module: `src/flow.ts`
+Source: `src/flow.ts:148:1`
+
+## FlowId
+
+Kind: `unknown`
+Module: `src/flow.ts`
+Source: `src/flow.ts:5:1`
+
+## FlowInlineDataRef
+
+Kind: `type`
+Module: `src/flow.ts`
+Source: `src/flow.ts:35:1`
+
+A schema-agnostic inline data reference.
+
+Inline values are ordinary non-secret data. Consumers must reject a value at a credential
+configuration position and require a `FlowSecretRef` there; TypeScript cannot prove that
+invariant after JSON has crossed a trust boundary.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| kind | property | `"inline"` | yes |  |
+| value | property | `import("./serializable.js").SerializableValue` | yes |  |
+
+## FlowNode
+
+Kind: `type`
+Module: `src/flow.ts`
+Source: `src/flow.ts:77:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| capability | property | `FlowProviderCapabilityRef` | yes |  |
+| config | property | `Readonly<Record<string, FlowNodeConfigValue>> \| undefined` | no |  |
+| id | property | `string` | yes |  |
+| label | property | `string \| undefined` | no |  |
+| ports | property | `readonly FlowPortDescriptor[]` | yes |  |
+
+## FlowNodeConfig
+
+Kind: `unknown`
+Module: `src/flow.ts`
+Source: `src/flow.ts:64:1`
+
+## FlowNodeConfigValue
+
+Kind: `unknown`
+Module: `src/flow.ts`
+Source: `src/flow.ts:63:1`
+
+JSON-safe node configuration references.
+
+A configuration value is always explicitly either non-secret data or a secret-store reference;
+raw JSON values are intentionally not accepted. Provider consumers own validation of the
+declared configuration shape and credential positions before execution.
+
+## FlowNodeId
+
+Kind: `unknown`
+Module: `src/flow.ts`
+Source: `src/flow.ts:6:1`
+
+## FlowPortDescriptor
+
+Kind: `type`
+Module: `src/flow.ts`
+Source: `src/flow.ts:67:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| data | property | `DataSchemaSlot \| undefined` | no |  |
+| description | property | `string \| undefined` | no |  |
+| direction | property | `"input" \| "output"` | yes |  |
+| id | property | `string` | yes |  |
+| label | property | `string \| undefined` | no |  |
+| required | property | `boolean \| undefined` | no |  |
+
+## FlowPortId
+
+Kind: `unknown`
+Module: `src/flow.ts`
+Source: `src/flow.ts:7:1`
+
+## FlowProviderCapabilityId
+
+Kind: `unknown`
+Module: `src/flow.ts`
+Source: `src/flow.ts:12:1`
+
+## FlowProviderCapabilityRef
+
+Kind: `type`
+Module: `src/flow.ts`
+Source: `src/flow.ts:15:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| capabilityId | property | `string` | yes |  |
+| providerId | property | `string` | yes |  |
+
+## FlowRunId
+
+Kind: `unknown`
+Module: `src/flow.ts`
+Source: `src/flow.ts:9:1`
+
+## FlowRunRef
+
+Kind: `type`
+Module: `src/flow.ts`
+Source: `src/flow.ts:229:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| flow | property | `FlowDefinitionRef` | yes |  |
+| id | property | `string` | yes |  |
+
+## FlowRunSnapshot
+
+Kind: `type`
+Module: `src/flow.ts`
+Source: `src/flow.ts:213:1`
+
+A durable snapshot of an execution against one immutable flow revision.
+
+A run begins `pending`, may move to `running` or `cancelled`, and is terminal once
+`cancelled`, `failed`, `succeeded`, or `timed_out`. `waiting_for_approval` pauses an otherwise
+running run; resolving its pending approval resumes it or ends it as cancelled or failed.
+Consumers must validate these transitions and must retain the referenced definition revision.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| completedAt | property | `string \| undefined` | no |  |
+| createdAt | property | `string` | yes |  |
+| error | property | `FlowError \| undefined` | no |  |
+| flow | property | `FlowDefinitionRef` | yes |  |
+| id | property | `string` | yes |  |
+| input | property | `Readonly<Record<string, FlowDataRef>> \| undefined` | no |  |
+| output | property | `Readonly<Record<string, FlowDataRef>> \| undefined` | no |  |
+| startedAt | property | `string \| undefined` | no |  |
+| status | property | `FlowExecutionStatus` | yes |  |
+| steps | property | `readonly FlowStepSnapshot[]` | yes |  |
+| trace | property | `readonly FlowTraceEvent[] \| undefined` | no |  |
+| trigger | property | `FlowRunTrigger` | yes |  |
+
+## FlowRunTrigger
+
+Kind: `type`
+Module: `src/flow.ts`
+Source: `src/flow.ts:200:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| data | property | `FlowDataRef \| undefined` | no |  |
+| kind | property | `"manual" \| "schedule" \| "event" \| "webhook"` | yes |  |
+| triggerId | property | `string` | yes |  |
+
+## FlowSecretRef
+
+Kind: `type`
+Module: `src/flow.ts`
+Source: `src/flow.ts:52:1`
+
+A secret-store reference that deliberately excludes secret material.
+
+
+Credential configuration must use this reference. Flow consumers must validate provider
+configuration at their boundary, reject inline credentials, and redact secrets from errors and
+traces. This portable DTO cannot determine which arbitrary provider fields are credentials, so
+it provides no runtime validation and makes no static guarantee for untyped JSON.
+
+Security tests: `flow.test.ts#accepts secret references but excludes inline secret material from their contract`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| kind | property | `"secret"` | yes |  |
+| ref | property | `string` | yes |  |
+
+## FlowStepId
+
+Kind: `unknown`
+Module: `src/flow.ts`
+Source: `src/flow.ts:10:1`
+
+## FlowStepRef
+
+Kind: `type`
+Module: `src/flow.ts`
+Source: `src/flow.ts:192:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| attempt | property | `number` | yes |  |
+| id | property | `string` | yes |  |
+| nodeId | property | `string` | yes |  |
+| runId | property | `string` | yes |  |
+
+## FlowStepSnapshot
+
+Kind: `type`
+Module: `src/flow.ts`
+Source: `src/flow.ts:178:1`
+
+A durable snapshot of one execution attempt for a graph node.
+
+`attempt` is a one-based, monotonically increasing number for this run and node. A retry has a
+new step snapshot and attempt number; consumers must not overwrite a completed attempt.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| attempt | property | `number` | yes |  |
+| completedAt | property | `string \| undefined` | no |  |
+| error | property | `FlowError \| undefined` | no |  |
+| id | property | `string` | yes |  |
+| input | property | `Readonly<Record<string, FlowDataRef>> \| undefined` | no |  |
+| nodeId | property | `string` | yes |  |
+| output | property | `Readonly<Record<string, FlowDataRef>> \| undefined` | no |  |
+| startedAt | property | `string \| undefined` | no |  |
+| status | property | `FlowExecutionStatus` | yes |  |
+| trace | property | `readonly FlowTraceEvent[] \| undefined` | no |  |
+
+## FlowTraceEvent
+
+Kind: `type`
+Module: `src/flow.ts`
+Source: `src/flow.ts:166:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| attributes | property | `Readonly<Record<string, import("./serializable.js").SerializableValue>> \| undefined` | no |  |
+| level | property | `"error" \| "info" \| "debug" \| "warn"` | yes |  |
+| message | property | `string` | yes |  |
+| timestamp | property | `string` | yes |  |
+
+## FlowTrigger
+
+Kind: `unknown`
+Module: `src/flow.ts`
+Source: `src/flow.ts:115:1`
+
+A portable trigger declaration; runtime scheduling and delivery remain provider-owned.
+
+A schedule uses a five-field POSIX cron expression: minute, hour, day of month, month, and day
+of week. Seconds, years, macros, and implementation-specific extensions are invalid. `timezone`
+is an IANA time-zone name and defaults to `Etc/UTC`. Match it against local wall-clock time; a
+spring-forward nonexistent local time is skipped and each occurrence of a repeated local time
+during a fall-back transition fires separately. When both day-of-month and day-of-week are
+restricted, either match is sufficient, following POSIX cron semantics.
+
 ## FORBIDDEN_INLINE_SECRET_FIELDS
 
 Kind: `value`
@@ -3626,7 +4045,7 @@ Source: `src/types/infraLifecycle.ts:50:1`
 | detail | property | `string \| undefined` | no |  |
 | diagnostics | property | `readonly InfraDiagnostic[] \| undefined` | no |  |
 | owner | property | `InfraResourceIdentity` | yes |  |
-| state | property | `"unknown" \| "absent" \| "pending" \| "ready" \| "degraded" \| "stopped" \| "retained" \| "failed"` | yes |  |
+| state | property | `"unknown" \| "failed" \| "pending" \| "absent" \| "ready" \| "degraded" \| "stopped" \| "retained"` | yes |  |
 
 ## InfraResult
 
@@ -3791,7 +4210,7 @@ Source: `src/types/infraLifecycle.ts:58:1`
 | environment | property | `"local" \| "preview" \| "production"` | yes |  |
 | projectId | property | `string` | yes |  |
 | resources | property | `readonly InfraResourceStatus[]` | yes |  |
-| state | property | `"unknown" \| "absent" \| "pending" \| "ready" \| "degraded" \| "stopped" \| "retained" \| "failed"` | yes |  |
+| state | property | `"unknown" \| "failed" \| "pending" \| "absent" \| "ready" \| "degraded" \| "stopped" \| "retained"` | yes |  |
 
 ## InfraWorkloadArtifact
 

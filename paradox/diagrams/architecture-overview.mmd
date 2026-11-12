@@ -145,6 +145,11 @@ graph TD
   package__ankhorage_contracts -.-> module_src_deployProvider_ts
   module_src_environments_ts["src/environments.ts"]
   package__ankhorage_contracts -.-> module_src_environments_ts
+  module_src_flow_ts["src/flow.ts"]
+  package__ankhorage_contracts -.-> module_src_flow_ts
+  module_src_flow_ts --> module_src_data_schemas_ts
+  module_src_flow_ts --> module_src_data_values_ts
+  module_src_flow_ts --> module_src_secrets_ts
   module_src_icon_ts["src/icon.ts"]
   package__ankhorage_contracts -.-> module_src_icon_ts
   module_src_icon_ts --> module_src_media_ts

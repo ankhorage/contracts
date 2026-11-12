@@ -11030,6 +11030,1365 @@
     "structuredRows": []
   },
   {
+    "name": "FlowApprovalRequest",
+    "title": null,
+    "description": "A serializable human-approval request associated with one durable run.\n\nAn approval starts `pending` and transitions exactly once to `approved`, `rejected`, `expired`,\nor `cancelled`; those states are terminal. A step approval identifies its exact attempt so a\nlater retry cannot resolve an earlier request. Consumers validate timestamps and transitions.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/flow.ts",
+    "sourceLocation": {
+      "filePath": "src/flow.ts",
+      "line": 242,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "FlowApprovalStatus",
+      "FlowDataRef",
+      "FlowStepRef"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "context",
+        "kind": "property",
+        "type": "FlowDataRef | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "expiresAt",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "message",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "requestedAt",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "requestedBy",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "resolvedAt",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "resolvedBy",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "runId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "status",
+        "kind": "property",
+        "type": "FlowApprovalStatus",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "step",
+        "kind": "property",
+        "type": "FlowStepRef | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "FlowApprovalStatus",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/flow.ts",
+    "sourceLocation": {
+      "filePath": "src/flow.ts",
+      "line": 234,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "FlowArtifactId",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/flow.ts",
+    "sourceLocation": {
+      "filePath": "src/flow.ts",
+      "line": 11,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "FlowArtifactRef",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/flow.ts",
+    "sourceLocation": {
+      "filePath": "src/flow.ts",
+      "line": 21,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "artifactId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "byteLength",
+        "kind": "property",
+        "type": "number | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "checksum",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "kind",
+        "kind": "property",
+        "type": "\"artifact\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "mediaType",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "FlowDataRef",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/flow.ts",
+    "sourceLocation": {
+      "filePath": "src/flow.ts",
+      "line": 41,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "FlowDefinition",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/flow.ts",
+    "sourceLocation": {
+      "filePath": "src/flow.ts",
+      "line": 132,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "FlowEdge",
+      "FlowNode",
+      "FlowTrigger"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "description",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "edges",
+        "kind": "property",
+        "type": "readonly FlowEdge[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "nodes",
+        "kind": "property",
+        "type": "readonly FlowNode[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "title",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "triggers",
+        "kind": "property",
+        "type": "readonly FlowTrigger[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "version",
+        "kind": "property",
+        "type": "number",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "FlowDefinitionRef",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/flow.ts",
+    "sourceLocation": {
+      "filePath": "src/flow.ts",
+      "line": 143,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "version",
+        "kind": "property",
+        "type": "number",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "FlowEdge",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/flow.ts",
+    "sourceLocation": {
+      "filePath": "src/flow.ts",
+      "line": 99,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "FlowEdgeCondition",
+      "FlowNodeId",
+      "FlowPortId"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "condition",
+        "kind": "property",
+        "type": "FlowEdgeCondition | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "source",
+        "kind": "property",
+        "type": "{ readonly nodeId: FlowNodeId; readonly portId: FlowPortId; }",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "target",
+        "kind": "property",
+        "type": "{ readonly nodeId: FlowNodeId; readonly portId: FlowPortId; }",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "FlowEdgeCondition",
+    "title": null,
+    "description": "A condition declared on an edge without embedding executable expressions.\n\nA `value` condition evaluates `path` as an RFC 6901 JSON Pointer against the source port's\nJSON value; the empty string denotes the complete value. Missing-pointer evaluation does not\nmatch. `equals` uses JSON structural equality: values have the same type and recursive array\norder and object member/value pairs, independent of object member order. Engines must not use\ncoercion, locale comparison, or executable expressions.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/flow.ts",
+    "sourceLocation": {
+      "filePath": "src/flow.ts",
+      "line": 93,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "FlowEdgeId",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/flow.ts",
+    "sourceLocation": {
+      "filePath": "src/flow.ts",
+      "line": 8,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "FlowError",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/flow.ts",
+    "sourceLocation": {
+      "filePath": "src/flow.ts",
+      "line": 158,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "FlowDataRef"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "code",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "details",
+        "kind": "property",
+        "type": "FlowDataRef | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "message",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "retryable",
+        "kind": "property",
+        "type": "boolean",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "FlowExecutionStatus",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/flow.ts",
+    "sourceLocation": {
+      "filePath": "src/flow.ts",
+      "line": 148,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "FlowId",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/flow.ts",
+    "sourceLocation": {
+      "filePath": "src/flow.ts",
+      "line": 5,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "FlowInlineDataRef",
+    "title": null,
+    "description": "A schema-agnostic inline data reference.\n\nInline values are ordinary non-secret data. Consumers must reject a value at a credential\nconfiguration position and require a `FlowSecretRef` there; TypeScript cannot prove that\ninvariant after JSON has crossed a trust boundary.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/flow.ts",
+    "sourceLocation": {
+      "filePath": "src/flow.ts",
+      "line": 35,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "SerializableValue"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "kind",
+        "kind": "property",
+        "type": "\"inline\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "value",
+        "kind": "property",
+        "type": "import(\"./serializable.js\").SerializableValue",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "FlowNode",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/flow.ts",
+    "sourceLocation": {
+      "filePath": "src/flow.ts",
+      "line": 77,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "FlowNodeConfigValue",
+      "FlowPortDescriptor",
+      "FlowProviderCapabilityRef"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "capability",
+        "kind": "property",
+        "type": "FlowProviderCapabilityRef",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "config",
+        "kind": "property",
+        "type": "Readonly<Record<string, FlowNodeConfigValue>> | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "label",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "ports",
+        "kind": "property",
+        "type": "readonly FlowPortDescriptor[]",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "FlowNodeConfig",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/flow.ts",
+    "sourceLocation": {
+      "filePath": "src/flow.ts",
+      "line": 64,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "FlowNodeConfigValue",
+    "title": null,
+    "description": "JSON-safe node configuration references.\n\nA configuration value is always explicitly either non-secret data or a secret-store reference;\nraw JSON values are intentionally not accepted. Provider consumers own validation of the\ndeclared configuration shape and credential positions before execution.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/flow.ts",
+    "sourceLocation": {
+      "filePath": "src/flow.ts",
+      "line": 63,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "FlowNodeId",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/flow.ts",
+    "sourceLocation": {
+      "filePath": "src/flow.ts",
+      "line": 6,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "FlowPortDescriptor",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/flow.ts",
+    "sourceLocation": {
+      "filePath": "src/flow.ts",
+      "line": 67,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "DataSchemaSlot"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "data",
+        "kind": "property",
+        "type": "DataSchemaSlot | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "description",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "direction",
+        "kind": "property",
+        "type": "\"input\" | \"output\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "label",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "required",
+        "kind": "property",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "FlowPortId",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/flow.ts",
+    "sourceLocation": {
+      "filePath": "src/flow.ts",
+      "line": 7,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "FlowProviderCapabilityId",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/flow.ts",
+    "sourceLocation": {
+      "filePath": "src/flow.ts",
+      "line": 12,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "FlowProviderCapabilityRef",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/flow.ts",
+    "sourceLocation": {
+      "filePath": "src/flow.ts",
+      "line": 15,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "capabilityId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "providerId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "FlowRunId",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/flow.ts",
+    "sourceLocation": {
+      "filePath": "src/flow.ts",
+      "line": 9,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "FlowRunRef",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/flow.ts",
+    "sourceLocation": {
+      "filePath": "src/flow.ts",
+      "line": 229,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "FlowDefinitionRef"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "flow",
+        "kind": "property",
+        "type": "FlowDefinitionRef",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "FlowRunSnapshot",
+    "title": null,
+    "description": "A durable snapshot of an execution against one immutable flow revision.\n\nA run begins `pending`, may move to `running` or `cancelled`, and is terminal once\n`cancelled`, `failed`, `succeeded`, or `timed_out`. `waiting_for_approval` pauses an otherwise\nrunning run; resolving its pending approval resumes it or ends it as cancelled or failed.\nConsumers must validate these transitions and must retain the referenced definition revision.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/flow.ts",
+    "sourceLocation": {
+      "filePath": "src/flow.ts",
+      "line": 213,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "FlowDataRef",
+      "FlowDefinitionRef",
+      "FlowError",
+      "FlowExecutionStatus",
+      "FlowRunTrigger",
+      "FlowStepSnapshot",
+      "FlowTraceEvent"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "completedAt",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "createdAt",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "error",
+        "kind": "property",
+        "type": "FlowError | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "flow",
+        "kind": "property",
+        "type": "FlowDefinitionRef",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "input",
+        "kind": "property",
+        "type": "Readonly<Record<string, FlowDataRef>> | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "output",
+        "kind": "property",
+        "type": "Readonly<Record<string, FlowDataRef>> | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "startedAt",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "status",
+        "kind": "property",
+        "type": "FlowExecutionStatus",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "steps",
+        "kind": "property",
+        "type": "readonly FlowStepSnapshot[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "trace",
+        "kind": "property",
+        "type": "readonly FlowTraceEvent[] | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "trigger",
+        "kind": "property",
+        "type": "FlowRunTrigger",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "FlowRunTrigger",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/flow.ts",
+    "sourceLocation": {
+      "filePath": "src/flow.ts",
+      "line": 200,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "FlowDataRef"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "data",
+        "kind": "property",
+        "type": "FlowDataRef | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "kind",
+        "kind": "property",
+        "type": "\"manual\" | \"schedule\" | \"event\" | \"webhook\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "triggerId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "FlowSecretRef",
+    "title": null,
+    "description": "A secret-store reference that deliberately excludes secret material.\n\n\nCredential configuration must use this reference. Flow consumers must validate provider\nconfiguration at their boundary, reject inline credentials, and redact secrets from errors and\ntraces. This portable DTO cannot determine which arbitrary provider fields are credentials, so\nit provides no runtime validation and makes no static guarantee for untyped JSON.",
+    "isReadme": false,
+    "see": [],
+    "security": [
+      "flow.test.ts#accepts secret references but excludes inline secret material from their contract"
+    ],
+    "kind": "type",
+    "modulePath": "src/flow.ts",
+    "sourceLocation": {
+      "filePath": "src/flow.ts",
+      "line": 52,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "kind",
+        "kind": "property",
+        "type": "\"secret\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "ref",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "FlowStepId",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/flow.ts",
+    "sourceLocation": {
+      "filePath": "src/flow.ts",
+      "line": 10,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "FlowStepRef",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/flow.ts",
+    "sourceLocation": {
+      "filePath": "src/flow.ts",
+      "line": 192,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "attempt",
+        "kind": "property",
+        "type": "number",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "nodeId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "runId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "FlowStepSnapshot",
+    "title": null,
+    "description": "A durable snapshot of one execution attempt for a graph node.\n\n`attempt` is a one-based, monotonically increasing number for this run and node. A retry has a\nnew step snapshot and attempt number; consumers must not overwrite a completed attempt.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/flow.ts",
+    "sourceLocation": {
+      "filePath": "src/flow.ts",
+      "line": 178,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "FlowDataRef",
+      "FlowError",
+      "FlowExecutionStatus",
+      "FlowTraceEvent"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "attempt",
+        "kind": "property",
+        "type": "number",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "completedAt",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "error",
+        "kind": "property",
+        "type": "FlowError | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "input",
+        "kind": "property",
+        "type": "Readonly<Record<string, FlowDataRef>> | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "nodeId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "output",
+        "kind": "property",
+        "type": "Readonly<Record<string, FlowDataRef>> | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "startedAt",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "status",
+        "kind": "property",
+        "type": "FlowExecutionStatus",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "trace",
+        "kind": "property",
+        "type": "readonly FlowTraceEvent[] | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "FlowTraceEvent",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/flow.ts",
+    "sourceLocation": {
+      "filePath": "src/flow.ts",
+      "line": 166,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "SerializableValue"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "attributes",
+        "kind": "property",
+        "type": "Readonly<Record<string, import(\"./serializable.js\").SerializableValue>> | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "level",
+        "kind": "property",
+        "type": "\"error\" | \"info\" | \"debug\" | \"warn\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "message",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "timestamp",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "FlowTrigger",
+    "title": null,
+    "description": "A portable trigger declaration; runtime scheduling and delivery remain provider-owned.\n\nA schedule uses a five-field POSIX cron expression: minute, hour, day of month, month, and day\nof week. Seconds, years, macros, and implementation-specific extensions are invalid. `timezone`\nis an IANA time-zone name and defaults to `Etc/UTC`. Match it against local wall-clock time; a\nspring-forward nonexistent local time is skipped and each occurrence of a repeated local time\nduring a fall-back transition fires separately. When both day-of-month and day-of-week are\nrestricted, either match is sufficient, following POSIX cron semantics.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/flow.ts",
+    "sourceLocation": {
+      "filePath": "src/flow.ts",
+      "line": 115,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
     "name": "FORBIDDEN_INLINE_SECRET_FIELDS",
     "title": null,
     "description": null,
@@ -13118,7 +14477,7 @@
       {
         "name": "state",
         "kind": "property",
-        "type": "\"unknown\" | \"absent\" | \"pending\" | \"ready\" | \"degraded\" | \"stopped\" | \"retained\" | \"failed\"",
+        "type": "\"unknown\" | \"failed\" | \"pending\" | \"absent\" | \"ready\" | \"degraded\" | \"stopped\" | \"retained\"",
         "required": true,
         "description": null
       }
@@ -13738,7 +15097,7 @@
       {
         "name": "state",
         "kind": "property",
-        "type": "\"unknown\" | \"absent\" | \"pending\" | \"ready\" | \"degraded\" | \"stopped\" | \"retained\" | \"failed\"",
+        "type": "\"unknown\" | \"failed\" | \"pending\" | \"absent\" | \"ready\" | \"degraded\" | \"stopped\" | \"retained\"",
         "required": true,
         "description": null
       }

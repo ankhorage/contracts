@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 26.7.0
+
+### Minor Changes
+
+- 63ff295: Add portable Flow graph, execution, approval, data-reference, secret-reference, and provider-capability contracts through the `@ankhorage/contracts/flow` public subpath.
+
 ## 26.6.0
 
 ### Minor Changes

@@ -34,6 +34,7 @@ graph LR
   module_src_deploy_ts["src/deploy.ts"]
   module_src_deployProvider_ts["src/deployProvider.ts"]
   module_src_environments_ts["src/environments.ts"]
+  module_src_flow_ts["src/flow.ts"]
   module_src_icon_ts["src/icon.ts"]
   module_src_index_ts["src/index.ts"]
   module_src_infra_ts["src/infra.ts"]
@@ -161,6 +162,9 @@ graph LR
   module_src_data_sources_ts --> module_src_data_schemas_ts
   module_src_data_sources_ts --> module_src_data_values_ts
   module_src_data_values_ts --> module_src_serializable_ts
+  module_src_flow_ts --> module_src_data_schemas_ts
+  module_src_flow_ts --> module_src_data_values_ts
+  module_src_flow_ts --> module_src_secrets_ts
   module_src_icon_ts --> module_src_media_ts
   module_src_infra_isInfraAdapterDescriptor_ts --> module_src_infra_isInfraShape_ts
   module_src_infra_isInfraAdapterDescriptor_ts --> module_src_infraCatalog_ts
