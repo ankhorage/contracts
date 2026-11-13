@@ -100,6 +100,15 @@ it('keeps safe semantic values distinct by state and viewport without conflating
   });
 });
 
+it('retains a true zero semantic value', () => {
+  const settledSemanticAttributes = websiteObservationFixture.pages[0]?.nodes
+    .find((node) => node.sourceRef === 'home:skills:css')
+    ?.observations.find((observation) => observation.stateId === 'settled')?.semanticAttributes;
+
+  expect(settledSemanticAttributes?.value).toBe(0);
+});
+
 it('accepts schema-v1 observations without semantic attribute evidence', () => {
   expect('semanticAttributes' in schemaV1ObservationWithoutSemanticAttributes).toBeFalse();
+  expect(schemaV1ObservationWithoutSemanticAttributes.semanticAttributes).toBeUndefined();
 });
