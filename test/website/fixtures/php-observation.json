@@ -27,7 +27,13 @@
         { "id": "tablet", "width": 768, "height": 1024, "devicePixelRatio": 2 },
         { "id": "desktop", "width": 1440, "height": 900, "devicePixelRatio": 1 }
       ],
-      "states": [{ "id": "default", "name": "default" }],
+      "states": [
+        { "id": "default", "name": "default" },
+        { "id": "initial", "name": "initial" },
+        { "id": "triggered", "name": "triggered" },
+        { "id": "settled", "name": "settled" },
+        { "id": "incomplete", "name": "incomplete" }
+      ],
       "nodes": [
         {
           "sourceRef": "home:hero:span",
@@ -49,6 +55,7 @@
               "viewportId": "desktop",
               "stateId": "default",
               "availability": { "status": "available", "missing": null },
+              "semanticAttributes": {},
               "rect": { "x": 0, "y": 0, "width": 120, "height": 24 },
               "css": {
                 "display": "inline",
@@ -109,6 +116,101 @@
               "provenance": {
                 "sourceUrl": "https://example.test/",
                 "capturedAt": "2026-11-11T16:30:00.000Z",
+                "method": "browser"
+              }
+            }
+          ]
+        },
+        {
+          "sourceRef": "home:skills:css",
+          "parentSourceRef": "home:skills",
+          "ancestorSourceRefs": ["home:skills"],
+          "dom": {
+            "tagName": "div",
+            "childIndex": 0,
+            "attributes": { "aria-label": "CSS", "role": "progressbar" }
+          },
+          "textRuns": [],
+          "links": [],
+          "media": [],
+          "observations": [
+            {
+              "viewportId": "desktop",
+              "stateId": "initial",
+              "availability": { "status": "available", "missing": null },
+              "semanticAttributes": {
+                "aria-valuemin": "0",
+                "aria-valuemax": "100",
+                "aria-valuenow": "20",
+                "role": "progressbar"
+              },
+              "rect": null,
+              "css": null,
+              "provenance": {
+                "sourceUrl": "https://example.test/",
+                "capturedAt": "2026-11-11T16:30:00.000Z",
+                "method": "browser"
+              }
+            },
+            {
+              "viewportId": "desktop",
+              "stateId": "triggered",
+              "availability": { "status": "available", "missing": null },
+              "semanticAttributes": {
+                "aria-valuenow": "72",
+                "aria-valuetext": null,
+                "role": "progressbar"
+              },
+              "rect": null,
+              "css": null,
+              "provenance": {
+                "sourceUrl": "https://example.test/",
+                "capturedAt": "2026-11-11T16:30:01.000Z",
+                "method": "browser"
+              }
+            },
+            {
+              "viewportId": "desktop",
+              "stateId": "settled",
+              "availability": { "status": "available", "missing": null },
+              "semanticAttributes": { "aria-valuenow": "72", "role": "progressbar", "value": 0 },
+              "rect": null,
+              "css": null,
+              "provenance": {
+                "sourceUrl": "https://example.test/",
+                "capturedAt": "2026-11-11T16:30:02.000Z",
+                "method": "browser"
+              }
+            },
+            {
+              "viewportId": "tablet",
+              "stateId": "settled",
+              "availability": { "status": "available", "missing": null },
+              "semanticAttributes": { "aria-valuenow": "0", "role": "progressbar" },
+              "rect": null,
+              "css": null,
+              "provenance": {
+                "sourceUrl": "https://example.test/",
+                "capturedAt": "2026-11-11T16:30:03.000Z",
+                "method": "browser"
+              }
+            },
+            {
+              "viewportId": "mobile",
+              "stateId": "incomplete",
+              "availability": {
+                "status": "missing",
+                "missing": {
+                  "code": "animation-incomplete",
+                  "message": "The activated element did not become stable."
+                }
+              },
+              "semanticAttributes": {},
+              "rect": null,
+              "css": null,
+              "provenance": {
+                "sourceUrl": "https://example.test/",
+                "capturedAt": "2026-11-11T16:30:04.000Z",
                 "method": "browser"
               }
             }

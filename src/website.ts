@@ -108,10 +108,26 @@ export interface WebsiteNodeObservation {
   readonly viewportId: string;
   readonly stateId: string;
   readonly availability: WebsiteAvailability;
+  readonly semanticAttributes?: Readonly<
+    Partial<Record<WebsiteSemanticAttributeName, WebsiteSemanticAttributeValue>>
+  >;
   readonly rect: WebsiteBoundingRect | null;
   readonly css: WebsiteComputedCss | null;
   readonly provenance: WebsiteObservationProvenance;
 }
+
+/*** A safe semantic attribute that may differ for one DOM node across observed states. */
+export type WebsiteSemanticAttributeName =
+  | 'aria-label'
+  | 'aria-valuemax'
+  | 'aria-valuemin'
+  | 'aria-valuenow'
+  | 'aria-valuetext'
+  | 'role'
+  | 'value';
+
+/*** An explicitly observed semantic value; omission means absent and null remains a real value. */
+export type WebsiteSemanticAttributeValue = boolean | number | string | null;
 
 /*** Whether a source value was available without fabricating a replacement. */
 export interface WebsiteAvailability {

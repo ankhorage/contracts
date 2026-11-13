@@ -4,10 +4,27 @@ import phpObservation from '../test/website/fixtures/php-observation.json' with 
 import phpRecognition from '../test/website/fixtures/php-recognition.json' with { type: 'json' };
 import typescriptObservation from '../test/website/fixtures/typescript-observation.json' with { type: 'json' };
 import typescriptRecognition from '../test/website/fixtures/typescript-recognition.json' with { type: 'json' };
-import type { WebsiteObservationDocument, WebsiteRecognitionDocument } from './website.js';
+import type {
+  WebsiteNodeObservation,
+  WebsiteObservationDocument,
+  WebsiteRecognitionDocument,
+} from './website.js';
 
 const websiteObservationFixture = typescriptObservation as unknown as WebsiteObservationDocument;
 const websiteRecognitionFixture = typescriptRecognition as unknown as WebsiteRecognitionDocument;
+
+const schemaV1ObservationWithoutSemanticAttributes: WebsiteNodeObservation = {
+  availability: { missing: null, status: 'available' },
+  css: null,
+  provenance: {
+    capturedAt: '2026-11-10T00:00:00.000Z',
+    method: 'browser',
+    sourceUrl: 'https://example.test/',
+  },
+  rect: null,
+  stateId: 'default',
+  viewportId: 'desktop',
+};
 
 it('keeps TypeScript and PHP website observation fixtures identical and serializable', () => {
   expect(typescriptObservation).toEqual(phpObservation);
@@ -23,9 +40,20 @@ it('keeps TypeScript and PHP website recognition fixtures identical and serializ
 });
 
 it('retains the visible unresolved node and the styled inline text run', () => {
-  expect(
-    websiteObservationFixture.pages[0]?.nodes.find((node) => node.sourceRef === 'home:hero:span'),
-  ).toMatchObject({ textRuns: [{ text: 'red styled text' }] });
+  const redStyledSpan = websiteObservationFixture.pages[0]?.nodes.find(
+    (node) => node.sourceRef === 'home:hero:span',
+  );
+
+  expect(redStyledSpan).toMatchObject({
+    observations: [
+      {
+        css: { color: 'rgb(217, 51, 58)' },
+        rect: { height: 24, width: 120, x: 0, y: 0 },
+        semanticAttributes: {},
+      },
+    ],
+    textRuns: [{ text: 'red styled text' }],
+  });
   expect(
     websiteRecognitionFixture.pages[0]?.nodes.find((node) => node.status === 'unresolved'),
   ).toMatchObject({ sourceRefs: ['home:visible-unresolved'] });
@@ -36,4 +64,51 @@ it('retains the visible unresolved node and the styled inline text run', () => {
     id: 'home:rich-text',
     type: 'RichText',
   });
+});
+
+it('keeps safe semantic values distinct by state and viewport without conflating null or incomplete evidence', () => {
+  const observations = websiteObservationFixture.pages[0]?.nodes.find(
+    (node) => node.sourceRef === 'home:skills:css',
+  )?.observations;
+
+  expect(observations?.find((observation) => observation.stateId === 'initial')).toMatchObject({
+    semanticAttributes: { 'aria-valuenow': '20' },
+    viewportId: 'desktop',
+  });
+  expect(observations?.find((observation) => observation.stateId === 'triggered')).toMatchObject({
+    semanticAttributes: { 'aria-valuenow': '72', 'aria-valuetext': null },
+    viewportId: 'desktop',
+  });
+  expect(
+    observations?.find((observation) => observation.stateId === 'initial')?.semanticAttributes?.[
+      'aria-valuetext'
+    ],
+  ).toBeUndefined();
+  expect(
+    observations?.find((observation) => observation.stateId === 'triggered')?.semanticAttributes?.[
+      'aria-valuetext'
+    ],
+  ).toBeNull();
+  expect(observations?.find((observation) => observation.viewportId === 'tablet')).toMatchObject({
+    semanticAttributes: { 'aria-valuenow': '0' },
+    stateId: 'settled',
+  });
+  expect(observations?.find((observation) => observation.stateId === 'incomplete')).toMatchObject({
+    availability: { missing: { code: 'animation-incomplete' }, status: 'missing' },
+    semanticAttributes: {},
+    viewportId: 'mobile',
+  });
+});
+
+it('retains a true zero semantic value', () => {
+  const settledSemanticAttributes = websiteObservationFixture.pages[0]?.nodes
+    .find((node) => node.sourceRef === 'home:skills:css')
+    ?.observations.find((observation) => observation.stateId === 'settled')?.semanticAttributes;
+
+  expect(settledSemanticAttributes?.value).toBe(0);
+});
+
+it('accepts schema-v1 observations without semantic attribute evidence', () => {
+  expect('semanticAttributes' in schemaV1ObservationWithoutSemanticAttributes).toBeFalse();
+  expect(schemaV1ObservationWithoutSemanticAttributes.semanticAttributes).toBeUndefined();
 });
