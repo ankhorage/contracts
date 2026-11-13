@@ -2340,6 +2340,8 @@ graph LR
   export_WebsiteNodeObservation -.-> export_WebsiteBoundingRect
   export_WebsiteNodeObservation -.-> export_WebsiteComputedCss
   export_WebsiteNodeObservation -.-> export_WebsiteObservationProvenance
+  export_WebsiteNodeObservation -.-> export_WebsiteSemanticAttributeName
+  export_WebsiteNodeObservation -.-> export_WebsiteSemanticAttributeValue
   export_WebsiteObservationDocument["WebsiteObservationDocument"]
   module_src_website_ts --> export_WebsiteObservationDocument
   export_WebsiteObservationDocument -.-> export_WebsitePageObservation
@@ -2387,6 +2389,10 @@ graph LR
   export_WebsiteResponsiveVariant["WebsiteResponsiveVariant"]
   module_src_website_ts --> export_WebsiteResponsiveVariant
   export_WebsiteResponsiveVariant -.-> export_WebsiteRecognizedProp
+  export_WebsiteSemanticAttributeName["WebsiteSemanticAttributeName"]
+  module_src_website_ts --> export_WebsiteSemanticAttributeName
+  export_WebsiteSemanticAttributeValue["WebsiteSemanticAttributeValue"]
+  module_src_website_ts --> export_WebsiteSemanticAttributeValue
   export_WebsiteSite["WebsiteSite"]
   module_src_website_ts --> export_WebsiteSite
   export_WebsiteSource["WebsiteSource"]

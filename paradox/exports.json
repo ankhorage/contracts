@@ -29933,7 +29933,7 @@
     "modulePath": "src/website.ts",
     "sourceLocation": {
       "filePath": "src/website.ts",
-      "line": 210,
+      "line": 226,
       "column": 1
     },
     "exportPaths": [
@@ -29991,7 +29991,7 @@
     "modulePath": "src/website.ts",
     "sourceLocation": {
       "filePath": "src/website.ts",
-      "line": 117,
+      "line": 133,
       "column": 1
     },
     "exportPaths": [
@@ -30030,7 +30030,7 @@
     "modulePath": "src/website.ts",
     "sourceLocation": {
       "filePath": "src/website.ts",
-      "line": 129,
+      "line": 145,
       "column": 1
     },
     "exportPaths": [
@@ -30081,7 +30081,7 @@
     "modulePath": "src/website.ts",
     "sourceLocation": {
       "filePath": "src/website.ts",
-      "line": 195,
+      "line": 211,
       "column": 1
     },
     "exportPaths": [
@@ -30132,7 +30132,7 @@
     "modulePath": "src/website.ts",
     "sourceLocation": {
       "filePath": "src/website.ts",
-      "line": 137,
+      "line": 153,
       "column": 1
     },
     "exportPaths": [
@@ -30535,7 +30535,7 @@
     "modulePath": "src/website.ts",
     "sourceLocation": {
       "filePath": "src/website.ts",
-      "line": 273,
+      "line": 289,
       "column": 1
     },
     "exportPaths": [
@@ -30741,7 +30741,7 @@
     "modulePath": "src/website.ts",
     "sourceLocation": {
       "filePath": "src/website.ts",
-      "line": 123,
+      "line": 139,
       "column": 1
     },
     "exportPaths": [
@@ -30839,7 +30839,9 @@
       "WebsiteAvailability",
       "WebsiteBoundingRect",
       "WebsiteComputedCss",
-      "WebsiteObservationProvenance"
+      "WebsiteObservationProvenance",
+      "WebsiteSemanticAttributeName",
+      "WebsiteSemanticAttributeValue"
     ],
     "signatures": [],
     "members": [
@@ -30869,6 +30871,13 @@
         "kind": "property",
         "type": "WebsiteBoundingRect | null",
         "required": true,
+        "description": null
+      },
+      {
+        "name": "semanticAttributes",
+        "kind": "property",
+        "type": "Readonly<Partial<Record<WebsiteSemanticAttributeName, WebsiteSemanticAttributeValue>>> | undefined",
+        "required": false,
         "description": null
       },
       {
@@ -30968,7 +30977,7 @@
     "modulePath": "src/website.ts",
     "sourceLocation": {
       "filePath": "src/website.ts",
-      "line": 203,
+      "line": 219,
       "column": 1
     },
     "exportPaths": [
@@ -31182,7 +31191,7 @@
     "modulePath": "src/website.ts",
     "sourceLocation": {
       "filePath": "src/website.ts",
-      "line": 233,
+      "line": 249,
       "column": 1
     },
     "exportPaths": [
@@ -31243,7 +31252,7 @@
     "modulePath": "src/website.ts",
     "sourceLocation": {
       "filePath": "src/website.ts",
-      "line": 219,
+      "line": 235,
       "column": 1
     },
     "exportPaths": [
@@ -31343,7 +31352,7 @@
     "modulePath": "src/website.ts",
     "sourceLocation": {
       "filePath": "src/website.ts",
-      "line": 282,
+      "line": 298,
       "column": 1
     },
     "exportPaths": [
@@ -31396,7 +31405,7 @@
     "modulePath": "src/website.ts",
     "sourceLocation": {
       "filePath": "src/website.ts",
-      "line": 242,
+      "line": 258,
       "column": 1
     },
     "exportPaths": [
@@ -31479,7 +31488,7 @@
     "modulePath": "src/website.ts",
     "sourceLocation": {
       "filePath": "src/website.ts",
-      "line": 254,
+      "line": 270,
       "column": 1
     },
     "exportPaths": [
@@ -31525,7 +31534,7 @@
     "modulePath": "src/website.ts",
     "sourceLocation": {
       "filePath": "src/website.ts",
-      "line": 261,
+      "line": 277,
       "column": 1
     },
     "exportPaths": [
@@ -31551,6 +31560,50 @@
         "description": null
       }
     ],
+    "structuredRows": []
+  },
+  {
+    "name": "WebsiteSemanticAttributeName",
+    "title": null,
+    "description": "A safe semantic attribute that may differ for one DOM node across observed states.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/website.ts",
+    "sourceLocation": {
+      "filePath": "src/website.ts",
+      "line": 120,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "WebsiteSemanticAttributeValue",
+    "title": null,
+    "description": "An explicitly observed semantic value; omission means absent and null remains a real value.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/website.ts",
+    "sourceLocation": {
+      "filePath": "src/website.ts",
+      "line": 130,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
     "structuredRows": []
   },
   {
@@ -31740,7 +31793,7 @@
     "modulePath": "src/website.ts",
     "sourceLocation": {
       "filePath": "src/website.ts",
-      "line": 267,
+      "line": 283,
       "column": 1
     },
     "exportPaths": [

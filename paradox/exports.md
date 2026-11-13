@@ -8470,7 +8470,7 @@ Source: `src/types/deployProvider.ts:151:1`
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:210:1`
+Source: `src/website.ts:226:1`
 
 A reusable media asset discovered during the crawl.
 
@@ -8488,7 +8488,7 @@ A reusable media asset discovered during the crawl.
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:117:1`
+Source: `src/website.ts:133:1`
 
 Whether a source value was available without fabricating a replacement.
 
@@ -8503,7 +8503,7 @@ Whether a source value was available without fabricating a replacement.
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:129:1`
+Source: `src/website.ts:145:1`
 
 A bounding rectangle measured in CSS pixels.
 
@@ -8520,7 +8520,7 @@ A bounding rectangle measured in CSS pixels.
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:195:1`
+Source: `src/website.ts:211:1`
 
 The four computed edges of a CSS box value.
 
@@ -8537,7 +8537,7 @@ The four computed edges of a CSS box value.
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:137:1`
+Source: `src/website.ts:153:1`
 
 Computed visual CSS values needed to describe, not assess, a rendered website.
 
@@ -8604,7 +8604,7 @@ Computed visual CSS values needed to describe, not assess, a rendered website.
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:273:1`
+Source: `src/website.ts:289:1`
 
 A normalized design token with its exact source values retained.
 
@@ -8672,7 +8672,7 @@ An image, video, audio, or embedded media reference observed on a DOM node.
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:123:1`
+Source: `src/website.ts:139:1`
 
 The explicit reason a website source value could not be observed.
 
@@ -8716,6 +8716,7 @@ One viewport/state-specific visual observation of a DOM node.
 | css | property | `WebsiteComputedCss \| null` | yes |  |
 | provenance | property | `WebsiteObservationProvenance` | yes |  |
 | rect | property | `WebsiteBoundingRect \| null` | yes |  |
+| semanticAttributes | property | `Readonly<Partial<Record<WebsiteSemanticAttributeName, WebsiteSemanticAttributeValue>>> \| undefined` | no |  |
 | stateId | property | `string` | yes |  |
 | viewportId | property | `string` | yes |  |
 
@@ -8742,7 +8743,7 @@ A versioned, portable capture of the observable state of one website.
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:203:1`
+Source: `src/website.ts:219:1`
 
 How an observation was obtained from the source page.
 
@@ -8800,7 +8801,7 @@ One observed page, including its ordered navigation and captured render states.
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:233:1`
+Source: `src/website.ts:249:1`
 
 A recognized page with its canonical UiNode tree and retained source mapping.
 
@@ -8818,7 +8819,7 @@ A recognized page with its canonical UiNode tree and retained source mapping.
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:219:1`
+Source: `src/website.ts:235:1`
 
 A versioned canonical component recognition derived from website observations.
 
@@ -8841,7 +8842,7 @@ A versioned canonical component recognition derived from website observations.
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:282:1`
+Source: `src/website.ts:298:1`
 
 A recognized portable media reference, optionally compatible with an app media asset.
 
@@ -8858,7 +8859,7 @@ A recognized portable media reference, optionally compatible with an app media a
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:242:1`
+Source: `src/website.ts:258:1`
 
 A source-linked canonical UiNode mapping; component shape remains owned by UiNode.
 
@@ -8879,7 +8880,7 @@ A source-linked canonical UiNode mapping; component shape remains owned by UiNod
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:254:1`
+Source: `src/website.ts:270:1`
 
 A normalized UiNode property and the exact serializable values observed before normalization.
 
@@ -8895,7 +8896,7 @@ A normalized UiNode property and the exact serializable values observed before n
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:261:1`
+Source: `src/website.ts:277:1`
 
 A viewport-specific UiNode property override retained by the recognition.
 
@@ -8905,6 +8906,22 @@ A viewport-specific UiNode property override retained by the recognition.
 | --- | --- | --- | --- | --- |
 | props | property | `readonly WebsiteRecognizedProp[]` | yes |  |
 | viewportId | property | `string` | yes |  |
+
+## WebsiteSemanticAttributeName
+
+Kind: `unknown`
+Module: `src/website.ts`
+Source: `src/website.ts:120:1`
+
+A safe semantic attribute that may differ for one DOM node across observed states.
+
+## WebsiteSemanticAttributeValue
+
+Kind: `unknown`
+Module: `src/website.ts`
+Source: `src/website.ts:130:1`
+
+An explicitly observed semantic value; omission means absent and null remains a real value.
 
 ## WebsiteSite
 
@@ -8974,7 +8991,7 @@ A text run retained separately from its DOM node so inline styled spans are not 
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:267:1`
+Source: `src/website.ts:283:1`
 
 A visible source node that could not be mapped without silently discarding it.
 

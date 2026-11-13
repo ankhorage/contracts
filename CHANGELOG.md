@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 26.8.0
+
+### Minor Changes
+
+- 736ef0a: Preserve safe state-specific semantic attributes in website observations.
+
 ## 26.7.0
 
 ### Minor Changes
