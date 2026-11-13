@@ -34,7 +34,9 @@ const writeConsumerFiles = (consumerDirectory: string): void => {
     join(consumerDirectory, 'consumer.ts'),
     [
       "import type { WebsiteNodeObservation } from '@ankhorage/contracts/website';",
+      "const schemaV1Observation: WebsiteNodeObservation = { viewportId: 'desktop', stateId: 'default', availability: { status: 'available', missing: null }, rect: null, css: null, provenance: { sourceUrl: 'https://example.test/', capturedAt: '2026-11-10T00:00:00.000Z', method: 'browser' } };",
       "const observation: WebsiteNodeObservation = { viewportId: 'desktop', stateId: 'settled', availability: { status: 'available', missing: null }, semanticAttributes: { 'aria-valuenow': '72', value: 0 }, rect: null, css: null, provenance: { sourceUrl: 'https://example.test/', capturedAt: '2026-11-13T00:00:00.000Z', method: 'browser' } };",
+      'void schemaV1Observation;',
       'void observation;',
     ].join('\n'),
   );

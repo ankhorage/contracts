@@ -108,7 +108,7 @@ export interface WebsiteNodeObservation {
   readonly viewportId: string;
   readonly stateId: string;
   readonly availability: WebsiteAvailability;
-  readonly semanticAttributes: Readonly<
+  readonly semanticAttributes?: Readonly<
     Partial<Record<WebsiteSemanticAttributeName, WebsiteSemanticAttributeValue>>
   >;
   readonly rect: WebsiteBoundingRect | null;
