@@ -27,7 +27,13 @@
         { "id": "tablet", "width": 768, "height": 1024, "devicePixelRatio": 2 },
         { "id": "desktop", "width": 1440, "height": 900, "devicePixelRatio": 1 }
       ],
-      "states": [{ "id": "default", "name": "default" }],
+      "states": [
+        { "id": "default", "name": "default" },
+        { "id": "initial", "name": "initial" },
+        { "id": "triggered", "name": "triggered" },
+        { "id": "settled", "name": "settled" },
+        { "id": "incomplete", "name": "incomplete" }
+      ],
       "nodes": [
         {
           "sourceRef": "home:hero:span",
@@ -49,66 +55,107 @@
               "viewportId": "desktop",
               "stateId": "default",
               "availability": { "status": "available", "missing": null },
-              "rect": { "x": 0, "y": 0, "width": 120, "height": 24 },
-              "css": {
-                "display": "inline",
-                "position": "static",
-                "visibility": "visible",
-                "color": "rgb(217, 51, 58)",
-                "backgroundColor": "rgba(0, 0, 0, 0)",
-                "borderColor": "rgb(0, 0, 0)",
-                "borderRadius": "0px",
-                "borderWidth": "0px",
-                "boxShadow": "none",
-                "fontFamily": "Inter",
-                "fontSize": "16px",
-                "fontStyle": "normal",
-                "fontWeight": "400",
-                "letterSpacing": "0px",
-                "lineHeight": "24px",
-                "textAlign": "start",
-                "textDecoration": "none",
-                "opacity": "1",
-                "overflow": "visible",
-                "overflowX": "visible",
-                "overflowY": "visible",
-                "backgroundImage": "none",
-                "backgroundPosition": "0% 0%",
-                "backgroundRepeat": "repeat",
-                "backgroundSize": "auto",
-                "margin": { "top": "0px", "right": "0px", "bottom": "0px", "left": "0px" },
-                "padding": { "top": "0px", "right": "0px", "bottom": "0px", "left": "0px" },
-                "alignContent": "normal",
-                "alignItems": "normal",
-                "alignSelf": "auto",
-                "gap": "normal",
-                "flexDirection": "row",
-                "flexBasis": "auto",
-                "flexGrow": "0",
-                "flexShrink": "1",
-                "flexWrap": "nowrap",
-                "justifyContent": "normal",
-                "justifyItems": "normal",
-                "justifySelf": "auto",
-                "order": "0",
-                "placeContent": "normal",
-                "placeItems": "normal",
-                "placeSelf": "auto",
-                "gridAutoColumns": "auto",
-                "gridAutoFlow": "row",
-                "gridAutoRows": "auto",
-                "gridColumn": "auto",
-                "gridColumnEnd": "auto",
-                "gridColumnStart": "auto",
-                "gridRow": "auto",
-                "gridRowEnd": "auto",
-                "gridRowStart": "auto",
-                "gridTemplateColumns": "none",
-                "gridTemplateRows": "none"
-              },
+              "semanticAttributes": {},
+              "rect": null,
+              "css": null,
               "provenance": {
                 "sourceUrl": "https://example.test/",
                 "capturedAt": "2026-11-11T16:30:00.000Z",
+                "method": "browser"
+              }
+            }
+          ]
+        },
+        {
+          "sourceRef": "home:skills:css",
+          "parentSourceRef": "home:skills",
+          "ancestorSourceRefs": ["home:skills"],
+          "dom": {
+            "tagName": "div",
+            "childIndex": 0,
+            "attributes": { "aria-label": "CSS", "role": "progressbar" }
+          },
+          "textRuns": [],
+          "links": [],
+          "media": [],
+          "observations": [
+            {
+              "viewportId": "desktop",
+              "stateId": "initial",
+              "availability": { "status": "available", "missing": null },
+              "semanticAttributes": {
+                "aria-valuemin": "0",
+                "aria-valuemax": "100",
+                "aria-valuenow": "20",
+                "role": "progressbar"
+              },
+              "rect": null,
+              "css": null,
+              "provenance": {
+                "sourceUrl": "https://example.test/",
+                "capturedAt": "2026-11-11T16:30:00.000Z",
+                "method": "browser"
+              }
+            },
+            {
+              "viewportId": "desktop",
+              "stateId": "triggered",
+              "availability": { "status": "available", "missing": null },
+              "semanticAttributes": {
+                "aria-valuenow": "72",
+                "aria-valuetext": null,
+                "role": "progressbar"
+              },
+              "rect": null,
+              "css": null,
+              "provenance": {
+                "sourceUrl": "https://example.test/",
+                "capturedAt": "2026-11-11T16:30:01.000Z",
+                "method": "browser"
+              }
+            },
+            {
+              "viewportId": "desktop",
+              "stateId": "settled",
+              "availability": { "status": "available", "missing": null },
+              "semanticAttributes": { "aria-valuenow": "72", "role": "progressbar", "value": 0 },
+              "rect": null,
+              "css": null,
+              "provenance": {
+                "sourceUrl": "https://example.test/",
+                "capturedAt": "2026-11-11T16:30:02.000Z",
+                "method": "browser"
+              }
+            },
+            {
+              "viewportId": "tablet",
+              "stateId": "settled",
+              "availability": { "status": "available", "missing": null },
+              "semanticAttributes": { "aria-valuenow": "0", "role": "progressbar" },
+              "rect": null,
+              "css": null,
+              "provenance": {
+                "sourceUrl": "https://example.test/",
+                "capturedAt": "2026-11-11T16:30:03.000Z",
+                "method": "browser"
+              }
+            },
+            {
+              "viewportId": "mobile",
+              "stateId": "incomplete",
+              "availability": {
+                "status": "missing",
+                "missing": {
+                  "code": "animation-incomplete",
+                  "message": "The activated element did not become stable."
+                }
+              },
+              "semanticAttributes": {},
+              "rect": null,
+              "css": null,
+              "provenance": {
+                "sourceUrl": "https://example.test/",
+                "capturedAt": "2026-11-11T16:30:04.000Z",
                 "method": "browser"
               }
             }

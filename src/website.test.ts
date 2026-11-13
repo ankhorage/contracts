@@ -37,3 +37,27 @@ it('retains the visible unresolved node and the styled inline text run', () => {
     type: 'RichText',
   });
 });
+
+it('keeps safe semantic values distinct by state and viewport without conflating null or incomplete evidence', () => {
+  const observations = websiteObservationFixture.pages[0]?.nodes.find(
+    (node) => node.sourceRef === 'home:skills:css',
+  )?.observations;
+
+  expect(observations?.find((observation) => observation.stateId === 'initial')).toMatchObject({
+    semanticAttributes: { 'aria-valuenow': '20' },
+    viewportId: 'desktop',
+  });
+  expect(observations?.find((observation) => observation.stateId === 'triggered')).toMatchObject({
+    semanticAttributes: { 'aria-valuenow': '72', 'aria-valuetext': null },
+    viewportId: 'desktop',
+  });
+  expect(observations?.find((observation) => observation.viewportId === 'tablet')).toMatchObject({
+    semanticAttributes: { 'aria-valuenow': '0' },
+    stateId: 'settled',
+  });
+  expect(observations?.find((observation) => observation.stateId === 'incomplete')).toMatchObject({
+    availability: { missing: { code: 'animation-incomplete' }, status: 'missing' },
+    semanticAttributes: {},
+    viewportId: 'mobile',
+  });
+});
