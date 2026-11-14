@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 26.10.0
+
+### Minor Changes
+
+- b44b92a: Add portable app capability, internal API handler declaration, and workload API composition contracts.
+
 ## 26.9.0
 
 ### Minor Changes

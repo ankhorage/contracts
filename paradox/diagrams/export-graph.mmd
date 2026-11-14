@@ -253,6 +253,11 @@ graph LR
   module_src_deploy_ts --> export_APP_DEPLOY_TARGET_IDS
   export_APP_ENVIRONMENT_IDS["APP_ENVIRONMENT_IDS"]
   module_src_environments_ts --> export_APP_ENVIRONMENT_IDS
+  export_AppCapabilityProviderReference["AppCapabilityProviderReference"]
+  module_src_requirements_ts --> export_AppCapabilityProviderReference
+  export_AppCapabilityRequirement["AppCapabilityRequirement"]
+  module_src_requirements_ts --> export_AppCapabilityRequirement
+  export_AppCapabilityRequirement -.-> export_AppCapabilityProviderReference
   export_AppCategory["AppCategory"]
   module_src_types_ts --> export_AppCategory
   export_AppDeployAndroidTargetConfig["AppDeployAndroidTargetConfig"]
@@ -283,6 +288,7 @@ graph LR
   export_AppManifest -.-> export_AppCategory
   export_AppManifest -.-> export_AppDeployManifest
   export_AppManifest -.-> export_AppNavigatorManifest
+  export_AppManifest -.-> export_AppRequirements
   export_AppManifest -.-> export_AppSettings
   export_AppManifest -.-> export_AppStateSpec
   export_AppManifest -.-> export_ComponentDataBindingRegistry
@@ -299,6 +305,9 @@ graph LR
   module_src_types_appManifest_ts --> export_AppManifestParseResult
   export_AppNavigatorManifest["AppNavigatorManifest"]
   module_src_navigator_ts --> export_AppNavigatorManifest
+  export_AppRequirements["AppRequirements"]
+  module_src_requirements_ts --> export_AppRequirements
+  export_AppRequirements -.-> export_AppCapabilityRequirement
   export_AppSettings["AppSettings"]
   module_src_types_ts --> export_AppSettings
   export_AppStateSpec["AppStateSpec"]
@@ -1239,6 +1248,8 @@ graph LR
   export_InfraStatus["InfraStatus"]
   module_src_types_infraLifecycle_ts --> export_InfraStatus
   export_InfraStatus -.-> export_InfraResourceStatus
+  export_InfraWorkloadApiComposition["InfraWorkloadApiComposition"]
+  module_src_types_infraWorkload_ts --> export_InfraWorkloadApiComposition
   export_InfraWorkloadArtifact["InfraWorkloadArtifact"]
   module_src_types_infraWorkload_ts --> export_InfraWorkloadArtifact
   export_InfraWorkloadFileMap["InfraWorkloadFileMap"]
@@ -1259,6 +1270,7 @@ graph LR
   module_src_types_infraWorkload_ts --> export_InfraWorkloadScalarValue
   export_InfraWorkloadSpec["InfraWorkloadSpec"]
   module_src_types_infraWorkload_ts --> export_InfraWorkloadSpec
+  export_InfraWorkloadSpec -.-> export_InfraWorkloadApiComposition
   export_InfraWorkloadSpec -.-> export_InfraWorkloadArtifact
   export_InfraWorkloadSpec -.-> export_InfraWorkloadHealthSpec
   export_InfraWorkloadSpec -.-> export_InfraWorkloadPortRegistry
@@ -1271,11 +1283,16 @@ graph LR
   module_src_types_infraWorkload_ts --> export_InfraWorkloadVolumeRegistry
   export_InfraWorkloadVolumeSpec["InfraWorkloadVolumeSpec"]
   module_src_types_infraWorkload_ts --> export_InfraWorkloadVolumeSpec
+  export_InternalApiOperationHandlerDeclaration["InternalApiOperationHandlerDeclaration"]
+  module_src_data_apis_ts --> export_InternalApiOperationHandlerDeclaration
+  export_InternalApiOperationHandlerRegistry["InternalApiOperationHandlerRegistry"]
+  module_src_data_apis_ts --> export_InternalApiOperationHandlerRegistry
   export_InternalRestApiDefinition["InternalRestApiDefinition"]
   module_src_data_apis_ts --> export_InternalRestApiDefinition
   export_InternalRestApiDefinition -.-> export_CredentialRef
   export_InternalRestApiDefinition -.-> export_DataEndpointRegistry
   export_InternalRestApiDefinition -.-> export_DataSchema
+  export_InternalRestApiDefinition -.-> export_InternalApiOperationHandlerRegistry
   export_InternalRestApiDefinition -.-> export_SerializableValue
   export_IosBuildArtifact["IosBuildArtifact"]
   module_src_types_deployProvider_ts --> export_IosBuildArtifact

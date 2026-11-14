@@ -490,25 +490,25 @@ Source: `src/cli/index.ts:20:1`
 
 Kind: `value`
 Module: `src/requirements.ts`
-Source: `src/requirements.ts:16:14`
+Source: `src/requirements.ts:17:14`
 
 ## ANKHORAGE_PERMISSION_NAMES
 
 Kind: `value`
 Module: `src/requirements.ts`
-Source: `src/requirements.ts:3:14`
+Source: `src/requirements.ts:4:14`
 
 ## AnkhorageCapabilityName
 
 Kind: `unknown`
 Module: `src/requirements.ts`
-Source: `src/requirements.ts:27:1`
+Source: `src/requirements.ts:28:1`
 
 ## AnkhoragePermissionName
 
 Kind: `unknown`
 Module: `src/requirements.ts`
-Source: `src/requirements.ts:14:1`
+Source: `src/requirements.ts:15:1`
 
 ## AnkhPackageMetadata
 
@@ -561,7 +561,7 @@ Source: `src/cli/index.ts:28:1`
 
 Kind: `type`
 Module: `src/data/apis.ts`
-Source: `src/data/apis.ts:11:1`
+Source: `src/data/apis.ts:23:1`
 
 ### Members
 
@@ -581,13 +581,13 @@ Source: `src/data/apis.ts:11:1`
 
 Kind: `unknown`
 Module: `src/data/apis.ts`
-Source: `src/data/apis.ts:61:1`
+Source: `src/data/apis.ts:75:1`
 
 ## ApiDefinitionRegistry
 
 Kind: `unknown`
 Module: `src/data/apis.ts`
-Source: `src/data/apis.ts:64:1`
+Source: `src/data/apis.ts:78:1`
 
 ## ApiId
 
@@ -599,13 +599,13 @@ Source: `src/data/ids.ts:1:1`
 
 Kind: `unknown`
 Module: `src/data/apis.ts`
-Source: `src/data/apis.ts:8:1`
+Source: `src/data/apis.ts:20:1`
 
 ## ApiProtocol
 
 Kind: `unknown`
 Module: `src/data/apis.ts`
-Source: `src/data/apis.ts:9:1`
+Source: `src/data/apis.ts:21:1`
 
 ## APP_CATEGORIES
 
@@ -624,6 +624,31 @@ Source: `src/deploy.ts:1:14`
 Kind: `value`
 Module: `src/environments.ts`
 Source: `src/environments.ts:2:14`
+
+## AppCapabilityProviderReference
+
+Kind: `type`
+Module: `src/requirements.ts`
+Source: `src/requirements.ts:41:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| packageName | property | `string` | yes |  |
+
+## AppCapabilityRequirement
+
+Kind: `type`
+Module: `src/requirements.ts`
+Source: `src/requirements.ts:46:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| capability | property | ``${string}.${string}`` | yes |  |
+| provider | property | `AppCapabilityProviderReference \| undefined` | no |  |
 
 ## AppCategory
 
@@ -745,6 +770,7 @@ Source: `src/types.ts:223:1`
 | metadata | property | `{ name: string; slug: string; version: string; category: AppCategory; themeId: ThemeId; created?: string; updated?: string; }` | yes |  |
 | navigator | property | `AppNavigatorManifest` | yes |  |
 | repository | property | `RepositoryManifest \| undefined` | no |  |
+| requires | property | `AppRequirements \| undefined` | no |  |
 | screens | property | `EntityRegistry<string, ScreenSpec, "id">` | yes |  |
 | settings | property | `AppSettings` | yes |  |
 | splashScreen | property | `SplashScreenSpec \| undefined` | no |  |
@@ -762,6 +788,18 @@ Source: `src/types/appManifest.ts:3:1`
 Kind: `unknown`
 Module: `src/navigator.ts`
 Source: `src/navigator.ts:274:1`
+
+## AppRequirements
+
+Kind: `type`
+Module: `src/requirements.ts`
+Source: `src/requirements.ts:52:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| capabilities | property | `readonly AppCapabilityRequirement[] \| undefined` | no |  |
 
 ## AppSettings
 
@@ -1751,7 +1789,7 @@ Source: `src/bindings.ts:5:1`
 
 Kind: `type`
 Module: `src/requirements.ts`
-Source: `src/requirements.ts:34:1`
+Source: `src/requirements.ts:35:1`
 
 ### Members
 
@@ -2955,7 +2993,7 @@ Source: `src/navigator/planning.ts:46:1`
 
 Kind: `type`
 Module: `src/data/apis.ts`
-Source: `src/data/apis.ts:41:1`
+Source: `src/data/apis.ts:53:1`
 
 ### Members
 
@@ -2977,7 +3015,7 @@ Source: `src/data/apis.ts:41:1`
 
 Kind: `type`
 Module: `src/data/apis.ts`
-Source: `src/data/apis.ts:29:1`
+Source: `src/data/apis.ts:41:1`
 
 ### Members
 
@@ -3516,7 +3554,7 @@ One evaluated rule node in a portable Rules graph projection.
 
 Kind: `type`
 Module: `src/data/apis.ts`
-Source: `src/data/apis.ts:36:1`
+Source: `src/data/apis.ts:48:1`
 
 ### Members
 
@@ -4212,6 +4250,18 @@ Source: `src/types/infraLifecycle.ts:58:1`
 | resources | property | `readonly InfraResourceStatus[]` | yes |  |
 | state | property | `"unknown" \| "failed" \| "pending" \| "absent" \| "ready" \| "degraded" \| "stopped" \| "retained"` | yes |  |
 
+## InfraWorkloadApiComposition
+
+Kind: `type`
+Module: `src/types/infraWorkload.ts`
+Source: `src/types/infraWorkload.ts:61:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| apiIds | property | `Readonly<Partial<Record<string, true>>>` | yes |  |
+
 ## InfraWorkloadArtifact
 
 Kind: `type`
@@ -4229,7 +4279,7 @@ Source: `src/types/infraWorkload.ts:4:1`
 
 Kind: `unknown`
 Module: `src/types/infraWorkload.ts`
-Source: `src/types/infraWorkload.ts:62:1`
+Source: `src/types/infraWorkload.ts:67:1`
 
 ## InfraWorkloadHealthSpec
 
@@ -4241,7 +4291,7 @@ Source: `src/types/infraWorkload.ts:35:1`
 
 Kind: `unknown`
 Module: `src/types/infraWorkload.ts`
-Source: `src/types/infraWorkload.ts:60:1`
+Source: `src/types/infraWorkload.ts:65:1`
 
 ## InfraWorkloadPort
 
@@ -4261,13 +4311,13 @@ Source: `src/types/infraWorkload.ts:28:1`
 
 Kind: `unknown`
 Module: `src/types/infraWorkload.ts`
-Source: `src/types/infraWorkload.ts:61:1`
+Source: `src/types/infraWorkload.ts:66:1`
 
 ## InfraWorkloadRegistry
 
 Kind: `unknown`
 Module: `src/types/infraWorkload.ts`
-Source: `src/types/infraWorkload.ts:82:1`
+Source: `src/types/infraWorkload.ts:89:1`
 
 ## InfraWorkloadResourceSpec
 
@@ -4292,12 +4342,13 @@ Source: `src/types/infraWorkload.ts:10:1`
 
 Kind: `type`
 Module: `src/types/infraWorkload.ts`
-Source: `src/types/infraWorkload.ts:65:1`
+Source: `src/types/infraWorkload.ts:70:1`
 
 ### Members
 
 | Name | Kind | Type | Required | Description |
 | --- | --- | --- | --- | --- |
+| apis | property | `InfraWorkloadApiComposition \| undefined` | no |  |
 | args | property | `readonly string[] \| undefined` | no |  |
 | artifact | property | `InfraWorkloadArtifact` | yes |  |
 | command | property | `readonly string[] \| undefined` | no |  |
@@ -4322,7 +4373,7 @@ Source: `src/types/infraWorkload.ts:20:1`
 
 Kind: `unknown`
 Module: `src/types/infraWorkload.ts`
-Source: `src/types/infraWorkload.ts:63:1`
+Source: `src/types/infraWorkload.ts:68:1`
 
 ## InfraWorkloadVolumeSpec
 
@@ -4340,11 +4391,30 @@ Source: `src/types/infraWorkload.ts:50:1`
 | seed | property | `"image" \| undefined` | no |  |
 | sizeGiB | property | `number` | yes |  |
 
+## InternalApiOperationHandlerDeclaration
+
+Kind: `type`
+Module: `src/data/apis.ts`
+Source: `src/data/apis.ts:10:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| capability | property | ``${string}.${string}`` | yes |  |
+| operationId | property | `string` | yes |  |
+
+## InternalApiOperationHandlerRegistry
+
+Kind: `unknown`
+Module: `src/data/apis.ts`
+Source: `src/data/apis.ts:15:1`
+
 ## InternalRestApiDefinition
 
 Kind: `type`
 Module: `src/data/apis.ts`
-Source: `src/data/apis.ts:55:1`
+Source: `src/data/apis.ts:67:1`
 
 ### Members
 
@@ -4354,6 +4424,7 @@ Source: `src/data/apis.ts:55:1`
 | credential | property | `CredentialRef \| undefined` | no |  |
 | description | property | `string \| undefined` | no |  |
 | endpoints | property | `DataEndpointRegistry` | yes |  |
+| handlers | property | `InternalApiOperationHandlerRegistry \| undefined` | no |  |
 | id | property | `string` | yes |  |
 | metadata | property | `import("../serializable.js").SerializableValue \| undefined` | no |  |
 | name | property | `string \| undefined` | no |  |
@@ -4547,7 +4618,7 @@ Validate authored application deployment configuration.
 
 Kind: `function`
 Module: `src/appManifest/isAppManifest.ts`
-Source: `src/appManifest/isAppManifest.ts:21:1`
+Source: `src/appManifest/isAppManifest.ts:22:1`
 
 Return whether an unknown value satisfies the canonical AppManifest shape.
 
@@ -5722,7 +5793,7 @@ Source: `src/secrets.ts:129:1`
 
 Kind: `type`
 Module: `src/data/apis.ts`
-Source: `src/data/apis.ts:23:1`
+Source: `src/data/apis.ts:35:1`
 
 ### Members
 
@@ -6412,7 +6483,7 @@ Source: `src/types.ts:172:1`
 
 Kind: `type`
 Module: `src/requirements.ts`
-Source: `src/requirements.ts:29:1`
+Source: `src/requirements.ts:30:1`
 
 ### Members
 

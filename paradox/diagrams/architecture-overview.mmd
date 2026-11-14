@@ -29,6 +29,7 @@ graph TD
   module_src_appManifest_isAppManifest_ts --> module_src_appManifest_media_ts
   module_src_appManifest_isAppManifest_ts --> module_src_appManifest_screens_ts
   module_src_appManifest_isAppManifest_ts --> module_src_infra_isInfraManifest_ts
+  module_src_appManifest_isAppManifest_ts --> module_src_requirements_ts
   module_src_appManifest_isAppManifest_ts --> module_src_types_ts
   module_src_appManifest_isAppStateSpec_ts["src/appManifest/isAppStateSpec.ts"]
   package__ankhorage_contracts -.-> module_src_appManifest_isAppStateSpec_ts
@@ -81,6 +82,7 @@ graph TD
   package__ankhorage_contracts -.-> module_src_collections_ts
   module_src_data_apis_ts["src/data/apis.ts"]
   package__ankhorage_contracts -.-> module_src_data_apis_ts
+  module_src_data_apis_ts --> module_src_capability_ts
   module_src_data_apis_ts --> module_src_collections_ts
   module_src_data_apis_ts --> module_src_data_endpoints_ts
   module_src_data_apis_ts --> module_src_data_ids_ts
@@ -266,6 +268,7 @@ graph TD
   package__ankhorage_contracts -.-> module_src_repository_ts
   module_src_requirements_ts["src/requirements.ts"]
   package__ankhorage_contracts -.-> module_src_requirements_ts
+  module_src_requirements_ts --> module_src_capability_ts
   module_src_requirements_ts --> module_src_collections_ts
   module_src_rules_ts["src/rules.ts"]
   package__ankhorage_contracts -.-> module_src_rules_ts

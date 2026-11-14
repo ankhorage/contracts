@@ -1755,7 +1755,7 @@
     "modulePath": "src/requirements.ts",
     "sourceLocation": {
       "filePath": "src/requirements.ts",
-      "line": 16,
+      "line": 17,
       "column": 14
     },
     "exportPaths": [
@@ -1777,7 +1777,7 @@
     "modulePath": "src/requirements.ts",
     "sourceLocation": {
       "filePath": "src/requirements.ts",
-      "line": 3,
+      "line": 4,
       "column": 14
     },
     "exportPaths": [
@@ -1799,7 +1799,7 @@
     "modulePath": "src/requirements.ts",
     "sourceLocation": {
       "filePath": "src/requirements.ts",
-      "line": 27,
+      "line": 28,
       "column": 1
     },
     "exportPaths": [
@@ -1821,7 +1821,7 @@
     "modulePath": "src/requirements.ts",
     "sourceLocation": {
       "filePath": "src/requirements.ts",
-      "line": 14,
+      "line": 15,
       "column": 1
     },
     "exportPaths": [
@@ -1994,7 +1994,7 @@
     "modulePath": "src/data/apis.ts",
     "sourceLocation": {
       "filePath": "src/data/apis.ts",
-      "line": 11,
+      "line": 23,
       "column": 1
     },
     "exportPaths": [
@@ -2087,7 +2087,7 @@
     "modulePath": "src/data/apis.ts",
     "sourceLocation": {
       "filePath": "src/data/apis.ts",
-      "line": 61,
+      "line": 75,
       "column": 1
     },
     "exportPaths": [
@@ -2109,7 +2109,7 @@
     "modulePath": "src/data/apis.ts",
     "sourceLocation": {
       "filePath": "src/data/apis.ts",
-      "line": 64,
+      "line": 78,
       "column": 1
     },
     "exportPaths": [
@@ -2153,7 +2153,7 @@
     "modulePath": "src/data/apis.ts",
     "sourceLocation": {
       "filePath": "src/data/apis.ts",
-      "line": 8,
+      "line": 20,
       "column": 1
     },
     "exportPaths": [
@@ -2175,7 +2175,7 @@
     "modulePath": "src/data/apis.ts",
     "sourceLocation": {
       "filePath": "src/data/apis.ts",
-      "line": 9,
+      "line": 21,
       "column": 1
     },
     "exportPaths": [
@@ -2250,6 +2250,75 @@
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "AppCapabilityProviderReference",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/requirements.ts",
+    "sourceLocation": {
+      "filePath": "src/requirements.ts",
+      "line": 41,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "packageName",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "AppCapabilityRequirement",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/requirements.ts",
+    "sourceLocation": {
+      "filePath": "src/requirements.ts",
+      "line": 46,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "AppCapabilityProviderReference"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "capability",
+        "kind": "property",
+        "type": "`${string}.${string}`",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "provider",
+        "kind": "property",
+        "type": "AppCapabilityProviderReference | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
     "structuredRows": []
   },
   {
@@ -2601,6 +2670,7 @@
       "AppCategory",
       "AppDeployManifest",
       "AppNavigatorManifest",
+      "AppRequirements",
       "AppSettings",
       "AppStateSpec",
       "ComponentDataBindingRegistry",
@@ -2687,6 +2757,13 @@
         "description": null
       },
       {
+        "name": "requires",
+        "kind": "property",
+        "type": "AppRequirements | undefined",
+        "required": false,
+        "description": null
+      },
+      {
         "name": "screens",
         "kind": "property",
         "type": "EntityRegistry<string, ScreenSpec, \"id\">",
@@ -2766,6 +2843,38 @@
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "AppRequirements",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/requirements.ts",
+    "sourceLocation": {
+      "filePath": "src/requirements.ts",
+      "line": 52,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "AppCapabilityRequirement"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "capabilities",
+        "kind": "property",
+        "type": "readonly AppCapabilityRequirement[] | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
     "structuredRows": []
   },
   {
@@ -6304,7 +6413,7 @@
     "modulePath": "src/requirements.ts",
     "sourceLocation": {
       "filePath": "src/requirements.ts",
-      "line": 34,
+      "line": 35,
       "column": 1
     },
     "exportPaths": [
@@ -10726,7 +10835,7 @@
     "modulePath": "src/data/apis.ts",
     "sourceLocation": {
       "filePath": "src/data/apis.ts",
-      "line": 41,
+      "line": 53,
       "column": 1
     },
     "exportPaths": [
@@ -10832,7 +10941,7 @@
     "modulePath": "src/data/apis.ts",
     "sourceLocation": {
       "filePath": "src/data/apis.ts",
-      "line": 29,
+      "line": 41,
       "column": 1
     },
     "exportPaths": [
@@ -12603,7 +12712,7 @@
     "modulePath": "src/data/apis.ts",
     "sourceLocation": {
       "filePath": "src/data/apis.ts",
-      "line": 36,
+      "line": 48,
       "column": 1
     },
     "exportPaths": [
@@ -15105,6 +15214,36 @@
     "structuredRows": []
   },
   {
+    "name": "InfraWorkloadApiComposition",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/infraWorkload.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraWorkload.ts",
+      "line": 61,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "apiIds",
+        "kind": "property",
+        "type": "Readonly<Partial<Record<string, true>>>",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
     "name": "InfraWorkloadArtifact",
     "title": null,
     "description": null,
@@ -15152,7 +15291,7 @@
     "modulePath": "src/types/infraWorkload.ts",
     "sourceLocation": {
       "filePath": "src/types/infraWorkload.ts",
-      "line": 62,
+      "line": 67,
       "column": 1
     },
     "exportPaths": [
@@ -15196,7 +15335,7 @@
     "modulePath": "src/types/infraWorkload.ts",
     "sourceLocation": {
       "filePath": "src/types/infraWorkload.ts",
-      "line": 60,
+      "line": 65,
       "column": 1
     },
     "exportPaths": [
@@ -15262,7 +15401,7 @@
     "modulePath": "src/types/infraWorkload.ts",
     "sourceLocation": {
       "filePath": "src/types/infraWorkload.ts",
-      "line": 61,
+      "line": 66,
       "column": 1
     },
     "exportPaths": [
@@ -15284,7 +15423,7 @@
     "modulePath": "src/types/infraWorkload.ts",
     "sourceLocation": {
       "filePath": "src/types/infraWorkload.ts",
-      "line": 82,
+      "line": 89,
       "column": 1
     },
     "exportPaths": [
@@ -15365,13 +15504,14 @@
     "modulePath": "src/types/infraWorkload.ts",
     "sourceLocation": {
       "filePath": "src/types/infraWorkload.ts",
-      "line": 65,
+      "line": 70,
       "column": 1
     },
     "exportPaths": [
       "src/index.ts"
     ],
     "relatedSymbols": [
+      "InfraWorkloadApiComposition",
       "InfraWorkloadArtifact",
       "InfraWorkloadHealthSpec",
       "InfraWorkloadPortRegistry",
@@ -15381,6 +15521,13 @@
     ],
     "signatures": [],
     "members": [
+      {
+        "name": "apis",
+        "kind": "property",
+        "type": "InfraWorkloadApiComposition | undefined",
+        "required": false,
+        "description": null
+      },
       {
         "name": "args",
         "kind": "property",
@@ -15508,7 +15655,7 @@
     "modulePath": "src/types/infraWorkload.ts",
     "sourceLocation": {
       "filePath": "src/types/infraWorkload.ts",
-      "line": 63,
+      "line": 68,
       "column": 1
     },
     "exportPaths": [
@@ -15578,6 +15725,65 @@
     "structuredRows": []
   },
   {
+    "name": "InternalApiOperationHandlerDeclaration",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/data/apis.ts",
+    "sourceLocation": {
+      "filePath": "src/data/apis.ts",
+      "line": 10,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "capability",
+        "kind": "property",
+        "type": "`${string}.${string}`",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "operationId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "InternalApiOperationHandlerRegistry",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/data/apis.ts",
+    "sourceLocation": {
+      "filePath": "src/data/apis.ts",
+      "line": 15,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
     "name": "InternalRestApiDefinition",
     "title": null,
     "description": null,
@@ -15588,7 +15794,7 @@
     "modulePath": "src/data/apis.ts",
     "sourceLocation": {
       "filePath": "src/data/apis.ts",
-      "line": 55,
+      "line": 67,
       "column": 1
     },
     "exportPaths": [
@@ -15598,6 +15804,7 @@
       "CredentialRef",
       "DataEndpointRegistry",
       "DataSchema",
+      "InternalApiOperationHandlerRegistry",
       "SerializableValue"
     ],
     "signatures": [],
@@ -15628,6 +15835,13 @@
         "kind": "property",
         "type": "DataEndpointRegistry",
         "required": true,
+        "description": null
+      },
+      {
+        "name": "handlers",
+        "kind": "property",
+        "type": "InternalApiOperationHandlerRegistry | undefined",
+        "required": false,
         "description": null
       },
       {
@@ -16329,7 +16543,7 @@
     "modulePath": "src/appManifest/isAppManifest.ts",
     "sourceLocation": {
       "filePath": "src/appManifest/isAppManifest.ts",
-      "line": 21,
+      "line": 22,
       "column": 1
     },
     "exportPaths": [
@@ -20271,7 +20485,7 @@
     "modulePath": "src/data/apis.ts",
     "sourceLocation": {
       "filePath": "src/data/apis.ts",
-      "line": 23,
+      "line": 35,
       "column": 1
     },
     "exportPaths": [
@@ -22639,7 +22853,7 @@
     "modulePath": "src/requirements.ts",
     "sourceLocation": {
       "filePath": "src/requirements.ts",
-      "line": 29,
+      "line": 30,
       "column": 1
     },
     "exportPaths": [
