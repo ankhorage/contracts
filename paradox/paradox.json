@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v26.8.0",
+      "value": "v26.9.0",
       "color": "cb3837"
     },
     {
@@ -1730,6 +1730,9 @@
         "WebDeploymentPublisher",
         "WebDeploymentPublishIntent",
         "WebDeploymentPublishRequest",
+        "WebsiteAnimationEvidence",
+        "WebsiteAnimationProperty",
+        "WebsiteAnimationTarget",
         "WebsiteAsset",
         "WebsiteAvailability",
         "WebsiteBoundingRect",
@@ -1747,6 +1750,8 @@
         "WebsiteObservedNode",
         "WebsitePageObservation",
         "WebsitePageRecognition",
+        "WebsitePseudoElementBoxSize",
+        "WebsitePseudoElementObservation",
         "WebsiteRecognitionDocument",
         "WebsiteRecognizedMedia",
         "WebsiteRecognizedNode",
@@ -2980,6 +2985,9 @@
         "src/types.ts"
       ],
       "exports": [
+        "WebsiteAnimationEvidence",
+        "WebsiteAnimationProperty",
+        "WebsiteAnimationTarget",
         "WebsiteAsset",
         "WebsiteAvailability",
         "WebsiteBoundingRect",
@@ -2997,6 +3005,8 @@
         "WebsiteObservedNode",
         "WebsitePageObservation",
         "WebsitePageRecognition",
+        "WebsitePseudoElementBoxSize",
+        "WebsitePseudoElementObservation",
         "WebsiteRecognitionDocument",
         "WebsiteRecognizedMedia",
         "WebsiteRecognizedNode",
@@ -32938,6 +32948,146 @@
       "structuredRows": []
     },
     {
+      "name": "WebsiteAnimationEvidence",
+      "title": null,
+      "description": "State-specific browser evidence for an animation-capable target without inventing unobserved CSS.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/website.ts",
+      "sourceLocation": {
+        "filePath": "src/website.ts",
+        "line": 146,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "WebsiteAnimationTarget",
+        "WebsiteMissingValue",
+        "WebsitePseudoElementObservation"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "pseudoElements",
+          "kind": "property",
+          "type": "readonly WebsitePseudoElementObservation[]",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "target",
+          "kind": "property",
+          "type": "WebsiteAnimationTarget",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "trigger",
+          "kind": "property",
+          "type": "\"unknown\" | \"scroll-into-view\"",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "uncertainty",
+          "kind": "property",
+          "type": "readonly WebsiteMissingValue[]",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "WebsiteAnimationProperty",
+      "title": null,
+      "description": "One animation-related computed property with explicit missing-source semantics.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/website.ts",
+      "sourceLocation": {
+        "filePath": "src/website.ts",
+        "line": 161,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "WebsiteAvailability"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "availability",
+          "kind": "property",
+          "type": "WebsiteAvailability",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "value",
+          "kind": "property",
+          "type": "string | null",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "WebsiteAnimationTarget",
+      "title": null,
+      "description": "Computed animation properties of the observed DOM target.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/website.ts",
+      "sourceLocation": {
+        "filePath": "src/website.ts",
+        "line": 154,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "WebsiteAnimationProperty"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "animation",
+          "kind": "property",
+          "type": "WebsiteAnimationProperty",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "transform",
+          "kind": "property",
+          "type": "WebsiteAnimationProperty",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "transition",
+          "kind": "property",
+          "type": "WebsiteAnimationProperty",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
       "name": "WebsiteAsset",
       "title": null,
       "description": "A reusable media asset discovered during the crawl.",
@@ -32948,7 +33098,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 226,
+        "line": 266,
         "column": 1
       },
       "exportPaths": [
@@ -33006,7 +33156,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 133,
+        "line": 134,
         "column": 1
       },
       "exportPaths": [
@@ -33045,7 +33195,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 145,
+        "line": 182,
         "column": 1
       },
       "exportPaths": [
@@ -33096,7 +33246,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 211,
+        "line": 251,
         "column": 1
       },
       "exportPaths": [
@@ -33147,7 +33297,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 153,
+        "line": 190,
         "column": 1
       },
       "exportPaths": [
@@ -33177,6 +33327,13 @@
           "kind": "property",
           "type": "string",
           "required": true,
+          "description": null
+        },
+        {
+          "name": "animation",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
           "description": null
         },
         {
@@ -33530,6 +33687,20 @@
           "description": null
         },
         {
+          "name": "transform",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "transition",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
           "name": "visibility",
           "kind": "property",
           "type": "string",
@@ -33550,7 +33721,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 289,
+        "line": 329,
         "column": 1
       },
       "exportPaths": [
@@ -33756,7 +33927,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 139,
+        "line": 140,
         "column": 1
       },
       "exportPaths": [
@@ -33851,6 +34022,7 @@
         "src/index.ts"
       ],
       "relatedSymbols": [
+        "WebsiteAnimationEvidence",
         "WebsiteAvailability",
         "WebsiteBoundingRect",
         "WebsiteComputedCss",
@@ -33860,6 +34032,13 @@
       ],
       "signatures": [],
       "members": [
+        {
+          "name": "animationEvidence",
+          "kind": "property",
+          "type": "WebsiteAnimationEvidence | undefined",
+          "required": false,
+          "description": null
+        },
         {
           "name": "availability",
           "kind": "property",
@@ -33992,7 +34171,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 219,
+        "line": 259,
         "column": 1
       },
       "exportPaths": [
@@ -34206,7 +34385,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 249,
+        "line": 289,
         "column": 1
       },
       "exportPaths": [
@@ -34257,6 +34436,108 @@
       "structuredRows": []
     },
     {
+      "name": "WebsitePseudoElementBoxSize",
+      "title": null,
+      "description": "Computed pseudo-element dimensions retained as CSS evidence rather than a fabricated DOM rectangle.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/website.ts",
+      "sourceLocation": {
+        "filePath": "src/website.ts",
+        "line": 176,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "WebsiteAnimationProperty"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "height",
+          "kind": "property",
+          "type": "WebsiteAnimationProperty",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "width",
+          "kind": "property",
+          "type": "WebsiteAnimationProperty",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "WebsitePseudoElementObservation",
+      "title": null,
+      "description": "A CSS-generated pseudo-element observed as evidence, never represented as a fabricated DOM child.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/website.ts",
+      "sourceLocation": {
+        "filePath": "src/website.ts",
+        "line": 167,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "WebsiteAnimationProperty",
+        "WebsiteAvailability",
+        "WebsiteComputedCss",
+        "WebsitePseudoElementBoxSize"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "availability",
+          "kind": "property",
+          "type": "WebsiteAvailability",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "boxSize",
+          "kind": "property",
+          "type": "WebsitePseudoElementBoxSize",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "content",
+          "kind": "property",
+          "type": "WebsiteAnimationProperty",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "css",
+          "kind": "property",
+          "type": "WebsiteComputedCss | null",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "pseudo",
+          "kind": "property",
+          "type": "\"::after\" | \"::before\"",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
       "name": "WebsiteRecognitionDocument",
       "title": null,
       "description": "A versioned canonical component recognition derived from website observations.",
@@ -34267,7 +34548,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 235,
+        "line": 275,
         "column": 1
       },
       "exportPaths": [
@@ -34367,7 +34648,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 298,
+        "line": 338,
         "column": 1
       },
       "exportPaths": [
@@ -34420,7 +34701,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 258,
+        "line": 298,
         "column": 1
       },
       "exportPaths": [
@@ -34503,7 +34784,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 270,
+        "line": 310,
         "column": 1
       },
       "exportPaths": [
@@ -34549,7 +34830,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 277,
+        "line": 317,
         "column": 1
       },
       "exportPaths": [
@@ -34588,7 +34869,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 120,
+        "line": 121,
         "column": 1
       },
       "exportPaths": [
@@ -34610,7 +34891,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 130,
+        "line": 131,
         "column": 1
       },
       "exportPaths": [
@@ -34808,7 +35089,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 283,
+        "line": 323,
         "column": 1
       },
       "exportPaths": [
@@ -45162,6 +45443,11 @@
       },
       {
         "fromSymbol": "WebsiteNodeObservation",
+        "toType": "WebsiteAnimationEvidence",
+        "sourcePath": "src/website.ts"
+      },
+      {
+        "fromSymbol": "WebsiteNodeObservation",
         "toType": "WebsiteAvailability",
         "sourcePath": "src/website.ts"
       },
@@ -45193,6 +45479,56 @@
       {
         "fromSymbol": "WebsiteAvailability",
         "toType": "WebsiteMissingValue",
+        "sourcePath": "src/website.ts"
+      },
+      {
+        "fromSymbol": "WebsiteAnimationEvidence",
+        "toType": "WebsiteAnimationTarget",
+        "sourcePath": "src/website.ts"
+      },
+      {
+        "fromSymbol": "WebsiteAnimationEvidence",
+        "toType": "WebsiteMissingValue",
+        "sourcePath": "src/website.ts"
+      },
+      {
+        "fromSymbol": "WebsiteAnimationEvidence",
+        "toType": "WebsitePseudoElementObservation",
+        "sourcePath": "src/website.ts"
+      },
+      {
+        "fromSymbol": "WebsiteAnimationTarget",
+        "toType": "WebsiteAnimationProperty",
+        "sourcePath": "src/website.ts"
+      },
+      {
+        "fromSymbol": "WebsiteAnimationProperty",
+        "toType": "WebsiteAvailability",
+        "sourcePath": "src/website.ts"
+      },
+      {
+        "fromSymbol": "WebsitePseudoElementObservation",
+        "toType": "WebsiteAnimationProperty",
+        "sourcePath": "src/website.ts"
+      },
+      {
+        "fromSymbol": "WebsitePseudoElementObservation",
+        "toType": "WebsiteAvailability",
+        "sourcePath": "src/website.ts"
+      },
+      {
+        "fromSymbol": "WebsitePseudoElementObservation",
+        "toType": "WebsiteComputedCss",
+        "sourcePath": "src/website.ts"
+      },
+      {
+        "fromSymbol": "WebsitePseudoElementObservation",
+        "toType": "WebsitePseudoElementBoxSize",
+        "sourcePath": "src/website.ts"
+      },
+      {
+        "fromSymbol": "WebsitePseudoElementBoxSize",
+        "toType": "WebsiteAnimationProperty",
         "sourcePath": "src/website.ts"
       },
       {

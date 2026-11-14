@@ -8466,11 +8466,59 @@ Source: `src/types/deployProvider.ts:151:1`
 | resolveSecret | property | `DeploymentSecretResolver` | yes |  |
 | revision | property | `string` | yes |  |
 
+## WebsiteAnimationEvidence
+
+Kind: `type`
+Module: `src/website.ts`
+Source: `src/website.ts:146:1`
+
+State-specific browser evidence for an animation-capable target without inventing unobserved CSS.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| pseudoElements | property | `readonly WebsitePseudoElementObservation[]` | yes |  |
+| target | property | `WebsiteAnimationTarget` | yes |  |
+| trigger | property | `"unknown" \| "scroll-into-view"` | yes |  |
+| uncertainty | property | `readonly WebsiteMissingValue[]` | yes |  |
+
+## WebsiteAnimationProperty
+
+Kind: `type`
+Module: `src/website.ts`
+Source: `src/website.ts:161:1`
+
+One animation-related computed property with explicit missing-source semantics.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| availability | property | `WebsiteAvailability` | yes |  |
+| value | property | `string \| null` | yes |  |
+
+## WebsiteAnimationTarget
+
+Kind: `type`
+Module: `src/website.ts`
+Source: `src/website.ts:154:1`
+
+Computed animation properties of the observed DOM target.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| animation | property | `WebsiteAnimationProperty` | yes |  |
+| transform | property | `WebsiteAnimationProperty` | yes |  |
+| transition | property | `WebsiteAnimationProperty` | yes |  |
+
 ## WebsiteAsset
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:226:1`
+Source: `src/website.ts:266:1`
 
 A reusable media asset discovered during the crawl.
 
@@ -8488,7 +8536,7 @@ A reusable media asset discovered during the crawl.
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:133:1`
+Source: `src/website.ts:134:1`
 
 Whether a source value was available without fabricating a replacement.
 
@@ -8503,7 +8551,7 @@ Whether a source value was available without fabricating a replacement.
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:145:1`
+Source: `src/website.ts:182:1`
 
 A bounding rectangle measured in CSS pixels.
 
@@ -8520,7 +8568,7 @@ A bounding rectangle measured in CSS pixels.
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:211:1`
+Source: `src/website.ts:251:1`
 
 The four computed edges of a CSS box value.
 
@@ -8537,7 +8585,7 @@ The four computed edges of a CSS box value.
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:153:1`
+Source: `src/website.ts:190:1`
 
 Computed visual CSS values needed to describe, not assess, a rendered website.
 
@@ -8548,6 +8596,7 @@ Computed visual CSS values needed to describe, not assess, a rendered website.
 | alignContent | property | `string` | yes |  |
 | alignItems | property | `string` | yes |  |
 | alignSelf | property | `string` | yes |  |
+| animation | property | `string \| undefined` | no |  |
 | backgroundColor | property | `string` | yes |  |
 | backgroundImage | property | `string` | yes |  |
 | backgroundPosition | property | `string` | yes |  |
@@ -8598,13 +8647,15 @@ Computed visual CSS values needed to describe, not assess, a rendered website.
 | position | property | `string` | yes |  |
 | textAlign | property | `string` | yes |  |
 | textDecoration | property | `string` | yes |  |
+| transform | property | `string \| undefined` | no |  |
+| transition | property | `string \| undefined` | no |  |
 | visibility | property | `string` | yes |  |
 
 ## WebsiteDesignToken
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:289:1`
+Source: `src/website.ts:329:1`
 
 A normalized design token with its exact source values retained.
 
@@ -8672,7 +8723,7 @@ An image, video, audio, or embedded media reference observed on a DOM node.
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:139:1`
+Source: `src/website.ts:140:1`
 
 The explicit reason a website source value could not be observed.
 
@@ -8712,6 +8763,7 @@ One viewport/state-specific visual observation of a DOM node.
 
 | Name | Kind | Type | Required | Description |
 | --- | --- | --- | --- | --- |
+| animationEvidence | property | `WebsiteAnimationEvidence \| undefined` | no |  |
 | availability | property | `WebsiteAvailability` | yes |  |
 | css | property | `WebsiteComputedCss \| null` | yes |  |
 | provenance | property | `WebsiteObservationProvenance` | yes |  |
@@ -8743,7 +8795,7 @@ A versioned, portable capture of the observable state of one website.
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:219:1`
+Source: `src/website.ts:259:1`
 
 How an observation was obtained from the source page.
 
@@ -8801,7 +8853,7 @@ One observed page, including its ordered navigation and captured render states.
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:249:1`
+Source: `src/website.ts:289:1`
 
 A recognized page with its canonical UiNode tree and retained source mapping.
 
@@ -8815,11 +8867,44 @@ A recognized page with its canonical UiNode tree and retained source mapping.
 | root | property | `UiNode` | yes |  |
 | url | property | `string` | yes |  |
 
+## WebsitePseudoElementBoxSize
+
+Kind: `type`
+Module: `src/website.ts`
+Source: `src/website.ts:176:1`
+
+Computed pseudo-element dimensions retained as CSS evidence rather than a fabricated DOM rectangle.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| height | property | `WebsiteAnimationProperty` | yes |  |
+| width | property | `WebsiteAnimationProperty` | yes |  |
+
+## WebsitePseudoElementObservation
+
+Kind: `type`
+Module: `src/website.ts`
+Source: `src/website.ts:167:1`
+
+A CSS-generated pseudo-element observed as evidence, never represented as a fabricated DOM child.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| availability | property | `WebsiteAvailability` | yes |  |
+| boxSize | property | `WebsitePseudoElementBoxSize` | yes |  |
+| content | property | `WebsiteAnimationProperty` | yes |  |
+| css | property | `WebsiteComputedCss \| null` | yes |  |
+| pseudo | property | `"::after" \| "::before"` | yes |  |
+
 ## WebsiteRecognitionDocument
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:235:1`
+Source: `src/website.ts:275:1`
 
 A versioned canonical component recognition derived from website observations.
 
@@ -8842,7 +8927,7 @@ A versioned canonical component recognition derived from website observations.
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:298:1`
+Source: `src/website.ts:338:1`
 
 A recognized portable media reference, optionally compatible with an app media asset.
 
@@ -8859,7 +8944,7 @@ A recognized portable media reference, optionally compatible with an app media a
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:258:1`
+Source: `src/website.ts:298:1`
 
 A source-linked canonical UiNode mapping; component shape remains owned by UiNode.
 
@@ -8880,7 +8965,7 @@ A source-linked canonical UiNode mapping; component shape remains owned by UiNod
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:270:1`
+Source: `src/website.ts:310:1`
 
 A normalized UiNode property and the exact serializable values observed before normalization.
 
@@ -8896,7 +8981,7 @@ A normalized UiNode property and the exact serializable values observed before n
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:277:1`
+Source: `src/website.ts:317:1`
 
 A viewport-specific UiNode property override retained by the recognition.
 
@@ -8911,7 +8996,7 @@ A viewport-specific UiNode property override retained by the recognition.
 
 Kind: `unknown`
 Module: `src/website.ts`
-Source: `src/website.ts:120:1`
+Source: `src/website.ts:121:1`
 
 A safe semantic attribute that may differ for one DOM node across observed states.
 
@@ -8919,7 +9004,7 @@ A safe semantic attribute that may differ for one DOM node across observed state
 
 Kind: `unknown`
 Module: `src/website.ts`
-Source: `src/website.ts:130:1`
+Source: `src/website.ts:131:1`
 
 An explicitly observed semantic value; omission means absent and null remains a real value.
 
@@ -8991,7 +9076,7 @@ A text run retained separately from its DOM node so inline styled spans are not 
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:283:1`
+Source: `src/website.ts:323:1`
 
 A visible source node that could not be mapped without silently discarding it.
 

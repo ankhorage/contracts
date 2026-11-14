@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 26.9.0
+
+### Minor Changes
+
+- 70c5179: Add portable website animation target and CSS pseudo-element evidence contracts.
+
 ## 26.8.0
 
 ### Minor Changes

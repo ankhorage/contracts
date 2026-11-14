@@ -2309,6 +2309,17 @@ graph LR
   export_WebDeploymentPublishRequest -.-> export_DeploymentCredentialReference
   export_WebDeploymentPublishRequest -.-> export_DeploymentSecretResolver
   export_WebDeploymentPublishRequest -.-> export_WebDeploymentPublishIntent
+  export_WebsiteAnimationEvidence["WebsiteAnimationEvidence"]
+  module_src_website_ts --> export_WebsiteAnimationEvidence
+  export_WebsiteAnimationEvidence -.-> export_WebsiteAnimationTarget
+  export_WebsiteAnimationEvidence -.-> export_WebsiteMissingValue
+  export_WebsiteAnimationEvidence -.-> export_WebsitePseudoElementObservation
+  export_WebsiteAnimationProperty["WebsiteAnimationProperty"]
+  module_src_website_ts --> export_WebsiteAnimationProperty
+  export_WebsiteAnimationProperty -.-> export_WebsiteAvailability
+  export_WebsiteAnimationTarget["WebsiteAnimationTarget"]
+  module_src_website_ts --> export_WebsiteAnimationTarget
+  export_WebsiteAnimationTarget -.-> export_WebsiteAnimationProperty
   export_WebsiteAsset["WebsiteAsset"]
   module_src_website_ts --> export_WebsiteAsset
   export_WebsiteAvailability["WebsiteAvailability"]
@@ -2336,6 +2347,7 @@ graph LR
   module_src_website_ts --> export_WebsiteNavigationItem
   export_WebsiteNodeObservation["WebsiteNodeObservation"]
   module_src_website_ts --> export_WebsiteNodeObservation
+  export_WebsiteNodeObservation -.-> export_WebsiteAnimationEvidence
   export_WebsiteNodeObservation -.-> export_WebsiteAvailability
   export_WebsiteNodeObservation -.-> export_WebsiteBoundingRect
   export_WebsiteNodeObservation -.-> export_WebsiteComputedCss
@@ -2367,6 +2379,15 @@ graph LR
   module_src_website_ts --> export_WebsitePageRecognition
   export_WebsitePageRecognition -.-> export_UiNode
   export_WebsitePageRecognition -.-> export_WebsiteRecognizedNode
+  export_WebsitePseudoElementBoxSize["WebsitePseudoElementBoxSize"]
+  module_src_website_ts --> export_WebsitePseudoElementBoxSize
+  export_WebsitePseudoElementBoxSize -.-> export_WebsiteAnimationProperty
+  export_WebsitePseudoElementObservation["WebsitePseudoElementObservation"]
+  module_src_website_ts --> export_WebsitePseudoElementObservation
+  export_WebsitePseudoElementObservation -.-> export_WebsiteAnimationProperty
+  export_WebsitePseudoElementObservation -.-> export_WebsiteAvailability
+  export_WebsitePseudoElementObservation -.-> export_WebsiteComputedCss
+  export_WebsitePseudoElementObservation -.-> export_WebsitePseudoElementBoxSize
   export_WebsiteRecognitionDocument["WebsiteRecognitionDocument"]
   module_src_website_ts --> export_WebsiteRecognitionDocument
   export_WebsiteRecognitionDocument -.-> export_WebsiteDesignToken
