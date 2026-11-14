@@ -144,6 +144,45 @@
                 "aria-valuenow": "20",
                 "role": "progressbar"
               },
+              "animationEvidence": {
+                "trigger": "scroll-into-view",
+                "target": {
+                  "animation": {
+                    "availability": { "status": "available", "missing": null },
+                    "value": "none"
+                  },
+                  "transform": {
+                    "availability": { "status": "available", "missing": null },
+                    "value": "none"
+                  },
+                  "transition": {
+                    "availability": { "status": "available", "missing": null },
+                    "value": "width 80ms linear"
+                  }
+                },
+                "pseudoElements": [
+                  {
+                    "availability": { "status": "available", "missing": null },
+                    "boxSize": {
+                      "width": {
+                        "availability": { "status": "available", "missing": null },
+                        "value": "0px"
+                      },
+                      "height": {
+                        "availability": { "status": "available", "missing": null },
+                        "value": "4px"
+                      }
+                    },
+                    "content": {
+                      "availability": { "status": "available", "missing": null },
+                      "value": "\"\""
+                    },
+                    "css": null,
+                    "pseudo": "::before"
+                  }
+                ],
+                "uncertainty": []
+              },
               "rect": null,
               "css": null,
               "provenance": {
@@ -174,6 +213,45 @@
               "stateId": "settled",
               "availability": { "status": "available", "missing": null },
               "semanticAttributes": { "aria-valuenow": "72", "role": "progressbar", "value": 0 },
+              "animationEvidence": {
+                "trigger": "scroll-into-view",
+                "target": {
+                  "animation": {
+                    "availability": { "status": "available", "missing": null },
+                    "value": "none"
+                  },
+                  "transform": {
+                    "availability": { "status": "available", "missing": null },
+                    "value": "none"
+                  },
+                  "transition": {
+                    "availability": { "status": "available", "missing": null },
+                    "value": "width 80ms linear"
+                  }
+                },
+                "pseudoElements": [
+                  {
+                    "availability": { "status": "available", "missing": null },
+                    "boxSize": {
+                      "width": {
+                        "availability": { "status": "available", "missing": null },
+                        "value": "75px"
+                      },
+                      "height": {
+                        "availability": { "status": "available", "missing": null },
+                        "value": "4px"
+                      }
+                    },
+                    "content": {
+                      "availability": { "status": "available", "missing": null },
+                      "value": "\"\""
+                    },
+                    "css": null,
+                    "pseudo": "::before"
+                  }
+                ],
+                "uncertainty": []
+              },
               "rect": null,
               "css": null,
               "provenance": {

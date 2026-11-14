@@ -166,9 +166,16 @@ export interface WebsiteAnimationProperty {
 /*** A CSS-generated pseudo-element observed as evidence, never represented as a fabricated DOM child. */
 export interface WebsitePseudoElementObservation {
   readonly availability: WebsiteAvailability;
+  readonly boxSize: WebsitePseudoElementBoxSize;
   readonly content: WebsiteAnimationProperty;
   readonly css: WebsiteComputedCss | null;
   readonly pseudo: '::after' | '::before';
+}
+
+/*** Computed pseudo-element dimensions retained as CSS evidence rather than a fabricated DOM rectangle. */
+export interface WebsitePseudoElementBoxSize {
+  readonly height: WebsiteAnimationProperty;
+  readonly width: WebsiteAnimationProperty;
 }
 
 /*** A bounding rectangle measured in CSS pixels. */

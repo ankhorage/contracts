@@ -36,10 +36,15 @@ const writeConsumerFiles = (consumerDirectory: string): void => {
       "import type { WebsiteAnimationEvidence, WebsiteNodeObservation } from '@ankhorage/contracts/website';",
       "const schemaV1Observation: WebsiteNodeObservation = { viewportId: 'desktop', stateId: 'default', availability: { status: 'available', missing: null }, rect: null, css: null, provenance: { sourceUrl: 'https://example.test/', capturedAt: '2026-11-10T00:00:00.000Z', method: 'browser' } };",
       "const observation: WebsiteNodeObservation = { viewportId: 'desktop', stateId: 'settled', availability: { status: 'available', missing: null }, semanticAttributes: { 'aria-valuenow': '72', value: 0 }, rect: null, css: null, provenance: { sourceUrl: 'https://example.test/', capturedAt: '2026-11-13T00:00:00.000Z', method: 'browser' } };",
-      "const animationEvidence: WebsiteAnimationEvidence = { trigger: 'scroll-into-view', target: { animation: { availability: { status: 'available', missing: null }, value: 'none' }, transform: { availability: { status: 'available', missing: null }, value: 'matrix(1, 0, 0, 1, 0, 0)' }, transition: { availability: { status: 'available', missing: null }, value: 'width 80ms linear' } }, pseudoElements: [], uncertainty: [] };",
+      "const animationProperty = (value: string | null, status: 'available' | 'missing'): WebsiteAnimationEvidence['target']['animation'] => ({ availability: { status, missing: status === 'available' ? null : { code: 'source-unavailable', message: 'Source unavailable.' } }, value });",
+      "const animationEvidence: WebsiteAnimationEvidence = { trigger: 'scroll-into-view', target: { animation: animationProperty('none', 'available'), transform: animationProperty('none', 'available'), transition: animationProperty('width 80ms linear', 'available') }, pseudoElements: [{ pseudo: '::before', availability: { status: 'available', missing: null }, content: animationProperty('\"\"', 'available'), boxSize: { width: animationProperty('0px', 'available'), height: animationProperty('4px', 'available') }, css: null }], uncertainty: [] };",
+      "const settledAnimationEvidence: WebsiteAnimationEvidence = { ...animationEvidence, pseudoElements: [{ ...animationEvidence.pseudoElements[0], boxSize: { width: animationProperty('75px', 'available'), height: animationProperty('4px', 'available') } }] };",
+      "const unavailablePseudo: WebsiteAnimationEvidence = { ...animationEvidence, pseudoElements: [{ pseudo: '::after', availability: { status: 'missing', missing: { code: 'pseudo-element-unavailable', message: 'No generated after element.' } }, content: animationProperty(null, 'missing'), boxSize: { width: animationProperty(null, 'missing'), height: animationProperty(null, 'missing') }, css: null }] };",
       'void schemaV1Observation;',
       'void observation;',
       'void animationEvidence;',
+      'void settledAnimationEvidence;',
+      'void unavailablePseudo;',
     ].join('\n'),
   );
 };
