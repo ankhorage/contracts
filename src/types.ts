@@ -13,7 +13,7 @@ import type { InfraManifest } from './infra.js';
 import type { MediaAssetReference, MediaManifest } from './media.js';
 import type { AppNavigatorManifest } from './navigator.js';
 import type { RepositoryManifest } from './repository.js';
-import type { ScreenRequirements } from './requirements.js';
+import type { AppRequirements, ScreenRequirements } from './requirements.js';
 import type { SerializableValue } from './serializable.js';
 import type { AppStateSpec } from './state.js';
 import type { ThemeGlobalTokenOverrides, ThemeRecipeOverrides } from './theme.js';
@@ -240,6 +240,8 @@ export interface AppManifest {
   deploy?: AppDeployManifest;
   /** Application runtime state is not provisioned by Infra. */
   state?: AppStateSpec;
+  /** App-wide capability composition requirements, separate from screen-local requirements. */
+  requires?: AppRequirements;
   infra: InfraManifest;
   navigator: AppNavigatorManifest;
   screens: EntityRegistry<string, ScreenSpec, 'id'>;

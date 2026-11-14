@@ -2,6 +2,7 @@ import { isStringArray } from '@ankhorage/utility/array';
 import { isRecord } from '@ankhorage/utility/object';
 
 import { isInfraManifest } from '../infra/isInfraManifest.js';
+import type { AppRequirements } from '../requirements.js';
 import type { AppManifest } from '../types.js';
 import { isComponentDataBindingRegistry } from './bindings.js';
 import { APP_MANIFEST_KEY_POLICY } from './constants.js';
@@ -88,8 +89,44 @@ function isOptionalCapabilities(value: Record<string, unknown>): boolean {
   return (
     (value.deploy === undefined || isAppDeployManifest(value.deploy)) &&
     (value.state === undefined || isAppStateSpec(value.state)) &&
+    (value.requires === undefined || isAppRequirements(value.requires)) &&
     (value.dataSources === undefined || isDataSourceRegistry(value.dataSources)) &&
     (value.dataBindings === undefined || isComponentDataBindingRegistry(value.dataBindings)) &&
     (value.repository === undefined || isRepositoryManifest(value.repository))
+  );
+}
+
+/** Validate app-wide capability declarations without introducing executable provider behavior. */
+function isAppRequirements(value: unknown): value is AppRequirements {
+  return (
+    isRecord(value) &&
+    Object.keys(value).every((key) => key === 'capabilities') &&
+    (value.capabilities === undefined ||
+      (Array.isArray(value.capabilities) &&
+        value.capabilities.every(isAppCapabilityRequirement) &&
+        hasUniqueCapabilityRequirements(value.capabilities)))
+  );
+}
+
+/** Validate one portable app-wide capability declaration. */
+function isAppCapabilityRequirement(value: unknown): boolean {
+  return (
+    isRecord(value) &&
+    typeof value.capability === 'string' &&
+    value.capability.includes('.') &&
+    (value.provider === undefined ||
+      (isRecord(value.provider) &&
+        Object.keys(value.provider).every((key) => key === 'packageName') &&
+        typeof value.provider.packageName === 'string' &&
+        value.provider.packageName.length > 0))
+  );
+}
+
+/** Reject ambiguous duplicate app-wide requirements. */
+function hasUniqueCapabilityRequirements(
+  requirements: readonly { readonly capability: string }[],
+): boolean {
+  return (
+    new Set(requirements.map((requirement) => requirement.capability)).size === requirements.length
   );
 }

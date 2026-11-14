@@ -1,3 +1,4 @@
+import type { Capability } from './capability.js';
 import type { SerializableSet } from './collections.js';
 
 export const ANKHORAGE_PERMISSION_NAMES = [
@@ -34,4 +35,20 @@ export interface ScreenRequirements {
 export interface ComponentRequirements {
   readonly permissions?: SerializableSet<AnkhoragePermissionName>;
   readonly capabilities?: SerializableSet<AnkhorageCapabilityName>;
+}
+
+/** A released package identity that can provide one declared app-wide capability. */
+export interface AppCapabilityProviderReference {
+  readonly packageName: string;
+}
+
+/** A portable app-wide requirement; its executable implementation remains package-owned. */
+export interface AppCapabilityRequirement {
+  readonly capability: Capability['id'];
+  readonly provider?: AppCapabilityProviderReference;
+}
+
+/** App-wide requirements are distinct from screen-local device requirements. */
+export interface AppRequirements {
+  readonly capabilities?: readonly AppCapabilityRequirement[];
 }

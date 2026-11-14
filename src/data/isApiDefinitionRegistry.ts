@@ -18,7 +18,7 @@ const API_BASE_KEYS = [
 ] as const;
 const EXTERNAL_REST_KEYS = [...API_BASE_KEYS, 'baseUrl', 'openApi'] as const;
 const EXTERNAL_GRAPHQL_KEYS = [...API_BASE_KEYS, 'endpointUrl', 'introspection'] as const;
-const INTERNAL_REST_KEYS = [...API_BASE_KEYS, 'basePath'] as const;
+const INTERNAL_REST_KEYS = [...API_BASE_KEYS, 'basePath', 'handlers'] as const;
 const OPEN_API_KEYS = ['url', 'documentId', 'version'] as const;
 const INTROSPECTION_KEYS = ['enabled', 'schemaVersion'] as const;
 
@@ -78,7 +78,41 @@ function isExternalGraphQlApi(value: Record<string, unknown>): boolean {
 
 /*** Validate the supported internal REST API configuration. */
 function isInternalRestApi(value: Record<string, unknown>): boolean {
-  return hasOnlyKeys(value, INTERNAL_REST_KEYS) && isNonEmptyString(value.basePath);
+  return (
+    hasOnlyKeys(value, INTERNAL_REST_KEYS) &&
+    isNonEmptyString(value.basePath) &&
+    (value.handlers === undefined ||
+      isInternalApiOperationHandlerRegistry(value.handlers, value.endpoints))
+  );
+}
+
+/** Validate declarative operation targets against declared API operations without executable handlers. */
+function isInternalApiOperationHandlerRegistry(value: unknown, endpoints: unknown): boolean {
+  return (
+    isRecord(value) &&
+    Object.entries(value).every(
+      ([operationId, handler]) =>
+        isRecord(handler) &&
+        Object.keys(handler).every((key) => key === 'operationId' || key === 'capability') &&
+        handler.operationId === operationId &&
+        hasDeclaredOperation(endpoints, operationId) &&
+        typeof handler.capability === 'string' &&
+        handler.capability.includes('.'),
+    )
+  );
+}
+
+/** Check that a handler declaration targets an operation declared by this API. */
+function hasDeclaredOperation(endpoints: unknown, operationId: string): boolean {
+  return (
+    isRecord(endpoints) &&
+    Object.values(endpoints).some(
+      (endpoint) =>
+        isRecord(endpoint) &&
+        isRecord(endpoint.operations) &&
+        Object.hasOwn(endpoint.operations, operationId),
+    )
+  );
 }
 
 /*** Validate optional OpenAPI document location and version fields. */

@@ -9,6 +9,7 @@ export const APP_MANIFEST_KEY_POLICY = {
   media: 'optional',
   deploy: 'optional',
   state: 'optional',
+  requires: 'optional',
   infra: 'required',
   navigator: 'required',
   screens: 'required',

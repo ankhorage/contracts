@@ -32,6 +32,7 @@ export function isInfraWorkloadSpec(value: unknown): value is InfraWorkloadSpec 
           memoryMiB: infraFields.optionalPositiveInteger,
         }),
       persistence: (volumes) => volumes === undefined || isVolumeRegistry(volumes),
+      apis: (apis) => apis === undefined || isInfraWorkloadApiComposition(apis),
       exposure: (exposure) =>
         exposure === undefined || exposure === 'internal' || exposure === 'public',
       replicas: infraFields.optionalNonnegativeInteger,
@@ -41,6 +42,15 @@ export function isInfraWorkloadSpec(value: unknown): value is InfraWorkloadSpec 
     return false;
   }
   return hasValidPublishedPorts(value);
+}
+
+/** Validate workload API references without selecting a transport or executing an operation. */
+function isInfraWorkloadApiComposition(value: unknown): boolean {
+  return (
+    isRecord(value) &&
+    isInfraShape(value, { apiIds: isSerializableSet }) &&
+    Object.keys(value).every((key) => key === 'apiIds')
+  );
 }
 
 /*** Validate named transport ports keyed by their stable authored name. */

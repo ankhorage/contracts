@@ -6,6 +6,7 @@ import type {
   ExternalRestApiDefinition,
   InternalRestApiDefinition,
 } from './apis';
+import { isApiDefinitionRegistry } from './isApiDefinitionRegistry';
 
 function assertSerializable<TValue>(value: TValue): void {
   expect(JSON.parse(JSON.stringify(value))).toEqual(value);
@@ -48,6 +49,31 @@ function createNutritionApi(): ExternalRestApiDefinition {
   };
 }
 
+function createProjectsApi(): InternalRestApiDefinition {
+  return {
+    id: 'projects',
+    origin: 'internal',
+    protocol: 'rest',
+    basePath: '/projects',
+    endpoints: {
+      projects: {
+        id: 'projects',
+        kind: 'http',
+        operations: {
+          list: {
+            id: 'list',
+            protocol: 'http',
+            intent: 'read',
+          },
+        },
+      },
+    },
+    handlers: {
+      list: { operationId: 'list', capability: 'projects.list' },
+    },
+  };
+}
+
 describe('canonical API contracts', () => {
   it('serializes external REST schemas, endpoints, and operations', () => {
     const api = createNutritionApi();
@@ -77,5 +103,31 @@ describe('canonical API contracts', () => {
     assertSerializable(api);
     expect('database' in api).toBe(false);
     expect('adapter' in api).toBe(false);
+  });
+
+  it('declares internal operation targets without serializing a handler function', () => {
+    const api = createProjectsApi();
+
+    expect(isApiDefinitionRegistry({ projects: api })).toBe(true);
+    expect(
+      isApiDefinitionRegistry({
+        projects: {
+          ...api,
+          handlers: {
+            list: { operationId: 'list', capability: 'projects.list', handler: 'unsafe' },
+          },
+        },
+      }),
+    ).toBe(false);
+    expect(
+      isApiDefinitionRegistry({
+        projects: {
+          ...api,
+          handlers: {
+            missing: { operationId: 'missing', capability: 'projects.list' },
+          },
+        },
+      }),
+    ).toBe(false);
   });
 });

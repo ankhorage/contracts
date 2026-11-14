@@ -57,6 +57,11 @@ export interface InfraWorkloadVolumeSpec {
   readonly retention: 'retain' | 'delete-on-destroy';
 }
 
+/** APIs served by one workload; transport registration and handlers remain package-owned. */
+export interface InfraWorkloadApiComposition {
+  readonly apiIds: SerializableSet;
+}
+
 export type InfraWorkloadId = string;
 export type InfraWorkloadPortRegistry = EntityRegistry<string, InfraWorkloadPort>;
 export type InfraWorkloadFileMap = ValueMap<string, InfraWorkloadValue>;
@@ -73,6 +78,8 @@ export interface InfraWorkloadSpec {
   readonly health?: InfraWorkloadHealthSpec;
   readonly resources?: InfraWorkloadResourceSpec;
   readonly persistence?: InfraWorkloadVolumeRegistry;
+  /** Declarative service-to-API composition for an application environment. */
+  readonly apis?: InfraWorkloadApiComposition;
   readonly exposure?: 'internal' | 'public';
   readonly replicas?: number;
   /** IDs in the composed desired-state graph; the orchestrator validates missing/cyclic edges. */

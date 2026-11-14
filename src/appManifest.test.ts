@@ -157,6 +157,24 @@ describe('AppManifest runtime parsing', () => {
     expect(parseAppManifest(manifest)).toEqual({ ok: true, manifest });
   });
 
+  it('accepts app-wide capability requirements without executable provider configuration', () => {
+    const manifest = createManifest();
+    manifest.requires = {
+      capabilities: [
+        { capability: 'projects.list', provider: { packageName: '@ankhorage/projects' } },
+      ],
+    };
+
+    expect(isAppManifest(manifest)).toBe(true);
+    manifest.requires = {
+      capabilities: [
+        { capability: 'projects.list' },
+        { capability: 'projects.list', provider: { packageName: '@ankhorage/projects' } },
+      ],
+    };
+    expect(isAppManifest(manifest)).toBe(false);
+  });
+
   it('rejects raw splash screen image paths', () => {
     const manifest = createManifest();
     const splashScreen = manifest.splashScreen as Record<string, unknown>;
