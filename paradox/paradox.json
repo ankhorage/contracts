@@ -2,8 +2,10 @@
   "packageName": "@ankhorage/contracts",
   "packageId": "@ankhorage/contracts",
   "description": "Serializable app, capability, binding, theme, auth, and secret-store contracts for Ankhorage.",
-  "collaborators": null,
-  "donation": null,
+  "collaborators": true,
+  "donation": {
+    "account": "ankhorage"
+  },
   "badges": [
     {
       "id": "license",
@@ -14,7 +16,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v26.10.0",
+      "value": "v26.11.0",
       "color": "cb3837"
     },
     {
@@ -1526,7 +1528,12 @@
         "ReleaseStepRetry",
         "ReleaseTarget",
         "ReleaseTargetRollout",
+        "RepositoryImplementationRef",
         "RepositoryManifest",
+        "RepositoryMetadata",
+        "RepositoryMetadataArchitecture",
+        "RepositoryMetadataConstraints",
+        "RepositoryMetadataKind",
         "resolveAuthFlow",
         "ResolvedHeadlessTabsPresentation",
         "ResolvedTabsImplementation",
@@ -2060,6 +2067,18 @@
         "MediaManifest",
         "MediaStorageSource",
         "MediaUrlSource"
+      ]
+    },
+    {
+      "path": "src/metadata.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "RepositoryImplementationRef",
+        "RepositoryMetadata",
+        "RepositoryMetadataArchitecture",
+        "RepositoryMetadataConstraints",
+        "RepositoryMetadataKind"
       ]
     },
     {
@@ -24833,6 +24852,50 @@
       "structuredRows": []
     },
     {
+      "name": "RepositoryImplementationRef",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/metadata.ts",
+      "sourceLocation": {
+        "filePath": "src/metadata.ts",
+        "line": 55,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "interfaceId",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "packageName",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "subpath",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
       "name": "RepositoryManifest",
       "title": null,
       "description": null,
@@ -24888,6 +24951,235 @@
           "description": null
         }
       ],
+      "structuredRows": []
+    },
+    {
+      "name": "RepositoryMetadata",
+      "title": null,
+      "description": "Portable, authored metadata that describes one repository without duplicating package manifests.\n\nThe document is static JSON. It deliberately excludes derivable package identity, source-control\nlocation, dependency graphs, exported APIs, contributor data, and executable package metadata.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/metadata.ts",
+      "sourceLocation": {
+        "filePath": "src/metadata.ts",
+        "line": 6,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "RepositoryImplementationRef",
+        "RepositoryMetadataArchitecture",
+        "RepositoryMetadataConstraints",
+        "RepositoryMetadataKind"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "architecture",
+          "kind": "property",
+          "type": "RepositoryMetadataArchitecture | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "audience",
+          "kind": "property",
+          "type": "readonly string[] | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "boundaries",
+          "kind": "property",
+          "type": "readonly string[] | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "constraints",
+          "kind": "property",
+          "type": "RepositoryMetadataConstraints | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "domain",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "implements",
+          "kind": "property",
+          "type": "readonly RepositoryImplementationRef[] | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "kind",
+          "kind": "property",
+          "type": "RepositoryMetadataKind",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "purpose",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "responsibilities",
+          "kind": "property",
+          "type": "readonly string[] | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "schemaVersion",
+          "kind": "property",
+          "type": "1",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "summary",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "title",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "useCases",
+          "kind": "property",
+          "type": "readonly string[] | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "RepositoryMetadataArchitecture",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/metadata.ts",
+      "sourceLocation": {
+        "filePath": "src/metadata.ts",
+        "line": 47,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "invariants",
+          "kind": "property",
+          "type": "readonly string[] | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "role",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "RepositoryMetadataConstraints",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/metadata.ts",
+      "sourceLocation": {
+        "filePath": "src/metadata.ts",
+        "line": 65,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "configuration",
+          "kind": "property",
+          "type": "readonly string[] | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "limitations",
+          "kind": "property",
+          "type": "readonly string[] | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "platforms",
+          "kind": "property",
+          "type": "readonly string[] | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "security",
+          "kind": "property",
+          "type": "readonly string[] | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "RepositoryMetadataKind",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "unknown",
+      "modulePath": "src/metadata.ts",
+      "sourceLocation": {
+        "filePath": "src/metadata.ts",
+        "line": 36,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
       "structuredRows": []
     },
     {
@@ -37902,6 +38194,11 @@
       },
       {
         "fromPath": "src/index.ts",
+        "toPath": "src/metadata.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
         "toPath": "src/navigator.ts",
         "sourcePath": "src/index.ts"
       },
@@ -44505,6 +44802,26 @@
         "fromSymbol": "MediaManifest",
         "toType": "MediaAssetRegistry",
         "sourcePath": "src/media.ts"
+      },
+      {
+        "fromSymbol": "RepositoryMetadata",
+        "toType": "RepositoryImplementationRef",
+        "sourcePath": "src/metadata.ts"
+      },
+      {
+        "fromSymbol": "RepositoryMetadata",
+        "toType": "RepositoryMetadataArchitecture",
+        "sourcePath": "src/metadata.ts"
+      },
+      {
+        "fromSymbol": "RepositoryMetadata",
+        "toType": "RepositoryMetadataConstraints",
+        "sourcePath": "src/metadata.ts"
+      },
+      {
+        "fromSymbol": "RepositoryMetadata",
+        "toType": "RepositoryMetadataKind",
+        "sourcePath": "src/metadata.ts"
       },
       {
         "fromSymbol": "NativeTabsConfig",

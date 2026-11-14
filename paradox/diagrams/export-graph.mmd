@@ -53,6 +53,7 @@ graph LR
   module_src_infra_validateInfraAdapterSelection_ts["src/infra/validateInfraAdapterSelection.ts"]
   module_src_infraCatalog_ts["src/infraCatalog.ts"]
   module_src_media_ts["src/media.ts"]
+  module_src_metadata_ts["src/metadata.ts"]
   module_src_navigator_ts["src/navigator.ts"]
   module_src_navigator_catalog_ts["src/navigator/catalog.ts"]
   module_src_navigator_extensions_ts["src/navigator/extensions.ts"]
@@ -1727,8 +1728,22 @@ graph LR
   export_ReleaseTargetRollout["ReleaseTargetRollout"]
   module_src_types_deployRelease_ts --> export_ReleaseTargetRollout
   export_ReleaseTargetRollout -.-> export_ReleaseRolloutMode
+  export_RepositoryImplementationRef["RepositoryImplementationRef"]
+  module_src_metadata_ts --> export_RepositoryImplementationRef
   export_RepositoryManifest["RepositoryManifest"]
   module_src_repository_ts --> export_RepositoryManifest
+  export_RepositoryMetadata["RepositoryMetadata"]
+  module_src_metadata_ts --> export_RepositoryMetadata
+  export_RepositoryMetadata -.-> export_RepositoryImplementationRef
+  export_RepositoryMetadata -.-> export_RepositoryMetadataArchitecture
+  export_RepositoryMetadata -.-> export_RepositoryMetadataConstraints
+  export_RepositoryMetadata -.-> export_RepositoryMetadataKind
+  export_RepositoryMetadataArchitecture["RepositoryMetadataArchitecture"]
+  module_src_metadata_ts --> export_RepositoryMetadataArchitecture
+  export_RepositoryMetadataConstraints["RepositoryMetadataConstraints"]
+  module_src_metadata_ts --> export_RepositoryMetadataConstraints
+  export_RepositoryMetadataKind["RepositoryMetadataKind"]
+  module_src_metadata_ts --> export_RepositoryMetadataKind
   export_resolveAuthFlow["resolveAuthFlow"]
   module_src_auth_ts --> export_resolveAuthFlow
   export_resolveAuthFlow -.-> export_AuthFlowConfig

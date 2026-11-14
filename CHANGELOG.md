@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 26.11.0
+
+### Minor Changes
+
+- 6d618e6: Add portable, versioned repository metadata contracts at `@ankhorage/contracts/metadata`.
+
 ## 26.10.0
 
 ### Minor Changes

@@ -6156,6 +6156,20 @@ Source: `src/types/deployRelease.ts:16:1`
 | initialFraction | property | `string \| undefined` | no |  |
 | mode | property | `ReleaseRolloutMode` | yes |  |
 
+## RepositoryImplementationRef
+
+Kind: `type`
+Module: `src/metadata.ts`
+Source: `src/metadata.ts:55:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| interfaceId | property | `string \| undefined` | no |  |
+| packageName | property | `string` | yes |  |
+| subpath | property | `string \| undefined` | no |  |
+
 ## RepositoryManifest
 
 Kind: `type`
@@ -6171,6 +6185,69 @@ Source: `src/repository.ts:1:1`
 | owner | property | `string` | yes |  |
 | provider | property | `"github"` | yes |  |
 | url | property | `string` | yes |  |
+
+## RepositoryMetadata
+
+Kind: `type`
+Module: `src/metadata.ts`
+Source: `src/metadata.ts:6:1`
+
+Portable, authored metadata that describes one repository without duplicating package manifests.
+
+The document is static JSON. It deliberately excludes derivable package identity, source-control
+location, dependency graphs, exported APIs, contributor data, and executable package metadata.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| architecture | property | `RepositoryMetadataArchitecture \| undefined` | no |  |
+| audience | property | `readonly string[] \| undefined` | no |  |
+| boundaries | property | `readonly string[] \| undefined` | no |  |
+| constraints | property | `RepositoryMetadataConstraints \| undefined` | no |  |
+| domain | property | `string \| undefined` | no |  |
+| implements | property | `readonly RepositoryImplementationRef[] \| undefined` | no |  |
+| kind | property | `RepositoryMetadataKind` | yes |  |
+| purpose | property | `string` | yes |  |
+| responsibilities | property | `readonly string[] \| undefined` | no |  |
+| schemaVersion | property | `1` | yes |  |
+| summary | property | `string` | yes |  |
+| title | property | `string` | yes |  |
+| useCases | property | `readonly string[] \| undefined` | no |  |
+
+## RepositoryMetadataArchitecture
+
+Kind: `type`
+Module: `src/metadata.ts`
+Source: `src/metadata.ts:47:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| invariants | property | `readonly string[] \| undefined` | no |  |
+| role | property | `string \| undefined` | no |  |
+
+## RepositoryMetadataConstraints
+
+Kind: `type`
+Module: `src/metadata.ts`
+Source: `src/metadata.ts:65:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| configuration | property | `readonly string[] \| undefined` | no |  |
+| limitations | property | `readonly string[] \| undefined` | no |  |
+| platforms | property | `readonly string[] \| undefined` | no |  |
+| security | property | `readonly string[] \| undefined` | no |  |
+
+## RepositoryMetadataKind
+
+Kind: `unknown`
+Module: `src/metadata.ts`
+Source: `src/metadata.ts:36:1`
 
 ## resolveAuthFlow
 
