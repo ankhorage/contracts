@@ -33,11 +33,13 @@ const writeConsumerFiles = (consumerDirectory: string): void => {
   writeFileSync(
     join(consumerDirectory, 'consumer.ts'),
     [
-      "import type { WebsiteNodeObservation } from '@ankhorage/contracts/website';",
+      "import type { WebsiteAnimationEvidence, WebsiteNodeObservation } from '@ankhorage/contracts/website';",
       "const schemaV1Observation: WebsiteNodeObservation = { viewportId: 'desktop', stateId: 'default', availability: { status: 'available', missing: null }, rect: null, css: null, provenance: { sourceUrl: 'https://example.test/', capturedAt: '2026-11-10T00:00:00.000Z', method: 'browser' } };",
       "const observation: WebsiteNodeObservation = { viewportId: 'desktop', stateId: 'settled', availability: { status: 'available', missing: null }, semanticAttributes: { 'aria-valuenow': '72', value: 0 }, rect: null, css: null, provenance: { sourceUrl: 'https://example.test/', capturedAt: '2026-11-13T00:00:00.000Z', method: 'browser' } };",
+      "const animationEvidence: WebsiteAnimationEvidence = { trigger: 'scroll-into-view', target: { animation: { availability: { status: 'available', missing: null }, value: 'none' }, transform: { availability: { status: 'available', missing: null }, value: 'matrix(1, 0, 0, 1, 0, 0)' }, transition: { availability: { status: 'available', missing: null }, value: 'width 80ms linear' } }, pseudoElements: [], uncertainty: [] };",
       'void schemaV1Observation;',
       'void observation;',
+      'void animationEvidence;',
     ].join('\n'),
   );
 };

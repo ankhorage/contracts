@@ -111,6 +111,7 @@ export interface WebsiteNodeObservation {
   readonly semanticAttributes?: Readonly<
     Partial<Record<WebsiteSemanticAttributeName, WebsiteSemanticAttributeValue>>
   >;
+  readonly animationEvidence?: WebsiteAnimationEvidence;
   readonly rect: WebsiteBoundingRect | null;
   readonly css: WebsiteComputedCss | null;
   readonly provenance: WebsiteObservationProvenance;
@@ -139,6 +140,35 @@ export interface WebsiteAvailability {
 export interface WebsiteMissingValue {
   readonly code: string;
   readonly message: string;
+}
+
+/*** State-specific browser evidence for an animation-capable target without inventing unobserved CSS. */
+export interface WebsiteAnimationEvidence {
+  readonly trigger: 'scroll-into-view' | 'unknown';
+  readonly target: WebsiteAnimationTarget;
+  readonly pseudoElements: readonly WebsitePseudoElementObservation[];
+  readonly uncertainty: readonly WebsiteMissingValue[];
+}
+
+/*** Computed animation properties of the observed DOM target. */
+export interface WebsiteAnimationTarget {
+  readonly animation: WebsiteAnimationProperty;
+  readonly transform: WebsiteAnimationProperty;
+  readonly transition: WebsiteAnimationProperty;
+}
+
+/*** One animation-related computed property with explicit missing-source semantics. */
+export interface WebsiteAnimationProperty {
+  readonly availability: WebsiteAvailability;
+  readonly value: string | null;
+}
+
+/*** A CSS-generated pseudo-element observed as evidence, never represented as a fabricated DOM child. */
+export interface WebsitePseudoElementObservation {
+  readonly availability: WebsiteAvailability;
+  readonly content: WebsiteAnimationProperty;
+  readonly css: WebsiteComputedCss | null;
+  readonly pseudo: '::after' | '::before';
 }
 
 /*** A bounding rectangle measured in CSS pixels. */
@@ -176,6 +206,9 @@ export interface WebsiteComputedCss {
   readonly backgroundPosition: string;
   readonly backgroundRepeat: string;
   readonly backgroundSize: string;
+  readonly transform?: string;
+  readonly transition?: string;
+  readonly animation?: string;
   readonly margin: WebsiteBoxEdges;
   readonly padding: WebsiteBoxEdges;
   readonly alignContent: string;

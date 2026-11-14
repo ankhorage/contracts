@@ -26,6 +26,57 @@ const schemaV1ObservationWithoutSemanticAttributes: WebsiteNodeObservation = {
   viewportId: 'desktop',
 };
 
+const animationEvidenceObservation: WebsiteNodeObservation = {
+  availability: { missing: null, status: 'available' },
+  animationEvidence: {
+    pseudoElements: [
+      {
+        availability: { missing: null, status: 'available' },
+        content: { availability: { missing: null, status: 'available' }, value: '""' },
+        css: null,
+        pseudo: '::before',
+      },
+      {
+        availability: {
+          missing: { code: 'pseudo-element-unavailable', message: 'No generated after element.' },
+          status: 'missing',
+        },
+        content: {
+          availability: {
+            missing: { code: 'pseudo-element-unavailable', message: 'No generated after element.' },
+            status: 'missing',
+          },
+          value: null,
+        },
+        css: null,
+        pseudo: '::after',
+      },
+    ],
+    target: {
+      animation: { availability: { missing: null, status: 'available' }, value: 'none' },
+      transform: {
+        availability: { missing: null, status: 'available' },
+        value: 'matrix(1, 0, 0, 1, 0, 0)',
+      },
+      transition: {
+        availability: { missing: null, status: 'available' },
+        value: 'width 80ms linear',
+      },
+    },
+    trigger: 'scroll-into-view',
+    uncertainty: [],
+  },
+  css: null,
+  provenance: {
+    capturedAt: '2026-11-14T00:00:00.000Z',
+    method: 'browser',
+    sourceUrl: 'https://example.test/',
+  },
+  rect: null,
+  stateId: 'settled',
+  viewportId: 'desktop',
+};
+
 it('keeps TypeScript and PHP website observation fixtures identical and serializable', () => {
   expect(typescriptObservation).toEqual(phpObservation);
   expect(typescriptObservation.pages).toHaveLength(2);
@@ -111,4 +162,21 @@ it('retains a true zero semantic value', () => {
 it('accepts schema-v1 observations without semantic attribute evidence', () => {
   expect('semanticAttributes' in schemaV1ObservationWithoutSemanticAttributes).toBeFalse();
   expect(schemaV1ObservationWithoutSemanticAttributes.semanticAttributes).toBeUndefined();
+});
+
+it('retains animation target and pseudo-element evidence with explicit missing values', () => {
+  expect(JSON.parse(JSON.stringify(animationEvidenceObservation))).toEqual(
+    animationEvidenceObservation,
+  );
+  expect(animationEvidenceObservation.animationEvidence).toMatchObject({
+    pseudoElements: [
+      { pseudo: '::before' },
+      {
+        availability: { missing: { code: 'pseudo-element-unavailable' }, status: 'missing' },
+        pseudo: '::after',
+      },
+    ],
+    target: { transform: { value: 'matrix(1, 0, 0, 1, 0, 0)' } },
+    trigger: 'scroll-into-view',
+  });
 });
