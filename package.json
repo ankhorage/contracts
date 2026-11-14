@@ -123,6 +123,10 @@
       "types": "./dist/media.d.ts",
       "default": "./dist/media.js"
     },
+    "./metadata": {
+      "types": "./dist/metadata.d.ts",
+      "default": "./dist/metadata.js"
+    },
     "./navigator": {
       "types": "./dist/navigator.d.ts",
       "default": "./dist/navigator.js"

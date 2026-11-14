@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "kind": "tooling",
+  "title": "Repository developer tools",
+  "summary": "Provides repeatable repository setup and maintenance commands.",
+  "purpose": "Keep repository policy automation consistent and independently usable.",
+  "useCases": ["Initialize managed repository instructions."]
+}

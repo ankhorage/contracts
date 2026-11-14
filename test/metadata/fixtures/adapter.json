@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "kind": "adapter",
+  "title": "PostgreSQL database adapter",
+  "summary": "Connects a portable persistence contract to PostgreSQL.",
+  "purpose": "Allow applications to use PostgreSQL without coupling their core to its client API.",
+  "domain": "persistence",
+  "responsibilities": ["Translate portable persistence operations into PostgreSQL queries."],
+  "boundaries": ["Does not own application authorization policy."],
+  "implements": [
+    {
+      "packageName": "@ankhorage/contracts",
+      "subpath": "./db",
+      "interfaceId": "DatabaseAdapter"
+    }
+  ],
+  "constraints": {
+    "platforms": ["Node.js"],
+    "configuration": ["Requires a PostgreSQL connection."]
+  }
+}

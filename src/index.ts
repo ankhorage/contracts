@@ -12,6 +12,7 @@ export * from './environments.js';
 export * from './flow.js';
 export * from './infra.js';
 export * from './media.js';
+export * from './metadata.js';
 export * from './navigator.js';
 export * from './repository.js';
 export * from './requirements.js';
