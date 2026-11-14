@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 26.11.1
+
+### Patch Changes
+
+- c0679d9: Publish the authored canonical repository metadata document.
+
 ## 26.11.0
 
 ### Minor Changes
