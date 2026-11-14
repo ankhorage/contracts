@@ -6,6 +6,7 @@ import type {
   ExternalRestApiDefinition,
   InternalRestApiDefinition,
 } from './apis';
+import { isApiDefinitionRegistry } from './isApiDefinitionRegistry';
 
 function assertSerializable<TValue>(value: TValue): void {
   expect(JSON.parse(JSON.stringify(value))).toEqual(value);
@@ -77,5 +78,30 @@ describe('canonical API contracts', () => {
     assertSerializable(api);
     expect('database' in api).toBe(false);
     expect('adapter' in api).toBe(false);
+  });
+
+  it('declares internal operation targets without serializing a handler function', () => {
+    const api: InternalRestApiDefinition = {
+      id: 'projects',
+      origin: 'internal',
+      protocol: 'rest',
+      basePath: '/projects',
+      endpoints: {},
+      handlers: {
+        list: { operationId: 'list', capability: 'projects.list' },
+      },
+    };
+
+    expect(isApiDefinitionRegistry({ projects: api })).toBe(true);
+    expect(
+      isApiDefinitionRegistry({
+        projects: {
+          ...api,
+          handlers: {
+            list: { operationId: 'list', capability: 'projects.list', handler: 'unsafe' },
+          },
+        },
+      }),
+    ).toBe(false);
   });
 });

@@ -1,9 +1,21 @@
+import type { Capability } from '../capability.js';
 import type { EntityRegistry } from '../collections.js';
 import type { DataEndpointRegistry } from './endpoints.js';
-import type { ApiId } from './ids.js';
+import type { ApiId, OperationId } from './ids.js';
 import type { CredentialRef } from './refs.js';
 import type { DataSchemaRegistry } from './schemas.js';
 import type { DataContractValue } from './values.js';
+
+/** Declarative operation target resolved only by an approved server-side composer. */
+export interface InternalApiOperationHandlerDeclaration {
+  readonly operationId: OperationId;
+  readonly capability: Capability['id'];
+}
+
+export type InternalApiOperationHandlerRegistry = EntityRegistry<
+  OperationId,
+  InternalApiOperationHandlerDeclaration
+>;
 
 export type ApiOrigin = 'external' | 'internal';
 export type ApiProtocol = 'graphql' | 'rest';
@@ -56,6 +68,8 @@ export interface InternalRestApiDefinition extends ApiBaseDefinition {
   readonly origin: 'internal';
   readonly protocol: 'rest';
   readonly basePath: string;
+  /** Operation targets only; executable handlers remain outside the manifest. */
+  readonly handlers?: InternalApiOperationHandlerRegistry;
 }
 
 export type ApiDefinition =
