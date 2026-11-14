@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "kind": "configuration",
+  "title": "Organization workflows",
+  "summary": "Maintains shared automation configuration without a source directory.",
+  "purpose": "Version shared workflow policy as reviewable configuration.",
+  "boundaries": ["Does not publish a runtime package."],
+  "constraints": { "limitations": ["Applies only to the workflows it declares."] }
+}

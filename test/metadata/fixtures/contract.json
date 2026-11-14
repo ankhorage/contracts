@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "kind": "contract",
+  "title": "Portable contracts",
+  "summary": "Defines serializable declarations exchanged by independent packages.",
+  "purpose": "Keep shared data contracts independent from runtime implementations.",
+  "boundaries": ["Contains no executable validation or provider integration."]
+}

@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "kind": "application",
+  "title": "Studio",
+  "summary": "Authors applications from reusable product and platform capabilities.",
+  "purpose": "Provide a visual environment for application creation and delivery.",
+  "audience": ["Application authors"],
+  "useCases": ["Create an application from a template."],
+  "architecture": {
+    "role": "Application authoring product.",
+    "invariants": ["Consumes published contracts rather than sibling repository sources."]
+  }
+}
