@@ -81,12 +81,13 @@ function isInternalRestApi(value: Record<string, unknown>): boolean {
   return (
     hasOnlyKeys(value, INTERNAL_REST_KEYS) &&
     isNonEmptyString(value.basePath) &&
-    (value.handlers === undefined || isInternalApiOperationHandlerRegistry(value.handlers))
+    (value.handlers === undefined ||
+      isInternalApiOperationHandlerRegistry(value.handlers, value.endpoints))
   );
 }
 
-/** Validate declarative operation targets without accepting executable handler values. */
-function isInternalApiOperationHandlerRegistry(value: unknown): boolean {
+/** Validate declarative operation targets against declared API operations without executable handlers. */
+function isInternalApiOperationHandlerRegistry(value: unknown, endpoints: unknown): boolean {
   return (
     isRecord(value) &&
     Object.entries(value).every(
@@ -94,8 +95,22 @@ function isInternalApiOperationHandlerRegistry(value: unknown): boolean {
         isRecord(handler) &&
         Object.keys(handler).every((key) => key === 'operationId' || key === 'capability') &&
         handler.operationId === operationId &&
+        hasDeclaredOperation(endpoints, operationId) &&
         typeof handler.capability === 'string' &&
         handler.capability.includes('.'),
+    )
+  );
+}
+
+/** Check that a handler declaration targets an operation declared by this API. */
+function hasDeclaredOperation(endpoints: unknown, operationId: string): boolean {
+  return (
+    isRecord(endpoints) &&
+    Object.values(endpoints).some(
+      (endpoint) =>
+        isRecord(endpoint) &&
+        isRecord(endpoint.operations) &&
+        Object.hasOwn(endpoint.operations, operationId),
     )
   );
 }

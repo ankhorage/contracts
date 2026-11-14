@@ -65,7 +65,7 @@ export interface InfraWorkloadApiComposition {
 export type InfraWorkloadId = string;
 export type InfraWorkloadPortRegistry = EntityRegistry<string, InfraWorkloadPort>;
 export type InfraWorkloadFileMap = ValueMap<string, InfraWorkloadValue>;
-export type InfraWorkloadVolumeRegistry = EntityRegistry<string, InfraWorkloadVolumeSpec>;
+export type InfraWorkloadVolumeRegistry = EntityRegistry<string, InfraWorkloadVolumeSpec, 'id'>;
 
 export interface InfraWorkloadSpec {
   readonly id: InfraWorkloadId;
