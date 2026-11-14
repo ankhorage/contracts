@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "kind": "contract",
+  "title": "Ankhorage Contracts",
+  "summary": "Defines portable, serializable contracts exchanged by independent application, tooling, runtime, and adapter packages.",
+  "purpose": "Provide stable runtime-neutral data boundaries so separately released packages can exchange manifests, descriptors, plans, and configuration without sharing implementation code.",
+  "domain": "application and platform contracts",
+  "responsibilities": [
+    "Own cross-repository serializable declarations for application manifests, capabilities, bindings, data, deployment, infrastructure, media, navigation, rules, secrets, state, storage, UI, websites, and flows.",
+    "Publish contract topics through explicit package subpaths for independent consumers.",
+    "Provide deterministic parsers and structural validators for the portable document shapes that require runtime decoding."
+  ],
+  "boundaries": [
+    "Does not execute application capabilities, deployment plans, infrastructure operations, navigation, storage, authentication, or other provider behavior.",
+    "Does not own framework-specific or provider-specific adapters and composition.",
+    "Does not maintain reverse consumer inventories or application-specific business workflows."
+  ],
+  "audience": [
+    "Authors of independently released packages that exchange Ankhorage documents and descriptors.",
+    "Tooling and runtime maintainers that decode or validate portable Ankhorage data."
+  ],
+  "useCases": [
+    "Define a portable application manifest and its screen, theme, binding, data, media, and navigation values.",
+    "Exchange capability, infrastructure, deployment, repository, rules, and flow descriptors across package boundaries.",
+    "Decode supported serialized documents without importing an implementation-owning repository."
+  ],
+  "architecture": {
+    "role": "Central package for shared portable declarations and deterministic structural decoding at public topic subpaths.",
+    "invariants": [
+      "Cross-repository contracts remain serializable and reconstructable without repository-local runtime objects.",
+      "Consumers use published package subpaths and declared dependencies rather than sibling source imports.",
+      "Provider selection, side effects, and framework-specific implementation remain outside this package."
+    ]
+  },
+  "constraints": {
+    "limitations": [
+      "A declaration belongs here only when at least two repositories require the same portable contract.",
+      "Structural decoders validate only the document shapes explicitly owned by this package."
+    ]
+  }
+}
