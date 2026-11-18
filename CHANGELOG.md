@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 26.12.0
+
+### Minor Changes
+
+- 425ef05: Add portable page-observed site chrome recognition evidence.
+
 ## 26.11.1
 
 ### Patch Changes

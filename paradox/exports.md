@@ -8618,7 +8618,7 @@ Source: `src/types/deployProvider.ts:151:1`
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:146:1`
+Source: `src/website.ts:157:1`
 
 State-specific browser evidence for an animation-capable target without inventing unobserved CSS.
 
@@ -8635,7 +8635,7 @@ State-specific browser evidence for an animation-capable target without inventin
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:161:1`
+Source: `src/website.ts:172:1`
 
 One animation-related computed property with explicit missing-source semantics.
 
@@ -8650,7 +8650,7 @@ One animation-related computed property with explicit missing-source semantics.
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:154:1`
+Source: `src/website.ts:165:1`
 
 Computed animation properties of the observed DOM target.
 
@@ -8666,7 +8666,7 @@ Computed animation properties of the observed DOM target.
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:266:1`
+Source: `src/website.ts:277:1`
 
 A reusable media asset discovered during the crawl.
 
@@ -8684,7 +8684,7 @@ A reusable media asset discovered during the crawl.
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:134:1`
+Source: `src/website.ts:145:1`
 
 Whether a source value was available without fabricating a replacement.
 
@@ -8699,7 +8699,7 @@ Whether a source value was available without fabricating a replacement.
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:182:1`
+Source: `src/website.ts:193:1`
 
 A bounding rectangle measured in CSS pixels.
 
@@ -8716,7 +8716,7 @@ A bounding rectangle measured in CSS pixels.
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:251:1`
+Source: `src/website.ts:262:1`
 
 The four computed edges of a CSS box value.
 
@@ -8733,7 +8733,7 @@ The four computed edges of a CSS box value.
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:190:1`
+Source: `src/website.ts:201:1`
 
 Computed visual CSS values needed to describe, not assess, a rendered website.
 
@@ -8803,7 +8803,7 @@ Computed visual CSS values needed to describe, not assess, a rendered website.
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:329:1`
+Source: `src/website.ts:342:1`
 
 A normalized design token with its exact source values retained.
 
@@ -8821,7 +8821,7 @@ A normalized design token with its exact source values retained.
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:76:1`
+Source: `src/website.ts:87:1`
 
 A portable DOM identity with safe semantic attributes only.
 
@@ -8837,7 +8837,7 @@ A portable DOM identity with safe semantic attributes only.
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:91:1`
+Source: `src/website.ts:102:1`
 
 A source-linked hyperlink observed on a DOM node.
 
@@ -8853,7 +8853,7 @@ A source-linked hyperlink observed on a DOM node.
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:98:1`
+Source: `src/website.ts:109:1`
 
 An image, video, audio, or embedded media reference observed on a DOM node.
 
@@ -8871,7 +8871,7 @@ An image, video, audio, or embedded media reference observed on a DOM node.
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:140:1`
+Source: `src/website.ts:151:1`
 
 The explicit reason a website source value could not be observed.
 
@@ -8886,7 +8886,7 @@ The explicit reason a website source value could not be observed.
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:42:1`
+Source: `src/website.ts:53:1`
 
 One ordered, source-linked navigation target observed on a page.
 
@@ -8903,7 +8903,7 @@ One ordered, source-linked navigation target observed on a page.
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:107:1`
+Source: `src/website.ts:118:1`
 
 One viewport/state-specific visual observation of a DOM node.
 
@@ -8924,7 +8924,7 @@ One viewport/state-specific visual observation of a DOM node.
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:6:1`
+Source: `src/website.ts:17:1`
 
 A versioned, portable capture of the observable state of one website.
 
@@ -8943,7 +8943,7 @@ A versioned, portable capture of the observable state of one website.
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:259:1`
+Source: `src/website.ts:270:1`
 
 How an observation was obtained from the source page.
 
@@ -8959,7 +8959,7 @@ How an observation was obtained from the source page.
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:64:1`
+Source: `src/website.ts:75:1`
 
 A stable DOM node and every source-linked observation collected for it.
 
@@ -8980,7 +8980,7 @@ A stable DOM node and every source-linked observation collected for it.
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:30:1`
+Source: `src/website.ts:41:1`
 
 One observed page, including its ordered navigation and captured render states.
 
@@ -9001,7 +9001,7 @@ One observed page, including its ordered navigation and captured render states.
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:289:1`
+Source: `src/website.ts:302:1`
 
 A recognized page with its canonical UiNode tree and retained source mapping.
 
@@ -9019,7 +9019,7 @@ A recognized page with its canonical UiNode tree and retained source mapping.
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:176:1`
+Source: `src/website.ts:187:1`
 
 Computed pseudo-element dimensions retained as CSS evidence rather than a fabricated DOM rectangle.
 
@@ -9034,7 +9034,7 @@ Computed pseudo-element dimensions retained as CSS evidence rather than a fabric
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:167:1`
+Source: `src/website.ts:178:1`
 
 A CSS-generated pseudo-element observed as evidence, never represented as a fabricated DOM child.
 
@@ -9052,7 +9052,7 @@ A CSS-generated pseudo-element observed as evidence, never represented as a fabr
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:275:1`
+Source: `src/website.ts:286:1`
 
 A versioned canonical component recognition derived from website observations.
 
@@ -9069,13 +9069,14 @@ A versioned canonical component recognition derived from website observations.
 | recognizedAt | property | `string` | yes |  |
 | schemaVersion | property | `1` | yes |  |
 | site | property | `WebsiteSite` | yes |  |
+| siteChrome | property | `WebsiteSiteChromeRecognition \| undefined` | no |  |
 | source | property | `WebsiteSource` | yes |  |
 
 ## WebsiteRecognizedMedia
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:338:1`
+Source: `src/website.ts:351:1`
 
 A recognized portable media reference, optionally compatible with an app media asset.
 
@@ -9092,7 +9093,7 @@ A recognized portable media reference, optionally compatible with an app media a
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:298:1`
+Source: `src/website.ts:311:1`
 
 A source-linked canonical UiNode mapping; component shape remains owned by UiNode.
 
@@ -9113,7 +9114,7 @@ A source-linked canonical UiNode mapping; component shape remains owned by UiNod
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:310:1`
+Source: `src/website.ts:323:1`
 
 A normalized UiNode property and the exact serializable values observed before normalization.
 
@@ -9129,7 +9130,7 @@ A normalized UiNode property and the exact serializable values observed before n
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:317:1`
+Source: `src/website.ts:330:1`
 
 A viewport-specific UiNode property override retained by the recognition.
 
@@ -9144,7 +9145,7 @@ A viewport-specific UiNode property override retained by the recognition.
 
 Kind: `unknown`
 Module: `src/website.ts`
-Source: `src/website.ts:121:1`
+Source: `src/website.ts:132:1`
 
 A safe semantic attribute that may differ for one DOM node across observed states.
 
@@ -9152,7 +9153,7 @@ A safe semantic attribute that may differ for one DOM node across observed state
 
 Kind: `unknown`
 Module: `src/website.ts`
-Source: `src/website.ts:131:1`
+Source: `src/website.ts:142:1`
 
 An explicitly observed semantic value; omission means absent and null remains a real value.
 
@@ -9160,7 +9161,7 @@ An explicitly observed semantic value; omission means absent and null remains a 
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:24:1`
+Source: `src/website.ts:35:1`
 
 A site identity and its canonical entry URL.
 
@@ -9171,11 +9172,129 @@ A site identity and its canonical entry URL.
 | id | property | `string` | yes |  |
 | url | property | `string` | yes |  |
 
+## WebsiteSiteChromeCandidate
+
+Kind: `type`
+Module: `src/websiteSiteChrome.ts`
+Source: `src/websiteSiteChrome.ts:18:1`
+
+A header or footer candidate that remains page evidence until a consumer compares pages.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| classification | property | `"ambiguous" \| "page-local" \| "site-candidate"` | yes |  |
+| confidence | property | `number` | yes |  |
+| id | property | `string` | yes |  |
+| memberships | property | `readonly WebsiteSiteChromeMembership[]` | yes |  |
+| role | property | `"header" \| "footer"` | yes |  |
+| uncertainty | property | `readonly WebsiteMissingValue[]` | yes |  |
+
+## WebsiteSiteChromeMembership
+
+Kind: `type`
+Module: `src/websiteSiteChrome.ts`
+Source: `src/websiteSiteChrome.ts:33:1`
+
+The observed state of one candidate on one page, including an explicit absence when evaluated.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| pageId | property | `string` | yes |  |
+| source | property | `WebsiteSiteChromeSourceEvidence \| null` | yes |  |
+| state | property | `"missing" \| "present" \| "variant"` | yes |  |
+| subtree | property | `WebsiteSiteChromeSubtree \| null` | yes |  |
+
+## WebsiteSiteChromeRecognition
+
+Kind: `type`
+Module: `src/websiteSiteChrome.ts`
+Source: `src/websiteSiteChrome.ts:13:1`
+
+Source-grounded header and footer evidence collected without asserting cross-page identity.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| candidates | property | `readonly WebsiteSiteChromeCandidate[]` | yes |  |
+
+## WebsiteSiteChromeSemantics
+
+Kind: `type`
+Module: `src/websiteSiteChrome.ts`
+Source: `src/websiteSiteChrome.ts:51:1`
+
+Landmark semantics retained separately from generic DOM attributes for direct classification audit.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| ariaLabel | property | `string \| null` | yes |  |
+| role | property | `string \| null` | yes |  |
+
+## WebsiteSiteChromeSourceEvidence
+
+Kind: `type`
+Module: `src/websiteSiteChrome.ts`
+Source: `src/websiteSiteChrome.ts:41:1`
+
+DOM, ARIA, ancestry, and viewport evidence for a page-local chrome membership.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| ancestorSourceRefs | property | `readonly string[]` | yes |  |
+| dom | property | `WebsiteDomNode` | yes |  |
+| observations | property | `readonly WebsiteSiteChromeViewportObservation[]` | yes |  |
+| parentSourceRef | property | `string \| null` | yes |  |
+| semantics | property | `WebsiteSiteChromeSemantics` | yes |  |
+| sourceRef | property | `string` | yes |  |
+
+## WebsiteSiteChromeSubtree
+
+Kind: `type`
+Module: `src/websiteSiteChrome.ts`
+Source: `src/websiteSiteChrome.ts:69:1`
+
+The ordered recursive component tree and every source-linked recognition it contains.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| nodes | property | `readonly WebsiteRecognizedNode[]` | yes |  |
+| root | property | `UiNode` | yes |  |
+
+## WebsiteSiteChromeViewportObservation
+
+Kind: `type`
+Module: `src/websiteSiteChrome.ts`
+Source: `src/websiteSiteChrome.ts:57:1`
+
+One measured viewport and state, preserving conditional visibility without inferring a fallback.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| availability | property | `WebsiteAvailability` | yes |  |
+| rect | property | `WebsiteBoundingRect \| null` | yes |  |
+| semanticAttributes | property | `Readonly<Partial<Record<WebsiteSemanticAttributeName, WebsiteSemanticAttributeValue>>> \| undefined` | no |  |
+| stateId | property | `string` | yes |  |
+| viewportId | property | `string` | yes |  |
+| visibility | property | `"unknown" \| "hidden" \| "visible"` | yes |  |
+
 ## WebsiteSource
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:16:1`
+Source: `src/website.ts:27:1`
 
 The scraper identity and immutable crawl revision that produced a website document.
 
@@ -9192,7 +9311,7 @@ The scraper identity and immutable crawl revision that produced a website docume
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:58:1`
+Source: `src/website.ts:69:1`
 
 A named rendered state, such as default, hover, or expanded.
 
@@ -9207,7 +9326,7 @@ A named rendered state, such as default, hover, or expanded.
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:83:1`
+Source: `src/website.ts:94:1`
 
 A text run retained separately from its DOM node so inline styled spans are not lost.
 
@@ -9224,7 +9343,7 @@ A text run retained separately from its DOM node so inline styled spans are not 
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:323:1`
+Source: `src/website.ts:336:1`
 
 A visible source node that could not be mapped without silently discarding it.
 
@@ -9239,7 +9358,7 @@ A visible source node that could not be mapped without silently discarding it.
 
 Kind: `type`
 Module: `src/website.ts`
-Source: `src/website.ts:50:1`
+Source: `src/website.ts:61:1`
 
 A rendered viewport used while observing responsive website state.
 

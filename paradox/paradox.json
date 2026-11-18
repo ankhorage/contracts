@@ -1,7 +1,8 @@
 {
-  "packageName": "@ankhorage/contracts",
+  "packageName": "Ankhorage Contracts",
   "packageId": "@ankhorage/contracts",
-  "description": "Serializable app, capability, binding, theme, auth, and secret-store contracts for Ankhorage.",
+  "description": "Defines portable, serializable contracts exchanged by independent application, tooling, runtime, and adapter packages.",
+  "purpose": "Provide stable runtime-neutral data boundaries so separately released packages can exchange manifests, descriptors, plans, and configuration without sharing implementation code.",
   "collaborators": true,
   "donation": {
     "account": "ankhorage"
@@ -16,7 +17,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v26.11.1",
+      "value": "v26.12.0",
       "color": "cb3837"
     },
     {
@@ -1779,6 +1780,13 @@
         "WebsiteSemanticAttributeName",
         "WebsiteSemanticAttributeValue",
         "WebsiteSite",
+        "WebsiteSiteChromeCandidate",
+        "WebsiteSiteChromeMembership",
+        "WebsiteSiteChromeRecognition",
+        "WebsiteSiteChromeSemantics",
+        "WebsiteSiteChromeSourceEvidence",
+        "WebsiteSiteChromeSubtree",
+        "WebsiteSiteChromeViewportObservation",
         "WebsiteSource",
         "WebsiteState",
         "WebsiteTextRun",
@@ -3019,7 +3027,8 @@
       "dependencies": [
         "src/media.ts",
         "src/serializable.ts",
-        "src/types.ts"
+        "src/types.ts",
+        "src/websiteSiteChrome.ts"
       ],
       "exports": [
         "WebsiteAnimationEvidence",
@@ -3052,11 +3061,35 @@
         "WebsiteSemanticAttributeName",
         "WebsiteSemanticAttributeValue",
         "WebsiteSite",
+        "WebsiteSiteChromeCandidate",
+        "WebsiteSiteChromeMembership",
+        "WebsiteSiteChromeRecognition",
+        "WebsiteSiteChromeSemantics",
+        "WebsiteSiteChromeSourceEvidence",
+        "WebsiteSiteChromeSubtree",
+        "WebsiteSiteChromeViewportObservation",
         "WebsiteSource",
         "WebsiteState",
         "WebsiteTextRun",
         "WebsiteUnresolvedNode",
         "WebsiteViewport"
+      ]
+    },
+    {
+      "path": "src/websiteSiteChrome.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/types.ts",
+        "src/website.ts"
+      ],
+      "exports": [
+        "WebsiteSiteChromeCandidate",
+        "WebsiteSiteChromeMembership",
+        "WebsiteSiteChromeRecognition",
+        "WebsiteSiteChromeSemantics",
+        "WebsiteSiteChromeSourceEvidence",
+        "WebsiteSiteChromeSubtree",
+        "WebsiteSiteChromeViewportObservation"
       ]
     }
   ],
@@ -33482,7 +33515,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 146,
+        "line": 157,
         "column": 1
       },
       "exportPaths": [
@@ -33537,7 +33570,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 161,
+        "line": 172,
         "column": 1
       },
       "exportPaths": [
@@ -33576,7 +33609,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 154,
+        "line": 165,
         "column": 1
       },
       "exportPaths": [
@@ -33622,7 +33655,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 266,
+        "line": 277,
         "column": 1
       },
       "exportPaths": [
@@ -33680,7 +33713,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 134,
+        "line": 145,
         "column": 1
       },
       "exportPaths": [
@@ -33719,7 +33752,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 182,
+        "line": 193,
         "column": 1
       },
       "exportPaths": [
@@ -33770,7 +33803,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 251,
+        "line": 262,
         "column": 1
       },
       "exportPaths": [
@@ -33821,7 +33854,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 190,
+        "line": 201,
         "column": 1
       },
       "exportPaths": [
@@ -34245,7 +34278,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 329,
+        "line": 342,
         "column": 1
       },
       "exportPaths": [
@@ -34305,7 +34338,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 76,
+        "line": 87,
         "column": 1
       },
       "exportPaths": [
@@ -34349,7 +34382,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 91,
+        "line": 102,
         "column": 1
       },
       "exportPaths": [
@@ -34393,7 +34426,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 98,
+        "line": 109,
         "column": 1
       },
       "exportPaths": [
@@ -34451,7 +34484,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 140,
+        "line": 151,
         "column": 1
       },
       "exportPaths": [
@@ -34488,7 +34521,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 42,
+        "line": 53,
         "column": 1
       },
       "exportPaths": [
@@ -34539,7 +34572,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 107,
+        "line": 118,
         "column": 1
       },
       "exportPaths": [
@@ -34626,7 +34659,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 6,
+        "line": 17,
         "column": 1
       },
       "exportPaths": [
@@ -34695,7 +34728,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 259,
+        "line": 270,
         "column": 1
       },
       "exportPaths": [
@@ -34739,7 +34772,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 64,
+        "line": 75,
         "column": 1
       },
       "exportPaths": [
@@ -34824,7 +34857,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 30,
+        "line": 41,
         "column": 1
       },
       "exportPaths": [
@@ -34909,7 +34942,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 289,
+        "line": 302,
         "column": 1
       },
       "exportPaths": [
@@ -34970,7 +35003,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 176,
+        "line": 187,
         "column": 1
       },
       "exportPaths": [
@@ -35009,7 +35042,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 167,
+        "line": 178,
         "column": 1
       },
       "exportPaths": [
@@ -35072,7 +35105,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 275,
+        "line": 286,
         "column": 1
       },
       "exportPaths": [
@@ -35084,6 +35117,7 @@
         "WebsitePageRecognition",
         "WebsiteRecognizedMedia",
         "WebsiteSite",
+        "WebsiteSiteChromeRecognition",
         "WebsiteSource"
       ],
       "signatures": [],
@@ -35152,6 +35186,13 @@
           "description": null
         },
         {
+          "name": "siteChrome",
+          "kind": "property",
+          "type": "WebsiteSiteChromeRecognition | undefined",
+          "required": false,
+          "description": null
+        },
+        {
           "name": "source",
           "kind": "property",
           "type": "WebsiteSource",
@@ -35172,7 +35213,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 338,
+        "line": 351,
         "column": 1
       },
       "exportPaths": [
@@ -35225,7 +35266,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 298,
+        "line": 311,
         "column": 1
       },
       "exportPaths": [
@@ -35308,7 +35349,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 310,
+        "line": 323,
         "column": 1
       },
       "exportPaths": [
@@ -35354,7 +35395,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 317,
+        "line": 330,
         "column": 1
       },
       "exportPaths": [
@@ -35393,7 +35434,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 121,
+        "line": 132,
         "column": 1
       },
       "exportPaths": [
@@ -35415,7 +35456,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 131,
+        "line": 142,
         "column": 1
       },
       "exportPaths": [
@@ -35437,7 +35478,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 24,
+        "line": 35,
         "column": 1
       },
       "exportPaths": [
@@ -35464,6 +35505,376 @@
       "structuredRows": []
     },
     {
+      "name": "WebsiteSiteChromeCandidate",
+      "title": null,
+      "description": "A header or footer candidate that remains page evidence until a consumer compares pages.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/websiteSiteChrome.ts",
+      "sourceLocation": {
+        "filePath": "src/websiteSiteChrome.ts",
+        "line": 18,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "WebsiteMissingValue",
+        "WebsiteSiteChromeMembership"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "classification",
+          "kind": "property",
+          "type": "\"ambiguous\" | \"page-local\" | \"site-candidate\"",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "confidence",
+          "kind": "property",
+          "type": "number",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "id",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "memberships",
+          "kind": "property",
+          "type": "readonly WebsiteSiteChromeMembership[]",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "role",
+          "kind": "property",
+          "type": "\"header\" | \"footer\"",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "uncertainty",
+          "kind": "property",
+          "type": "readonly WebsiteMissingValue[]",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "WebsiteSiteChromeMembership",
+      "title": null,
+      "description": "The observed state of one candidate on one page, including an explicit absence when evaluated.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/websiteSiteChrome.ts",
+      "sourceLocation": {
+        "filePath": "src/websiteSiteChrome.ts",
+        "line": 33,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "WebsiteSiteChromeSourceEvidence",
+        "WebsiteSiteChromeSubtree"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "pageId",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "source",
+          "kind": "property",
+          "type": "WebsiteSiteChromeSourceEvidence | null",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "state",
+          "kind": "property",
+          "type": "\"missing\" | \"present\" | \"variant\"",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "subtree",
+          "kind": "property",
+          "type": "WebsiteSiteChromeSubtree | null",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "WebsiteSiteChromeRecognition",
+      "title": null,
+      "description": "Source-grounded header and footer evidence collected without asserting cross-page identity.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/websiteSiteChrome.ts",
+      "sourceLocation": {
+        "filePath": "src/websiteSiteChrome.ts",
+        "line": 13,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "WebsiteSiteChromeCandidate"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "candidates",
+          "kind": "property",
+          "type": "readonly WebsiteSiteChromeCandidate[]",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "WebsiteSiteChromeSemantics",
+      "title": null,
+      "description": "Landmark semantics retained separately from generic DOM attributes for direct classification audit.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/websiteSiteChrome.ts",
+      "sourceLocation": {
+        "filePath": "src/websiteSiteChrome.ts",
+        "line": 51,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "ariaLabel",
+          "kind": "property",
+          "type": "string | null",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "role",
+          "kind": "property",
+          "type": "string | null",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "WebsiteSiteChromeSourceEvidence",
+      "title": null,
+      "description": "DOM, ARIA, ancestry, and viewport evidence for a page-local chrome membership.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/websiteSiteChrome.ts",
+      "sourceLocation": {
+        "filePath": "src/websiteSiteChrome.ts",
+        "line": 41,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "WebsiteDomNode",
+        "WebsiteSiteChromeSemantics",
+        "WebsiteSiteChromeViewportObservation"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "ancestorSourceRefs",
+          "kind": "property",
+          "type": "readonly string[]",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "dom",
+          "kind": "property",
+          "type": "WebsiteDomNode",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "observations",
+          "kind": "property",
+          "type": "readonly WebsiteSiteChromeViewportObservation[]",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "parentSourceRef",
+          "kind": "property",
+          "type": "string | null",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "semantics",
+          "kind": "property",
+          "type": "WebsiteSiteChromeSemantics",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "sourceRef",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "WebsiteSiteChromeSubtree",
+      "title": null,
+      "description": "The ordered recursive component tree and every source-linked recognition it contains.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/websiteSiteChrome.ts",
+      "sourceLocation": {
+        "filePath": "src/websiteSiteChrome.ts",
+        "line": 69,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "UiNode",
+        "WebsiteRecognizedNode"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "nodes",
+          "kind": "property",
+          "type": "readonly WebsiteRecognizedNode[]",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "root",
+          "kind": "property",
+          "type": "UiNode",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "WebsiteSiteChromeViewportObservation",
+      "title": null,
+      "description": "One measured viewport and state, preserving conditional visibility without inferring a fallback.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/websiteSiteChrome.ts",
+      "sourceLocation": {
+        "filePath": "src/websiteSiteChrome.ts",
+        "line": 57,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "WebsiteAvailability",
+        "WebsiteBoundingRect",
+        "WebsiteSemanticAttributeName",
+        "WebsiteSemanticAttributeValue"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "availability",
+          "kind": "property",
+          "type": "WebsiteAvailability",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "rect",
+          "kind": "property",
+          "type": "WebsiteBoundingRect | null",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "semanticAttributes",
+          "kind": "property",
+          "type": "Readonly<Partial<Record<WebsiteSemanticAttributeName, WebsiteSemanticAttributeValue>>> | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "stateId",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "viewportId",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "visibility",
+          "kind": "property",
+          "type": "\"unknown\" | \"hidden\" | \"visible\"",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
       "name": "WebsiteSource",
       "title": null,
       "description": "The scraper identity and immutable crawl revision that produced a website document.",
@@ -35474,7 +35885,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 16,
+        "line": 27,
         "column": 1
       },
       "exportPaths": [
@@ -35525,7 +35936,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 58,
+        "line": 69,
         "column": 1
       },
       "exportPaths": [
@@ -35562,7 +35973,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 83,
+        "line": 94,
         "column": 1
       },
       "exportPaths": [
@@ -35613,7 +36024,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 323,
+        "line": 336,
         "column": 1
       },
       "exportPaths": [
@@ -35650,7 +36061,7 @@
       "modulePath": "src/website.ts",
       "sourceLocation": {
         "filePath": "src/website.ts",
-        "line": 50,
+        "line": 61,
         "column": 1
       },
       "exportPaths": [
@@ -38506,6 +38917,21 @@
         "fromPath": "src/website.ts",
         "toPath": "src/types.ts",
         "sourcePath": "src/website.ts"
+      },
+      {
+        "fromPath": "src/website.ts",
+        "toPath": "src/websiteSiteChrome.ts",
+        "sourcePath": "src/website.ts"
+      },
+      {
+        "fromPath": "src/websiteSiteChrome.ts",
+        "toPath": "src/types.ts",
+        "sourcePath": "src/websiteSiteChrome.ts"
+      },
+      {
+        "fromPath": "src/websiteSiteChrome.ts",
+        "toPath": "src/website.ts",
+        "sourcePath": "src/websiteSiteChrome.ts"
       },
       {
         "fromPath": "src/appManifest/bindings.ts",
@@ -46099,6 +46525,86 @@
         "sourcePath": "src/ui.ts"
       },
       {
+        "fromSymbol": "WebsiteSiteChromeCandidate",
+        "toType": "WebsiteMissingValue",
+        "sourcePath": "src/websiteSiteChrome.ts"
+      },
+      {
+        "fromSymbol": "WebsiteSiteChromeCandidate",
+        "toType": "WebsiteSiteChromeMembership",
+        "sourcePath": "src/websiteSiteChrome.ts"
+      },
+      {
+        "fromSymbol": "WebsiteSiteChromeMembership",
+        "toType": "WebsiteSiteChromeSourceEvidence",
+        "sourcePath": "src/websiteSiteChrome.ts"
+      },
+      {
+        "fromSymbol": "WebsiteSiteChromeMembership",
+        "toType": "WebsiteSiteChromeSubtree",
+        "sourcePath": "src/websiteSiteChrome.ts"
+      },
+      {
+        "fromSymbol": "WebsiteSiteChromeRecognition",
+        "toType": "WebsiteSiteChromeCandidate",
+        "sourcePath": "src/websiteSiteChrome.ts"
+      },
+      {
+        "fromSymbol": "WebsiteSiteChromeSourceEvidence",
+        "toType": "WebsiteDomNode",
+        "sourcePath": "src/websiteSiteChrome.ts"
+      },
+      {
+        "fromSymbol": "WebsiteSiteChromeSourceEvidence",
+        "toType": "WebsiteSiteChromeSemantics",
+        "sourcePath": "src/websiteSiteChrome.ts"
+      },
+      {
+        "fromSymbol": "WebsiteSiteChromeSourceEvidence",
+        "toType": "WebsiteSiteChromeViewportObservation",
+        "sourcePath": "src/websiteSiteChrome.ts"
+      },
+      {
+        "fromSymbol": "WebsiteSiteChromeSubtree",
+        "toType": "UiNode",
+        "sourcePath": "src/websiteSiteChrome.ts"
+      },
+      {
+        "fromSymbol": "WebsiteSiteChromeSubtree",
+        "toType": "WebsiteRecognizedNode",
+        "sourcePath": "src/websiteSiteChrome.ts"
+      },
+      {
+        "fromSymbol": "WebsiteSiteChromeViewportObservation",
+        "toType": "Partial",
+        "sourcePath": "src/websiteSiteChrome.ts"
+      },
+      {
+        "fromSymbol": "WebsiteSiteChromeViewportObservation",
+        "toType": "Readonly",
+        "sourcePath": "src/websiteSiteChrome.ts"
+      },
+      {
+        "fromSymbol": "WebsiteSiteChromeViewportObservation",
+        "toType": "WebsiteAvailability",
+        "sourcePath": "src/websiteSiteChrome.ts"
+      },
+      {
+        "fromSymbol": "WebsiteSiteChromeViewportObservation",
+        "toType": "WebsiteBoundingRect",
+        "sourcePath": "src/websiteSiteChrome.ts"
+      },
+      {
+        "fromSymbol": "WebsiteSiteChromeViewportObservation",
+        "toType": "WebsiteSemanticAttributeName",
+        "sourcePath": "src/websiteSiteChrome.ts"
+      },
+      {
+        "fromSymbol": "WebsiteSiteChromeViewportObservation",
+        "toType": "WebsiteSemanticAttributeValue",
+        "sourcePath": "src/websiteSiteChrome.ts"
+      },
+      {
         "fromSymbol": "WebsiteObservationDocument",
         "toType": "WebsitePageObservation",
         "sourcePath": "src/website.ts"
@@ -46296,6 +46802,11 @@
       {
         "fromSymbol": "WebsiteRecognitionDocument",
         "toType": "WebsiteSite",
+        "sourcePath": "src/website.ts"
+      },
+      {
+        "fromSymbol": "WebsiteRecognitionDocument",
+        "toType": "WebsiteSiteChromeRecognition",
         "sourcePath": "src/website.ts"
       },
       {

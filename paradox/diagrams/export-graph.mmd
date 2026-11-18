@@ -90,6 +90,7 @@ graph LR
   module_src_types_rules_ts["src/types/rules.ts"]
   module_src_ui_ts["src/ui.ts"]
   module_src_website_ts["src/website.ts"]
+  module_src_websiteSiteChrome_ts["src/websiteSiteChrome.ts"]
   export_AdapterId["AdapterId"]
   module_src_data_ids_ts --> export_AdapterId
   export_AdapterKind["AdapterKind"]
@@ -2427,6 +2428,7 @@ graph LR
   export_WebsiteRecognitionDocument -.-> export_WebsitePageRecognition
   export_WebsiteRecognitionDocument -.-> export_WebsiteRecognizedMedia
   export_WebsiteRecognitionDocument -.-> export_WebsiteSite
+  export_WebsiteRecognitionDocument -.-> export_WebsiteSiteChromeRecognition
   export_WebsiteRecognitionDocument -.-> export_WebsiteSource
   export_WebsiteRecognizedMedia["WebsiteRecognizedMedia"]
   module_src_website_ts --> export_WebsiteRecognizedMedia
@@ -2448,6 +2450,34 @@ graph LR
   module_src_website_ts --> export_WebsiteSemanticAttributeValue
   export_WebsiteSite["WebsiteSite"]
   module_src_website_ts --> export_WebsiteSite
+  export_WebsiteSiteChromeCandidate["WebsiteSiteChromeCandidate"]
+  module_src_websiteSiteChrome_ts --> export_WebsiteSiteChromeCandidate
+  export_WebsiteSiteChromeCandidate -.-> export_WebsiteMissingValue
+  export_WebsiteSiteChromeCandidate -.-> export_WebsiteSiteChromeMembership
+  export_WebsiteSiteChromeMembership["WebsiteSiteChromeMembership"]
+  module_src_websiteSiteChrome_ts --> export_WebsiteSiteChromeMembership
+  export_WebsiteSiteChromeMembership -.-> export_WebsiteSiteChromeSourceEvidence
+  export_WebsiteSiteChromeMembership -.-> export_WebsiteSiteChromeSubtree
+  export_WebsiteSiteChromeRecognition["WebsiteSiteChromeRecognition"]
+  module_src_websiteSiteChrome_ts --> export_WebsiteSiteChromeRecognition
+  export_WebsiteSiteChromeRecognition -.-> export_WebsiteSiteChromeCandidate
+  export_WebsiteSiteChromeSemantics["WebsiteSiteChromeSemantics"]
+  module_src_websiteSiteChrome_ts --> export_WebsiteSiteChromeSemantics
+  export_WebsiteSiteChromeSourceEvidence["WebsiteSiteChromeSourceEvidence"]
+  module_src_websiteSiteChrome_ts --> export_WebsiteSiteChromeSourceEvidence
+  export_WebsiteSiteChromeSourceEvidence -.-> export_WebsiteDomNode
+  export_WebsiteSiteChromeSourceEvidence -.-> export_WebsiteSiteChromeSemantics
+  export_WebsiteSiteChromeSourceEvidence -.-> export_WebsiteSiteChromeViewportObservation
+  export_WebsiteSiteChromeSubtree["WebsiteSiteChromeSubtree"]
+  module_src_websiteSiteChrome_ts --> export_WebsiteSiteChromeSubtree
+  export_WebsiteSiteChromeSubtree -.-> export_UiNode
+  export_WebsiteSiteChromeSubtree -.-> export_WebsiteRecognizedNode
+  export_WebsiteSiteChromeViewportObservation["WebsiteSiteChromeViewportObservation"]
+  module_src_websiteSiteChrome_ts --> export_WebsiteSiteChromeViewportObservation
+  export_WebsiteSiteChromeViewportObservation -.-> export_WebsiteAvailability
+  export_WebsiteSiteChromeViewportObservation -.-> export_WebsiteBoundingRect
+  export_WebsiteSiteChromeViewportObservation -.-> export_WebsiteSemanticAttributeName
+  export_WebsiteSiteChromeViewportObservation -.-> export_WebsiteSemanticAttributeValue
   export_WebsiteSource["WebsiteSource"]
   module_src_website_ts --> export_WebsiteSource
   export_WebsiteState["WebsiteState"]
