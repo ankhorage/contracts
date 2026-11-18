@@ -4,7 +4,11 @@ import phpObservation from '../test/website/fixtures/php-observation.json' with 
 import phpRecognition from '../test/website/fixtures/php-recognition.json' with { type: 'json' };
 import typescriptObservation from '../test/website/fixtures/typescript-observation.json' with { type: 'json' };
 import typescriptRecognition from '../test/website/fixtures/typescript-recognition.json' with { type: 'json' };
-import type { WebsiteNodeObservation, WebsiteObservationDocument } from './website.js';
+import type {
+  WebsiteNodeObservation,
+  WebsiteObservationDocument,
+  WebsiteRecognitionDocument,
+} from './website.js';
 
 const websiteObservationFixture = typescriptObservation as unknown as WebsiteObservationDocument;
 const websiteRecognitionFixture = typescriptRecognition as unknown as WebsiteRecognitionDocument;
