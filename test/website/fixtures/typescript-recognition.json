@@ -115,5 +115,271 @@
       "originalUrl": "https://example.test/hero.jpg",
       "asset": null
     }
-  ]
+  ],
+  "siteChrome": {
+    "candidates": [
+      {
+        "id": "chrome:header:home",
+        "role": "header",
+        "classification": "site-candidate",
+        "confidence": 0.91,
+        "uncertainty": [
+          {
+            "code": "cross-page-unverified",
+            "message": "This single page cannot establish site-wide repetition."
+          }
+        ],
+        "memberships": [
+          {
+            "pageId": "home",
+            "state": "present",
+            "source": {
+              "sourceRef": "home:chrome:header",
+              "parentSourceRef": null,
+              "ancestorSourceRefs": [],
+              "dom": {
+                "tagName": "header",
+                "childIndex": 0,
+                "attributes": { "role": "banner", "aria-label": "Primary navigation" }
+              },
+              "semantics": { "role": "banner", "ariaLabel": "Primary navigation" },
+              "observations": [
+                {
+                  "viewportId": "desktop",
+                  "stateId": "default",
+                  "availability": { "status": "available", "missing": null },
+                  "rect": { "x": 0, "y": 0, "width": 1440, "height": 80 },
+                  "visibility": "visible",
+                  "semanticAttributes": { "role": "banner", "aria-label": "Primary navigation" }
+                },
+                {
+                  "viewportId": "mobile",
+                  "stateId": "menu-collapsed",
+                  "availability": { "status": "available", "missing": null },
+                  "rect": { "x": 0, "y": 0, "width": 390, "height": 64 },
+                  "visibility": "visible",
+                  "semanticAttributes": { "aria-label": "Primary navigation" }
+                }
+              ]
+            },
+            "subtree": {
+              "root": {
+                "id": "home:chrome:header",
+                "type": "Flex",
+                "children": [{ "id": "home:chrome:nav", "type": "Navigation" }]
+              },
+              "nodes": [
+                {
+                  "id": "home:chrome:header",
+                  "componentType": "Flex",
+                  "sourceRefs": ["home:chrome:header"],
+                  "confidence": 0.91,
+                  "props": [],
+                  "responsive": [],
+                  "status": "recognized",
+                  "unresolved": null
+                },
+                {
+                  "id": "home:chrome:nav",
+                  "componentType": "Navigation",
+                  "sourceRefs": ["home:chrome:nav"],
+                  "confidence": 0.96,
+                  "props": [],
+                  "responsive": [],
+                  "status": "recognized",
+                  "unresolved": null
+                }
+              ]
+            }
+          },
+          { "pageId": "about", "state": "missing", "source": null, "subtree": null }
+        ]
+      },
+      {
+        "id": "content:article:header",
+        "role": "header",
+        "classification": "page-local",
+        "confidence": 1,
+        "uncertainty": [],
+        "memberships": [
+          {
+            "pageId": "home",
+            "state": "present",
+            "source": {
+              "sourceRef": "home:article:header",
+              "parentSourceRef": "home:article",
+              "ancestorSourceRefs": ["home:main", "home:article"],
+              "dom": { "tagName": "header", "childIndex": 0, "attributes": {} },
+              "semantics": { "role": null, "ariaLabel": null },
+              "observations": [
+                {
+                  "viewportId": "desktop",
+                  "stateId": "default",
+                  "availability": { "status": "available", "missing": null },
+                  "rect": { "x": 48, "y": 160, "width": 800, "height": 96 },
+                  "visibility": "visible"
+                }
+              ]
+            },
+            "subtree": {
+              "root": {
+                "id": "home:article:header",
+                "type": "Flex",
+                "children": [
+                  {
+                    "id": "home:article:header:content",
+                    "type": "Stack",
+                    "children": [{ "id": "home:article:header:title", "type": "Heading" }]
+                  }
+                ]
+              },
+              "nodes": [
+                {
+                  "id": "home:article:header",
+                  "componentType": "Flex",
+                  "sourceRefs": ["home:article:header"],
+                  "confidence": 1,
+                  "props": [],
+                  "responsive": [],
+                  "status": "recognized",
+                  "unresolved": null
+                },
+                {
+                  "id": "home:article:header:content",
+                  "componentType": "Stack",
+                  "sourceRefs": ["home:article:header:content"],
+                  "confidence": 1,
+                  "props": [],
+                  "responsive": [],
+                  "status": "recognized",
+                  "unresolved": null
+                },
+                {
+                  "id": "home:article:header:title",
+                  "componentType": "Heading",
+                  "sourceRefs": ["home:article:header:title"],
+                  "confidence": 1,
+                  "props": [],
+                  "responsive": [],
+                  "status": "recognized",
+                  "unresolved": null
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "content:article:footer",
+        "role": "footer",
+        "classification": "page-local",
+        "confidence": 1,
+        "uncertainty": [],
+        "memberships": [
+          {
+            "pageId": "home",
+            "state": "present",
+            "source": {
+              "sourceRef": "home:article:footer",
+              "parentSourceRef": "home:article",
+              "ancestorSourceRefs": ["home:main", "home:article"],
+              "dom": { "tagName": "footer", "childIndex": 2, "attributes": {} },
+              "semantics": { "role": null, "ariaLabel": null },
+              "observations": [
+                {
+                  "viewportId": "desktop",
+                  "stateId": "default",
+                  "availability": { "status": "available", "missing": null },
+                  "rect": { "x": 48, "y": 760, "width": 800, "height": 48 },
+                  "visibility": "visible"
+                }
+              ]
+            },
+            "subtree": {
+              "root": {
+                "id": "home:article:footer",
+                "type": "Flex",
+                "children": [{ "id": "home:article:footer:meta", "type": "Text" }]
+              },
+              "nodes": [
+                {
+                  "id": "home:article:footer",
+                  "componentType": "Flex",
+                  "sourceRefs": ["home:article:footer"],
+                  "confidence": 1,
+                  "props": [],
+                  "responsive": [],
+                  "status": "recognized",
+                  "unresolved": null
+                },
+                {
+                  "id": "home:article:footer:meta",
+                  "componentType": "Text",
+                  "sourceRefs": ["home:article:footer:meta"],
+                  "confidence": 1,
+                  "props": [],
+                  "responsive": [],
+                  "status": "recognized",
+                  "unresolved": null
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "chrome:footer:single-page",
+        "role": "footer",
+        "classification": "ambiguous",
+        "confidence": 0.5,
+        "uncertainty": [
+          {
+            "code": "cross-page-unverified",
+            "message": "One observed page cannot establish site-wide repetition."
+          },
+          {
+            "code": "scope-ambiguous",
+            "message": "Source evidence does not establish whether this footer is local or site-level."
+          }
+        ],
+        "memberships": [
+          {
+            "pageId": "home",
+            "state": "present",
+            "source": {
+              "sourceRef": "home:footer",
+              "parentSourceRef": "home:main",
+              "ancestorSourceRefs": ["home:main"],
+              "dom": { "tagName": "footer", "childIndex": 1, "attributes": {} },
+              "semantics": { "role": null, "ariaLabel": null },
+              "observations": [
+                {
+                  "viewportId": "desktop",
+                  "stateId": "default",
+                  "availability": { "status": "available", "missing": null },
+                  "rect": { "x": 0, "y": 920, "width": 1440, "height": 240 },
+                  "visibility": "visible"
+                }
+              ]
+            },
+            "subtree": {
+              "root": { "id": "home:footer", "type": "Flex" },
+              "nodes": [
+                {
+                  "id": "home:footer",
+                  "componentType": "Flex",
+                  "sourceRefs": ["home:footer"],
+                  "confidence": 0.5,
+                  "props": [],
+                  "responsive": [],
+                  "status": "recognized",
+                  "unresolved": null
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
 }
