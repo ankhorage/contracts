@@ -14,11 +14,16 @@ export interface WebsiteSiteChromeRecognition {
   readonly candidates: readonly WebsiteSiteChromeCandidate[];
 }
 
-/*** A header or footer candidate that remains local evidence until a consumer compares pages. */
+/*** A header or footer candidate that remains page evidence until a consumer compares pages. */
 export interface WebsiteSiteChromeCandidate {
   readonly id: string;
   readonly role: 'footer' | 'header';
-  readonly classification: 'ambiguous' | 'site-candidate';
+  /**
+   * `page-local` requires source evidence that the element belongs to local content. HTML tag names
+   * alone never establish site scope; `site-candidate` likewise remains unconfirmed until compared
+   * across pages, while `ambiguous` preserves evidence that cannot support either classification.
+   */
+  readonly classification: 'ambiguous' | 'page-local' | 'site-candidate';
   readonly confidence: number;
   readonly memberships: readonly WebsiteSiteChromeMembership[];
   readonly uncertainty: readonly WebsiteMissingValue[];

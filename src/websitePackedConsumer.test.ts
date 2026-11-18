@@ -33,7 +33,7 @@ const writeConsumerFiles = (consumerDirectory: string): void => {
   writeFileSync(
     join(consumerDirectory, 'consumer.ts'),
     [
-      "import type { WebsiteAnimationEvidence, WebsiteNodeObservation, WebsiteSiteChromeRecognition } from '@ankhorage/contracts/website';",
+      "import type { WebsiteAnimationEvidence, WebsiteNodeObservation, WebsiteSiteChromeCandidate, WebsiteSiteChromeRecognition } from '@ankhorage/contracts/website';",
       "const schemaV1Observation: WebsiteNodeObservation = { viewportId: 'desktop', stateId: 'default', availability: { status: 'available', missing: null }, rect: null, css: null, provenance: { sourceUrl: 'https://example.test/', capturedAt: '2026-11-10T00:00:00.000Z', method: 'browser' } };",
       "const observation: WebsiteNodeObservation = { viewportId: 'desktop', stateId: 'settled', availability: { status: 'available', missing: null }, semanticAttributes: { 'aria-valuenow': '72', value: 0 }, rect: null, css: null, provenance: { sourceUrl: 'https://example.test/', capturedAt: '2026-11-13T00:00:00.000Z', method: 'browser' } };",
       "const animationProperty = (value: string | null, status: 'available' | 'missing'): WebsiteAnimationEvidence['target']['animation'] => ({ availability: { status, missing: status === 'available' ? null : { code: 'source-unavailable', message: 'Source unavailable.' } }, value });",
@@ -41,12 +41,14 @@ const writeConsumerFiles = (consumerDirectory: string): void => {
       "const settledAnimationEvidence: WebsiteAnimationEvidence = { ...animationEvidence, pseudoElements: [{ ...animationEvidence.pseudoElements[0], boxSize: { width: animationProperty('75px', 'available'), height: animationProperty('4px', 'available') } }] };",
       "const unavailablePseudo: WebsiteAnimationEvidence = { ...animationEvidence, pseudoElements: [{ pseudo: '::after', availability: { status: 'missing', missing: { code: 'pseudo-element-unavailable', message: 'No generated after element.' } }, content: animationProperty(null, 'missing'), boxSize: { width: animationProperty(null, 'missing'), height: animationProperty(null, 'missing') }, css: null }] };",
       "const siteChrome: WebsiteSiteChromeRecognition = { candidates: [{ id: 'header', role: 'header', classification: 'site-candidate', confidence: 0.9, uncertainty: [{ code: 'cross-page-unverified', message: 'One page only.' }], memberships: [{ pageId: 'home', state: 'missing', source: null, subtree: null }] }] };",
+      "const pageLocalClassification: WebsiteSiteChromeCandidate['classification'] = 'page-local';",
       'void schemaV1Observation;',
       'void observation;',
       'void animationEvidence;',
       'void settledAnimationEvidence;',
       'void unavailablePseudo;',
       'void siteChrome;',
+      'void pageLocalClassification;',
     ].join('\n'),
   );
 };
