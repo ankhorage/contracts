@@ -174,6 +174,37 @@ it('keeps TypeScript and PHP website recognition fixtures identical and serializ
   expect(JSON.parse(JSON.stringify(websiteRecognitionFixture))).toEqual(websiteRecognitionFixture);
 });
 
+it('retains page-local site-chrome evidence without asserting site-wide ownership', () => {
+  expect(websiteRecognitionFixture.siteChrome).toMatchObject({
+    candidates: [
+      {
+        classification: 'site-candidate',
+        memberships: [
+          {
+            pageId: 'home',
+            source: {
+              ancestorSourceRefs: [],
+              dom: { tagName: 'header' },
+              semantics: { role: 'banner' },
+            },
+            state: 'present',
+          },
+          { pageId: 'about', state: 'missing', subtree: null },
+        ],
+        role: 'header',
+        uncertainty: [{ code: 'cross-page-unverified' }],
+      },
+    ],
+  });
+  expect(
+    websiteRecognitionFixture.siteChrome?.candidates[0]?.memberships[0]?.subtree?.root,
+  ).toMatchObject({
+    children: [{ id: 'home:chrome:nav', type: 'Navigation' }],
+    id: 'home:chrome:header',
+    type: 'Flex',
+  });
+});
+
 it('retains the visible unresolved node and the styled inline text run', () => {
   const redStyledSpan = websiteObservationFixture.pages[0]?.nodes.find(
     (node) => node.sourceRef === 'home:hero:span',

@@ -1,6 +1,17 @@
 import type { MediaAssetReference } from './media.js';
 import type { SerializableValue } from './serializable.js';
 import type { UiNode } from './types.js';
+import type { WebsiteSiteChromeRecognition } from './websiteSiteChrome.js';
+
+export type {
+  WebsiteSiteChromeCandidate,
+  WebsiteSiteChromeMembership,
+  WebsiteSiteChromeRecognition,
+  WebsiteSiteChromeSemantics,
+  WebsiteSiteChromeSourceEvidence,
+  WebsiteSiteChromeSubtree,
+  WebsiteSiteChromeViewportObservation,
+} from './websiteSiteChrome.js';
 
 /*** A versioned, portable capture of the observable state of one website. */
 export interface WebsiteObservationDocument {
@@ -283,6 +294,8 @@ export interface WebsiteRecognitionDocument {
   readonly pages: readonly WebsitePageRecognition[];
   readonly designTokens: readonly WebsiteDesignToken[];
   readonly media: readonly WebsiteRecognizedMedia[];
+  /** Page-observed site-chrome candidates; omission means the recognizer did not evaluate chrome. */
+  readonly siteChrome?: WebsiteSiteChromeRecognition;
 }
 
 /*** A recognized page with its canonical UiNode tree and retained source mapping. */

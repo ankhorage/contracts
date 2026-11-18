@@ -115,5 +115,86 @@
       "originalUrl": "https://example.test/hero.jpg",
       "asset": null
     }
-  ]
+  ],
+  "siteChrome": {
+    "candidates": [
+      {
+        "id": "chrome:header:home",
+        "role": "header",
+        "classification": "site-candidate",
+        "confidence": 0.91,
+        "uncertainty": [
+          {
+            "code": "cross-page-unverified",
+            "message": "This single page cannot establish site-wide repetition."
+          }
+        ],
+        "memberships": [
+          {
+            "pageId": "home",
+            "state": "present",
+            "source": {
+              "sourceRef": "home:chrome:header",
+              "parentSourceRef": null,
+              "ancestorSourceRefs": [],
+              "dom": {
+                "tagName": "header",
+                "childIndex": 0,
+                "attributes": { "role": "banner", "aria-label": "Primary navigation" }
+              },
+              "semantics": { "role": "banner", "ariaLabel": "Primary navigation" },
+              "observations": [
+                {
+                  "viewportId": "desktop",
+                  "stateId": "default",
+                  "availability": { "status": "available", "missing": null },
+                  "rect": { "x": 0, "y": 0, "width": 1440, "height": 80 },
+                  "visibility": "visible",
+                  "semanticAttributes": { "role": "banner", "aria-label": "Primary navigation" }
+                },
+                {
+                  "viewportId": "mobile",
+                  "stateId": "menu-collapsed",
+                  "availability": { "status": "available", "missing": null },
+                  "rect": { "x": 0, "y": 0, "width": 390, "height": 64 },
+                  "visibility": "visible",
+                  "semanticAttributes": { "aria-label": "Primary navigation" }
+                }
+              ]
+            },
+            "subtree": {
+              "root": {
+                "id": "home:chrome:header",
+                "type": "Flex",
+                "children": [{ "id": "home:chrome:nav", "type": "Navigation" }]
+              },
+              "nodes": [
+                {
+                  "id": "home:chrome:header",
+                  "componentType": "Flex",
+                  "sourceRefs": ["home:chrome:header"],
+                  "confidence": 0.91,
+                  "props": [],
+                  "responsive": [],
+                  "status": "recognized",
+                  "unresolved": null
+                },
+                {
+                  "id": "home:chrome:nav",
+                  "componentType": "Navigation",
+                  "sourceRefs": ["home:chrome:nav"],
+                  "confidence": 0.96,
+                  "props": [],
+                  "responsive": [],
+                  "status": "recognized",
+                  "unresolved": null
+                }
+              ]
+            }
+          },
+          { "pageId": "about", "state": "missing", "source": null, "subtree": null }
+        ]
+      }
+    ]
+  }
 }
