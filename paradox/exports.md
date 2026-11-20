@@ -3647,7 +3647,7 @@ Source: `src/types/infraManifest.ts:10:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:99:1`
+Source: `src/types/infraManifest.ts:113:1`
 
 ### Members
 
@@ -3659,13 +3659,13 @@ Source: `src/types/infraManifest.ts:99:1`
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:127:1`
+Source: `src/types/infraManifest.ts:141:1`
 
 ## InfraAuthzConfigMap
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:109:1`
+Source: `src/types/infraManifest.ts:123:1`
 
 ### Members
 
@@ -3677,7 +3677,7 @@ Source: `src/types/infraManifest.ts:109:1`
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:130:1`
+Source: `src/types/infraManifest.ts:144:1`
 
 ## InfraCapability
 
@@ -3785,13 +3785,14 @@ Source: `src/types/infraManifest.ts:82:1`
 
 | Name | Kind | Type | Required | Description |
 | --- | --- | --- | --- | --- |
+| neon | property | `{ readonly project: { readonly name: string; readonly regionId: string; readonly credentials: InfraControlPlaneCredentialRef; }; readonly branch?: { readonly name: string; }; readonly database?: { readonly name: string; }; readonly role?: { readonly name: string; }; }` | yes |  |
 | supabase | property | `{ readonly tier?: "dev" \| "prod"; readonly backup?: InfraScheduledDatabaseBackupSpec; }` | yes |  |
 
 ## InfraDatabaseSpec
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:119:1`
+Source: `src/types/infraManifest.ts:133:1`
 
 ## InfraDeploymentSpec
 
@@ -3834,7 +3835,7 @@ Source: `src/types/infraLifecycle.ts:22:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:153:1`
+Source: `src/types/infraManifest.ts:167:1`
 
 ### Members
 
@@ -3842,7 +3843,7 @@ Source: `src/types/infraManifest.ts:153:1`
 | --- | --- | --- | --- | --- |
 | auth | property | `({ readonly provider: "supabase"; } & { readonly scope?: AuthScope; readonly flow?: AuthFlowConfig; readonly signIn?: AuthSignInSpec; readonly signUp?: AuthSignUpSpec; readonly oauth?: AuthOAuthConfig; readonly profile?: AuthProfileSpec; }) \| undefined` | no |  |
 | authz | property | `({ readonly provider: "cerbos"; } & { readonly kind: "RBAC" \| "ABAC"; readonly policies?: ValueMap<string, string>; }) \| undefined` | no |  |
-| database | property | `({ readonly provider: "supabase"; } & { readonly tier?: "dev" \| "prod"; readonly backup?: InfraScheduledDatabaseBackupSpec; }) \| undefined` | no |  |
+| database | property | `InfraDatabaseSpec \| undefined` | no |  |
 | deployment | property | `InfraDeploymentSpec` | yes |  |
 | networking | property | `InfraNetworkingSpec \| undefined` | no |  |
 | objectStorage | property | `InfraObjectStorageSpec \| undefined` | no |  |
@@ -3904,7 +3905,7 @@ Source: `src/types/infraLifecycle.ts:89:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:172:1`
+Source: `src/types/infraManifest.ts:186:1`
 
 ### Members
 
@@ -3918,19 +3919,19 @@ Source: `src/types/infraManifest.ts:172:1`
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:164:1`
+Source: `src/types/infraManifest.ts:178:1`
 
 ## InfraModuleRegistry
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:170:1`
+Source: `src/types/infraManifest.ts:184:1`
 
 ## InfraModuleSpec
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:166:1`
+Source: `src/types/infraManifest.ts:180:1`
 
 ### Members
 
@@ -3942,7 +3943,7 @@ Source: `src/types/infraManifest.ts:166:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:144:1`
+Source: `src/types/infraManifest.ts:158:1`
 
 ### Members
 
@@ -3956,7 +3957,7 @@ Source: `src/types/infraManifest.ts:144:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:137:1`
+Source: `src/types/infraManifest.ts:151:1`
 
 ### Members
 
@@ -3969,7 +3970,7 @@ Source: `src/types/infraManifest.ts:137:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:88:1`
+Source: `src/types/infraManifest.ts:102:1`
 
 ### Members
 
@@ -3982,7 +3983,7 @@ Source: `src/types/infraManifest.ts:88:1`
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:122:1`
+Source: `src/types/infraManifest.ts:136:1`
 
 ## InfraOutput
 
@@ -4065,7 +4066,7 @@ Source: `src/types/infraLifecycle.ts:7:1`
 
 | Name | Kind | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| adapter | property | `"local" \| "hetzner" \| "minikube" \| "k3s" \| "docker-compose" \| "supabase" \| "cerbos" \| "r2" \| "supabase-vault"` | yes |  |
+| adapter | property | `"local" \| "hetzner" \| "minikube" \| "k3s" \| "docker-compose" \| "supabase" \| "neon" \| "cerbos" \| "r2" \| "supabase-vault"` | yes |  |
 | environment | property | `"local" \| "preview" \| "production"` | yes |  |
 | projectId | property | `string` | yes |  |
 | resourceId | property | `string` | yes |  |
@@ -4201,7 +4202,7 @@ Source: `src/types/infraSecrets.ts:10:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:115:1`
+Source: `src/types/infraManifest.ts:129:1`
 
 ### Members
 
@@ -4213,7 +4214,7 @@ Source: `src/types/infraManifest.ts:115:1`
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:133:1`
+Source: `src/types/infraManifest.ts:147:1`
 
 ## InfraServiceAdapter
 
@@ -4225,7 +4226,7 @@ Source: `src/types/infraAdapters.ts:144:1`
 
 | Name | Kind | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| descriptor | property | `InfraAdapterDescriptor<"supabase" \| "cerbos" \| "r2" \| "supabase-vault">` | yes |  |
+| descriptor | property | `InfraAdapterDescriptor<"supabase" \| "neon" \| "cerbos" \| "r2" \| "supabase-vault">` | yes |  |
 | desiredWorkloadsAsync | method | `(context: InfraExecutionContext) => Promise<InfraResult<readonly InfraWorkloadSpec[]>>` | yes |  |
 | destroyAsync | method | `(context: InfraExecutionContext, request: InfraDestroyRequest) => Promise<InfraResult<InfraReconcileResult>>` | yes |  |
 | planAsync | method | `(context: InfraExecutionContext) => Promise<InfraResult<readonly InfraPlanAction[]>>` | yes |  |
@@ -4716,7 +4717,7 @@ Validate provider-specific config and the exact same compatibility map used by T
 
 Kind: `function`
 Module: `src/infra/isInfraEnvironmentSpec.ts`
-Source: `src/infra/isInfraEnvironmentSpec.ts:21:1`
+Source: `src/infra/isInfraEnvironmentSpec.ts:22:1`
 
 Validate sibling capabilities and their required relationships within one environment.
 

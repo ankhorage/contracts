@@ -1110,6 +1110,7 @@ graph LR
   export_InfraCredentialPort -.-> export_InfraResult
   export_InfraDatabaseConfigMap["InfraDatabaseConfigMap"]
   module_src_types_infraManifest_ts --> export_InfraDatabaseConfigMap
+  export_InfraDatabaseConfigMap -.-> export_InfraControlPlaneCredentialRef
   export_InfraDatabaseConfigMap -.-> export_InfraScheduledDatabaseBackupSpec
   export_InfraDatabaseSpec["InfraDatabaseSpec"]
   module_src_types_infraManifest_ts --> export_InfraDatabaseSpec
@@ -1130,10 +1131,10 @@ graph LR
   export_InfraEnvironmentSpec -.-> export_AuthScope
   export_InfraEnvironmentSpec -.-> export_AuthSignInSpec
   export_InfraEnvironmentSpec -.-> export_AuthSignUpSpec
+  export_InfraEnvironmentSpec -.-> export_InfraDatabaseSpec
   export_InfraEnvironmentSpec -.-> export_InfraDeploymentSpec
   export_InfraEnvironmentSpec -.-> export_InfraNetworkingSpec
   export_InfraEnvironmentSpec -.-> export_InfraObjectStorageSpec
-  export_InfraEnvironmentSpec -.-> export_InfraScheduledDatabaseBackupSpec
   export_InfraEnvironmentSpec -.-> export_InfraWorkloadRegistry
   export_InfraEnvironmentSpec -.-> export_ValueMap
   export_InfraExecutionContext["InfraExecutionContext"]

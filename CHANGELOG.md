@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 26.13.0
+
+### Minor Changes
+
+- 9678548: Add the canonical Neon database infrastructure adapter contract.
+
 ## 26.12.0
 
 ### Minor Changes

@@ -3,6 +3,7 @@
   "packageId": "@ankhorage/contracts",
   "description": "Defines portable, serializable contracts exchanged by independent application, tooling, runtime, and adapter packages.",
   "purpose": "Provide stable runtime-neutral data boundaries so separately released packages can exchange manifests, descriptors, plans, and configuration without sharing implementation code.",
+  "productDocumentation": null,
   "collaborators": true,
   "donation": {
     "account": "ankhorage"
@@ -17,7 +18,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v26.12.0",
+      "value": "v26.13.0",
       "color": "cb3837"
     },
     {
@@ -16130,7 +16131,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 99,
+        "line": 113,
         "column": 1
       },
       "exportPaths": [
@@ -16167,7 +16168,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 127,
+        "line": 141,
         "column": 1
       },
       "exportPaths": [
@@ -16189,7 +16190,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 109,
+        "line": 123,
         "column": 1
       },
       "exportPaths": [
@@ -16221,7 +16222,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 130,
+        "line": 144,
         "column": 1
       },
       "exportPaths": [
@@ -16591,10 +16592,18 @@
         "src/index.ts"
       ],
       "relatedSymbols": [
+        "InfraControlPlaneCredentialRef",
         "InfraScheduledDatabaseBackupSpec"
       ],
       "signatures": [],
       "members": [
+        {
+          "name": "neon",
+          "kind": "property",
+          "type": "{ readonly project: { readonly name: string; readonly regionId: string; readonly credentials: InfraControlPlaneCredentialRef; }; readonly branch?: { readonly name: string; }; readonly database?: { readonly name: string; }; readonly role?: { readonly name: string; }; }",
+          "required": true,
+          "description": null
+        },
         {
           "name": "supabase",
           "kind": "property",
@@ -16616,7 +16625,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 119,
+        "line": 133,
         "column": 1
       },
       "exportPaths": [
@@ -16774,7 +16783,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 153,
+        "line": 167,
         "column": 1
       },
       "exportPaths": [
@@ -16787,10 +16796,10 @@
         "AuthScope",
         "AuthSignInSpec",
         "AuthSignUpSpec",
+        "InfraDatabaseSpec",
         "InfraDeploymentSpec",
         "InfraNetworkingSpec",
         "InfraObjectStorageSpec",
-        "InfraScheduledDatabaseBackupSpec",
         "InfraWorkloadRegistry",
         "ValueMap"
       ],
@@ -16813,7 +16822,7 @@
         {
           "name": "database",
           "kind": "property",
-          "type": "({ readonly provider: \"supabase\"; } & { readonly tier?: \"dev\" | \"prod\"; readonly backup?: InfraScheduledDatabaseBackupSpec; }) | undefined",
+          "type": "InfraDatabaseSpec | undefined",
           "required": false,
           "description": null
         },
@@ -17074,7 +17083,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 172,
+        "line": 186,
         "column": 1
       },
       "exportPaths": [
@@ -17122,7 +17131,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 164,
+        "line": 178,
         "column": 1
       },
       "exportPaths": [
@@ -17144,7 +17153,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 170,
+        "line": 184,
         "column": 1
       },
       "exportPaths": [
@@ -17166,7 +17175,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 166,
+        "line": 180,
         "column": 1
       },
       "exportPaths": [
@@ -17198,7 +17207,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 144,
+        "line": 158,
         "column": 1
       },
       "exportPaths": [
@@ -17244,7 +17253,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 137,
+        "line": 151,
         "column": 1
       },
       "exportPaths": [
@@ -17281,7 +17290,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 88,
+        "line": 102,
         "column": 1
       },
       "exportPaths": [
@@ -17322,7 +17331,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 122,
+        "line": 136,
         "column": 1
       },
       "exportPaths": [
@@ -17606,7 +17615,7 @@
         {
           "name": "adapter",
           "kind": "property",
-          "type": "\"local\" | \"hetzner\" | \"minikube\" | \"k3s\" | \"docker-compose\" | \"supabase\" | \"cerbos\" | \"r2\" | \"supabase-vault\"",
+          "type": "\"local\" | \"hetzner\" | \"minikube\" | \"k3s\" | \"docker-compose\" | \"supabase\" | \"neon\" | \"cerbos\" | \"r2\" | \"supabase-vault\"",
           "required": true,
           "description": null
         },
@@ -18118,7 +18127,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 115,
+        "line": 129,
         "column": 1
       },
       "exportPaths": [
@@ -18148,7 +18157,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 133,
+        "line": 147,
         "column": 1
       },
       "exportPaths": [
@@ -18192,7 +18201,7 @@
         {
           "name": "descriptor",
           "kind": "property",
-          "type": "InfraAdapterDescriptor<\"supabase\" | \"cerbos\" | \"r2\" | \"supabase-vault\">",
+          "type": "InfraAdapterDescriptor<\"supabase\" | \"neon\" | \"cerbos\" | \"r2\" | \"supabase-vault\">",
           "required": true,
           "description": null
         },
@@ -19890,7 +19899,7 @@
       "modulePath": "src/infra/isInfraEnvironmentSpec.ts",
       "sourceLocation": {
         "filePath": "src/infra/isInfraEnvironmentSpec.ts",
-        "line": 21,
+        "line": 22,
         "column": 1
       },
       "exportPaths": [
@@ -37541,7 +37550,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/infra/isInfraEnvironmentSpec.ts",
-        "line": 21,
+        "line": 22,
         "column": 1
       }
     },
@@ -37552,7 +37561,18 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/infra/isInfraEnvironmentSpec.ts",
-        "line": 31,
+        "line": 32,
+        "column": 1
+      }
+    },
+    {
+      "name": "isDatabase",
+      "description": "Validate the selected database provider’s non-secret desired resources.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/infra/isInfraEnvironmentSpec.ts",
+        "line": 69,
         "column": 1
       }
     },
@@ -37563,7 +37583,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/infra/isInfraEnvironmentSpec.ts",
-        "line": 74,
+        "line": 94,
         "column": 1
       }
     },
@@ -37574,7 +37594,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/infra/isInfraEnvironmentSpec.ts",
-        "line": 85,
+        "line": 105,
         "column": 1
       }
     },
@@ -37585,7 +37605,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/infra/isInfraEnvironmentSpec.ts",
-        "line": 94,
+        "line": 114,
         "column": 1
       }
     },
@@ -37596,7 +37616,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/infra/isInfraEnvironmentSpec.ts",
-        "line": 108,
+        "line": 128,
         "column": 1
       }
     },
@@ -37607,7 +37627,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/infra/isInfraEnvironmentSpec.ts",
-        "line": 119,
+        "line": 139,
         "column": 1
       }
     },
@@ -37618,7 +37638,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/infra/isInfraEnvironmentSpec.ts",
-        "line": 131,
+        "line": 151,
         "column": 1
       }
     },
@@ -37629,7 +37649,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/infra/isInfraEnvironmentSpec.ts",
-        "line": 153,
+        "line": 173,
         "column": 1
       }
     },
@@ -37640,7 +37660,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/infra/isInfraEnvironmentSpec.ts",
-        "line": 163,
+        "line": 183,
         "column": 1
       }
     },
@@ -37651,7 +37671,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/infra/isInfraEnvironmentSpec.ts",
-        "line": 173,
+        "line": 193,
         "column": 1
       }
     },
@@ -41942,14 +41962,8 @@
       },
       {
         "fromSymbol": "database",
-        "toSymbol": "isInfraShape",
-        "callExpression": "isInfraShape",
-        "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
-      },
-      {
-        "fromSymbol": "backup",
-        "toSymbol": "isScheduledDatabaseBackup",
-        "callExpression": "isScheduledDatabaseBackup",
+        "toSymbol": "isDatabase",
+        "callExpression": "isDatabase",
         "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
       },
       {
@@ -42004,6 +42018,48 @@
         "fromSymbol": "workloads",
         "toSymbol": "isWorkloads",
         "callExpression": "isWorkloads",
+        "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
+      },
+      {
+        "fromSymbol": "isDatabase",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
+      },
+      {
+        "fromSymbol": "isDatabase",
+        "toSymbol": "isInfraShape",
+        "callExpression": "isInfraShape",
+        "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
+      },
+      {
+        "fromSymbol": "backup",
+        "toSymbol": "isScheduledDatabaseBackup",
+        "callExpression": "isScheduledDatabaseBackup",
+        "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
+      },
+      {
+        "fromSymbol": "project",
+        "toSymbol": "isInfraShape",
+        "callExpression": "isInfraShape",
+        "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
+      },
+      {
+        "fromSymbol": "branch",
+        "toSymbol": "isInfraShape",
+        "callExpression": "isInfraShape",
+        "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
+      },
+      {
+        "fromSymbol": "database",
+        "toSymbol": "isInfraShape",
+        "callExpression": "isInfraShape",
+        "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
+      },
+      {
+        "fromSymbol": "role",
+        "toSymbol": "isInfraShape",
+        "callExpression": "isInfraShape",
         "sourcePath": "src/infra/isInfraEnvironmentSpec.ts"
       },
       {
@@ -44991,6 +45047,11 @@
       },
       {
         "fromSymbol": "InfraDatabaseConfigMap",
+        "toType": "InfraControlPlaneCredentialRef",
+        "sourcePath": "src/types/infraManifest.ts"
+      },
+      {
+        "fromSymbol": "InfraDatabaseConfigMap",
         "toType": "InfraScheduledDatabaseBackupSpec",
         "sourcePath": "src/types/infraManifest.ts"
       },
@@ -45096,6 +45157,11 @@
       },
       {
         "fromSymbol": "InfraEnvironmentSpec",
+        "toType": "InfraDatabaseSpec",
+        "sourcePath": "src/types/infraManifest.ts"
+      },
+      {
+        "fromSymbol": "InfraEnvironmentSpec",
         "toType": "InfraDeploymentSpec",
         "sourcePath": "src/types/infraManifest.ts"
       },
@@ -45107,11 +45173,6 @@
       {
         "fromSymbol": "InfraEnvironmentSpec",
         "toType": "InfraObjectStorageSpec",
-        "sourcePath": "src/types/infraManifest.ts"
-      },
-      {
-        "fromSymbol": "InfraEnvironmentSpec",
-        "toType": "InfraScheduledDatabaseBackupSpec",
         "sourcePath": "src/types/infraManifest.ts"
       },
       {

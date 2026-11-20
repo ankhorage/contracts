@@ -230,7 +230,7 @@
   </li><li>
     <button class="nav-button" type="button" data-target="src/infra/isInfraEnvironmentSpec.ts">
       src/infra/isInfraEnvironmentSpec.ts
-      <small>11 functions</small>
+      <small>12 functions</small>
     </button>
   </li><li>
     <button class="nav-button" type="button" data-target="src/infra/isInfraManifest.ts">
@@ -312,6 +312,7 @@
         <li><code>src/index.ts</code></li>
       </ul>
     </section>
+
     
     <section class="panel">
     <h2>Policy findings</h2>
@@ -7033,7 +7034,7 @@ restricted, either match is sufficient, following POSIX cron semantics.</p>
               <article class="item" id="symbol-isinfraenvironmentspec" data-search="isInfraEnvironmentSpec  function src/infra/isInfraEnvironmentSpec.ts Validate sibling capabilities and their required relationships within one environment. (value: unknown) =&gt; boolean">
     <h4>isInfraEnvironmentSpec</h4>
     
-    <p class="muted">function • <code>src/infra/isInfraEnvironmentSpec.ts:21:1</code></p>
+    <p class="muted">function • <code>src/infra/isInfraEnvironmentSpec.ts:22:1</code></p>
     <p>Validate sibling capabilities and their required relationships within one environment.</p>
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
@@ -18174,7 +18175,7 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
       <tr>
             <td><code>descriptor</code></td>
             <td>property</td>
-            <td><code>InfraAdapterDescriptor&lt;&quot;supabase&quot; | &quot;cerbos&quot; | &quot;r2&quot; | &quot;supabase-vault&quot;&gt;</code></td>
+            <td><code>InfraAdapterDescriptor&lt;&quot;supabase&quot; | &quot;neon&quot; | &quot;cerbos&quot; | &quot;r2&quot; | &quot;supabase-vault&quot;&gt;</code></td>
             <td>yes</td>
             <td></td>
           </tr><tr>
@@ -18560,7 +18561,7 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
       <tr>
             <td><code>adapter</code></td>
             <td>property</td>
-            <td><code>&quot;local&quot; | &quot;hetzner&quot; | &quot;minikube&quot; | &quot;k3s&quot; | &quot;docker-compose&quot; | &quot;supabase&quot; | &quot;cerbos&quot; | &quot;r2&quot; | &quot;supabase-vault&quot;</code></td>
+            <td><code>&quot;local&quot; | &quot;hetzner&quot; | &quot;minikube&quot; | &quot;k3s&quot; | &quot;docker-compose&quot; | &quot;supabase&quot; | &quot;neon&quot; | &quot;cerbos&quot; | &quot;r2&quot; | &quot;supabase-vault&quot;</code></td>
             <td>yes</td>
             <td></td>
           </tr><tr>
@@ -18689,7 +18690,7 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
   </article><article class="item" id="symbol-infraauthconfigmap" data-search="InfraAuthConfigMap  type src/types/infraManifest.ts  AuthFlowConfig AuthOAuthConfig AuthProfileSpec AuthScope AuthSignInSpec AuthSignUpSpec">
     <h4>InfraAuthConfigMap</h4>
     
-    <p class="muted">type • <code>src/types/infraManifest.ts:99:1</code></p>
+    <p class="muted">type • <code>src/types/infraManifest.ts:113:1</code></p>
     
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
@@ -18710,7 +18711,7 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
   </article><article class="item" id="symbol-infraauthspec" data-search="InfraAuthSpec  unknown src/types/infraManifest.ts ">
     <h4>InfraAuthSpec</h4>
     
-    <p class="muted">unknown • <code>src/types/infraManifest.ts:127:1</code></p>
+    <p class="muted">unknown • <code>src/types/infraManifest.ts:141:1</code></p>
     
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
@@ -18720,7 +18721,7 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
   </article><article class="item" id="symbol-infraauthzconfigmap" data-search="InfraAuthzConfigMap  type src/types/infraManifest.ts  ValueMap">
     <h4>InfraAuthzConfigMap</h4>
     
-    <p class="muted">type • <code>src/types/infraManifest.ts:109:1</code></p>
+    <p class="muted">type • <code>src/types/infraManifest.ts:123:1</code></p>
     
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
@@ -18741,7 +18742,7 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
   </article><article class="item" id="symbol-infraauthzspec" data-search="InfraAuthzSpec  unknown src/types/infraManifest.ts ">
     <h4>InfraAuthzSpec</h4>
     
-    <p class="muted">unknown • <code>src/types/infraManifest.ts:130:1</code></p>
+    <p class="muted">unknown • <code>src/types/infraManifest.ts:144:1</code></p>
     
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
@@ -18805,19 +18806,25 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
     <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
     
     
-  </article><article class="item" id="symbol-infradatabaseconfigmap" data-search="InfraDatabaseConfigMap  type src/types/infraManifest.ts  InfraScheduledDatabaseBackupSpec">
+  </article><article class="item" id="symbol-infradatabaseconfigmap" data-search="InfraDatabaseConfigMap  type src/types/infraManifest.ts  InfraControlPlaneCredentialRef InfraScheduledDatabaseBackupSpec">
     <h4>InfraDatabaseConfigMap</h4>
     
     <p class="muted">type • <code>src/types/infraManifest.ts:82:1</code></p>
     
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
-    <div><strong>Related symbols:</strong> <ul class="chips"><li class="chip">InfraScheduledDatabaseBackupSpec</li></ul></div>
+    <div><strong>Related symbols:</strong> <ul class="chips"><li class="chip">InfraControlPlaneCredentialRef</li><li class="chip">InfraScheduledDatabaseBackupSpec</li></ul></div>
     
     <table>
     <thead><tr><th>Member</th><th>Kind</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
     <tbody>
       <tr>
+            <td><code>neon</code></td>
+            <td>property</td>
+            <td><code>{ readonly project: { readonly name: string; readonly regionId: string; readonly credentials: InfraControlPlaneCredentialRef; }; readonly branch?: { readonly name: string; }; readonly database?: { readonly name: string; }; readonly role?: { readonly name: string; }; }</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr><tr>
             <td><code>supabase</code></td>
             <td>property</td>
             <td><code>{ readonly tier?: &quot;dev&quot; | &quot;prod&quot;; readonly backup?: InfraScheduledDatabaseBackupSpec; }</code></td>
@@ -18829,7 +18836,7 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
   </article><article class="item" id="symbol-infradatabasespec" data-search="InfraDatabaseSpec  unknown src/types/infraManifest.ts ">
     <h4>InfraDatabaseSpec</h4>
     
-    <p class="muted">unknown • <code>src/types/infraManifest.ts:119:1</code></p>
+    <p class="muted">unknown • <code>src/types/infraManifest.ts:133:1</code></p>
     
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
@@ -18846,14 +18853,14 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
     <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
     
     
-  </article><article class="item" id="symbol-infraenvironmentspec" data-search="InfraEnvironmentSpec  type src/types/infraManifest.ts  AuthFlowConfig AuthOAuthConfig AuthProfileSpec AuthScope AuthSignInSpec AuthSignUpSpec InfraDeploymentSpec InfraNetworkingSpec InfraObjectStorageSpec InfraScheduledDatabaseBackupSpec InfraWorkloadRegistry ValueMap">
+  </article><article class="item" id="symbol-infraenvironmentspec" data-search="InfraEnvironmentSpec  type src/types/infraManifest.ts  AuthFlowConfig AuthOAuthConfig AuthProfileSpec AuthScope AuthSignInSpec AuthSignUpSpec InfraDatabaseSpec InfraDeploymentSpec InfraNetworkingSpec InfraObjectStorageSpec InfraWorkloadRegistry ValueMap">
     <h4>InfraEnvironmentSpec</h4>
     
-    <p class="muted">type • <code>src/types/infraManifest.ts:153:1</code></p>
+    <p class="muted">type • <code>src/types/infraManifest.ts:167:1</code></p>
     
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
-    <div><strong>Related symbols:</strong> <ul class="chips"><li class="chip">AuthFlowConfig</li><li class="chip">AuthOAuthConfig</li><li class="chip">AuthProfileSpec</li><li class="chip">AuthScope</li><li class="chip">AuthSignInSpec</li><li class="chip">AuthSignUpSpec</li><li class="chip">InfraDeploymentSpec</li><li class="chip">InfraNetworkingSpec</li><li class="chip">InfraObjectStorageSpec</li><li class="chip">InfraScheduledDatabaseBackupSpec</li><li class="chip">InfraWorkloadRegistry</li><li class="chip">ValueMap</li></ul></div>
+    <div><strong>Related symbols:</strong> <ul class="chips"><li class="chip">AuthFlowConfig</li><li class="chip">AuthOAuthConfig</li><li class="chip">AuthProfileSpec</li><li class="chip">AuthScope</li><li class="chip">AuthSignInSpec</li><li class="chip">AuthSignUpSpec</li><li class="chip">InfraDatabaseSpec</li><li class="chip">InfraDeploymentSpec</li><li class="chip">InfraNetworkingSpec</li><li class="chip">InfraObjectStorageSpec</li><li class="chip">InfraWorkloadRegistry</li><li class="chip">ValueMap</li></ul></div>
     
     <table>
     <thead><tr><th>Member</th><th>Kind</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
@@ -18873,7 +18880,7 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
           </tr><tr>
             <td><code>database</code></td>
             <td>property</td>
-            <td><code>({ readonly provider: &quot;supabase&quot;; } &amp; { readonly tier?: &quot;dev&quot; | &quot;prod&quot;; readonly backup?: InfraScheduledDatabaseBackupSpec; }) | undefined</code></td>
+            <td><code>InfraDatabaseSpec | undefined</code></td>
             <td>no</td>
             <td></td>
           </tr><tr>
@@ -18912,7 +18919,7 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
   </article><article class="item" id="symbol-inframanifest" data-search="InfraManifest  type src/types/infraManifest.ts  ApiDefinitionRegistry InfraEnvironmentSpec InfraModuleRegistry">
     <h4>InfraManifest</h4>
     
-    <p class="muted">type • <code>src/types/infraManifest.ts:172:1</code></p>
+    <p class="muted">type • <code>src/types/infraManifest.ts:186:1</code></p>
     
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
@@ -18945,7 +18952,7 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
   </article><article class="item" id="symbol-inframoduleid" data-search="InfraModuleId  unknown src/types/infraManifest.ts ">
     <h4>InfraModuleId</h4>
     
-    <p class="muted">unknown • <code>src/types/infraManifest.ts:164:1</code></p>
+    <p class="muted">unknown • <code>src/types/infraManifest.ts:178:1</code></p>
     
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
@@ -18955,7 +18962,7 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
   </article><article class="item" id="symbol-inframoduleregistry" data-search="InfraModuleRegistry  unknown src/types/infraManifest.ts ">
     <h4>InfraModuleRegistry</h4>
     
-    <p class="muted">unknown • <code>src/types/infraManifest.ts:170:1</code></p>
+    <p class="muted">unknown • <code>src/types/infraManifest.ts:184:1</code></p>
     
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
@@ -18965,7 +18972,7 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
   </article><article class="item" id="symbol-inframodulespec" data-search="InfraModuleSpec  type src/types/infraManifest.ts  SerializableValue">
     <h4>InfraModuleSpec</h4>
     
-    <p class="muted">type • <code>src/types/infraManifest.ts:166:1</code></p>
+    <p class="muted">type • <code>src/types/infraManifest.ts:180:1</code></p>
     
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
@@ -18986,7 +18993,7 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
   </article><article class="item" id="symbol-infranetworkingspec" data-search="InfraNetworkingSpec  type src/types/infraManifest.ts  InfraNetworkingTlsSpec">
     <h4>InfraNetworkingSpec</h4>
     
-    <p class="muted">type • <code>src/types/infraManifest.ts:144:1</code></p>
+    <p class="muted">type • <code>src/types/infraManifest.ts:158:1</code></p>
     
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
@@ -19019,7 +19026,7 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
   </article><article class="item" id="symbol-infranetworkingtlsspec" data-search="InfraNetworkingTlsSpec  type src/types/infraManifest.ts ">
     <h4>InfraNetworkingTlsSpec</h4>
     
-    <p class="muted">type • <code>src/types/infraManifest.ts:137:1</code></p>
+    <p class="muted">type • <code>src/types/infraManifest.ts:151:1</code></p>
     
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
@@ -19046,7 +19053,7 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
   </article><article class="item" id="symbol-infraobjectstorageconfigmap" data-search="InfraObjectStorageConfigMap  type src/types/infraManifest.ts  InfraControlPlaneCredentialRef InfraS3PersistenceTarget SerializableSet">
     <h4>InfraObjectStorageConfigMap</h4>
     
-    <p class="muted">type • <code>src/types/infraManifest.ts:88:1</code></p>
+    <p class="muted">type • <code>src/types/infraManifest.ts:102:1</code></p>
     
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
@@ -19073,7 +19080,7 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
   </article><article class="item" id="symbol-infraobjectstoragespec" data-search="InfraObjectStorageSpec  unknown src/types/infraManifest.ts ">
     <h4>InfraObjectStorageSpec</h4>
     
-    <p class="muted">unknown • <code>src/types/infraManifest.ts:122:1</code></p>
+    <p class="muted">unknown • <code>src/types/infraManifest.ts:136:1</code></p>
     
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
@@ -19224,7 +19231,7 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
   </article><article class="item" id="symbol-infrasecretstoreconfigmap" data-search="InfraSecretStoreConfigMap  type src/types/infraManifest.ts ">
     <h4>InfraSecretStoreConfigMap</h4>
     
-    <p class="muted">type • <code>src/types/infraManifest.ts:115:1</code></p>
+    <p class="muted">type • <code>src/types/infraManifest.ts:129:1</code></p>
     
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
@@ -19245,7 +19252,7 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
   </article><article class="item" id="symbol-infrasecretstorespec" data-search="InfraSecretStoreSpec  unknown src/types/infraManifest.ts ">
     <h4>InfraSecretStoreSpec</h4>
     
-    <p class="muted">unknown • <code>src/types/infraManifest.ts:133:1</code></p>
+    <p class="muted">unknown • <code>src/types/infraManifest.ts:147:1</code></p>
     
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
@@ -25663,6 +25670,7 @@ evaluation, validation, and mappings belong to the consuming adapter, not Contra
   export_InfraCredentialPort -.-&gt; export_InfraResult
   export_InfraDatabaseConfigMap[&quot;InfraDatabaseConfigMap&quot;]
   module_src_types_infraManifest_ts --&gt; export_InfraDatabaseConfigMap
+  export_InfraDatabaseConfigMap -.-&gt; export_InfraControlPlaneCredentialRef
   export_InfraDatabaseConfigMap -.-&gt; export_InfraScheduledDatabaseBackupSpec
   export_InfraDatabaseSpec[&quot;InfraDatabaseSpec&quot;]
   module_src_types_infraManifest_ts --&gt; export_InfraDatabaseSpec
@@ -25683,10 +25691,10 @@ evaluation, validation, and mappings belong to the consuming adapter, not Contra
   export_InfraEnvironmentSpec -.-&gt; export_AuthScope
   export_InfraEnvironmentSpec -.-&gt; export_AuthSignInSpec
   export_InfraEnvironmentSpec -.-&gt; export_AuthSignUpSpec
+  export_InfraEnvironmentSpec -.-&gt; export_InfraDatabaseSpec
   export_InfraEnvironmentSpec -.-&gt; export_InfraDeploymentSpec
   export_InfraEnvironmentSpec -.-&gt; export_InfraNetworkingSpec
   export_InfraEnvironmentSpec -.-&gt; export_InfraObjectStorageSpec
-  export_InfraEnvironmentSpec -.-&gt; export_InfraScheduledDatabaseBackupSpec
   export_InfraEnvironmentSpec -.-&gt; export_InfraWorkloadRegistry
   export_InfraEnvironmentSpec -.-&gt; export_ValueMap
   export_InfraExecutionContext[&quot;InfraExecutionContext&quot;]
@@ -28156,6 +28164,7 @@ evaluation, validation, and mappings belong to the consuming adapter, not Contra
   export_InfraCredentialPort -.-&gt; export_InfraResult
   export_InfraDatabaseConfigMap[&quot;InfraDatabaseConfigMap&quot;]
   module_src_types_infraManifest_ts --&gt; export_InfraDatabaseConfigMap
+  export_InfraDatabaseConfigMap -.-&gt; export_InfraControlPlaneCredentialRef
   export_InfraDatabaseConfigMap -.-&gt; export_InfraScheduledDatabaseBackupSpec
   export_InfraDatabaseSpec[&quot;InfraDatabaseSpec&quot;]
   module_src_types_infraManifest_ts --&gt; export_InfraDatabaseSpec
@@ -28176,10 +28185,10 @@ evaluation, validation, and mappings belong to the consuming adapter, not Contra
   export_InfraEnvironmentSpec -.-&gt; export_AuthScope
   export_InfraEnvironmentSpec -.-&gt; export_AuthSignInSpec
   export_InfraEnvironmentSpec -.-&gt; export_AuthSignUpSpec
+  export_InfraEnvironmentSpec -.-&gt; export_InfraDatabaseSpec
   export_InfraEnvironmentSpec -.-&gt; export_InfraDeploymentSpec
   export_InfraEnvironmentSpec -.-&gt; export_InfraNetworkingSpec
   export_InfraEnvironmentSpec -.-&gt; export_InfraObjectStorageSpec
-  export_InfraEnvironmentSpec -.-&gt; export_InfraScheduledDatabaseBackupSpec
   export_InfraEnvironmentSpec -.-&gt; export_InfraWorkloadRegistry
   export_InfraEnvironmentSpec -.-&gt; export_ValueMap
   export_InfraExecutionContext[&quot;InfraExecutionContext&quot;]
@@ -29931,68 +29940,55 @@ evaluation, validation, and mappings belong to the consuming adapter, not Contra
     <h3>isComponentDataBindingRegistry</h3>
     <p class="muted"><code>src/appManifest/bindings.ts:7:1</code></p>
     <p>Validate every component binding in the authored registry.</p>
-    
-  </article><article class="item" data-search="isBindingExpression src/appManifest/bindings.ts Validate a readable capability reference or a recursive binding expression.">
+</article><article class="item" data-search="isBindingExpression src/appManifest/bindings.ts Validate a readable capability reference or a recursive binding expression.">
     <h3>isBindingExpression</h3>
     <p class="muted"><code>src/appManifest/bindings.ts:18:1</code></p>
     <p>Validate a readable capability reference or a recursive binding expression.</p>
-    
-  </article><article class="item" data-search="isScreenDataLoaderDefinition src/appManifest/bindings.ts Validate a screen loader as one portable capability invocation.">
+</article><article class="item" data-search="isScreenDataLoaderDefinition src/appManifest/bindings.ts Validate a screen loader as one portable capability invocation.">
     <h3>isScreenDataLoaderDefinition</h3>
     <p class="muted"><code>src/appManifest/bindings.ts:23:1</code></p>
     <p>Validate a screen loader as one portable capability invocation.</p>
-    
-  </article><article class="item" data-search="isComponentDataBinding src/appManifest/bindings.ts Validate component identity and its property and event bindings.">
+</article><article class="item" data-search="isComponentDataBinding src/appManifest/bindings.ts Validate component identity and its property and event bindings.">
     <h3>isComponentDataBinding</h3>
     <p class="muted"><code>src/appManifest/bindings.ts:28:1</code></p>
     <p>Validate component identity and its property and event bindings.</p>
-    
-  </article><article class="item" data-search="isPropBinding src/appManifest/bindings.ts Validate a property expression and its lifecycle-specific render behavior.">
+</article><article class="item" data-search="isPropBinding src/appManifest/bindings.ts Validate a property expression and its lifecycle-specific render behavior.">
     <h3>isPropBinding</h3>
     <p class="muted"><code>src/appManifest/bindings.ts:44:1</code></p>
     <p>Validate a property expression and its lifecycle-specific render behavior.</p>
-    
-  </article><article class="item" data-search="isEventBinding src/appManifest/bindings.ts Validate an event binding and its one canonical invocation target.">
+</article><article class="item" data-search="isEventBinding src/appManifest/bindings.ts Validate an event binding and its one canonical invocation target.">
     <h3>isEventBinding</h3>
     <p class="muted"><code>src/appManifest/bindings.ts:55:1</code></p>
     <p>Validate an event binding and its one canonical invocation target.</p>
-    
-  </article><article class="item" data-search="isBindingInvocation src/appManifest/bindings.ts Validate a serializable capability invocation and optional result slot.">
+</article><article class="item" data-search="isBindingInvocation src/appManifest/bindings.ts Validate a serializable capability invocation and optional result slot.">
     <h3>isBindingInvocation</h3>
     <p class="muted"><code>src/appManifest/bindings.ts:64:1</code></p>
     <p>Validate a serializable capability invocation and optional result slot.</p>
-    
-  </article><article class="item" data-search="isBindingCapabilityReference src/appManifest/bindings.ts Validate a capability identity with optional output path or cached-result slot.">
+</article><article class="item" data-search="isBindingCapabilityReference src/appManifest/bindings.ts Validate a capability identity with optional output path or cached-result slot.">
     <h3>isBindingCapabilityReference</h3>
     <p class="muted"><code>src/appManifest/bindings.ts:72:1</code></p>
     <p>Validate a capability identity with optional output path or cached-result slot.</p>
-    
-  </article><article class="item" data-search="isBindingExpressionNode src/appManifest/bindings.ts Validate array, fallback, literal, object and transform expression forms.">
+</article><article class="item" data-search="isBindingExpressionNode src/appManifest/bindings.ts Validate array, fallback, literal, object and transform expression forms.">
     <h3>isBindingExpressionNode</h3>
     <p class="muted"><code>src/appManifest/bindings.ts:83:1</code></p>
     <p>Validate array, fallback, literal, object and transform expression forms.</p>
-    
-  </article><article class="item" data-search="isBindingCondition src/appManifest/bindings.ts Validate a condition expressed through the same recursive binding vocabulary.">
+</article><article class="item" data-search="isBindingCondition src/appManifest/bindings.ts Validate a condition expressed through the same recursive binding vocabulary.">
     <h3>isBindingCondition</h3>
     <p class="muted"><code>src/appManifest/bindings.ts:101:1</code></p>
     <p>Validate a condition expressed through the same recursive binding vocabulary.</p>
-    
-  </article><article class="item" data-search="isBindingLifecycleBehavior src/appManifest/bindings.ts Validate a lifecycle state and its optional bound display expression.">
+</article><article class="item" data-search="isBindingLifecycleBehavior src/appManifest/bindings.ts Validate a lifecycle state and its optional bound display expression.">
     <h3>isBindingLifecycleBehavior</h3>
     <p class="muted"><code>src/appManifest/bindings.ts:111:1</code></p>
     <p>Validate a lifecycle state and its optional bound display expression.</p>
-    
-  </article><article class="item" data-search="isBindingInputMap src/appManifest/bindings.ts Validate every recursively authored invocation input expression.">
+</article><article class="item" data-search="isBindingInputMap src/appManifest/bindings.ts Validate every recursively authored invocation input expression.">
     <h3>isBindingInputMap</h3>
     <p class="muted"><code>src/appManifest/bindings.ts:122:1</code></p>
     <p>Validate every recursively authored invocation input expression.</p>
-    
-  </article><article class="item" data-search="isBindingTransforms src/appManifest/bindings.ts Validate ordered expression transforms.">
+</article><article class="item" data-search="isBindingTransforms src/appManifest/bindings.ts Validate ordered expression transforms.">
     <h3>isBindingTransforms</h3>
     <p class="muted"><code>src/appManifest/bindings.ts:127:1</code></p>
     <p>Validate ordered expression transforms.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-appmanifest-datasources-ts" class="view" data-view="src/appManifest/dataSources.ts" hidden>
     <section class="panel">
@@ -30001,13 +29997,11 @@ evaluation, validation, and mappings belong to the consuming adapter, not Contra
     <h3>isDataSourceRegistry</h3>
     <p class="muted"><code>src/appManifest/dataSources.ts:25:1</code></p>
     <p>Validate the supported data-source entries in the registry.</p>
-    
-  </article><article class="item" data-search="isDatabaseDataSource src/appManifest/dataSources.ts Validate database adapter identity and supported configuration fields.">
+</article><article class="item" data-search="isDatabaseDataSource src/appManifest/dataSources.ts Validate database adapter identity and supported configuration fields.">
     <h3>isDatabaseDataSource</h3>
     <p class="muted"><code>src/appManifest/dataSources.ts:33:1</code></p>
     <p>Validate database adapter identity and supported configuration fields.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-appmanifest-deploy-ts" class="view" data-view="src/appManifest/deploy.ts" hidden>
     <section class="panel">
@@ -30016,43 +30010,35 @@ evaluation, validation, and mappings belong to the consuming adapter, not Contra
     <h3>isAppDeployManifest</h3>
     <p class="muted"><code>src/appManifest/deploy.ts:22:1</code></p>
     <p>Validate authored application deployment configuration.</p>
-    
-  </article><article class="item" data-search="isAppDeployTargets src/appManifest/deploy.ts Validate the optional web, Android and iOS deployment targets.">
+</article><article class="item" data-search="isAppDeployTargets src/appManifest/deploy.ts Validate the optional web, Android and iOS deployment targets.">
     <h3>isAppDeployTargets</h3>
     <p class="muted"><code>src/appManifest/deploy.ts:27:1</code></p>
     <p>Validate the optional web, Android and iOS deployment targets.</p>
-    
-  </article><article class="item" data-search="isWebTarget src/appManifest/deploy.ts Validate web deployment identity and provider selection.">
+</article><article class="item" data-search="isWebTarget src/appManifest/deploy.ts Validate web deployment identity and provider selection.">
     <h3>isWebTarget</h3>
     <p class="muted"><code>src/appManifest/deploy.ts:38:1</code></p>
     <p>Validate web deployment identity and provider selection.</p>
-    
-  </article><article class="item" data-search="isAndroidTarget src/appManifest/deploy.ts Validate Android deployment identity, scheme and provider selection.">
+</article><article class="item" data-search="isAndroidTarget src/appManifest/deploy.ts Validate Android deployment identity, scheme and provider selection.">
     <h3>isAndroidTarget</h3>
     <p class="muted"><code>src/appManifest/deploy.ts:48:1</code></p>
     <p>Validate Android deployment identity, scheme and provider selection.</p>
-    
-  </article><article class="item" data-search="isIosTarget src/appManifest/deploy.ts Validate iOS deployment identity, scheme and provider selection.">
+</article><article class="item" data-search="isIosTarget src/appManifest/deploy.ts Validate iOS deployment identity, scheme and provider selection.">
     <h3>isIosTarget</h3>
     <p class="muted"><code>src/appManifest/deploy.ts:60:1</code></p>
     <p>Validate iOS deployment identity, scheme and provider selection.</p>
-    
-  </article><article class="item" data-search="isOptionalScheme src/appManifest/deploy.ts Accept an omitted scheme or a non-empty authored scheme.">
+</article><article class="item" data-search="isOptionalScheme src/appManifest/deploy.ts Accept an omitted scheme or a non-empty authored scheme.">
     <h3>isOptionalScheme</h3>
     <p class="muted"><code>src/appManifest/deploy.ts:72:1</code></p>
     <p>Accept an omitted scheme or a non-empty authored scheme.</p>
-    
-  </article><article class="item" data-search="isOptionalProviders src/appManifest/deploy.ts Accept omitted deployment providers or a valid provider selection.">
+</article><article class="item" data-search="isOptionalProviders src/appManifest/deploy.ts Accept omitted deployment providers or a valid provider selection.">
     <h3>isOptionalProviders</h3>
     <p class="muted"><code>src/appManifest/deploy.ts:77:1</code></p>
     <p>Accept omitted deployment providers or a valid provider selection.</p>
-    
-  </article><article class="item" data-search="isProviderSelection src/appManifest/deploy.ts Validate deployment provider identities and supported selection keys.">
+</article><article class="item" data-search="isProviderSelection src/appManifest/deploy.ts Validate deployment provider identities and supported selection keys.">
     <h3>isProviderSelection</h3>
     <p class="muted"><code>src/appManifest/deploy.ts:82:1</code></p>
     <p>Validate deployment provider identities and supported selection keys.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-appmanifest-isappmanifest-ts" class="view" data-view="src/appManifest/isAppManifest.ts" hidden>
     <section class="panel">
@@ -30061,53 +30047,43 @@ evaluation, validation, and mappings belong to the consuming adapter, not Contra
     <h3>isAppManifest</h3>
     <p class="muted"><code>src/appManifest/isAppManifest.ts:22:1</code></p>
     <p>Return whether an unknown value satisfies the canonical AppManifest shape.</p>
-    
-  </article><article class="item" data-search="hasRequiredManifestKeys src/appManifest/isAppManifest.ts Validate the canonical application manifest field policy.">
+</article><article class="item" data-search="hasRequiredManifestKeys src/appManifest/isAppManifest.ts Validate the canonical application manifest field policy.">
     <h3>hasRequiredManifestKeys</h3>
     <p class="muted"><code>src/appManifest/isAppManifest.ts:38:1</code></p>
     <p>Validate the canonical application manifest field policy.</p>
-    
-  </article><article class="item" data-search="isActiveThemeMode src/appManifest/isAppManifest.ts Validate the canonical application manifest field policy.">
+</article><article class="item" data-search="isActiveThemeMode src/appManifest/isAppManifest.ts Validate the canonical application manifest field policy.">
     <h3>isActiveThemeMode</h3>
     <p class="muted"><code>src/appManifest/isAppManifest.ts:45:1</code></p>
     <p>Validate the canonical application manifest field policy.</p>
-    
-  </article><article class="item" data-search="isRepositoryManifest src/appManifest/isAppManifest.ts Validate the canonical application manifest field policy.">
+</article><article class="item" data-search="isRepositoryManifest src/appManifest/isAppManifest.ts Validate the canonical application manifest field policy.">
     <h3>isRepositoryManifest</h3>
     <p class="muted"><code>src/appManifest/isAppManifest.ts:50:1</code></p>
     <p>Validate the canonical application manifest field policy.</p>
-    
-  </article><article class="item" data-search="isAppSettings src/appManifest/isAppManifest.ts Validate the canonical application manifest field policy.">
+</article><article class="item" data-search="isAppSettings src/appManifest/isAppManifest.ts Validate the canonical application manifest field policy.">
     <h3>isAppSettings</h3>
     <p class="muted"><code>src/appManifest/isAppManifest.ts:65:1</code></p>
     <p>Validate the canonical application manifest field policy.</p>
-    
-  </article><article class="item" data-search="isPresentation src/appManifest/isAppManifest.ts Validate authored appearance as one cohesive manifest concern.">
+</article><article class="item" data-search="isPresentation src/appManifest/isAppManifest.ts Validate authored appearance as one cohesive manifest concern.">
     <h3>isPresentation</h3>
     <p class="muted"><code>src/appManifest/isAppManifest.ts:76:1</code></p>
     <p>Validate authored appearance as one cohesive manifest concern.</p>
-    
-  </article><article class="item" data-search="isOptionalCapabilities src/appManifest/isAppManifest.ts Validate independently optional application capability selections.">
+</article><article class="item" data-search="isOptionalCapabilities src/appManifest/isAppManifest.ts Validate independently optional application capability selections.">
     <h3>isOptionalCapabilities</h3>
     <p class="muted"><code>src/appManifest/isAppManifest.ts:88:1</code></p>
     <p>Validate independently optional application capability selections.</p>
-    
-  </article><article class="item" data-search="isAppRequirements src/appManifest/isAppManifest.ts ">
+</article><article class="item" data-search="isAppRequirements src/appManifest/isAppManifest.ts ">
     <h3>isAppRequirements</h3>
     <p class="muted"><code>src/appManifest/isAppManifest.ts:100:1</code></p>
     <p class="empty">No description available.</p>
-    
-  </article><article class="item" data-search="isAppCapabilityRequirement src/appManifest/isAppManifest.ts ">
+</article><article class="item" data-search="isAppCapabilityRequirement src/appManifest/isAppManifest.ts ">
     <h3>isAppCapabilityRequirement</h3>
     <p class="muted"><code>src/appManifest/isAppManifest.ts:112:1</code></p>
     <p class="empty">No description available.</p>
-    
-  </article><article class="item" data-search="hasUniqueCapabilityRequirements src/appManifest/isAppManifest.ts ">
+</article><article class="item" data-search="hasUniqueCapabilityRequirements src/appManifest/isAppManifest.ts ">
     <h3>hasUniqueCapabilityRequirements</h3>
     <p class="muted"><code>src/appManifest/isAppManifest.ts:126:1</code></p>
     <p class="empty">No description available.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-appmanifest-isappstatespec-ts" class="view" data-view="src/appManifest/isAppStateSpec.ts" hidden>
     <section class="panel">
@@ -30116,8 +30092,7 @@ evaluation, validation, and mappings belong to the consuming adapter, not Contra
     <h3>isAppStateSpec</h3>
     <p class="muted"><code>src/appManifest/isAppStateSpec.ts:6:1</code></p>
     <p>Application state cannot claim persistence unsupported by the selected Legend adapter.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-appmanifest-ismanifestvalue-ts" class="view" data-view="src/appManifest/isManifestValue.ts" hidden>
     <section class="panel">
@@ -30126,8 +30101,7 @@ evaluation, validation, and mappings belong to the consuming adapter, not Contra
     <h3>isManifestValue</h3>
     <p class="muted"><code>src/appManifest/isManifestValue.ts:4:1</code></p>
     <p>Validate authored values through the canonical serializable-value contract.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-appmanifest-media-ts" class="view" data-view="src/appManifest/media.ts" hidden>
     <section class="panel">
@@ -30136,43 +30110,35 @@ evaluation, validation, and mappings belong to the consuming adapter, not Contra
     <h3>isMediaManifest</h3>
     <p class="muted"><code>src/appManifest/media.ts:15:1</code></p>
     <p>Validate authored media assets and their registry identity.</p>
-    
-  </article><article class="item" data-search="isMediaAsset src/appManifest/media.ts Validate media identity, kind, source and optional metadata.">
+</article><article class="item" data-search="isMediaAsset src/appManifest/media.ts Validate media identity, kind, source and optional metadata.">
     <h3>isMediaAsset</h3>
     <p class="muted"><code>src/appManifest/media.ts:24:1</code></p>
     <p>Validate media identity, kind, source and optional metadata.</p>
-    
-  </article><article class="item" data-search="isMediaAssetSource src/appManifest/media.ts Validate the selected bundled, URL or storage-backed media source.">
+</article><article class="item" data-search="isMediaAssetSource src/appManifest/media.ts Validate the selected bundled, URL or storage-backed media source.">
     <h3>isMediaAssetSource</h3>
     <p class="muted"><code>src/appManifest/media.ts:39:1</code></p>
     <p>Validate the selected bundled, URL or storage-backed media source.</p>
-    
-  </article><article class="item" data-search="isMediaAssetMetadata src/appManifest/media.ts Validate optional descriptive and numeric media metadata.">
+</article><article class="item" data-search="isMediaAssetMetadata src/appManifest/media.ts Validate optional descriptive and numeric media metadata.">
     <h3>isMediaAssetMetadata</h3>
     <p class="muted"><code>src/appManifest/media.ts:61:1</code></p>
     <p>Validate optional descriptive and numeric media metadata.</p>
-    
-  </article><article class="item" data-search="isStableRemoteUrl src/appManifest/media.ts Validate an authored HTTP or HTTPS media URL.">
+</article><article class="item" data-search="isStableRemoteUrl src/appManifest/media.ts Validate an authored HTTP or HTTPS media URL.">
     <h3>isStableRemoteUrl</h3>
     <p class="muted"><code>src/appManifest/media.ts:82:1</code></p>
     <p>Validate an authored HTTP or HTTPS media URL.</p>
-    
-  </article><article class="item" data-search="isBundledPath src/appManifest/media.ts Validate a portable bundled-media path.">
+</article><article class="item" data-search="isBundledPath src/appManifest/media.ts Validate a portable bundled-media path.">
     <h3>isBundledPath</h3>
     <p class="muted"><code>src/appManifest/media.ts:87:1</code></p>
     <p>Validate a portable bundled-media path.</p>
-    
-  </article><article class="item" data-search="isOptionalFiniteNonNegativeNumber src/appManifest/media.ts Accept an omitted media metric or a finite non-negative number.">
+</article><article class="item" data-search="isOptionalFiniteNonNegativeNumber src/appManifest/media.ts Accept an omitted media metric or a finite non-negative number.">
     <h3>isOptionalFiniteNonNegativeNumber</h3>
     <p class="muted"><code>src/appManifest/media.ts:95:1</code></p>
     <p>Accept an omitted media metric or a finite non-negative number.</p>
-    
-  </article><article class="item" data-search="isOptionalFinitePositiveNumber src/appManifest/media.ts Accept an omitted media metric or a finite positive number.">
+</article><article class="item" data-search="isOptionalFinitePositiveNumber src/appManifest/media.ts Accept an omitted media metric or a finite positive number.">
     <h3>isOptionalFinitePositiveNumber</h3>
     <p class="muted"><code>src/appManifest/media.ts:100:1</code></p>
     <p>Accept an omitted media metric or a finite positive number.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-appmanifest-navigator-ts" class="view" data-view="src/appManifest/navigator.ts" hidden>
     <section class="panel">
@@ -30181,63 +30147,51 @@ evaluation, validation, and mappings belong to the consuming adapter, not Contra
     <h3>isAppNavigatorManifest</h3>
     <p class="muted"><code>src/appManifest/navigator.ts:16:1</code></p>
     <p>Validate the complete serialized `AppManifest.navigator` slice.</p>
-    
-  </article><article class="item" data-search="isNavigatorNode src/appManifest/navigator.ts Validate one nested navigator node independently from app-level authoring metadata.">
+</article><article class="item" data-search="isNavigatorNode src/appManifest/navigator.ts Validate one nested navigator node independently from app-level authoring metadata.">
     <h3>isNavigatorNode</h3>
     <p class="muted"><code>src/appManifest/navigator.ts:29:1</code></p>
     <p>Validate one nested navigator node independently from app-level authoring metadata.</p>
-    
-  </article><article class="item" data-search="hasNavigatorPreset src/appManifest/navigator.ts Check a serialized preset against the public contract without eager cyclic initialization.">
+</article><article class="item" data-search="hasNavigatorPreset src/appManifest/navigator.ts Check a serialized preset against the public contract without eager cyclic initialization.">
     <h3>hasNavigatorPreset</h3>
     <p class="muted"><code>src/appManifest/navigator.ts:63:1</code></p>
     <p>Check a serialized preset against the public contract without eager cyclic initialization.</p>
-    
-  </article><article class="item" data-search="hasNavigatorType src/appManifest/navigator.ts Check a serialized topology against the public contract without eager cyclic initialization.">
+</article><article class="item" data-search="hasNavigatorType src/appManifest/navigator.ts Check a serialized topology against the public contract without eager cyclic initialization.">
     <h3>hasNavigatorType</h3>
     <p class="muted"><code>src/appManifest/navigator.ts:68:1</code></p>
     <p>Check a serialized topology against the public contract without eager cyclic initialization.</p>
-    
-  </article><article class="item" data-search="isRouteDefinition src/appManifest/navigator.ts Validate one route and preserve its portable metadata and nested navigator.">
+</article><article class="item" data-search="isRouteDefinition src/appManifest/navigator.ts Validate one route and preserve its portable metadata and nested navigator.">
     <h3>isRouteDefinition</h3>
     <p class="muted"><code>src/appManifest/navigator.ts:73:1</code></p>
     <p>Validate one route and preserve its portable metadata and nested navigator.</p>
-    
-  </article><article class="item" data-search="isSplitViewNavigatorNode src/appManifest/navigator.ts Validate Split View screen references without duplicating the routed secondary tree.">
+</article><article class="item" data-search="isSplitViewNavigatorNode src/appManifest/navigator.ts Validate Split View screen references without duplicating the routed secondary tree.">
     <h3>isSplitViewNavigatorNode</h3>
     <p class="muted"><code>src/appManifest/navigator.ts:88:1</code></p>
     <p>Validate Split View screen references without duplicating the routed secondary tree.</p>
-    
-  </article><article class="item" data-search="isCustomNavigatorNode src/appManifest/navigator.ts Validate a registered custom navigator with JSON-safe configuration only.">
+</article><article class="item" data-search="isCustomNavigatorNode src/appManifest/navigator.ts Validate a registered custom navigator with JSON-safe configuration only.">
     <h3>isCustomNavigatorNode</h3>
     <p class="muted"><code>src/appManifest/navigator.ts:106:1</code></p>
     <p>Validate a registered custom navigator with JSON-safe configuration only.</p>
-    
-  </article><article class="item" data-search="isNavigatorJsonRecord src/appManifest/navigator.ts Validate an acyclic, finite JSON object used by a custom navigator adapter.">
+</article><article class="item" data-search="isNavigatorJsonRecord src/appManifest/navigator.ts Validate an acyclic, finite JSON object used by a custom navigator adapter.">
     <h3>isNavigatorJsonRecord</h3>
     <p class="muted"><code>src/appManifest/navigator.ts:116:1</code></p>
     <p>Validate an acyclic, finite JSON object used by a custom navigator adapter.</p>
-    
-  </article><article class="item" data-search="isNavigatorJsonValue src/appManifest/navigator.ts Recursively validate the portable manifest value domain and reject cycles.">
+</article><article class="item" data-search="isNavigatorJsonValue src/appManifest/navigator.ts Recursively validate the portable manifest value domain and reject cycles.">
     <h3>isNavigatorJsonValue</h3>
     <p class="muted"><code>src/appManifest/navigator.ts:121:1</code></p>
     <p>Recursively validate the portable manifest value domain and reject cycles.</p>
-    
-  </article><article class="item" data-search="isNavigatorDefaults src/appManifest/navigator.ts Validate package-owned navigator defaults without requiring a navigator node type.">
+</article><article class="item" data-search="isNavigatorDefaults src/appManifest/navigator.ts Validate package-owned navigator defaults without requiring a navigator node type.">
     <h3>isNavigatorDefaults</h3>
     <p class="muted"><code>src/appManifest/navigator.ts:146:1</code></p>
     <p>Validate package-owned navigator defaults without requiring a navigator node type.</p>
-    
-  </article><article class="item" data-search="isNavigatorPlatforms src/appManifest/navigator.ts Validate per-platform navigator implementation overrides.">
+</article><article class="item" data-search="isNavigatorPlatforms src/appManifest/navigator.ts Validate per-platform navigator implementation overrides.">
     <h3>isNavigatorPlatforms</h3>
     <p class="muted"><code>src/appManifest/navigator.ts:158:1</code></p>
     <p>Validate per-platform navigator implementation overrides.</p>
-    
-  </article><article class="item" data-search="isNavigatorPlatformConfig src/appManifest/navigator.ts Validate one platform-specific navigator override slice.">
+</article><article class="item" data-search="isNavigatorPlatformConfig src/appManifest/navigator.ts Validate one platform-specific navigator override slice.">
     <h3>isNavigatorPlatformConfig</h3>
     <p class="muted"><code>src/appManifest/navigator.ts:169:1</code></p>
     <p>Validate one platform-specific navigator override slice.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-appmanifest-navigatoroptions-ts" class="view" data-view="src/appManifest/navigatorOptions.ts" hidden>
     <section class="panel">
@@ -30246,98 +30200,79 @@ evaluation, validation, and mappings belong to the consuming adapter, not Contra
     <h3>isStackImplementationConfig</h3>
     <p class="muted"><code>src/appManifest/navigatorOptions.ts:16:1</code></p>
     <p>Validate stable native, JavaScript, or alpha Experimental Stack desired state.</p>
-    
-  </article><article class="item" data-search="isStackScreenOptions src/appManifest/navigatorOptions.ts Validate the serializable native-stack screen option subset.">
+</article><article class="item" data-search="isStackScreenOptions src/appManifest/navigatorOptions.ts Validate the serializable native-stack screen option subset.">
     <h3>isStackScreenOptions</h3>
     <p class="muted"><code>src/appManifest/navigatorOptions.ts:43:1</code></p>
     <p>Validate the serializable native-stack screen option subset.</p>
-    
-  </article><article class="item" data-search="isDrawerNavigatorOptions src/appManifest/navigatorOptions.ts Validate the finite serializable Drawer option subset.">
+</article><article class="item" data-search="isDrawerNavigatorOptions src/appManifest/navigatorOptions.ts Validate the finite serializable Drawer option subset.">
     <h3>isDrawerNavigatorOptions</h3>
     <p class="muted"><code>src/appManifest/navigatorOptions.ts:73:1</code></p>
     <p>Validate the finite serializable Drawer option subset.</p>
-    
-  </article><article class="item" data-search="isTabsImplementationConfig src/appManifest/navigatorOptions.ts Validate tabs implementation desired state, with omitted implementation meaning adaptive.">
+</article><article class="item" data-search="isTabsImplementationConfig src/appManifest/navigatorOptions.ts Validate tabs implementation desired state, with omitted implementation meaning adaptive.">
     <h3>isTabsImplementationConfig</h3>
     <p class="muted"><code>src/appManifest/navigatorOptions.ts:88:1</code></p>
     <p>Validate tabs implementation desired state, with omitted implementation meaning adaptive.</p>
-    
-  </article><article class="item" data-search="isNavigatorScreenReference src/appManifest/navigatorOptions.ts Validate a reference into the app-owned screen registry.">
+</article><article class="item" data-search="isNavigatorScreenReference src/appManifest/navigatorOptions.ts Validate a reference into the app-owned screen registry.">
     <h3>isNavigatorScreenReference</h3>
     <p class="muted"><code>src/appManifest/navigatorOptions.ts:102:1</code></p>
     <p>Validate a reference into the app-owned screen registry.</p>
-    
-  </article><article class="item" data-search="isJavaScriptStackScreenOptions src/appManifest/navigatorOptions.ts Validate JavaScript Stack options without accepting native-only presentations.">
+</article><article class="item" data-search="isJavaScriptStackScreenOptions src/appManifest/navigatorOptions.ts Validate JavaScript Stack options without accepting native-only presentations.">
     <h3>isJavaScriptStackScreenOptions</h3>
     <p class="muted"><code>src/appManifest/navigatorOptions.ts:107:1</code></p>
     <p>Validate JavaScript Stack options without accepting native-only presentations.</p>
-    
-  </article><article class="item" data-search="isStackHeaderOptions src/appManifest/navigatorOptions.ts Validate the portable header subset supported by Experimental Stack.">
+</article><article class="item" data-search="isStackHeaderOptions src/appManifest/navigatorOptions.ts Validate the portable header subset supported by Experimental Stack.">
     <h3>isStackHeaderOptions</h3>
     <p class="muted"><code>src/appManifest/navigatorOptions.ts:125:1</code></p>
     <p>Validate the portable header subset supported by Experimental Stack.</p>
-    
-  </article><article class="item" data-search="isStackHeaderOptionsShape src/appManifest/navigatorOptions.ts Validate shared stack header field values after branch-specific key filtering.">
+</article><article class="item" data-search="isStackHeaderOptionsShape src/appManifest/navigatorOptions.ts Validate shared stack header field values after branch-specific key filtering.">
     <h3>isStackHeaderOptionsShape</h3>
     <p class="muted"><code>src/appManifest/navigatorOptions.ts:134:1</code></p>
     <p>Validate shared stack header field values after branch-specific key filtering.</p>
-    
-  </article><article class="item" data-search="isSheetAllowedDetents src/appManifest/navigatorOptions.ts Validate sorted, finite native sheet detents or the fit-to-content sentinel.">
+</article><article class="item" data-search="isSheetAllowedDetents src/appManifest/navigatorOptions.ts Validate sorted, finite native sheet detents or the fit-to-content sentinel.">
     <h3>isSheetAllowedDetents</h3>
     <p class="muted"><code>src/appManifest/navigatorOptions.ts:144:1</code></p>
     <p>Validate sorted, finite native sheet detents or the fit-to-content sentinel.</p>
-    
-  </article><article class="item" data-search="isAdaptiveTabsConfig src/appManifest/navigatorOptions.ts Validate an adaptive tabs branch and reject implementation-specific conflicts.">
+</article><article class="item" data-search="isAdaptiveTabsConfig src/appManifest/navigatorOptions.ts Validate an adaptive tabs branch and reject implementation-specific conflicts.">
     <h3>isAdaptiveTabsConfig</h3>
     <p class="muted"><code>src/appManifest/navigatorOptions.ts:158:1</code></p>
     <p>Validate an adaptive tabs branch and reject implementation-specific conflicts.</p>
-    
-  </article><article class="item" data-search="isFullNativeTabsConfig src/appManifest/navigatorOptions.ts Validate the top-level native tabs implementation.">
+</article><article class="item" data-search="isFullNativeTabsConfig src/appManifest/navigatorOptions.ts Validate the top-level native tabs implementation.">
     <h3>isFullNativeTabsConfig</h3>
     <p class="muted"><code>src/appManifest/navigatorOptions.ts:174:1</code></p>
     <p>Validate the top-level native tabs implementation.</p>
-    
-  </article><article class="item" data-search="isJavaScriptTabsConfig src/appManifest/navigatorOptions.ts Validate the top-level JavaScript tabs implementation.">
+</article><article class="item" data-search="isJavaScriptTabsConfig src/appManifest/navigatorOptions.ts Validate the top-level JavaScript tabs implementation.">
     <h3>isJavaScriptTabsConfig</h3>
     <p class="muted"><code>src/appManifest/navigatorOptions.ts:188:1</code></p>
     <p>Validate the top-level JavaScript tabs implementation.</p>
-    
-  </article><article class="item" data-search="isNativeTabsConfig src/appManifest/navigatorOptions.ts Validate the native branch used by adaptive tabs.">
+</article><article class="item" data-search="isNativeTabsConfig src/appManifest/navigatorOptions.ts Validate the native branch used by adaptive tabs.">
     <h3>isNativeTabsConfig</h3>
     <p class="muted"><code>src/appManifest/navigatorOptions.ts:206:1</code></p>
     <p>Validate the native branch used by adaptive tabs.</p>
-    
-  </article><article class="item" data-search="isNativeTabsFields src/appManifest/navigatorOptions.ts Validate fields supported by the native tabs branch.">
+</article><article class="item" data-search="isNativeTabsFields src/appManifest/navigatorOptions.ts Validate fields supported by the native tabs branch.">
     <h3>isNativeTabsFields</h3>
     <p class="muted"><code>src/appManifest/navigatorOptions.ts:216:1</code></p>
     <p>Validate fields supported by the native tabs branch.</p>
-    
-  </article><article class="item" data-search="isHeadlessTabsWebConfig src/appManifest/navigatorOptions.ts Validate the implementation-free headless-tabs Web branch inside adaptive tabs.">
+</article><article class="item" data-search="isHeadlessTabsWebConfig src/appManifest/navigatorOptions.ts Validate the implementation-free headless-tabs Web branch inside adaptive tabs.">
     <h3>isHeadlessTabsWebConfig</h3>
     <p class="muted"><code>src/appManifest/navigatorOptions.ts:226:1</code></p>
     <p>Validate the implementation-free headless-tabs Web branch inside adaptive tabs.</p>
-    
-  </article><article class="item" data-search="isHeadlessTabsPresentationConfig src/appManifest/navigatorOptions.ts Validate headless-tab presentation and its conditional serializable configuration.">
+</article><article class="item" data-search="isHeadlessTabsPresentationConfig src/appManifest/navigatorOptions.ts Validate headless-tab presentation and its conditional serializable configuration.">
     <h3>isHeadlessTabsPresentationConfig</h3>
     <p class="muted"><code>src/appManifest/navigatorOptions.ts:235:1</code></p>
     <p>Validate headless-tab presentation and its conditional serializable configuration.</p>
-    
-  </article><article class="item" data-search="isResponsiveTabsPresentation src/appManifest/navigatorOptions.ts Validate semantic compact/medium/expanded headless-tab presentation mapping.">
+</article><article class="item" data-search="isResponsiveTabsPresentation src/appManifest/navigatorOptions.ts Validate semantic compact/medium/expanded headless-tab presentation mapping.">
     <h3>isResponsiveTabsPresentation</h3>
     <p class="muted"><code>src/appManifest/navigatorOptions.ts:260:1</code></p>
     <p>Validate semantic compact/medium/expanded headless-tab presentation mapping.</p>
-    
-  </article><article class="item" data-search="contains src/appManifest/navigatorOptions.ts Check a string against a public finite contract without eager cyclic initialization.">
+</article><article class="item" data-search="contains src/appManifest/navigatorOptions.ts Check a string against a public finite contract without eager cyclic initialization.">
     <h3>contains</h3>
     <p class="muted"><code>src/appManifest/navigatorOptions.ts:275:1</code></p>
     <p>Check a string against a public finite contract without eager cyclic initialization.</p>
-    
-  </article><article class="item" data-search="hasNoDefinedKeys src/appManifest/navigatorOptions.ts Check that mutually exclusive branch fields are absent.">
+</article><article class="item" data-search="hasNoDefinedKeys src/appManifest/navigatorOptions.ts Check that mutually exclusive branch fields are absent.">
     <h3>hasNoDefinedKeys</h3>
     <p class="muted"><code>src/appManifest/navigatorOptions.ts:280:1</code></p>
     <p>Check that mutually exclusive branch fields are absent.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-appmanifest-parseappmanifest-ts" class="view" data-view="src/appManifest/parseAppManifest.ts" hidden>
     <section class="panel">
@@ -30346,8 +30281,7 @@ evaluation, validation, and mappings belong to the consuming adapter, not Contra
     <h3>parseAppManifest</h3>
     <p class="muted"><code>src/appManifest/parseAppManifest.ts:11:1</code></p>
     <p class="empty">No description available.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-appmanifest-screens-ts" class="view" data-view="src/appManifest/screens.ts" hidden>
     <section class="panel">
@@ -30356,63 +30290,51 @@ evaluation, validation, and mappings belong to the consuming adapter, not Contra
     <h3>isManifestMetadata</h3>
     <p class="muted"><code>src/appManifest/screens.ts:20:1</code></p>
     <p>Validate application identity and optional authored metadata.</p>
-    
-  </article><article class="item" data-search="isThemeConfig src/appManifest/screens.ts Validate theme identity and its required light and dark modes.">
+</article><article class="item" data-search="isThemeConfig src/appManifest/screens.ts Validate theme identity and its required light and dark modes.">
     <h3>isThemeConfig</h3>
     <p class="muted"><code>src/appManifest/screens.ts:35:1</code></p>
     <p>Validate theme identity and its required light and dark modes.</p>
-    
-  </article><article class="item" data-search="isThemeRegistry src/appManifest/screens.ts Validate themes in the authored theme registry and require registry keys to match theme identity.">
+</article><article class="item" data-search="isThemeRegistry src/appManifest/screens.ts Validate themes in the authored theme registry and require registry keys to match theme identity.">
     <h3>isThemeRegistry</h3>
     <p class="muted"><code>src/appManifest/screens.ts:46:1</code></p>
     <p>Validate themes in the authored theme registry and require registry keys to match theme identity.</p>
-    
-  </article><article class="item" data-search="isScreenRegistry src/appManifest/screens.ts Validate screens in the authored screen registry.">
+</article><article class="item" data-search="isScreenRegistry src/appManifest/screens.ts Validate screens in the authored screen registry.">
     <h3>isScreenRegistry</h3>
     <p class="muted"><code>src/appManifest/screens.ts:56:1</code></p>
     <p>Validate screens in the authored screen registry.</p>
-    
-  </article><article class="item" data-search="isSplashScreenSpec src/appManifest/screens.ts Validate optional light and dark splash-screen configuration.">
+</article><article class="item" data-search="isSplashScreenSpec src/appManifest/screens.ts Validate optional light and dark splash-screen configuration.">
     <h3>isSplashScreenSpec</h3>
     <p class="muted"><code>src/appManifest/screens.ts:67:1</code></p>
     <p>Validate optional light and dark splash-screen configuration.</p>
-    
-  </article><article class="item" data-search="isThemeModeConfig src/appManifest/screens.ts Validate the primary color and supported color harmony of a theme mode.">
+</article><article class="item" data-search="isThemeModeConfig src/appManifest/screens.ts Validate the primary color and supported color harmony of a theme mode.">
     <h3>isThemeModeConfig</h3>
     <p class="muted"><code>src/appManifest/screens.ts:76:1</code></p>
     <p>Validate the primary color and supported color harmony of a theme mode.</p>
-    
-  </article><article class="item" data-search="isUiNode src/appManifest/screens.ts Validate an authored component node and its nested children.">
+</article><article class="item" data-search="isUiNode src/appManifest/screens.ts Validate an authored component node and its nested children.">
     <h3>isUiNode</h3>
     <p class="muted"><code>src/appManifest/screens.ts:86:1</code></p>
     <p>Validate an authored component node and its nested children.</p>
-    
-  </article><article class="item" data-search="isUiNodeRepeatSpec src/appManifest/screens.ts Validate repeat source and item binding configuration.">
+</article><article class="item" data-search="isUiNodeRepeatSpec src/appManifest/screens.ts Validate repeat source and item binding configuration.">
     <h3>isUiNodeRepeatSpec</h3>
     <p class="muted"><code>src/appManifest/screens.ts:101:1</code></p>
     <p>Validate repeat source and item binding configuration.</p>
-    
-  </article><article class="item" data-search="isScreenSpec src/appManifest/screens.ts Validate screen identity, root component and optional requirements.">
+</article><article class="item" data-search="isScreenSpec src/appManifest/screens.ts Validate screen identity, root component and optional requirements.">
     <h3>isScreenSpec</h3>
     <p class="muted"><code>src/appManifest/screens.ts:112:1</code></p>
     <p>Validate screen identity, root component and optional requirements.</p>
-    
-  </article><article class="item" data-search="isSplashScreenModeSpec src/appManifest/screens.ts Validate one splash-screen appearance configuration.">
+</article><article class="item" data-search="isSplashScreenModeSpec src/appManifest/screens.ts Validate one splash-screen appearance configuration.">
     <h3>isSplashScreenModeSpec</h3>
     <p class="muted"><code>src/appManifest/screens.ts:128:1</code></p>
     <p>Validate one splash-screen appearance configuration.</p>
-    
-  </article><article class="item" data-search="isScreenRequirements src/appManifest/screens.ts Validate screen capability and permission requirements.">
+</article><article class="item" data-search="isScreenRequirements src/appManifest/screens.ts Validate screen capability and permission requirements.">
     <h3>isScreenRequirements</h3>
     <p class="muted"><code>src/appManifest/screens.ts:141:1</code></p>
     <p>Validate screen capability and permission requirements.</p>
-    
-  </article><article class="item" data-search="isRequirementSet src/appManifest/screens.ts Validate unordered requirement membership against the supported capability or permission names.">
+</article><article class="item" data-search="isRequirementSet src/appManifest/screens.ts Validate unordered requirement membership against the supported capability or permission names.">
     <h3>isRequirementSet</h3>
     <p class="muted"><code>src/appManifest/screens.ts:150:1</code></p>
     <p>Validate unordered requirement membership against the supported capability or permission names.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-auth-ts" class="view" data-view="src/auth.ts" hidden>
     <section class="panel">
@@ -30421,8 +30343,7 @@ evaluation, validation, and mappings belong to the consuming adapter, not Contra
     <h3>resolveAuthFlow</h3>
     <p class="muted"><code>src/auth.ts:132:1</code></p>
     <p class="empty">No description available.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-collections-ts" class="view" data-view="src/collections.ts" hidden>
     <section class="panel">
@@ -30431,8 +30352,7 @@ evaluation, validation, and mappings belong to the consuming adapter, not Contra
     <h3>isSerializableSet</h3>
     <p class="muted"><code>src/collections.ts:16:1</code></p>
     <p>Validate the canonical JSON-safe representation for unordered string membership.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-data-datavalidation-ts" class="view" data-view="src/data/dataValidation.ts" hidden>
     <section class="panel">
@@ -30441,93 +30361,75 @@ evaluation, validation, and mappings belong to the consuming adapter, not Contra
     <h3>isDataEndpointRegistry</h3>
     <p class="muted"><code>src/data/dataValidation.ts:21:1</code></p>
     <p>Validate every endpoint in the data endpoint registry.</p>
-    
-  </article><article class="item" data-search="isDataSchemaRegistry src/data/dataValidation.ts Validate every schema in the data schema registry.">
+</article><article class="item" data-search="isDataSchemaRegistry src/data/dataValidation.ts Validate every schema in the data schema registry.">
     <h3>isDataSchemaRegistry</h3>
     <p class="muted"><code>src/data/dataValidation.ts:32:1</code></p>
     <p>Validate every schema in the data schema registry.</p>
-    
-  </article><article class="item" data-search="isCredentialRef src/data/dataValidation.ts Validate credential identity and optional descriptive metadata.">
+</article><article class="item" data-search="isCredentialRef src/data/dataValidation.ts Validate credential identity and optional descriptive metadata.">
     <h3>isCredentialRef</h3>
     <p class="muted"><code>src/data/dataValidation.ts:37:1</code></p>
     <p>Validate credential identity and optional descriptive metadata.</p>
-    
-  </article><article class="item" data-search="isAdapterRef src/data/dataValidation.ts Validate an adapter reference and its optional authored configuration.">
+</article><article class="item" data-search="isAdapterRef src/data/dataValidation.ts Validate an adapter reference and its optional authored configuration.">
     <h3>isAdapterRef</h3>
     <p class="muted"><code>src/data/dataValidation.ts:48:1</code></p>
     <p>Validate an adapter reference and its optional authored configuration.</p>
-    
-  </article><article class="item" data-search="isDataEndpointConfig src/data/dataValidation.ts Validate endpoint identity, operations and optional connection metadata.">
+</article><article class="item" data-search="isDataEndpointConfig src/data/dataValidation.ts Validate endpoint identity, operations and optional connection metadata.">
     <h3>isDataEndpointConfig</h3>
     <p class="muted"><code>src/data/dataValidation.ts:60:1</code></p>
     <p>Validate endpoint identity, operations and optional connection metadata.</p>
-    
-  </article><article class="item" data-search="isDataOperationConfig src/data/dataValidation.ts Validate operation protocol, intent, request and response configuration.">
+</article><article class="item" data-search="isDataOperationConfig src/data/dataValidation.ts Validate operation protocol, intent, request and response configuration.">
     <h3>isDataOperationConfig</h3>
     <p class="muted"><code>src/data/dataValidation.ts:80:1</code></p>
     <p>Validate operation protocol, intent, request and response configuration.</p>
-    
-  </article><article class="item" data-search="isDataOperationIdentity src/data/dataValidation.ts Validate operation identity, protocol and routing fields.">
+</article><article class="item" data-search="isDataOperationIdentity src/data/dataValidation.ts Validate operation identity, protocol and routing fields.">
     <h3>isDataOperationIdentity</h3>
     <p class="muted"><code>src/data/dataValidation.ts:85:1</code></p>
     <p>Validate operation identity, protocol and routing fields.</p>
-    
-  </article><article class="item" data-search="isDataOperationDetails src/data/dataValidation.ts Validate operation request, response and authored metadata.">
+</article><article class="item" data-search="isDataOperationDetails src/data/dataValidation.ts Validate operation request, response and authored metadata.">
     <h3>isDataOperationDetails</h3>
     <p class="muted"><code>src/data/dataValidation.ts:100:1</code></p>
     <p>Validate operation request, response and authored metadata.</p>
-    
-  </article><article class="item" data-search="isDataOperationRequest src/data/dataValidation.ts Validate request schema, parameters and optional content type.">
+</article><article class="item" data-search="isDataOperationRequest src/data/dataValidation.ts Validate request schema, parameters and optional content type.">
     <h3>isDataOperationRequest</h3>
     <p class="muted"><code>src/data/dataValidation.ts:111:1</code></p>
     <p>Validate request schema, parameters and optional content type.</p>
-    
-  </article><article class="item" data-search="isDataOperationParameter src/data/dataValidation.ts Validate parameter identity, location, schema and optional default value.">
+</article><article class="item" data-search="isDataOperationParameter src/data/dataValidation.ts Validate parameter identity, location, schema and optional default value.">
     <h3>isDataOperationParameter</h3>
     <p class="muted"><code>src/data/dataValidation.ts:122:1</code></p>
     <p>Validate parameter identity, location, schema and optional default value.</p>
-    
-  </article><article class="item" data-search="isDataOperationResponse src/data/dataValidation.ts Validate response status, schema and optional descriptive metadata.">
+</article><article class="item" data-search="isDataOperationResponse src/data/dataValidation.ts Validate response status, schema and optional descriptive metadata.">
     <h3>isDataOperationResponse</h3>
     <p class="muted"><code>src/data/dataValidation.ts:136:1</code></p>
     <p>Validate response status, schema and optional descriptive metadata.</p>
-    
-  </article><article class="item" data-search="isDataSchemaSlot src/data/dataValidation.ts Validate an inline schema or named schema-reference slot.">
+</article><article class="item" data-search="isDataSchemaSlot src/data/dataValidation.ts Validate an inline schema or named schema-reference slot.">
     <h3>isDataSchemaSlot</h3>
     <p class="muted"><code>src/data/dataValidation.ts:149:1</code></p>
     <p>Validate an inline schema or named schema-reference slot.</p>
-    
-  </article><article class="item" data-search="isDataSchema src/data/dataValidation.ts Validate supported schema types, constraints and compositions.">
+</article><article class="item" data-search="isDataSchema src/data/dataValidation.ts Validate supported schema types, constraints and compositions.">
     <h3>isDataSchema</h3>
     <p class="muted"><code>src/data/dataValidation.ts:158:1</code></p>
     <p>Validate supported schema types, constraints and compositions.</p>
-    
-  </article><article class="item" data-search="isDataSchemaType src/data/dataValidation.ts Validate a supported schema type or an array of supported types.">
+</article><article class="item" data-search="isDataSchemaType src/data/dataValidation.ts Validate a supported schema type or an array of supported types.">
     <h3>isDataSchemaType</h3>
     <p class="muted"><code>src/data/dataValidation.ts:166:1</code></p>
     <p>Validate a supported schema type or an array of supported types.</p>
-    
-  </article><article class="item" data-search="isOptionalSchemaScalars src/data/dataValidation.ts Validate optional scalar schema constraints.">
+</article><article class="item" data-search="isOptionalSchemaScalars src/data/dataValidation.ts Validate optional scalar schema constraints.">
     <h3>isOptionalSchemaScalars</h3>
     <p class="muted"><code>src/data/dataValidation.ts:176:1</code></p>
     <p>Validate optional scalar schema constraints.</p>
-    
-  </article><article class="item" data-search="isOptionalSchemaCollections src/data/dataValidation.ts Validate optional schema properties, items and required fields.">
+</article><article class="item" data-search="isOptionalSchemaCollections src/data/dataValidation.ts Validate optional schema properties, items and required fields.">
     <h3>isOptionalSchemaCollections</h3>
     <p class="muted"><code>src/data/dataValidation.ts:191:1</code></p>
     <p>Validate optional schema properties, items and required fields.</p>
-    
-  </article><article class="item" data-search="isOptionalSchemaComposition src/data/dataValidation.ts Validate optional schema alternatives and intersections.">
+</article><article class="item" data-search="isOptionalSchemaComposition src/data/dataValidation.ts Validate optional schema alternatives and intersections.">
     <h3>isOptionalSchemaComposition</h3>
     <p class="muted"><code>src/data/dataValidation.ts:204:1</code></p>
     <p>Validate optional schema alternatives and intersections.</p>
-    
-  </article><article class="item" data-search="isDataSchemaRef src/data/dataValidation.ts Validate a named schema reference.">
+</article><article class="item" data-search="isDataSchemaRef src/data/dataValidation.ts Validate a named schema reference.">
     <h3>isDataSchemaRef</h3>
     <p class="muted"><code>src/data/dataValidation.ts:212:1</code></p>
     <p>Validate a named schema reference.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-data-isapidefinitionregistry-ts" class="view" data-view="src/data/isApiDefinitionRegistry.ts" hidden>
     <section class="panel">
@@ -30536,53 +30438,43 @@ evaluation, validation, and mappings belong to the consuming adapter, not Contra
     <h3>isApiDefinitionRegistry</h3>
     <p class="muted"><code>src/data/isApiDefinitionRegistry.ts:26:1</code></p>
     <p>Validate API definitions in the canonical registry and require key/identity consistency.</p>
-    
-  </article><article class="item" data-search="isApiDefinition src/data/isApiDefinitionRegistry.ts Validate one API definition against its origin and protocol branch.">
+</article><article class="item" data-search="isApiDefinition src/data/isApiDefinitionRegistry.ts Validate one API definition against its origin and protocol branch.">
     <h3>isApiDefinition</h3>
     <p class="muted"><code>src/data/isApiDefinitionRegistry.ts:36:1</code></p>
     <p>Validate one API definition against its origin and protocol branch.</p>
-    
-  </article><article class="item" data-search="isApiBaseDefinition src/data/isApiDefinitionRegistry.ts Validate common API identity, endpoint, schema and authored metadata fields.">
+</article><article class="item" data-search="isApiBaseDefinition src/data/isApiDefinitionRegistry.ts Validate common API identity, endpoint, schema and authored metadata fields.">
     <h3>isApiBaseDefinition</h3>
     <p class="muted"><code>src/data/isApiDefinitionRegistry.ts:47:1</code></p>
     <p>Validate common API identity, endpoint, schema and authored metadata fields.</p>
-    
-  </article><article class="item" data-search="isExternalRestApi src/data/isApiDefinitionRegistry.ts Validate external REST endpoint and optional OpenAPI metadata.">
+</article><article class="item" data-search="isExternalRestApi src/data/isApiDefinitionRegistry.ts Validate external REST endpoint and optional OpenAPI metadata.">
     <h3>isExternalRestApi</h3>
     <p class="muted"><code>src/data/isApiDefinitionRegistry.ts:62:1</code></p>
     <p>Validate external REST endpoint and optional OpenAPI metadata.</p>
-    
-  </article><article class="item" data-search="isExternalGraphQlApi src/data/isApiDefinitionRegistry.ts Validate external GraphQL endpoint and optional introspection metadata.">
+</article><article class="item" data-search="isExternalGraphQlApi src/data/isApiDefinitionRegistry.ts Validate external GraphQL endpoint and optional introspection metadata.">
     <h3>isExternalGraphQlApi</h3>
     <p class="muted"><code>src/data/isApiDefinitionRegistry.ts:71:1</code></p>
     <p>Validate external GraphQL endpoint and optional introspection metadata.</p>
-    
-  </article><article class="item" data-search="isInternalRestApi src/data/isApiDefinitionRegistry.ts Validate the supported internal REST API configuration.">
+</article><article class="item" data-search="isInternalRestApi src/data/isApiDefinitionRegistry.ts Validate the supported internal REST API configuration.">
     <h3>isInternalRestApi</h3>
     <p class="muted"><code>src/data/isApiDefinitionRegistry.ts:80:1</code></p>
     <p>Validate the supported internal REST API configuration.</p>
-    
-  </article><article class="item" data-search="isInternalApiOperationHandlerRegistry src/data/isApiDefinitionRegistry.ts ">
+</article><article class="item" data-search="isInternalApiOperationHandlerRegistry src/data/isApiDefinitionRegistry.ts ">
     <h3>isInternalApiOperationHandlerRegistry</h3>
     <p class="muted"><code>src/data/isApiDefinitionRegistry.ts:90:1</code></p>
     <p class="empty">No description available.</p>
-    
-  </article><article class="item" data-search="hasDeclaredOperation src/data/isApiDefinitionRegistry.ts ">
+</article><article class="item" data-search="hasDeclaredOperation src/data/isApiDefinitionRegistry.ts ">
     <h3>hasDeclaredOperation</h3>
     <p class="muted"><code>src/data/isApiDefinitionRegistry.ts:106:1</code></p>
     <p class="empty">No description available.</p>
-    
-  </article><article class="item" data-search="isOpenApiDocumentRef src/data/isApiDefinitionRegistry.ts Validate optional OpenAPI document location and version fields.">
+</article><article class="item" data-search="isOpenApiDocumentRef src/data/isApiDefinitionRegistry.ts Validate optional OpenAPI document location and version fields.">
     <h3>isOpenApiDocumentRef</h3>
     <p class="muted"><code>src/data/isApiDefinitionRegistry.ts:119:1</code></p>
     <p>Validate optional OpenAPI document location and version fields.</p>
-    
-  </article><article class="item" data-search="isGraphQlIntrospection src/data/isApiDefinitionRegistry.ts Validate explicit GraphQL introspection settings.">
+</article><article class="item" data-search="isGraphQlIntrospection src/data/isApiDefinitionRegistry.ts Validate explicit GraphQL introspection settings.">
     <h3>isGraphQlIntrospection</h3>
     <p class="muted"><code>src/data/isApiDefinitionRegistry.ts:130:1</code></p>
     <p>Validate explicit GraphQL introspection settings.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-icon-ts" class="view" data-view="src/icon.ts" hidden>
     <section class="panel">
@@ -30591,8 +30483,7 @@ evaluation, validation, and mappings belong to the consuming adapter, not Contra
     <h3>isIconSpec</h3>
     <p class="muted"><code>src/icon.ts:7:1</code></p>
     <p>Validate a serializable icon as either a named font glyph or an SVG media reference.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-infra-isinfraadapterdescriptor-ts" class="view" data-view="src/infra/isInfraAdapterDescriptor.ts" hidden>
     <section class="panel">
@@ -30601,13 +30492,11 @@ evaluation, validation, and mappings belong to the consuming adapter, not Contra
     <h3>isInfraAdapterDescriptor</h3>
     <p class="muted"><code>src/infra/isInfraAdapterDescriptor.ts:8:1</code></p>
     <p>Installed adapters must match the canonical identity, capabilities, targets and config version exactly.</p>
-    
-  </article><article class="item" data-search="matchesCatalogList src/infra/isInfraAdapterDescriptor.ts Canonical descriptor lists are ordered so JSON discovery and conformance are deterministic.">
+</article><article class="item" data-search="matchesCatalogList src/infra/isInfraAdapterDescriptor.ts Canonical descriptor lists are ordered so JSON discovery and conformance are deterministic.">
     <h3>matchesCatalogList</h3>
     <p class="muted"><code>src/infra/isInfraAdapterDescriptor.ts:31:1</code></p>
     <p>Canonical descriptor lists are ordered so JSON discovery and conformance are deterministic.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-infra-isinfraauthspec-ts" class="view" data-view="src/infra/isInfraAuthSpec.ts" hidden>
     <section class="panel">
@@ -30616,33 +30505,27 @@ evaluation, validation, and mappings belong to the consuming adapter, not Contra
     <h3>isInfraAuthSpec</h3>
     <p class="muted"><code>src/infra/isInfraAuthSpec.ts:20:1</code></p>
     <p>Preserve application auth configuration while rejecting nested authorization and unknown providers.</p>
-    
-  </article><article class="item" data-search="isAuthFlow src/infra/isInfraAuthSpec.ts Auth routing intent stays separate from provider-runtime callbacks and Navigator topology.">
+</article><article class="item" data-search="isAuthFlow src/infra/isInfraAuthSpec.ts Auth routing intent stays separate from provider-runtime callbacks and Navigator topology.">
     <h3>isAuthFlow</h3>
     <p class="muted"><code>src/infra/isInfraAuthSpec.ts:39:1</code></p>
     <p>Auth routing intent stays separate from provider-runtime callbacks and Navigator topology.</p>
-    
-  </article><article class="item" data-search="isAuthSignUp src/infra/isInfraAuthSpec.ts Validate sign-up field intent using the existing application auth contract.">
+</article><article class="item" data-search="isAuthSignUp src/infra/isInfraAuthSpec.ts Validate sign-up field intent using the existing application auth contract.">
     <h3>isAuthSignUp</h3>
     <p class="muted"><code>src/infra/isInfraAuthSpec.ts:52:1</code></p>
     <p>Validate sign-up field intent using the existing application auth contract.</p>
-    
-  </article><article class="item" data-search="isAuthOAuth src/infra/isInfraAuthSpec.ts OAuth references contain no credential payload. Custom OAuth identities remain application-owned.">
+</article><article class="item" data-search="isAuthOAuth src/infra/isInfraAuthSpec.ts OAuth references contain no credential payload. Custom OAuth identities remain application-owned.">
     <h3>isAuthOAuth</h3>
     <p class="muted"><code>src/infra/isInfraAuthSpec.ts:62:1</code></p>
     <p>OAuth references contain no credential payload. Custom OAuth identities remain application-owned.</p>
-    
-  </article><article class="item" data-search="isAuthOAuthProvider src/infra/isInfraAuthSpec.ts Validate OAuth display/config metadata, preserving explicitly extensible OAuth provider IDs.">
+</article><article class="item" data-search="isAuthOAuthProvider src/infra/isInfraAuthSpec.ts Validate OAuth display/config metadata, preserving explicitly extensible OAuth provider IDs.">
     <h3>isAuthOAuthProvider</h3>
     <p class="muted"><code>src/infra/isInfraAuthSpec.ts:71:1</code></p>
     <p>Validate OAuth display/config metadata, preserving explicitly extensible OAuth provider IDs.</p>
-    
-  </article><article class="item" data-search="isAuthProfile src/infra/isInfraAuthSpec.ts Validate profile provisioning choices without inventing a new application profile model.">
+</article><article class="item" data-search="isAuthProfile src/infra/isInfraAuthSpec.ts Validate profile provisioning choices without inventing a new application profile model.">
     <h3>isAuthProfile</h3>
     <p class="muted"><code>src/infra/isInfraAuthSpec.ts:87:1</code></p>
     <p>Validate profile provisioning choices without inventing a new application profile model.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-infra-isinfracredentialref-ts" class="view" data-view="src/infra/isInfraCredentialRef.ts" hidden>
     <section class="panel">
@@ -30651,8 +30534,7 @@ evaluation, validation, and mappings belong to the consuming adapter, not Contra
     <h3>isInfraCredentialRef</h3>
     <p class="muted"><code>src/infra/isInfraCredentialRef.ts:6:1</code></p>
     <p>Bootstrap credential references are explicitly separate from managed runtime secrets.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-infra-isinfradeploymentspec-ts" class="view" data-view="src/infra/isInfraDeploymentSpec.ts" hidden>
     <section class="panel">
@@ -30661,78 +30543,68 @@ evaluation, validation, and mappings belong to the consuming adapter, not Contra
     <h3>isInfraDeploymentSpec</h3>
     <p class="muted"><code>src/infra/isInfraDeploymentSpec.ts:16:1</code></p>
     <p>Validate provider-specific config and the exact same compatibility map used by TypeScript.</p>
-    
-  </article><article class="item" data-search="isCompute src/infra/isInfraDeploymentSpec.ts Compute configuration is closed per provider; control-plane refs cannot be managed secrets.">
+</article><article class="item" data-search="isCompute src/infra/isInfraDeploymentSpec.ts Compute configuration is closed per provider; control-plane refs cannot be managed secrets.">
     <h3>isCompute</h3>
     <p class="muted"><code>src/infra/isInfraDeploymentSpec.ts:28:1</code></p>
     <p>Compute configuration is closed per provider; control-plane refs cannot be managed secrets.</p>
-    
-  </article><article class="item" data-search="isRuntime src/infra/isInfraDeploymentSpec.ts Runtime topology expresses host roles and never couples k3s to a compute vendor.">
+</article><article class="item" data-search="isRuntime src/infra/isInfraDeploymentSpec.ts Runtime topology expresses host roles and never couples k3s to a compute vendor.">
     <h3>isRuntime</h3>
     <p class="muted"><code>src/infra/isInfraDeploymentSpec.ts:53:1</code></p>
     <p>Runtime topology expresses host roles and never couples k3s to a compute vendor.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-infra-isinfraenvironmentspec-ts" class="view" data-view="src/infra/isInfraEnvironmentSpec.ts" hidden>
     <section class="panel">
       <h2>src/infra/isInfraEnvironmentSpec.ts</h2>
       <article class="item" data-search="isInfraEnvironmentSpec src/infra/isInfraEnvironmentSpec.ts Validate sibling capabilities and their required relationships within one environment.">
     <h3>isInfraEnvironmentSpec</h3>
-    <p class="muted"><code>src/infra/isInfraEnvironmentSpec.ts:21:1</code></p>
+    <p class="muted"><code>src/infra/isInfraEnvironmentSpec.ts:22:1</code></p>
     <p>Validate sibling capabilities and their required relationships within one environment.</p>
-    
-  </article><article class="item" data-search="isEnvironmentShape src/infra/isInfraEnvironmentSpec.ts Check all environment field shapes before inspecting canonical dependency metadata.">
+</article><article class="item" data-search="isEnvironmentShape src/infra/isInfraEnvironmentSpec.ts Check all environment field shapes before inspecting canonical dependency metadata.">
     <h3>isEnvironmentShape</h3>
-    <p class="muted"><code>src/infra/isInfraEnvironmentSpec.ts:31:1</code></p>
+    <p class="muted"><code>src/infra/isInfraEnvironmentSpec.ts:32:1</code></p>
     <p>Check all environment field shapes before inspecting canonical dependency metadata.</p>
-    
-  </article><article class="item" data-search="isPublicHttpOrigin src/infra/isInfraEnvironmentSpec.ts Public workload configuration uses one canonical absolute HTTP(S) origin without path state.">
+</article><article class="item" data-search="isDatabase src/infra/isInfraEnvironmentSpec.ts Validate the selected database provider’s non-secret desired resources.">
+    <h3>isDatabase</h3>
+    <p class="muted"><code>src/infra/isInfraEnvironmentSpec.ts:69:1</code></p>
+    <p>Validate the selected database provider’s non-secret desired resources.</p>
+</article><article class="item" data-search="isPublicHttpOrigin src/infra/isInfraEnvironmentSpec.ts Public workload configuration uses one canonical absolute HTTP(S) origin without path state.">
     <h3>isPublicHttpOrigin</h3>
-    <p class="muted"><code>src/infra/isInfraEnvironmentSpec.ts:74:1</code></p>
-    <p>Public workload configuration uses one canonical absolute HTTP(S) origin without path state.</p>
-    
-  </article><article class="item" data-search="hasNetworkingRelationships src/infra/isInfraEnvironmentSpec.ts Automatic TLS requires one matching HTTPS origin and public DNS hostname.">
-    <h3>hasNetworkingRelationships</h3>
-    <p class="muted"><code>src/infra/isInfraEnvironmentSpec.ts:85:1</code></p>
-    <p>Automatic TLS requires one matching HTTPS origin and public DNS hostname.</p>
-    
-  </article><article class="item" data-search="isPolicyFiles src/infra/isInfraEnvironmentSpec.ts Validate portable, unique Cerbos policy files without host paths or traversal.">
-    <h3>isPolicyFiles</h3>
     <p class="muted"><code>src/infra/isInfraEnvironmentSpec.ts:94:1</code></p>
+    <p>Public workload configuration uses one canonical absolute HTTP(S) origin without path state.</p>
+</article><article class="item" data-search="hasNetworkingRelationships src/infra/isInfraEnvironmentSpec.ts Automatic TLS requires one matching HTTPS origin and public DNS hostname.">
+    <h3>hasNetworkingRelationships</h3>
+    <p class="muted"><code>src/infra/isInfraEnvironmentSpec.ts:105:1</code></p>
+    <p>Automatic TLS requires one matching HTTPS origin and public DNS hostname.</p>
+</article><article class="item" data-search="isPolicyFiles src/infra/isInfraEnvironmentSpec.ts Validate portable, unique Cerbos policy files without host paths or traversal.">
+    <h3>isPolicyFiles</h3>
+    <p class="muted"><code>src/infra/isInfraEnvironmentSpec.ts:114:1</code></p>
     <p>Validate portable, unique Cerbos policy files without host paths or traversal.</p>
-    
-  </article><article class="item" data-search="isScheduledDatabaseBackup src/infra/isInfraEnvironmentSpec.ts Validate provider-neutral scheduled database backup intent.">
+</article><article class="item" data-search="isScheduledDatabaseBackup src/infra/isInfraEnvironmentSpec.ts Validate provider-neutral scheduled database backup intent.">
     <h3>isScheduledDatabaseBackup</h3>
-    <p class="muted"><code>src/infra/isInfraEnvironmentSpec.ts:108:1</code></p>
+    <p class="muted"><code>src/infra/isInfraEnvironmentSpec.ts:128:1</code></p>
     <p>Validate provider-neutral scheduled database backup intent.</p>
-    
-  </article><article class="item" data-search="isS3PersistenceTarget src/infra/isInfraEnvironmentSpec.ts Validate one portable S3-compatible persistence target without resolving credentials.">
+</article><article class="item" data-search="isS3PersistenceTarget src/infra/isInfraEnvironmentSpec.ts Validate one portable S3-compatible persistence target without resolving credentials.">
     <h3>isS3PersistenceTarget</h3>
-    <p class="muted"><code>src/infra/isInfraEnvironmentSpec.ts:119:1</code></p>
+    <p class="muted"><code>src/infra/isInfraEnvironmentSpec.ts:139:1</code></p>
     <p>Validate one portable S3-compatible persistence target without resolving credentials.</p>
-    
-  </article><article class="item" data-search="isObjectStorage src/infra/isInfraEnvironmentSpec.ts Object storage can vary independently from database/auth; there is no implicit auto provider.">
+</article><article class="item" data-search="isObjectStorage src/infra/isInfraEnvironmentSpec.ts Object storage can vary independently from database/auth; there is no implicit auto provider.">
     <h3>isObjectStorage</h3>
-    <p class="muted"><code>src/infra/isInfraEnvironmentSpec.ts:131:1</code></p>
+    <p class="muted"><code>src/infra/isInfraEnvironmentSpec.ts:151:1</code></p>
     <p>Object storage can vary independently from database/auth; there is no implicit auto provider.</p>
-    
-  </article><article class="item" data-search="isWorkloads src/infra/isInfraEnvironmentSpec.ts Duplicate desired workload identities cannot be reconciled safely.">
+</article><article class="item" data-search="isWorkloads src/infra/isInfraEnvironmentSpec.ts Duplicate desired workload identities cannot be reconciled safely.">
     <h3>isWorkloads</h3>
-    <p class="muted"><code>src/infra/isInfraEnvironmentSpec.ts:153:1</code></p>
-    <p>Duplicate desired workload identities cannot be reconciled safely.</p>
-    
-  </article><article class="item" data-search="hasUniquePublishedPorts src/infra/isInfraEnvironmentSpec.ts Prevent two workloads in one environment from claiming the same external listener.">
-    <h3>hasUniquePublishedPorts</h3>
-    <p class="muted"><code>src/infra/isInfraEnvironmentSpec.ts:163:1</code></p>
-    <p>Prevent two workloads in one environment from claiming the same external listener.</p>
-    
-  </article><article class="item" data-search="hasServiceDependencies src/infra/isInfraEnvironmentSpec.ts Check catalog dependencies against selected sibling capabilities and runtime capabilities.">
-    <h3>hasServiceDependencies</h3>
     <p class="muted"><code>src/infra/isInfraEnvironmentSpec.ts:173:1</code></p>
+    <p>Duplicate desired workload identities cannot be reconciled safely.</p>
+</article><article class="item" data-search="hasUniquePublishedPorts src/infra/isInfraEnvironmentSpec.ts Prevent two workloads in one environment from claiming the same external listener.">
+    <h3>hasUniquePublishedPorts</h3>
+    <p class="muted"><code>src/infra/isInfraEnvironmentSpec.ts:183:1</code></p>
+    <p>Prevent two workloads in one environment from claiming the same external listener.</p>
+</article><article class="item" data-search="hasServiceDependencies src/infra/isInfraEnvironmentSpec.ts Check catalog dependencies against selected sibling capabilities and runtime capabilities.">
+    <h3>hasServiceDependencies</h3>
+    <p class="muted"><code>src/infra/isInfraEnvironmentSpec.ts:193:1</code></p>
     <p>Check catalog dependencies against selected sibling capabilities and runtime capabilities.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-infra-isinframanifest-ts" class="view" data-view="src/infra/isInfraManifest.ts" hidden>
     <section class="panel">
@@ -30741,23 +30613,19 @@ evaluation, validation, and mappings belong to the consuming adapter, not Contra
     <h3>isInfraManifest</h3>
     <p class="muted"><code>src/infra/isInfraManifest.ts:12:1</code></p>
     <p>Validate standalone infrastructure without AppManifest, Deploy or provider package side effects.</p>
-    
-  </article><article class="item" data-search="isEnvironments src/infra/isInfraManifest.ts Local is required; preview and production are optional but never inferred from arbitrary keys.">
+</article><article class="item" data-search="isEnvironments src/infra/isInfraManifest.ts Local is required; preview and production are optional but never inferred from arbitrary keys.">
     <h3>isEnvironments</h3>
     <p class="muted"><code>src/infra/isInfraManifest.ts:21:1</code></p>
     <p>Local is required; preview and production are optional but never inferred from arbitrary keys.</p>
-    
-  </article><article class="item" data-search="isModuleRegistry src/infra/isInfraManifest.ts Validate installed module identity and optional serializable module-owned configuration.">
+</article><article class="item" data-search="isModuleRegistry src/infra/isInfraManifest.ts Validate installed module identity and optional serializable module-owned configuration.">
     <h3>isModuleRegistry</h3>
     <p class="muted"><code>src/infra/isInfraManifest.ts:31:1</code></p>
     <p>Validate installed module identity and optional serializable module-owned configuration.</p>
-    
-  </article><article class="item" data-search="isModuleSpec src/infra/isInfraManifest.ts Validate one module registry entry.">
+</article><article class="item" data-search="isModuleSpec src/infra/isInfraManifest.ts Validate one module registry entry.">
     <h3>isModuleSpec</h3>
     <p class="muted"><code>src/infra/isInfraManifest.ts:36:1</code></p>
     <p>Validate one module registry entry.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-infra-isinfrashape-ts" class="view" data-view="src/infra/isInfraShape.ts" hidden>
     <section class="panel">
@@ -30766,8 +30634,7 @@ evaluation, validation, and mappings belong to the consuming adapter, not Contra
     <h3>isInfraShape</h3>
     <p class="muted"><code>src/infra/isInfraShape.ts:4:1</code></p>
     <p>Validate an exact Infra object shape, rejecting unknown and superseded configuration keys.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-infra-isinfraworkloadhealth-ts" class="view" data-view="src/infra/isInfraWorkloadHealth.ts" hidden>
     <section class="panel">
@@ -30776,8 +30643,7 @@ evaluation, validation, and mappings belong to the consuming adapter, not Contra
     <h3>isInfraWorkloadHealth</h3>
     <p class="muted"><code>src/infra/isInfraWorkloadHealth.ts:7:1</code></p>
     <p>Validate runtime-neutral readiness probes and bounded numeric parameters.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-infra-isinfraworkloadspec-ts" class="view" data-view="src/infra/isInfraWorkloadSpec.ts" hidden>
     <section class="panel">
@@ -30786,48 +30652,39 @@ evaluation, validation, and mappings belong to the consuming adapter, not Contra
     <h3>isInfraWorkloadSpec</h3>
     <p class="muted"><code>src/infra/isInfraWorkloadSpec.ts:14:1</code></p>
     <p>Validate the portable desired workload; runtime-specific fields and plaintext secret objects fail.</p>
-    
-  </article><article class="item" data-search="isInfraWorkloadApiComposition src/infra/isInfraWorkloadSpec.ts ">
+</article><article class="item" data-search="isInfraWorkloadApiComposition src/infra/isInfraWorkloadSpec.ts ">
     <h3>isInfraWorkloadApiComposition</h3>
     <p class="muted"><code>src/infra/isInfraWorkloadSpec.ts:48:1</code></p>
     <p class="empty">No description available.</p>
-    
-  </article><article class="item" data-search="isPortRegistry src/infra/isInfraWorkloadSpec.ts Validate named transport ports keyed by their stable authored name.">
+</article><article class="item" data-search="isPortRegistry src/infra/isInfraWorkloadSpec.ts Validate named transport ports keyed by their stable authored name.">
     <h3>isPortRegistry</h3>
     <p class="muted"><code>src/infra/isInfraWorkloadSpec.ts:57:1</code></p>
     <p>Validate named transport ports keyed by their stable authored name.</p>
-    
-  </article><article class="item" data-search="isPort src/infra/isInfraWorkloadSpec.ts Named transport ports stay independent from runtime resource types.">
+</article><article class="item" data-search="isPort src/infra/isInfraWorkloadSpec.ts Named transport ports stay independent from runtime resource types.">
     <h3>isPort</h3>
     <p class="muted"><code>src/infra/isInfraWorkloadSpec.ts:65:1</code></p>
     <p>Named transport ports stay independent from runtime resource types.</p>
-    
-  </article><article class="item" data-search="hasValidPublishedPorts src/infra/isInfraWorkloadSpec.ts Require fixed external listeners to belong to one public workload replica.">
+</article><article class="item" data-search="hasValidPublishedPorts src/infra/isInfraWorkloadSpec.ts Require fixed external listeners to belong to one public workload replica.">
     <h3>hasValidPublishedPorts</h3>
     <p class="muted"><code>src/infra/isInfraWorkloadSpec.ts:74:1</code></p>
     <p>Require fixed external listeners to belong to one public workload replica.</p>
-    
-  </article><article class="item" data-search="isFileMap src/infra/isInfraWorkloadSpec.ts Validate portable config/policy files keyed by their absolute container path.">
+</article><article class="item" data-search="isFileMap src/infra/isInfraWorkloadSpec.ts Validate portable config/policy files keyed by their absolute container path.">
     <h3>isFileMap</h3>
     <p class="muted"><code>src/infra/isInfraWorkloadSpec.ts:91:1</code></p>
     <p>Validate portable config/policy files keyed by their absolute container path.</p>
-    
-  </article><article class="item" data-search="isVolumeRegistry src/infra/isInfraWorkloadSpec.ts Validate persistence volumes by stable ID and keep mount paths unique within one workload.">
+</article><article class="item" data-search="isVolumeRegistry src/infra/isInfraWorkloadSpec.ts Validate persistence volumes by stable ID and keep mount paths unique within one workload.">
     <h3>isVolumeRegistry</h3>
     <p class="muted"><code>src/infra/isInfraWorkloadSpec.ts:101:1</code></p>
     <p>Validate persistence volumes by stable ID and keep mount paths unique within one workload.</p>
-    
-  </article><article class="item" data-search="isVolume src/infra/isInfraWorkloadSpec.ts Persistence has explicit ownership-local identity, optional initialization and retention policy.">
+</article><article class="item" data-search="isVolume src/infra/isInfraWorkloadSpec.ts Persistence has explicit ownership-local identity, optional initialization and retention policy.">
     <h3>isVolume</h3>
     <p class="muted"><code>src/infra/isInfraWorkloadSpec.ts:118:1</code></p>
     <p>Persistence has explicit ownership-local identity, optional initialization and retention policy.</p>
-    
-  </article><article class="item" data-search="isAbsoluteWorkloadPath src/infra/isInfraWorkloadSpec.ts Workload paths are absolute container paths, never relative host traversal.">
+</article><article class="item" data-search="isAbsoluteWorkloadPath src/infra/isInfraWorkloadSpec.ts Workload paths are absolute container paths, never relative host traversal.">
     <h3>isAbsoluteWorkloadPath</h3>
     <p class="muted"><code>src/infra/isInfraWorkloadSpec.ts:129:1</code></p>
     <p>Workload paths are absolute container paths, never relative host traversal.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-infra-isinfraworkloadvalue-ts" class="view" data-view="src/infra/isInfraWorkloadValue.ts" hidden>
     <section class="panel">
@@ -30836,18 +30693,15 @@ evaluation, validation, and mappings belong to the consuming adapter, not Contra
     <h3>isInfraWorkloadValue</h3>
     <p class="muted"><code>src/infra/isInfraWorkloadValue.ts:10:1</code></p>
     <p>Workload values explicitly distinguish public literals, output dependencies and secret references.</p>
-    
-  </article><article class="item" data-search="isInfraWorkloadScalarValue src/infra/isInfraWorkloadValue.ts Validate one non-composite workload value segment.">
+</article><article class="item" data-search="isInfraWorkloadScalarValue src/infra/isInfraWorkloadValue.ts Validate one non-composite workload value segment.">
     <h3>isInfraWorkloadScalarValue</h3>
     <p class="muted"><code>src/infra/isInfraWorkloadValue.ts:24:1</code></p>
     <p>Validate one non-composite workload value segment.</p>
-    
-  </article><article class="item" data-search="isSecretReference src/infra/isInfraWorkloadValue.ts Managed secret references contain identity only, never privileged payloads.">
+</article><article class="item" data-search="isSecretReference src/infra/isInfraWorkloadValue.ts Managed secret references contain identity only, never privileged payloads.">
     <h3>isSecretReference</h3>
     <p class="muted"><code>src/infra/isInfraWorkloadValue.ts:55:1</code></p>
     <p>Managed secret references contain identity only, never privileged payloads.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-infra-parseinframanifest-ts" class="view" data-view="src/infra/parseInfraManifest.ts" hidden>
     <section class="panel">
@@ -30856,8 +30710,7 @@ evaluation, validation, and mappings belong to the consuming adapter, not Contra
     <h3>parseInfraManifest</h3>
     <p class="muted"><code>src/infra/parseInfraManifest.ts:6:1</code></p>
     <p class="empty">No description available.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-infra-validateinfraadapterselection-ts" class="view" data-view="src/infra/validateInfraAdapterSelection.ts" hidden>
     <section class="panel">
@@ -30866,8 +30719,7 @@ evaluation, validation, and mappings belong to the consuming adapter, not Contra
     <h3>validateInfraAdapterSelection</h3>
     <p class="muted"><code>src/infra/validateInfraAdapterSelection.ts:8:1</code></p>
     <p class="empty">No description available.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-media-ts" class="view" data-view="src/media.ts" hidden>
     <section class="panel">
@@ -30876,8 +30728,7 @@ evaluation, validation, and mappings belong to the consuming adapter, not Contra
     <h3>isMediaAssetReference</h3>
     <p class="muted"><code>src/media.ts:64:1</code></p>
     <p>Validate an authored media reference with exactly one enumerable key and a non-empty media ID.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-secrets-ts" class="view" data-view="src/secrets.ts" hidden>
     <section class="panel">
@@ -30886,23 +30737,19 @@ evaluation, validation, and mappings belong to the consuming adapter, not Contra
     <h3>normalizeSecretRef</h3>
     <p class="muted"><code>src/secrets.ts:105:1</code></p>
     <p class="empty">No description available.</p>
-    
-  </article><article class="item" data-search="normalizeSecretScope src/secrets.ts ">
+</article><article class="item" data-search="normalizeSecretScope src/secrets.ts ">
     <h3>normalizeSecretScope</h3>
     <p class="muted"><code>src/secrets.ts:129:1</code></p>
     <p class="empty">No description available.</p>
-    
-  </article><article class="item" data-search="validateSecretPayload src/secrets.ts ">
+</article><article class="item" data-search="validateSecretPayload src/secrets.ts ">
     <h3>validateSecretPayload</h3>
     <p class="muted"><code>src/secrets.ts:146:1</code></p>
     <p class="empty">No description available.</p>
-    
-  </article><article class="item" data-search="findForbiddenInlineSecretFields src/secrets.ts ">
+</article><article class="item" data-search="findForbiddenInlineSecretFields src/secrets.ts ">
     <h3>findForbiddenInlineSecretFields</h3>
     <p class="muted"><code>src/secrets.ts:183:1</code></p>
     <p class="empty">No description available.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-serializable-ts" class="view" data-view="src/serializable.ts" hidden>
     <section class="panel">
@@ -30911,8 +30758,7 @@ evaluation, validation, and mappings belong to the consuming adapter, not Contra
     <h3>isSerializableValue</h3>
     <p class="muted"><code>src/serializable.ts:14:1</code></p>
     <p>Validate recursively serializable manifest/config values without accepting functions or host objects.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-structure-isstructuredescriptor-ts" class="view" data-view="src/structure/isStructureDescriptor.ts" hidden>
     <section class="panel">
@@ -30921,83 +30767,67 @@ evaluation, validation, and mappings belong to the consuming adapter, not Contra
     <h3>isStructureDescriptor</h3>
     <p class="muted"><code>src/structure/isStructureDescriptor.ts:7:1</code></p>
     <p>Validate one standalone structural descriptor without resolving external/local references.</p>
-    
-  </article><article class="item" data-search="isDescriptor src/structure/isStructureDescriptor.ts Validate one descriptor recursively while rejecting cyclic inline object graphs.">
+</article><article class="item" data-search="isDescriptor src/structure/isStructureDescriptor.ts Validate one descriptor recursively while rejecting cyclic inline object graphs.">
     <h3>isDescriptor</h3>
     <p class="muted"><code>src/structure/isStructureDescriptor.ts:12:1</code></p>
     <p>Validate one descriptor recursively while rejecting cyclic inline object graphs.</p>
-    
-  </article><article class="item" data-search="validateDescriptorKind src/structure/isStructureDescriptor.ts Dispatch descriptor validation by its explicit structural kind.">
+</article><article class="item" data-search="validateDescriptorKind src/structure/isStructureDescriptor.ts Dispatch descriptor validation by its explicit structural kind.">
     <h3>validateDescriptorKind</h3>
     <p class="muted"><code>src/structure/isStructureDescriptor.ts:21:1</code></p>
     <p>Dispatch descriptor validation by its explicit structural kind.</p>
-    
-  </article><article class="item" data-search="isScalarDescriptor src/structure/isStructureDescriptor.ts Validate a scalar descriptor and its closed primitive vocabulary.">
+</article><article class="item" data-search="isScalarDescriptor src/structure/isStructureDescriptor.ts Validate a scalar descriptor and its closed primitive vocabulary.">
     <h3>isScalarDescriptor</h3>
     <p class="muted"><code>src/structure/isStructureDescriptor.ts:47:1</code></p>
     <p>Validate a scalar descriptor and its closed primitive vocabulary.</p>
-    
-  </article><article class="item" data-search="isEnumDescriptor src/structure/isStructureDescriptor.ts Validate a non-empty finite scalar literal set without duplicate members.">
+</article><article class="item" data-search="isEnumDescriptor src/structure/isStructureDescriptor.ts Validate a non-empty finite scalar literal set without duplicate members.">
     <h3>isEnumDescriptor</h3>
     <p class="muted"><code>src/structure/isStructureDescriptor.ts:56:1</code></p>
     <p>Validate a non-empty finite scalar literal set without duplicate members.</p>
-    
-  </article><article class="item" data-search="isObjectDescriptor src/structure/isStructureDescriptor.ts Validate a fixed-field object descriptor.">
+</article><article class="item" data-search="isObjectDescriptor src/structure/isStructureDescriptor.ts Validate a fixed-field object descriptor.">
     <h3>isObjectDescriptor</h3>
     <p class="muted"><code>src/structure/isStructureDescriptor.ts:64:1</code></p>
     <p>Validate a fixed-field object descriptor.</p>
-    
-  </article><article class="item" data-search="isObjectField src/structure/isStructureDescriptor.ts Validate one object field and its optionality marker.">
+</article><article class="item" data-search="isObjectField src/structure/isStructureDescriptor.ts Validate one object field and its optionality marker.">
     <h3>isObjectField</h3>
     <p class="muted"><code>src/structure/isStructureDescriptor.ts:73:1</code></p>
     <p>Validate one object field and its optionality marker.</p>
-    
-  </article><article class="item" data-search="isEntityRegistryDescriptor src/structure/isStructureDescriptor.ts Validate a stable keyed entity collection descriptor.">
+</article><article class="item" data-search="isEntityRegistryDescriptor src/structure/isStructureDescriptor.ts Validate a stable keyed entity collection descriptor.">
     <h3>isEntityRegistryDescriptor</h3>
     <p class="muted"><code>src/structure/isStructureDescriptor.ts:83:1</code></p>
     <p>Validate a stable keyed entity collection descriptor.</p>
-    
-  </article><article class="item" data-search="isValueMapDescriptor src/structure/isStructureDescriptor.ts Validate a keyed property/configuration map descriptor.">
+</article><article class="item" data-search="isValueMapDescriptor src/structure/isStructureDescriptor.ts Validate a keyed property/configuration map descriptor.">
     <h3>isValueMapDescriptor</h3>
     <p class="muted"><code>src/structure/isStructureDescriptor.ts:96:1</code></p>
     <p>Validate a keyed property/configuration map descriptor.</p>
-    
-  </article><article class="item" data-search="isSetDescriptor src/structure/isStructureDescriptor.ts Validate an unordered string-membership descriptor.">
+</article><article class="item" data-search="isSetDescriptor src/structure/isStructureDescriptor.ts Validate an unordered string-membership descriptor.">
     <h3>isSetDescriptor</h3>
     <p class="muted"><code>src/structure/isStructureDescriptor.ts:105:1</code></p>
     <p>Validate an unordered string-membership descriptor.</p>
-    
-  </article><article class="item" data-search="isOrderedListDescriptor src/structure/isStructureDescriptor.ts Validate a semantically ordered list descriptor.">
+</article><article class="item" data-search="isOrderedListDescriptor src/structure/isStructureDescriptor.ts Validate a semantically ordered list descriptor.">
     <h3>isOrderedListDescriptor</h3>
     <p class="muted"><code>src/structure/isStructureDescriptor.ts:110:1</code></p>
     <p>Validate a semantically ordered list descriptor.</p>
-    
-  </article><article class="item" data-search="isUnionDescriptor src/structure/isStructureDescriptor.ts Validate a union descriptor with at least two valid variants.">
+</article><article class="item" data-search="isUnionDescriptor src/structure/isStructureDescriptor.ts Validate a union descriptor with at least two valid variants.">
     <h3>isUnionDescriptor</h3>
     <p class="muted"><code>src/structure/isStructureDescriptor.ts:115:1</code></p>
     <p>Validate a union descriptor with at least two valid variants.</p>
-    
-  </article><article class="item" data-search="isReferenceDescriptor src/structure/isStructureDescriptor.ts Validate a local or package-qualified descriptor reference.">
+</article><article class="item" data-search="isReferenceDescriptor src/structure/isStructureDescriptor.ts Validate a local or package-qualified descriptor reference.">
     <h3>isReferenceDescriptor</h3>
     <p class="muted"><code>src/structure/isStructureDescriptor.ts:126:1</code></p>
     <p>Validate a local or package-qualified descriptor reference.</p>
-    
-  </article><article class="item" data-search="isStringKeyDescriptor src/structure/isStructureDescriptor.ts Validate a descriptor that can represent a JSON object key or set member string.">
+</article><article class="item" data-search="isStringKeyDescriptor src/structure/isStructureDescriptor.ts Validate a descriptor that can represent a JSON object key or set member string.">
     <h3>isStringKeyDescriptor</h3>
     <p class="muted"><code>src/structure/isStructureDescriptor.ts:135:1</code></p>
     <p>Validate a descriptor that can represent a JSON object key or set member string.</p>
-    
-  </article><article class="item" data-search="isStructureLiteralValue src/structure/isStructureDescriptor.ts Validate one serializable scalar literal used by finite enum descriptors.">
+</article><article class="item" data-search="isStructureLiteralValue src/structure/isStructureDescriptor.ts Validate one serializable scalar literal used by finite enum descriptors.">
     <h3>isStructureLiteralValue</h3>
     <p class="muted"><code>src/structure/isStructureDescriptor.ts:143:1</code></p>
     <p>Validate one serializable scalar literal used by finite enum descriptors.</p>
-    
-  </article><article class="item" data-search="structureLiteralIdentity src/structure/isStructureDescriptor.ts Produce an unambiguous identity for one scalar enum member.">
+</article><article class="item" data-search="structureLiteralIdentity src/structure/isStructureDescriptor.ts Produce an unambiguous identity for one scalar enum member.">
     <h3>structureLiteralIdentity</h3>
     <p class="muted"><code>src/structure/isStructureDescriptor.ts:153:1</code></p>
     <p>Produce an unambiguous identity for one scalar enum member.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-structure-isstructuredescriptordocument-ts" class="view" data-view="src/structure/isStructureDescriptorDocument.ts" hidden>
     <section class="panel">
@@ -31006,48 +30836,39 @@ evaluation, validation, and mappings belong to the consuming adapter, not Contra
     <h3>isStructureDescriptorDocument</h3>
     <p class="muted"><code>src/structure/isStructureDescriptorDocument.ts:14:1</code></p>
     <p>Validate a complete package structural-descriptor document and all resolvable references.</p>
-    
-  </article><article class="item" data-search="isRootMap src/structure/isStructureDescriptorDocument.ts Validate the root-name to local-descriptor-ID map.">
+</article><article class="item" data-search="isRootMap src/structure/isStructureDescriptorDocument.ts Validate the root-name to local-descriptor-ID map.">
     <h3>isRootMap</h3>
     <p class="muted"><code>src/structure/isStructureDescriptorDocument.ts:46:1</code></p>
     <p>Validate the root-name to local-descriptor-ID map.</p>
-    
-  </article><article class="item" data-search="isDescriptorRegistry src/structure/isStructureDescriptorDocument.ts Validate descriptor definitions and enforce record-key to definition-ID identity.">
+</article><article class="item" data-search="isDescriptorRegistry src/structure/isStructureDescriptorDocument.ts Validate descriptor definitions and enforce record-key to definition-ID identity.">
     <h3>isDescriptorRegistry</h3>
     <p class="muted"><code>src/structure/isStructureDescriptorDocument.ts:57:1</code></p>
     <p>Validate descriptor definitions and enforce record-key to definition-ID identity.</p>
-    
-  </article><article class="item" data-search="isDefinition src/structure/isStructureDescriptorDocument.ts Validate one descriptor definition against its stable registry key.">
+</article><article class="item" data-search="isDefinition src/structure/isStructureDescriptorDocument.ts Validate one descriptor definition against its stable registry key.">
     <h3>isDefinition</h3>
     <p class="muted"><code>src/structure/isStructureDescriptorDocument.ts:68:1</code></p>
     <p>Validate one descriptor definition against its stable registry key.</p>
-    
-  </article><article class="item" data-search="hasResolvableRoots src/structure/isStructureDescriptorDocument.ts Require every document root to resolve to one local descriptor definition.">
+</article><article class="item" data-search="hasResolvableRoots src/structure/isStructureDescriptorDocument.ts Require every document root to resolve to one local descriptor definition.">
     <h3>hasResolvableRoots</h3>
     <p class="muted"><code>src/structure/isStructureDescriptorDocument.ts:82:1</code></p>
     <p>Require every document root to resolve to one local descriptor definition.</p>
-    
-  </article><article class="item" data-search="isDescriptorGraphValid src/structure/isStructureDescriptorDocument.ts Validate local references, recursive graphs, and string-only collection key/member descriptors.">
+</article><article class="item" data-search="isDescriptorGraphValid src/structure/isStructureDescriptorDocument.ts Validate local references, recursive graphs, and string-only collection key/member descriptors.">
     <h3>isDescriptorGraphValid</h3>
     <p class="muted"><code>src/structure/isStructureDescriptorDocument.ts:88:1</code></p>
     <p>Validate local references, recursive graphs, and string-only collection key/member descriptors.</p>
-    
-  </article><article class="item" data-search="validateGraphNode src/structure/isStructureDescriptorDocument.ts Validate one graph node while treating revisited local refs as a valid recursive cycle.">
+</article><article class="item" data-search="validateGraphNode src/structure/isStructureDescriptorDocument.ts Validate one graph node while treating revisited local refs as a valid recursive cycle.">
     <h3>validateGraphNode</h3>
     <p class="muted"><code>src/structure/isStructureDescriptorDocument.ts:96:1</code></p>
     <p>Validate one graph node while treating revisited local refs as a valid recursive cycle.</p>
-    
-  </article><article class="item" data-search="validateReference src/structure/isStructureDescriptorDocument.ts Resolve and validate one local reference while deferring package-qualified refs to composition.">
+</article><article class="item" data-search="validateReference src/structure/isStructureDescriptorDocument.ts Resolve and validate one local reference while deferring package-qualified refs to composition.">
     <h3>validateReference</h3>
     <p class="muted"><code>src/structure/isStructureDescriptorDocument.ts:128:1</code></p>
     <p>Resolve and validate one local reference while deferring package-qualified refs to composition.</p>
-    
-  </article><article class="item" data-search="isStringCompatible src/structure/isStructureDescriptorDocument.ts Prove that a collection key/member descriptor is string-valued when locally resolvable.">
+</article><article class="item" data-search="isStringCompatible src/structure/isStructureDescriptorDocument.ts Prove that a collection key/member descriptor is string-valued when locally resolvable.">
     <h3>isStringCompatible</h3>
     <p class="muted"><code>src/structure/isStructureDescriptorDocument.ts:145:1</code></p>
     <p>Prove that a collection key/member descriptor is string-valued when locally resolvable.</p>
-    
-  </article>
+</article>
     </section>
   </section>
       </main>
