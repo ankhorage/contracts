@@ -142,7 +142,9 @@ export interface InfraRuntimeAdapter<P extends InfraRuntimeProviderId = InfraRun
 
 /** A service can own several capabilities but contributes one deduplicated platform instance. */
 export interface InfraServiceAdapter {
-  readonly descriptor: InfraAdapterDescriptor<'supabase' | 'cerbos' | 'r2' | 'supabase-vault'>;
+  readonly descriptor: InfraAdapterDescriptor<
+    'supabase' | 'neon' | 'cerbos' | 'r2' | 'supabase-vault'
+  >;
   /** Read-only service config, bootstrap credentials and dependency validation. */
   validateAsync(context: InfraExecutionContext): Promise<InfraResult<null>>;
   planAsync(context: InfraExecutionContext): Promise<InfraResult<readonly InfraPlanAction[]>>;

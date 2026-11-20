@@ -214,7 +214,7 @@ describe('authentication configuration', () => {
   });
 });
 
-describe('adapter package discovery contracts', () => {
+describe('adapter package descriptor contracts', () => {
   it('accepts every canonical descriptor and deduplicates a multi-capability Supabase platform', () => {
     for (const descriptor of Object.values(INFRA_ADAPTER_CATALOG))
       expect(isInfraAdapterDescriptor(descriptor)).toBe(true);
@@ -239,6 +239,30 @@ describe('adapter package discovery contracts', () => {
     expect(isInfraAdapterDescriptor({ ...INFRA_ADAPTER_CATALOG.supabase, ...override })).toBe(
       false,
     );
+  });
+});
+
+describe('adapter package selection contracts', () => {
+  it('selects the canonical Neon database adapter by its control-plane credential reference', () => {
+    const environment = {
+      ...local,
+      database: {
+        provider: 'neon',
+        project: {
+          name: 'zefix-leads',
+          regionId: 'aws-eu-central-1',
+          credentials: { source: 'control-plane', name: 'NEON_API_KEY' },
+        },
+      },
+    } as const satisfies InfraEnvironmentSpec;
+    const result = validateInfraAdapterSelection(environment, [
+      INFRA_ADAPTER_CATALOG.local,
+      INFRA_ADAPTER_CATALOG.minikube,
+      INFRA_ADAPTER_CATALOG.neon,
+    ]);
+    expect(result.ok).toBe(true);
+    if (!result.ok) throw new Error('Expected Neon adapter selection.');
+    expect(result.value).toContain(INFRA_ADAPTER_CATALOG.neon);
   });
 
   it('reports the exact missing selected package without requiring unselected providers', () => {

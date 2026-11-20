@@ -9,6 +9,7 @@ import type {
   InfraComputeSnapshot,
   InfraControlPlaneCredentialRef,
   InfraCredentialPort,
+  InfraDatabaseSpec,
   InfraDeploymentSpec,
   InfraDestroyRequest,
   InfraExecutionContext,
@@ -83,6 +84,30 @@ it('rejects open or fictional service providers in typed selections', () => {
     Assignable<{ provider: 's3' }, InfraObjectStorageSpec>,
   ] = [false, false, false, false];
   expect(providers).toEqual([false, false, false, false]);
+});
+
+it('keeps Neon database resources and its control-plane credential reference in the canonical contract', () => {
+  const neon: InfraDatabaseSpec = {
+    provider: 'neon',
+    project: {
+      name: 'zefix-leads',
+      regionId: 'aws-eu-central-1',
+      credentials: { source: 'control-plane', name: 'NEON_API_KEY' },
+    },
+    branch: { name: 'production' },
+    database: { name: 'leads' },
+    role: { name: 'lead_writer' },
+  };
+  const descriptor: InfraServiceAdapter['descriptor'] = {
+    id: 'neon',
+    package: '@ankhorage/infra-neon',
+    kind: 'service',
+    configVersion: 1,
+    capabilities: ['database'],
+    targets: [],
+    dependencies: [],
+  };
+  expect([neon.provider, descriptor.id]).toEqual(['neon', 'neon']);
 });
 
 it('requires resolved outputs at the runtime desired-state boundary', () => {

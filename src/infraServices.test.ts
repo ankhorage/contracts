@@ -17,10 +17,44 @@ const production = {
   secretStore: { provider: 'supabase-vault' },
   networking: { domain: 'api.example.ch', publicBaseUrl: 'https://api.example.ch' },
 } as const satisfies InfraEnvironmentSpec;
+const neonDatabase = {
+  provider: 'neon',
+  project: {
+    name: 'zefix-leads',
+    regionId: 'aws-eu-central-1',
+    credentials: { source: 'control-plane', name: 'NEON_API_KEY' },
+  },
+  branch: { name: 'production' },
+  database: { name: 'leads' },
+  role: { name: 'lead_writer' },
+} as const satisfies InfraEnvironmentSpec['database'];
 
 const invalidServiceSelections: Record<string, unknown>[] = [
   { database: { provider: 'postgres' } },
   { database: { provider: 'supabase', tier: 'enterprise' } },
+  { database: { provider: 'neon' } },
+  {
+    database: {
+      provider: 'neon',
+      project: { name: 'zefix-leads', regionId: 'aws-eu-central-1' },
+    },
+  },
+  {
+    database: {
+      provider: 'neon',
+      project: {
+        name: 'zefix-leads',
+        regionId: 'aws-eu-central-1',
+        credentials: { source: 'secret-store', name: 'NEON_API_KEY' },
+      },
+    },
+  },
+  {
+    database: {
+      ...neonDatabase,
+      branch: { name: '' },
+    },
+  },
   { objectStorage: { provider: 'auto' } },
   { objectStorage: { provider: 's3' } },
   { objectStorage: { provider: 'supabase', buckets: [1] } },
@@ -42,6 +76,10 @@ describe('sibling service configuration', () => {
       true,
     );
     expect(isInfraEnvironmentSpec({ ...local, auth: { provider: 'supabase' } })).toBe(true);
+  });
+
+  it('accepts a Neon database lifecycle selection without serializing its token', () => {
+    expect(isInfraEnvironmentSpec({ ...local, database: neonDatabase })).toBe(true);
   });
 
   it.each(invalidServiceSelections)('rejects unsupported service selection: %j', (selection) => {

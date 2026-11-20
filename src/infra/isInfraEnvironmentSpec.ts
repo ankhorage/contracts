@@ -4,6 +4,7 @@ import { isNonEmptyString } from '@ankhorage/utility/string';
 import { isSerializableSet } from '../collections.js';
 import { INFRA_ADAPTER_CATALOG } from '../infraCatalog.js';
 import type {
+  InfraDatabaseSpec,
   InfraEnvironmentSpec,
   InfraObjectStorageSpec,
   InfraS3PersistenceTarget,
@@ -31,13 +32,7 @@ export function isInfraEnvironmentSpec(value: unknown): value is InfraEnvironmen
 function isEnvironmentShape(value: unknown): value is InfraEnvironmentSpec {
   return isInfraShape(value, {
     deployment: isInfraDeploymentSpec,
-    database: (database) =>
-      database === undefined ||
-      isInfraShape(database, {
-        provider: (provider) => provider === 'supabase',
-        tier: (tier) => tier === undefined || tier === 'dev' || tier === 'prod',
-        backup: (backup) => backup === undefined || isScheduledDatabaseBackup(backup),
-      }),
+    database: (database) => database === undefined || isDatabase(database),
     objectStorage: (storage) => storage === undefined || isObjectStorage(storage),
     auth: (auth) => auth === undefined || isInfraAuthSpec(auth),
     authz: (authz) =>
@@ -68,6 +63,31 @@ function isEnvironmentShape(value: unknown): value is InfraEnvironmentSpec {
       }),
     workloads: (workloads) => workloads === undefined || isWorkloads(workloads),
   } satisfies InfraShape<InfraEnvironmentSpec>);
+}
+
+/*** Validate the selected database provider’s non-secret desired resources. */
+function isDatabase(value: unknown): value is InfraDatabaseSpec {
+  if (!isRecord(value)) return false;
+  if (value.provider === 'supabase') {
+    return isInfraShape(value, {
+      provider: (provider) => provider === 'supabase',
+      tier: (tier) => tier === undefined || tier === 'dev' || tier === 'prod',
+      backup: (backup) => backup === undefined || isScheduledDatabaseBackup(backup),
+    });
+  }
+  return isInfraShape(value, {
+    provider: (provider) => provider === 'neon',
+    project: (project) =>
+      isInfraShape(project, {
+        name: isNonEmptyString,
+        regionId: isNonEmptyString,
+        credentials: isInfraCredentialRef,
+      }),
+    branch: (branch) => branch === undefined || isInfraShape(branch, { name: isNonEmptyString }),
+    database: (database) =>
+      database === undefined || isInfraShape(database, { name: isNonEmptyString }),
+    role: (role) => role === undefined || isInfraShape(role, { name: isNonEmptyString }),
+  });
 }
 
 /*** Public workload configuration uses one canonical absolute HTTP(S) origin without path state. */
