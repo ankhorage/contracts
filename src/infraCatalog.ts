@@ -61,6 +61,15 @@ export const INFRA_ADAPTER_CATALOG = {
     targets: [],
     dependencies: ['workloads'],
   },
+  neon: {
+    id: 'neon',
+    package: '@ankhorage/infra-neon',
+    kind: 'service',
+    configVersion: 1,
+    capabilities: ['database'],
+    targets: [],
+    dependencies: [],
+  },
   cerbos: {
     id: 'cerbos',
     package: '@ankhorage/infra-cerbos',

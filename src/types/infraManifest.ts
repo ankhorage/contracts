@@ -84,6 +84,20 @@ export interface InfraDatabaseConfigMap {
     readonly tier?: 'dev' | 'prod';
     readonly backup?: InfraScheduledDatabaseBackupSpec;
   };
+  readonly neon: {
+    /** Neon control-plane project identity and credential reference. */
+    readonly project: {
+      readonly name: string;
+      readonly regionId: string;
+      readonly credentials: InfraControlPlaneCredentialRef;
+    };
+    /** Optional named branch; omitting it keeps Neon’s provider-created primary branch. */
+    readonly branch?: { readonly name: string };
+    /** Optional named database on the selected branch. */
+    readonly database?: { readonly name: string };
+    /** Optional named PostgreSQL role on the selected branch. */
+    readonly role?: { readonly name: string };
+  };
 }
 export interface InfraObjectStorageConfigMap {
   readonly supabase: {
