@@ -3,7 +3,7 @@
 
 # Ankhorage Contracts
 
-![license: MIT](././paradox/badges/license.svg) ![npm: v26.13.0](././paradox/badges/npm.svg) ![runtime: bun](././paradox/badges/runtime.svg) ![typescript: strict](././paradox/badges/typescript.svg) ![eslint: checked](././paradox/badges/eslint.svg) ![prettier: checked](././paradox/badges/prettier.svg) ![build: checked](././paradox/badges/build.svg) ![tests: checked](././paradox/badges/tests.svg) ![paradox: warnings](././paradox/badges/docs.svg)
+![license: MIT](././paradox/badges/license.svg) ![npm: v26.13.1](././paradox/badges/npm.svg) ![runtime: bun](././paradox/badges/runtime.svg) ![typescript: strict](././paradox/badges/typescript.svg) ![eslint: checked](././paradox/badges/eslint.svg) ![prettier: checked](././paradox/badges/prettier.svg) ![build: checked](././paradox/badges/build.svg) ![tests: configured](././paradox/badges/tests.svg) ![paradox: warnings](././paradox/badges/docs.svg)
 
 Defines portable, serializable contracts exchanged by independent application, tooling, runtime, and adapter packages.
 
@@ -16,19 +16,6 @@ Open `./paradox/index.html` locally in your browser to browse the complete docum
 ## Contributors
 
 <!-- readme: contributors -start -->
-<table>
-	<tbody>
-		<tr>
-            <td align="center">
-                <a href="https://github.com/artiphishle">
-                    <img src="https://avatars.githubusercontent.com/u/137318798?v=4" width="100;" alt="artiphishle"/>
-                    <br />
-                    <sub><b>Fabio Gartenmann</b></sub>
-                </a>
-            </td>
-		</tr>
-	<tbody>
-</table>
 <!-- readme: contributors -end -->
 
 ## Donation

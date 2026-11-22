@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 26.13.1
+
+### Patch Changes
+
+- b181ba9: Update dependencies: `@ankhorage/color-theory`.
+
 ## 26.13.0
 
 ### Minor Changes
