@@ -11,6 +11,17 @@ const production = {
     runtime: { provider: 'k3s', topology: { servers: 1, agents: 0 } },
   },
   database: { provider: 'supabase' },
+  graphDatabase: {
+    provider: 'neo4j',
+    endpoint: 'https://acquisition.databases.neo4j.io',
+    credentials: {
+      source: 'secret-store',
+      projectId: 'acquisition',
+      environment: 'production',
+      ref: 'graph/neo4j',
+      key: 'credentials',
+    },
+  },
   auth: { provider: 'supabase' },
   objectStorage: { provider: 'r2', buckets: { media: true } },
   authz: { provider: 'cerbos', kind: 'ABAC' },
@@ -67,6 +78,47 @@ const invalidServiceSelections: Record<string, unknown>[] = [
   { authz: { provider: 'cerbos', kind: 'unknown' } },
   { secretStore: { provider: 'unknown' } },
   { secretStore: { provider: 'supabase-vault' } },
+  { graphDatabase: { provider: 'unknown' } },
+  {
+    graphDatabase: {
+      provider: 'neptune',
+      endpoint: '',
+      credentials: {
+        source: 'secret-store',
+        projectId: 'acquisition',
+        environment: 'production',
+        ref: 'graph/neptune',
+        key: 'credentials',
+      },
+    },
+  },
+  {
+    graphDatabase: {
+      provider: 'neo4j',
+      endpoint: 'https://acquisition.databases.neo4j.io',
+      credentials: {
+        source: 'control-plane',
+        projectId: 'acquisition',
+        environment: 'production',
+        ref: 'graph/neo4j',
+        key: 'credentials',
+      },
+    },
+  },
+  {
+    graphDatabase: {
+      provider: 'neptune',
+      endpoint: 'bolt://cluster.neptune.amazonaws.com:8182',
+      credentials: {
+        source: 'secret-store',
+        projectId: 'acquisition',
+        environment: 'production',
+        ref: 'graph/neptune',
+        key: 'credentials',
+        token: 'sentinel',
+      },
+    },
+  },
 ];
 
 describe('sibling service configuration', () => {
@@ -76,6 +128,13 @@ describe('sibling service configuration', () => {
       true,
     );
     expect(isInfraEnvironmentSpec({ ...local, auth: { provider: 'supabase' } })).toBe(true);
+  });
+
+  it('accepts relational Supabase, Supabase Vault and Neo4j graph persistence together', () => {
+    expect(production.database.provider).toBe('supabase');
+    expect(production.secretStore.provider).toBe('supabase-vault');
+    expect(production.graphDatabase.provider).toBe('neo4j');
+    expect(isInfraEnvironmentSpec(production)).toBe(true);
   });
 
   it('accepts a Neon database lifecycle selection without serializing its token', () => {

@@ -13,6 +13,7 @@ export function validateInfraAdapterSelection(
     environment.deployment.compute.provider,
     environment.deployment.runtime.provider,
     environment.database?.provider,
+    environment.graphDatabase?.provider,
     environment.objectStorage?.provider,
     environment.auth?.provider,
     environment.authz?.provider,

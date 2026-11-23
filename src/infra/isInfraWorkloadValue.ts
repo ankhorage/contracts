@@ -1,9 +1,8 @@
 import { isRecord } from '@ankhorage/utility/object';
 import { isNonEmptyString } from '@ankhorage/utility/string';
 
-import { APP_ENVIRONMENT_IDS } from '../environments.js';
 import type { InfraWorkloadScalarValue } from '../types/infraWorkload.js';
-import { isInfraCredentialRef } from './isInfraCredentialRef.js';
+import { isInfraCredentialRef, isInfraSecretReference } from './isInfraCredentialRef.js';
 import { isInfraShape } from './isInfraShape.js';
 
 /*** Workload values explicitly distinguish public literals, output dependencies and secret references. */
@@ -38,7 +37,7 @@ function isInfraWorkloadScalarValue(value: unknown): value is InfraWorkloadScala
     case 'secret':
       return isInfraShape(value, {
         kind: (kind) => kind === 'secret',
-        reference: isSecretReference,
+        reference: isInfraSecretReference,
       });
     case 'credential':
       return isInfraShape(value, {
@@ -49,15 +48,4 @@ function isInfraWorkloadScalarValue(value: unknown): value is InfraWorkloadScala
     default:
       return false;
   }
-}
-
-/*** Managed secret references contain identity only, never privileged payloads. */
-function isSecretReference(value: unknown): boolean {
-  return isInfraShape(value, {
-    source: (source) => source === 'secret-store',
-    projectId: isNonEmptyString,
-    environment: (environment) => APP_ENVIRONMENT_IDS.some((id) => id === environment),
-    ref: isNonEmptyString,
-    key: isNonEmptyString,
-  });
 }

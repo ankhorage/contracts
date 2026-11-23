@@ -22,6 +22,17 @@ const production = {
     runtime: { provider: 'k3s', topology: { servers: 1, agents: 0 } },
   },
   database: { provider: 'supabase' },
+  graphDatabase: {
+    provider: 'neptune',
+    endpoint: 'bolt://cluster.neptune.amazonaws.com:8182',
+    credentials: {
+      source: 'secret-store',
+      projectId: 'acquisition',
+      environment: 'production',
+      ref: 'graph/neptune',
+      key: 'credentials',
+    },
+  },
   auth: { provider: 'supabase' },
   objectStorage: { provider: 'r2', buckets: { media: true } },
   authz: { provider: 'cerbos', kind: 'ABAC' },
