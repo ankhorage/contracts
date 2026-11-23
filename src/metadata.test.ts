@@ -89,6 +89,34 @@ const fixtureSpecifications = [
       useCases: ['Initialize managed repository instructions.'],
     } satisfies RepositoryMetadata,
   },
+  {
+    filename: 'native-web-library.json',
+    metadata: {
+      schemaVersion: 1,
+      kind: 'library',
+      title: 'Cross-platform UI library',
+      summary: 'Publishes native and web UI entrypoints.',
+      purpose: 'Provide reusable interfaces for React Native and React applications.',
+      build: {
+        targets: {
+          native: {
+            language: 'typescript',
+            framework: 'react-native',
+            platforms: ['ios', 'android', 'web'],
+            entry: '.',
+            outDir: 'dist',
+          },
+          web: {
+            language: 'typescript',
+            framework: 'react',
+            platforms: ['web'],
+            entry: './web',
+            outDir: 'web-dist',
+          },
+        },
+      },
+    } satisfies RepositoryMetadata,
+  },
 ] as const;
 
 describe('repository metadata contract', () => {
@@ -115,5 +143,34 @@ describe('repository metadata contract', () => {
     ]);
     expect('usedBy' in metadata).toBe(false);
     expect('dependencies' in metadata).toBe(false);
+  });
+
+  it('keeps build target identifiers and language or framework values open', () => {
+    const metadata: RepositoryMetadata = {
+      schemaVersion: 1,
+      kind: 'library',
+      title: 'Future library',
+      summary: 'Publishes an independently built artifact.',
+      purpose: 'Exercise portable target extensibility.',
+      build: {
+        targets: {
+          custom: {
+            language: 'future-language',
+            framework: 'future-framework',
+            platforms: ['future-platform'],
+            entry: './custom',
+            outDir: 'custom-dist',
+          },
+        },
+      },
+    };
+
+    expect(metadata.build?.targets.custom).toEqual({
+      language: 'future-language',
+      framework: 'future-framework',
+      platforms: ['future-platform'],
+      entry: './custom',
+      outDir: 'custom-dist',
+    });
   });
 });

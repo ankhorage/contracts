@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "kind": "library",
+  "title": "Cross-platform UI library",
+  "summary": "Publishes native and web UI entrypoints.",
+  "purpose": "Provide reusable interfaces for React Native and React applications.",
+  "build": {
+    "targets": {
+      "native": {
+        "language": "typescript",
+        "framework": "react-native",
+        "platforms": ["ios", "android", "web"],
+        "entry": ".",
+        "outDir": "dist"
+      },
+      "web": {
+        "language": "typescript",
+        "framework": "react",
+        "platforms": ["web"],
+        "entry": "./web",
+        "outDir": "web-dist"
+      }
+    }
+  }
+}

@@ -28,6 +28,8 @@ export interface RepositoryMetadata {
   readonly architecture?: RepositoryMetadataArchitecture;
   /** Explicit implementation relationships, distinct from package dependencies and consumers. */
   readonly implements?: readonly RepositoryImplementationRef[];
+  /** Declarative build artifacts published by this repository. */
+  readonly build?: RepositoryMetadataBuild;
   /** Platform, configuration, security, or limitation facts that apply to this repository. */
   readonly constraints?: RepositoryMetadataConstraints;
 }
@@ -59,6 +61,26 @@ export interface RepositoryImplementationRef {
   readonly subpath?: string;
   /** The explicit interface or port identifier implemented by this repository. */
   readonly interfaceId?: string;
+}
+
+/** Declarative build artifacts published by this repository. */
+export interface RepositoryMetadataBuild {
+  /** Build target declarations keyed by their authored identifiers. */
+  readonly targets: Readonly<Record<string, RepositoryMetadataBuildTarget>>;
+}
+
+/** One portable build artifact emitted by a repository. */
+export interface RepositoryMetadataBuildTarget {
+  /** The implementation language used by this build target. */
+  readonly language: string;
+  /** The framework the target is built for. */
+  readonly framework: string;
+  /** Platforms supported by the emitted artifact. */
+  readonly platforms: readonly string[];
+  /** The public package export subpath provided by the target. */
+  readonly entry: string;
+  /** The repository-relative output directory for the target artifacts. */
+  readonly outDir: string;
 }
 
 /** Optional evidence-backed constraints; omitted categories do not imply their absence. */
