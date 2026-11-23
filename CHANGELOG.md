@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 26.14.0
+
+### Minor Changes
+
+- 8013f57: Add serializable primitive-key closed lookup binding expressions with required fallback results.
+
 ## 26.13.1
 
 ### Patch Changes

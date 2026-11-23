@@ -18,7 +18,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v26.13.1",
+      "value": "v26.14.0",
       "color": "cb3837"
     },
     {
@@ -437,6 +437,8 @@
         "BindingInvocation",
         "BindingLifecycleBehavior",
         "BindingLifecycleState",
+        "BindingLookupCase",
+        "BindingLookupKey",
         "BindingValue",
         "BindingValueTransform",
         "ComponentDataBinding",
@@ -1139,6 +1141,8 @@
         "BindingInvocation",
         "BindingLifecycleBehavior",
         "BindingLifecycleState",
+        "BindingLookupCase",
+        "BindingLookupKey",
         "BindingValue",
         "BindingValueTransform",
         "ButtonPressEventDto",
@@ -8819,7 +8823,7 @@
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 12,
+        "line": 19,
         "column": 1
       },
       "exportPaths": [
@@ -8863,7 +8867,7 @@
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 47,
+        "line": 60,
         "column": 1
       },
       "exportPaths": [
@@ -8910,7 +8914,7 @@
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 44,
+        "line": 57,
         "column": 1
       },
       "exportPaths": [
@@ -8954,7 +8958,7 @@
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 26,
+        "line": 33,
         "column": 1
       },
       "exportPaths": [
@@ -8976,7 +8980,7 @@
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 43,
+        "line": 56,
         "column": 1
       },
       "exportPaths": [
@@ -8998,7 +9002,7 @@
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 42,
+        "line": 55,
         "column": 1
       },
       "exportPaths": [
@@ -9020,7 +9024,7 @@
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 19,
+        "line": 26,
         "column": 1
       },
       "exportPaths": [
@@ -9066,7 +9070,7 @@
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 54,
+        "line": 67,
         "column": 1
       },
       "exportPaths": [
@@ -9113,7 +9117,69 @@
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 60,
+        "line": 73,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "BindingLookupCase",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/bindings.ts",
+      "sourceLocation": {
+        "filePath": "src/bindings.ts",
+        "line": 13,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "BindingExpression",
+        "BindingLookupKey"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "key",
+          "kind": "property",
+          "type": "BindingLookupKey",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "value",
+          "kind": "property",
+          "type": "BindingExpression",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "BindingLookupKey",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "unknown",
+      "modulePath": "src/bindings.ts",
+      "sourceLocation": {
+        "filePath": "src/bindings.ts",
+        "line": 10,
         "column": 1
       },
       "exportPaths": [
@@ -9323,7 +9389,7 @@
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 77,
+        "line": 90,
         "column": 1
       },
       "exportPaths": [
@@ -9377,7 +9443,7 @@
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 84,
+        "line": 97,
         "column": 1
       },
       "exportPaths": [
@@ -13869,7 +13935,7 @@
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 72,
+        "line": 85,
         "column": 1
       },
       "exportPaths": [
@@ -23793,7 +23859,7 @@
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 62,
+        "line": 75,
         "column": 1
       },
       "exportPaths": [
@@ -26157,7 +26223,7 @@
       "modulePath": "src/bindings.ts",
       "sourceLocation": {
         "filePath": "src/bindings.ts",
-        "line": 70,
+        "line": 83,
         "column": 1
       },
       "exportPaths": [
@@ -36203,12 +36269,122 @@
     },
     {
       "name": "isBindingExpressionNode",
-      "description": "Validate array, fallback, literal, object and transform expression forms.",
+      "description": "Validate array, fallback, literal, lookup, object and transform expression forms.",
       "see": [],
       "security": [],
       "sourceLocation": {
         "filePath": "src/appManifest/bindings.ts",
         "line": 83,
+        "column": 1
+      }
+    },
+    {
+      "name": "isBindingArrayExpression",
+      "description": "Validate an ordered sequence of recursively resolved binding expressions.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/appManifest/bindings.ts",
+        "line": 97,
+        "column": 1
+      }
+    },
+    {
+      "name": "isBindingFallbackExpression",
+      "description": "Validate a primary expression and its fallback expression.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/appManifest/bindings.ts",
+        "line": 104,
+        "column": 1
+      }
+    },
+    {
+      "name": "isBindingLiteralExpression",
+      "description": "Validate one serializable literal binding expression.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/appManifest/bindings.ts",
+        "line": 113,
+        "column": 1
+      }
+    },
+    {
+      "name": "isBindingLookupExpression",
+      "description": "Validate a source expression, closed primitive cases, and its declared fallback.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/appManifest/bindings.ts",
+        "line": 118,
+        "column": 1
+      }
+    },
+    {
+      "name": "isBindingObjectExpression",
+      "description": "Validate named fields whose values are recursive binding expressions.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/appManifest/bindings.ts",
+        "line": 128,
+        "column": 1
+      }
+    },
+    {
+      "name": "isBindingTransformExpression",
+      "description": "Validate one expression and its ordered portable transform names.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/appManifest/bindings.ts",
+        "line": 133,
+        "column": 1
+      }
+    },
+    {
+      "name": "isBindingLookupCases",
+      "description": "Validate finite, unique primitive-key lookup cases and their result expressions.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/appManifest/bindings.ts",
+        "line": 142,
+        "column": 1
+      }
+    },
+    {
+      "name": "isBindingLookupCase",
+      "description": "Validate one closed-lookup case without accepting non-serializable key values.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/appManifest/bindings.ts",
+        "line": 152,
+        "column": 1
+      }
+    },
+    {
+      "name": "isBindingLookupKey",
+      "description": "Validate the JSON primitive identity domain supported by closed lookup expressions.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/appManifest/bindings.ts",
+        "line": 166,
+        "column": 1
+      }
+    },
+    {
+      "name": "bindingLookupKeyIdentity",
+      "description": "Encode one primitive lookup identity so strings and other primitive kinds cannot collide.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/appManifest/bindings.ts",
+        "line": 176,
         "column": 1
       }
     },
@@ -36219,7 +36395,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/appManifest/bindings.ts",
-        "line": 101,
+        "line": 181,
         "column": 1
       }
     },
@@ -36230,7 +36406,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/appManifest/bindings.ts",
-        "line": 111,
+        "line": 191,
         "column": 1
       }
     },
@@ -36241,7 +36417,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/appManifest/bindings.ts",
-        "line": 122,
+        "line": 202,
         "column": 1
       }
     },
@@ -36252,7 +36428,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/appManifest/bindings.ts",
-        "line": 127,
+        "line": 207,
         "column": 1
       }
     },
@@ -40017,27 +40193,75 @@
         "sourcePath": "src/appManifest/bindings.ts"
       },
       {
-        "fromSymbol": "isBindingExpressionNode",
+        "fromSymbol": "src/appManifest/bindings.ts",
+        "toSymbol": "isExpression",
+        "callExpression": "isExpression",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isBindingFallbackExpression",
         "toSymbol": "isBindingExpression",
         "callExpression": "isBindingExpression",
         "sourcePath": "src/appManifest/bindings.ts"
       },
       {
-        "fromSymbol": "isBindingExpressionNode",
+        "fromSymbol": "isBindingLiteralExpression",
         "toSymbol": "isManifestValue",
         "callExpression": "isManifestValue",
         "sourcePath": "src/appManifest/bindings.ts"
       },
       {
-        "fromSymbol": "isBindingExpressionNode",
+        "fromSymbol": "isBindingLookupExpression",
+        "toSymbol": "isBindingExpression",
+        "callExpression": "isBindingExpression",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isBindingLookupExpression",
+        "toSymbol": "isBindingLookupCases",
+        "callExpression": "isBindingLookupCases",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isBindingObjectExpression",
         "toSymbol": "isBindingInputMap",
         "callExpression": "isBindingInputMap",
         "sourcePath": "src/appManifest/bindings.ts"
       },
       {
-        "fromSymbol": "isBindingExpressionNode",
+        "fromSymbol": "isBindingTransformExpression",
+        "toSymbol": "isBindingExpression",
+        "callExpression": "isBindingExpression",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isBindingTransformExpression",
         "toSymbol": "isBindingTransforms",
         "callExpression": "isBindingTransforms",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "src/appManifest/bindings.ts",
+        "toSymbol": "bindingLookupKeyIdentity",
+        "callExpression": "bindingLookupKeyIdentity",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isBindingLookupCase",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isBindingLookupCase",
+        "toSymbol": "isBindingLookupKey",
+        "callExpression": "isBindingLookupKey",
+        "sourcePath": "src/appManifest/bindings.ts"
+      },
+      {
+        "fromSymbol": "isBindingLookupCase",
+        "toSymbol": "isBindingExpression",
+        "callExpression": "isBindingExpression",
         "sourcePath": "src/appManifest/bindings.ts"
       },
       {
@@ -43094,6 +43318,16 @@
         "fromSymbol": "AuthAdapter",
         "toType": "VerifyOtpInput",
         "sourcePath": "src/auth.ts"
+      },
+      {
+        "fromSymbol": "BindingLookupCase",
+        "toType": "BindingExpression",
+        "sourcePath": "src/bindings.ts"
+      },
+      {
+        "fromSymbol": "BindingLookupCase",
+        "toType": "BindingLookupKey",
+        "sourcePath": "src/bindings.ts"
       },
       {
         "fromSymbol": "BindingInvocation",

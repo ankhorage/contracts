@@ -1588,7 +1588,7 @@ Evidence whose serializable observations are available to consumers.
 
 Kind: `type`
 Module: `src/bindings.ts`
-Source: `src/bindings.ts:12:1`
+Source: `src/bindings.ts:19:1`
 
 ### Members
 
@@ -1602,7 +1602,7 @@ Source: `src/bindings.ts:12:1`
 
 Kind: `type`
 Module: `src/bindings.ts`
-Source: `src/bindings.ts:47:1`
+Source: `src/bindings.ts:60:1`
 
 ### Members
 
@@ -1616,7 +1616,7 @@ Source: `src/bindings.ts:47:1`
 
 Kind: `unknown`
 Module: `src/bindings.ts`
-Source: `src/bindings.ts:44:1`
+Source: `src/bindings.ts:57:1`
 
 ## BindingDataPath
 
@@ -1628,25 +1628,25 @@ Source: `src/bindings.ts:8:1`
 
 Kind: `unknown`
 Module: `src/bindings.ts`
-Source: `src/bindings.ts:26:1`
+Source: `src/bindings.ts:33:1`
 
 ## BindingInputMap
 
 Kind: `unknown`
 Module: `src/bindings.ts`
-Source: `src/bindings.ts:43:1`
+Source: `src/bindings.ts:56:1`
 
 ## BindingInputValue
 
 Kind: `unknown`
 Module: `src/bindings.ts`
-Source: `src/bindings.ts:42:1`
+Source: `src/bindings.ts:55:1`
 
 ## BindingInvocation
 
 Kind: `type`
 Module: `src/bindings.ts`
-Source: `src/bindings.ts:19:1`
+Source: `src/bindings.ts:26:1`
 
 ### Members
 
@@ -1660,7 +1660,7 @@ Source: `src/bindings.ts:19:1`
 
 Kind: `type`
 Module: `src/bindings.ts`
-Source: `src/bindings.ts:54:1`
+Source: `src/bindings.ts:67:1`
 
 ### Members
 
@@ -1674,7 +1674,26 @@ Source: `src/bindings.ts:54:1`
 
 Kind: `unknown`
 Module: `src/bindings.ts`
-Source: `src/bindings.ts:60:1`
+Source: `src/bindings.ts:73:1`
+
+## BindingLookupCase
+
+Kind: `type`
+Module: `src/bindings.ts`
+Source: `src/bindings.ts:13:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| key | property | `BindingLookupKey` | yes |  |
+| value | property | `BindingExpression` | yes |  |
+
+## BindingLookupKey
+
+Kind: `unknown`
+Module: `src/bindings.ts`
+Source: `src/bindings.ts:10:1`
 
 ## BindingValue
 
@@ -1736,7 +1755,7 @@ Source: `src/auth.ts:505:1`
 
 Kind: `type`
 Module: `src/bindings.ts`
-Source: `src/bindings.ts:77:1`
+Source: `src/bindings.ts:90:1`
 
 ### Members
 
@@ -1751,7 +1770,7 @@ Source: `src/bindings.ts:77:1`
 
 Kind: `unknown`
 Module: `src/bindings.ts`
-Source: `src/bindings.ts:84:1`
+Source: `src/bindings.ts:97:1`
 
 ## ComponentEventDto
 
@@ -2974,7 +2993,7 @@ Source: `src/collections.ts:4:1`
 
 Kind: `type`
 Module: `src/bindings.ts`
-Source: `src/bindings.ts:72:1`
+Source: `src/bindings.ts:85:1`
 
 ### Members
 
@@ -5857,7 +5876,7 @@ Source: `src/auth.ts:229:1`
 
 Kind: `type`
 Module: `src/bindings.ts`
-Source: `src/bindings.ts:62:1`
+Source: `src/bindings.ts:75:1`
 
 ### Members
 
@@ -6540,7 +6559,7 @@ The exact semantic scope of a fact or rule evaluation.
 
 Kind: `unknown`
 Module: `src/bindings.ts`
-Source: `src/bindings.ts:70:1`
+Source: `src/bindings.ts:83:1`
 
 ## ScreenMetadataSpec
 

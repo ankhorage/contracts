@@ -545,6 +545,12 @@ graph LR
   export_BindingLifecycleBehavior -.-> export_BindingLifecycleState
   export_BindingLifecycleState["BindingLifecycleState"]
   module_src_bindings_ts --> export_BindingLifecycleState
+  export_BindingLookupCase["BindingLookupCase"]
+  module_src_bindings_ts --> export_BindingLookupCase
+  export_BindingLookupCase -.-> export_BindingExpression
+  export_BindingLookupCase -.-> export_BindingLookupKey
+  export_BindingLookupKey["BindingLookupKey"]
+  module_src_bindings_ts --> export_BindingLookupKey
   export_BindingValue["BindingValue"]
   module_src_bindings_ts --> export_BindingValue
   export_BindingValueTransform["BindingValueTransform"]
