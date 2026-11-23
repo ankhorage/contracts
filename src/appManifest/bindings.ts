@@ -79,22 +79,102 @@ function isBindingCapabilityReference(value: unknown): value is Record<string, u
   );
 }
 
-/*** Validate array, fallback, literal, object and transform expression forms. */
+/*** Validate array, fallback, literal, lookup, object and transform expression forms. */
 function isBindingExpressionNode(value: unknown): boolean {
+  if (!isRecord(value)) return false;
+
+  return [
+    isBindingArrayExpression,
+    isBindingFallbackExpression,
+    isBindingLiteralExpression,
+    isBindingLookupExpression,
+    isBindingObjectExpression,
+    isBindingTransformExpression,
+  ].some((isExpression) => isExpression(value));
+}
+
+/*** Validate an ordered sequence of recursively resolved binding expressions. */
+function isBindingArrayExpression(value: Record<string, unknown>): boolean {
+  return (
+    value.kind === 'array' && Array.isArray(value.items) && value.items.every(isBindingExpression)
+  );
+}
+
+/*** Validate a primary expression and its fallback expression. */
+function isBindingFallbackExpression(value: Record<string, unknown>): boolean {
+  return (
+    value.kind === 'fallback' &&
+    isBindingExpression(value.value) &&
+    isBindingExpression(value.fallback)
+  );
+}
+
+/*** Validate one serializable literal binding expression. */
+function isBindingLiteralExpression(value: Record<string, unknown>): boolean {
+  return value.kind === 'literal' && isManifestValue(value.value);
+}
+
+/*** Validate a source expression, closed primitive cases, and its declared fallback. */
+function isBindingLookupExpression(value: Record<string, unknown>): boolean {
+  return (
+    value.kind === 'lookup' &&
+    isBindingExpression(value.source) &&
+    isBindingLookupCases(value.cases) &&
+    isBindingExpression(value.fallback)
+  );
+}
+
+/*** Validate named fields whose values are recursive binding expressions. */
+function isBindingObjectExpression(value: Record<string, unknown>): boolean {
+  return value.kind === 'object' && isBindingInputMap(value.fields);
+}
+
+/*** Validate one expression and its ordered portable transform names. */
+function isBindingTransformExpression(value: Record<string, unknown>): boolean {
+  return (
+    value.kind === 'transform' &&
+    isBindingExpression(value.value) &&
+    isBindingTransforms(value.transforms)
+  );
+}
+
+/*** Validate finite, unique primitive-key lookup cases and their result expressions. */
+function isBindingLookupCases(value: unknown): boolean {
+  if (!Array.isArray(value)) return false;
+
+  const cases = value.filter(isBindingLookupCase);
+  if (cases.length !== value.length) return false;
+
+  return new Set(cases.map((entry) => bindingLookupKeyIdentity(entry.key))).size === cases.length;
+}
+
+/*** Validate one closed-lookup case without accepting non-serializable key values. */
+function isBindingLookupCase(
+  value: unknown,
+): value is { readonly key: boolean | null | number | string; readonly value: unknown } {
   return (
     isRecord(value) &&
-    ((value.kind === 'array' &&
-      Array.isArray(value.items) &&
-      value.items.every(isBindingExpression)) ||
-      (value.kind === 'fallback' &&
-        isBindingExpression(value.value) &&
-        isBindingExpression(value.fallback)) ||
-      (value.kind === 'literal' && isManifestValue(value.value)) ||
-      (value.kind === 'object' && isBindingInputMap(value.fields)) ||
-      (value.kind === 'transform' &&
-        isBindingExpression(value.value) &&
-        isBindingTransforms(value.transforms)))
+    Object.keys(value).length === 2 &&
+    'key' in value &&
+    'value' in value &&
+    isBindingLookupKey(value.key) &&
+    isBindingExpression(value.value)
   );
+}
+
+/*** Validate the JSON primitive identity domain supported by closed lookup expressions. */
+function isBindingLookupKey(value: unknown): value is boolean | null | number | string {
+  return (
+    value === null ||
+    typeof value === 'boolean' ||
+    typeof value === 'string' ||
+    (typeof value === 'number' && Number.isFinite(value))
+  );
+}
+
+/*** Encode one primitive lookup identity so strings and other primitive kinds cannot collide. */
+function bindingLookupKeyIdentity(value: boolean | null | number | string): string {
+  return value === null ? 'null' : `${typeof value}:${String(value)}`;
 }
 
 /*** Validate a condition expressed through the same recursive binding vocabulary. */

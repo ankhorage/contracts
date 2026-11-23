@@ -7,6 +7,13 @@ export type ComponentTypeId = string;
 export type BindingValue = SerializableValue;
 export type BindingDataPath = string;
 export type BindingValueTransform = 'length' | 'lowercase' | 'number' | 'trim' | 'uppercase';
+export type BindingLookupKey = string | number | boolean | null;
+
+/** One primitive identity and its recursively resolved closed-lookup result. */
+export interface BindingLookupCase {
+  readonly key: BindingLookupKey;
+  readonly value: BindingExpression;
+}
 
 /** A portable reference to a readable capability value or a cached invocation result. */
 export interface BindingCapabilityReference {
@@ -32,6 +39,12 @@ export type BindingExpression =
       readonly fallback: BindingExpression;
     }
   | { readonly kind: 'literal'; readonly value: BindingValue }
+  | {
+      readonly kind: 'lookup';
+      readonly source: BindingExpression;
+      readonly cases: readonly BindingLookupCase[];
+      readonly fallback: BindingExpression;
+    }
   | { readonly kind: 'object'; readonly fields: ValueMap<string, BindingExpression> }
   | {
       readonly kind: 'transform';

@@ -114,6 +114,90 @@ describe('capability binding contracts', () => {
     expect(isComponentDataBindingRegistry(bindings)).toBe(true);
   });
 
+  it('uses a serializable closed lookup expression with a fallback', () => {
+    const expression: BindingExpression = {
+      kind: 'lookup',
+      source: { capability: 'context.value', path: 'pane' },
+      cases: [
+        { key: 'master', value: { kind: 'literal', value: 'list' } },
+        {
+          key: 'detail',
+          value: {
+            kind: 'transform',
+            value: { kind: 'literal', value: 'details' },
+            transforms: ['uppercase'],
+          },
+        },
+      ],
+      fallback: { kind: 'literal', value: 'unknown' },
+    };
+
+    assertSerializable(expression);
+    expect(
+      isComponentDataBindingRegistry({
+        pane: { componentId: 'pane', props: { value: { value: expression } } },
+      }),
+    ).toBe(true);
+  });
+
+  it('rejects malformed closed lookup mappings', () => {
+    const source = { capability: 'context.value', path: 'pane' };
+
+    expect(
+      isComponentDataBindingRegistry({
+        pane: {
+          componentId: 'pane',
+          props: {
+            value: {
+              value: {
+                kind: 'lookup',
+                source,
+                cases: [{ key: 'master', value: { kind: 'literal', value: 'list' } }],
+              },
+            },
+          },
+        },
+      }),
+    ).toBe(false);
+    expect(
+      isComponentDataBindingRegistry({
+        pane: {
+          componentId: 'pane',
+          props: {
+            value: {
+              value: {
+                kind: 'lookup',
+                source,
+                cases: [
+                  { key: 'master', value: { kind: 'literal', value: 'list' } },
+                  { key: 'master', value: { kind: 'literal', value: 'duplicate' } },
+                ],
+                fallback: { kind: 'literal', value: 'unknown' },
+              },
+            },
+          },
+        },
+      }),
+    ).toBe(false);
+    expect(
+      isComponentDataBindingRegistry({
+        pane: {
+          componentId: 'pane',
+          props: {
+            value: {
+              value: {
+                kind: 'lookup',
+                source,
+                cases: [{ key: {}, value: { kind: 'literal', value: 'list' } }],
+                fallback: { kind: 'literal', value: 'unknown' },
+              },
+            },
+          },
+        },
+      }),
+    ).toBe(false);
+  });
+
   it('accepts the portable finite-number transform', () => {
     const bindings: ComponentDataBindingRegistry = {
       board: {
