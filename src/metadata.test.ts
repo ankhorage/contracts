@@ -105,6 +105,8 @@ const fixtureSpecifications = [
             platforms: ['ios', 'android', 'web'],
             entry: '.',
             outDir: 'dist',
+            sources: { entries: ['src/index.ts'] },
+            builder: { script: 'build' },
           },
           web: {
             language: 'typescript',
@@ -112,6 +114,8 @@ const fixtureSpecifications = [
             platforms: ['web'],
             entry: './web',
             outDir: 'web-dist',
+            sources: { include: ['src/web/**/*.tsx'] },
+            builder: { script: 'build:web-components' },
           },
         },
       },
@@ -119,7 +123,7 @@ const fixtureSpecifications = [
   },
 ] as const;
 
-describe('repository metadata contract', () => {
+describe('repository metadata fixtures', () => {
   it('round-trips portable JSON fixtures for each supported repository profile', () => {
     for (const fixture of fixtureSpecifications) {
       const fixturePath = join(process.cwd(), 'test/metadata/fixtures', fixture.filename);
@@ -144,7 +148,9 @@ describe('repository metadata contract', () => {
     expect('usedBy' in metadata).toBe(false);
     expect('dependencies' in metadata).toBe(false);
   });
+});
 
+describe('repository metadata build targets', () => {
   it('keeps build target identifiers and language or framework values open', () => {
     const metadata: RepositoryMetadata = {
       schemaVersion: 1,
@@ -171,6 +177,54 @@ describe('repository metadata contract', () => {
       platforms: ['future-platform'],
       entry: './custom',
       outDir: 'custom-dist',
+    });
+  });
+});
+
+describe('repository metadata source ownership', () => {
+  it('models declarative source inputs and builder references', () => {
+    const target = fixtureSpecifications[6].metadata.build.targets;
+
+    expect(target.native).toMatchObject({
+      entry: '.',
+      outDir: 'dist',
+      sources: { entries: ['src/index.ts'] },
+      builder: { script: 'build' },
+    });
+    expect(target.web).toMatchObject({
+      entry: './web',
+      outDir: 'web-dist',
+      sources: { include: ['src/web/**/*.tsx'] },
+      builder: { script: 'build:web-components' },
+    });
+  });
+
+  it('keeps source inputs and builder references optional', () => {
+    const legacyTarget: RepositoryMetadata = {
+      schemaVersion: 1,
+      kind: 'library',
+      title: 'Existing library',
+      summary: 'Keeps its existing metadata shape.',
+      purpose: 'Verify additive metadata compatibility.',
+      build: {
+        targets: {
+          existing: {
+            language: 'typescript',
+            framework: 'react',
+            platforms: ['web'],
+            entry: './web',
+            outDir: 'web-dist',
+          },
+        },
+      },
+    };
+
+    expect(legacyTarget.build?.targets.existing).toEqual({
+      language: 'typescript',
+      framework: 'react',
+      platforms: ['web'],
+      entry: './web',
+      outDir: 'web-dist',
     });
   });
 });

@@ -33,8 +33,10 @@ const writeConsumerFiles = (consumerDirectory: string): void => {
   writeFileSync(
     join(consumerDirectory, 'consumer.ts'),
     [
-      "import type { RepositoryMetadata, RepositoryMetadataBuild, RepositoryMetadataBuildTarget } from '@ankhorage/contracts/metadata';",
-      "const target: RepositoryMetadataBuildTarget = { language: 'typescript', framework: 'react', platforms: ['web'], entry: './web', outDir: 'web-dist' };",
+      "import type { RepositoryMetadata, RepositoryMetadataBuild, RepositoryMetadataBuildTarget, RepositoryMetadataBuildTargetBuilder, RepositoryMetadataBuildTargetSources } from '@ankhorage/contracts/metadata';",
+      "const sources: RepositoryMetadataBuildTargetSources = { include: ['src/web/**/*.tsx'] };",
+      "const builder: RepositoryMetadataBuildTargetBuilder = { script: 'build:web-components' };",
+      "const target: RepositoryMetadataBuildTarget = { language: 'typescript', framework: 'react', platforms: ['web'], entry: './web', outDir: 'web-dist', sources, builder };",
       'const build: RepositoryMetadataBuild = { targets: { web: target } };',
       "const metadata: RepositoryMetadata = { schemaVersion: 1, kind: 'tooling', title: 'Consumer tooling', summary: 'Consumes metadata contracts.', purpose: 'Verify the public subpath.', build };",
       'void metadata;',
