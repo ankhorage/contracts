@@ -73,9 +73,33 @@ function isGraphDatabase(value: unknown): value is InfraGraphDatabaseSpec {
     return false;
   return isInfraShape(value, {
     provider: (provider) => provider === value.provider,
-    endpoint: isNonEmptyString,
+    endpoint: isGraphDatabaseEndpoint,
     credentials: isInfraSecretReference,
   });
+}
+
+/*** Validate credential-free graph connection URIs without choosing a graph provider. */
+function isGraphDatabaseEndpoint(value: unknown): boolean {
+  if (!isNonEmptyString(value) || value !== value.trim()) return false;
+  try {
+    const url = new URL(value);
+    return (
+      (url.protocol === 'https:' ||
+        url.protocol === 'bolt:' ||
+        url.protocol === 'bolt+s:' ||
+        url.protocol === 'bolt+ssc:' ||
+        url.protocol === 'neo4j:' ||
+        url.protocol === 'neo4j+s:' ||
+        url.protocol === 'neo4j+ssc:') &&
+      url.hostname !== '' &&
+      url.username === '' &&
+      url.password === '' &&
+      url.search === '' &&
+      url.hash === ''
+    );
+  } catch {
+    return false;
+  }
 }
 
 /*** Validate the selected database provider’s non-secret desired resources. */
