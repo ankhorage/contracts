@@ -6,6 +6,7 @@ import { INFRA_ADAPTER_CATALOG } from '../infraCatalog.js';
 import type {
   InfraDatabaseSpec,
   InfraEnvironmentSpec,
+  InfraGraphDatabaseSpec,
   InfraObjectStorageSpec,
   InfraS3PersistenceTarget,
   InfraScheduledDatabaseBackupSpec,
@@ -13,7 +14,7 @@ import type {
 import type { InfraShape } from '../types/infraValidation.js';
 import { infraFields } from './infraFields.js';
 import { isInfraAuthSpec } from './isInfraAuthSpec.js';
-import { isInfraCredentialRef } from './isInfraCredentialRef.js';
+import { isInfraCredentialRef, isInfraSecretReference } from './isInfraCredentialRef.js';
 import { isInfraDeploymentSpec } from './isInfraDeploymentSpec.js';
 import { isInfraShape } from './isInfraShape.js';
 import { isInfraWorkloadSpec } from './isInfraWorkloadSpec.js';
@@ -33,6 +34,7 @@ function isEnvironmentShape(value: unknown): value is InfraEnvironmentSpec {
   return isInfraShape(value, {
     deployment: isInfraDeploymentSpec,
     database: (database) => database === undefined || isDatabase(database),
+    graphDatabase: (graphDatabase) => graphDatabase === undefined || isGraphDatabase(graphDatabase),
     objectStorage: (storage) => storage === undefined || isObjectStorage(storage),
     auth: (auth) => auth === undefined || isInfraAuthSpec(auth),
     authz: (authz) =>
@@ -63,6 +65,41 @@ function isEnvironmentShape(value: unknown): value is InfraEnvironmentSpec {
       }),
     workloads: (workloads) => workloads === undefined || isWorkloads(workloads),
   } satisfies InfraShape<InfraEnvironmentSpec>);
+}
+
+/*** Validate one provider-neutral graph endpoint and its server-side credential reference. */
+function isGraphDatabase(value: unknown): value is InfraGraphDatabaseSpec {
+  if (!isRecord(value) || (value.provider !== 'neo4j' && value.provider !== 'neptune'))
+    return false;
+  return isInfraShape(value, {
+    provider: (provider) => provider === value.provider,
+    endpoint: isGraphDatabaseEndpoint,
+    credentials: isInfraSecretReference,
+  });
+}
+
+/*** Validate credential-free graph connection URIs without choosing a graph provider. */
+function isGraphDatabaseEndpoint(value: unknown): boolean {
+  if (!isNonEmptyString(value) || value !== value.trim()) return false;
+  try {
+    const url = new URL(value);
+    return (
+      (url.protocol === 'https:' ||
+        url.protocol === 'bolt:' ||
+        url.protocol === 'bolt+s:' ||
+        url.protocol === 'bolt+ssc:' ||
+        url.protocol === 'neo4j:' ||
+        url.protocol === 'neo4j+s:' ||
+        url.protocol === 'neo4j+ssc:') &&
+      url.hostname !== '' &&
+      url.username === '' &&
+      url.password === '' &&
+      url.search === '' &&
+      url.hash === ''
+    );
+  } catch {
+    return false;
+  }
 }
 
 /*** Validate the selected database provider’s non-secret desired resources. */
@@ -193,6 +230,7 @@ function hasUniquePublishedPorts(value: InfraEnvironmentSpec): boolean {
 function hasServiceDependencies(value: InfraEnvironmentSpec): boolean {
   const selections = [
     value.database,
+    value.graphDatabase,
     value.auth,
     value.authz,
     value.objectStorage,

@@ -4,7 +4,7 @@ import type { ApiDefinitionRegistry, DataContractValue } from '../data/index.js'
 import type { AppEnvironmentId } from '../environments.js';
 import type { INFRA_ADAPTER_CATALOG, INFRA_RUNTIME_COMPATIBILITY } from '../infraCatalog.js';
 import type { AuthProfileSpec, AuthScope, AuthSignInSpec, AuthSignUpSpec } from '../types.js';
-import type { InfraControlPlaneCredentialRef } from './infraSecrets.js';
+import type { InfraControlPlaneCredentialRef, InfraSecretReference } from './infraSecrets.js';
 import type { InfraWorkloadRegistry } from './infraWorkload.js';
 
 export type InfraAdapterId = keyof typeof INFRA_ADAPTER_CATALOG;
@@ -99,6 +99,15 @@ export interface InfraDatabaseConfigMap {
     readonly role?: { readonly name: string };
   };
 }
+/** Server-side graph connection intent; each provider resolves the referenced credential material. */
+export interface InfraGraphDatabaseConnectionSpec {
+  readonly endpoint: string;
+  readonly credentials: InfraSecretReference;
+}
+export interface InfraGraphDatabaseConfigMap {
+  readonly neo4j: InfraGraphDatabaseConnectionSpec;
+  readonly neptune: InfraGraphDatabaseConnectionSpec;
+}
 export interface InfraObjectStorageConfigMap {
   readonly supabase: {
     readonly buckets?: SerializableSet;
@@ -133,6 +142,11 @@ export interface InfraSecretStoreConfigMap {
 export type InfraDatabaseSpec = {
   [P in InfraProviderFor<'database'>]: { readonly provider: P } & InfraDatabaseConfigMap[P];
 }[InfraProviderFor<'database'>];
+export type InfraGraphDatabaseSpec = {
+  [P in InfraProviderFor<'graphDatabase'>]: {
+    readonly provider: P;
+  } & InfraGraphDatabaseConfigMap[P];
+}[InfraProviderFor<'graphDatabase'>];
 export type InfraObjectStorageSpec = {
   [P in InfraProviderFor<'objectStorage'>]: {
     readonly provider: P;
@@ -167,6 +181,7 @@ export interface InfraNetworkingSpec {
 export interface InfraEnvironmentSpec {
   readonly deployment: InfraDeploymentSpec;
   readonly database?: InfraDatabaseSpec;
+  readonly graphDatabase?: InfraGraphDatabaseSpec;
   readonly objectStorage?: InfraObjectStorageSpec;
   readonly auth?: InfraAuthSpec;
   readonly authz?: InfraAuthzSpec;

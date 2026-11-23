@@ -13,6 +13,7 @@ import type {
   InfraDeploymentSpec,
   InfraDestroyRequest,
   InfraExecutionContext,
+  InfraGraphDatabaseSpec,
   InfraManifest,
   InfraObjectStorageSpec,
   InfraOutput,
@@ -108,6 +109,30 @@ it('keeps Neon database resources and its control-plane credential reference in 
     dependencies: [],
   };
   expect([neon.provider, descriptor.id]).toEqual(['neon', 'neon']);
+});
+
+it('keeps graph database providers separate from relational database selection', () => {
+  const graph: InfraGraphDatabaseSpec = {
+    provider: 'neo4j',
+    endpoint: 'https://acquisition.databases.neo4j.io',
+    credentials: {
+      source: 'secret-store',
+      projectId: 'acquisition',
+      environment: 'production',
+      ref: 'graph/neo4j',
+      key: 'credentials',
+    },
+  };
+  const descriptor: InfraServiceAdapter['descriptor'] = {
+    id: 'neo4j',
+    package: '@ankhorage/neo4j',
+    kind: 'service',
+    configVersion: 1,
+    capabilities: ['graphDatabase'],
+    targets: [],
+    dependencies: [],
+  };
+  expect([graph.provider, descriptor.id]).toEqual(['neo4j', 'neo4j']);
 });
 
 it('requires resolved outputs at the runtime desired-state boundary', () => {
