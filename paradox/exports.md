@@ -6304,17 +6304,44 @@ Source: `src/metadata.ts:73:1`
 
 | Name | Kind | Type | Required | Description |
 | --- | --- | --- | --- | --- |
+| builder | property | `RepositoryMetadataBuildTargetBuilder \| undefined` | no |  |
 | entry | property | `string` | yes |  |
 | framework | property | `string` | yes |  |
 | language | property | `string` | yes |  |
 | outDir | property | `string` | yes |  |
 | platforms | property | `readonly string[]` | yes |  |
+| sources | property | `RepositoryMetadataBuildTargetSources \| undefined` | no |  |
+
+## RepositoryMetadataBuildTargetBuilder
+
+Kind: `type`
+Module: `src/metadata.ts`
+Source: `src/metadata.ts:99:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| script | property | `string` | yes |  |
+
+## RepositoryMetadataBuildTargetSources
+
+Kind: `type`
+Module: `src/metadata.ts`
+Source: `src/metadata.ts:91:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| entries | property | `readonly string[] \| undefined` | no |  |
+| include | property | `readonly string[] \| undefined` | no |  |
 
 ## RepositoryMetadataConstraints
 
 Kind: `type`
 Module: `src/metadata.ts`
-Source: `src/metadata.ts:87:1`
+Source: `src/metadata.ts:105:1`
 
 ### Members
 

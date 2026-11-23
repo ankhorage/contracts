@@ -1763,6 +1763,12 @@ graph LR
   export_RepositoryMetadataBuild -.-> export_RepositoryMetadataBuildTarget
   export_RepositoryMetadataBuildTarget["RepositoryMetadataBuildTarget"]
   module_src_metadata_ts --> export_RepositoryMetadataBuildTarget
+  export_RepositoryMetadataBuildTarget -.-> export_RepositoryMetadataBuildTargetBuilder
+  export_RepositoryMetadataBuildTarget -.-> export_RepositoryMetadataBuildTargetSources
+  export_RepositoryMetadataBuildTargetBuilder["RepositoryMetadataBuildTargetBuilder"]
+  module_src_metadata_ts --> export_RepositoryMetadataBuildTargetBuilder
+  export_RepositoryMetadataBuildTargetSources["RepositoryMetadataBuildTargetSources"]
+  module_src_metadata_ts --> export_RepositoryMetadataBuildTargetSources
   export_RepositoryMetadataConstraints["RepositoryMetadataConstraints"]
   module_src_metadata_ts --> export_RepositoryMetadataConstraints
   export_RepositoryMetadataKind["RepositoryMetadataKind"]

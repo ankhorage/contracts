@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 26.17.0
+
+### Minor Changes
+
+- ab185d9: Add declarative build-target source inputs and repository-owned builder script references to repository metadata.
+
 ## 26.16.0
 
 ### Minor Changes

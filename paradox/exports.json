@@ -22282,9 +22282,19 @@
     "exportPaths": [
       "src/index.ts"
     ],
-    "relatedSymbols": [],
+    "relatedSymbols": [
+      "RepositoryMetadataBuildTargetBuilder",
+      "RepositoryMetadataBuildTargetSources"
+    ],
     "signatures": [],
     "members": [
+      {
+        "name": "builder",
+        "kind": "property",
+        "type": "RepositoryMetadataBuildTargetBuilder | undefined",
+        "required": false,
+        "description": null
+      },
       {
         "name": "entry",
         "kind": "property",
@@ -22319,6 +22329,80 @@
         "type": "readonly string[]",
         "required": true,
         "description": null
+      },
+      {
+        "name": "sources",
+        "kind": "property",
+        "type": "RepositoryMetadataBuildTargetSources | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "RepositoryMetadataBuildTargetBuilder",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/metadata.ts",
+    "sourceLocation": {
+      "filePath": "src/metadata.ts",
+      "line": 99,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "script",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "RepositoryMetadataBuildTargetSources",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/metadata.ts",
+    "sourceLocation": {
+      "filePath": "src/metadata.ts",
+      "line": 91,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "entries",
+        "kind": "property",
+        "type": "readonly string[] | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "include",
+        "kind": "property",
+        "type": "readonly string[] | undefined",
+        "required": false,
+        "description": null
       }
     ],
     "structuredRows": []
@@ -22334,7 +22418,7 @@
     "modulePath": "src/metadata.ts",
     "sourceLocation": {
       "filePath": "src/metadata.ts",
-      "line": 87,
+      "line": 105,
       "column": 1
     },
     "exportPaths": [
