@@ -11,14 +11,18 @@
         "framework": "react-native",
         "platforms": ["ios", "android", "web"],
         "entry": ".",
-        "outDir": "dist"
+        "outDir": "dist",
+        "sources": { "entries": ["src/index.ts"] },
+        "builder": { "script": "build" }
       },
       "web": {
         "language": "typescript",
         "framework": "react",
         "platforms": ["web"],
         "entry": "./web",
-        "outDir": "web-dist"
+        "outDir": "web-dist",
+        "sources": { "include": ["src/web/**/*.tsx"] },
+        "builder": { "script": "build:web-components" }
       }
     }
   }

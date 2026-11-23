@@ -81,6 +81,24 @@ export interface RepositoryMetadataBuildTarget {
   readonly entry: string;
   /** The repository-relative output directory for the target artifacts. */
   readonly outDir: string;
+  /** Explicit authored compiler inputs, independent from the public package export subpath. */
+  readonly sources?: RepositoryMetadataBuildTargetSources;
+  /** An optional reference to the repository-owned script that builds this target. */
+  readonly builder?: RepositoryMetadataBuildTargetBuilder;
+}
+
+/** Explicit repository-relative source inputs for one build target. */
+export interface RepositoryMetadataBuildTargetSources {
+  /** Authored compiler entrypoint filenames when they can be enumerated explicitly. */
+  readonly entries?: readonly string[];
+  /** Authored source patterns when enumerating entrypoints is impractical. */
+  readonly include?: readonly string[];
+}
+
+/** A repository-owned build script reference for one target. */
+export interface RepositoryMetadataBuildTargetBuilder {
+  /** The exact key of the repository-owned package.json script. */
+  readonly script: string;
 }
 
 /** Optional evidence-backed constraints; omitted categories do not imply their absence. */
