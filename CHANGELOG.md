@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 26.15.0
+
+### Minor Changes
+
+- 15f4a6c: Add portable repository build target metadata contracts.
+
 ## 26.14.0
 
 ### Minor Changes

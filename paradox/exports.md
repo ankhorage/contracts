@@ -6180,7 +6180,7 @@ Source: `src/types/deployRelease.ts:16:1`
 
 Kind: `type`
 Module: `src/metadata.ts`
-Source: `src/metadata.ts:55:1`
+Source: `src/metadata.ts:57:1`
 
 ### Members
 
@@ -6224,6 +6224,7 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
 | architecture | property | `RepositoryMetadataArchitecture \| undefined` | no |  |
 | audience | property | `readonly string[] \| undefined` | no |  |
 | boundaries | property | `readonly string[] \| undefined` | no |  |
+| build | property | `RepositoryMetadataBuild \| undefined` | no |  |
 | constraints | property | `RepositoryMetadataConstraints \| undefined` | no |  |
 | domain | property | `string \| undefined` | no |  |
 | implements | property | `readonly RepositoryImplementationRef[] \| undefined` | no |  |
@@ -6239,7 +6240,7 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
 
 Kind: `type`
 Module: `src/metadata.ts`
-Source: `src/metadata.ts:47:1`
+Source: `src/metadata.ts:49:1`
 
 ### Members
 
@@ -6248,11 +6249,39 @@ Source: `src/metadata.ts:47:1`
 | invariants | property | `readonly string[] \| undefined` | no |  |
 | role | property | `string \| undefined` | no |  |
 
+## RepositoryMetadataBuild
+
+Kind: `type`
+Module: `src/metadata.ts`
+Source: `src/metadata.ts:67:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| targets | property | `Readonly<Record<string, RepositoryMetadataBuildTarget>>` | yes |  |
+
+## RepositoryMetadataBuildTarget
+
+Kind: `type`
+Module: `src/metadata.ts`
+Source: `src/metadata.ts:73:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| entry | property | `string` | yes |  |
+| framework | property | `string` | yes |  |
+| language | property | `string` | yes |  |
+| outDir | property | `string` | yes |  |
+| platforms | property | `readonly string[]` | yes |  |
+
 ## RepositoryMetadataConstraints
 
 Kind: `type`
 Module: `src/metadata.ts`
-Source: `src/metadata.ts:65:1`
+Source: `src/metadata.ts:87:1`
 
 ### Members
 
@@ -6267,7 +6296,7 @@ Source: `src/metadata.ts:65:1`
 
 Kind: `unknown`
 Module: `src/metadata.ts`
-Source: `src/metadata.ts:36:1`
+Source: `src/metadata.ts:38:1`
 
 ## resolveAuthFlow
 

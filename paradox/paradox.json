@@ -18,7 +18,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v26.14.0",
+      "value": "v26.15.0",
       "color": "cb3837"
     },
     {
@@ -1538,6 +1538,8 @@
         "RepositoryManifest",
         "RepositoryMetadata",
         "RepositoryMetadataArchitecture",
+        "RepositoryMetadataBuild",
+        "RepositoryMetadataBuildTarget",
         "RepositoryMetadataConstraints",
         "RepositoryMetadataKind",
         "resolveAuthFlow",
@@ -2090,6 +2092,8 @@
         "RepositoryImplementationRef",
         "RepositoryMetadata",
         "RepositoryMetadataArchitecture",
+        "RepositoryMetadataBuild",
+        "RepositoryMetadataBuildTarget",
         "RepositoryMetadataConstraints",
         "RepositoryMetadataKind"
       ]
@@ -24970,7 +24974,7 @@
       "modulePath": "src/metadata.ts",
       "sourceLocation": {
         "filePath": "src/metadata.ts",
-        "line": 55,
+        "line": 57,
         "column": 1
       },
       "exportPaths": [
@@ -25081,6 +25085,7 @@
       "relatedSymbols": [
         "RepositoryImplementationRef",
         "RepositoryMetadataArchitecture",
+        "RepositoryMetadataBuild",
         "RepositoryMetadataConstraints",
         "RepositoryMetadataKind"
       ],
@@ -25104,6 +25109,13 @@
           "name": "boundaries",
           "kind": "property",
           "type": "readonly string[] | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "build",
+          "kind": "property",
+          "type": "RepositoryMetadataBuild | undefined",
           "required": false,
           "description": null
         },
@@ -25191,7 +25203,7 @@
       "modulePath": "src/metadata.ts",
       "sourceLocation": {
         "filePath": "src/metadata.ts",
-        "line": 47,
+        "line": 49,
         "column": 1
       },
       "exportPaths": [
@@ -25218,6 +25230,96 @@
       "structuredRows": []
     },
     {
+      "name": "RepositoryMetadataBuild",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/metadata.ts",
+      "sourceLocation": {
+        "filePath": "src/metadata.ts",
+        "line": 67,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "RepositoryMetadataBuildTarget"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "targets",
+          "kind": "property",
+          "type": "Readonly<Record<string, RepositoryMetadataBuildTarget>>",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "RepositoryMetadataBuildTarget",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/metadata.ts",
+      "sourceLocation": {
+        "filePath": "src/metadata.ts",
+        "line": 73,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "entry",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "framework",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "language",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "outDir",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "platforms",
+          "kind": "property",
+          "type": "readonly string[]",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
       "name": "RepositoryMetadataConstraints",
       "title": null,
       "description": null,
@@ -25228,7 +25330,7 @@
       "modulePath": "src/metadata.ts",
       "sourceLocation": {
         "filePath": "src/metadata.ts",
-        "line": 65,
+        "line": 87,
         "column": 1
       },
       "exportPaths": [
@@ -25279,7 +25381,7 @@
       "modulePath": "src/metadata.ts",
       "sourceLocation": {
         "filePath": "src/metadata.ts",
-        "line": 36,
+        "line": 38,
         "column": 1
       },
       "exportPaths": [
@@ -45536,12 +45638,27 @@
       },
       {
         "fromSymbol": "RepositoryMetadata",
+        "toType": "RepositoryMetadataBuild",
+        "sourcePath": "src/metadata.ts"
+      },
+      {
+        "fromSymbol": "RepositoryMetadata",
         "toType": "RepositoryMetadataConstraints",
         "sourcePath": "src/metadata.ts"
       },
       {
         "fromSymbol": "RepositoryMetadata",
         "toType": "RepositoryMetadataKind",
+        "sourcePath": "src/metadata.ts"
+      },
+      {
+        "fromSymbol": "RepositoryMetadataBuild",
+        "toType": "Readonly",
+        "sourcePath": "src/metadata.ts"
+      },
+      {
+        "fromSymbol": "RepositoryMetadataBuild",
+        "toType": "RepositoryMetadataBuildTarget",
         "sourcePath": "src/metadata.ts"
       },
       {
