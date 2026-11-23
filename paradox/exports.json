@@ -13097,7 +13097,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 113,
+      "line": 122,
       "column": 1
     },
     "exportPaths": [
@@ -13134,7 +13134,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 141,
+      "line": 155,
       "column": 1
     },
     "exportPaths": [
@@ -13156,7 +13156,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 123,
+      "line": 132,
       "column": 1
     },
     "exportPaths": [
@@ -13188,7 +13188,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 144,
+      "line": 158,
       "column": 1
     },
     "exportPaths": [
@@ -13591,7 +13591,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 133,
+      "line": 142,
       "column": 1
     },
     "exportPaths": [
@@ -13749,7 +13749,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 167,
+      "line": 181,
       "column": 1
     },
     "exportPaths": [
@@ -13764,6 +13764,7 @@
       "AuthSignUpSpec",
       "InfraDatabaseSpec",
       "InfraDeploymentSpec",
+      "InfraGraphDatabaseSpec",
       "InfraNetworkingSpec",
       "InfraObjectStorageSpec",
       "InfraWorkloadRegistry",
@@ -13797,6 +13798,13 @@
         "kind": "property",
         "type": "InfraDeploymentSpec",
         "required": true,
+        "description": null
+      },
+      {
+        "name": "graphDatabase",
+        "kind": "property",
+        "type": "InfraGraphDatabaseSpec | undefined",
+        "required": false,
         "description": null
       },
       {
@@ -13962,6 +13970,106 @@
     "structuredRows": []
   },
   {
+    "name": "InfraGraphDatabaseConfigMap",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/infraManifest.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraManifest.ts",
+      "line": 107,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "InfraGraphDatabaseConnectionSpec"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "neo4j",
+        "kind": "property",
+        "type": "InfraGraphDatabaseConnectionSpec",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "neptune",
+        "kind": "property",
+        "type": "InfraGraphDatabaseConnectionSpec",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraGraphDatabaseConnectionSpec",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/infraManifest.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraManifest.ts",
+      "line": 103,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "InfraSecretReference"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "credentials",
+        "kind": "property",
+        "type": "InfraSecretReference",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "endpoint",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "InfraGraphDatabaseSpec",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/types/infraManifest.ts",
+    "sourceLocation": {
+      "filePath": "src/types/infraManifest.ts",
+      "line": 145,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
     "name": "InfraLedger",
     "title": null,
     "description": null,
@@ -14049,7 +14157,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 186,
+      "line": 201,
       "column": 1
     },
     "exportPaths": [
@@ -14097,7 +14205,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 178,
+      "line": 193,
       "column": 1
     },
     "exportPaths": [
@@ -14119,7 +14227,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 184,
+      "line": 199,
       "column": 1
     },
     "exportPaths": [
@@ -14141,7 +14249,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 180,
+      "line": 195,
       "column": 1
     },
     "exportPaths": [
@@ -14173,7 +14281,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 158,
+      "line": 172,
       "column": 1
     },
     "exportPaths": [
@@ -14219,7 +14327,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 151,
+      "line": 165,
       "column": 1
     },
     "exportPaths": [
@@ -14256,7 +14364,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 102,
+      "line": 111,
       "column": 1
     },
     "exportPaths": [
@@ -14297,7 +14405,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 136,
+      "line": 150,
       "column": 1
     },
     "exportPaths": [
@@ -14581,7 +14689,7 @@
       {
         "name": "adapter",
         "kind": "property",
-        "type": "\"local\" | \"hetzner\" | \"minikube\" | \"k3s\" | \"docker-compose\" | \"supabase\" | \"neon\" | \"cerbos\" | \"r2\" | \"supabase-vault\"",
+        "type": "\"local\" | \"hetzner\" | \"minikube\" | \"k3s\" | \"docker-compose\" | \"supabase\" | \"neon\" | \"neo4j\" | \"neptune\" | \"cerbos\" | \"r2\" | \"supabase-vault\"",
         "required": true,
         "description": null
       },
@@ -15093,7 +15201,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 129,
+      "line": 138,
       "column": 1
     },
     "exportPaths": [
@@ -15123,7 +15231,7 @@
     "modulePath": "src/types/infraManifest.ts",
     "sourceLocation": {
       "filePath": "src/types/infraManifest.ts",
-      "line": 147,
+      "line": 161,
       "column": 1
     },
     "exportPaths": [
@@ -15167,7 +15275,7 @@
       {
         "name": "descriptor",
         "kind": "property",
-        "type": "InfraAdapterDescriptor<\"supabase\" | \"neon\" | \"cerbos\" | \"r2\" | \"supabase-vault\">",
+        "type": "InfraAdapterDescriptor<\"supabase\" | \"neon\" | \"neo4j\" | \"neptune\" | \"cerbos\" | \"r2\" | \"supabase-vault\">",
         "required": true,
         "description": null
       },
@@ -16865,7 +16973,7 @@
     "modulePath": "src/infra/isInfraEnvironmentSpec.ts",
     "sourceLocation": {
       "filePath": "src/infra/isInfraEnvironmentSpec.ts",
-      "line": 22,
+      "line": 23,
       "column": 1
     },
     "exportPaths": [

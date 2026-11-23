@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 26.16.0
+
+### Minor Changes
+
+- 64e8f9c: Add provider-neutral Infra graph database selections for Neo4j and Neptune.
+
 ## 26.15.0
 
 ### Minor Changes

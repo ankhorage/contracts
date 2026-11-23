@@ -1139,6 +1139,7 @@ graph LR
   export_InfraEnvironmentSpec -.-> export_AuthSignUpSpec
   export_InfraEnvironmentSpec -.-> export_InfraDatabaseSpec
   export_InfraEnvironmentSpec -.-> export_InfraDeploymentSpec
+  export_InfraEnvironmentSpec -.-> export_InfraGraphDatabaseSpec
   export_InfraEnvironmentSpec -.-> export_InfraNetworkingSpec
   export_InfraEnvironmentSpec -.-> export_InfraObjectStorageSpec
   export_InfraEnvironmentSpec -.-> export_InfraWorkloadRegistry
@@ -1153,6 +1154,14 @@ graph LR
   export_InfraGeneratedArtifact["InfraGeneratedArtifact"]
   module_src_types_infraLifecycle_ts --> export_InfraGeneratedArtifact
   export_InfraGeneratedArtifact -.-> export_InfraResourceIdentity
+  export_InfraGraphDatabaseConfigMap["InfraGraphDatabaseConfigMap"]
+  module_src_types_infraManifest_ts --> export_InfraGraphDatabaseConfigMap
+  export_InfraGraphDatabaseConfigMap -.-> export_InfraGraphDatabaseConnectionSpec
+  export_InfraGraphDatabaseConnectionSpec["InfraGraphDatabaseConnectionSpec"]
+  module_src_types_infraManifest_ts --> export_InfraGraphDatabaseConnectionSpec
+  export_InfraGraphDatabaseConnectionSpec -.-> export_InfraSecretReference
+  export_InfraGraphDatabaseSpec["InfraGraphDatabaseSpec"]
+  module_src_types_infraManifest_ts --> export_InfraGraphDatabaseSpec
   export_InfraLedger["InfraLedger"]
   module_src_types_infraLifecycle_ts --> export_InfraLedger
   export_InfraLedger -.-> export_InfraComputeTarget

@@ -179,7 +179,9 @@ graph LR
   module_src_infra_isInfraAuthSpec_ts --> module_src_types_ts
   module_src_infra_isInfraAuthSpec_ts --> module_src_types_infraManifest_ts
   module_src_infra_isInfraAuthSpec_ts --> module_src_types_infraValidation_ts
+  module_src_infra_isInfraCredentialRef_ts --> module_src_environments_ts
   module_src_infra_isInfraCredentialRef_ts --> module_src_infra_isInfraShape_ts
+  module_src_infra_isInfraCredentialRef_ts --> module_src_types_infraSecrets_ts
   module_src_infra_isInfraDeploymentSpec_ts --> module_src_infra_infraFields_ts
   module_src_infra_isInfraDeploymentSpec_ts --> module_src_infra_isInfraCredentialRef_ts
   module_src_infra_isInfraDeploymentSpec_ts --> module_src_infra_isInfraShape_ts
@@ -212,7 +214,6 @@ graph LR
   module_src_infra_isInfraWorkloadSpec_ts --> module_src_infra_isInfraWorkloadValue_ts
   module_src_infra_isInfraWorkloadSpec_ts --> module_src_types_infraValidation_ts
   module_src_infra_isInfraWorkloadSpec_ts --> module_src_types_infraWorkload_ts
-  module_src_infra_isInfraWorkloadValue_ts --> module_src_environments_ts
   module_src_infra_isInfraWorkloadValue_ts --> module_src_infra_isInfraCredentialRef_ts
   module_src_infra_isInfraWorkloadValue_ts --> module_src_infra_isInfraShape_ts
   module_src_infra_isInfraWorkloadValue_ts --> module_src_types_infraWorkload_ts

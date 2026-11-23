@@ -175,7 +175,9 @@ graph TD
   module_src_infra_isInfraAuthSpec_ts --> module_src_types_infraValidation_ts
   module_src_infra_isInfraCredentialRef_ts["src/infra/isInfraCredentialRef.ts"]
   package__ankhorage_contracts -.-> module_src_infra_isInfraCredentialRef_ts
+  module_src_infra_isInfraCredentialRef_ts --> module_src_environments_ts
   module_src_infra_isInfraCredentialRef_ts --> module_src_infra_isInfraShape_ts
+  module_src_infra_isInfraCredentialRef_ts --> module_src_types_infraSecrets_ts
   module_src_infra_isInfraDeploymentSpec_ts["src/infra/isInfraDeploymentSpec.ts"]
   package__ankhorage_contracts -.-> module_src_infra_isInfraDeploymentSpec_ts
   module_src_infra_isInfraDeploymentSpec_ts --> module_src_infra_infraFields_ts
@@ -222,7 +224,6 @@ graph TD
   module_src_infra_isInfraWorkloadSpec_ts --> module_src_types_infraWorkload_ts
   module_src_infra_isInfraWorkloadValue_ts["src/infra/isInfraWorkloadValue.ts"]
   package__ankhorage_contracts -.-> module_src_infra_isInfraWorkloadValue_ts
-  module_src_infra_isInfraWorkloadValue_ts --> module_src_environments_ts
   module_src_infra_isInfraWorkloadValue_ts --> module_src_infra_isInfraCredentialRef_ts
   module_src_infra_isInfraWorkloadValue_ts --> module_src_infra_isInfraShape_ts
   module_src_infra_isInfraWorkloadValue_ts --> module_src_types_infraWorkload_ts

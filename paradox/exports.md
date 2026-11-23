@@ -3666,7 +3666,7 @@ Source: `src/types/infraManifest.ts:10:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:113:1`
+Source: `src/types/infraManifest.ts:122:1`
 
 ### Members
 
@@ -3678,13 +3678,13 @@ Source: `src/types/infraManifest.ts:113:1`
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:141:1`
+Source: `src/types/infraManifest.ts:155:1`
 
 ## InfraAuthzConfigMap
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:123:1`
+Source: `src/types/infraManifest.ts:132:1`
 
 ### Members
 
@@ -3696,7 +3696,7 @@ Source: `src/types/infraManifest.ts:123:1`
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:144:1`
+Source: `src/types/infraManifest.ts:158:1`
 
 ## InfraCapability
 
@@ -3811,7 +3811,7 @@ Source: `src/types/infraManifest.ts:82:1`
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:133:1`
+Source: `src/types/infraManifest.ts:142:1`
 
 ## InfraDeploymentSpec
 
@@ -3854,7 +3854,7 @@ Source: `src/types/infraLifecycle.ts:22:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:167:1`
+Source: `src/types/infraManifest.ts:181:1`
 
 ### Members
 
@@ -3864,6 +3864,7 @@ Source: `src/types/infraManifest.ts:167:1`
 | authz | property | `({ readonly provider: "cerbos"; } & { readonly kind: "RBAC" \| "ABAC"; readonly policies?: ValueMap<string, string>; }) \| undefined` | no |  |
 | database | property | `InfraDatabaseSpec \| undefined` | no |  |
 | deployment | property | `InfraDeploymentSpec` | yes |  |
+| graphDatabase | property | `InfraGraphDatabaseSpec \| undefined` | no |  |
 | networking | property | `InfraNetworkingSpec \| undefined` | no |  |
 | objectStorage | property | `InfraObjectStorageSpec \| undefined` | no |  |
 | secretStore | property | `({ readonly provider: "supabase-vault"; } & { readonly schema?: string; }) \| undefined` | no |  |
@@ -3902,6 +3903,38 @@ Source: `src/types/infraLifecycle.ts:81:1`
 | owner | property | `InfraResourceIdentity` | yes |  |
 | path | property | `string` | yes |  |
 
+## InfraGraphDatabaseConfigMap
+
+Kind: `type`
+Module: `src/types/infraManifest.ts`
+Source: `src/types/infraManifest.ts:107:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| neo4j | property | `InfraGraphDatabaseConnectionSpec` | yes |  |
+| neptune | property | `InfraGraphDatabaseConnectionSpec` | yes |  |
+
+## InfraGraphDatabaseConnectionSpec
+
+Kind: `type`
+Module: `src/types/infraManifest.ts`
+Source: `src/types/infraManifest.ts:103:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| credentials | property | `InfraSecretReference` | yes |  |
+| endpoint | property | `string` | yes |  |
+
+## InfraGraphDatabaseSpec
+
+Kind: `unknown`
+Module: `src/types/infraManifest.ts`
+Source: `src/types/infraManifest.ts:145:1`
+
 ## InfraLedger
 
 Kind: `type`
@@ -3924,7 +3957,7 @@ Source: `src/types/infraLifecycle.ts:89:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:186:1`
+Source: `src/types/infraManifest.ts:201:1`
 
 ### Members
 
@@ -3938,19 +3971,19 @@ Source: `src/types/infraManifest.ts:186:1`
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:178:1`
+Source: `src/types/infraManifest.ts:193:1`
 
 ## InfraModuleRegistry
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:184:1`
+Source: `src/types/infraManifest.ts:199:1`
 
 ## InfraModuleSpec
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:180:1`
+Source: `src/types/infraManifest.ts:195:1`
 
 ### Members
 
@@ -3962,7 +3995,7 @@ Source: `src/types/infraManifest.ts:180:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:158:1`
+Source: `src/types/infraManifest.ts:172:1`
 
 ### Members
 
@@ -3976,7 +4009,7 @@ Source: `src/types/infraManifest.ts:158:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:151:1`
+Source: `src/types/infraManifest.ts:165:1`
 
 ### Members
 
@@ -3989,7 +4022,7 @@ Source: `src/types/infraManifest.ts:151:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:102:1`
+Source: `src/types/infraManifest.ts:111:1`
 
 ### Members
 
@@ -4002,7 +4035,7 @@ Source: `src/types/infraManifest.ts:102:1`
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:136:1`
+Source: `src/types/infraManifest.ts:150:1`
 
 ## InfraOutput
 
@@ -4085,7 +4118,7 @@ Source: `src/types/infraLifecycle.ts:7:1`
 
 | Name | Kind | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| adapter | property | `"local" \| "hetzner" \| "minikube" \| "k3s" \| "docker-compose" \| "supabase" \| "neon" \| "cerbos" \| "r2" \| "supabase-vault"` | yes |  |
+| adapter | property | `"local" \| "hetzner" \| "minikube" \| "k3s" \| "docker-compose" \| "supabase" \| "neon" \| "neo4j" \| "neptune" \| "cerbos" \| "r2" \| "supabase-vault"` | yes |  |
 | environment | property | `"local" \| "preview" \| "production"` | yes |  |
 | projectId | property | `string` | yes |  |
 | resourceId | property | `string` | yes |  |
@@ -4221,7 +4254,7 @@ Source: `src/types/infraSecrets.ts:10:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:129:1`
+Source: `src/types/infraManifest.ts:138:1`
 
 ### Members
 
@@ -4233,7 +4266,7 @@ Source: `src/types/infraManifest.ts:129:1`
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:147:1`
+Source: `src/types/infraManifest.ts:161:1`
 
 ## InfraServiceAdapter
 
@@ -4245,7 +4278,7 @@ Source: `src/types/infraAdapters.ts:144:1`
 
 | Name | Kind | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| descriptor | property | `InfraAdapterDescriptor<"supabase" \| "neon" \| "cerbos" \| "r2" \| "supabase-vault">` | yes |  |
+| descriptor | property | `InfraAdapterDescriptor<"supabase" \| "neon" \| "neo4j" \| "neptune" \| "cerbos" \| "r2" \| "supabase-vault">` | yes |  |
 | desiredWorkloadsAsync | method | `(context: InfraExecutionContext) => Promise<InfraResult<readonly InfraWorkloadSpec[]>>` | yes |  |
 | destroyAsync | method | `(context: InfraExecutionContext, request: InfraDestroyRequest) => Promise<InfraResult<InfraReconcileResult>>` | yes |  |
 | planAsync | method | `(context: InfraExecutionContext) => Promise<InfraResult<readonly InfraPlanAction[]>>` | yes |  |
@@ -4736,7 +4769,7 @@ Validate provider-specific config and the exact same compatibility map used by T
 
 Kind: `function`
 Module: `src/infra/isInfraEnvironmentSpec.ts`
-Source: `src/infra/isInfraEnvironmentSpec.ts:22:1`
+Source: `src/infra/isInfraEnvironmentSpec.ts:23:1`
 
 Validate sibling capabilities and their required relationships within one environment.
 
