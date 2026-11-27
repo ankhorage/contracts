@@ -3666,7 +3666,7 @@ Source: `src/types/infraManifest.ts:10:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:122:1`
+Source: `src/types/infraManifest.ts:149:1`
 
 ### Members
 
@@ -3678,13 +3678,13 @@ Source: `src/types/infraManifest.ts:122:1`
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:155:1`
+Source: `src/types/infraManifest.ts:182:1`
 
 ## InfraAuthzConfigMap
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:132:1`
+Source: `src/types/infraManifest.ts:159:1`
 
 ### Members
 
@@ -3696,7 +3696,7 @@ Source: `src/types/infraManifest.ts:132:1`
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:158:1`
+Source: `src/types/infraManifest.ts:185:1`
 
 ## InfraCapability
 
@@ -3732,6 +3732,7 @@ Source: `src/types/infraManifest.ts:22:1`
 
 | Name | Kind | Type | Required | Description |
 | --- | --- | --- | --- | --- |
+| aws-ec2 | property | `{ readonly region: string; readonly instanceType: string; readonly ami: string; readonly architecture: "x86_64" \| "arm64"; readonly vpcId: string; readonly subnetId: string; readonly securityGroupIds: readonly string[]; readonly credentials?: InfraControlPlaneCredentialRef; readonly iamInstanceProfile?: string; readonly ssh: { readonly keyName: string; readonly credentials: InfraControlPlaneCredentialRef; readonly hostKeyFingerprint: string; readonly authorizedCidrs: readonly string[]; readonly user?: string; readonly port?: number; }; readonly rootVolume?: { readonly sizeGiB?: number; readonly type?: "gp3" \| "gp2" \| "io1" \| "io2"; readonly iops?: number; readonly throughputMiBps?: number; readonly deleteOnTermination?: boolean; }; readonly tags?: Readonly<Record<string, string>>; }` | yes |  |
 | hetzner | property | `{ readonly location: string; readonly serverType?: string; readonly image?: string; readonly credentials?: InfraControlPlaneCredentialRef; readonly ssh?: { readonly user?: string; readonly port?: number; readonly credentials?: InfraControlPlaneCredentialRef; }; }` | yes |  |
 | local | property | `{ readonly workingDirectory?: string; }` | yes |  |
 
@@ -3745,7 +3746,7 @@ Source: `src/types/infraManifest.ts:18:1`
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:51:1`
+Source: `src/types/infraManifest.ts:78:1`
 
 ## InfraComputeSnapshot
 
@@ -3798,7 +3799,7 @@ Source: `src/types/infraAdapters.ts:33:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:82:1`
+Source: `src/types/infraManifest.ts:109:1`
 
 ### Members
 
@@ -3811,13 +3812,13 @@ Source: `src/types/infraManifest.ts:82:1`
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:142:1`
+Source: `src/types/infraManifest.ts:169:1`
 
 ## InfraDeploymentSpec
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:59:1`
+Source: `src/types/infraManifest.ts:86:1`
 
 ## InfraDestroyRequest
 
@@ -3854,7 +3855,7 @@ Source: `src/types/infraLifecycle.ts:22:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:181:1`
+Source: `src/types/infraManifest.ts:208:1`
 
 ### Members
 
@@ -3907,7 +3908,7 @@ Source: `src/types/infraLifecycle.ts:81:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:107:1`
+Source: `src/types/infraManifest.ts:134:1`
 
 ### Members
 
@@ -3920,7 +3921,7 @@ Source: `src/types/infraManifest.ts:107:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:103:1`
+Source: `src/types/infraManifest.ts:130:1`
 
 ### Members
 
@@ -3933,7 +3934,7 @@ Source: `src/types/infraManifest.ts:103:1`
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:145:1`
+Source: `src/types/infraManifest.ts:172:1`
 
 ## InfraLedger
 
@@ -3957,7 +3958,7 @@ Source: `src/types/infraLifecycle.ts:89:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:201:1`
+Source: `src/types/infraManifest.ts:228:1`
 
 ### Members
 
@@ -3971,19 +3972,19 @@ Source: `src/types/infraManifest.ts:201:1`
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:193:1`
+Source: `src/types/infraManifest.ts:220:1`
 
 ## InfraModuleRegistry
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:199:1`
+Source: `src/types/infraManifest.ts:226:1`
 
 ## InfraModuleSpec
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:195:1`
+Source: `src/types/infraManifest.ts:222:1`
 
 ### Members
 
@@ -3995,7 +3996,7 @@ Source: `src/types/infraManifest.ts:195:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:172:1`
+Source: `src/types/infraManifest.ts:199:1`
 
 ### Members
 
@@ -4009,7 +4010,7 @@ Source: `src/types/infraManifest.ts:172:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:165:1`
+Source: `src/types/infraManifest.ts:192:1`
 
 ### Members
 
@@ -4022,7 +4023,7 @@ Source: `src/types/infraManifest.ts:165:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:111:1`
+Source: `src/types/infraManifest.ts:138:1`
 
 ### Members
 
@@ -4035,7 +4036,7 @@ Source: `src/types/infraManifest.ts:111:1`
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:150:1`
+Source: `src/types/infraManifest.ts:177:1`
 
 ## InfraOutput
 
@@ -4118,7 +4119,7 @@ Source: `src/types/infraLifecycle.ts:7:1`
 
 | Name | Kind | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| adapter | property | `"local" \| "hetzner" \| "minikube" \| "k3s" \| "docker-compose" \| "supabase" \| "neon" \| "neo4j" \| "neptune" \| "cerbos" \| "r2" \| "supabase-vault"` | yes |  |
+| adapter | property | `"local" \| "hetzner" \| "aws-ec2" \| "minikube" \| "k3s" \| "docker-compose" \| "supabase" \| "neon" \| "neo4j" \| "neptune" \| "cerbos" \| "r2" \| "supabase-vault"` | yes |  |
 | environment | property | `"local" \| "preview" \| "production"` | yes |  |
 | projectId | property | `string` | yes |  |
 | resourceId | property | `string` | yes |  |
@@ -4167,7 +4168,7 @@ Source: `src/types/infraAdapters.ts:109:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:37:1`
+Source: `src/types/infraManifest.ts:64:1`
 
 ### Members
 
@@ -4202,13 +4203,13 @@ Source: `src/types/infraManifest.ts:19:1`
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:54:1`
+Source: `src/types/infraManifest.ts:81:1`
 
 ## InfraS3PersistenceTarget
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:67:1`
+Source: `src/types/infraManifest.ts:94:1`
 
 ### Members
 
@@ -4224,7 +4225,7 @@ Source: `src/types/infraManifest.ts:67:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:76:1`
+Source: `src/types/infraManifest.ts:103:1`
 
 ### Members
 
@@ -4254,7 +4255,7 @@ Source: `src/types/infraSecrets.ts:10:1`
 
 Kind: `type`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:138:1`
+Source: `src/types/infraManifest.ts:165:1`
 
 ### Members
 
@@ -4266,7 +4267,7 @@ Source: `src/types/infraManifest.ts:138:1`
 
 Kind: `unknown`
 Module: `src/types/infraManifest.ts`
-Source: `src/types/infraManifest.ts:161:1`
+Source: `src/types/infraManifest.ts:188:1`
 
 ## InfraServiceAdapter
 

@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 26.19.0
+
+### Minor Changes
+
+- 5c0d86f: Add portable AWS EC2 compute selection, configuration validation, and SSH runtime compatibility.
+
 ## 26.18.0
 
 ### Minor Changes

@@ -18,7 +18,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v26.18.0",
+      "value": "v26.19.0",
       "color": "cb3837"
     },
     {
@@ -16216,7 +16216,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 122,
+        "line": 149,
         "column": 1
       },
       "exportPaths": [
@@ -16253,7 +16253,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 155,
+        "line": 182,
         "column": 1
       },
       "exportPaths": [
@@ -16275,7 +16275,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 132,
+        "line": 159,
         "column": 1
       },
       "exportPaths": [
@@ -16307,7 +16307,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 158,
+        "line": 185,
         "column": 1
       },
       "exportPaths": [
@@ -16445,6 +16445,13 @@
       "signatures": [],
       "members": [
         {
+          "name": "aws-ec2",
+          "kind": "property",
+          "type": "{ readonly region: string; readonly instanceType: string; readonly ami: string; readonly architecture: \"x86_64\" | \"arm64\"; readonly vpcId: string; readonly subnetId: string; readonly securityGroupIds: readonly string[]; readonly credentials?: InfraControlPlaneCredentialRef; readonly iamInstanceProfile?: string; readonly ssh: { readonly keyName: string; readonly credentials: InfraControlPlaneCredentialRef; readonly hostKeyFingerprint: string; readonly authorizedCidrs: readonly string[]; readonly user?: string; readonly port?: number; }; readonly rootVolume?: { readonly sizeGiB?: number; readonly type?: \"gp3\" | \"gp2\" | \"io1\" | \"io2\"; readonly iops?: number; readonly throughputMiBps?: number; readonly deleteOnTermination?: boolean; }; readonly tags?: Readonly<Record<string, string>>; }",
+          "required": true,
+          "description": null
+        },
+        {
           "name": "hetzner",
           "kind": "property",
           "type": "{ readonly location: string; readonly serverType?: string; readonly image?: string; readonly credentials?: InfraControlPlaneCredentialRef; readonly ssh?: { readonly user?: string; readonly port?: number; readonly credentials?: InfraControlPlaneCredentialRef; }; }",
@@ -16494,7 +16501,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 51,
+        "line": 78,
         "column": 1
       },
       "exportPaths": [
@@ -16670,7 +16677,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 82,
+        "line": 109,
         "column": 1
       },
       "exportPaths": [
@@ -16710,7 +16717,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 142,
+        "line": 169,
         "column": 1
       },
       "exportPaths": [
@@ -16732,7 +16739,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 59,
+        "line": 86,
         "column": 1
       },
       "exportPaths": [
@@ -16868,7 +16875,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 181,
+        "line": 208,
         "column": 1
       },
       "exportPaths": [
@@ -17099,7 +17106,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 107,
+        "line": 134,
         "column": 1
       },
       "exportPaths": [
@@ -17138,7 +17145,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 103,
+        "line": 130,
         "column": 1
       },
       "exportPaths": [
@@ -17177,7 +17184,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 145,
+        "line": 172,
         "column": 1
       },
       "exportPaths": [
@@ -17276,7 +17283,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 201,
+        "line": 228,
         "column": 1
       },
       "exportPaths": [
@@ -17324,7 +17331,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 193,
+        "line": 220,
         "column": 1
       },
       "exportPaths": [
@@ -17346,7 +17353,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 199,
+        "line": 226,
         "column": 1
       },
       "exportPaths": [
@@ -17368,7 +17375,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 195,
+        "line": 222,
         "column": 1
       },
       "exportPaths": [
@@ -17400,7 +17407,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 172,
+        "line": 199,
         "column": 1
       },
       "exportPaths": [
@@ -17446,7 +17453,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 165,
+        "line": 192,
         "column": 1
       },
       "exportPaths": [
@@ -17483,7 +17490,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 111,
+        "line": 138,
         "column": 1
       },
       "exportPaths": [
@@ -17524,7 +17531,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 150,
+        "line": 177,
         "column": 1
       },
       "exportPaths": [
@@ -17808,7 +17815,7 @@
         {
           "name": "adapter",
           "kind": "property",
-          "type": "\"local\" | \"hetzner\" | \"minikube\" | \"k3s\" | \"docker-compose\" | \"supabase\" | \"neon\" | \"neo4j\" | \"neptune\" | \"cerbos\" | \"r2\" | \"supabase-vault\"",
+          "type": "\"local\" | \"hetzner\" | \"aws-ec2\" | \"minikube\" | \"k3s\" | \"docker-compose\" | \"supabase\" | \"neon\" | \"neo4j\" | \"neptune\" | \"cerbos\" | \"r2\" | \"supabase-vault\"",
           "required": true,
           "description": null
         },
@@ -18012,7 +18019,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 37,
+        "line": 64,
         "column": 1
       },
       "exportPaths": [
@@ -18134,7 +18141,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 54,
+        "line": 81,
         "column": 1
       },
       "exportPaths": [
@@ -18156,7 +18163,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 67,
+        "line": 94,
         "column": 1
       },
       "exportPaths": [
@@ -18216,7 +18223,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 76,
+        "line": 103,
         "column": 1
       },
       "exportPaths": [
@@ -18320,7 +18327,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 138,
+        "line": 165,
         "column": 1
       },
       "exportPaths": [
@@ -18350,7 +18357,7 @@
       "modulePath": "src/types/infraManifest.ts",
       "sourceLocation": {
         "filePath": "src/types/infraManifest.ts",
-        "line": 161,
+        "line": 188,
         "column": 1
       },
       "exportPaths": [
@@ -38045,13 +38052,46 @@
       }
     },
     {
+      "name": "isAwsEc2Compute",
+      "description": "Validate the closed portable AWS EC2 compute selection.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/infra/isInfraDeploymentSpec.ts",
+        "line": 55,
+        "column": 1
+      }
+    },
+    {
+      "name": "isEbsVolumeType",
+      "description": "Identify the supported EBS root-volume types.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/infra/isInfraDeploymentSpec.ts",
+        "line": 92,
+        "column": 1
+      }
+    },
+    {
+      "name": "isStringRecord",
+      "description": null,
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/infra/isInfraDeploymentSpec.ts",
+        "line": 97,
+        "column": 1
+      }
+    },
+    {
       "name": "isRuntime",
       "description": "Runtime topology expresses host roles and never couples k3s to a compute vendor.",
       "see": [],
       "security": [],
       "sourceLocation": {
         "filePath": "src/infra/isInfraDeploymentSpec.ts",
-        "line": 53,
+        "line": 107,
         "column": 1
       }
     },
@@ -42495,6 +42535,60 @@
         "sourcePath": "src/infra/isInfraDeploymentSpec.ts"
       },
       {
+        "fromSymbol": "isCompute",
+        "toSymbol": "isAwsEc2Compute",
+        "callExpression": "isAwsEc2Compute",
+        "sourcePath": "src/infra/isInfraDeploymentSpec.ts"
+      },
+      {
+        "fromSymbol": "isAwsEc2Compute",
+        "toSymbol": "isInfraShape",
+        "callExpression": "isInfraShape",
+        "sourcePath": "src/infra/isInfraDeploymentSpec.ts"
+      },
+      {
+        "fromSymbol": "securityGroupIds",
+        "toSymbol": "strings",
+        "callExpression": "infraFields.strings",
+        "sourcePath": "src/infra/isInfraDeploymentSpec.ts"
+      },
+      {
+        "fromSymbol": "authorizedCidrs",
+        "toSymbol": "strings",
+        "callExpression": "infraFields.strings",
+        "sourcePath": "src/infra/isInfraDeploymentSpec.ts"
+      },
+      {
+        "fromSymbol": "rootVolume",
+        "toSymbol": "isInfraShape",
+        "callExpression": "isInfraShape",
+        "sourcePath": "src/infra/isInfraDeploymentSpec.ts"
+      },
+      {
+        "fromSymbol": "type",
+        "toSymbol": "isEbsVolumeType",
+        "callExpression": "isEbsVolumeType",
+        "sourcePath": "src/infra/isInfraDeploymentSpec.ts"
+      },
+      {
+        "fromSymbol": "tags",
+        "toSymbol": "isStringRecord",
+        "callExpression": "isStringRecord",
+        "sourcePath": "src/infra/isInfraDeploymentSpec.ts"
+      },
+      {
+        "fromSymbol": "isStringRecord",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/infra/isInfraDeploymentSpec.ts"
+      },
+      {
+        "fromSymbol": "src/infra/isInfraDeploymentSpec.ts",
+        "toSymbol": "isNonEmptyString",
+        "callExpression": "isNonEmptyString",
+        "sourcePath": "src/infra/isInfraDeploymentSpec.ts"
+      },
+      {
         "fromSymbol": "isRuntime",
         "toSymbol": "isRecord",
         "callExpression": "isRecord",
@@ -45643,6 +45737,11 @@
       {
         "fromSymbol": "InfraComputeConfigMap",
         "toType": "InfraControlPlaneCredentialRef",
+        "sourcePath": "src/types/infraManifest.ts"
+      },
+      {
+        "fromSymbol": "InfraComputeConfigMap",
+        "toType": "Readonly",
         "sourcePath": "src/types/infraManifest.ts"
       },
       {

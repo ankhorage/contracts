@@ -225,7 +225,7 @@
   </li><li>
     <button class="nav-button" type="button" data-target="src/infra/isInfraDeploymentSpec.ts">
       src/infra/isInfraDeploymentSpec.ts
-      <small>3 functions</small>
+      <small>6 functions</small>
     </button>
   </li><li>
     <button class="nav-button" type="button" data-target="src/infra/isInfraEnvironmentSpec.ts">
@@ -18742,7 +18742,7 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
       <tr>
             <td><code>adapter</code></td>
             <td>property</td>
-            <td><code>&quot;local&quot; | &quot;hetzner&quot; | &quot;minikube&quot; | &quot;k3s&quot; | &quot;docker-compose&quot; | &quot;supabase&quot; | &quot;neon&quot; | &quot;neo4j&quot; | &quot;neptune&quot; | &quot;cerbos&quot; | &quot;r2&quot; | &quot;supabase-vault&quot;</code></td>
+            <td><code>&quot;local&quot; | &quot;hetzner&quot; | &quot;aws-ec2&quot; | &quot;minikube&quot; | &quot;k3s&quot; | &quot;docker-compose&quot; | &quot;supabase&quot; | &quot;neon&quot; | &quot;neo4j&quot; | &quot;neptune&quot; | &quot;cerbos&quot; | &quot;r2&quot; | &quot;supabase-vault&quot;</code></td>
             <td>yes</td>
             <td></td>
           </tr><tr>
@@ -18871,7 +18871,7 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
   </article><article class="item" id="symbol-infraauthconfigmap" data-search="InfraAuthConfigMap  type src/types/infraManifest.ts  AuthFlowConfig AuthOAuthConfig AuthProfileSpec AuthScope AuthSignInSpec AuthSignUpSpec">
     <h4>InfraAuthConfigMap</h4>
     
-    <p class="muted">type • <code>src/types/infraManifest.ts:122:1</code></p>
+    <p class="muted">type • <code>src/types/infraManifest.ts:149:1</code></p>
     
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
@@ -18892,7 +18892,7 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
   </article><article class="item" id="symbol-infraauthspec" data-search="InfraAuthSpec  unknown src/types/infraManifest.ts ">
     <h4>InfraAuthSpec</h4>
     
-    <p class="muted">unknown • <code>src/types/infraManifest.ts:155:1</code></p>
+    <p class="muted">unknown • <code>src/types/infraManifest.ts:182:1</code></p>
     
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
@@ -18902,7 +18902,7 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
   </article><article class="item" id="symbol-infraauthzconfigmap" data-search="InfraAuthzConfigMap  type src/types/infraManifest.ts  ValueMap">
     <h4>InfraAuthzConfigMap</h4>
     
-    <p class="muted">type • <code>src/types/infraManifest.ts:132:1</code></p>
+    <p class="muted">type • <code>src/types/infraManifest.ts:159:1</code></p>
     
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
@@ -18923,7 +18923,7 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
   </article><article class="item" id="symbol-infraauthzspec" data-search="InfraAuthzSpec  unknown src/types/infraManifest.ts ">
     <h4>InfraAuthzSpec</h4>
     
-    <p class="muted">unknown • <code>src/types/infraManifest.ts:158:1</code></p>
+    <p class="muted">unknown • <code>src/types/infraManifest.ts:185:1</code></p>
     
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
@@ -18953,6 +18953,12 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
     <thead><tr><th>Member</th><th>Kind</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
     <tbody>
       <tr>
+            <td><code>aws-ec2</code></td>
+            <td>property</td>
+            <td><code>{ readonly region: string; readonly instanceType: string; readonly ami: string; readonly architecture: &quot;x86_64&quot; | &quot;arm64&quot;; readonly vpcId: string; readonly subnetId: string; readonly securityGroupIds: readonly string[]; readonly credentials?: InfraControlPlaneCredentialRef; readonly iamInstanceProfile?: string; readonly ssh: { readonly keyName: string; readonly credentials: InfraControlPlaneCredentialRef; readonly hostKeyFingerprint: string; readonly authorizedCidrs: readonly string[]; readonly user?: string; readonly port?: number; }; readonly rootVolume?: { readonly sizeGiB?: number; readonly type?: &quot;gp3&quot; | &quot;gp2&quot; | &quot;io1&quot; | &quot;io2&quot;; readonly iops?: number; readonly throughputMiBps?: number; readonly deleteOnTermination?: boolean; }; readonly tags?: Readonly&lt;Record&lt;string, string&gt;&gt;; }</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr><tr>
             <td><code>hetzner</code></td>
             <td>property</td>
             <td><code>{ readonly location: string; readonly serverType?: string; readonly image?: string; readonly credentials?: InfraControlPlaneCredentialRef; readonly ssh?: { readonly user?: string; readonly port?: number; readonly credentials?: InfraControlPlaneCredentialRef; }; }</code></td>
@@ -18980,7 +18986,7 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
   </article><article class="item" id="symbol-infracomputeselection" data-search="InfraComputeSelection  unknown src/types/infraManifest.ts ">
     <h4>InfraComputeSelection</h4>
     
-    <p class="muted">unknown • <code>src/types/infraManifest.ts:51:1</code></p>
+    <p class="muted">unknown • <code>src/types/infraManifest.ts:78:1</code></p>
     
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
@@ -18990,7 +18996,7 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
   </article><article class="item" id="symbol-infradatabaseconfigmap" data-search="InfraDatabaseConfigMap  type src/types/infraManifest.ts  InfraControlPlaneCredentialRef InfraScheduledDatabaseBackupSpec">
     <h4>InfraDatabaseConfigMap</h4>
     
-    <p class="muted">type • <code>src/types/infraManifest.ts:82:1</code></p>
+    <p class="muted">type • <code>src/types/infraManifest.ts:109:1</code></p>
     
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
@@ -19017,7 +19023,7 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
   </article><article class="item" id="symbol-infradatabasespec" data-search="InfraDatabaseSpec  unknown src/types/infraManifest.ts ">
     <h4>InfraDatabaseSpec</h4>
     
-    <p class="muted">unknown • <code>src/types/infraManifest.ts:142:1</code></p>
+    <p class="muted">unknown • <code>src/types/infraManifest.ts:169:1</code></p>
     
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
@@ -19027,7 +19033,7 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
   </article><article class="item" id="symbol-infradeploymentspec" data-search="InfraDeploymentSpec  unknown src/types/infraManifest.ts ">
     <h4>InfraDeploymentSpec</h4>
     
-    <p class="muted">unknown • <code>src/types/infraManifest.ts:59:1</code></p>
+    <p class="muted">unknown • <code>src/types/infraManifest.ts:86:1</code></p>
     
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
@@ -19037,7 +19043,7 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
   </article><article class="item" id="symbol-infraenvironmentspec" data-search="InfraEnvironmentSpec  type src/types/infraManifest.ts  AuthFlowConfig AuthOAuthConfig AuthProfileSpec AuthScope AuthSignInSpec AuthSignUpSpec InfraDatabaseSpec InfraDeploymentSpec InfraGraphDatabaseSpec InfraNetworkingSpec InfraObjectStorageSpec InfraWorkloadRegistry ValueMap">
     <h4>InfraEnvironmentSpec</h4>
     
-    <p class="muted">type • <code>src/types/infraManifest.ts:181:1</code></p>
+    <p class="muted">type • <code>src/types/infraManifest.ts:208:1</code></p>
     
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
@@ -19106,7 +19112,7 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
   </article><article class="item" id="symbol-infragraphdatabaseconfigmap" data-search="InfraGraphDatabaseConfigMap  type src/types/infraManifest.ts  InfraGraphDatabaseConnectionSpec">
     <h4>InfraGraphDatabaseConfigMap</h4>
     
-    <p class="muted">type • <code>src/types/infraManifest.ts:107:1</code></p>
+    <p class="muted">type • <code>src/types/infraManifest.ts:134:1</code></p>
     
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
@@ -19133,7 +19139,7 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
   </article><article class="item" id="symbol-infragraphdatabaseconnectionspec" data-search="InfraGraphDatabaseConnectionSpec  type src/types/infraManifest.ts  InfraSecretReference">
     <h4>InfraGraphDatabaseConnectionSpec</h4>
     
-    <p class="muted">type • <code>src/types/infraManifest.ts:103:1</code></p>
+    <p class="muted">type • <code>src/types/infraManifest.ts:130:1</code></p>
     
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
@@ -19160,7 +19166,7 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
   </article><article class="item" id="symbol-infragraphdatabasespec" data-search="InfraGraphDatabaseSpec  unknown src/types/infraManifest.ts ">
     <h4>InfraGraphDatabaseSpec</h4>
     
-    <p class="muted">unknown • <code>src/types/infraManifest.ts:145:1</code></p>
+    <p class="muted">unknown • <code>src/types/infraManifest.ts:172:1</code></p>
     
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
@@ -19170,7 +19176,7 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
   </article><article class="item" id="symbol-inframanifest" data-search="InfraManifest  type src/types/infraManifest.ts  ApiDefinitionRegistry InfraEnvironmentSpec InfraModuleRegistry">
     <h4>InfraManifest</h4>
     
-    <p class="muted">type • <code>src/types/infraManifest.ts:201:1</code></p>
+    <p class="muted">type • <code>src/types/infraManifest.ts:228:1</code></p>
     
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
@@ -19203,7 +19209,7 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
   </article><article class="item" id="symbol-inframoduleid" data-search="InfraModuleId  unknown src/types/infraManifest.ts ">
     <h4>InfraModuleId</h4>
     
-    <p class="muted">unknown • <code>src/types/infraManifest.ts:193:1</code></p>
+    <p class="muted">unknown • <code>src/types/infraManifest.ts:220:1</code></p>
     
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
@@ -19213,7 +19219,7 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
   </article><article class="item" id="symbol-inframoduleregistry" data-search="InfraModuleRegistry  unknown src/types/infraManifest.ts ">
     <h4>InfraModuleRegistry</h4>
     
-    <p class="muted">unknown • <code>src/types/infraManifest.ts:199:1</code></p>
+    <p class="muted">unknown • <code>src/types/infraManifest.ts:226:1</code></p>
     
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
@@ -19223,7 +19229,7 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
   </article><article class="item" id="symbol-inframodulespec" data-search="InfraModuleSpec  type src/types/infraManifest.ts  SerializableValue">
     <h4>InfraModuleSpec</h4>
     
-    <p class="muted">type • <code>src/types/infraManifest.ts:195:1</code></p>
+    <p class="muted">type • <code>src/types/infraManifest.ts:222:1</code></p>
     
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
@@ -19244,7 +19250,7 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
   </article><article class="item" id="symbol-infranetworkingspec" data-search="InfraNetworkingSpec  type src/types/infraManifest.ts  InfraNetworkingTlsSpec">
     <h4>InfraNetworkingSpec</h4>
     
-    <p class="muted">type • <code>src/types/infraManifest.ts:172:1</code></p>
+    <p class="muted">type • <code>src/types/infraManifest.ts:199:1</code></p>
     
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
@@ -19277,7 +19283,7 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
   </article><article class="item" id="symbol-infranetworkingtlsspec" data-search="InfraNetworkingTlsSpec  type src/types/infraManifest.ts ">
     <h4>InfraNetworkingTlsSpec</h4>
     
-    <p class="muted">type • <code>src/types/infraManifest.ts:165:1</code></p>
+    <p class="muted">type • <code>src/types/infraManifest.ts:192:1</code></p>
     
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
@@ -19304,7 +19310,7 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
   </article><article class="item" id="symbol-infraobjectstorageconfigmap" data-search="InfraObjectStorageConfigMap  type src/types/infraManifest.ts  InfraControlPlaneCredentialRef InfraS3PersistenceTarget SerializableSet">
     <h4>InfraObjectStorageConfigMap</h4>
     
-    <p class="muted">type • <code>src/types/infraManifest.ts:111:1</code></p>
+    <p class="muted">type • <code>src/types/infraManifest.ts:138:1</code></p>
     
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
@@ -19331,7 +19337,7 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
   </article><article class="item" id="symbol-infraobjectstoragespec" data-search="InfraObjectStorageSpec  unknown src/types/infraManifest.ts ">
     <h4>InfraObjectStorageSpec</h4>
     
-    <p class="muted">unknown • <code>src/types/infraManifest.ts:150:1</code></p>
+    <p class="muted">unknown • <code>src/types/infraManifest.ts:177:1</code></p>
     
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
@@ -19351,7 +19357,7 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
   </article><article class="item" id="symbol-infraruntimeconfigmap" data-search="InfraRuntimeConfigMap  type src/types/infraManifest.ts ">
     <h4>InfraRuntimeConfigMap</h4>
     
-    <p class="muted">type • <code>src/types/infraManifest.ts:37:1</code></p>
+    <p class="muted">type • <code>src/types/infraManifest.ts:64:1</code></p>
     
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
@@ -19394,7 +19400,7 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
   </article><article class="item" id="symbol-infraruntimeselection" data-search="InfraRuntimeSelection  unknown src/types/infraManifest.ts ">
     <h4>InfraRuntimeSelection</h4>
     
-    <p class="muted">unknown • <code>src/types/infraManifest.ts:54:1</code></p>
+    <p class="muted">unknown • <code>src/types/infraManifest.ts:81:1</code></p>
     
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
@@ -19404,7 +19410,7 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
   </article><article class="item" id="symbol-infras3persistencetarget" data-search="InfraS3PersistenceTarget  type src/types/infraManifest.ts  InfraControlPlaneCredentialRef">
     <h4>InfraS3PersistenceTarget</h4>
     
-    <p class="muted">type • <code>src/types/infraManifest.ts:67:1</code></p>
+    <p class="muted">type • <code>src/types/infraManifest.ts:94:1</code></p>
     
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
@@ -19449,7 +19455,7 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
   </article><article class="item" id="symbol-infrascheduleddatabasebackupspec" data-search="InfraScheduledDatabaseBackupSpec  type src/types/infraManifest.ts  InfraS3PersistenceTarget">
     <h4>InfraScheduledDatabaseBackupSpec</h4>
     
-    <p class="muted">type • <code>src/types/infraManifest.ts:76:1</code></p>
+    <p class="muted">type • <code>src/types/infraManifest.ts:103:1</code></p>
     
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
@@ -19482,7 +19488,7 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
   </article><article class="item" id="symbol-infrasecretstoreconfigmap" data-search="InfraSecretStoreConfigMap  type src/types/infraManifest.ts ">
     <h4>InfraSecretStoreConfigMap</h4>
     
-    <p class="muted">type • <code>src/types/infraManifest.ts:138:1</code></p>
+    <p class="muted">type • <code>src/types/infraManifest.ts:165:1</code></p>
     
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
@@ -19503,7 +19509,7 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
   </article><article class="item" id="symbol-infrasecretstorespec" data-search="InfraSecretStoreSpec  unknown src/types/infraManifest.ts ">
     <h4>InfraSecretStoreSpec</h4>
     
-    <p class="muted">unknown • <code>src/types/infraManifest.ts:161:1</code></p>
+    <p class="muted">unknown • <code>src/types/infraManifest.ts:188:1</code></p>
     
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
@@ -30902,9 +30908,21 @@ evaluation, validation, and mappings belong to the consuming adapter, not Contra
     <h3>isCompute</h3>
     <p class="muted"><code>src/infra/isInfraDeploymentSpec.ts:28:1</code></p>
     <p>Compute configuration is closed per provider; control-plane refs cannot be managed secrets.</p>
+</article><article class="item" data-search="isAwsEc2Compute src/infra/isInfraDeploymentSpec.ts Validate the closed portable AWS EC2 compute selection.">
+    <h3>isAwsEc2Compute</h3>
+    <p class="muted"><code>src/infra/isInfraDeploymentSpec.ts:55:1</code></p>
+    <p>Validate the closed portable AWS EC2 compute selection.</p>
+</article><article class="item" data-search="isEbsVolumeType src/infra/isInfraDeploymentSpec.ts Identify the supported EBS root-volume types.">
+    <h3>isEbsVolumeType</h3>
+    <p class="muted"><code>src/infra/isInfraDeploymentSpec.ts:92:1</code></p>
+    <p>Identify the supported EBS root-volume types.</p>
+</article><article class="item" data-search="isStringRecord src/infra/isInfraDeploymentSpec.ts ">
+    <h3>isStringRecord</h3>
+    <p class="muted"><code>src/infra/isInfraDeploymentSpec.ts:97:1</code></p>
+    <p class="empty">No description available.</p>
 </article><article class="item" data-search="isRuntime src/infra/isInfraDeploymentSpec.ts Runtime topology expresses host roles and never couples k3s to a compute vendor.">
     <h3>isRuntime</h3>
-    <p class="muted"><code>src/infra/isInfraDeploymentSpec.ts:53:1</code></p>
+    <p class="muted"><code>src/infra/isInfraDeploymentSpec.ts:107:1</code></p>
     <p>Runtime topology expresses host roles and never couples k3s to a compute vendor.</p>
 </article>
     </section>
