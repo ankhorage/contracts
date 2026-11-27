@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 26.17.1
+
+### Patch Changes
+
+- 8aabac2: Update dependencies: `@ankhorage/utility`.
+
 ## 26.17.0
 
 ### Minor Changes
