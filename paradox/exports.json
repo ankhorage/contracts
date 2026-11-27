@@ -19759,7 +19759,9 @@
     "exportPaths": [
       "src/index.ts"
     ],
-    "relatedSymbols": [],
+    "relatedSymbols": [
+      "NavigatorScreenModule"
+    ],
     "signatures": [],
     "members": [
       {
@@ -19773,6 +19775,20 @@
         "name": "rootDirectory",
         "kind": "property",
         "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "rootLayoutWrapper",
+        "kind": "property",
+        "type": "NavigatorScreenModule | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "rootRedirect",
+        "kind": "property",
+        "type": "true | undefined",
         "required": false,
         "description": null
       }
@@ -20392,7 +20408,7 @@
     "modulePath": "src/navigator/generation.ts",
     "sourceLocation": {
       "filePath": "src/navigator/generation.ts",
-      "line": 43,
+      "line": 47,
       "column": 1
     },
     "exportPaths": [

@@ -1,5 +1,11 @@
 # @ankhorage/contracts
 
+## 26.18.0
+
+### Minor Changes
+
+- 0a44d78: Add portable Navigator generation options for an opt-in root redirect and static root layout wrapper binding.
+
 ## 26.17.1
 
 ### Patch Changes

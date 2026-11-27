@@ -9263,14 +9263,14 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
           </tr>
     </tbody>
   </table>
-  </article><article class="item" id="symbol-navigatorgenerationoptions" data-search="NavigatorGenerationOptions  type src/navigator/generation.ts ">
+  </article><article class="item" id="symbol-navigatorgenerationoptions" data-search="NavigatorGenerationOptions  type src/navigator/generation.ts  NavigatorScreenModule">
     <h4>NavigatorGenerationOptions</h4>
     
     <p class="muted">type • <code>src/navigator/generation.ts:36:1</code></p>
     
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
-    <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+    <div><strong>Related symbols:</strong> <ul class="chips"><li class="chip">NavigatorScreenModule</li></ul></div>
     
     <table>
     <thead><tr><th>Member</th><th>Kind</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
@@ -9285,6 +9285,18 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
             <td><code>rootDirectory</code></td>
             <td>property</td>
             <td><code>string | undefined</code></td>
+            <td>no</td>
+            <td></td>
+          </tr><tr>
+            <td><code>rootLayoutWrapper</code></td>
+            <td>property</td>
+            <td><code>NavigatorScreenModule | undefined</code></td>
+            <td>no</td>
+            <td></td>
+          </tr><tr>
+            <td><code>rootRedirect</code></td>
+            <td>property</td>
+            <td><code>true | undefined</code></td>
             <td>no</td>
             <td></td>
           </tr>
@@ -9344,7 +9356,7 @@ location, dependency graphs, exported APIs, contributor data, and executable pac
   </article><article class="item" id="symbol-navigatorscreenmodule" data-search="NavigatorScreenModule  type src/navigator/generation.ts ">
     <h4>NavigatorScreenModule</h4>
     
-    <p class="muted">type • <code>src/navigator/generation.ts:43:1</code></p>
+    <p class="muted">type • <code>src/navigator/generation.ts:47:1</code></p>
     
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
@@ -26376,6 +26388,7 @@ evaluation, validation, and mappings belong to the consuming adapter, not Contra
   export_NavigatorGenerationBindings -.-&gt; export_NavigatorScreenModule
   export_NavigatorGenerationOptions[&quot;NavigatorGenerationOptions&quot;]
   module_src_navigator_generation_ts --&gt; export_NavigatorGenerationOptions
+  export_NavigatorGenerationOptions -.-&gt; export_NavigatorScreenModule
   export_NavigatorGenerationResult[&quot;NavigatorGenerationResult&quot;]
   module_src_navigator_generation_ts --&gt; export_NavigatorGenerationResult
   export_NavigatorGenerationResult -.-&gt; export_NavigatorDependencyRequirement
@@ -28897,6 +28910,7 @@ evaluation, validation, and mappings belong to the consuming adapter, not Contra
   export_NavigatorGenerationBindings -.-&gt; export_NavigatorScreenModule
   export_NavigatorGenerationOptions[&quot;NavigatorGenerationOptions&quot;]
   module_src_navigator_generation_ts --&gt; export_NavigatorGenerationOptions
+  export_NavigatorGenerationOptions -.-&gt; export_NavigatorScreenModule
   export_NavigatorGenerationResult[&quot;NavigatorGenerationResult&quot;]
   module_src_navigator_generation_ts --&gt; export_NavigatorGenerationResult
   export_NavigatorGenerationResult -.-&gt; export_NavigatorDependencyRequirement

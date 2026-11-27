@@ -18,7 +18,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v26.17.1",
+      "value": "v26.18.0",
       "color": "cb3837"
     },
     {
@@ -22878,7 +22878,9 @@
       "exportPaths": [
         "src/index.ts"
       ],
-      "relatedSymbols": [],
+      "relatedSymbols": [
+        "NavigatorScreenModule"
+      ],
       "signatures": [],
       "members": [
         {
@@ -22892,6 +22894,20 @@
           "name": "rootDirectory",
           "kind": "property",
           "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "rootLayoutWrapper",
+          "kind": "property",
+          "type": "NavigatorScreenModule | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "rootRedirect",
+          "kind": "property",
+          "type": "true | undefined",
           "required": false,
           "description": null
         }
@@ -23511,7 +23527,7 @@
       "modulePath": "src/navigator/generation.ts",
       "sourceLocation": {
         "filePath": "src/navigator/generation.ts",
-        "line": 43,
+        "line": 47,
         "column": 1
       },
       "exportPaths": [
@@ -46132,6 +46148,11 @@
       {
         "fromSymbol": "NavigatorGenerationBindings",
         "toType": "Readonly",
+        "sourcePath": "src/navigator/generation.ts"
+      },
+      {
+        "fromSymbol": "NavigatorGenerationOptions",
+        "toType": "NavigatorScreenModule",
         "sourcePath": "src/navigator/generation.ts"
       },
       {

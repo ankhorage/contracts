@@ -1573,6 +1573,7 @@ graph LR
   export_NavigatorGenerationBindings -.-> export_NavigatorScreenModule
   export_NavigatorGenerationOptions["NavigatorGenerationOptions"]
   module_src_navigator_generation_ts --> export_NavigatorGenerationOptions
+  export_NavigatorGenerationOptions -.-> export_NavigatorScreenModule
   export_NavigatorGenerationResult["NavigatorGenerationResult"]
   module_src_navigator_generation_ts --> export_NavigatorGenerationResult
   export_NavigatorGenerationResult -.-> export_NavigatorDependencyRequirement

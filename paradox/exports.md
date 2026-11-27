@@ -5602,6 +5602,8 @@ Source: `src/navigator/generation.ts:36:1`
 | --- | --- | --- | --- | --- |
 | includeScreenFiles | property | `boolean \| undefined` | no |  |
 | rootDirectory | property | `string \| undefined` | no |  |
+| rootLayoutWrapper | property | `NavigatorScreenModule \| undefined` | no |  |
+| rootRedirect | property | `true \| undefined` | no |  |
 
 ## NavigatorGenerationResult
 
@@ -5760,7 +5762,7 @@ Source: `src/navigator/planning.ts:141:1`
 
 Kind: `type`
 Module: `src/navigator/generation.ts`
-Source: `src/navigator/generation.ts:43:1`
+Source: `src/navigator/generation.ts:47:1`
 
 ### Members
 
