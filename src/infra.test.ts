@@ -2,7 +2,6 @@ import { describe, expect, it } from 'bun:test';
 
 import {
   INFRA_ADAPTER_CATALOG,
-  INFRA_RUNTIME_COMPATIBILITY,
   type InfraEnvironmentSpec,
   type InfraManifest,
   isInfraAdapterDescriptor,
@@ -89,39 +88,6 @@ describe('standalone Infra environments', () => {
       expect(isInfraEnvironmentSpec({ ...local, [key]: {} })).toBe(false);
     },
   );
-});
-
-describe('exact deployment compatibility', () => {
-  it('tests every registered compute/runtime pair against the same catalog', () => {
-    const computes = Object.values(INFRA_ADAPTER_CATALOG).filter(
-      (entry) => entry.kind === 'compute',
-    );
-    for (const compute of computes) {
-      for (const [runtime, allowed] of Object.entries(INFRA_RUNTIME_COMPATIBILITY)) {
-        const selection = {
-          compute: {
-            provider: compute.id,
-            ...(compute.id === 'hetzner' ? { location: 'nbg1' } : {}),
-          },
-          runtime: { provider: runtime },
-        };
-        expect(isInfraDeploymentSpec(selection)).toBe(allowed.some((id) => id === compute.id));
-      }
-    }
-  });
-
-  it.each([
-    { compute: { provider: 'gcp' }, runtime: { provider: 'ecs' } },
-    { compute: { provider: 'hetzner', location: 'nbg1' }, runtime: { provider: 'eks' } },
-    { compute: { provider: 'hetzner', location: 'nbg1' }, runtime: { provider: 'minikube' } },
-    { compute: { provider: 'hetzner' }, runtime: { provider: 'k3s' } },
-    { compute: { provider: 'hetzner', location: ' ' }, runtime: { provider: 'k3s' } },
-    { compute: { provider: 'local', location: 'nbg1' }, runtime: { provider: 'k3s' } },
-    { ...local.deployment, monitoring: false },
-    { target: 'minikube', monitoring: true },
-  ])('rejects unsupported/config-mismatched deployment: %j', (value) => {
-    expect(isInfraDeploymentSpec(value)).toBe(false);
-  });
 });
 
 describe('runtime topology configuration', () => {

@@ -1,8 +1,8 @@
 /** One compatibility source for manifest types, validation, discovery and configuration UIs. */
 export const INFRA_RUNTIME_COMPATIBILITY = {
   minikube: ['local'],
-  k3s: ['local', 'hetzner'],
-  'docker-compose': ['local', 'hetzner'],
+  k3s: ['local', 'hetzner', 'aws-ec2'],
+  'docker-compose': ['local', 'hetzner', 'aws-ec2'],
 } as const;
 
 /** Canonical package identities. Capabilities describe ownership, not eight mandatory methods. */
@@ -19,6 +19,15 @@ export const INFRA_ADAPTER_CATALOG = {
   hetzner: {
     id: 'hetzner',
     package: '@ankhorage/infra-hetzner',
+    kind: 'compute',
+    configVersion: 1,
+    capabilities: ['compute'],
+    targets: ['ssh-host'],
+    dependencies: [],
+  },
+  'aws-ec2': {
+    id: 'aws-ec2',
+    package: '@ankhorage/infra-aws-ec2',
     kind: 'compute',
     configVersion: 1,
     capabilities: ['compute'],
