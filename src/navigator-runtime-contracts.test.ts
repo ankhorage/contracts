@@ -5,6 +5,7 @@ import type {
   NavigatorCatalog,
   NavigatorGeneratedFile,
   NavigatorGenerationBindings,
+  NavigatorGenerationOptions,
   NavigatorGenerationResult,
   NavigatorPlan,
 } from './navigator';
@@ -47,6 +48,15 @@ test('keeps generation bindings and plan output portable across package boundari
     files: [file],
   };
   expect(JSON.parse(JSON.stringify({ bindings, result }))).toEqual({ bindings, result });
+});
+
+test('keeps root generation options portable without assigning route semantics to contracts', () => {
+  const options: NavigatorGenerationOptions = {
+    rootRedirect: true,
+    rootLayoutWrapper: { module: '@example/runtime', exportName: 'RuntimeProviders' },
+  };
+
+  expect(JSON.parse(JSON.stringify(options))).toEqual(options);
 });
 
 test('separates capability taxonomy, target support, stability, and verification', () => {

@@ -38,6 +38,10 @@ export interface NavigatorGenerationOptions {
   rootDirectory?: string;
   /** Emit routed screen re-export modules in addition to layouts. Defaults to true. */
   includeScreenFiles?: boolean;
+  /** Emit the canonical Expo Router root route that redirects to the root navigator's configured initial route. */
+  rootRedirect?: true;
+  /** Static module binding for the component that wraps only the root navigator layout. */
+  rootLayoutWrapper?: NavigatorScreenModule;
 }
 
 export interface NavigatorScreenModule {
