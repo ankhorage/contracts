@@ -37,6 +37,22 @@ interface Hetzner {
   readonly provider: 'hetzner';
   readonly location: 'nbg1';
 }
+interface AwsEc2 {
+  readonly provider: 'aws-ec2';
+  readonly region: 'eu-central-1';
+  readonly instanceType: 't3.large';
+  readonly ami: 'ami-0123456789abcdef0';
+  readonly architecture: 'x86_64';
+  readonly vpcId: 'vpc-0123456789abcdef0';
+  readonly subnetId: 'subnet-0123456789abcdef0';
+  readonly securityGroupIds: readonly ['sg-0123456789abcdef0'];
+  readonly ssh: {
+    readonly keyName: 'project-production';
+    readonly credentials: { readonly source: 'control-plane'; readonly name: 'AWS_EC2_SSH' };
+    readonly hostKeyFingerprint: 'SHA256:expected-host-key';
+    readonly authorizedCidrs: readonly ['203.0.113.10/32'];
+  };
+}
 interface Runtime<P extends InfraRuntimeProviderId> {
   readonly provider: P;
 }
@@ -49,12 +65,27 @@ it('compiles the entire deployment matrix with exact assignability', () => {
     Assignable<Deployment<Hetzner, Runtime<'minikube'>>, InfraDeploymentSpec>,
     Assignable<Deployment<Hetzner, Runtime<'k3s'>>, InfraDeploymentSpec>,
     Assignable<Deployment<Hetzner, Runtime<'docker-compose'>>, InfraDeploymentSpec>,
+    Assignable<Deployment<AwsEc2, Runtime<'k3s'>>, InfraDeploymentSpec>,
+    Assignable<Deployment<AwsEc2, Runtime<'docker-compose'>>, InfraDeploymentSpec>,
     Assignable<Deployment<{ provider: 'gcp' }, { provider: 'ecs' }>, InfraDeploymentSpec>,
     Assignable<Deployment<Hetzner, { provider: 'eks' }>, InfraDeploymentSpec>,
     Assignable<Deployment<{ provider: 'hetzner' }, Runtime<'k3s'>>, InfraDeploymentSpec>,
     Assignable<Deployment<{ provider: string }, { provider: string }>, InfraDeploymentSpec>,
-  ] = [true, true, true, false, true, true, false, false, false, false];
-  expect(matrix).toEqual([true, true, true, false, true, true, false, false, false, false]);
+  ] = [true, true, true, false, true, true, true, true, false, false, false, false];
+  expect(matrix).toEqual([
+    true,
+    true,
+    true,
+    false,
+    true,
+    true,
+    true,
+    true,
+    false,
+    false,
+    false,
+    false,
+  ]);
 });
 
 it('closes environment, app-state, bootstrap and privileged-output boundaries', () => {

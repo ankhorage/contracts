@@ -32,6 +32,33 @@ export interface InfraComputeConfigMap {
       readonly credentials?: InfraControlPlaneCredentialRef;
     };
   };
+  readonly 'aws-ec2': {
+    readonly region: string;
+    readonly instanceType: string;
+    readonly ami: string;
+    readonly architecture: 'x86_64' | 'arm64';
+    readonly vpcId: string;
+    readonly subnetId: string;
+    readonly securityGroupIds: readonly string[];
+    readonly credentials?: InfraControlPlaneCredentialRef;
+    readonly iamInstanceProfile?: string;
+    readonly ssh: {
+      readonly keyName: string;
+      readonly credentials: InfraControlPlaneCredentialRef;
+      readonly hostKeyFingerprint: string;
+      readonly authorizedCidrs: readonly string[];
+      readonly user?: string;
+      readonly port?: number;
+    };
+    readonly rootVolume?: {
+      readonly sizeGiB?: number;
+      readonly type?: 'gp3' | 'gp2' | 'io1' | 'io2';
+      readonly iops?: number;
+      readonly throughputMiBps?: number;
+      readonly deleteOnTermination?: boolean;
+    };
+    readonly tags?: Readonly<Record<string, string>>;
+  };
 }
 
 export interface InfraRuntimeConfigMap {

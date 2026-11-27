@@ -71,17 +71,25 @@ application shipment and OAuth setup. The schema never chooses a non-local envir
 
 `InfraDeploymentSpec` derives its union from `INFRA_RUNTIME_COMPATIBILITY`:
 
-| Runtime          | Allowed compute    |
-| ---------------- | ------------------ |
-| `minikube`       | `local`            |
-| `k3s`            | `local`, `hetzner` |
-| `docker-compose` | `local`, `hetzner` |
+| Runtime          | Allowed compute               |
+| ---------------- | ----------------------------- |
+| `minikube`       | `local`                       |
+| `k3s`            | `local`, `hetzner`, `aws-ec2` |
+| `docker-compose` | `local`, `hetzner`, `aws-ec2` |
 
 Both TypeScript and `isInfraDeploymentSpec` reject Hetzner + Minikube and unknown provider IDs.
 The config maps are provider-specific: for example, Hetzner requires a location; Minikube fields
 cannot be added to a Compose selection; k3s topology requires positive server and nonnegative agent
 integers. Additional runtime prerequisites such as host OS, installed binaries, topology feasibility
 and provider credential validity belong to each adapter's read-only `validateAsync` operation.
+
+`aws-ec2` selects an existing AWS VPC, subnet, security groups, key pair, and optional IAM instance
+profile. Its portable configuration names the region, instance type, AMI, AMI architecture, root EBS
+settings, SSH credential reference and expected host-key fingerprint. Security groups must be supplied
+explicitly and SSH source CIDRs must be non-empty; the future provider owns AWS API verification and
+never stores resolved credentials in this document. The provider always requires IMDSv2 and encrypted
+root EBS volumes. Ownership tags are additive only; provider-reserved project and environment tags are
+not represented as portable credentials or executable AWS SDK configuration.
 
 Auth, Authz, database, object storage and secret store are sibling capabilities. No dedicated Authz
 is represented by omission, not a `native` infrastructure provider. One selected Supabase adapter
